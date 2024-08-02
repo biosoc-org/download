@@ -13,7 +13,7 @@
 Aby uruchomić skrypt, musisz użyć następującej komendy w terminalu/shellu:
 
 ```sh
-python geturl.py output.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output1.csv https://www.click2drug.org/ URL html html1.csv
 ```
 - `input.csv` to nazwa pliku CSV z danymi wejściowymi.
 - `http://example.com/` to bazowy URL.
@@ -23,37 +23,37 @@ python geturl.py output.csv https://www.click2drug.org/ URL html html.csv
 
 
 ```sh
-python geturl.py output2.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output2.csv https://www.click2drug.org/ URL html html2.csv
 ```
 ```sh
-python geturl.py output3.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output3.csv https://www.click2drug.org/ URL html html3.csv
 ```
 ```sh
-python geturl.py output4.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output4.csv https://www.click2drug.org/ URL html html4.csv
 ```
 ```sh
-python geturl.py output5.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output5.csv https://www.click2drug.org/ URL html html5.csv
 ```
 ```sh
-python geturl.py output6.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output6.csv https://www.click2drug.org/ URL html html6.csv
 ```
 ```sh
-python geturl.py output7.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output7.csv https://www.click2drug.org/ URL html html7.csv
 ```
 ```sh
-python geturl.py output8.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output8.csv https://www.click2drug.org/ URL html html8.csv
 ```
 ```sh
-python geturl.py output9.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output9.csv https://www.click2drug.org/ URL html html9.csv
 ```
 ```sh
-python geturl.py output10.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output10.csv https://www.click2drug.org/ URL html html10.csv
 ```
 ```sh
-python geturl.py output11.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output11.csv https://www.click2drug.org/ URL html html11.csv
 ```
 ```sh
-python geturl.py output12.csv https://www.click2drug.org/ URL html html.csv
+python geturl.py output12.csv https://www.click2drug.org/ URL html html12.csv
 ```
 
 ### Opis działań skryptu:

@@ -14,11 +14,9 @@
 
 2. **Uruchom skrypt z linii poleceń, przekazując odpowiednie argumenty**:
 
-   ```bash
-   python scraper.py https://www.click2drug.org/ Cats1 --output_file output.csv
-   ```
-
-
+```bash
+python scraper.py https://www.click2drug.org/ Cats1 --output_file output1.csv
+```
 ```bash
 python scraper.py https://www.click2drug.org/ Cats2 --output_file output2.csv
 ```

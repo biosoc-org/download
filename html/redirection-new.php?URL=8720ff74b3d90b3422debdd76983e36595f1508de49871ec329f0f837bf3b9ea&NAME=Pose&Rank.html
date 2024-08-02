@@ -1,0 +1,122 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+
+<head>
+<title>Pose&amp;Rank</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="/saliweb/css/server.css" />
+<link href="/fontawesome6/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+<link href="/fontawesome6/css/brands.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/poseandrank/html/css/ligscore.css" />
+
+<script src="/saliweb/js/salilab.js" type="text/JavaScript"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="container">
+    <div id="header1">
+<table> <tbody> <tr> <td>
+  <table><tr><td><a href="https://www.ucsf.edu/"><img src="/poseandrank/html/img/logo.jpg" height = '60' alt="UCSF" /></a></td>
+             <td><a href="/poseandrank/"><img src="/poseandrank/html/img/logo2.png" height = '48' alt="Pose &amp; Rank logo" /></a></td></tr>
+         <tr><td colspan='2'><h3>Pose &amp; Rank - a web server for scoring protein-ligand complexes.</h3> </td></tr></table>
+      </td><td width='20'></td> <td><img src="/poseandrank/html/img/logo3.png" height = '80' alt="Docking example"/></td></tr>
+  </tbody>
+  </table>
+
+    </div>
+
+<div id="navigation_lab">
+&bull;&nbsp;<a href="//salilab.org/">Sali Lab Home</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modweb/">ModWeb</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modbase/">ModBase</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/evaluation/">ModEval</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/peptide/">PCSS</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/foxs/">FoXS</a>&nbsp;&bull;&nbsp;
+<a href="//integrativemodeling.org/">IMP</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/multifit/">MultiFit</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modpipe/">ModPipe</a>&nbsp;&bull;&nbsp;
+
+  <a href="http://shoichetlab.compbio.ucsf.edu/">Shoichet Lab</a>&nbsp;&bull;&nbsp;
+
+&nbsp;&nbsp;<a href="https://twitter.com/salilab_ucsf" class="fab fa-x-twitter" title="Follow us on X/Twitter"></a>
+</div>
+
+<div id="navigation_second">
+
+  <a href="https://modbase.compbio.ucsf.edu/account/">Login</a>&nbsp;&bull;&nbsp;
+  <a href="/poseandrank/about">About</a>&nbsp;&bull;&nbsp;
+  <a href="/poseandrank/">Web Server</a>&nbsp;&bull;&nbsp;
+  <a href="/poseandrank/help">Help</a>&nbsp;&bull;&nbsp;
+  <a href="/poseandrank/job">Current queue</a>&nbsp;&bull;&nbsp;
+  <a href="/poseandrank/links">Links</a>
+
+</div>
+        <div style="clear:both;"></div><div id="bodypart">
+
+<div id="fullpart"><div id="resulttable">
+<div id="resulttable">
+  <form method="post" action="/poseandrank/job"
+   enctype="multipart/form-data" name="ligscoreform">
+    <table>
+      <tr>
+        <td>Email address (optional)</td>
+        <td><input type="text" name="email" value="" /></td>
+      </tr>
+      <tr>
+        <td>Upload protein coordinate file (pdb)<br /></td>
+        <td><input type="file" name="recfile" /></td>
+        <td><a href="/poseandrank/html/examples/1G9V.pdb">sample protein input</a></td>
+      </tr>
+      <tr>
+        <td>Upload ligand coordinate file (mol2)<br /></td>
+        <td><input type="file" name="ligfile" /></td>
+        <td><a href="/poseandrank/html/examples/1G9V_ligand.mol2">sample ligand input</a></td>
+      </tr>
+      <tr>
+        <td>Name your job (optional)<br /></td>
+        <td><input type="text" name="name" value="job" /></td>
+        <td><a href="/poseandrank/html/examples/1G9V_PoseScore.list">sample output</a></td>
+      </tr>
+      <tr>
+        <td>Score type<br /></td>
+        <td>
+          <select name="scoretype">
+            <option value="Pose">Pose</option>
+            <option value="Rank">Rank</option>
+          </select>
+        </td>
+        <td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <center>
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" />
+          </center>
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+</div></div>
+</div><div style="clear:both;"></div>
+<hr size='2' width="80%" />
+<div id='address'>
+  <p>Fan H, Schneidman-Duhovny D, Irwin J, Dong GQ, Shoichet B, Sali A.
+  Statistical Potential for Modeling and Ranking of Protein-Ligand
+  Interactions. J Chem Inf Model. 2011, 51:3078-92.
+  [<a href="https://pubs.acs.org/doi/abs/10.1021/ci200377u" > Abstract </a>]
+  </p>
+
+  <p>Contact: <script type='text/javascript'>escramble("poserank","salilab.org")</script></p>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+
+<html lang="en"><head>
+<link rel="stylesheet" type="text/css" href="./db.css">
+<title>Welcome to idTarget</title>
+<meta name="keywords" content="Welcome to idTarget">
+<meta name="description" content=" target screening ">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="target.js"></script>
+<script type="text/javascript" src="./menu/JSCookMenu.js"></script>
+<LINK REL="stylesheet" HREF="./menu/ThemeOffice2003/theme.css" TYPE="text/css">
+<SCRIPT type="text/javascript" SRC="./menu/ThemeOffice2003/theme.js"></SCRIPT>
+</head>
+<body><center>
+<div id="wrapper">
+    <div id="container">
+        <div id="content">
+<table class=mainbox width=905 height=100% border=0 bgcolor=#ffffee>
+<tr bgcolor=#ffffee><td class=banner align=right valign=bottom colspan=1 >
+<DIV ID="myMenuID" align=center></DIV>
+<script language="JavaScript" type="text/javascript"><!--
+var myMenu =
+[
+    _cmSplit,
+    ['', 'Home', 'index.php', '_top', 'Home Page'],
+    _cmSplit,
+    [null, 'Submit', 'step.php','_self', null],
+    _cmSplit,
+    [null, 'Queue', 'queue.php','_self', null],
+    _cmSplit,
+    [null, 'Help', 'document.php','_self', null],
+    _cmSplit,
+    [null, 'Examples', 'example.php', '_self', 'Sample files and result'],
+    _cmSplit,
+    [null, 'Contact us', 'contact.php', '_self', 'Contact information'],
+    _cmSplit
+];
+
+cmDraw ('myMenuID', myMenu, 'hbr', cmThemeOffice2003, 'ThemeOffice2003');
+--></SCRIPT>
+
+</td></tr>
+<tr><td valign=top align=center>
+
+<div align=center>
+<table width=750 cellspacing=3 cellpadding=3 style="font-size: 12pt;">
+<td>
+<div class=conttitle>Welcome to idTarget</div>
+<div class=contsub>
+A web server for identifying biomolecular targets of small chemical
+molecules with robust scoring functions and a divide-and-conquer docking
+approach
+</div>
+<div class=contbody style="margin: 15px;">
+Identification of biomolecular targets of small chemical molecules is essential for
+unraveling their underlying causes of actions at the molecular level. Often, natural products, i.e.,
+compounds discovered from plants, animals, marine lives or other living organism,
+exhibit useful pharmaceutical effects, e.g., anti-inflammatory, anti-cancer, anti-
+viral effects, yet their molecular mechanisms remain elusive. On the other hand,
+many drugs are known to be accompanied with unpleasant adverse effects, but the
+molecular targets of such effects are largely unknown. On the contrary, there are also some
+old drugs whose beneficiary effects are discovered only recently, e.g., the anticancer effect
+of cholesterol-lowering drugs, statins, whose molecular mechanisms have been 
+an intensive research subject. 
+idTarget is a web server that can predict possible binding targets of a small chemical molecule via a
+<a href="http://idtarget.rcas.sinica.edu.tw/document.php#DA">divide-and-conquer docking approach</a>, 
+in combination with our recently developed
+scoring functions and affinity profile of the protein target, where the 
+<a href="http://pubs.acs.org/doi/abs/10.1021/ci200220v">new robust scoring function</a> 
+were trained based on robust regression analysis and quantum
+chemical charge models. In the divide-and-conquer docking calculations, small
+overlapping grids are adaptively constructed to constrain the searching space and
+thereby achieving the convergence of docking results with better efficiency. idTarget
+has been shown to be able to reproduce known off-targets of drugs or drug-like
+compounds.
+
+<br><br>
+</div>
+
+<div class=contsub>News</div>
+<div class=contbody ><font color=#005500><ul>
+<? announce(); ?>
+<li>2017/07/10  idTarget server is back in service. Due to the hard disk issue, all data were not recovered. The user may need to re-submit unfinished jobs.
+<li>2017/06/30 idTarget server is now in maintenance. Please come back later. Thank you.
+<li>2015/08/28  idTarget server is back in service.
+<li>2015/07/01  idTarget server crashed some weeks ago, because the hard disks of the machine were broken. 
+We are still trying to rescue the server and we are sorry for the inconvenient situation.
+<br>Hopefully, we'll be back in service by the end of August.
+<li>2014/08/27 Due to a power outage event scheduled on 09/07, the idTarget server will be shutdown on 2014/09/07 at 5:00AM.
+All un-finished jobs will be terminated. The user may need to re-submit their jobs after that. We are sorry for the inconvenient situation.
+<li>2014/03/10 idTarget server is back in service.
+<li>2014/03/03 Due to a power outage event scheduled on 03/09, the idTarget server will be shutdown on 03/09 at 5:00AM.
+All un-finished jobs will be terminated. The user may need to re-submit their jobs after that. We are sorry for the inconvenient situation.
+<li>2013/12/12 Due to a power outage event scheduled on 12/15, the idTarget server will be shutdown on 12/15 at 5:00AM.
+All un-finished jobs will be terminated. The user may need to re-submit their jobs after that. We are sorry for the inconvenient situation.
+<li>2013/11/05 idTarget server is back in service.
+<li>2013/09/01  idTarget server crashed some weeks ago, because the hard disk of the machine was broken. We are still trying to rescue the server now. 
+<li>2013/02/26 Due to the power outage event scheduled on 03/10, the idTarget server will be shutdown on that day. 
+All un-finished jobs will be terminated. The user may need to re-submit their jobs after that. We are sorry for the inconvenient situation. 
+<!--
+<li>2013/01/24 We are happy to announce that one mirror site is now available for service.
+You may submit your job either here or at <a href="http://idtarget.nchc.org.tw/idtarget" target=_top>idTarget mirror site at NCHC</a>. 
+<li>2013/01/22 There will be one more idTarget mirror server soon.
+-->
+</ul></font></div>
+
+<div class=contsub><a href="step.php"><font color=#880000>Submit a job</font></a></div>
+<div class=contbody align=left>
+You can upload the molecular file of your ligand in pdb/cif/mol2/pdbqt format, or draw it on-line.
+<a href="step.php">Submit a job</a>
+
+<br></div>
+
+<div class=contsub>Check the result of submitted job</div>
+<div class=contbody align=left>
+<form name="chkR" action="result.php" method="POST">
+<table><td align=center>
+You can check the status and current result of your submitted job. 
+<br>Task ID of a submitted job:<input type="text" name="rr" size=20>
+<input type="submit" value="Go Check" > <input type="reset" value="Clear">
+</form></td></table>
+</div>
+
+<!-- <div class=contsub>Reference:</div> -->
+<div class=contsub>Please cite:</div>
+<div>Jui-Chih Wang, Pei-Ying Chu, Chung-Ming Chen, Jung-Hsin Lin*.   
+<font color=#005500>idTarget: a web server for identifying protein targets of small chemical molecules with robust scoring functions and a divide-and-conquer docking approach</font>.
+<a href="http://nar.oxfordjournals.org/content/early/2012/05/30/nar.gks496" target="new">
+<i>Nucleic Acids Research</i> 2012; doi: 10.1093/nar/gks496</a>
+</div>
+
+
+</td></table>
+</div>
+<br><br><br>
+
+<? footN(); ?>
+
+

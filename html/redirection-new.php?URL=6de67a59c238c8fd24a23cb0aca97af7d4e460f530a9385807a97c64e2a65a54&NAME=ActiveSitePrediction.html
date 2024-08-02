@@ -1,0 +1,275 @@
+
+
+
+
+
+
+
+
+
+
+
+  
+<html>
+
+<head>
+<title>ACTIVE SITE PREDICTION SERVER</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="refresh" content="1; URL=http://www.scfbio-iitd.res.in/AADS/" />
+<META 
+content="The Supercomputing Facility for Bioinformatics &amp; Computational Biology (SCFBio),  IIT Delhi, was created in July 2002, with funding from the Department of Biotechnology (DBT), Govt. of India, (Principal Investigator: Prof. B. Jayaram) with the vision(i) to create a nodal facility for supercomputing accessible to the Bioinformatics community, (ii) to develop novel scientific methods and new software for genome analysis, <em>ab initio</em> protein structure prediction and active site directed drug design and (iii) for human resource training." 
+name=description>
+<SCRIPT src="jscripts/movingtext.js">
+</SCRIPT>
+<link rel="stylesheet" type="text/css"
+href="styles/tooltip.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/layoutmain.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/stylelink.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/stylefont.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/showmenu.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/menu.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/slidemenu.css" />
+<script src="jscripts/showmenuscript.js"></script>
+
+
+<script src="jscripts/main_nav.js"></script>
+<style type="text/css">
+body {
+
+background-image: url(images/bg.gif);
+}
+.style115 {color: #000000}
+.style117 {color: #0000FF}
+A.graphlink {
+display: block;
+width: 140px;
+text-align: left;
+text-decoration: none;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+font-weight:100;
+padding-left:5px; padding-bottom:2px; padding-top:2px;
+color: #000000;
+BORDER: none;
+border: solid 0px #ffffff;
+}
+
+A.graph:hover {
+border: solid 0px #BFBDBD;
+background-color:#CDDCE8;
+}
+</style>
+
+
+
+          <script language="JavaScript"  type="text/javascript">
+                        function check() {
+                                var path = document.upload.myFile.value;
+                                var fileName;
+ 				var email=document.upload.email.value;                               
+
+                                if(path.lastIndexOf("/")!=-1){
+                                        fileName=path.substring(path.lastIndexOf("/")+1,path.length);
+                                } else {
+                                        fileName=path.substring(path.lastIndexOf("\\")+1,path.length);
+                                }
+
+                                ext = path.substring(path.length-3,path.length);
+                                ext = ext.toLowerCase();
+                                if(ext != 'pdb') {
+                                  alert('Please select an input file with .pdb extension');
+                                  return false; }
+
+                                //if(fileName.length!=8 && fileName.charAt(4)!='.') {
+                                 // alert('Please select a file with 4 letter name. Kindly refer to the instructions given below');
+                                  //      return false;
+                                //}
+
+                                //var email=document.upload.email.value;
+                               // document.upload.seq.value="";
+                                if(email.length==0 || (email.indexOf("@")==-1 ||  email.indexOf(".")==-1)){
+                                        alert('Please enter a valid email address for getting the result');
+                                        return false;
+                                }
+
+                                //return true;
+
+                                return true;
+                        }
+
+          
+ function clearForm(){
+                    document.upload.reset();
+                    document.upload.email.value="";
+                    document.upload.name.value="";
+                  //document.upload.univ.value="";
+//                  document.upload.METHOD[0].checked="true";
+//                  document.upload.charge.value="0";
+//                  document.upload.charge.disabled=true;
+//                  document.upload.seq.value="";
+                    document.upload.myFile.value="";
+                    return true;
+																					                          }
+
+
+
+
+
+                </script>
+
+<SCRIPT>
+function validate(upload) {
+  if (/\s/.test(upload.elements.myFile.value)) {
+    alert('The filename should not contain whitespace. Please rename the file.');
+    return false;
+  }
+  return true;
+}
+</SCRIPT>
+<title>ACTIVE SITE server</title>
+</head>
+
+<body class="main">
+
+
+
+
+
+
+<center>
+<table cellpadding="0" cellspacing="0"   class="main" id="main">
+<tr>
+<td align="center" class="mnptop2"><img src="images/scfstrip_merged.jpg" width="750" height="76"></td>
+</tr>
+<tr>
+<td width="757" height="718"  align="center" valign="top" >
+ <table background="images/topmenubg1.gif"  width="757" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <th  align="right" scope="col" >
+	  <table  width="419" height="15" border="0" cellpadding="0" cellspacing="0">
+	   <tr>
+	     <td width="543"  height="10" align="right"><a class="topmenu" href="http://www.scfbio-iitd.res.in/main.htm">Home</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/scfbiogroup/scfgroup.htm">Group</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/publication/publication.htm">Publications</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/resources/resources.htm">Resources</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/contact/contactus.htm">Contact Us</a></td>
+	   </tr>
+	   </table></th>
+    </tr>
+  </table>
+<!--code start here -->
+<table width="757"  border="0" cellpadding="0" cellspacing="0" class="main1">
+<tr>
+  <td class="mnptop2"   align="center" valign="top">
+<!--#### -->
+<table width="600"  align="center" cellspacing=0 cellpadding=0>
+	<tr valign="top">
+<td height="59"  colspan="2" align ="center"  style="font-family:Comic Sans MS; font-size:20px;"><br>
+<b>ACTIVE SITE PREDICTION </b></td>
+</tr>
+<tr><td width=600px height=ipx bgcolor=red></td>
+
+<tr  ><td  align="center" ><br><img align ="center"src="artemisinin_dock.png" width="350" height="300">
+<br>
+</center><br></td>
+</tr>
+<tr><td class=style29><br><br>
+<b>Welcome to the <font style="font-family:Comic Sans MS, Helvetica,sans-serif;">Active Site prediction </font></b><br>
+<br></td></tr>
+<tr>
+<td width="600"  valign="top" class="style29">Active Site Prediction of Protein  server computes the cavities in a given protein.
+<br>
+<br></td></tr>
+	<tr><td class="style29"><br><font style="font-family:Comic Sans MS, Helvetica,sans-serif;"> </font> 
+       </td></tr>
+<tr><td class="style29">
+</td>
+</tr>
+</table>
+<table width="700"  class="style29" bgcolor="#FDF7F2">
+			<tr>
+			<td background="images/grad.gif" width="600" align="center"  >
+			      <div align="center" style="font-family: Comic Sans MS; font-size:16px;color:#FFFFFF ">
+			       <a name="anchortag"></a> ActiveSite server
+			      </div>
+			      
+				      
+
+			      <form name="upload"  enctype="multipart/form-data" method="POST" onsubmit="return validate(this);">
+				 <div align="left"> <input name="METHOD" type="radio" value="1" checked>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			  Generate Active Site Information  				                     </div> 
+<!--<div align="left"> <input name="METHOD" type="radio" value="2">		      	
+			  Generate Active Site Information for Docking (Pardock Format)		             </div>  <BR>-->
+	  
+</td>
+</tr>
+[<a  class=six href="http://www.scfbio-iitd.res.in/dock/active/AADS_tutorial.docx" target="_blank"><span style="color: #0000FF;font-size:11px;">Click here to see 'How to Use Tool'</span></a>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a  class=six href="sample_protein_AADS.pdb" target="_blank"><span style="color: #0000FF;font-size:11px;">Sample Protein File</span></a>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a  class=six href="sample_drug_AADS.pdb" target="_blank"><span style="color: #0000FF;font-size:11px;">Sample Drug File</span></a>]
+<tr>
+<td align="center" class="choice"><fieldset>
+	<p><br>
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input PDB file
+<input class="style29" type="file" name="myFile">
+ <br>   <br> E-mail address 
+		      <input class="style29" type="text" size=25  name="email" value="" >
+		       <br>
+		       <br>
+<input class="style29" title="Upload selected file to the current working directory"  type="submit" name="uploadbtn" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Submit" onclick="return (check());" >
+					      <input class="style29" type="button" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reset" onclick="return(clearForm());" ><BR><BR>
+
+					      
+</p>
+					<p>&nbsp;			          </p>
+					</fieldset> </td>
+				
+					
+					
+					</tr>
+				       </fieldset> 		
+
+ 
+	 <tr>
+	     <td class="choice"></td>
+	     </tr>
+	   
+</form>
+<body>
+<table width="600" class="style29" align="center">
+<tr>
+<td  align="left">
+<br><br> </td>
+</tr>
+<TR>
+<TD class=choice></TD></TR></TBODY></TABLE>
+<TR>
+<TD vAlign=bottom height=15>
+<TABLE class=footertable height=16 cellSpacing=0 cellPadding=0 
+width=757><TBODY>
+<TR>
+<TH scope=col class=mnptop2 align=left width="100%" bgColor=#ffffff height=16>
+<SCRIPT language=javascript src="jscripts/footer.js"></SCRIPT>
+</TH></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+
+  <TABLE cellSpacing=0 cellPadding=0 width=757 border=0>
+            <TBODY>
+	             <TR>
+		      <br>
+			             </TR>
+		               <TR>
+
+		                 <TH scope=col align=left width="90%" height=15>
+		                        <P class=copyright>Â© Copyright 2004--2022, Prof B. Jayaram &amp;
+		                              Co-workers|<A class=disclaimer
+		    href="http://www.scfbi-iitd.res.in/disclaimer/disclaimer.htm">
+																		                                           Disclaimer</A>
+                                </P></TH></TR></TBODY></TABLE></TR></TABLE></TD></TR><TR></TR></TABLE></TD></TR><TR><TD class=mnptop2>
+															                                           <SCRIPT language=javascript src=""></SCRIPT>
+ 
+  </TD></TR></TABLE>
+
+</BODY></HTML>
+
+

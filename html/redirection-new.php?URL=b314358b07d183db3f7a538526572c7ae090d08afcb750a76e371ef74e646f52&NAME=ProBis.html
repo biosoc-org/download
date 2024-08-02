@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+		<title>ProBiS Server</title>
+		<meta name="author" content="Janez Konc"/>
+		<meta name="description" content="ProBiS allows detection of structurally similar protein binding sites, prediction of ligands from similar binding sites found, and pairwise local structural alignments of PDB protein structures."/>
+		<meta name="keywords" content="binding sites, local structural alignment, protein interactions, binding site comparison, structure conservation, ligand prediction, protein binding sites detection, molecular surface, janez konc"/>
+		<link rel="stylesheet" type="text/css" href="stil.css"/>
+		<link rel="stylesheet" type="text/css" href="css/slides.css"/>
+		<link rel="stylesheet" type="text/css" href="jquery/themes/custom-theme/jquery-ui-1.8.16.custom.css" />
+		<link rel="stylesheet" type="text/css" href="jquery_custom.css" />
+		<link rel="stylesheet" type="text/css" href="probis.css" />
+		<link rel="stylesheet" type="text/css" href="pw/pw.css" />
+		<link rel="stylesheet" type="text/css" href="snippet.css" />
+		<link rel="stylesheet" type="text/css" href="css/href.css" />
+		<link rel="stylesheet" type="text/css" href="fullscreen.css" />
+		
+		<script type="text/javascript">
+			var __bin_address = 'http://probis.cmm.ki.si';
+			var __job_id = '';
+			var __what = '';
+			var __jmol = 'jsmol-14.31.17';
+		</script>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="jsmol-14.31.17/JSmol.min.nojq.js"></script>
+		<script type="text/javascript" src="jsmol-14.31.17/js/JSmolThree.js"></script>
+		<script type="text/javascript" src="jsmol-14.31.17/js/JSmolGLmol.js"></script>
+		<script type="text/javascript" src="jquery/jquery-ui-1.13.0.custom/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="slides/slides.min.jquery.js"></script>
+		<script type="text/javascript" src="jqform/jquery.form.js"></script>
+		<script type="text/javascript" src="pw/pwlib.js"></script>
+		<script type="text/javascript" src="fullscreen.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+		<script type="text/javascript" src="stdlib.js"></script>
+		<script type="text/javascript" src="jml.js"></script>
+		<script type="text/javascript" src="motif.js"></script>
+		<script type="text/javascript" src="ga.js"></script>
+		<link rel="shortcut icon" href="klika.ico" />
+	
+		<base target="_self" />
+	
+	</head>
+	<body class='ui-widget'>
+
+		<div class='ui-widget dead-center'>
+		
+			<div class='ui-widget-header ui-helper-clearfix ui-corner-all shadow desna_slika' style="height: 150px;">
+			
+				<div class="top_left">
+					<a target='_blank' style='float:left' href="http://probis.cmm.ki.si">
+						<img style='border:0px; margin-top: 20px; width: 100%;' title="ProBiS - a tool for protein binding sites detection" alt="ProBiS Home Page" src="slike/logo-L90-old.png"/>
+					</a>
+				</div>
+
+				<div class="top_right">
+
+					<span style="position:absolute;right:260px;bottom:5px;z-index:100;color:#222;font-weight:normal;">
+						As of <b>Jul 31, 2015</b> your protein is compared with <b>42270</b> structures
+					</span>
+			
+					<div style='float:right; margin: 20px 100px 0 0;'>
+						<form style='display:inline;' action='http://probis.cmm.ki.si/' method='get'>
+							<input class='ui-corner-all' id='search-probisdb' type='text' name='q_id' value='Search by PDB ID' placeholder="Search by PDB ID" />
+							<input class='ui-corner-all' id='search-button' type='submit' size='10' value='Search' />
+						</form>
+					</div>
+					<div style='position:absolute;right:10px;bottom:5px;'>
+						<a href="http://probis.cmm.ki.si/?what=help" title="Help">HELP</a>
+					</div>
+				</div>
+			</div>
+			
+		</div> 
+
+		<noscript>
+	<div class='ui-widget' style='position:fixed;width:400px;top:20px;z-index:100;margin-left:-200px;left:50%'>
+		<div class="ui-state-error ui-corner-all" style="padding: 10px;">
+			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+			<strong>Alert:</strong> For ProBiS to work, please enable JavaScript in your browser!
+			<a href="javascriptinfo.html">Click here for instructions.</a>
+			&nbsp;&nbsp;
+			<a href="javascript:history.go(0)"> Reload this page.</a>
+		</div>
+	</div>
+</noscript>
+
+		<div class='ui-widget dead-center'>
+			<div class='ui-helper-clearfix'>
+				<div id='lefters' style='float:left;width:230px'>
+					<div class='ui-widget-content ui-corner-all shadow' style='margin-top:0px'>
+						<div class="naslov ui-widget-header">
+						Introduction	
+						</div>
+						<ul class="seznam">
+							<li>
+								There are two ProBiS web pages out there: ProBiS at
+								<a class="measure" target='_blank' href="http://probis.cmm.ki.si">http://probis.cmm.ki.si</a> 
+								maintained at the National Institute of Chemistry, Slovenia, and ProBiS-CHARMMing at 
+								<a class="measure" target='_blank' href="https://probis.nih.gov">https://probis.nih.gov</a> 
+								situated at the National Institutes of Health, USA. Why is that? ProBiS-CHARMMing has additional functions
+								only available from inside NIH: it enables energy minimization 
+								of predicted protein-ligand complexes and their interaction energy calculation.
+							</li>
+<!--
+							<li>
+								If you are new to ProBiS, you can watch the introductory video <a class="measure" target='_blank' href="http://www.youtube.com/watch?v=5W0uQlh6Vlc">available here</a>.
+							</li>
+-->
+
+						</ul>
+					</div>
+					<div class='ui-widget-content ui-corner-all shadow'>
+						<div class="naslov ui-widget-header">
+							Pages
+						</div>
+						<ul class="seznam">
+							<li><a class="measure" href="http://probis.cmm.ki.si">ProBiS Input Page</a></li>
+							<li><a class="measure" href="?what=webservices">RESTful Web Services</a></li>
+							<li><a class="measure" href="?what=database">Database Access</a></li>
+						</ul>
+					</div>
+					<div class='ui-widget-content ui-corner-all shadow'>
+						<div class="naslov ui-widget-header">
+							Download	
+						</div>
+						<ul class="seznam">
+							<li><a class="measure" href="http://insilab.org/probis-algorithm" target="_blank">ProBiS Algorithm</a></li>
+							<li><a class="measure" target="_blank" href="http://insilab.org/probis-plugin">ProBiS Plugin for PyMOL and Chimera</a></li>
+							<li><a class="measure" target="_blank" href="http://insilab.org/maxclique">Maximum Clique Algorithm</a></li>
+							<li><a class="measure" href="download/nrpdb-2015-07-31.txt">Non-redundant PDB (nr-PDB)</a></li>
+						</ul>
+					</div>
+					<div class='ui-widget-content ui-corner-all shadow'>
+						<div class="naslov ui-widget-header">
+							Help	
+						</div>
+						<ul class="seznam">
+							<li><a class="measure" href="download/probis-ligands-apr-22-2014.pdf">ProBiS-ligands User's Guide <img style='border:none' src='slike/fileicons/pdf.png'></img></a></li>
+							<li><a class="measure" href="download/ProBiS-2012-Users-Guide.pdf">ProBiS User's Guide <img style='border:none' src='slike/fileicons/pdf.png'></img></a></li>
+<!--
+							<li><a class="measure" href="?what=help">User's Guide - HTML</a></li>
+-->
+							<li><a class="measure" href="?what=examples">Examples</a></li>
+						</ul>
+					</div>
+					<div class='ui-widget-content ui-corner-all shadow'>
+						<div class="naslov ui-widget-header">
+							Most Recent Citation
+						</div>
+						<ul class="seznam">
+							<li> 
+								Konc, J., Miller, B. T., Stular, T., Lesnik, S., Woodcock, H. L., Brooks, B. R., and Janezic, D.  <a class="measure" target='_blank' href="http://pubs.acs.org/doi/abs/10.1021/acs.jcim.5b00534">ProBiS-CHARMMing: Web Interface for Prediction and Optimization of Ligands in Protein Binding Sites.</a> <i>J. Chem. Inf. Model.</i>, 2015, <b>55</b>, 2308-2314.
+							</li> 
+						</ul>
+					</div>
+					<div class='ui-widget-content ui-corner-all shadow'>
+						<div class="naslov ui-widget-header">
+							 Related Citations
+						</div>
+						<ul class="seznam">
+							<li> 
+								Konc,J. and Janezic,D. <a class="measure" target='_blank' href="http://www.sicmm.org/~konc/articles/Nucl-Acids-Res-2014-Konc-W215-20.pdf">ProBiSâligands: a web server for prediction of ligands by examination of protein binding sites.</a> <i>Nucleic Acids Res.</i>, 2014, <b>42</b>, W215-W220. 
+							</li> 
+							<li> 
+								Konc,J. and Janezic,D. <a class="measure" target='_blank' href="http://www.sicmm.org/~konc/articles/Konc-nar_gks435.pdf">ProBiSâ2012: web server and web services for detection of structurally similar binding sites in proteins.</a> <i>Nucleic Acids Res.</i>, 2012, <b>40</b>, W214-W221. 
+							</li> 
+							<li>
+								Konc,J., Cesnik,T., Trykowska Konc,J., Penca,M., Janezic,D. <a class="measure" target='_blank' href="http://www.sicmm.org/~konc/articles/ci2005687.pdf">ProBiS-Database: Precalculated Binding Site Similarities and Local Pairwise Alignments of PDB Structures.</a> <i>J. Chem. Inf. Model.</i>, 2012, <b>52</b>, 604-612.
+							</li>
+							<li>
+								Konc,J. and Janezic,D. <a class="measure" target='_blank' href="http://www.sicmm.org/~konc/articles/Bioinformatics-2010-Konc-1160-8.pdf">ProBiS algorithm for detection of structurally similar protein binding sites by local structural alignment.</a> <i>Bioinformatics</i>, 2010, <b>26</b>, 1160-1168.
+							</li>
+							<li>
+								Konc,J. and Janezic,D. <a class="measure" target='_blank' href="http://www.sicmm.org/~konc/articles/Nucl-Acids-Res-2010-Konc-W436-40.pdf">ProBiS: a web server for detection of structurally similar protein binding sites.</a> <i>Nucleic Acids Res.</i>, 2010, <b>38</b>, W436-W440.
+							</li>
+							<li>
+								Konc,J. and Janezic,D. <a class="measure" target='_blank' href="http://www.sicmm.org/~konc/articles/ci6005257.pdf">Protein-protein binding-sites prediction by protein surface structure conservation.</a> <i>J. Chem. Inf. Model.</i>, 2007, <b>47</b>, 940-944.
+							</li>
+							<li>
+								Konc,J. and Janezic,D. <a class="measure" target='blank' href="http://www.sicmm.org/~konc/articles/match2007.pdf">An improved branch and bound algorithm for the maximum clique problem.</a> <i>MATCH Commun. Math. Comput. Chem.</i>, 2007, <b>58</b>, 569-590.
+							</li>
+						</ul>
+					</div>
+					<div id='spacer_left' class='ui-widget-content ui-corner-all shadow' style='height:0px'>
+					</div>
+				</div>
+				<div id='central_box' style='float:left;width:475px;margin-left:10px;margin-right:10px'>
+					<div class='ui-helper-clearfix ui-widget-content ui-corner-all shadow' style='padding:10px;background-color:#f6f6f6'>
+						<div style='position:relative;overflow:visible;min-height:1460px;'>
+<!--
+	<div style='float:left;width:100%'>
+		<h1>
+			Start Calculation
+		</h1>
+	</div>
+-->
+	<form id="input_form" action="prepare_job.php" method="post" enctype="multipart/form-data">
+		<input id="input_posting_id" type="hidden" name="posting_id" value="multiple" /> 
+		<div id="first_protein_input" style='float:left;width:100%;background-color:#ffffff'>
+			<div style='float:left;width:100%;padding-left:10px'>
+				<h3>Enter Query Protein</h3>
+			</div>
+			<div style='float:left;width:100%;padding-top:50px;padding-left:50px;padding-bottom:50px'>
+				<span class="wwpdb">
+					<span>
+						PDB ID: 
+						<input id='pdb_id1' type="text" name="pdb_id1" size="10"  maxlength='4' value='1all' style='color:dimgray' /> 
+					</span>
+					<span class='ui-helper-hidden'>
+						File: 
+						<input type="file" name="pdb_file1" size="5" />
+					</span>
+				</span> 
+				<span style='position:absolute;left:300px'>
+					Chain ID(s): 
+					<input id='chain_id1' type="text" size="10" name="chain_id1"  maxlength='3' value='A, AB' style='color:dimgray' /> 
+				</span>
+			</div>
+			<div style='float:left;width:100%;padding-left:50px'>
+				<span class='upload href' style='float:left;margin:-30px 0 0 20px'>
+					<span>
+						Upload a PDB file&nbsp;<span class="ui-icon ui-icon-circle-arrow-n" style="position:relative;float:right;top:0em;"></span>
+					</span>
+					<span class='ui-helper-hidden'>
+						Enter PDB ID
+					</span>
+				</span>
+			</div>
+			<div style="float:left;height:0px;width:100%;padding-top:50px;padding-left:50px;padding-bottom:50px">
+				<span class='select_motif href' style='float:left;'>
+					<span class="measure">
+						Select Binding Site (optional)&nbsp;<span class="ui-icon ui-icon-circle-plus" style="float:right;top:0em;"></span>
+					</span>
+					<span class='ui-helper-hidden'>
+						Select Binding Site (optional)&nbsp;<span class="ui-icon ui-icon-circle-minus" style="float:right;top:0em;"></span>
+					</span>
+				</span>
+			</div>
+			<div class='motif' style="float:left;padding-left:50px;width:100%" ></div>
+		</div>
+
+
+		<div style="float:left;padding:10px 50px 20px 10px;height:0px;width:100%">
+			<span class='select_pairwise href' style='float:left;'>
+				<span class="measure">
+					Pairwise Align Two Proteins or Binding Sites (optional)&nbsp;<span class="ui-icon ui-icon-circle-plus" style="float:right;top:0em;"></span>
+				</span>
+				<span class="ui-helper-hidden">
+					Pairwise Align Two Proteins or Binding Sites (optional)&nbsp;<span class="ui-icon ui-icon-circle-minus" style="float:right;top:0em;"></span>
+				</span>
+			</span>
+		</div>
+
+
+		<div id="second_protein_input" style='float:left;width:100%;background-color:#ffffff' class="ui-helper-hidden">
+			<div style='float:left;width:100%;padding-left:10px;'>
+				<h3>Enter Subject Protein</h3>
+			</div>
+			<div style='float:left;width:100%;padding-top:50px;padding-left:50px;padding-bottom:50px'>
+				<span class="wwpdb">
+					<span>
+						PDB ID: 
+						<input id='pdb_id2' type="text" name="pdb_id2" size="10"  maxlength='4' value='3dbj' style='color:dimgray' /> 
+					</span>
+					<span class='ui-helper-hidden'>
+						File: 
+						<input type="file" name="pdb_file2" size="5" /> 
+					</span> 
+				</span> 
+				<span style='position:absolute;left:300px;'>
+					Chain ID(s): 
+					<input id='chain_id2' type="text" size="10" name="chain_id2"  maxlength='3' value='C, CD' style='color:dimgray' /> 
+				</span> 
+			</div>
+			<div style='float:left;width:100%;padding-left:50px'>
+				<span class='upload href' style='float:left;margin:-30px 0 0 20px'>
+					<span>
+						Upload a PDB file&nbsp;<span class="ui-icon ui-icon-circle-arrow-n" style="position:relative;float:right;top:0em;"></span>
+					</span>
+					<span class='ui-helper-hidden'>
+						Enter PDB ID
+					</span>
+				</span>
+			</div>
+			<div style="float:left;height:0px;width:100%;padding-top:50px;padding-left:50px;padding-bottom:50px">
+				<span class='select_motif href' style='float:left;'>
+					<span class="measure">
+						Select Binding Site (optional)&nbsp;<span class="ui-icon ui-icon-circle-plus" style="float:right;top:0em;"></span>
+					</span>
+					<span class='ui-helper-hidden'>
+						Select Binding Site (optional)&nbsp;<span class="ui-icon ui-icon-circle-minus" style="float:right;top:0em;"></span>
+					</span>
+				</span>
+			</div>
+			<div class='motif' style="float:left;padding-left:50px;width:100%" ></div>
+		</div>
+
+		<div style="float:left;padding:10px 50px 20px 10px;height:0px;width:100%">
+			<span class='select_settings href' style='float:left;'>
+				<span class="settings">
+					Advanced Settings (optional)&nbsp;<span class="ui-icon ui-icon-circle-plus" style="float:right;top:0em;"></span>
+				</span>
+				<span class="ui-helper-hidden">
+					Advanced Settings (optional)&nbsp;<span class="ui-icon ui-icon-circle-minus" style="float:right;top:0em;"></span>
+				</span>
+			</span>
+		</div>
+
+		<!-- probis parameters -->
+		<div id="settings_input" class="ui-helper-hidden" style='float:left;width:100%;padding-bottom:50px;background-color:#ffffff'>
+			<div style='float:left;padding-top:50px;padding-left:50px;width:100%'>
+				<input type="checkbox" name="local" id="local" checked /><label for="local" title="Turn off extension to global alignments">Local Alignments Only</label>
+			</div>				
+			<div class='hide_for_pairwise' style='float:left;padding-top:50px;padding-left:50px;width:100%'>
+				<label for="z_score" title="Lower Z-Score -> get more alignments">Cutoff Z-Score:</label>
+				<select id="z_score" name="z_score" >
+					<option value='-1.0'>-1.0</option>
+					<option value='0.0'>0.0</option>
+					<option value='1.0' selected="selected">1.0 (default)</option>
+					<option value='2.0'>2.0</option>
+				</select>
+			</div>
+			<div class='hide_for_pairwise' style='float:left;padding-top:50px;padding-left:50px;padding-bottom:10px;width:100%'>
+				Proteins to Compare Against: 
+				<select id="database_selection" name="database_selection" >
+					<option value='multiple'>Non-redundant PDB</option>
+					<option value='custom'>List of PDB/Chain IDs</option>
+				</select>
+			</div>
+			<div id="pdblist" class="hide_for_pairwise ui-helper-hidden" style='float:left;padding-left:50px;width:100%'>
+				<textarea style='color:dimgray' name="pdblist" rows="5" cols="45">e.g., 1all.A, 3dbj.C, 2vjt.A</textarea>
+			</div>										
+		</div>
+		
+		<div style='float:left;width:100%;background-color:#ffffff;margin-top:10px;padding-bottom:50px'>
+			<div style="float:left;width:100%;padding-top:50px;padding-left:50px;padding-bottom:10px;">
+				Your e-mail address 
+				<span style='font-size: 0.8em'>(optional)</span>: 
+				<input type="text" name="email_addr" size="30" /> 
+				<div style='margin-left:20px;width:300px;font-size:0.8em;'>
+					A link to the results page will be sent to you by e-mail. Alignment
+					of two proteins will take seconds. 
+				</div>
+			</div> 
+			<div style='float:left;width:100%;padding:50px 0 0 350px'> 
+				<input class='submit_job measure'id="submit-button" type="submit" value="Submit Job" /> 
+			</div>
+		</div> 
+	</form>
+</div>
+					</div>
+				</div>
+				<div id='righters' style='float:left;width:295px;'>
+				
+					<div class='ui-widget-content ui-corner-all shadow ' style='height:200px;margin-top:0px; background-color: black;'>
+						<div class="naslov ui-widget-header">
+							Video Tutorial <img id="gofull2" width="20" height="20" title="full screen"  style="float:right; margin:-2px 5px 5px 0; cursor:pointer;" alt="full screen" src="slike/full_screen.png" />
+						</div>
+						<iframe class="fullscreen2" src="//www.youtube.com/embed/5W0uQlh6Vlc?rel=0&autoplay=1&controls=0&showinfo=0&loop=1" frameborder="0" align="right" width="100%" style="padding: 10px 0 10px 0;z-index:2147483647;" >
+						</iframe>
+					</div>
+					
+					<div class='ui-widget-content ui-corner-all shadow'>
+						<div class="naslov ui-widget-header">
+							Contact
+						</div>
+						<div>
+							<ul>
+								<li>Scientific : konc [at] cmm [dot] ki [dot] si</li>
+<!--								<li>Technical : btmiller [at] nhlbi [dot] nih [dot] gov</li> -->
+							</ul>
+						</div>
+					</div>
+					<div class='ui-widget-content ui-corner-all shadow'>
+						<div class="naslov ui-widget-header">
+							Release Notes
+						</div>
+						<div>
+							<ul>
+								<li>Mar 14 2016: Added color legend for superimposed proteins</li>
+								<li>Feb 23 2016: It is now possible to download the predicted ligands as text file</li>
+								<li>Feb 1 2016: Fixed clustering of protein and nucleic ligands, consequently there are much more in the output</li>
+							</ul>
+						</div>
+					</div>
+					<div id='spacer_right' class='ui-widget-content ui-corner-all shadow' style='height:0px'>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='ui-widget dead-center'>
+			<div class='ui-widget-header ui-helper-clearfix ui-corner-all shadow'>
+				<a style='float:left' target="_blank" href="https://www.nih.gov">
+					<img style='border:0px;' src="slike/banner-nihlogo.png"/>
+				</a>
+				<a style='float:right' target="_blank" href="http://www.ki.si">
+					<img style='border:0px;' height='60' src="slike/KI_logo_01.png"/>
+				</a>
+				<a style='float:right' target="_blank" href="http://www.upr.si">
+					<img style='border:0px;' height='60' src="slike/UP.gif"/>
+				</a>
+				<div style='float:left;margin-left:200px;padding:20px;'>
+					<a href='https://www.hhs.gov/vulnerability-disclosure-policy/index.html' target='_blank'>HHS Responsible Disclosure</a>
+				</div>
+				<div style='float:left;margin-left:200px;padding:20px;'>
+					Policies : <a href='https://www.nhlbi.nih.gov/about/contact/website-privacy-and-accessibility#what-is-the-nhlbi-privacy-policy-2378' target='_blank'>Privacy Policy</a>
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>

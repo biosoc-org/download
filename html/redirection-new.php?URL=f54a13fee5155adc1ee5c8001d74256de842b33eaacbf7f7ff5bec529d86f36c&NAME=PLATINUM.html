@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<HTML>
+<HEAD>
+<TITLE>PLATINUM (LBMS)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META HTTP-EQUIV="content-language" CONTENT="en">
+<META content="PLATINUM: Protein-Ligand ATtractions INvestigation NUMerically" name=description>
+<META NAME="classification" CONTENT="Science">
+<META content="Protain-ligands interactions" name=keywords>
+<META name="Design" content="Chugunov Anton">
+<META name="Programming" content="Chugunov Anton / Krylov Nikolay">
+<META NAME="author" CONTENT="Pyrkov Tymothy / Efremov Roman">
+<LINK href="includes/main.css" type=text/css rel=stylesheet>
+<LINK href="includes/swf.css" type=text/css rel=stylesheet>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<script type="text/javascript" src="includes/tooltip.js"></script>
+<script type="text/javascript" src="includes/functions.js"></script><script type="text/javascript" src="includes/upload_ligands.js"></script>
+</HEAD>
+
+<BODY bgcolor="#FFFFFF"  >
+<div id="header">
+<div id="lbms"><p>
+<a href="https://model.nmr.ru">&larr;&nbsp;Laboratory of biomolecular modeling</a></div>
+<div id="logo" style="clear:none">
+<h1>PLATINUM</h1>
+<p class="key"><font color=white>P</font>rotein&ndash;<font color=white>L</font>igand <font color=white>AT</font>tractions <font color=white>I</font>nvestigation <font color=white>NUM</font>erically
+</div>
+<div id="taskBar"><div class="barItem"><p><a href="?page=results">Goto results page&nbsp;&rarr;</a></div></div></div>
+<div id="content">
+<p style="margin:20px 0px; font-size:150%"><img src="img/platinum_match.png" align="right">PLATINUM is&nbsp;designed for calculation of&nbsp;hydrophobic properties of&nbsp;molecules and their match or&nbsp;mismatch in&nbsp;receptor&ndash;ligand complexes. These properties may help to&nbsp;analyze results of&nbsp;molecular docking.<div style="clear:both"></div>
+<div id="wrapPanel"><div id="leftPanel"><div class="wrap">
+<h2 style="margin-top:0">Step 1: Upload files</h2>
+<p>Please select a &#146;<span class="t-tip" title="Part of&nbsp;biomolecular complex that is&nbsp;hosted by&nbsp;a&nbsp;<em>receptor</em>. Usually this is&nbsp;a&nbsp;low molecular weight (&lt;500&nbsp;Da) compound&nbsp;&#151; an&nbsp;inhibitor or&nbsp;substrate for protein receptor. However other variant arepossible: ligand binds to&nbsp;nucleic acid; peptide (ligand) binds to&nbsp;lipid bilayer (receptor).">ligand</span>&#147; file (in&nbsp;one-by-one mode)&nbsp;&#151; if&nbsp;you want just to&nbsp;assess their hydrophobic properties&nbsp;&#151; and add a&nbsp;single <span class="t-tip" title="Part of&nbsp;a biomolecular complex that hosts a&nbsp;<em>ligand</em>. Usually, receptor is&nbsp;a&nbsp;protein that binds a&nbsp;low molecular weight (&lt;500&nbsp;Da) compound&nbsp;&#151; ligand. However, other variant are possible as well: ligand binds to&nbsp;nucleic acid; peptide (ligand) binds to&nbsp;lipid bilayer (receptor).">receptor</span> file to&nbsp;assess ligand/receptor interactions. <em>(File size limit: 5&nbsp;Mb.)</em></p>
+<form enctype="multipart/form-data" id="upload_form" action="?step=2" method="post" >
+<div id="div_receptor"><p style="margin-bottom:0"><em>Select a receptor file:</em></p>
+<input type="file" id="upFile_receptor" name="upFile_receptor" accept=".pdb,.mol2,.sdf,.mae" value="" /></div><br />
+
+<div id="div_ligands">
+<p style="margin-bottom:0">
+<em>Select file(s) with ligands:</em>
+</p><input type="file" id="upFile_ligands" name="upFile_ligands[]" accept=".pdb,.mol2,.sdf,.mae" multiple=""/>
+</div></div>
+<p><em>Please note:</em> <span class="t-tip" title="To add hydrogens you can use any software for visualyzation of molecules, <em>e.g.</em> UCSF Chimera.">PLATINUM requires that all molecules are protonated</span>!<br /><br />
+<input id="upload_mode" name="upload_mode" type="hidden" value="simple" />
+<input id="uploadBtn" type="submit" value="Upload files" />
+</form>
+</div></div>
+<div id="rightPanel"><div class="wrap">
+<h3 style="margin-top:0">What is PLATINUM?</h3>
+<p>Calculate and <span class="t-tip" title="Visualization of&nbsp;MHP can provide guidelines to&nbsp;modification of&nbsp;ligand or&nbsp;receptor structure to&nbsp;make, <em>e.g.</em> more powerful inhibitors, by&nbsp;identifying positions where prominent hydrophobic mismatch occurs. PLATINUM generates files with calculated MHP values that can be&nbsp;loaded in&nbsp;a&nbsp;molecular viewer and colored according to&nbsp;hydrophobic/hydrophilic properties.<br /><img src='img/tooltips/platinum_surfmhp.png'>">visualize</span> molecular hydrophobic/hydrophilic properties using the concept of&nbsp;&#147;<span class="t-tip" title="<strong>Molecular Hydrophobicity Potential <em>a.k.a.</em> Molecular Lipophilicity Potential (MLP)</strong> is&nbsp;the&nbsp;empirical concept based on&nbsp;atomic constants derived from octanol/water partition coefficients (log<em>P</em>) for organic molecules. MHP provides assessment of&nbsp;molecular hydrophobic properties in&nbsp;3D-space or&nbsp;on&nbsp;molecular surface (for details, see <a href='http://www.ncbi.nlm.nih.gov/pubmed/17305542'>Efremov <em>et&nbsp;al.</em>, 2007</a>).<br /><img src='img/tooltips/platinum_mhp.png'>">Molecular Hydrophobicity Potential</span>&#148; (MHP). Hydrophobic and <span class="t-tip" title="Stacking can occur between aromatic groups and results in&nbsp;their special arrangement in&nbsp;space&nbsp;&#151; usually parallel, but other variants are possible as well. The most popular example is&nbsp;DNA, where stacking between nucleotide bases greatly stabilizes the macromolecule. This type of&nbsp;interaction can be&nbsp;described by&nbsp;the distance and the angle between two aromatic rings.<br /><img src='img/tooltips/platinum_stacking.png'>">stacking</span> interactions in&nbsp;biomolecular complexes can be&nbsp;estimated and used <nobr>to <span class="t-tip" title="Commonly, a docking program yields a&nbsp;number of&nbsp;somewhat different poses of&nbsp;a ligand in&nbsp;the receptor binding site which are ranked according to&nbsp;the values of&nbsp;the scoring function. However, often the best pose (<em>i.e.</em> most similar to&nbsp;the native one&nbsp;&#151; if&nbsp;one knows the correct solution and docking poses can be&nbsp;compared to&nbsp;it) does not receive the best score. In&nbsp;such cases reranking solutions by&nbsp;another, more precise scoring function, can solve the problem and thus improve the predictive power of&nbsp;molecular docking.">re-rank</span></nobr> the results of&nbsp;molecular docking. For certain cases&nbsp;&#151; lipid bilayers and &alpha;-helices&nbsp;&#151; 2D&nbsp;hydrophobicity maps can be&nbsp;calculated.
+<h3>How to use PLATINUM?</h3>
+<ul><li><em>Complementarity of&nbsp;hydrophobic/hydrophilic properties in&nbsp;biomolecular complexes:</em><ul>
+<li>to&nbsp;view molecular hydrophobic properties upload ligand(s);</li>
+<li>to&nbsp;view hydrophobic complementarity add a&nbsp;receptor;</li>
+<li>on&nbsp;Step&nbsp;2 select a&nbsp;reference ligand (optionally).</li></ul></li>
+<li><em>2D&nbsp;hydrophobic maps for lipid bilayers and &alpha;-helices:</em><ul>
+<li>upload a&nbsp;bilayer or&nbsp;an &alpha;-helix as&nbsp;a&nbsp;receptor (currently only.GRO files are allowed);</li>
+<li>add ligand(s) to&nbsp;view the contact area on&nbsp;the map (optionally).</li></ul></li></ul>
+<p>For details refer to&nbsp;the <a href="https://model.nmr.ru/platinum/files/PLATINUM_manual_v1.0.pdf" class="pdfIcon" target="_blank" title="880 Kb">manual</a> and go&nbsp;through the <a href="http://model.nmr.ru/platinum/files/PLATINUM_tutorial_v1.0.pdf" class="pdfIcon" target="_blank" title="850 Kb">tutorial</a>; don&#146;t forget <a href="http://model.nmr.ru/platinum/files">files for the tutorial</a>.
+<h3>System requirements</h3>
+<p>Some components on the site (<em>viz.</em> massive files upload) require 
+modern HTML5-capable web-browser with javascript enabled.
+<!-- and 
+you&#146;ll also need <a href="http://www.java.com/">Java</a> to see visualization online.-->
+</div></div></div>
+</div>
+<ul id="footer">
+    <li class="copyright"><p>&copy;&nbsp;2008&ndash;2009, <a href="http://model.nmr.ru">Laboratory of Biomolecular Modeling</a>.<br /><br />
+    </li>
+    <li class="contacts"><p><em>Contact information:</em><br />
+        <a href="http://model.nmr.ru/index.phtml?page=about.cv.tim-cv">Timothy V. Pyrkov</a> (<a href="mailto:pyrkov@nmr.ru">pyrkov@nmr.ru</a>)&nbsp;&#151; scientific concept&nbsp;& programming<br />
+        <a href="http://model.nmr.ru/index.phtml?page=about.cv.volster-cv">Anton O. Chugunov</a> (<a href="mailto:volster@nmr.ru">volster@nmr.ru</a>)&nbsp;&#151; web-design&nbsp;& programming<br />
+        Nikolay A. Krylov (<a href="mailto: krna@rambler.ru">krna@rambler.ru</a>)&nbsp;&#151; programming<br />
+        <!--<a href="/forum/viewforum.php?f=1">Platinum forum & support</a>--></li>
+    <li class="footerLogo"><a href="http://model.nmr.ru" title="Laboratory of Biomolecular Modeling"><img src="img/lbmLogo.gif" border="0" /></a></li>
+</ul>
+</BODY>
+    <script type="text/javascript" src="js/jaxon-js/dist/jaxon.core.min.js"  charset="UTF-8"></script>
+
+<script type="text/javascript"  charset="UTF-8">
+/* <![CDATA[ */
+try {
+    if(typeof jaxon.config == undefined)
+        jaxon.config = {};
+}
+catch(e) {
+    jaxon = {};
+    jaxon.config = {};
+};
+
+jaxon.config.requestURI = "https://model.nmr.ru/platinum/";
+jaxon.config.statusMessages = false;
+jaxon.config.waitCursor = true;
+jaxon.config.version = "Jaxon 2.1.6";
+jaxon.config.defaultMode = "asynchronous";
+jaxon.config.defaultMethod = "POST";
+jaxon.config.responseType = "JSON";
+
+jaxon.confirm = {
+    skip: function(command) {
+        numberOfCommands = command.id;
+        while (0 < numberOfCommands) {
+            jaxon.tools.queue.pop(command.response);
+            --numberOfCommands;
+        }
+    }
+};
+/*
+    Function: jaxon.confirm.commands
+
+    A rewrite of the jaxon.confirm.commands function which uses the user configured confirm library.
+
+    Parameters:
+        command (object) - jaxon response object
+
+    Returns:
+        true - The operation completed successfully.
+*/
+jaxon.confirm.commands = function(command) {
+    command.fullName = 'confirmCommands';
+    var msg = command.data;
+    /*
+     * Unlike javascript confirm(), third party confirm() functions are not blocking.
+     * Therefore, to prevent the next commands to run while the library is waiting for the user confirmation,
+     * the remaining commands are moved to a new queue in the command object.
+     * They will be processed in the confirm callbacks.
+     * Note that only one confirm command will be allowed in a Jaxon response.
+     */
+    command.response = jaxon.tools.queue.create(jaxon.config.responseQueueSize);
+    while((obj = jaxon.tools.queue.pop(jaxon.response)) != null)
+    {
+        jaxon.tools.queue.push(command.response, obj);
+        delete obj;
+    }
+    if(confirm(msg)){jaxon.ajax.response.process(command.response);}else{jaxon.confirm.skip(command);jaxon.ajax.response.process(command.response);};
+    return true;
+};
+
+jaxon.dom.ready(function() {
+    jaxon.command.handler.register('cc', jaxon.confirm.commands);
+
+
+jaxon.command.handler.register("jquery", function(args) {
+    jaxon.cmd.script.execute(args);
+});});
+
+
+
+jaxon_Platinum_launch = function() {
+    return jaxon.request(
+        { jxnfun: 'Platinum_launch' },
+        { parameters: arguments }
+    );
+};
+jaxon_files_delete = function() {
+    return jaxon.request(
+        { jxnfun: 'files_delete' },
+        { parameters: arguments }
+    );
+};
+
+/* ]]> */
+</script>
+</HTML>
