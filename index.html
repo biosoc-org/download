@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -21,113 +20,98 @@
     </style>
 </head>
 <body>
-    <h1>Select CSV File</h1>
-    <input type="file" id="file-input" accept=".csv">
-    <div id="table-container"></div>
+<h1>Output CSV Tables</h1>
+<div id="table-container"></div>
 
-    <script>
-        function csvToArray(str, delimiter = ',') {
-            const [headerLine, ...lines] = str.trim().split('\n');
-            const headers = headerLine.split(delimiter);
+<script>
+    async function fetchCSV(file) {
+        const response = await fetch(file);
+        const csvText = await response.text();
+        return csvText;
+    }
 
-            return lines.map(line => {
-                const values = line.split(delimiter);
-                return headers.reduce((object, header, index) => {
-                    object[header] = values[index] ? values[index].trim() : '';
-                    return object;
-                }, {});
-            });
-        }
-        function truncateText(text, maxLength = 15) {
-            if (text.length <= maxLength) {
-                return text;
-            }
-            return text.substring(0, maxLength) + '...';
-        }
-        function truncateLongText(text, maxLength = 20) {
-            if (text.length > maxLength && !text.includes(' ')) {
-                return text.slice(0, maxLength) + '...';
-            }
+    function csvToArray(str, delimiter = ',') {
+        const [headerLine, ...lines] = str.trim().split('\n');
+        const headers = headerLine.split(delimiter);
+
+        return lines.map(line => {
+            const values = line.split(delimiter);
+            return headers.reduce((object, header, index) => {
+                object[header] = values[index] ? values[index].trim() : '';
+                return object;
+            }, {});
+        });
+    }
+
+    function truncateText(text, maxLength = 15) {
+        if (text.length <= maxLength) {
             return text;
         }
+        return text.substring(0, maxLength) + '...';
+    }
 
-        function createTable(data) {
-            const table = document.createElement('table');
-            const thead = table.createTHead();
-            const tbody = table.createTBody();
-            const headers = Object.keys(data[0]);
-
-            // Create header row
-            const headerRow = thead.insertRow();
-            headers.forEach(header => {
-                const th = document.createElement('th');
-                th.textContent = header;
-                headerRow.appendChild(th);
-            });
-
-            // Create body rows
-            data.forEach(row => {
-                const bodyRow = tbody.insertRow();
-                headers.forEach(header => {
-                    const cell = bodyRow.insertCell();
-                    let cellContent = row[header];
-                    // Check if cell content is a URL
-                    if (cellContent.startsWith('http://') || cellContent.startsWith('https://')) {
-                        const link = document.createElement('a');
-                        link.href = cellContent;
-                        link.textContent = cellContent;
-                        cell.appendChild(link);
-                    } else {
-                        if (header == "URL") {
-                            link = document.createElement('a');
-                            link.href = "html/" + cellContent + ".html";
-                            link.textContent = truncateText(cellContent);
-                            cell.appendChild(link);
-                        } else {
-                            cell.textContent = truncateLongText(cellContent);
-                        }
-                    }
-                });
-            });
-
-            return table;
+    function truncateLongText(text, maxLength = 30) {
+        if (text.length > maxLength && !text.includes(' ')) {
+            return text.slice(0, maxLength) + '...';
         }
+        return text;
+    }
 
-        document.getElementById('file-input').addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const csvData = e.target.result;
-                    const dataArray = csvToArray(csvData);
-                    const table = createTable(dataArray);
-                    document.getElementById('table-container').innerHTML = ''; // Clear previous table
-                    document.getElementById('table-container').appendChild(table);
-                };
-                reader.readAsText(file);
-            }
+    function createTable(data) {
+        const table = document.createElement('table');
+        const thead = table.createTHead();
+        const tbody = table.createTBody();
+        const headers = Object.keys(data[0]);
+
+        // Create header row
+        const headerRow = thead.insertRow();
+        headers.forEach(header => {
+            const th = document.createElement('th');
+            th.textContent = header;
+            headerRow.appendChild(th);
         });
 
-        async function fetchCSV(file) {
-            const response = await fetch(file);
-            const csvText = await response.text();
-            return csvText;
+        // Create body rows
+        data.forEach(row => {
+            const bodyRow = tbody.insertRow();
+            headers.forEach(header => {
+                const cell = bodyRow.insertCell();
+                let cellContent = row[header];
+                // Check if cell content is a URL
+                if (cellContent.startsWith('http://') || cellContent.startsWith('https://')) {
+                    let link = document.createElement('a');
+                    link.href = cellContent;
+                    link.textContent = truncateText(cellContent);
+                    cell.appendChild(link);
+                } else {
+                    if (header == "URL") {
+                        link = document.createElement('a');
+                        link.href = "html/" + cellContent + ".html";
+                        link.textContent = truncateText(cellContent);
+                        cell.appendChild(link);
+                    } else {
+                        cell.textContent = truncateLongText(cellContent);
+                    }
+                }
+            });
+        });
+
+        return table;
+    }
+
+    async function loadAndDisplayCSVs(files) {
+        const container = document.getElementById('table-container');
+        for (const file of files) {
+            const csvData = await fetchCSV(file);
+            const dataArray = csvToArray(csvData);
+            const table = createTable(dataArray);
+            container.appendChild(table);
         }
+    }
 
-        async function loadAndDisplayCSVs(files) {
-            const container = document.getElementById('table-container');
-            for (const file of files) {
-                const csvData = await fetchCSV(file);
-                const dataArray = csvToArray(csvData);
-                const table = createTable(dataArray);
-                container.appendChild(table);
-            }
-        }
-
-        const csvFiles = ['output.csv']; // tutaj możesz wstawić swoje pliki CSV
-        //const csvFiles = ['output.csv', 'output2.csv', 'output3.csv', 'output4.csv', 'output5.csv', 'output6.csv', 'output7.csv', 'output8.csv', 'output9.csv', 'output10.csv', 'output11.csv', 'output12.csv']; // tutaj możesz wstawić swoje pliki CSV
-        loadAndDisplayCSVs(csvFiles);
-
-    </script>
+    //const csvFiles = ['output.csv']; // tutaj możesz wstawić swoje pliki CSV
+    const csvFiles = ['outcsv/1.csv', 'outcsv/2.csv', 'outcsv/3.csv', 'outcsv/4.csv', 'outcsv/5.csv', 'outcsv/6.csv', 'outcsv/7.csv', 'outcsv/8.csv', 'outcsv/9.csv', 'outcsv/10.csv', 'outcsv/11.csv', 'outcsv/12.csv']; // tutaj możesz wstawić swoje pliki CSV
+    loadAndDisplayCSVs(csvFiles);
+</script>
 </body>
 </html>
