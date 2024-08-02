@@ -15,6 +15,12 @@ Aby uruchomić skrypt, musisz użyć następującej komendy w terminalu/shellu:
 ```sh
 python geturl.py output.csv https://www.click2drug.org/ URL html html.csv
 ```
+- `input.csv` to nazwa pliku CSV z danymi wejściowymi.
+- `http://example.com/` to bazowy URL.
+- `columnName` to nazwa kolumny w pliku CSV, której wartości będą używane do budowy URL.
+- `html_folder` to folder, w którym będą zapisywane pobrane pliki HTML.
+- `output.csv` to nazwa pliku wyjściowego, w którym będą zapisane wyniki.
+
 
 
 
@@ -44,18 +50,6 @@ python geturl.py output.csv https://www.click2drug.org/ URL html html.csv
 7. **Obsługa błędów**:
    Skrypt obsługuje zarówno wyjątki związane z brakiem pliku CSV, jak i błędy HTTP.
 
-Aby uruchomić ten skrypt, używaj następującej komendy:
-
-```sh
-python geturl.py input.csv http://example.com/ columnName html_folder output.csv
-```
-
-gdzie:
-- `input.csv` to nazwa pliku CSV z danymi wejściowymi.
-- `http://example.com/` to bazowy URL.
-- `columnName` to nazwa kolumny w pliku CSV, której wartości będą używane do budowy URL.
-- `html_folder` to folder, w którym będą zapisywane pobrane pliki HTML.
-- `output.csv` to nazwa pliku wyjściowego, w którym będą zapisane wyniki.
 
 
 

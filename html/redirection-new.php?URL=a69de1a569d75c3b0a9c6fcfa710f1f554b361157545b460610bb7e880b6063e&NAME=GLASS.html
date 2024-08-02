@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">
+    <head>
+        <link rel="stylesheet" href="glass/css/main.css" type="text/css" />
+        <meta name="description" content="GLASS: GPCR-ligand association database" />
+        <meta name="keywords" content="GLASS,GPCR,ligand,association,binding,database" />
+        <meta name="author" content="The Yang Zhang Lab, University of Michigan" />
+        <script type="text/javascript" src="glass/js/main.js"></script>
+        <title>GLASS: GPCR-ligand association database</title>
+
+<!-- ==AAA== ======beginning of head====== -->
+<!--
+  When you compose a webpage at the webserver, please have following in mind:
+     1, please keep the following 4 tags unchanged:
+            ==AAA==
+            ==BBB==
+            ==CCC==
+            ==DDD==
+         These tags will be used to update the frame of the webpages.
+     2, the content between '==AAA==' and '==BBB==' and content between 
+        '==CCC==' and '==DDD==' will be mandatorily rewritten by the system 
+        program. You can put your own contents outside these two regions.
+	Thus, your page should look like the following:
+	   [your content]
+            ==AAA==
+ 	      [system content]
+            ==BBB==
+	   [your content]
+            ==CCC==
+ 	      [system content]
+            ==DDD==
+-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/css/all.css" type="text/css" />
+<script type="text/javascript" src="/css/minmax.js"></script>
+<script type="text/javascript" src="/css/all.js"></script>
+</head>
+<body>
+<!-- End of declaration -->
+
+<div id="z_top">
+<a href="https://zhanggroup.org/" id="z_lab_logo"><img alt="Zhang Lab" src="https://zhanggroup.org/image/logo_top.jpg" /></a>
+<a href="http://www.umich.edu" id="z_um_logo"><img alt="University of Michigan" src="https://zhanggroup.org/image/wordmark_m_web.gif" /></a>
+</div>
+
+<div id="z_menu">
+  <a class="z_menu_main" href="https://zhanggroup.org">Home</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/research">Research</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/COVID-19/">COVID-19</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/services">Services</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/papers">Publications</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/people">People</a>
+  <a class="z_menu_main" href="https://medicine.umich.edu/dept/dcmb/education/course-descriptions/bioinf-528-structural-bioinformatics">Teaching</a>
+  <!-- <a class="z_menu_main" href="https://zhanggroup.org/funding">Funding</a> -->
+  <a class="z_menu_main" href="https://zhanggroup.org/job">Job Opening</a>
+<!--  <a class="z_menu_main" href="https://zhanggroup.org/facility">Facilities</a> -->
+  <a class="z_menu_main" href="https://zhanggroup.org/news">News</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/forum">Forum</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/labonly">Lab Only</a>
+  <div class="z_clear"></div>
+</div>
+
+<div id="z_body">
+  <div id="z_sidebar">
+    <a id="z_sidebar_title" href="https://zhanggroup.org/services">Online Services</a>
+    <p class="z_sidebar_menu z_sidebar_menu1">
+    <a href="https://zhanggroup.org/I-TASSER">&#9679;<span>I-TASSER</span></a>
+      <a href="https://zhanggroup.org/I-TASSER-MTD">&#9679;<span>I-TASSER-MTD</span></a>
+      <a href="https://zhanggroup.org/C-I-TASSER">&#9679;<span>C-I-TASSER</span></a>
+      <a href="https://zhanggroup.org/CR-I-TASSER">&#9679;<span>CR-I-TASSER</span></a>
+      
+      <a href="https://zhanggroup.org/QUARK">&#9679;<span>QUARK</span></a>
+      <a href="https://zhanggroup.org/C-QUARK">&#9679;<span>C-QUARK</span></a>
+      
+      <a href="https://zhanggroup.org/LOMETS">&#9679;<span>LOMETS</span></a>
+      <a href="https://zhanggroup.org/MUSTER">&#9679;<span>MUSTER</span></a>
+      <a href="https://zhanggroup.org/CEthreader">&#9679;<span>CEthreader</span></a>
+      <a href="https://zhanggroup.org/SEGMER">&#9679;<span>SEGMER</span></a>
+
+      <a href="https://zhanggroup.org/DeepFold">&#9679;<span>DeepFold</span></a>
+      <a href="https://zhanggroup.org/DeepFoldRNA">&#9679;<span>DeepFoldRNA</span></a>
+      <a href="https://zhanggroup.org/FoldDesign">&#9679;<span>FoldDesign</span></a>
+      
+      <a href="https://zhanggroup.org/COFACTOR">&#9679;<span>COFACTOR</span></a>
+      <a href="https://zhanggroup.org/COACH">&#9679;<span>COACH</span></a>
+      <a href="https://zhanggroup.org/MetaGO">&#9679;<span>MetaGO</span></a>
+      <a href="https://zhanggroup.org/TripletGO">&#9679;<span>TripletGO</span></a>
+      <a href="https://zhanggroup.org/IonCom">&#9679;<span>IonCom</span></a>
+      
+      <a href="https://zhanggroup.org/FG-MD">&#9679;<span>FG-MD</span></a>
+      <a href="https://zhanggroup.org/ModRefiner">&#9679;<span>ModRefiner</span></a>
+      <a href="https://zhanggroup.org/REMO">&#9679;<span>REMO</span></a>
+      
+      <a href="https://zhanggroup.org/DEMO">&#9679;<span>DEMO</span></a>
+      <a href="https://zhanggroup.org/DEMO-EM">&#9679;<span>DEMO-EM</span></a>
+      
+      <a href="https://zhanggroup.org/spring">&#9679;<span>SPRING</span></a>
+      <a href="https://zhanggroup.org/COTH">&#9679;<span>COTH</span></a>
+      
+      <a href="https://zhanggroup.org/Threpp">&#9679;<span>Threpp</span></a>
+      <a href="https://zhanggroup.org/PEPPI">&#9679;<span>PEPPI</span></a>
+      <a href="https://zhanggroup.org/BSpred">&#9679;<span>BSpred</span></a>
+      
+      <a href="https://zhanggroup.org/ANGLOR">&#9679;<span>ANGLOR</span></a>
+      
+      <a href="https://zhanggroup.org/EDock">&#9679;<span>EDock</span></a>
+      <a href="https://zhanggroup.org/BSP-SLIM">&#9679;<span>BSP-SLIM</span></a>
+      
+      <a href="https://zhanggroup.org/SAXSTER">&#9679;<span>SAXSTER</span></a>
+      
+      <a href="https://zhanggroup.org/FUpred">&#9679;<span>FUpred</span></a>
+      <a href="https://zhanggroup.org/ThreaDom">&#9679;<span>ThreaDom</span></a>
+      <a href="https://zhanggroup.org/ThreaDomEx">&#9679;<span>ThreaDomEx</span></a>
+      
+      <a href="https://zhanggroup.org/EvoDesign">&#9679;<span>EvoDesign</span></a>
+      <a href="https://zhanggroup.org/BindProf">&#9679;<span>BindProf</span></a>
+      <a href="https://zhanggroup.org/BindProfX">&#9679;<span>BindProfX</span></a>
+      <a href="https://zhanggroup.org/SSIPe">&#9679;<span>SSIPe</span></a>
+
+      <a href="https://zhanggroup.org/GPCR-I-TASSER">&#9679;<span class="z_narrow">GPCR-I-TASSER</span></a>
+      <a href="https://zhanggroup.org/MAGELLAN">&#9679;<span>MAGELLAN</span></a>
+
+      <a href="https://zhanggroup.org/ResQ">&#9679;<span>ResQ</span></a>
+      
+      <a href="https://zhanggroup.org/STRUM">&#9679;<span>STRUM</span></a>
+      <a href="https://zhanggroup.org/DAMpred">&#9679;<span>DAMpred</span></a>
+    </p>
+    <p class="z_sidebar_menu z_sidebar_menu2">
+      <a href="https://zhanggroup.org/TM-score">&#9679;<span>TM-score</span></a>
+      <a href="https://zhanggroup.org/TM-align">&#9679;<span>TM-align</span></a>
+      <a href="https://zhanggroup.org/US-align">&#9679;<span>US-align</span></a>
+      <a href="https://zhanggroup.org/MM-align">&#9679;<span>MM-align</span></a>
+      <a href="https://zhanggroup.org/RNA-align">&#9679;<span>RNA-align</span></a>
+      
+      <a href="https://zhanggroup.org/NW-align">&#9679;<span>NW-align</span></a>
+      <a href="https://zhanggroup.org/LS-align">&#9679;<span>LS-align</span></a>
+      
+      <a href="https://zhanggroup.org/EDTSurf">&#9679;<span>EDTSurf</span></a>
+      <a href="https://zhanggroup.org/MVP">&#9679;<span>MVP</span></a>
+      <a href="https://zhanggroup.org/MVP-Fit">&#9679;<span>MVP-Fit</span></a>
+      
+      <a href="https://zhanggroup.org/SPICKER">&#9679;<span>SPICKER</span></a>
+      <a href="https://zhanggroup.org/HAAD">&#9679;<span>HAAD</span></a>
+      <a href="https://zhanggroup.org/PSSpred">&#9679;<span>PSSpred</span></a>
+      <a href="https://zhanggroup.org/3DRobot">&#9679;<span>3DRobot</span></a>
+      
+      <a href="https://zhanggroup.org/MR-REX">&#9679;<span>MR-REX</span></a>
+      <a href="https://zhanggroup.org/I-TASSER-MR">&#9679;<span>I-TASSER-MR</span></a>
+      
+      <a href="https://zhanggroup.org/SVMSEQ">&#9679;<span>SVMSEQ</span></a>
+      <a href="https://zhanggroup.org/NeBcon">&#9679;<span>NeBcon</span></a>
+      <a href="https://zhanggroup.org/ResPRE">&#9679;<span>ResPRE</span></a>
+      <a href="https://zhanggroup.org/TripletRes">&#9679;<span>TripletRes</span></a>
+      <a href="https://zhanggroup.org/DeepPotential">&#9679;<span>DeepPotential</span></a>
+      
+      <a href="https://zhanggroup.org/WDL-RF">&#9679;<span>WDL-RF</span></a>
+      <a href="https://zhanggroup.org/ATPbind">&#9679;<span>ATPbind</span></a>
+      
+      <a href="https://zhanggroup.org/DockRMSD">&#9679;<span>DockRMSD</span></a>
+      <a href="https://zhanggroup.org/DeepMSA">&#9679;<span>DeepMSA</span></a>
+      <a href="https://zhanggroup.org/FASPR">&#9679;<span>FASPR</span></a>
+      
+      <a href="https://zhanggroup.org/EM-Refiner">&#9679;<span>EM-Refiner</span></a>
+      <a href="https://zhanggroup.org/GPU-I-TASSER">&#9679;<span>GPU-I-TASSER</span></a>
+    </p>
+    <p class="z_sidebar_menu z_sidebar_menu1">
+      <a href="https://zhanggroup.org/BioLiP">&#9679;<span>BioLiP</span></a>
+      <a href="https://zhanggroup.org/Ecoli">&#9679;<span>E. coli</span></a>
+      
+      <a href="https://zhanggroup.org/GLASS">&#9679;<span>GLASS</span></a>
+      <a href="https://zhanggroup.org/GPCR-HGmod">&#9679;<span>GPCR-HGmod</span></a>
+      <a href="https://zhanggroup.org/GPCR-RD">&#9679;<span>GPCR-RD</span></a>
+      <a href="https://zhanggroup.org/GPCR-EXP">&#9679;<span>GPCR-EXP</span></a>
+      
+      <a href="https://zhanggroup.org/Tara-3D">&#9679;<span>Tara-3D</span></a>
+      <a href="https://zhanggroup.org/TM-fold">&#9679;<span>TM-fold</span></a>
+      
+      <a href="https://zhanggroup.org/decoys">&#9679;<span>DECOYS</span></a>
+      <a href="https://zhanggroup.org/potential">&#9679;<span>POTENTIAL</span></a>
+      <a href="https://zhanggroup.org/RW">&#9679;<span>RW/RWplus</span></a>
+      <a href="https://zhanggroup.org/EvoEF">&#9679;<span>EvoEF</span></a>
+      <a href="https://zhanggroup.org/HPSF">&#9679;<span>HPSF</span></a>
+      <a href="https://zhanggroup.org/THE-DB">&#9679;<span>THE-DB</span></a>
+      <a href="https://zhanggroup.org/ADDRESS">&#9679;<span>ADDRESS</span></a>
+      <a href="https://zhanggroup.org/Alpaca-Antibody">&#9679;<span>Alpaca-Antibody</span></a>
+      
+      <a href="https://zhanggroup.org/casp7">&#9679;<span>CASP7</span></a>
+      <a href="https://zhanggroup.org/casp8">&#9679;<span>CASP8</span></a>
+      <a href="https://zhanggroup.org/casp9">&#9679;<span>CASP9</span></a>
+      <a href="https://zhanggroup.org/casp10">&#9679;<span>CASP10</span></a>
+      <a href="https://zhanggroup.org/casp11">&#9679;<span>CASP11</span></a>
+      <a href="https://zhanggroup.org/casp12">&#9679;<span>CASP12</span></a>
+      <a href="https://zhanggroup.org/casp13">&#9679;<span>CASP13</span></a>
+      <a href="https://zhanggroup.org/casp14">&#9679;<span>CASP14</span></a>
+    </p>
+  </div>
+  <div id="z_page">
+<!-- ==BBB== ======ending of head======== -->
+
+                
+
+                <!-- Main body -->
+                <div class="g_block g_centering">
+                    <img alt="GLASS" id="g_index_logo" src="glass/images/logo.png" />
+                    <p id="g_index_desc">
+                    <strong>GLASS</strong> (<strong>G</strong>PCR-<strong>L</strong>igand <strong>Ass</strong>ociation)
+                    database is a manually curated repository for experimentally-validated GPCR-ligand interactions.
+                    Along with relevant GPCR and chemical information, GPCR-ligand association data are extracted and
+                    integrated into GLASS from literature and public databases.
+                    (<a href="about.html">&gt;&gt;more about the GLASS database</a>)
+                    </p>
+                    <div id="g_index_form_tab">
+                        <div class="g_tab g_tab_selected" id="g_index_tab_search" onclick="switchToSearch()">
+                            Search
+                        </div><div class="g_tab" id="g_index_tab_browse" onclick="switchToBrowse()">
+                            Browse
+                        </div><div class="g_tab" id="g_index_tab_download" onclick="switchToDownload()">
+                            Download
+                        </div>
+                    </div>
+                    <div class="g_index_form_box" id="g_index_search">
+                        <div>
+                            <form accept-charset="utf-8" action="query.cgi" method="post" onsubmit="clearPlaceholder()">
+                                <input id="g_query_text" name="query" onblur="setPlaceholder()" onchange="changeQuery(this.value);" onfocus="clearPlaceholder()" onkeyup="changeQuery(this.value);" type="text" value="e.g. &quot;diabetes&quot;, &quot;P35372&quot;, or &quot;4dkl&quot;" />
+                                <p>
+                                <input checked="checked" id="g_query_type_gpcr" name="dataset" type="radio" value="Search by GPCR" onclick="updatePlaceholder()" /><label for="g_query_type_gpcr">By GPCR</label>
+                                <input id="g_query_type_ligand" name="dataset" type="radio" value="Search by ligand" onclick="updatePlaceholder()" /><label for="g_query_type_ligand">By ligand</label>
+                                <input id="g_query_type_assoc" name="dataset" type="radio" value="Search by GLASS ID" onclick="updatePlaceholder()" /><label for="g_query_type_assoc">By GPCR-ligand pair</label>
+                                </p>
+                                <p id="g_form_buttons">
+                                <input type="submit" value="Search" />
+                                <input type="button" value="Search by Chemical Structure" onclick="advancedSearch()" />
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="hidden" id="g_index_browse">
+                        <div>
+                            <p>
+                            <a href="query.cgi?dataset=Search+by+GPCR">Browse all GPCRs</a>
+                            </p>
+                            <p>
+                            <a href="families.cgi">Browse all GPCR families</a>
+                            </p>
+                            <p>
+                            <a href="query.cgi?dataset=Search+by+ligand">Browse all ligands</a>
+                            </p>
+                            <!--
+                            <p>
+                            <a href="query.cgi?dataset=Search+by+GLASS+ID">Browse all GPCR-ligand interaction entities</a>
+                            </p>
+                            -->
+                        </div>
+                    </div>
+                    <div class="hidden" id="g_index_download">
+                        <div>
+                            <p>
+                            <a href="downloads/interactions_total.tsv">All interaction data in TSV format</a>
+                            </p>
+                            <p>
+                            <a href="downloads/interactions_active.tsv">Active interaction data (Ki, Kd, IC50, EC50 <= 10 uM) in TSV format</a>
+                            </p>
+                            <p>
+                            <a href="downloads/interactions_inactives.tsv">Inactive interaction data (Ki, Kd, IC50, EC50 > 10 uM) in TSV format</a>
+                            </p>
+                            <p>
+                            <a href="downloads/targets.tsv">All GPCR data in TSV format</a>
+                            </p>
+                            <p>
+                            <a href="downloads/ligands.tsv">All ligand data in TSV format</a>
+                            </p>
+                            <p>
+                            <a href="downloads/glass.zip">All ligands in GLASS in SDF format</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="g_index_menu">
+                        [<a href="about.html" title="About GLASS">About GLASS</a>]
+                        [<a href="upload.cgi" title="Contribute data">Upload Primary Data</a>]
+                    </div>
+                </div>
+                <div class="g_block">
+                    <h1>GLASS News</h1>
+                    <p>
+		    <ul>
+                    The current database was updated on <strong>February 23, 2019</strong>,
+                    which contains:
+                    </p>
+                    <ul>
+                        <li>
+                            Unique GPCR-ligand entries: <a href="query.cgi?dataset=Search+by+GLASS+ID">562,871</a>
+                            <ul>
+                                <li>
+                                    Experimental data entries: <a href="query.cgi?dataset=Search+by+GLASS+ID">1,046,026</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            GPCR entries: <a href="query.cgi?dataset=Search+by+GPCR">3,056</a>
+                            <ul>
+                                <li>
+                                    Human GPCR: 825
+                                </li>
+                                <li>
+                                    GPCRs that have experimental association data: 733
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+       
+                     Ligand entries: <a href="query.cgi?dataset=Search+by+ligand">342,539</a>
+                            <ul>
+                                <li>
+                                    Lipinski-druglike ligands: 241,243
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>
+                    <strong>July 13, 2018</strong>:
+                    Add TSV files for interaction data filtered (by Kd, Ki, IC50, EC50) for active and inactive compounds in 'Download' section.<br>
+                    <strong>July 12, 2018</strong>:
+                    Replaced JMol viewer with NGL viewer. All GPCR structures are now loaded directly from <a href="https://zhanglab.dcmb.med.umich.edu/GPCR-EXP">GPCR-EXP</a>, a new database we developed for experimentally-solved and predicted GPCR structures.<br>
+                    <strong>November 2, 2017</strong>:
+                    Fixed bug in update script that missed BioLiP entries from 2015 and onwards.<br>
+                    <strong>October 4, 2017</strong>:
+                    Fixed bug where searching with a ligand name as a query could result in an internal server error. Also fixed problem where synonym lists would not expand when clicked.<br>
+                    <strong>February 14, 2017</strong>:
+                    Happy Valentine's Day! The browse ligand and browse family features have been fixed. Thank you to Hongjiu Zhang for assistance.<br />
+                    <strong>August 5, 2016</strong>:
+                    Added 2D molecule structures to GPCR search results. Thank you to Dr. Andrew Horti for this useful suggestion. This change should hopefully facilitate the browsing of molecules.<br />
+                    <strong>June 24, 2016</strong>:
+                    Fixed bug where DrugBank entries were not showing up.<br />
+                    <strong>March 1, 2015</strong>:
+                    Redesigned the database schemas.<br />
+                    <strong>February 17, 2015</strong>:
+                    Migrated the website to the new framework.<br />
+                    <strong>August 12, 2014</strong>:
+                    Added searches for GPCR by family and for ligands by chemical structure.<br />
+                    <strong>June 30, 2014</strong>:
+                    Added batch TSV and SDF download.<br />
+                    <strong>June 28, 2014</strong>:
+                    Added synonyms for GPCRs and ligands, as well as Lipinski's rule of five check.<br />
+                    <strong>June 24, 2014</strong>:
+                    Set up the database website.<br />
+		    </ul>
+                    </p>
+                    <h1>GPCR Related databases</h1>
+                    <ul>
+                        <li>
+                            <a href="/GPCR-EXP" title="GPCR-EXP">GPCR-EXP: A semi-manually curated database for experimentally-solved and predicted GPCR structures</a>
+                        </li>
+                        <li>
+                            <a href="/GPCRRD" title="GPCRRD">GPCRRD: GPCR 3D restraint database</a>
+                        </li>
+                        <li>
+                            <a href="/GPCRRD/GPCR-I-TASSER.html" title="GPCR-I-TASSER">GPCR-I-TASSER: 3D structure prediction of GPCRs</a>
+                        </li>
+                        <li>
+                            <a href="http://www.gpcr.org/7tm/" title="GPCRDB">GPCRDB: information system for G protein-coupled receptors</a>
+                        </li>
+                        <li>
+                            <a href="http://www.cmbi.ru.nl/tinygrap/credits/" title="TinyGPAP">TinyGPAP Mutant Database</a>
+                        </li>
+                        <li>
+                            <a href="http://www.gpcr-okb.org/" title="GPCR-OKB"> GPCR-OKB: The G Protein Coupled Receptor Oligomerization Knowledge Base Project</a>
+                        </li>
+                        <li>
+                            <a href="http://nava.liacs.nl/" title="GPCR Natural Variants database"> GPCR Natural Variants database</a>
+                        </li>
+                        <li>
+                            <a href="http://pharminfo.pharm.kyoto-u.ac.jp/services/glida/" title="GLIDA">GLIDA: GPCR-ligand database</a>
+                        </li>
+                        <li>
+                            <a href="http://www.guidetopharmacology.org/GRAC/ReceptorFamiliesForward?type=GPCR" title="IUPHAR">IUPHAR GPCR database</a>
+                        </li>
+                        <li>
+                            <a href="http://biophysics.biol.uoa.gr/gpDB/" title="gpDB">gpDB: G proteins and their interactions with GPCRs</a>
+                        </li>
+                        <li>
+                            <a href="http://sevens.cbrc.jp/" title="SEVENS">SEVENS: GPCR genes database</a>
+                        </li>
+                        <li>
+                            <a href="http://cavasotto-lab.net/Databases/GDD/" title="GDD">GDD: GPCR decoy database</a>
+                        </li>
+                        <li>
+                            <a href="http://physiology.med.cornell.edu/GPCRactivation/gpcrindex.html" title="activation">Summary of activation changes in GPCR TMs</a>
+                        </li>
+                    </ul>
+
+                    <h1>References</h1>
+		    <ul><li>
+		    W Chan, H Zhang, J Yang, J Brender, J Hur, A Ozgur, Y Zhang.
+		    GLASS: a comprehensive database for experimentally-validated GPCR-ligand associations.
+		    Bioinformatics, 31: 3035-3042 (2015).
+		    [<a href=../papers/2015_8.pdf>PDF</a>] [<a href=../papers/2015_8_support.pdf>Support Information</a>] [<a href=http://zhanglab.dcmb.med.umich.edu/GLASS/>Database</a>] 
+		    </ul>
+                </div>
+
+<!-- ==CCC== ======beginning of tail==== -->
+ </div></div> <!-- for closing all the opening tags. -->
+</div>
+<p>
+  
+<p id="z_foot">
+<a href="mailto:yangzhanglab\@umich.edu">yangzhanglab<img src=/image/at.gif width=10 border=0>umich.edu</a>  
+|  (734) 647-1549 | 100 Washtenaw Avenue, Ann Arbor, MI 48109-2218
+</p>
+<br>
+</body>
+</html>
+<!-- ==DDD== =======ending of tail====== -->

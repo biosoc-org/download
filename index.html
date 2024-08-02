@@ -9,96 +9,105 @@
             width: 100%;
             border-collapse: collapse;
         }
+
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
         }
+
         th {
             background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
-    <h1>Output CSV Table</h1>
-    <div id="table-container"></div>
+<h1>Output CSV Table</h1>
+<div id="table-container"></div>
 
-    <script>
-        async function fetchCSV() {
-            const response = await fetch('output.csv');
-            const csvText = await response.text();
-            return csvText;
-        }
+<script>
+    async function fetchCSV() {
+        const response = await fetch('output.csv');
+        const csvText = await response.text();
+        return csvText;
+    }
 
-        function csvToArray(str, delimiter = ',') {
-            const [headerLine, ...lines] = str.split('\n');
-            const headers = headerLine.split(delimiter);
+    function csvToArray(str, delimiter = ',') {
+        const [headerLine, ...lines] = str.split('\n');
+        const headers = headerLine.split(delimiter);
 
-            return lines.map(line => {
-                const values = line.split(delimiter);
-                return headers.reduce((object, header, index) => {
-                    object[header] = values[index] ? values[index].trim() : '';
-                    return object;
-                }, {});
-            });
-        }
+        return lines.map(line => {
+            const values = line.split(delimiter);
+            return headers.reduce((object, header, index) => {
+                object[header] = values[index] ? values[index].trim() : '';
+                return object;
+            }, {});
+        });
+    }
 
-        function truncateText(text, maxLength = 15) {
-            if (text.length <= maxLength) {
-                return text;
-            }
-            return text.substring(0, maxLength) + '...';
-        }
-
-        function truncateLongText(text, maxLength = 30) {
-            if (text.length > maxLength && !text.includes(' ')) {
-                return text.slice(0, maxLength) + '...';
-            }
+    function truncateText(text, maxLength = 15) {
+        if (text.length <= maxLength) {
             return text;
         }
+        return text.substring(0, maxLength) + '...';
+    }
 
-        function createTable(data) {
-            const table = document.createElement('table');
-            const thead = table.createTHead();
-            const tbody = table.createTBody();
-            const headers = Object.keys(data[0]);
+    function truncateLongText(text, maxLength = 30) {
+        if (text.length > maxLength && !text.includes(' ')) {
+            return text.slice(0, maxLength) + '...';
+        }
+        return text;
+    }
 
-            // Create header row
-            const headerRow = thead.insertRow();
+    function createTable(data) {
+        const table = document.createElement('table');
+        const thead = table.createTHead();
+        const tbody = table.createTBody();
+        const headers = Object.keys(data[0]);
+
+        // Create header row
+        const headerRow = thead.insertRow();
+        headers.forEach(header => {
+            const th = document.createElement('th');
+            th.textContent = header;
+            headerRow.appendChild(th);
+        });
+
+        // Create body rows
+        data.forEach(row => {
+            const bodyRow = tbody.insertRow();
             headers.forEach(header => {
-                const th = document.createElement('th');
-                th.textContent = header;
-                headerRow.appendChild(th);
-            });
-
-            // Create body rows
-            data.forEach(row => {
-                const bodyRow = tbody.insertRow();
-                headers.forEach(header => {
-                    const cell = bodyRow.insertCell();
-                    let cellContent = row[header];
-                    // Check if cell content is a URL
-                    if (cellContent.startsWith('http://') || cellContent.startsWith('https://')) {
+                const cell = bodyRow.insertCell();
+                let cellContent = row[header];
+                // Check if cell content is a URL
+                if (cellContent.startsWith('http://') || cellContent.startsWith('https://')) {
+                    const link = document.createElement('a');
+                    link.href = cellContent;
+                    link.textContent = truncateText(cellContent);
+                    cell.appendChild(link);
+                } else {
+                    if (header == "URL") {
                         const link = document.createElement('a');
-                        link.href = cellContent;
+                        link.href = "html/" + cellContent + ".html";
                         link.textContent = truncateText(cellContent);
                         cell.appendChild(link);
                     } else {
                         cell.textContent = truncateLongText(cellContent);
                     }
-                });
+                }
             });
+        });
 
-            return table;
-        }
+        return table;
+    }
 
-        async function loadAndDisplayCSV() {
-            const csvData = await fetchCSV();
-            const dataArray = csvToArray(csvData);
-            const table = createTable(dataArray);
-            document.getElementById('table-container').appendChild(table);
-        }
+    async function loadAndDisplayCSV() {
+        const csvData = await fetchCSV();
+        const dataArray = csvToArray(csvData);
+        const table = createTable(dataArray);
+        document.getElementById('table-container').appendChild(table);
+    }
 
-        loadAndDisplayCSV();
-    </script>
+    loadAndDisplayCSV();
+</script>
 </body>
 </html>
