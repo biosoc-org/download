@@ -6,7 +6,7 @@ import os
 
 # Funkcja główna realizująca zadania
 def main(site_url, element_id, output_file):
-    # Stworzenie tablicy z 3 elementami: GROUP, URL, DESCRIPTION
+    # Stworzenie tablicy z 4 elementami: GROUP, URL, DESCRIPTION, INFO
     data = []
 
     # Pobranie zawartości strony www ze zmiennej SITE_URL
@@ -30,9 +30,13 @@ def main(site_url, element_id, output_file):
                     # Zapisanie napotkanego linku i jego opisu
                     url = child.get('href')
                     description = child.get_text()
+                    # Pobranie tekstu za tagiem <a>
+                    next_sibling = child.next_sibling
+                    info = next_sibling.strip() if next_sibling else ''
+
                     if url and current_group:
-                        # Zapisanie zmiennych GROUP, URL, DESCRIPTION do tablicy
-                        data.append((current_group, url, description))
+                        # Zapisanie zmiennych GROUP, URL, DESCRIPTION, INFO do tablicy
+                        data.append((current_group, url, description, info))
         else:
             print(f"Error: Element with ID '{element_id}' not found on the page.")
     else:
@@ -41,7 +45,7 @@ def main(site_url, element_id, output_file):
     # Zapisanie danych do pliku CSV
     with open(output_file, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(['Group', 'URL', 'Description'])
+        writer.writerow(['Group', 'URL', 'Description', 'Info'])
         writer.writerows(data)
 
     print(f"Data successfully saved to {output_file}")
