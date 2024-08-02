@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb"><head>
+<title>DOCK Blaster - A Free Virtual Screening Server</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" type="text/css" href="/css/sf2.css" media="screen" title="docking.org-screen-css" />
+<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+<link rel="shortcut icon" href="/icons/blaster.ico" type="image/x-icon" />
+<script language="javascript" src="/watch.js" />
+</script>
+<meta name="verify-v1" content="17EvZLddPpBKLuIre/O9XVPrxugsIOWy0V5C/AGHjOY=" />
+
+<!-- Place this tag in your head or just before your close body tag -->
+<!--<script type="text/javascript"
+src="https://apis.google.com/js/plusone.js"></script>
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-10800222-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript';
+ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async
+src="https://www.googletagmanager.com/gtag/js?id=UA-10800222-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-10800222-1');
+</script>
+
+
+</head>
+<body>
+
+<!-- 
+<div id="ucsf"></div>
+-->
+
+
+<div class="firstwave">
+<div class="btitl">v1.6.0 with PocketPickker
+</div>
+<div class="bsubtitl">
+<ul class="nav">
+<li class="begin selected"><a href="/" >Home</a>
+<ul>
+<li><a href="/">About DOCK Blaster</a></li>
+<li><a href="http://wiki.bkslab.org/index.php/DOCK_Blaster:Tutorials">Tutorials</a></li>
+<li><a href="/get_started.shtml">Get Started</a></li>
+<li><a href="/aboutdock.shtml">About DOCK and ZINC</a></li>
+<li><a href="/about_bcirc.shtml">About BCIRC</a></li>
+<li><a href="/about_sl.shtml">About Shoichet Lab</a></li>
+<li><a href="/about_ucsf_pc.shtml">About UCSF Pharm Chem</a></li>
+<li><a href="/ack.shtml">Acknowledgements</a></li>
+<li><a href="http://blaster.docking.org/stats/">How much is DOCK Blaster used?</a></li>
+<li><a href="/cgi-bin/myquotas.pl">Quotas</a></li>
+</ul>
+</li>
+
+<li><a href="/dockblaster.shtml" >DOCK!</a>
+<ul>
+<li><a href="/get_started.shtml">Get started</a></li>
+<li><a href="/start.shtml">Start with a structure</a></li>
+<li><a href="/parser.shtml">Start with a PDB code</a></li>
+<li><a href="/cgi-bin/parser.pl?lucky=1">I'm Feeling Lucky</a><li>
+<li><a href="/query.shtml">Query a Job</a></li>
+<li><a href="/cgi-bin/jobmon.pl">Browse Jobs</a></li>
+</ul>
+</li>
+
+<li><a href="/documentation.shtml" >Documentation</a>
+<ul>
+
+<li><a href="https://wiki.docking.org/index.php/DOCK_Blaster">
+Introduction to DOCK Blaster</a></li>
+
+<li><a href="https://wiki.docking.org/index.php/DOCK_Blaster:Tutorials">
+Tutorials</a></li>
+
+<li><a href="https://blaster.docking.org/data/">Sample data</a></li>
+<li><a href="https://wiki.docking.org/index.php/DOCK_Blaster:Prepare_Input">
+How to prepare input</a></li>
+
+<li><a href="https://wiki.docking.org/index.php/DOCK_Blaster:Reliability">
+Can I trust DOCK Blaster results?</a></li>
+
+<li><a href="http://wiki.docking.org/index.php/DOCK_Blaster:Interpreting_Results">
+What do DOCK Blaster results mean?</a></li>
+
+<li><a href="http://wiki.docking.org/index.php/DOCK_Blaster:Timings">
+How long does DOCK Blaster take?</a></li>
+
+<li><a href="http://wiki.docking.org/index.php/DOCK_Blaster:FAQ">
+FAQ</a></li>
+
+</ul>
+</li>
+
+<li><a href="/" >Mailing lists</a>
+<ul>
+<li><a href="mailto:dock_fans@googlegroups.com">
+DOCK Blaster-Fans</a></li>
+<li><a href="mailto:dockdev@googlegroups.com">
+DOCK Development Interest Group</a></li></ul></li>
+<g:plusone></g:plusone>
+
+</ul>
+</div>
+</div>
+<div class="main">
+<div class="right">
+<img alt="Z B" title="Docking, the universe, and everything" border="0" src="/icons/zb2.png" />
+
+<table border=1 cellpadding=5 cellspacing=5  width=190>
+<tr><td><b>Caveat Emptor</b>: We accept no responsibility
+for errors arising from the use of this service. It is provided
+in the hope that it will be useful, but you must use it at your own risk.
+</td></tr></table>
+</div>
+<p>
+Welcome to DOCK Blaster, a public access service 
+for
+<a href="http://wiki.bkslab.org/index.php/Structure_based_ligand_discovery">
+structure-based ligand discovery</a>.
+ DOCK Blaster aims to answer the question:
+What small molecules should I purchase and test for activity against 
+my biological target for which I have a structure? 
+<table cellspacing=10 cellpadding=10><tr><td>
+<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like-box href="http://www.facebook.com/pages/DOCK-Blaster/226507737375233" width="292" show_faces="false" stream="false" header="false"></fb:like-box>
+</td><td>
+This is version 1.6.0, now featuring the PocketPickker (CLIPPERS). 
+If you use the PocketPickker (CLIPPERS), please cite:
+<a href="http://pubs.acs.org/doi/abs/10.1021/ci900397t">
+Coleman and Sharp, J. Chem. Inf. Model., 2010, 50 (4), pp 589-603</a>.
+
+This is now the only version available.  Please write us if it does not do what you need.
+</td></tr></table>
+DOCK Blaster is provided by the Irwin and Shoichet Laboratories in the
+Department of Pharmaceutical Chemistry at the
+University of California, San Francisco (UCSF). 
+To cite DOCK Blaster, please reference Irwin, Shoichet, Mysinger et al., 
+"Automated docking screens: a feasibility study.",
+<a target=_blank href="http://pubs.acs.org/doi/abs/10.1021/jm9006966">
+ J. Med. Chem.  <b>2009</b>, 52(18), pp 5712-5720</a>.
+</p>
+<ul type="square">
+<li><a href="/get_started.shtml">Get started</a></li>
+<li>
+<a href="http://wiki.bkslab.org/index.php/DOCK_Blaster:Preliminaries">
+Take a step back</a></li>
+<li>
+<a href="http://wiki.bkslab.org/index.php/DOCK_Blaster:Tutorials">
+Examples of Use</a></li>
+<li>
+<a href="http://wiki.bkslab.org/index.php/DOCK_Blaster:FAQ">
+Frequent Questions</a></li>
+<li><a href="/aboutdock.shtml">About DOCK and ZINC</a></li>
+<li><a href="/about_bcirc.shtml">About BCIRC</a></li>
+<li><a href="/about_il.shtml">Irwin Laboratory</a></li>
+<li><a href="/about_sl.shtml">Shoichet Laboratory</a></li>
+<li><a href="/about_ucsf_pc.shtml">UCSF Pharmaceutical Chemistry</a></li>
+<li><a href="/ack.shtml">Acknowledgements</a></li>
+<li><a href="http://blaster.docking.org/stats">How much is DOCK Blaster used?</a></li>
+</ul>
+</p>
+
+<div class="foot">
+<a target=_blank class="external" href="https://wiki.docking.org/index.php/Terms_And_Conditions">
+Terms of use</a> &nbsp; 
+<a target=_blank class="external" href="https://wiki.docking.org/index.php/Privacy_policy">
+Privacy policy</a> &nbsp; 
+<a target=_blank class="external" href="https://forms.gle/LZV1FCmLWxUWznVi9">
+Questions, Bug reports, Feature requests</a> &nbsp; 
+Thanks to NIGMS! <a target=_blank class="external" href="https://www.nigms.nih.gov/">GM71896</a>
+<br />This is not an official UCSF website. The opinions or statements expressed
+herein should not be taken as a position of or endorsement by the University
+of California, San Francisco.
+<br />Copyright 2009-2024 John Irwin and the UC Regents
+</div>
+</body>
+</html>
+

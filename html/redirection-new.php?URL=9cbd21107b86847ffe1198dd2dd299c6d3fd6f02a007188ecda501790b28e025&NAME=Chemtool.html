@@ -1,0 +1,485 @@
+<html>
+<head>
+<title>
+Chemtool development page
+</title>
+
+</head>
+<body>
+<h2>Chemtool </h2>
+<p>
+Chemtool is a small program for drawing chemical structures on Linux and Unix
+systems using the GTK toolkit under X11. A short and possibly outdated description of the available
+functions is available <a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/usage.html>here</a>. 
+<p>
+<a href=screenshot_chemtool.jpg><img src=screenshot_chemtool-s.jpg></a>&nbsp;<a href=chemtool-screenshot.jpg><img src=chemtool-screenshot-s.jpg></a>&nbsp;<a href=sgi.jpg><img src=sgi-s.jpg></a>&nbsp;<a href=chem_rus.png><img src=chem_rus-s.png></a>&nbsp;<a href=shot2.png><img src=shot2-s.png></a>
+<p>
+Chemtool relies on transfig by Brian Smith for postscript printing and exporting
+files in PicTeX and EPS formats. Its companion program, XFig, is recommended
+for enhancing the output of chemtool, and for creation of 2D diagrams and 
+schematics in general. Both are included with most distributions of Linux,
+and are available through a number of websites including <a href="http://www.xfig.org">www.xfig.org</a>. If you want to import chemtool drawings into word
+processing programs other than LaTeX, you will probably want to add a preview
+bitmap to them, as neither StarOffice/OpenOffice nor that software from Redmond
+seem to be able to display postscript inserts on screen without them. For this purpose, using either ps2epsi, which comes with <a href="http://www.cs.wisc.edu/~ghost">ghostscript</a>, or epstool, a part of <a href="http://www.cs.wisc.edu/~ghost/gsview/epstool.htm">gsview</a> is recommended. Since chemtool-1.6, this
+option is supported directly (through the equivalent function  offered by recent
+versions of transfig).
+<p>
+Chemtool was originally written by Thomas Volk, then a student of chemistry and
+biology at the university of Ulm, Germany. His version, which was described in
+an <a href="http://www.linux-magazin.de/Artikel/ausgabe/1998/07/Chemie/chemie.html">article</a> in the german periodical LinuxMagazin, was using plain X11. 
+<p>
+I became involved in development shortly after reading this article, adding 
+a few bond types and such, and gradually took over from him as he was lacking 
+time due to his exams drawing near, and probably generally moving on to other 
+things. Note that i am not doing this alone - much of the progress is due to
+contributions of code, translations, examples or just ideas.
+<p>
+A more recent review of chemtool appeared in <i>Nachr. Chem. Tech. Lab.</i>
+<b>49</b> (2001) 1310-1314.</i><br>
+As Thomas Volk continued to host the project web pages for a long time, 
+this page here is still a poor excuse for a webpage, mainly just a point 
+to gather new versions. This will change... i promise. :-)
+<p>
+The &quot;development snapshots&quot; at the bottom of this page are usually
+not (intended to be) less reliable than the &quot;released&quot; version - 
+they just may contain incomplete new features, or features that may
+be gone again in the next snapshot if they prove to be unnecessary or too hard
+to implement correctly.
+
+<p>
+Please contact me at <br>
+<a href="mailto:martin@ruby.chemie.uni-freiburg.de">martin@ruby.chemie.uni-freiburg.de</a> if you have any questions or suggestions.
+<br>
+<hr>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/oldversions.html">History of pre-1.4 changes</a>
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/versions1415.html">History of pre-1.5 changes</a>
+
+<h2> Chemtool-1.6.15 release candidate Test build for MS Windows</h2>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.zip>chemtool.zip</a>	
+<p>This is currently just 1.6.14 with some trivial bugfixes and several portability improvements.
+It was compiled on Linux with the help of the MXE cross-compiling environment, and appears to
+work on at least Windows7 and Windows Server 2003 (probably works on XP as well, but I could not
+test this). Note this does NOT mean that I intend to switch to Windows...
+The zip currently does not include the language packs, as I have not yet found out
+where they should be installed. Feedback is appreciated. 
+</p>
+<h2>Latest stable version: </h2>
+<h3>Chemtool-1.6.14 (August 13, 2013)</h3>
+<p>
+This is just an interim release to fix a crash bug in all output modes based on fig2dev.
+Also included is an update to the build scripts to facilitate building on ARM64 targets,
+and autodetection of recent versions of openbabel for im/export should work again.
+</p>
+<hr>
+
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.14.tar.gz>chemtool-1.6.14, sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.14-1.src.rpm>chemtool-1.6.14-1.src.rpm, sourcecode in rpm format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.14-1.x86_64.rpm.suse113>chemtool-1.6.14-1.x86_64.rpm.suse113, openSuSE 11.3 (64bit) rpm package</a><br>
+
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.14-1.x86_64.rpm.suse122>chemtool-1.6.14-1.x86_64.rpm.suse113, openSuSE 12.2 (64bit) rpm package</a><br>
+<hr>
+<hr>
+<h2>Previous stable versions: </h2>
+<h3>Chemtool-1.6.13 (December 24, 2011)</h3>
+<p>
+This release consists mainly of fixes for bugs that were exposed by recent 
+versions of the gcc compiler, linker and X11 libraries - failures to build
+the program or to enable translations with the generated Makefile, and most
+importantly a bug that led to an immediate crash at startup on at least Fedora16.
+Also included is a new export module for the <a href="http://asymptote.sourceforge.net">asymptote</a>
+program and smaller fixes (entering Unicode symbol characters by cut-and-paste, 
+saving/exporting to file paths containing spaces).
+</p>
+<hr>
+<a
+href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.13.tar.gz>chemtool-1.6.13, sourcecode in tar.gz format</a><br>
+<a
+href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.13-1.src.rpm>chemtool-1.6.13-1.src.rpm, sourcecode in rpm format</a><br>
+<hr>
+<a
+<h3>Chemtool-1.6.12 (June 7, 2009)</h3>
+<p>
+This release contains another round of fixes for label positioning and clipping
+of bonds around labels. The pen color button has been replaced by a drop-down
+menu, and a "white" pen for drawing on colored backgrounds has been added.
+Chemtool now automatically resizes its main window on small (netbook) screens,
+and it can also be used in an non-interactive mode to create postscript (etc.)
+output from previously created chemtool structure files.
+The Polish translation has been updated, and a new Bulgarian translation has been added.
+</p>
+<hr>
+
+<a
+href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.12.tar.gz>chemtool-1.6.12, sourcecode in tar.gz format</a><br>
+<!---
+<a
+href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.11-1.src.rpm>chemtool-1.6.11-1.src.rpm, sourcecode in rpm format</a><br>
+<a
+href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.11-1.i586.rpm>chemtool-1.6.11-1.i586.rpm, SuSE 10.2 rpm package</a><br>
+-->
+<hr>
+<h3>Chemtool-1.6.11 (August 26, 2007)</h3>
+<p>
+This release contains numerous fixes for label positioning and sub/superscript kerning.
+Bond length and zoom factor are now stored with the drawing, bond clipping of
+multiple bonds was improved and new special key sequences for circled plus
+and minus symbols were added. The configuration dialog now lists gtklp among
+the supported print commands. Source layout and build system were reorganized to make 
+addition of translations easier, and a Portuguese localization file was added.
+</p>
+<hr>
+
+<a
+href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.11.tar.gz>chemtool-1.6.11, sourcecode in tar.gz format</a><br>
+<a
+href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.11-1.src.rpm>chemtool-1.6.11-1.src.rpm, sourcecode in rpm format</a><br>
+<a
+href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.11-1.i586.rpm>chemtool-1.6.11-1.i586.rpm, SuSE 10.2 rpm package</a><br>
+<hr>
+<hr>
+<h3>Chemtool-1.6.10 (April 8th, 2007)</h3>
+<p>
+This release adds PNG export, round brackets, text output in east-european locales and some
+new templates. Several bugs related to special character handling in GTK2, screen display of
+labels and exporting to EPS and SVG have been fixed. The configuration dialog has been redone 
+and now includes support for kprinter, and the labeling shortcuts no longer interfere with
+<h3>Chemtool-1.6.10 (April 8th, 2007)</h3>
+<p>
+This release adds PNG export, round brackets, text output in east-european locales and some
+new templates. Several bugs related to special character handling in GTK2, screen display of
+labels and exporting to EPS and SVG have been fixed. The configuration dialog has been redone 
+and now includes support for kprinter, and the labeling shortcuts no longer interfere with
+GTK's menu accelerators.
+</p>
+<hr>
+
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.10.tar.gz>chemtool-1.6.10, sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.10-1.src.rpm>chemtool-1.6.10-1.src.rpm, sourcecode in rpm format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.10-1.i586.rpm.SuSE102>chemtool-1.6.10-1.i586.rpm.SuSE102, SuSE 10.2 rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.10-1.i586.rpm.SuSE93>chemtool-1.6.10-1.i586.rpm.SuSE93, SuSE 9.3 rpm package</a><br>
+<hr>
+<h3>Chemtool-1.6.9 (March 6th, 2006)</h3>
+<p>
+This release fixes several issues with right-justified labels and drawing of 
+triple and quadruple bonds.
+</p>
+<hr>
+
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.9.tar.gz>chemtool-1.6.9, sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.9-1.src.rpm>chemtool-1.6.9-1.src.rpm, sourcecode in rpm format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.9-1.i586.rpm.SuSE93>chemtool-1.6.9-1.i586.rpm.SuSE93, SuSE 9.3 rpm package</a><br>
+<hr>
+<p>
+<h3>Chemtool-1.6.8 (January 3rd, 2006)</h3>
+<p>
+This release fixes a bug (crash on startup) that was exposed by gcc 4. It also
+adds detection of the recently released OpenBabel 2.0 and the ability to use
+Openbabel for exporting to foreign file formats. Subscript encoding in the SVG
+export was tweaked again to work around current limitations in the SVG support
+of Firefox 1.5 and Konqueror 3.x.
+</p>
+
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.8.tar.gz>chemtool-1.6.8, sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.8-1.src.rpm>chemtool-1.6.8-1.src.rpm, sourcecode in rpm format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.8-1.i586.rpm>chemtool-1.6.8-1.i586.rpm, SuSE 9.3 rpm package</a><br>
+<hr>
+<h3>Chemtool-1.6.7 (August 2nd, 2005)</h3>
+<p>
+This release fixes several serious bugs related to label rendering and 
+printing that occured (only) when chemtool was built with GTK 2 instead 
+of GTK 1.2 (characters being invisible or printed on top of each others)
+</p>
+<p>
+To make this more than just another bugfix release, and because the
+development cycle for 1.7 is taking longer than intended, i have added
+some of the improvements from the 1.7 alphas:
+<ul>
+<li>two new bond types for drawing p-orbitals</li>
+<li>configurable distance between the individual lines of multiple bonds</li>
+<li>&quot;free electron pairs&quot; drawn with the numeric keypad can be
+done in &quot;two dots&quot;-style by holding the shift key</li>
+<li>SVG export has been adjusted to some limitations of the SVG &quot;Tiny&quot;
+specification (mobile devices) and the current Firefox &quot;Deer Park&quot;
+builds (without losing functionality)</li>
+<li>chemtool can now export to OpenOffice SXD format when Alexander B&uuml;rger's <a href="http://sourceforge.net/projects/fig2sxd">fig2sxd</a> is installed</li>
+</ul>
+<p>
+<b>NOTE:</b> gcc 4.0.x apparently miscompile chemtool when the &quot;-O2&quot; optimizing option is used (as it is by default) - the resulting binary will crash on startup. If you need to use gcc-4, either compile it without optimization
+(remove the &quot;-O2&quot; option from the Makefile before running &quot;make&quot;) or change the declaration of &quot;const char *fontsizelabel&quot; in
+line 2983 of file main.c to a &quot;static const char*&quot; <b>UPDATE:</b> This is actually not a gcc bug, but an error on my part that somehow did not usually lead to failures with older compilers. Instead of changing the declaration of fontsizelabel, change the &quot;15&quot; in the declaration of the bondnums
+array (line 2981) to a &quot;22&quot; or wait for 1.6.8 (thanks to Richard Guenther / Michal Marek).
+<p>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.7.tar.gz>chemtool-1.6.7, sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.7-1.src.rpm>chemtool-1.6.7-1.src.rpm, source rpm package </a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.7-1.i586.rpm>chemtool-1.6.7-1.i586.rpm, SuSE 9.1 binary rpm package (using GTK 1.2)</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.7-1.i386.rpm>chemtool-1.6.7-1.i386.rpm, SuSE 8.2 binary rpm package (using GTK 1.2)</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.7-1.x86_64.rpm>chemtool-1.6.7-1.x86_64.rpm, SuSE 9.2 binary rpm package for AMD64(using GTK 2)</a><br>
+
+<h3>Chemtool-1.6.6 (February 12th, 2005)</h3>
+<p>
+This release fixes the stupid bug that made the molfile preview crash 
+immediately. It also corrects the rendering of wiggly (unknown stereochemistry)
+bonds and adds a sample .sdf file.
+<p>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.6.tar.gz>chemtool-1.6.6, sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.6-1.src.rpm>chemtool-1.6.6-1.src.rpm, source rpm package </a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.6-1.i586.rpm>chemtool-1.6.6-1.i586.rpm, SuSE 9.1 binary rpm package (using GTK 1.2)</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.6-1.i386.rpm-SuSE81>chemtool-1.6.6-1.i386.rpm-SuSE81, SuSE 8.1 binary rpm package (using GTK 1.2)</a><br>
+<hr>
+<h3>Chemtool-1.6.5 (February 6th, 2005)</h3>
+<p>
+This release fixes several issues with MDL molfile im- and export, adds
+sdf file reading/browsing, v3000 molfile format reading and molfile preview
+as well as a Dutch translation (Myckel Habets) and FreeBSD portability fixes
+in the configure script.
+</p>
+<b>NOTE: due to a silly last-minute editing blunder, loading any mdl molfile
+(except V3000 format) will cause an immediate crash in the previewer code
+with this version.<br>
+A hotfix version is available as chemtool-1.6.5a.tar.gz, which will be re-released as 1.6.6 (with rpms etc.) soon.</b><br>
+
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.5a.tar.gz>chemtool-1.6.5, corrected sourcecode in tar.gz format</a><br>
+
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.5.tar.gz>chemtool-1.6.5, original sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.5-1.src.rpm>chemtool-1.6.5-1.src.rpm, source rpm package </a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.5-1.i586.rpm>chemtool-1.6.5-1.i586.rpm, SuSE 9.1 binary rpm package (using GTK 1.2)</a><br>
+<hr>
+<h3>Chemtool-1.6.4 (December 20th, 2004)</h3>
+<p>
+This version adds support for compiling with GTK 2.x and fixes a few issues
+with arrowhead sizing on curved arrows and some more cases of bad label 
+placement. Also, a set of amino acids has been added to the template widget.
+</p>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.4.tar.gz>chemtool-1.6.4, sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.4-1.src.rpm>chemtool-1.6.4-1.src.rpm, source rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.4-1.i586.rpm>chemtool-1.6.4-1.i586.rpm, SuSE 9.1 binary rpm package (using GTK 1.2)</a><br>
+<hr>
+<h3>Chemtool-1.6.3 (May 18th, 2004)</h3>
+<p>
+This adds portability fixes for 64 bit systems (particularly AMD64) and OS X (Darwin).
+Also, the sum formula / molecular weight calculator has been updated to handle the second
+and third row of transition elements.
+<p>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.3.tar.gz>chemtool-1.6.3, sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.3-1.src.rpm>chemtool-1.6.3-1.src.rpm, source rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.3-1.i586.rpm.SuSE91>chemtool-1.6.3-1.i586.rpm.SuSE91, SuSE 9.1 binary rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.3-1.i586.rpm.SuSE90>chemtool-1.6.3-1.i586.rpm.SuSE90, SuSE 9.0 binary rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.3-1.i386.rpm.SuSE82>chemtool-1.6.3-1.i386.rpm.SuSE82, SuSE 8.2 binary rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.3-1.i386.rpm.SuSE81>chemtool-1.6.3-1.i386.rpm.SuSE81, SuSE 8.1 binary rpm package</a><br>
+<i>more rpm packages will follow soon</i>
+<p>
+<ul>
+<li>Users of Debian GNU/Linux can find appropriate .deb packages at <a href="http://www.debian.org/distrib/packages">debian.org</a>.</li> 
+<li>Chemtool is also available for Mac OS X or Darwin via the <a href="http://fink.sourceforge.net">fink</a> project. A precompiled binary package for OS X is also available here:
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool_1.6.3-2_darwin-powerpc.deb>chemtool_1.6.3-2_darwin-powerpc.deb</a> thanks to Andrew Rohl.
+</ul>
+<hr>
+<h3>Chemtool-1.6.2 (May 6th,2004)</h3>
+<p>
+This is basically a re-release of 1.6.1 with the bugfix for exporting
+right-justified labels applied. (The last two items on the list of changes
+below are specific to 1.6.2., however).<br>
+As there had already been quite a number of downloads by the time the bug was 
+noticed, this seems to me to be the cleanest solution.
+(Even with rpm's versioning, having both good and bad packages circulating
+via local mirrors would be a bad idead, and the problem is even more pronounced
+with the simple tar archive.) 
+<p>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.2.tar.gz>chemtool-1.6.2, sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.2-1.src.rpm>chemtool-1.6.2-1.src.rpm, source rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.2-1.i586.rpm>chemtool-1.6.2-1.i586.rpm, SuSE 9.0 binary rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.2-1.i386.rpm.SuSE80>chemtool-1.6.2-1.i386.rpm.SuSE80, SuSE 8.0 binary rpm package</a><br>
+<p>
+Fixes and enhancements in chemtool 1.6.2 over 1.6
+<ul>
+<li> chemtool should now work equally well with either the 75dpi or 100dpi
+  XFree86 raster fonts (1.6 absolutely required the 75dpi fonts)
+<li> improvements to bond pruning underneath labels
+<li> better positioning of right-justified labels, better clipping limits
+  around labels
+<li> better formatting of labels containing parentheses
+<li> syntax fixes (missing $s) for greek/special characters, and proper
+  escaping of isolated percent and dollar characters in Latex export.
+<li> various improvements in the SVG export
+<li> support for direct entering of labels in the bond drawing modes,
+  and improved updating of label properties
+<li> translated messages were truncated in some cases in 1.6
+<li> portability fix (undo memory handling) for some SGI Irix variants
+<li> Updated French and Brazilian translations
+<li> Updated documentation
+<li> In 'move' mode, individual bonds can now be dragged without
+     having to mark them first
+<li> The configure script now searches for KDE in /opt/kde2 and /opt/kde3
+     in addition to /opt/kde
+</ul>
+<hr>
+<h3>Chemtool-1.6</h3>
+<p>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6.tar.gz>chemtool-1.6, sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6-1.src.rpm>chemtool-1.6-1.src.rpm, source rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6-1.i386.rpm>chemtool-1.6-1.i386.rpm, SuSE 8.0 binary rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6-1_rh9.i386.rpm>chemtool-1.6-1_rh9.i386.rpm, Red Hat 9.0 binary rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.6-1_rh9.src.rpm>chemtool-1.6-1_rh9.src.rpm, Red Hat 9.0 source rpm package</a><br>
+<a href=http://packages.debian.org/chemtool/>Debian package (at packages.debian.org)</a><br>
+<a href=http://www.altlinux.ru/?module=sisyphus&package=chemtool>package for Russian ALT linux distribution (Russian language page at altlinux.ru)</a>
+<a href=http://www.altlinux.org/?module=sisyphus&package=chemtool>package for Russian ALT linux distribution (English language page at altlinux.org)</a>
+
+<p>
+<h4>New features:</h4>
+<ul>
+<li>Import from numerous foreign file formats (using Babel or OpenBabel)
+<li>Movable hexagonal or square grid backdrop
+<li>Improved SVG export, optional preview bitmaps in EPS export
+<li>Cursor key support for pixel-precise drawing
+<li>Color drawing support 
+<li>Alternate font support 
+<li>Text of different size can now coexist in a drawing
+<li>Ability to define an attachment site in stored fragments 
+<li>Configurable default bond length and background color
+<li>Double bonds no longer change orientation when rotating a molecule
+<li>Improved rendering of dotted lines and dashed wedges
+<li>Portability fixes for non-Linux platforms (BSD,AIX,SGI,Cygwin)
+<li>Help window
+</ul>
+<h2>Previous stable version: </h2>
+<h3>Chemtool-1.5</h3>
+<p>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.5.tar.gz>chemtool-1.5, sourcecode in tar.gz format</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.5-1.src.rpm>chemtool-1.5-1.src.rpm, source rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.5-1.i386.rpm>chemtool-1.5-1.i386.rpm, SuSE 8.0 binary rpm package</a><br>
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool-1.5-1mdk.i686.rpm>chemtool-1.5-1mdk.i686.rpm, Mandrake 8.1 binary provided by Dominique Burget</a>
+<hr>
+<i>more rpm packages may follow - .deb packages can be found at debian.org</i>
+<p>
+<h4>Changes vs. 1.5.alpha27</h4>
+Updated spec file (Radek Liboska). Fix for 'stepwise rotation' mode
+        not working for counter-clockwise rotation (Michael Banck). Added a
+        program icon to the main window, and .cht mimetype definitions for 
+        Gnome and KDE (Radek Liboska), and updated configure script and 
+        Makefile.in to install them as needed. Fixed return code checking 
+        for printing (was not recognizing failed attempts due to wrong print 
+        command or queue name). Fixed off-by-one error in print status 
+        message length that could cause memory corruption. 
+        Updated Brazilian Portuguese translation (Flavio Matsumoto). Updated 
+        Russian translation and added .sdf extension to molfile import 
+        patterns (Michael Shigorin). Changed SVG filename extension back 
+        to .svg, as this is more correct than .xml (and the .xml name turned 
+        out to be necessary only as a workaround for a bug in Mozilla that 
+        has been fixed in the meantime). Updated Polish translation (Nikodem
+        Kuznik). Made a few cosmetic changes in Makefile.in (Michael Banck).
+<p>
+<h4>Changes vs. 1.4.1:</h4>
+<b>New drawing options</b>:
+<ul>
+<li>Added essentially unlimited undo/redo capability
+<li>Added import of PDB and MDL molfiles, and export of MDL and SVG files
+<li>Added several types of brackets and boxes
+<li>Added bold text.
+<li>Much improved file selection box with preview window
+<li>Added direct (postscript) printing option
+<li>Added configuration dialog for default file path, etc.
+<li>Added a few templates (disaccharides etc.)
+<li>Added Brazilian Portuguese translations
+<li>Assist drawing of bonds of 1/3 or 1/2 the standard length
+<li>Allow LaTeX like syntax for sub- and superscripts
+<li>Added shortcut for drawing of electron pairs around element symbols
+<li>Moving of objects can be restricted to horizontal or vertical
+<li>Added configure script and optional support files <br>
+    (desktop entries and mimetype files) for KDE and GNOME.
+</ul>
+<hr>
+<hr>
+<h2>Development versions leading up to 1.6</h2> have moved 
+<a href=http://ruby.chemie.uni-freiburg.de/~martin/chemtool/versionspre16.html>
+here</a>
+<hr>
+<h2>Development versions for 1.7</h2>
+
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a1.tgz">ct17a1.tgz (12.02.05)</a><br>
+This version adds a clean separation between preview and drawing area - no more
+glitches in the canvas while a file dialog is displayed. More importantly, it
+adds the beginning of database support with (sub)structure searches in SDF files
+or MySQl databases using the checkmol program of Norbert Haider. See
+<a href="http://merian.pch.univie.ac.at/~nhaider/cheminf/cmmm.html">http://merian.pch.univie.ac.at/~nhaider/cheminf/cmmm.html</a> for this program and a description of the MySQL database setup.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a2.tgz">ct17a2.tgz (13.02.05)</a><br>
+This adds a proper configuration dialog for the database settings.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a3.tgz">ct17a3.tgz (26.02.05)</a><br>
+This adds runtime support for fig2sxd (export to OpenOffice Drawing format) and 
+reading and presenting of optional property data (typically CAS numbers) found 
+in sdf files.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a4.tgz">ct17a4.tgz (04.03.05)</a><br>
+This version fixes a (harmless?) gdk assertion in the query result preview, and
+adds a preview dialog for browsing MySQL results (SDF browsing was already in a1). It is now possible to redisplay the results of the most recent search.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a5.tgz">ct17a5.tgz (19.03.05)</a><br>
+Molfiles were exported upside down in some cases, and hydrogen count was off by one. The sdf preview was counting one entry beyond the end of the file.<br>
+There is now a new export option to append to existing sdf files. Adding and removing of (sdf) properties is now possible.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a6.tgz">ct17a6.tgz (25.03.05)</a><br>
+Made MySQL result preview actually work. Added automatic retrieval 
+of all property entries from table "mol" of the database when a result 
+is chosen. Fixed compilation without MySQL. Corrected several memory 
+overflow bugs in the database access code.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a7.tgz">ct17a7.tgz (28.03.05)</a><br>
+Added a menu option to save molecules in a MySQL database - this automatically
+brings up the property dialog with all the fields in the &quot;mol&quot; table
+and uses checkmol to fill in the fingerprint data in the &quot;molstat&quot;
+ and &quot;molfg&quot; tables.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a8.tgz">ct17a8.tgz (25.04.05)</a><br>
+Added a MySQL database creation dialog. Fixed a bug that caused properties to
+ always be retieved from the first database. The spacing between the lines of 
+a double (triple,...) bond is now configurable.<hr>
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a9.tgz">ct17a9.tgz (27.04.05)</a><br>
+Fixed non-MySQL build. Fixed xfig/eps/sxd exports when compiled with 
+GTK2 (character width was reported as zero, resulting in all characters 
+being placed on top of each other). Made color button image wider. 
+Export modes now report the actual number of bonds and labels written, 
+previously the total was given even if only parts were marked.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a10.tgz">ct17a10.tgz (2.05.05)</a><br>
+Fixed the screen rendering of multi-character subscripts in the gtk2
+ build. Corrected vertical placement of labels. Fixed a crash in the
+ database creation function. Added "update entry" menu option for
+ replacing the most recent hit in the database.<br>
+Modified the database insertion functions to not leak mysql handles
+ on error, and to store (or replace) the corresponding molfile only
+ after all database operations completed successfully. Property names
+ are no longer displayed as editable in the 'show properties' window.
+ Updated the INSTALL document.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a11.tgz">ct17a11.tgz (6.05.05)</a><br>
+Added more MySQL data types to the database creation dialog. Added
+a simple property search widget.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a12.tgz">ct17a12.tgz (7.05.05)</a><br>
+Combined all search widgets into a single menu option and dialog
+ for searching any of the available sources for the current fragment
+ and/or a database-specific property.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a13.tgz">ct17a13.tgz (2.06.05)</a><br>
+Added xmlns specification to the svg file header. Moved superscripts 
+a bit farther up in the xfig and xfig-based output formats. Fixed
+ misdetection of fig2dev version that could lead to the generation
+ of full-page Postscript instead of EPS files with gtk2 in some locales.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a14.tgz">ct17a14.tgz (16.06.05)</a><br>
+GTK2 fixes for screen rendering of symbol characters and
+ for a GTK2 color selector crash. New keyboard shortcut Shift+Keypad
+ to draw electron pairs as pairs of dots. Fixed several multi-line
+ format strings that modern gcc refuses to handle. Corrected SVG
+ output of 'radical dot'.
+<p>
+<a href="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/ct17a15.tgz">ct17a15.tgz (16.07.05)</a><br>
+Added two new bondtypes for drawing filled and unfilled p orbital lobes.
+<hr>
+</body>
+</html>
+

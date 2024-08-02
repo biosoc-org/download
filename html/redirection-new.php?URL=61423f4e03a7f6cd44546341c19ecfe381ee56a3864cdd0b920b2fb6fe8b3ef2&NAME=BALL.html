@@ -1,0 +1,619 @@
+<!doctype html>
+
+
+<!--[if IE 8]>
+<html class="ie ie8 no-js" lang="en-US">
+<![endif]-->
+
+<!--[if !(IE 8)]><!-->
+<html lang="en-US" class="no-js">
+<!--<![endif]-->
+<head>
+
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="profile" href="http://microformats.org/profile/specs" />
+<link rel="profile" href="http://microformats.org/profile/hatom" />
+
+
+<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>BALL Project &#8211; Biochemical Algorithms Library</title>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="BALL Project &raquo; Feed" href="https://ball-project.org/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/ball-project.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.5.15"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='papercite_css-css'  href='https://ball-project.org/wp-content/plugins/papercite/papercite.css?ver=5.5.15' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://ball-project.org/wp-includes/css/dist/block-library/style.min.css?ver=5.5.15' type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-notice-front-css'  href='https://ball-project.org/wp-content/plugins/cookie-notice/css/front.min.css?ver=5.5.15' type='text/css' media='all' />
+<link rel='stylesheet' id='fsb-image-css'  href='https://ball-project.org/wp-content/plugins/simple-full-screen-background-image/includes/fullscreen-image.css?ver=5.5.15' type='text/css' media='all' />
+<link rel='stylesheet' id='wpnb-cssF-css'  href='https://ball-project.org/wp-content/plugins/wp-news-bulletin/lib/css/wpnb_frontEnd.css?ver=5.5.15' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='https://ball-project.org/wp-content/themes/tiny-framework/fonts/font-awesome/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='tinyframework-style-css'  href='https://ball-project.org/wp-content/themes/tiny-framework/style.css?ver=2.3.1' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='tinyframework-ie-css'  href='https://ball-project.org/wp-content/themes/tiny-framework/css/ie.css?ver=2.3.1' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='slb_core-css'  href='https://ball-project.org/wp-content/plugins/simple-lightbox/client/css/app.css?ver=2.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='colorbox-css'  href='https://ball-project.org/wp-content/plugins/slideshow-gallery/views/default/css/colorbox.css?ver=1.3.19' type='text/css' media='all' />
+<link rel='stylesheet' id='fontawesome-css'  href='https://ball-project.org/wp-content/plugins/slideshow-gallery/views/default/css/fontawesome.css?ver=4.4.0' type='text/css' media='all' />
+<script type='text/javascript' src='https://ball-project.org/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://ball-project.org/wp-content/plugins/papercite/js/papercite.js?ver=5.5.15' id='papercite-js'></script>
+<script type='text/javascript' id='cookie-notice-front-js-extra'>
+/* <![CDATA[ */
+var cnArgs = {"ajaxUrl":"https:\/\/ball-project.org\/wp-admin\/admin-ajax.php","nonce":"bd0db2103c","hideEffect":"fade","position":"top","onScroll":"0","onScrollOffset":"100","onClick":"0","cookieName":"cookie_notice_accepted","cookieTime":"2592000","cookieTimeRejected":"2592000","cookiePath":"\/","cookieDomain":"","redirection":"0","cache":"0","refuse":"0","revokeCookies":"0","revokeCookiesOpt":"automatic","secure":"1","coronabarActive":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://ball-project.org/wp-content/plugins/cookie-notice/js/front.min.js?ver=1.3.2' id='cookie-notice-front-js'></script>
+<script type='text/javascript' src='https://ball-project.org/wp-content/plugins/wp-news-bulletin/lib/js/wpnb_frontEnd.js?ver=5.5.15' id='wpnb-frontEndJS-js'></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://ball-project.org/wp-content/themes/tiny-framework/js/html5shiv.min.js?ver=3.7.3' id='tinyframework-html5-js'></script>
+<![endif]-->
+<script type='text/javascript' src='https://ball-project.org/wp-content/plugins/slideshow-gallery/views/default/js/gallery.js?ver=1.0' id='slideshow-gallery-js'></script>
+<script type='text/javascript' src='https://ball-project.org/wp-content/plugins/slideshow-gallery/views/default/js/colorbox.js?ver=1.6.3' id='colorbox-js'></script>
+<script type='text/javascript' src='https://ball-project.org/wp-content/plugins/slideshow-gallery/views/default/js/jquery-ui.js?ver=5.5.15' id='jquery-ui-effects-js'></script>
+<link rel="https://api.w.org/" href="https://ball-project.org/wp-json/" /><link rel="alternate" type="application/json" href="https://ball-project.org/wp-json/wp/v2/pages/16" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ball-project.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://ball-project.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.5.15" />
+<link rel="canonical" href="https://ball-project.org/" />
+<link rel='shortlink' href='https://ball-project.org/' />
+<link rel="alternate" type="application/json+oembed" href="https://ball-project.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fball-project.org%2F" />
+<script type="text/javascript" src="https://ball-project.org/wp-content/plugins/si-captcha-for-wordpress/captcha/si_captcha.js?ver=1722638345"></script>
+<!-- begin SI CAPTCHA Anti-Spam - login/register form style -->
+<style type="text/css">
+.si_captcha_small { width:175px; height:45px; padding-top:10px; padding-bottom:10px; }
+.si_captcha_large { width:250px; height:60px; padding-top:10px; padding-bottom:10px; }
+img#si_image_com { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_reg { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_log { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_side_login { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_checkout { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_jetpack { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_bbpress_topic { border-style:none; margin:0; padding-right:5px; float:left; }
+.si_captcha_refresh { border-style:none; margin:0; vertical-align:bottom; }
+div#si_captcha_input { display:block; padding-top:15px; padding-bottom:5px; }
+label#si_captcha_code_label { margin:0; }
+input#si_captcha_code_input { width:65px; }
+p#si_captcha_code_p { clear: left; padding-top:10px; }
+.si-captcha-jetpack-error { color:#DC3232; }
+</style>
+<!-- end SI CAPTCHA Anti-Spam - login/register form style -->
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-image: url("https://ball-project.org/wp-content/uploads/2015/11/bg_image_03.png"); background-position: center center; background-size: contain; background-repeat: no-repeat; background-attachment: fixed; }
+</style>
+	<link rel="icon" href="https://ball-project.org/wp-content/uploads/2015/10/cropped-ball_logo_web_011-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://ball-project.org/wp-content/uploads/2015/10/cropped-ball_logo_web_011-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://ball-project.org/wp-content/uploads/2015/10/cropped-ball_logo_web_011-180x180.png" />
+<meta name="msapplication-TileImage" content="https://ball-project.org/wp-content/uploads/2015/10/cropped-ball_logo_web_011-270x270.png" />
+
+<!-- Styles cached and displayed inline for speed. Generated by http://stylesplugin.com -->
+<style type="text/css" id="styles-plugin-css">
+
+</style>
+
+</head>
+
+<body class="home page-template-default page page-id-16 custom-background cookies-not-set styles h-entry hentry h-as-page single-author header-image-no full-width page-about" itemscope="" itemtype="https://schema.org/AboutPage">
+
+
+<span class="skiplink"><a class="screen-reader-text" href="#content" title="Skip to content">Skip to content</a></span>
+
+
+<noscript>
+	<div id="no-javascript">
+		Advanced features of this website require that you enable JavaScript in your browser. Thank you!	</div>
+</noscript>
+
+<div id="page" class="site">
+
+	
+	<header id="masthead" class="site-header" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+
+		
+		<div class="site-branding" itemprop="publisher" itemscope="itemscope" itemtype="https://schema.org/Organization">
+
+			
+			<div id="site-title-wrapper">
+
+				
+						<p id="site-title" class="site-title"><a href="https://ball-project.org/" rel="home">BALL Project</a></p>
+
+					
+						<p id="site-description" class="site-description">Biochemical Algorithms Library</p>
+
+					
+			</div><!-- #site-title-wrapper -->
+
+		</div><!-- .site-branding -->
+
+		
+		<nav id="site-navigation" class="main-navigation" aria-label="Primary Menu" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+
+			<h2 class="screen-reader-text">Primary Menu</h2>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu</button>
+
+			
+			<div class="search-box-wrapper search-container-mobile">
+				<div class="search-box">
+					<form itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" role="search" method="get" class="search-form" action="https://ball-project.org/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" itemprop="query-input" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			<meta itemprop="target" content="https://ball-project.org/?s={search} "/></form>				</div>
+			</div>
+
+			<!--<button class="go-to-top"><a href="#page"><span class="icon-webfont fa-chevron-circle-up" aria-hidden="true"></span></a></button>-->
+
+			<div class="menu-menu-1-container"><ul id="primary-menu" class="nav-menu"><li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-has-children menu-item-22"><a href="https://ball-project.org/" aria-current="page">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-509" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-509"><a href="https://ball-project.org/news/">News</a></li>
+	<li id="menu-item-200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-200"><a href="https://ball-project.org/design-goals/">Design Goals</a></li>
+	<li id="menu-item-203" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-203"><a href="https://ball-project.org/architecture/">Architecture</a></li>
+	<li id="menu-item-206" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-206"><a href="https://ball-project.org/visualization/">Visualization</a></li>
+	<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136"><a href="https://ball-project.org/licinfo/">License</a></li>
+	<li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24"><a href="https://ball-project.org/team/">Team</a></li>
+	<li id="menu-item-300" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-300"><a href="https://ball-project.org/contact/">Contact</a></li>
+</ul>
+</li>
+<li id="menu-item-48" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-48"><a href="https://ball-project.org/applications/">Applications</a>
+<ul class="sub-menu">
+	<li id="menu-item-42" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-42"><a href="https://ball-project.org/ballview/">BALLView</a>
+	<ul class="sub-menu">
+		<li id="menu-item-65" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-65"><a href="https://ball-project.org/impressions/">Impressions</a></li>
+	</ul>
+</li>
+	<li id="menu-item-192" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-192"><a href="https://ball-project.org/ballaxy/">ballaxy</a></li>
+	<li id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107"><a href="https://ball-project.org/balltools/">BALLTools</a></li>
+</ul>
+</li>
+<li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="https://ball-project.org/download/">Download</a></li>
+<li id="menu-item-180" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-180"><a href="https://ball-project.org/cite/">Cite</a></li>
+<li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110"><a href="https://ball-project.org/documentation/">Documentation</a></li>
+<li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31"><a href="https://ball-project.org/support/">Support</a></li>
+<li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-37"><a href="https://ball-project.org/publications/">Publications</a></li>
+</ul></div>
+		</nav><!-- #site-navigation -->
+
+		<!-- Custom Header - Start -->
+
+		
+		
+			
+		
+		<!-- Custom Header - End -->
+
+		
+	</header><!-- .site-header -->
+
+	
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+
+		
+		<main id="main" class="site-main" itemscope="itemscope" itemprop="mainContentOfPage">
+
+			
+			
+	
+	<article id="post-16" class="post-16 page type-page status-publish" itemscope="" itemtype="https://schema.org/Article">
+
+		
+		<header class="entry-header">
+
+			<h1 class="entry-title" itemprop="headline">About</h1>
+			<link itemprop="mainEntityOfPage" href="https://ball-project.org/"/>
+
+		</header>
+
+		<div class="entry-content" itemprop="articleBody">
+
+			<p></p>
+
+	<ul id="slideshowgallery1911" class="slideshowgallery1911" style="display:none;">
+					<!-- From all slides or gallery slides -->
+							
+				<li>
+					<h3 style="opacity:70;">cropped-transparency.png</h3>
+											<span data-alt="cropped-transparencypng">https://ball-project.org/wp-content/uploads/2015/10/transparency.png</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/transparency.png" id="gallery1911imglink32" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="cropped-transparency.png"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/transparency-100x75.png" alt="cropped-transparencypng" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">capping</h3>
+											<span data-alt="capping">https://ball-project.org/wp-content/uploads/2015/10/capping.png</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/capping.png" id="gallery1911imglink39" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="capping"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/capping-100x75.png" alt="capping" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">cartoon-ses-1d3b</h3>
+											<span data-alt="cartoon-ses-1d3b">https://ball-project.org/wp-content/uploads/2015/10/cartoon-ses-1d3b.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/cartoon-ses-1d3b.jpg" id="gallery1911imglink38" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="cartoon-ses-1d3b"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/cartoon-ses-1d3b-100x75.jpg" alt="cartoon-ses-1d3b" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">clipping</h3>
+											<span data-alt="clipping">https://ball-project.org/wp-content/uploads/2015/10/clipping.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/clipping.jpg" id="gallery1911imglink37" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="clipping"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/clipping-100x75.jpg" alt="clipping" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">contour-inline</h3>
+											<span data-alt="contour-inline">https://ball-project.org/wp-content/uploads/2015/10/contour-inline.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/contour-inline.jpg" id="gallery1911imglink36" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="contour-inline"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/contour-inline-100x75.jpg" alt="contour-inline" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">DNA</h3>
+											<span data-alt="dna">https://ball-project.org/wp-content/uploads/2015/10/DNA.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/DNA.jpg" id="gallery1911imglink35" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="DNA"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/DNA-100x75.jpg" alt="dna" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">fdpb</h3>
+											<span data-alt="fdpb">https://ball-project.org/wp-content/uploads/2015/10/fdpb.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/fdpb.jpg" id="gallery1911imglink34" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="fdpb"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/fdpb-100x75.jpg" alt="fdpb" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">fieldlines</h3>
+											<span data-alt="fieldlines">https://ball-project.org/wp-content/uploads/2015/10/fieldlines.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/fieldlines.jpg" id="gallery1911imglink33" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="fieldlines"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/fieldlines-100x75.jpg" alt="fieldlines" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">field_lines</h3>
+											<span data-alt="fieldlines">https://ball-project.org/wp-content/uploads/2015/10/field_lines.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/field_lines.jpg" id="gallery1911imglink31" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="field_lines"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/field_lines-100x75.jpg" alt="fieldlines" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">toon-big-fog</h3>
+											<span data-alt="toon-big-fog">https://ball-project.org/wp-content/uploads/2015/10/toon-big-fog.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/toon-big-fog.jpg" id="gallery1911imglink21" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="toon-big-fog"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/toon-big-fog-100x75.jpg" alt="toon-big-fog" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">toon2</h3>
+											<span data-alt="toon2">https://ball-project.org/wp-content/uploads/2015/10/toon2.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/toon2.jpg" id="gallery1911imglink22" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="toon2"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/toon2-100x75.jpg" alt="toon2" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">ribbon</h3>
+											<span data-alt="ribbon">https://ball-project.org/wp-content/uploads/2015/10/ribbon.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/ribbon.jpg" id="gallery1911imglink23" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="ribbon"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/ribbon-100x75.jpg" alt="ribbon" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">huge_backbone</h3>
+											<span data-alt="hugebackbone">https://ball-project.org/wp-content/uploads/2015/10/huge_backbone.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/huge_backbone.jpg" id="gallery1911imglink24" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="huge_backbone"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/huge_backbone-100x75.jpg" alt="hugebackbone" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">p-helix</h3>
+											<span data-alt="p-helix">https://ball-project.org/wp-content/uploads/2015/10/p-helix.png</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/p-helix.png" id="gallery1911imglink25" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="p-helix"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/p-helix-100x75.png" alt="p-helix" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">transparency</h3>
+											<span data-alt="transparency">https://ball-project.org/wp-content/uploads/2015/10/transparency.png</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/transparency.png" id="gallery1911imglink26" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="transparency"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/transparency-100x75.png" alt="transparency" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">white_background</h3>
+											<span data-alt="whitebackground">https://ball-project.org/wp-content/uploads/2015/10/white_background.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/white_background.jpg" id="gallery1911imglink27" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="white_background"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/white_background-100x75.jpg" alt="whitebackground" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">wireframe</h3>
+											<span data-alt="wireframe">https://ball-project.org/wp-content/uploads/2015/10/wireframe.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/wireframe.jpg" id="gallery1911imglink28" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="wireframe"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/wireframe-100x75.jpg" alt="wireframe" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">BALLView_01</h3>
+											<span data-alt="ballview01">https://ball-project.org/wp-content/uploads/2015/10/BALLView_01.png</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/BALLView_01.png" id="gallery1911imglink30" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="BALLView_01"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/BALLView_01-100x75.png" alt="ballview01" /></a>
+															</li>
+							
+				<li>
+					<h3 style="opacity:70;">ballproject_bg_01</h3>
+											<span data-alt="ballprojectbg01">https://ball-project.org/wp-content/uploads/2015/10/ballproject_bg_01.jpg</span>
+										<p></p>
+																		<a href="https://ball-project.org/wp-content/uploads/2015/10/ballproject_bg_01.jpg" id="gallery1911imglink40" class="colorboxslideshowgallery1911" data-rel="slideshowgroupgallery1911" target="_self" title="ballproject_bg_01"><img class="skip-lazy" src="https://ball-project.org/wp-content/uploads/2015/10/ballproject_bg_01-100x75.jpg" alt="ballprojectbg01" /></a>
+															</li>
+						</ul>
+	
+	<div id="slideshow-wrappergallery1911" class="slideshow-wrapper">
+			
+		<div class="slideshow-fullsize" id="fullsizegallery1911">
+														<div id="imgprevgallery1911" class="slideshow-imgprev imgnav" title="Previous Image">Previous Image</div>
+						<a id="imglinkgallery1911" class="slideshow-imglink imglink"><!-- link --></a>
+											<div id="imgnextgallery1911" class="slideshow-imgnext imgnav" title="Next Image">Next Image</div>
+						<div id="imagegallery1911" class="slideshow-image"></div>
+			<div class="slideshow-information infobottom" id="informationgallery1911">
+				<h3 class="slideshow-info-heading">info heading</h3>
+				<p class="slideshow-info-content">info content</p>
+			</div>
+		</div>
+		
+					<div id="thumbnailsgallery1911" class="slideshow-thumbnails thumbsbot">
+				<div class="slideshow-slideleft" id="slideleftgallery1911" title="Slide Left"></div>
+				<div class="slideshow-slidearea" id="slideareagallery1911">
+					<div class="slideshow-slider" id="slidergallery1911"></div>
+				</div>
+				<div class="slideshow-slideright" id="sliderightgallery1911" title="Slide Right"></div>
+				<br style="clear:both; visibility:hidden; height:1px;" />
+			</div>
+			</div>
+	
+	<!-- Slideshow Gallery Javascript BEG -->	
+	<script type="text/javascript">
+	jQuery.noConflict();
+	tid('slideshowgallery1911').style.display = "none";
+	tid('slideshow-wrappergallery1911').style.display = 'block';
+	tid('slideshow-wrappergallery1911').style.visibility = 'hidden';
+	jQuery("#fullsizegallery1911").append('<div id="spinnergallery1911"><i class="fa fa-cog fa-spin"></i></div>');
+	tid('spinnergallery1911').style.visibility = 'visible';
+
+	var slideshowgallery1911 = new TINY.slideshow("slideshowgallery1911");
+	jQuery(document).ready(function() {
+		slideshowgallery1911.auto = true;		slideshowgallery1911.speed = 10;
+		slideshowgallery1911.effect = "slide";
+		slideshowgallery1911.slide_direction = "lr";
+		slideshowgallery1911.easing = "swing";
+		slideshowgallery1911.alwaysauto = true;
+		slideshowgallery1911.autoheight = false;
+		slideshowgallery1911.autoheight_max = false;
+		slideshowgallery1911.imgSpeed = 20;
+		slideshowgallery1911.navOpacity = 25;
+		slideshowgallery1911.navHover = 75;
+		slideshowgallery1911.letterbox = "#000000";
+		slideshowgallery1911.linkclass = "linkhover";
+		slideshowgallery1911.imagesid = "imagesgallery1911";
+		slideshowgallery1911.info = "";
+		slideshowgallery1911.infoonhover = 0;
+		slideshowgallery1911.infoSpeed = 10;
+		slideshowgallery1911.infodelay = 0;
+		slideshowgallery1911.infofade = 0;
+		slideshowgallery1911.infofadedelay = 0;
+		slideshowgallery1911.thumbs = "slidergallery1911";
+		slideshowgallery1911.thumbOpacity = 70;
+		slideshowgallery1911.left = "slideleftgallery1911";
+		slideshowgallery1911.right = "sliderightgallery1911";
+		slideshowgallery1911.scrollSpeed = 5;
+		slideshowgallery1911.spacing = 5;
+		slideshowgallery1911.active = "";
+		slideshowgallery1911.imagesthickbox = "true";
+		jQuery("#spinnergallery1911").remove();
+		slideshowgallery1911.init("slideshowgallery1911","imagegallery1911","imgprevgallery1911","imgnextgallery1911","imglinkgallery1911");
+		tid('slideshow-wrappergallery1911').style.visibility = 'visible';
+		jQuery(window).trigger('resize');
+		
+			});
+	
+			jQuery(window).resize(function() {
+			var width = jQuery('#slideshow-wrappergallery1911').width();
+			var resheight = 50;
+			var height = Math.round(((resheight / 100) * width));
+			jQuery('#fullsizegallery1911').height(height);
+		});
+		</script>
+	
+	<!-- Slideshow Gallery Javascript END --><!-- Slideshow Gallery CSS BEG -->	
+	<link rel="stylesheet" property="stylesheet" href="https://ball-project.org/wp-content/plugins/slideshow-gallery/views/default/css-responsive.php?id=gallery1911" type="text/css" media="all" />
+	
+	<!--[if IE 6]>
+	<style type="text/css">
+	.imglink, #imglink { display: none !important; }
+	.linkhover { display: none !important; }
+	</style>
+	<![endif]-->
+	
+	<!-- Slideshow Gallery CSS END -->
+<p></p>
+<p>Rapid Software Prototyping can significantly reduce development times in the field of Computational Molecular Biology and Molecular Modeling. <strong>BALL</strong> (<strong>B</strong>iochemical <strong>AL</strong>gorithms <strong>L</strong>ibrary) is an application framework implemented in C++ that has been specifically designed for this purpose. It provides an extensive set of data structures as well as classes for Molecular Mechanics, advanced solvation methods, comparison and analysis of protein structures, file import/export, and visualization .</p>
+<div id="parent-fieldname-text" class="">
+<p>BALL has been carefully designed to be robust, easy to use, and open to extensions. Especially its extensibility which results from an object-oriented and generic programming approach distinguishes it from other software packages. BALL is well suited to serve as a public repository for reliable data structures and algorithms.</p>
+<p>Based on BALL we have developed a stand-alone tool for molecular visualization, <a href="https://www.ball-project.org/ballview/">BALLView</a>. BALLView makes the broad functionality available through an integrated user-friendly GUI.</p>
+</div>
+
+			
+		</div><!-- .entry-content -->
+
+		<footer class="entry-meta">
+
+			
+		</footer><!-- .entry-meta -->
+
+		
+	</article><!-- #post-16 -->
+
+	
+			
+		</main><!-- .site-main -->
+
+		
+	</div><!-- #primary -->
+
+
+		</div><!-- #content .site-content -->
+
+	
+	
+	<footer id="colophon" class="site-footer" aria-labelledby="footer-header" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+
+		
+		<h2 class="screen-reader-text" id="footer-header">Footer Content</h2>
+
+		<div id="footer-widgets" class="widget-area three" itemscope="itemscope" itemtype="https://schema.org/WPSideBar">
+
+			
+				
+				
+				
+			
+		</div><!-- #footer-widgets -->
+
+		<div class="site-info">
+
+			
+			
+				<div id="copyright-widget">
+					<section id="nav_menu-3" class="widget widget_nav_menu"><div class="menu-imprint_menu-container"><ul id="menu-imprint_menu" class="menu"><li id="menu-item-429" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-429"><a href="https://ball-project.org/imprint/">Imprint</a></li>
+<li id="menu-item-507" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-507"><a href="https://ball-project.org/datenschutzerklarung/">Datenschutzerklärung</a></li>
+</ul></div></section>				</div>
+				<!-- span class="meta-separator" aria-hidden="true">&bull;</span -->
+
+			
+			<!-- ?php do_action( 'tinyframework_credits' ); // Tip87 - custom action hook, see functions.php ? -->
+
+			<!-- ?php // Tip61 - Discreet link to WordPress Admin panel in the footer ? -->
+
+			<!-- span id="site-admin-link"> <a href="https://ball-project.org/wp-login.php">Log in</a></span -->
+
+		</div><!-- .site-info -->
+
+		<div class="site-info-2">
+
+			
+			
+
+		</div><!-- .site-info-2 -->
+
+		
+	</footer><!-- .site-footer -->
+
+	
+</div><!-- #page .site -->
+
+<img src="https://www.ball-project.org/wp-content/uploads/2015/11/bg_image_03.png" id="fsb_image" alt=""/><script type='text/javascript' src='https://ball-project.org/wp-content/themes/tiny-framework/js/navigation.js?ver=2.3.1' id='tinyframework-navigation-js'></script>
+<script type='text/javascript' id='tinyframework-additional-scripts-js-extra'>
+/* <![CDATA[ */
+var tinyframeworkAdditionalScripts = {"newWindow":"Opens in a new window"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://ball-project.org/wp-content/themes/tiny-framework/js/functions.js?ver=2.3.1' id='tinyframework-additional-scripts-js'></script>
+<script type='text/javascript' src='https://ball-project.org/wp-content/themes/tiny-framework/js/skip-link-focus-fix.js?ver=2.3.1' id='tinyframework-skip-link-focus-fix-js'></script>
+<script type='text/javascript' src='https://ball-project.org/wp-includes/js/wp-embed.min.js?ver=5.5.15' id='wp-embed-js'></script>
+<script type="text/javascript" id="slb_context">/* <![CDATA[ */if ( !!window.jQuery ) {(function($){$(document).ready(function(){if ( !!window.SLB ) { {$.extend(SLB, {"context":["public","user_guest"]});} }})})(jQuery);}/* ]]> */</script>
+<style type="text/css">aside.widget_wpnb_widget > h3.widget-title {color:#dd3333 !important;}aside.widget_wpnb_widget > div.wpnbnews {color:#eeee22 !important;}</style><a href="http://www.ahsanulkabir.com/" title="Web Design Mymensingh" class="pluga1c2r" rel="dofollow">Web Design Mymensingh</a><a href="http://www.wordpresscode.com/" title="Premium WordPress Themes" class="pluga1c2r" rel="dofollow">Premium WordPress Themes</a><a href="http://www.a1netsolutions.com/" title="Web Development" class="pluga1c2r" rel="dofollow">Web Development</a>		<div id="wpnb_popBoxOut">
+			<div id="wpnb_popBox">
+			<img src="https://ball-project.org/wp-content/plugins/wp-news-bulletin/lib/img/close.png" id="wpnb_popClose" />
+			<div id="wpncLoader">
+		   <div id="wpnbpopBoxMin267" class="wpnb"><h1>Moved to GitHub</h1><div class="clrFixia"></div><div class="wpnb_date">October 19, 2015October 19, 2015</div><div class="pop">Source code, bugtracker, and wiki moved to <a href="https://github.com/BALL-Project" target="_blank">GitHub</a>!</div></div><div id="wpnbpopBoxMin265" class="wpnb"><h1>Developer Retreat 2015.1</h1><div class="clrFixia"></div><div class="wpnb_date">February 22, 2015February 22, 2015</div><div class="pop"><a href="https://www.ball-project.org/wp-content/uploads/2015/10/BALL_Dev_Retreat_2015.jpg"><img class="alignleft wp-image-240 size-medium" src="https://ball-project.org/wp-content/uploads/2015/10/BALL_Dev_Retreat_2015-300x200.jpg" alt="BALL_Dev_Retreat_2015" width="300" height="200" /></a>
+
+We met in Saarbrücken to plan the further development of BALL. In the near future you will find more information on our new website. Code and bugtracker will move to <a href="https://github.com/BALL-Project" target="_blank" rel="noopener">GitHub</a>!</div></div><div id="wpnbpopBoxMin268" class="wpnb"><h1>ballaxy Tools Released</h1><div class="clrFixia"></div><div class="wpnb_date">August 7, 2014August 7, 2014</div><div class="pop"><p class="documentDescription"><span id="parent-fieldname-description" class=""> A new release of BALL and BALLView containing our new ballaxy tools is availably. </span></p>
+
+<div id="parent-fieldname-text" class="plain">
+
+This new release offers, besides bugfixes, our new ballaxy workflow framework for structure based computational biology. The framework consists of command line tools, a ballaxy workflow server, based on the popular Galaxy workflow engine, offering those tools and a ballaxy plugin for BALLView which allows interaction with a ballaxy server instance.
+
+More information, e.g. a list of current tools, our live ballaxy server or instructions on how to set up your own ballaxy instance using docker can be found <a href="https://github.com/BALL-Project/ball/wiki/ballaxy" target="_blank" rel="noopener">here</a>.
+
+Enjoy!
+
+</div></div></div><div id="wpnbpopBoxMin269" class="wpnb"><h1>BALL 1.4 Released</h1><div class="clrFixia"></div><div class="wpnb_date">January 28, 2013January 28, 2013</div><div class="pop"><p class="documentDescription"><span id="parent-fieldname-description" class=""> A new stable release for BALL is now available. </span></p>
+
+<div id="parent-fieldname-text" class="plain">
+
+This new release mainly focuses on compile and bug fixes. The most user visible changes are probably the rework of the Pubchem Downloader in BALLView, which now uses the new REST interface provided by Pubchem.
+
+</div></div></div>			</div>
+			</div>
+		</div>
+		<div id="wpnb_hideBody"></div>
+		<script type="text/javascript">
+		jQuery(function()
+		{
+			jQuery(".wpnbnews").wpnbCarousel(
+			{
+				vertical:true, 
+				hoverPause:true, 
+				visible:4, 
+				auto:3000, 
+				speed:500
+			});
+		});
+		jQuery(document).ready(function()
+		{
+			jQuery("#wpnb_popClose").click(function()
+			{
+				jQuery("#wpnb_popBoxOut").fadeOut();
+				jQuery("#wpnb_popBox").fadeOut();
+				jQuery("#wpnb_hideBody").fadeOut();
+				jQuery(".wpnb").hide();
+			});
+			jQuery("#wpnb_hideBody").click(function()
+			{
+				jQuery("#wpnb_popBoxOut").fadeOut();
+				jQuery("#wpnb_popBox").fadeOut();
+				jQuery("#wpnb_hideBody").fadeOut();
+				jQuery(".wpnb").hide();
+			});
+			jQuery(".wpnb_trg").click(function()
+			{
+				jQuery("#wpnb_popBoxOut").fadeIn();
+				jQuery("#wpnb_popBox").fadeIn();
+				jQuery("#wpnb_hideBody").fadeIn();
+			});
+		});
+		jQuery(document).ready(function()
+		{
+			jQuery('.wpnb_trg').click(function()
+			{
+				var wpnbID = jQuery(this).attr("ref");
+				jQuery("#wpnbpopBoxMin"+wpnbID).show();
+			});
+		});
+		</script>
+		
+		<!-- Cookie Notice plugin v1.3.2 by Digital Factory https://dfactory.eu/ -->
+		<div id="cookie-notice" role="banner" class="cookie-notice-hidden cookie-revoke-hidden cn-position-top" aria-label="Cookie Notice" style="background-color: rgba(30,115,190,1);"><div class="cookie-notice-container" style="color: #fff;"><span id="cn-notice-text" class="cn-text-container">We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it.</span><span id="cn-notice-buttons" class="cn-buttons-container"><a href="#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button wp-default button" aria-label="Ok">Ok</a></span><a href="javascript:void(0);" id="cn-close-notice" data-cookie-set="accept" class="cn-close-icon" aria-label="Ok"></a></div>
+			
+		</div>
+		<!-- / Cookie Notice plugin -->
+<!-- Happy coding! "Ut In Omnibus Glorificetur Deus" ~Saint Benedict -->
+</body>
+</html>

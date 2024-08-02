@@ -1,0 +1,309 @@
+
+
+
+				    
+
+
+
+
+
+        <h3>  </h3>
+
+
+<h1></h1>
+
+<HTML><HEAD><TITLE>Binding Affinity Prediction of Protien Ligand Complex containing Zinc-BAPPL-Z Server</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META 
+content="Binding Affinity Prediction of Protein-Ligand complex containing Zinc [ BAPPL-Z ] server computes the binding free energy of a zinc containing metalloprotein-ligand complex using an all atom energy based empirical scoring function " 
+name=description>
+<META 
+content="Binding Affinity ,Protein,Ligand,Complex,Zinc,Binding free energy,Metalloprotein,Empirical,Scoring function" 
+name=keywords>
+<SCRIPT src="movingtext.js">
+</SCRIPT>
+<LINK href="styles/layoutmain.css" type=text/css rel=stylesheet><LINK 
+href="styles/stylelink.css" type=text/css rel=stylesheet><LINK 
+href="styles/stylefont.css" type=text/css rel=stylesheet><LINK 
+href="styles/showmenu.css" type=text/css rel=stylesheet><LINK 
+href="menu.css" type=text/css rel=stylesheet><LINK 
+href="slidemenu.css" type=text/css rel=stylesheet>
+<SCRIPT src="showmenuscript.js"></SCRIPT>
+
+<SCRIPT src="main_nav.js"></SCRIPT>
+
+<STYLE type=text/css>BODY {
+	BACKGROUND-IMAGE: url(images/bg.gif)
+}
+.style114 {
+	COLOR: #575757
+}
+.style118 {
+	COLOR: #141414
+}
+.styleblink {
+	FONT-WEIGHT: 100; FONT-SIZE: 10px; COLOR: #003399; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.style115 {
+	COLOR: #000000
+}
+</STYLE>
+
+<SCRIPT src="slidemenu.js"></SCRIPT>
+
+<SCRIPT language=JavaScript type=text/javascript>
+                        function check() {
+                                var path = document.upload.file.value;
+                                var fileName;
+                                 var email=document.upload.email.value;
+
+                                if(path.lastIndexOf("/")!=-1){
+                                        fileName=path.substring(path.lastIndexOf("/")+1,path.length);
+                                } else {
+                                        fileName=path.substring(path.lastIndexOf("\\")+1,path.length);
+                                }
+
+                                ext = path.substring(path.length-3,path .length);
+                                ext = ext.toLowerCase();
+                                if(ext != 'pdb') {
+                                  alert('Please select an input file with .pdb extension');
+                                  return false; }
+
+                                if(fileName.length!=8 && fileName.charAt(4)!='.') {
+                                  alert('Please select a file with 4 letter name. Kindly refer to the instructions given below');
+                                        return false;
+                                }
+
+                               var email=document.upload.email.value;
+                              //  document.upload.seq.value="";
+                                if(email.length==0 || (email.indexOf("@")==-1 ||  email.indexOf(".")==-1)){
+                                        alert('Please enter a valid email address for getting the result');
+                                        return false;
+                               }
+                                                                                          
+
+
+                             return true;
+                        }
+
+                        function popUp(URL){
+                                fname = document.getElementsByName("file")[0].value;
+                                if (fname != "")
+                                        window.open(URL+"?first&uplMonitor="+encodeURIComponent(fname),"","width=400,height=150,resizable=yes,depend=yes")
+                        }
+
+                        function clearForm(){
+                                document.upload.reset();
+                                document.upload.email.value="";
+                                //document.upload.name.value="";
+                               // document.upload.univ.value="";
+                                //document.upload.METHOD[0].checked="true";
+                               // document.upload.charge.value="0";
+document.upload.seq.value="";
+                                document.upload.file.value="";
+                                return true;
+                        }
+
+		 function checkForm(){
+
+                                var email=document.upload.email.value;
+                                //document.upload.seq.value="";
+                                if(email.length==0 || (email.indexOf("@")==-1 ||  email.indexOf(".")==-1)){
+                                        alert('Please enter a valid email address for getting the result');
+                                        return false;
+                                }
+
+                                return true;
+                        }
+
+                </SCRIPT>
+
+<META content="MSHTML 6.00.2900.2873" name=GENERATOR></HEAD>
+<BODY class=main>
+<H1></H1>
+<H3></H3>
+<H1></H1>
+<DIV id=dhtmltooltip></DIV>
+<SCRIPT src="bapz_files/tooltip.js"></SCRIPT>
+
+<CENTER>
+<TABLE class=main id=main cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD class=mnptop2><IMG height=76 src="images/scfstrip_merged.jpg" 
+      width=750></TD></TR>
+  <TR>
+    <TD vAlign=top align=middle width=768 bgColor=#ffffff height=15>
+      <TABLE cellSpacing=0 cellPadding=0 width=757 
+      background=images/topmenubg1.gif border=0>
+        <TBODY>
+        <TR>
+          <TH scope=col align=left height=15></TH>
+          <TH scope=col align=right>
+            <TABLE height=15 cellSpacing=0 cellPadding=0 width=419 border=0>
+              <TBODY>
+              <TR>
+                <TD align=right width=543 height=10><A class=topmenu 
+                  href="http://www.scfbio-iitd.res.in/">Home</A><A 
+                  class=topmenu 
+                  href="http://www.scfbio-iitd.res.in/scfbiogroup/scfgroup.htm">Group</A><A 
+                  class=topmenu 
+                  href="http://www.scfbio-iitd.res.in/publication/publication.htm">Publications</A><A 
+                  class=topmenu 
+                  href="http://www.scfbio-iitd.res.in/resources/resources.htm">Resources</A><a href="https://www.scfbio-iitd.res.in/webmail" target="_blank" class="topmenu">Webmail</a><A 
+                  class=topmenu 
+                  href="http://www.scfbio-iitd.res.in/contact/contactus.htm">Contact 
+                  Us</A></TD></TR></TBODY></TABLE></TH></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=mnptop2 vAlign=top align=middle bgColor=#ffffff height=549>
+      <P>&nbsp;</P>
+      <TABLE class=style29 width=600 bgColor=#fdf7f2>
+        <TBODY>
+        <tr>
+        <td>
+        <p align="center" style="font-family: Comic Sans MS; font-size:18px; font-weight:bold"> BAPPL&ndash;Z server </p>
+        </td></tr>
+        <tr><td bgcolor="red" width="1px"></td></tr>  
+        <tr><td bgcolor="#ffffff" align="center"><br>
+         <img   src="images/1cil2.jpg"><br>
+         <span style="font-size: 9px">Carbonic Anhydrase complexed with Ligand and Zinc ion (1cil) </span>
+ 	</td></tr>
+		<tr><td class=style29><br><br><b>Welcome to the <font style="font-family:Comic Sans MS, Helvetica,sans-serif;">BAPPL-Z server</font></b></td></tr>
+
+        <tr><td><br>
+        Binding Affinity Prediction <em>of</em> Protein-Ligand <em>complex containing</em> Zinc <span  style="font-family: Comic Sans MS; font-size:10px;">[ BAPPL-Z ]</span> server computes the binding free energy of a zinc containing metalloprotein-ligand complex using an all atom energy based empirical scoring function <a class="six" href="#1">[1]</a>,<a class="six" href="#2"> [2]</a> & <a class="six" href="#3">[3]</a>.<br><br>
+ <span  style="font-family: Comic Sans MS; font-size:10px;">BAPPL-Z</span> server provides two methods as options.<br><br>	
+<b><a name=m1></a>Method 1 :</b> Input should be an energy minimized zinc containing metalloprotein-ligand complex, minimized using a dielectric of 1. The input complex should have hydrogens added and protonation states assigned. RESP charges should be assigned to the protein atoms and Mulliken charges to the ligand and the zinc ion. Stote &amp; Karplus van der Waals parameters should be assigned to the zinc ion. Amber and GAFF force field  van der Waals parameters should be assigned to the protein and the ligand atoms respectively. The server directly computes the binding affinity of the input complex using the scoring function <a class=six href="#1">[1]</a> employing a sigmoidal dielectric for electrostatics I and dielectric of 80 for electrostatics II calculation.<br><br> 
+<b><a name=m2></a>Method 2 :</b> Input should be an energy minimized zinc containing metalloprotein-ligand complex, minimized using a sigmoidal dielectric. The input complex should have hydrogens added and protonation states assigned. RESP charges should be assigned to the protein, ligand and the zinc ion. Stote &amp; Karplus van der Waals parameters should be assigned to the zinc ion. Amber and GAFF force field  van der Waals parameters should be assigned to the protein and the ligand atoms respectively. The server directly computes the binding affinity of the input complex using the scoring function <a class=six href="#1">[1]</a> employing a sigmoidal dielectric for electrostatics I and II calculation.<br><br>
+For format specifications on the input, please refer to the <a class="six" href="http://www.scfbio-iitd.res.in/software/drugdesign/example/readme.pdf">README</a> file.<br><br>
+For the purpose of validation of the empirical scoring function <a class=six href="#1">[1]</a> a dataset of 90 zinc containing metalloprotein-ligand complexes has been prepared. <a class="six" href="http://www.scfbio-iitd.res.in/software/drugdesign/bapplzdataset.jsp" target="_blank">Click here</a> to access the Metalloprotein-Ligand Complex Dataset.<br><br>
+
+       </td>
+        </tr>
+        <TR>
+          <TD class=stylelefttop align=middle width=600 
+          background=images/grad.gif><a name="anchortag"></a>
+            <DIV align=center style="font-family: Comic Sans MS; font-size:14px; font-weight:bold"><B>BAPPL-Z server</B></DIV></TD></TR>
+        <FORM name=upload action=bapplz.jsp#anchortag method=post 
+        encType=multipart/form-data>
+	<TR>
+		<td><fieldset><legend ><span class="style115">Select option</legend>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input    type="Radio" name="METHOD" value="1" checked="checked">
+		<a class="six" href="#m1" >Method 1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input  type="Radio" name="METHOD" value="2" >
+		<a class="six" href="#m2" >Method 2</a>	</fieldset>
+		</td>	
+		
+		
+	</TR>
+        <TR>
+          <TD class=choice align=middle>
+            <FIELDSET><br>
+	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input PDB file <INPUT class=style29 type=file name=file> 
+            <BR><BR>
+            E-mail address <INPUT class=style29 size=25 
+            name=email> <BR><BR>
+            
+<BR><INPUT class=style29 title="Upload selected file to the current working directory" onclick=return(check()); type=submit value="&nbsp;&nbsp;Submit" name=uploadbtn>
+
+                   
+<INPUT class=style29 onclick=return(clearForm()); type=button value="&nbsp;&nbsp;Reset"> 
+            </FIELDSET></TD></TR>
+  
+		
+			      <tr>
+					<td class="choice"></td>
+				</tr>
+		
+<tr>
+<TD align=middle>
+      <P class=steps><B>Instructions for using the server</B></P></TD></TR>
+  <TR>
+    <TD align=left>
+       <OL class=steps type=1.>
+        <LI>The input zinc containing metalloprotein-ligand complex should follow the format described 
+        in the README file. In case of any differences, either an error is 
+        generated resulting in the termination of computation or the predicted 
+        binding affinity value will have errors in it. 
+        <LI>Please specify the E-mail address. 
+        <LI>Browse and select the input file.(The input file name should not 
+        contain whitespace(s) &amp; PDBID should be a four letter code, like 
+        1a30<B>.</B>pdb) 
+        <LI>Click Submit to get the result. 
+        <LI>The Predicted Binding Affinity value will be sent via E-mail at the 
+        address specified. The computation may take 5-10 minutes depending upon 
+        the load on the web server and the number of atoms in the input file. 
+        </LI></OL>
+      </TD></TR>
+     
+    <tr>
+       <TD class=steps align=left>&nbsp;&nbsp;&nbsp;<B>IMPORTANT</B><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The predicted binding 
+      affinities are dependent upon: </TD></TR>
+  <TR>
+    <TD class=steps align=left>
+      <UL class=steps>
+        <LI>The protonation states assigned to the ligand and the protein atoms. 
+        <LI>The procedure used to derive the partial atomic charges for the ligand 
+        atoms and the zinc ion like (AM1-BCC, HF/6-31G* etc.) and the force field used to 
+        assign the partial atomic charges for the protein atoms like (AMBER, 
+        CHARMM, OPLS, etc.). 
+        <LI>The force field used to assign the van der Waals parameters for the
+        ligand and protein atoms and the zinc ion. 
+        <LI>Energy minimization / geometry optimization protocol used to remove 
+        any clashes from the complex. </LI></UL></TD>
+    </tr>  
+    <tr><td  bgcolor"#000000"> </td></tr>
+    <tr>
+    <TD class=steps align=left><B>REFERENCES</B></TD></TR>
+     <TR>
+    <TD class=steps align=left><A name=1>[1]</A> Jain, T. and Jayaram, B.
+       A computational protocol for predicting the 
+      binding affinities of zinc containing metalloprotein-ligand complexes. PROTEINS: Struct. Funct. Bioinfo., 2007, 67, 1167-1178.
+
+ <A class=six
+       href="http://www3.interscience.wiley.com/cgi-bin/abstract/114195667/ABSTRACT"
+             target=_blank>[Abstract]</A>&nbsp; <a class=six style="font-family: Comic Sans MS;" href="http://www.scfbio-iitd.res.in/software/drugdesign/bapplz.jsp" target="_blank">[BAPPL server]</a>
+	
+
+	</TD></TR>
+ 
+  <TR>
+    <TD class=steps align=left><A name=1>[2]</A> Jain, T. and Jayaram, B. 
+      (2005) An all atom energy based computational protocol for predicting 
+      binding affinities of protein-ligand complexes.<I> FEBS Letters</I>, 579, 
+      6659-6666. <A class=six 
+      href="http://www.sciencedirect.com/science?_ob=ArticleURL&amp;_udi=B6T36-4HGM97Y-1&amp;_user=10&amp;_handle=V-WA-A-W-WE-MsSAYZW-UUW-U-AABCYDWCZY-AABBVCBBZY-CUZYAECVE-WE-U&amp;_fmt=summary&amp;_coverDate=12%2F05%2F2005&amp;_rdoc=23&amp;_orig=browse&amp;_srch=%23toc%234938%232005%23994209970%23611991!&amp;_cdi=4938&amp;view=c&amp;_acct=C000050221&amp;_version=1&amp;_urlVersion=0&amp;_userid=10&amp;md5=3aaeb79cab3431051347a56ce0092564" 
+      target=_blank>[Abstract]</A>&nbsp; <a class=six style="font-family: Comic Sans MS;" href="http://www.scfbio-iitd.res.in/software/drugdesign/bappl.jsp" target="_blank">[BAPPL server]</a></TD></TR>
+  <TR>
+    <TD class=steps align=left><A name=3>[3]</A> Arora, N. and Jayaram, B. 
+      (1998) Energetic of base pairs in B-DNA in solution: An appraisal of 
+      potential functions and dielectric treatments. <I>J. Phys. Chem. B.</I> 
+      102, 6139-6144. <a class=six href="http://pubs.acs.org/cgi-bin/abstract.cgi/jpcbfk/1998/102/i31/abs/jp9813692.html" target="_blank">[Abstract]</a> </TD></TR>
+  <TR>
+    <TD 
+      align=left>---------------------------------------------------------------------------------------------------------------------<br> 
+    </TD></TR>
+  <TR>
+    <TD class=steps align=left>For further queries, suggestions and comments kindly contact the Web 
+      Administrator at <br><A href="mailto:abhilash@scfbio-iitd.res.in">abhilash@scfbio-iitd.res.in</A><br><br> 
+  </TD>
+</tr>        
+<TR>
+          <TD class=choice></TD></TR></FORM></TBODY></TABLE></TD></TR>
+ 
+ <TR>
+    <TD vAlign=bottom height=15>
+      <TABLE class=footertable height=16 cellSpacing=0 cellPadding=0 
+        width=757><TBODY>
+        <TR>
+          <TH scope=col class=mnptop2 align=left width="100%" bgColor=#ffffff height=16>
+            <SCRIPT language=javascript src="jscripts/footer.js"></SCRIPT>
+          </TH></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+	  <div  style="background color:green;color:#000000;font-size:11px;font-weight:normal;">Number of Hits since 20th April 2008: 21850</div>
+</center>
+ 	   </BODY></HTML>
+

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Molsoft L.L.C.: ICM Docking and Screening</title>
+<meta name="keywords" content="icm;docking;virtual screening;drug design;flexible;receptor;database;">
+  &nbsp <a href="/index.html"> <img src="/images/MolSoft_Logo2023.jpg" height="60" alt=""> </a>
+  &nbsp
+  <a href="mailto: info@molsoft.com"> <img src="/images/mail_25.png" height="25" align="middle"  alt=""> </a>
+  |
+  <a href="https://twitter.com/molsoft"> <img src="/images/twitter25.png" height="25" align="middle"  alt=""> </a>
+  <a href="https://www.linkedin.com/company/3634260/admin/"> <img src="/images/linkedin25.png" height="25" align="middle"  alt="">	</a>
+  <a href="https://www.youtube.com/channel/UC92_g6Ig0KFnlXOiy5CN1Gg"> <img src="/images/yt25.png" height="25" align="middle"  alt="">	</a>
+  |	
+  <a href="/new-features.html"> <img src="/images/newfeatures2.png" height="25" align="middle"  alt="">	</a>
+ <br>
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="/css/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="/css/responsive.css" rel="stylesheet" />
+  <script src="/web/misc.js" type="text/javascript"></script>
+</head>
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/index.html">
+            <span>
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                  <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/about.html">About <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contacts.html">Contact </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/products.html">Products </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/services.html">Services</a>
+                </li>
+		<li class="nav-item">
+                  <a class="nav-link" href="/technology.html">Technology</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/news.html">News </a>
+                </li>
+		<li class="nav-item">
+                  <a class="nav-link" href="/training.html">Events</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/help.html">Support </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/download.html">Downloads</a>
+                </li>
+              </ul>
+            </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+     <div style="margin:20px"><table border="0" align="center" width="100%" cellpadding="0" cellspacing="0"><tr><td width="80%" align="left" valign="bottom"><a name="docking"></a><h1>ICM Docking and Screening</h1></td></tr></table><br /><p>
+<h2>Introduction</h2>
+<p>
+<div align=justify>
+ICM <a href="icm_pro.html">Docking (in ICM-Pro)</a> and <a href="vls.html">Screening (in ICM-Pro + VLS)</a> provides a unique set of tools for accurate ligand-protein docking,
+peptide-protein docking, and protein-protein docking. The <a href="icm_pro.html">ICM-Pro</a> desktop modeling GUI interface offers a step-by-step docking menu or can be scripted for <a href="icm-cloud.html">large-scale</a> docking and screening.
+<img src="images/icm/dockRef.jpg" height="319" width="351" align="right">
+<p>
+<div align=justify>
+The ICM docking module also allows for the browsing of docking solutions,
+binding site analysis, visualization of grid potentials, adjustment of grid
+potential areas, and configurable preferences for ligand size and score
+threshholds. 
+</div>
+<p>
+<h2>Docking Method</h2>
+Five types of interaction potentials represent the receptor pocket: (i) van der Waals potential for a hydrogen atom probe; (ii) van der Waals potential for a heavy-atom probe (generic carbon of 1.7A radius); (iii) optimized electrostatic term; (iv) hydrophobic terms; and (v) loan-pair-based potential, which reflects directional preferences in hydrogen bonding. The energy terms are based on the all-atom vacuum force field ECEPP/3 with appended terms to account for solvation free energy and entropic contribution.  Conformational sampling is based on the biased probability Monte Carlo (BPMC) procedure <a href="http://www.molsoft.com/publications.html#jmb1994">(Abagyan and Totrov 1994)</a>  which randomly selects a conformation in the internal coordinate space and then makes a step to a new random position independent of the previous one but according to a predefined continuous probability distribution. It has also been shown that after each random step, full local minimization greatly improves the efficiency of the procedure. The ICM program relies on global optimization of the entire flexible ligand in the receptor field and combines large-scale random moves of several types with gradient local minimization and a search history mechanism.  
+<p>
+<h2>Virtual Screening - Scoring</h2>
+The scoring function should give a good approximation of the binding free energy between a ligand and a receptor and is usually a function of different energy terms based on a force-field.  The ICM scoring function  <a href="http://www.molsoft.com/publications.html#vlsscore1999">(Abagyan and Totrov 1999)</a>)  is weighted according to the following parameters (i) internal force-field energy of the ligand, (ii) entropy loss of the ligand between bound and unbound states, (iii) ligand-receptor hydrogen bond interactions, (iv) polar and non-polar solvation energy differences between bound and unbound states, (v) electrostatic energy, (vi) hydrophobic energy, and (vii) hydrogen bond donor or acceptor desolvation. The lower the ICM score, the higher the chance the ligand is a binder. In version 3.9-2c and higher a new neural net scoring function is available (<a href="http://www.molsoft.com/gui/start-dock.html#vls-score">more...</a>).
+<p>
+<h2>Success Stories</h2>
+Please click <a href="vls.html">here</a> to view a selection of published ICM screening success stories.
+<p>
+<h2>Independent Evaluations</h2>
+<img src="images/dock1s.png" height="189" width="300" align="right">
+<p>
+ICM virtual ligand screening technology has been ranked the best virtual screening tool in comparisons reported by the Scripps Research Institute  <a href="http://www.molsoft.com/publications.html#jcamd2003">(Bursulaya et al 2003)</a>, Astra Zeneca <a href="http://www.molsoft.com/publications.html#jcim2006">(Chen et al 2003)</a>, and Wyeth  <a href="http://www.molsoft.com/publications.html#jcim2009">(Cross et al 2009)</a>.  ICM-VLS ranked number one in terms of predicting the ligand pose and enrichment factor (number of compounds you need to test experimentally to find a hit) compared to a selection of other commercially available screening algorithms. For example, scientists at Astra Zeneca screened a database containing 20K random compounds and between 17-622 active ligands per drug target receptor. The enrichment factors for 12 targets at 1% of database subset compared to Schrodinger's Glide software is shown below. ICM molecular modeling and docking also performed very well at "blind" GPCR modeling and docking competitions (See  <a href="http://www.molsoft.com/publications.html#nat2009">(Michino et al 2009)</a>,  <a href="http://www.molsoft.com/publications.html#jmc2010">(Katritch et al 2010)</a>,  <a href="http://www.molsoft.com/publications.html#structure2010">(Kufareva et al 2010)</a>  ). 
+</p>
+<p>
+MolSoft's docking and scoring algorithm ranked first place for prediction of ligand pose and screening accuracy in the most recent industry-wide competition organized by OpenEye, GlaxoWellcome, and Merck. The results of the
+competition were announced at the American Chemical Society Meeting in Anaheim in 2011 and MolSoft's ICM performance is reported here  <a href="http://www.molsoft.com/publications.html#jcamd2012">(Neves et al 2012)</a>. The docking pose prediction accuracy was benchmarked using the modified Astex set of
+85 protein-ligand complexes. The top score poses were correct (under 2A RMSD) in 60% to over 90% of the cases depending on the docking method. The ICM docking method achieved 78% of the top score poses under 1A RMSD and 91%
+under 2Å RMSD.  
+</p>
+<p>
+<h2>MolSoft ICM D3R Docking Challenge Success - Outperforming Other Methods</h2>
+<p>
+MolSoft's ICM software ranked in first place for average RMSD docking accuracy in the 'Blind - Industry Wide' Drug Design challenge competition <a href="http://drugdesigndata.org/">http://drugdesigndata.org/</a> (D3R).
+</p>
+<p>
+Along with over 50 other participants, the Molsoft group led by Maxim Totrov Ph.D.(Principal Scientist, MolSoft), submitted blind docking pose predictions for the Farnesoid X receptor (FXR) which is a drug target for dyslipidemia and diabetes. The MolSoft team used the pocketome (www.pocketome.org) entry for FXR and the ICM-VLS, Atomic Property Fields (APF) and machine learning methods in the ICM-Pro software to predict the interaction of 36 FXR ligands and the binding affinity of 102 other ligands.
+</p>
+<p>
+In January 2017 the organizers (D3R) distributed the evaluation results which showed that MolSoft's submission ranked first in RMSD for the top scoring pose and was the only one with average RMSD below 2.0A (Figure 1 below). In the Binding Energy Prediction competition ICM APF dock and icm-MMGBSA method ranked in first place and produced the lowest RMSE for Stage 2 Set 1 set of Kd values for 15 ligands (<a href="http://www.molsoft.com/publications.html#jcamd2018">Lam et al 2018</a>).
+</p>
+</p>
+In the 2018 Grand Challenge 3 there were Six different targets Cathepsin S and kinases VEGFR2, JAK2 and p38-alpha. MolSoft's submissions ranked first place for docking pose and affinity prediction for all targets <a href="https://pubmed.ncbi.nlm.nih.gov/30094533/">Lam et al 2019</a>.
+In the 2019 Grand Challenge 4 ICM accurately predicted the pose of BACE macrocycle inhibitors to within sub-angstrom accuracy <a href="https://pubmed.ncbi.nlm.nih.gov/31598897/">Lam et al 2019</a>.
+<p>
+<img src="images/d3r_plot_980.png" height="393" width="980">
+<p>
+<p>
+<p>
+</div>
+ 
+<!-- footer section -->
+  <section class="container-fluid footer_section">
+<!-- info section -->
+  <section class="info_section layout_padding">
+    <div class="container">
+<a href="/sitemap.html" style="color:white;">Site Map</a> | <a href="https://www.molsoft.com/evaluation.html" style="color:white;">Request a Trial</a> | <a href="https://www.molsoft.com/new-features.html" style="color:white;">What's New</a> | <a href="https://groups.google.com/g/molsoft-icm-forum" style="color:white;">Knowledge Base</a>  | <a href="https://www.youtube.com/user/MolSoftHelp" style="color:white;">Videos</a> <br>
+<br>
+      <div class="info_social">
+        <div>
+          <a href="https://www.facebook.com/Molsoft/">
+            <img src="/images/fb.png" alt="">
+          </a>
+        </div>
+        <div>
+          <a href="https://twitter.com/molsoft">
+            <img src="/images/twitter.png" alt="">
+          </a>
+        </div>
+        <div>
+          <a href="https://www.linkedin.com/company/3634260/admin/">
+            <img src="/images/linkedin.png" alt="">
+          </a>
+        </div>
+        <div>
+          <a href="">
+            <img src="/images/insta.png" alt="">
+          </a>
+        </div>
+      </div>
+      <div>
+        <p>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+<p>
+      &copy; 2024 All Rights Reserved MolSoft LLC
+
+      <a href="/https://www.molsoft.com/terms-of-use.html"> Terms of Use | </a>
+
+      <a href="/https://www.molsoft.com/privacy-policy.html"> Privacy Policy</a>
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="https://molsoft.com/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="https://molsoft.com/js/bootstrap.js"></script>
+
+</body>
+</body>
+
+</html>
+
+

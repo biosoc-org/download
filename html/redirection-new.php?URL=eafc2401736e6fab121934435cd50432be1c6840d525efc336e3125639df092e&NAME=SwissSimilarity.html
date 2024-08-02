@@ -1,0 +1,915 @@
+<!DOCTYPE HTML>
+
+<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
+
+<html lang='en'>
+<head>
+  <meta http-equiv="Content-type" conteshant="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="ROBOTS" content="all">
+  <meta name="title" content="SwissSimilarity">
+  <META HTTP-EQUIV="Access-Control-Allow-Origin" CONTENT="swisssimilarity.ch">
+  <!-- <META HTTP-EQUIV="Access-Control-Allow-Origin" CONTENT="swisssimilarity.ch"> -->
+  <base href="http://www.swisssimilarity.ch/">
+  <title>SwissSimilarity</title>
+  <link rel="stylesheet" href="css/sib.css" type="text/css" media="screen" title="" charset="utf-8">
+  <link rel="stylesheet" href="css/progress-bar.css" type="text/css" media="screen" title="" charset="utf-8">
+
+  <script src="/marvinjs-21/js/lib/rainbow/rainbow-custom.min.js"></script>
+  <script src="/marvinjs-21/js/lib/jquery-1.9.1.min.js"></script>
+
+  <link rel="icon" href="img/SDD_sigle_rvb-01.svg"> 
+
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://matomo.sib.swiss/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '47']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+
+
+</head>
+
+
+
+<body>	
+
+    
+
+<!-- ********************************************************************************************** -->
+<!-- START OF HEADER information on top of the page -->
+<div class='maintable shadow' style="width: 950px;">
+<link rel="stylesheet" href="/shared/navigationbar/css/navigationbar.css" type="text/css" media="screen" title="" charset="utf-8">
+
+<script  type="text/javascript" src="/shared/navigationbar/js/navigationbar.js"></script>
+
+<div id="navigationbar">
+
+        <div class="navigationitem">
+                <a href="//www.swissdock.ch/" title="Docking of small molecules into protein active sites" target="_blank"><span class="navigationitemlink">SwissDock</span></a>
+                <br>
+                <a href="//www.swissdock.ch/" title="Docking of small molecules into protein active sites" target="_blank"><img src="/shared/navigationbar/img/SD-Red-60.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//www.swissparam.ch/" title="Generate CHARMM/GROMACS topology and parameters for small organic molecules"  target="_blank"><span class="navigationitemlink">SwissParam</span></a>
+                <br>
+                <a href="//www.swissparam.ch/" title="Generate CHARMM/GROMACS topology and parameters for small organic molecules"  target="_blank"><img src="/shared/navigationbar/img/SP-Red-60.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//www.swisssidechain.ch/" title="Structural and molecular mechanics database of non-natural amino-acid sidechains" target="_blank"><span class="navigationitemlink">SwissSidechain</span></a>
+                <br>
+                <a href="//www.swisssidechain.ch/" title="Structural and molecular mechanics database of non-natural amino-acid sidechains" target="_blank"><img src="/shared/navigationbar/img/SSC-Red-60.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//www.swissbioisostere.ch/" title="Database of molecular replacements and their impact on bioactivity" target="_blank"><span class="navigationitemlink">SwissBioisostere</span></a>
+                <br>
+                <a href="//www.swissbioisostere.ch/" title="Database of molecular replacements and their impact on bioactivity" target="_blank"><img src="/shared/navigationbar/img/SB-Red-60.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//www.swisstargetprediction.ch/" title="Target prediction for bioactive small molecules" target="_blank"><span class="navigationitemlink">SwissTargetPrediction</span></a>
+                <br>
+                <a href="//www.swisstargetprediction.ch/" title="Target prediction for bioactive small molecules" target="_blank"><img src="/shared/navigationbar/img/STP-Red-60.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//www.swissadme.ch/" title="Calculate molecular parameters in relation with pharmacokinetics and dynamics properties" target="_blank"><span class="navigationitemlink">SwissADME</span></a>
+                <br>
+                <a href="//www.swissadme.ch/" title="Calculate molecular parameters in relation with pharmacokinetics and dynamics properties" target="_blank"><img src="/shared/navigationbar/img/SA-Red-60.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//www.swisssimilarity.ch/" title="Perform ligand-based screening" target="_blank"><span class="navigationitemlink">SwissSimilarity</span></a>
+                <br>
+                <a href="//www.swisssimilarity.ch/" title="Perform ligand-based screening" target="_blank"><img src="/shared/navigationbar/img/SS-Red-60.png" class="navigationitemlogo"></a>
+        </div>
+		
+</div>
+
+<hr style="width:100%; display: block; height: 1px; border: 0px; border-top: 1px solid #5c5c5c ; margin: 0em; padding-top: 10px; padding-bottom: 5px; background:white;">
+<div id='sib_container'>
+  <div id='sib_header'> 				  
+    <a href='https://www.molecular-modelling.ch/swiss-drug-design.html' id='sib_logo'><span>Swiss Institute of Bioinformatics</span></a
+      
+      <!--  BEGIN DROP_DOWN MENU-->
+      <div class="sib_drop_menu">  
+	  <ul>
+             <!-- <li><a href="http://old.swisssimilarity.ch"><span style="color: red;">Old version</span></a></li> -->
+             <li><a href="contact.php">Contact</a></li> 
+             <li><a href="citing.php">Citing</a></li>     
+	     <li><a href="command-line.php">Command-line</a></li>
+             <li><a href="tutorials.php">Tutorials</a></li> 
+             <li><a href="FAQ.php">FAQ</a></li>
+             <li><a href="about.php">About</a></li>        
+             <li><a href="index.php">Home</a></li> 
+	  </ul>
+      </div>     
+      
+  </div>
+<!-- END OF HEADER -->
+<!-- ********************************************************************************************** -->			
+<div>
+
+<hr style="width:95%; height:1px; background: #ededed; border: 0px;">
+
+
+
+
+<!-- DIV for the survey -->
+<!--
+<div style="float:left; height:20px; width:90%; margin-left: 5%; margin-right: 5%; margin-top: 20px; margin-bottom:25px; font: 11pt  Helvetica,Verdana, sans-serif; padding: 7px; padding-top:15px; box-shadow: 0px 2px 4px 0px rgba(100,100,100,.8); vertical-align: middle; ">
+        <!--<span style="color:#ff0f00; font: 15px;"><b>&emsp;|&emsp;</b></span> -->
+<!--        <div style="float:left; border-left: 5px solid red; height: 25px; margin-top: -5px; margin-left: 3px; margin-right: 7px;"></div>
+        Please, take our <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSccp_586qIxEcDVGIhw39V6nyvW5D5DyNRSdZ5vjhQnN1a4RA/viewform?usp=sf_link">survey</a> to find out how you use our tools and how we could improve them. It only takes 8 min.
+</div>
+-->
+
+
+
+<!-- <div id='sib_body' style="min-height: 700px;"> -->
+
+
+
+<script src="marvinjs-21/gui/lib/promise-1.0.0.min.js"></script>
+<script src="marvinjs-21/js/marvinjslauncher.js"></script>
+<script src="marvinjs-21/js/lib/molchange.js"></script>
+
+
+
+<script language="javascript" type="text/javascript">
+
+
+  var timeForRun;
+
+  if (window.location.href === "http://swisssimilarity.ch/") {
+	location.replace('http://www.swisssimilarity.ch');
+  }
+
+  
+</script>
+
+
+
+
+
+
+
+<script>
+
+    var numClasses=0;
+    var nameClass=[];
+    var numLibraryPerClass=[];
+    var doublearray=[]; while(doublearray.push([]) < 100);
+    var nameLibrary=[]; while(nameLibrary.push([]) < 100);
+    var codeLibrary=[]; while(codeLibrary.push([]) < 100);
+    var sizeLibrary=[]; while(sizeLibrary.push([]) < 100);
+    //var timeFor=[]; while(timeFor.push(doublearray) < 9);
+    var timeFor= new Array();
+    for(i=0;i<100;i++) {
+        timeFor[i] = new Array();
+        for(j=0;j<100;j++) {
+            timeFor[i][j] = new Array();
+            for(k=0;k<10;k++) {
+                timeFor[i][j][k]=0;
+            }
+        }
+    }
+
+    var txtFile = new XMLHttpRequest();
+    txtFile.open("GET", "http://www.swisssimilarity.ch/SwissSimilarity_summary.csv", false);
+    txtFile.onreadystatechange = function() {
+        if (txtFile.readyState === 4) {  // Makes sure the document is ready to parse.
+            if (txtFile.status === 200) {  // Makes sure it's found the file.
+                allText = txtFile.responseText;
+                lines = txtFile.responseText.split("\n"); // Will separate each line into an array
+                for (l = 0; l < lines.length; l++) {
+                    lines[l].replace(/\r\n|\r/g,"");
+                    w = lines[l].split(",");
+                    if (w[0] !== "") {
+                        numClasses=numClasses+1;
+                        numLibraryPerClass[numClasses]=0;
+                        nameClass[numClasses]=w[0];
+                        //console.log("Compound Class : "+numClasses+" : "+nameClass[numClasses]);
+                    }
+                    if (typeof w[1] !== "undefined") { 
+                        numLibraryPerClass[numClasses]=numLibraryPerClass[numClasses]+1;
+                        nameLibrary[numClasses][numLibraryPerClass[numClasses]]=w[1];                
+                        codeLibrary[numClasses][numLibraryPerClass[numClasses]]=w[2];
+                        sizeLibrary[w[2]]=w[3];
+                        //console.log("     "+numLibraryPerClass[numClasses]+"  is named "+nameLibrary[numClasses][numLibraryPerClass[numClasses]]+"   with code "+codeLibrary[numClasses][numLibraryPerClass[numClasses]]+"     of size "+sizeLibrary[numClasses][numLibraryPerClass[numClasses]]);
+                        for (m = 0; m < 10; m++) {
+                            timeFor[numClasses][numLibraryPerClass[numClasses]][m]=w[4+m];
+                            //console.log(numClasses,numLibraryPerClass[numClasses],m, " "+nameClass[numClasses]+" "+nameLibrary[numClasses][numLibraryPerClass[numClasses]]+" "+m+"    : "+timeFor[numClasses][numLibraryPerClass[numClasses]][m]);
+                        }
+                        //console.log("                       Time for a MHFP6 run: "+timeFor[numClasses][numLibraryPerClass[numClasses]][4]);
+                    }
+                    
+                }
+            }
+        }
+    }
+    txtFile.send(null);
+
+    for(c = 1; c < numClasses+1; c++) {
+        for(l = 1; l <  numLibraryPerClass[c]+1; l++) {
+            for(m = 0; m < 10; m++) {
+                    console.log(c,l,m, " "+nameClass[c]+" "+nameLibrary[c][l]+" "+m+"    : "+timeFor[c][l][m]);
+            }
+        }
+    }
+
+    
+    var realLibraryName = new Array();
+    realLibraryName["Asinex"]=sizeLibrary["Asinex"]+" commercially available compounds provided by Asinex.";
+    realLibraryName["AsisChem"]=sizeLibrary["AsisChem"]+" commercially available compounds provided by AsisChem.";
+    realLibraryName["CHEBI"]=sizeLibrary["CHEBI"]+" molecules from the Chemical Entities of Biological Interest (ChEBI) database.";
+    realLibraryName["CHEMBL"]=sizeLibrary["CHEMBL"]+" molecules from the entire ChEMBL bioactivity database.";
+    realLibraryName["CHEMBL_GPCR"]=sizeLibrary["CHEMBL_GPCR"]+" GPCR ligands from the ChEMBL database.";
+    realLibraryName["CHEMBL_act"]=sizeLibrary["CHEMBL_act"]+" active molecules from the ChEMBL database (lower than 10 &micro;M.)";
+    realLibraryName["CHEMBL_clinic"]=sizeLibrary["CHEMBL_clinic"]+" molecules evaluated in clinical trials, from the ChEMBL database.";
+    realLibraryName["CHEMBL_drug"]=sizeLibrary["CHEMBL_drug"]+" approved drugs, from the ChEMBL database.";
+    realLibraryName["CHEMBL_kinase"]=sizeLibrary["CHEMBL_kinase"]+" kinase ligands from the ChEMBL database.";
+    realLibraryName["CHEMBL_protease"]=sizeLibrary["CHEMBL_protease"]+" protease ligands from the ChEMBL database.";
+    realLibraryName["ChemBridge"]=sizeLibrary["ChemBridge"]+" commercially available compounds provided by ChemBridge.";
+    realLibraryName["ChemDiv"]=sizeLibrary["ChemDiv"]+" commercially available compounds provided by ChemDiv.";
+    realLibraryName["DrugBank"]=sizeLibrary["DrugBank"]+" Approved, investigational and withdrawn drug molecules from the DrugBank database.";
+    realLibraryName["Enamine"]=sizeLibrary["Enamine"]+" commercially available compounds provided by Enamine.";
+    realLibraryName["Enamine_Tang"]=sizeLibrary["Enamine_Tang"]+" synthetically tangible molecules from Enamine.";
+    realLibraryName["Glass"]=sizeLibrary["Glass"]+" GPCR ligands from the GLASS database.";
+    realLibraryName["HMDB"]=sizeLibrary["HMDB"]+" small molecule metabolites from the HMDB database.";
+    realLibraryName["InnoPharm"]=sizeLibrary["InnoPharm"]+" commercially available compounds provided by InnovaPharm.";
+    realLibraryName["InnoPharm_Tang"]=sizeLibrary["InnoPharm_Tang"]+" synthetically tangible molecules from InnovaPharm.";
+    realLibraryName["LifeChemicals"]=sizeLibrary["LifeChemicals"]+" commercially available compounds provided by LifeChemicals.";
+    realLibraryName["LifeChemicals_Tang"]=sizeLibrary["LifeChemicals_Tang"]+" synthetically tangible molecules from LifeChemicals.";
+    realLibraryName["LigandExpo"]=sizeLibrary["LigandExpo"]+" small molecules present in at least one experimental structure stored in the PDB";
+    realLibraryName["Maybridge"]=sizeLibrary["Maybridge"]+" commercially available compounds provided by Maybridge.";
+    realLibraryName["Otava"]=sizeLibrary["Otava"]+" commercially available molecules provided by Otava.";
+    realLibraryName["Otava_Tang"]=sizeLibrary["Otava_Tang"]+" synthetically tangible molecules from Otava.";
+    realLibraryName["SPECS"]=sizeLibrary["SPECS"]+" commercially available compounds provided by SPECS.";
+    realLibraryName["TimTec"]=sizeLibrary["TimTec"]+" commercially available compounds provided by Timtec.";
+    realLibraryName["Vitas"]=sizeLibrary["Vitas"]+" commercially available compounds provided by Vitas.";
+    realLibraryName["ZINC_drug"]=sizeLibrary["ZINC_drug"]+" drug-like purchasable compounds from the ZINC database.";
+    realLibraryName["ZINC_frag"]=sizeLibrary["ZINC_frag"]+" fragment-like purchasable compounds from the ZINC database.";
+    realLibraryName["ZINC_lead"]=sizeLibrary["ZINC_lead"]+" lead-like purchasable compounds from the ZINC database.";
+    
+    
+    var nameMethod=[];
+    nameMethod[0]="FP2";   
+    nameMethod[1]="ECFP4";
+    nameMethod[2]="MHFP6";
+    nameMethod[3]="pharmacophore";
+    nameMethod[4]="ErG"; 
+    nameMethod[5]="Scaffold";
+    nameMethod[6]="GenScaffold";  
+    nameMethod[7]="Electroshape";
+    nameMethod[8]="E3FP";
+    nameMethod[9]="Combined";   
+    var computationTime=0;
+    
+</script>
+
+
+<!--<script>
+    for (cla = 1; cla<5; cla++) {
+        for (lib = 1; lib<numLibraryPerClass[cla]+1; lib++) {
+            console.log("Class num: "+cla+"     library num: "+lib+"   of name: "+nameLibrary[cla][lib]);
+        }
+    }
+        
+</script>-->
+
+
+
+
+
+<form method="post" id="myForm" target="_blank" action="http://swisssimilarity.ch/screen.php">
+
+<input type="hidden" name="computationTime" value="" />
+
+
+<!--
+<p style="color:#FF0000; font: 18pt  Helvetica,Verdana, sans-serif;"><b>Due to technical issues, all calculations are currently suspended. We are working to fix this issue as soon as possible.</b></p>
+<p style="color:#FF0000; font: 18pt  Helvetica,Verdana, sans-serif;"><b>Due to overload by many long jobs, the service was not properly working. Some calculations submitted on May 29 and 30 were lost. Please do not launch long jobs in parallel.</b></p>
+-->
+
+
+<!--                 -->
+<!-- Select examples -->
+<!--                 -->
+
+<div style="float: left; width: 100%; height: 70px; margin-left: 0px; margin-right: 5px; margin-top:40px; font: 12pt  Helvetica,Verdana, sans-serif;">
+    <i>Don't know where to start?</i> Try with an example 
+    <span class="niceLinks" style="color:#000000" id="optionExample" onclick="applyExample('OC(=O)CC1=CC=CC=C1NC1=C(Cl)C=CC=C1Cl');" ><b>Diclofenac</b></span>, 
+    <span class="niceLinks" style="color:#000000" id="optionExample" onclick="applyExample('CC(C)NCC(O)COC1=CC=CC2=CC=CC=C12');" ><b>Propranolol</b></span> or
+    <span class="niceLinks" style="color:#000000" id="optionExample" onclick="applyExample('CC1=CN(C=N1)C1=CC(NC(=O)C2=CC=C(C)C(NC3=NC=CC(=N3)C3=CN=CC=C3)=C2)=CC(=C1)C(F)(F)F');" ><b>Nilotinib</b></span>.
+</div>
+
+
+
+<!--                              -->
+<!-- Input the reference molecule -->
+<!--                              -->
+
+
+<div style="float: left; width: 100%; margin-left: 0px; margin-right: 5px; margin-top:0px; font: 12pt  Helvetica,Verdana, sans-serif;">
+    <span style="font-size:20px;">1 - Enter a molecule in SMILES format</span>
+    <br>
+    <div id="containerSketch" style="width: 435px; height: 0px; margin-left: 5px; margin-right: 5px; padding: 5px; transition: height 1s;">
+        <iframe id="sketch" src="marvinjs-21/editorws.html" seamless="seamless" scrolling="no" frameborder="0" style="display:none; overflow: hidden; min-width: 420px; min-height: 430px; border: 1px solid darkgray;" >
+        </iframe>
+        <span id="sketcherHidener" style="display:none; margin-top:5px; color:#ff0000;" onclick="hideSketcher();" class="niceLinks" >Hide the sketcher</span>
+    </div>
+    <input type="text" name="smiles"  id="smilesBox" form="myForm" value="" style="width:450px;"/>
+    &nbsp;&nbsp;<span style="font-size:16px;"><i>No SMILES available?</i> Draw a molecule <span onclick="showSketcher();" class="niceLinks" ><b>using the sketcher</b></span>
+    </span>
+</div>
+
+
+
+
+<!--                                       -->
+<!-- Select library and screening method   -->
+<!--                                       -->
+
+<div style="float: left; width: 100%; height: 450px; margin-left: 0px; margin-right: 5px; margin-top:25px; font: 12pt  Helvetica,Verdana, sans-serif;">
+
+    <span style="font-size:20px;">2 - Select a class of compounds </span>
+    <br>
+    
+    <div style="clear: both; display: inline-block; vertical-align: middle; height:50px; width:900px;">
+    <div style="float: left; margin-top:15px; display: table-cell; vertical-align: middle;">   
+        Please, select a class of compounds here:&nbsp;&nbsp;
+    </div>
+    <div style="float: left; margin-top:15px;">
+        <select name="compoundClasses" id="compoundClasses" onchange="createTable()" style="width:275px;">
+            <!-- <option value='' selected>Class of compound:</option> -->
+            <option disabled selected value> -- select an option -- </option>
+        </select>
+    </div>
+    </div>
+    
+    <script>
+        var select = document.getElementById("compoundClasses");
+        for(var i = 1; i < numClasses+1; i++) {
+            var el = document.createElement("option");
+            el.textContent = nameClass[i];
+            el.value = i;
+            select.appendChild(el);
+        }
+    </script>
+    
+
+    <br><br>
+    <span style="font-size:20px;">3 - Select compound library and screening method </span>
+    <br>
+    
+    <div style="float: left; margin-top:15px; border: 1px solid; border-color: #dddddd; margin:10px; width: 940px; height: 395px; overflow-y:auto; scrollbar-width: thin" class="visible-scrollbar">
+    
+    
+    
+        <style>
+           
+
+            .table-header-rotated th.row-header{
+            width: auto;
+            }
+
+            .table-header-rotated td{
+            width: 40px;
+            border-top: 1px solid #dddddd;
+            border-left: 1px solid #dddddd;
+            border-right: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+
+            vertical-align: middle;
+            text-align: center;
+            }
+
+            .table-header-rotated th.rotate-45{
+            height: 105px;
+            width: 60px;
+            min-width: 60px;
+            max-width: 60px;
+            position: relative;
+            vertical-align: bottom;
+            padding: 0;
+            font-size: 12px;
+            line-height: 0.8;
+            }
+
+           
+            .table-header-rotated th.rotate-45 > div{
+            position: relative;
+            top: 0px;
+            left: 53px; /* 105 * tan(45) / 2  where 105 is the height on the cell and 45 is the transform angle*/
+            height: 100%;
+            -ms-transform:skew(-45deg,0deg);
+            -moz-transform:skew(-45deg,0deg);
+            -webkit-transform:skew(-45deg,0deg);
+            -o-transform:skew(-45deg,0deg);
+            transform:skew(-45deg,0deg);
+            overflow: hidden;
+            border-left: 1px solid #78CCCF;
+            border-right: 1px solid #78CCCF;
+            border-top: 1px solid #78CCCF; 
+            border-bottom: 1px solid #78CCCF;
+ 			cursor: help;
+            }
+
+            .table-header-rotated th.rotate-45 span {
+            -ms-transform:skew(45deg,0deg) rotate(315deg);
+            -moz-transform:skew(45deg,0deg) rotate(315deg);
+            -webkit-transform:skew(45deg,0deg) rotate(315deg);
+            -o-transform:skew(45deg,0deg) rotate(315deg);
+            transform:skew(45deg,0deg) rotate(315deg);
+            position: absolute;
+            bottom: 44px; /* 60 cos(45) = 42 with an additional 2px margin*/
+            left: -25px; /*Because it looked good, but there is probably a mathematical link here as well*/
+            display: inline-block;
+            // width: 100%;
+            width: 106px; /* 105 / cos(45) - 60 cos (45) = 71 where 105 is the height of the cell, 60 the width of the cell and 45 the transform angle*/
+            text-align: left;
+            // white-space: nowrap; /*whether to display in one line or not*/
+/*             cursor: help; */
+            }
+
+            .table-header-rotated th.rotate-45-3D{
+            height: 105px;
+            width: 60px;
+            min-width: 60px;
+            max-width: 60px;
+            position: relative;
+            vertical-align: bottom;
+            padding: 0;
+            font-size: 12px;
+            line-height: 0.8;
+            }
+
+           
+            .table-header-rotated th.rotate-45-3D > div{
+            position: relative;
+            top: 0px;
+            left: 53px; /* 105 * tan(45) / 2  where 105 is the height on the cell and 45 is the transform angle*/
+            height: 100%;
+            -ms-transform:skew(-45deg,0deg);
+            -moz-transform:skew(-45deg,0deg);XXX
+            -webkit-transform:skew(-45deg,0deg);
+            -o-transform:skew(-45deg,0deg);
+            transform:skew(-45deg,0deg);
+            overflow: hidden;
+            border-left: 1px solid #FD7F80;
+            border-right: 1px solid #FD7F80;
+            border-top: 1px solid #FD7F80;
+            border-bottom: 1px solid #FD7F80; 
+            cursor: help;
+
+            }
+
+            .table-header-rotated th.rotate-45-3D span {
+            -ms-transform:skew(45deg,0deg) rotate(315deg);
+            -moz-transform:skew(45deg,0deg) rotate(315deg);
+            -webkit-transform:skew(45deg,0deg) rotate(315deg);
+            -o-transform:skew(45deg,0deg) rotate(315deg);
+            transform:skew(45deg,0deg) rotate(315deg);
+            position: absolute;
+            bottom: 44px; /* 60 cos(45) = 42 with an additional 2px margin*/
+            left: -25px; /*Because it looked good, but there is probably a mathematical link here as well*/
+            display: inline-block;
+            // width: 100%;
+            width: 106px; /* 105 / cos(45) - 60 cos (45) = 71 where 105 is the height of the cell, 60 the width of the cell and 45 the transform angle*/
+            text-align: left;
+            // white-space: nowrap; /*whether to display in one line or not*/
+            }
+
+            .table-header-rotated th.rotate-45-5D{
+            height: 105px;
+            width: 60px;
+            min-width: 60px;
+            max-width: 60px;
+            position: relative;
+            vertical-align: bottom;
+            padding: 0;
+            font-size: 12px;
+            line-height: 0.8;
+            }
+
+           
+            .table-header-rotated th.rotate-45-5D > div{
+            position: relative;
+            top: 0px;
+            left: 53px; /* 105 * tan(45) / 2  where 105 is the height on the cell and 45 is the transform angle*/
+            height: 100%;
+            -ms-transform:skew(-45deg,0deg);
+            -moz-transform:skew(-45deg,0deg);
+            -webkit-transform:skew(-45deg,0deg);
+            -o-transform:skew(-45deg,0deg);
+            transform:skew(-45deg,0deg);
+            overflow: hidden;
+            border-left: 1px solid #999999;
+            border-right: 1px solid #999999;
+            border-top: 1px solid #999999;
+            border-bottom: 1px solid #999999;
+            cursor: help;
+ 
+            }
+
+            .table-header-rotated th.rotate-45-5D span {
+            -ms-transform:skew(45deg,0deg) rotate(315deg);
+            -moz-transform:skew(45deg,0deg) rotate(315deg);
+            -webkit-transform:skew(45deg,0deg) rotate(315deg);
+            -o-transform:skew(45deg,0deg) rotate(315deg);
+            transform:skew(45deg,0deg) rotate(315deg);
+            position: absolute;
+            bottom: 44px; /* 60 cos(45) = 42 with an additional 2px margin*/
+            left: -25px; /*Because it looked good, but there is probably a mathematical link here as well*/
+            display: inline-block;
+            // width: 100%;
+            width: 106px; /* 105 / cos(45) - 60 cos (45) = 71 where 105 is the height of the cell, 60 the width of the cell and 45 the transform angle*/
+            text-align: left;
+            // white-space: nowrap; /*whether to display in one line or not*/
+            }
+                       
+        </style>
+    
+    
+        
+        <!-- Those are the div to inform the users about what approaches are 2D, 3D and 5D. -->
+        <div style="font: 10pt  Helvetica,Verdana, sans-serif;">
+            <div style="clear: both; float: left; width:287px; height: 20px"></div>
+<!--            <div style="float: left; width:428px; height: 20px; margin-top: 3px; border: 1px solid #dddddd; text-align: center; background-color: #DCFBFB;">2D</div> -->
+			<div style="float: left; width:430px; height: 20px; margin-top: 3px; margin-bottom: 2px;border: 1px solid #bbbbbb; text-align: center; background-color: #DCFBFB;">2D</div>
+            <div style="float: left; width:118px; height: 20px; margin-top: 3px; margin-left: 3px;border: 1px solid #bbbbbb; text-align: center; background-color: #FECFCF;">3D</div>
+            <div style="float: left; width:58px; height: 20px; margin-top: 3px; margin-left: 3px;border: 1px solid #bbbbbb; text-align: center; background-color: #EEEEEE;">2D & 3D</div>            
+        </div>
+         
+    
+        <!-- This is the header of the table with all Libraries/Methods. The rest of the Table is generated using Javascript below -->
+        <table style="font-size:10pt;" id="listLibMet" class="listLibMet table-header-rotated">
+            <tr>
+                <thead>
+                    <th style="width:175px; text-align:left; color:#999999;font-style: italic;font-weight: normal;" id="filledWithTime" >Put the mouse over a radio button to see the corresponding computation time</th>
+
+                    <th class="rotate-45"><div title="Path-based (Linear) Molecular Fingerprints"><span>FP2</span></div></th>                  
+                    <th class="rotate-45"><div title="Extended Connectivity (Circular) Molecular Fingerprints"><span>ECFP4</span></div></th> 
+                    <th class="rotate-45"><div title="MinHash (Circular) Molecular Fingerprints"><span>MHFP6</span></div></th>
+                    <th class="rotate-45"><div title="Classical 3-point Pharmacophore"><span>Pharmacophore</span></div></th>
+                    <th class="rotate-45"><div title="Extended Reduced Graph Fingerprints (pharmacophore)"><span>ErG</span></div></th>    
+                    <th class="rotate-45"><div title="Original Murcko Molecular Framework"><span>Scaffold</span></div></th>
+                    <th class="rotate-45"><div title="Generic Murcko Molecular Framework"><span>Generic Scaffold</span></div></th>              
+                    <th class="rotate-45-3D"><div title="Non-superpositional 3D methods"><span>Electroshape</span></div></th>                
+                    <th class="rotate-45-3D"><div title="Extended Conformational Molecular Fingerprints"><span>E3FP</span></div></th>
+                    <th class="rotate-45-5D"><div title="Combination of FP2 and Electroshape"><span>Combined</span></div></th>
+                </thead>
+                <tbody>
+            </tr>
+
+             
+                
+            </tbody>
+        </table>
+    
+    
+    </div>
+
+    
+    
+</div>
+
+
+
+
+<!--                            -->
+<!-- Submission and reset form  -->
+<!--                            -->
+
+<div style="clear: both; width  400px; height: 100px;"></div>
+<div style="clear: both; width: 400px; height: 50px; margin-bottom: 5px; font: 12pt  Helvetica,Verdana, sans-serif;">     
+    <span style="font-size:20px; ">4 - Submit </span>
+    <div>
+        <input type="button" id="submitButton" onclick="formSubmit()" target="_blank" value="START SCREENING" disabled="true" style="margin-top: 10px; width:200px; height: 50px; font-size:15px; font-weight: bold; border-radius:7px; ">
+        &nbsp;&nbsp;<span class="niceLinks" style="color:#000000" onclick="resetForm();" style="text-decoration:underline; font: 12pt  Helvetica,Verdana, sans-serif; font-weight: bold;" ><b>Reset form</b></span>
+    </div>
+
+    <p id="commentOnSubmit" style="color:#444444;"><small><em>(Provide a query molecule, and select a compound library and a screening method before submitting)</em></small></p>
+    <br>
+</div>
+
+        
+
+        
+        
+        
+
+ 
+
+
+<div style="clear: both; width: 100%; height: 50px; " name="horizontal spacer"></div>
+
+<div id="chemaxon_logo" style="text-align:right;"><a href="http://www.chemaxon.com" target="_blank"><img src="img/chemaxon_logo.png" style="width:250px; margin-top:25px;" alt="chemaxon logo"></a></div>
+
+
+
+
+
+
+       
+   
+
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+	function formSubmit()
+	  { 
+ 	    if (document.forms[0].smiles.value=="") {
+ 	        alert("Please, provide a query molecule");
+ 	    } else {
+                document.getElementById("myForm").submit();
+	    }
+	  }
+</script>
+
+
+
+
+
+
+<script>
+    function createTable() {
+        $("#listLibMet").find("tr:gt(1)").remove();
+
+                
+        selectedClass=document.getElementById("compoundClasses").value;
+        numOfLibraries=numLibraryPerClass[selectedClass];
+        console.log('The selected class is '+selectedClass+' which has '+numOfLibraries+' libraries');
+        for(l = 1; l < numOfLibraries+1; l++) {
+            //console.log(l+"  "+nameLibrary[selectedClass][l]);
+            r = document.createElement('tr'); // Create a line in the Table
+            cl = document.createElement('td'); // Create the first column, which will contain the name of the compounds library
+            cl.style["text-align"] = "left";
+            cl.style["font-size"] = "11px";
+//             cl.style.fontSize = '11px';       
+            cl.innerHTML="<abbr style='text-decoration: none; cursor: help;' title='"+realLibraryName[codeLibrary[selectedClass][l]]+"'>"+nameLibrary[selectedClass][l]+"</abbr>"; 
+//             cl.innerHTML="<abbr style='text-decoration: none; cursor: help;' title='"+realLibraryName[codeLibrary[selectedClass][l]]+"'>"+nameLibrary[selectedClass][l]+"</abbr>"; 
+             
+            r.appendChild(cl);  // Add the first column to the line 
+                        
+            //ccomb = document.createElement('td');  // Treat the column for the combine score (which is treated separately for the moment)
+            //r.appendChild(ccomb);
+            for(m = 0; m < 10 ; m++) {
+                console.log(selectedClass,l,m+"  "+nameLibrary[selectedClass][l]+"    "+timeFor[selectedClass][l][m]);
+                cm = document.createElement('td');
+                if (timeFor[selectedClass][l][m]>0) {
+//                 	timeFor[selectedClass][l][m]=1+parseInt(1.1*timeFor[selectedClass][l][m]);
+					timeFor[selectedClass][l][m]=Math.ceil(1.1*timeFor[selectedClass][l][m])
+                    //button="<input type=\"radio\" id=\"library_method\" name=\"library_method\" value=\"+nameLibrary[selectedClass][l]+"_"+m+\">";
+                    button="<input type=\"radio\" form=\"myForm\" id=\"library_method\" name=\"library_method\"  value=\""+codeLibrary[selectedClass][l]+"___"+m+"\" onclick=\"timeForRun="+timeFor[selectedClass][l][m]+"; checkForm("+timeFor[selectedClass][l][m]+");\" onmouseover=\"document.getElementById('filledWithTime').innerHTML='Computation time: "+timeFor[selectedClass][l][m]+" seconds'\"    onmouseout=\"document.getElementById('filledWithTime').innerHTML='Put the mouse over a radio button to see the corresponding computation time'\"  >";
+                    cm.innerHTML=button;
+		} else {
+			cm.style["background"] = "#eeeeee";
+		}
+                r.appendChild(cm);
+            }
+
+            document.getElementById("listLibMet").appendChild(r);  // Add the line to the Table  
+        }
+    }
+</script>  
+
+
+
+
+
+
+
+<script>
+
+    var marvinSketcherInstance;
+    var smilesBoxJustChanged = 0;
+
+ 
+    $(document).ready(function handleDocumentReady (e) {
+    
+    
+        // Fill the library/Method table with default 
+        createTable();
+    
+    
+        // Initiate the sketcher & create an "onMolChange" change handler
+        MarvinJSUtil.getEditor("#sketch").then(function (sketcherInstance) {
+            marvinSketcherInstance = sketcherInstance;
+            new MolChangeHandler(marvinSketcherInstance, onMolChange);
+            initControl();
+            },function (error) {
+                alert("Cannot retrieve sketcher instance from iframe:"+error);
+            });
+
+
+        // Handle actions to be performed upon changes in the Sketcher    
+        function onMolChange(e) {
+                marvinSketcherInstance.exportStructure("smiles").then(function(smiles) {
+                        //console.log(smilesBoxJustChanged);
+                        if (smilesBoxJustChanged===1) {
+                            //smilesBoxJustChanged=0;
+                        } else {
+                            document.getElementById("smilesBox").value = smiles;
+                            //console.log('=>'+smilesBoxJustChanged);
+                            //smilesBoxJustChanged=0;
+                        }
+                        smilesBoxJustChanged=0;
+                        //console.log('===>'+smilesBoxJustChanged);
+                        checkForm(timeForRun);                  
+                    }, function(error) {
+                        alert("Molecule export failed:"+error);	
+                    });
+            };             
+            
+        // Change the content of the sketcher when a SMILES is inputted or changed in the SMILES box
+        function initControl () {
+            $("#smilesBox").keyup ( function() {
+                smilesBoxJustChanged=1;
+                //console.log('<='+smilesBoxJustChanged);
+                marvinSketcherInstance.importStructure("smiles", document.getElementById("smilesBox").value);
+                checkForm(timeForRun);
+                //console.log('<=='+smilesBoxJustChanged);
+            });       
+            $("#smilesBox").change( function() {
+                //smilesBoxJustChanged=1;
+                //console.log('<=>'+smilesBoxJustChanged);
+                marvinSketcherInstance.importStructure("smiles", document.getElementById("smilesBox").value);
+                checkForm(timeForRun);
+                //console.log('<==>'+smilesBoxJustChanged);
+            });  
+        }
+
+
+    });    
+
+
+    // Put selected molecule in the SMILES box and in the sketcher when something is selected from the examples
+    function applyExample(example) {
+        document.getElementById("smilesBox").value=example; 
+        marvinSketcherInstance.importStructure("smiles", document.getElementById("smilesBox").value); 
+        checkForm(timeForRun);
+    }
+
+
+    
+    // Reset Form
+    function resetForm() {
+        document.getElementById("smilesBox").value='';
+        marvinSketcherInstance.importStructure("smiles", " ");
+        document.getElementById('myForm').reset();
+        checkForm();
+    };
+        
+
+        
+  
+</script>
+
+
+
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+  function checkForm(computationTime)
+    {
+      var canSubmit = true;
+      //console.log('Checking the Form:');
+      //console.log(  $('input[name=library_method]:checked')  );
+      //console.log(document.forms[0].smiles.value);
+      if ($('input[name=library_method]:checked').length==0 || document.forms[0].smiles.value=="") {
+	canSubmit = false;
+      }
+      //canSubmit = false; // added by VZ on 23.03.2022 - Remove this line to re-allow submissions.
+      document.getElementById('submitButton').disabled = !canSubmit;
+      if (canSubmit) {
+	document.getElementById('submitButton').style.backgroundColor= '#FF0000';
+	document.getElementById('submitButton').style.color= '#FFFFFF';
+	$library_method=$('input[name=library_method]:checked').val();
+	//console.log('The library_method selected is: '+ $library_method);
+	w=$library_method.split("___");
+	$('#commentOnSubmit').html("<small>Will use method <b>"+nameMethod[w[1]]+"</b> to screen the library <b>"+w[0]+"</b><br><em>(Computation time, excluding queueing delay: "+computationTime+" seconds)</em></small>");
+        document.forms[0].computationTime.value=computationTime;
+      } else {
+	document.getElementById('submitButton').style.backgroundColor= '#BBBBBB';
+	document.getElementById('submitButton').style.color= '#888888';
+	if ($('input[name=library_method]:checked').length==0 && document.forms[0].smiles.value=="") {
+            $('#commentOnSubmit').html("<small><em>(Provide a query molecule, and select a compound library and a screening method before submitting)</em></small>");
+        } else if ($('input[name=library_method]:checked').length==0) {
+            $('#commentOnSubmit').html("<small><em>(Select a compound library and a screening method before submitting)</em></small>");
+        } else if (document.forms[0].smiles.value=="") {
+            $('#commentOnSubmit').html("<small><em>(Provide a query molecule before submitting)</em></small>");
+        }
+      }
+    }
+</script>
+
+
+
+
+
+
+<!------------------------------------------------>
+<!-- Add the possibility to toggle the sketcher -->
+<!------------------------------------------------>
+
+<script>
+    
+    function showSketcher() {
+        document.getElementById("containerSketch").style.height = "470px";
+        setTimeout(() => { 
+            document.getElementById("sketcherHidener").style.display = "block";
+            document.getElementById("sketch").style.display = "block";  
+            marvinSketcherInstance.importStructure("smiles", document.getElementById("smilesBox").value);
+        }, 750);
+    } 
+    function hideSketcher() {
+        document.getElementById("containerSketch").style.height = "0px";
+        document.getElementById("sketcherHidener").style.display = "none";
+        document.getElementById("sketch").style.display = "none";        
+    }
+    
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+<!-- ********************************************************************************************** -->
+<!-- START OF FOOTER information at the bottom of the page -->
+<div id='sib_footer'>			
+  <div id='sib_footer_content'>
+    <a href="https://www.sib.swiss"><img src="/img/sib_emblem_trans_background.png" height="35px"></a>
+
+
+    SwissSimilarity is operated by the <a href="https://www.molecular-modelling.ch">Molecular Modelling Group</a> of the <a href="https://www.sib.swiss">SIB Swiss Institute of Bioinformatics</a> and the <a href="https://www.unil.ch">University of Lausanne</a> | <a href="termsofuse.php">Terms of use</a> | <a href="https://www.sib.swiss/privacy-policy">SIB privacy policy</a>
+  </div>
+</div>
+<!-- END OF FOOTER -->
+<!-- ********************************************************************************************** -->	
+
+
+
+
+</body>
+</html>
+
+
+
+
+

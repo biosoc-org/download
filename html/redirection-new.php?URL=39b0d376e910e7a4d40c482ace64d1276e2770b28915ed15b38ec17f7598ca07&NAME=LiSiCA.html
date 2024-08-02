@@ -1,0 +1,675 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<base href="http://insilab.org" target="_self">
+<!--
+		<base href="http://localhost" target="_self">
+-->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+		<title>LiSiCA Ligand-based Virtual Screening Software - Insilab</title>
+		<meta name="author" content="Janez Konc"/>
+		<meta name="description" content="LiSiCA ligand-based virtual screening software based on maximum clique algorithm."/>
+		<meta name="keywords" content="virtual screening,ligand-based,gui,PyMOL plugin,drug discovery,maximum clique algorithm,janez konc"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css?rnd=50"/>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="js/jquery.session.js"></script>
+		<script src="js/ga.js"></script>
+
+                <script type="text/javascript">
+                        <!-- inicializiramo javascript variable iz PHP -->
+                         var __client_ip = '78.54.153.228';
+                </script>
+ 
+
+		<script type="text/javascript" src="js/index.js"></script>
+		<link rel="shortcut icon" href="pictures/clique.png" />
+	
+	</head>
+
+	<body>
+
+		<header>
+			<nav class="navbar navbar-default navbar-static-top">
+
+				<div class="container desna_slika" >
+					<div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0" style="margin-top:10px;">
+
+						<div class="text-center" style="margin-top:12px">
+							<a href="">
+								<img src="pictures/insilab-logo.png" alt="In silico Laboratory for Innovation in Drug Discovery">
+							</a>
+						</div>
+					
+					</div>
+      				</div>
+
+				<div class="container">
+					<div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0" style="margin-top:20px;">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" style="color:black;font-size:1.5em;" href="">Insilab</a>
+						</div>
+
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav" style="font-size:1.15em;">
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Software<span class="caret" ></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="http://bober.insilab.org/" target="_blank">BoBER Web Server - Base of Bioisosteric Replacements </a></li>
+										<li><a href="http://candis.insilab.org/" target="_blank">CaNDis Web Server - Diseases Network </a></li>
+										<li><a href="http://genprobis.insilab.org/" target="_blank">GenProBiS Web Server - Predict Sequence Variants in Protein Binding Sites </a></li>
+										<li><a href="http://probis.cmm.ki.si" target="_blank">ProBiS Server - Predict Protein Binding Sites and Ligands</a></li>
+										<li><a href="http://probis.nih.gov" target="_blank">ProBiS-CHARMMing Server - Optimize Predicted Ligands</a></li>
+										<li><a href="probis-algorithm">ProBiS Algorithm - Local Pairwise Alignment of Protein Structures</a></li>
+										<li><a href="probis-plugin">
+											<!-- uncomment for new label -->
+											<!--		<span class="label label-danger" style="float:left; margin:2px 5px 0 0;">New</span> --> 
+											ProBiS Plugin - GUI for PyMOL and Chimera 
+										</a></li>
+										<li><a href="probis-h2o">ProBiS H2O - Identify conserved water sites</a></li>
+										<li><a href="probis-h2o-md">ProBiS H2O MD - Identify conserved waters from MD</a></li>
+										<li><a href="probisdock">ProBiS-Dock Algorithm - Hybrid Multitemplate Homology Flexible Docking Algorithm</a></li>
+										<li><a href="http://probis-dock-database.insilab.org" target="_blank">ProBiS-Dock Database - Repository of Druggable Binding Sites</a></li>
+										<li><a href="http://probis-fold.insilab.org" target="_blank">ProBiS-Fold Web Server - Binding Sites for Human Proteome</a></li>
+										<li><a href="lisica">LiSiCA - Ligand-based Virtual Screening Software</a></li>
+										<li><a href="lisica-plugin">LiSiCA Plugin - GUI for PyMOL</a></li>
+										<li><a href="maxclique">MCQD - Improved Maximum Clique Algorithm</a></li>
+										<li><a href="mcqd-ml">MCQD-ML - Machine Learning Assisted Maximum Clique Algorithm</a></li>
+										<li><a href="maxcliqueweight">MCQDW - Maximum Weight Clique Algorithm</a></li>
+										<li><a href="kcliqueweight">KCQDW - Highest Weight k-clique Algorithm</a></li>
+										<li><a href="http://commsys.ijs.si/~matjaz/maxclique" target="_blank">MaxCliquePara - Parallel Maximum Clique Algorithm</a></li>
+										<li><a href="http://enzo.cmm.ki.si" target="_blank">ENZO Server - Construct and Test Kinetic Models of Enzyme Reactions </a></li>
+									</ul>
+								</li>
+								<li><a href="datasets">Datasets</a></li>
+								<li><a href="projects">Projects</a></li> 
+								<li><a href="publications">Publications</a></li> 
+								<li><a href="people">People</a></li> 
+								<li><a href="contribute">Get Involved</a></li>
+								<li><a href="statistics">Statistics</a></li>
+								<li class="dropdown">
+                                    				    <a class="dropdown-toggle" data-toggle="dropdown" href="#">FAQ<span class="caret" ></span></a>
+								        <ul class="dropdown-menu">
+									    <li><a href="faq/lisica/">LiSiCA</a></li>
+									    <li><a href="faq/lisica_plugin/">LiSiCA Plugin</a></li>
+									    <li><a href="faq/maxclique/">MaxCliqueDyn</a></li>
+									    <li><a href="faq/probis_plugin/">ProBiS Plugin</a></li>
+									    <li><a href="faq/probis_servers/">ProBiS Servers</a></li>
+									    <li><a href="faq/probis_algorithm/">ProBiS Algorithm</a></li>
+									</ul> 
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</nav>
+
+			<div class="container" style="margin-top:10px;">
+				<div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+					<div class="text-center">
+						<a href="probis-plugin" class="btn btn-info" role="button">ProBiS Plugin</a>
+						<a href="probis-h2o" class="btn btn-success" role="button">ProBiS H2O</a>
+						<a href="probis-h2o-md" class="btn btn-custom-purple" role="button">ProBiS H2O MD</a>
+						<a href="probisdock" class="btn btn-custom-pink" role="button">ProBiS-Dock Algorithm</a>
+						<a href="maxclique" class="btn btn-danger" role="button">Maximum Clique Algorithm</a>
+						<a href="lisica" class="btn btn-warning" role="button">LiSiCA</a>
+						<a href="maxcliqueweight" class="btn btn-custom-yellow" role="button">Maximum Weight Clique Algorithm</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="container" style="margin-top:10px;">
+		
+<style type="text/css">
+@media screen and (min-width: 768px) {
+	#masthead h1 {
+		font-size: 100px;
+	}
+}
+
+@media (min-width: 979px) {
+  #sidebar.affix-top {
+    position: static;
+  	margin-top:30px;
+  	width:228px;
+  }
+  
+  #sidebar.affix {
+    position: fixed;
+    top:70px;
+    width:228px;
+  }
+}
+
+
+/* Terminal */
+
+.terminal {
+  /*background-color: #dfdfdf;*/
+  background-color: #f9eac5;
+  -webkit-box-shadow:  3px 3px 15px 2px rgba(150, 150, 150, 0.8), 40px 0 0 #FBFBFC inset, 41px 0 0 #ECECF0 inset;;
+  box-shadow:  3px 3px 15px 2px rgba(150, 150, 150, 0.8), 40px 0 0 #FBFBFC inset, 41px 0 0 #ECECF0 inset;;
+  position: relative;
+  min-height: 60px;
+  border: 1px solid #000;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding-bottom: 30px;
+  font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+  margin: 20px 0px 20px 0px;
+}
+
+.terminal:before {
+  content: 'Terminal';
+  text-align: center;
+  /*background-color: #888;*/
+  background-color: #b3a15e;
+  display: block;
+}
+
+.terminal:after {
+  content: '';
+  text-align: right;
+  background-color: #888;
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 4px;
+}
+
+.prompt {
+  font-weight: bold;
+}
+
+.terminal .prompt:before {
+  content: 'user@bash: ';
+}
+
+.terminal ol {
+  margin: 0 0 0 33px;
+  padding: 0px;
+  padding-left: 7px;
+}
+
+.terminal li {
+  line-height: 20px;
+  padding-left: 8px;
+}
+
+
+/* Script File */
+
+.page {
+  background-color: #fff;
+  position: relative;
+  min-height: 60px;
+  font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+  margin: 20px 0px 20px 0px;
+  padding: 50px 50px 50px 0;
+}
+
+.page h4 {
+  text-align: center;
+  background-color: #5ea1b3;
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 10px;
+}
+
+.page ul {
+  margin: 0 0 0 33px;
+  padding: 0px;
+  padding-left: 7px;
+  list-style-type: none;
+}
+
+.page_crta li {
+  line-height: 20px;
+  padding-left: 8px;
+  border-bottom: 1px solid #d8f2fb;
+}
+
+.page_bela li {
+  line-height: 20px;
+  padding-left: 8px;
+  border-bottom: none;
+}
+
+.note, .cite, .alert {
+  background-color: #F5F5F5;
+  border: 1px solid #E3E3E3;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+  margin-bottom: 20px;
+  min-height: 20px;
+  padding: 40px 19px 19px 45px;
+  position: relative;
+}
+
+.note:before, .cite:before, .alert:before {
+  border-right: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
+  border-bottom-right-radius: 4px;
+  background-color: #fff;
+  font-weight: bold;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 4px 10px 4px 10px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.note ul li, ol li, .alert ul li {
+    margin: 5px;
+}
+
+.cite:before {
+  content: 'Cite';
+  color: #468847;
+}
+
+.cite ul {
+    list-style-type: none;
+    margin: 0;
+  padding: 0;
+}
+
+.cite ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+.note:before {
+  content: 'Note';
+  color: #468847;
+}
+
+.alert:before {
+  content: 'Alert';
+  color: red;
+}
+
+.line-div {
+  border-bottom:1px solid #d1d1d1;color:#333
+}
+
+.my-header {
+  text-align: left;
+}
+
+
+.inner figure {
+  box-shadow: -6px 6px 2px -3px rgba(100,100,100,.1);
+  padding: 1em;
+  display: inline-block;
+  margin-right: 1em;
+  border: 1px solid rgba(250,200,200,.5);
+}
+
+.inner figcaption {
+  text-align: center;
+  margin: .5em 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  color: darken(tomato, 15%);
+}
+
+.inner img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#sidebar a {
+  cursor: pointer;
+}
+</style>
+<div class="row" style="margin-top:10px;color:#6e6e6e;">
+    <div class="col-md-12 box-page" style="background-color:#fff;text-align:justify; padding:30px 80px 80px 80px;">
+
+    
+	<div class="row" style="border-bottom:1px solid #d1d1d1;color:#333">
+    <div  class="col-xs-12 col-sm-10">
+		  <h1>LiSiCA Software</h1>
+    </div>
+    <div class="hidden-xs col-sm-2">
+      <img style='float:right; height:90px; margin-top: -30px;' src="pictures/lisica_icon.gif"/> 
+    </div>
+	</div>
+
+      <ul class="nav nav-tabs" style="margin-top:30px">
+        <li class="active"><a data-toggle="tab" href="#about">About</a></li>
+        <li><a data-toggle="tab" href="#dl">Download</a></li>
+        <li><a data-toggle="tab" href="#install">Installation</a></li>
+        <li><a data-toggle="tab" href="#usage">Usage</a></li>
+        <li><a data-toggle="tab" href="#ref">Related Publications</a></li>
+      </ul>
+
+
+      <div class="tab-content" style="margin-top:50px;">
+        <!-- about tab -->
+        <div class="tab-pane fade in active" id="about" style="text-align:center;">
+          <div class="row" style="margin-top:50px;">
+              <div class="inner">
+                  <figure>
+                      <img src="pictures/lisica.gif" class="img-responsive" alt="lisica image">
+                  </figure>
+              </div>
+          </div>
+          <div class="row">
+              <div style="margin:40px 0 0 0; text-align:justify;">
+                  LiSiCA (Ligand Similarity using Clique Algorithm) is a ligand-based virtual screening software that searches for 2D and 3D similarities between a reference compound and a database of target compounds which should be represented in a Mol2 format. The similarities are expressed using the Tanimoto coefficients and the target compounds are ranked accordingly.
+              </div>
+          </div>
+        </div>
+
+        <!-- download tab -->
+        <div class="tab-pane fade" id="dl">
+      
+          <h2 style="margin:20px 0 10px 0;">LiSiCA Command Line</h2>
+          <hr class="line-div"></hr>
+          Download the current version:
+          <ul style="margin-top:30px;">
+              <li>Windows 64: <a href="files/lisica/LiSiCAx64.exe" download="LiSiCAx64.exe">LiSiCAx64.exe</a></li>
+              <li>Windows 32: <a href="files/lisica/LiSiCAx86.exe" download="LiSiCAx86.exe">LiSiCAx86.exe</a></li>
+              <li>Linux: <a href="files/lisica/lisica" download="lisica">lisica</a></li>
+              <li>Mac: <a href="files/lisica/lisicaMAC" download="lisicaMAC">lisicaMAC</a></li>
+              <li>Source: <a href="files/lisica/archive.zip" download="lisica.zip">lisica.zip</a></li>
+          </ul>
+
+          <h2 style="margin-top:50px;">Example Input Files</h2>
+          <hr class="line-div"></hr>
+          <ul style="margin-top:30px;">
+              <li>Reference molecule: <a href="files/lisica/reference.mol2" download="reference.mol2">reference.mol2</a></li>
+              <li>Target molecules: <a href="files/lisica/database.mol2" download="database.mol2">database.mol2</a></li>
+              <li>Acyclovir: <a href="files/lisica/acyclovir.mol2" download="acyclovir.mol2">acyclovir.mol2</a></li>
+              <li>Aspirin: <a href="files/lisica/aspirin.mol2" download="aspirin.mol2">aspirin.mol2</a></li>
+              <li>Dopamine: <a href="files/lisica/dopamine.mol2" download="dopamine.mol2">dopamine.mol2</a></li>
+              <li>Paxlovid: <a href="files/lisica/paxlovid.mol2" download="paxlovid.mol2">paxlovid.mol2</a></li>
+              <li>Remdesivir: <a href="files/lisica/remdesivir.mol2" download="remdesivir.mol2">remdesivir.mol2</a></li>
+          </ul>
+
+          <h2 style="margin-top:50px;">Release Notes</h2>
+          <hr class="line-div"></hr>
+          <h3>1.0.1</h3>
+          <ul style="margin-top:30px;">
+              <li>Reads gzipped mol2 files (mol2.gz) for target molecules</li>
+          </ul>
+
+        </div>
+
+         <!-- installation tab -->
+        <div class="tab-pane fade" id="install">
+                 
+          <div style="margin-top:20px;">
+            <b>Windows</b>: No installation is required. <br>
+
+            <b>Linux:</b> Mark the file as executable:
+
+            <div class='terminal'>
+              <ol>
+                <li><span class='prompt'></span>chmod +x lisica</li>
+              </ol>
+            </div>
+
+            <br>
+            <b>Linux from source:</b> Unzip the source code, change the current directory to the 'lisica' folder and compile LiSiCA by typing 'make'.
+
+            <div class='terminal'>
+              <ol>
+                <li><span class='prompt'></span>unzip lisica.zip</li>
+                <li><span class='prompt'></span>cd lisica</li>
+                <li><span class='prompt'></span>make</li>
+              </ol>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- usage tab -->
+        <div class="tab-pane fade" id="usage">
+          <h2>General Use</h2>
+          <hr class="line-div"></hr>
+          <div style="margin-top: 20px;">
+
+            <b>Windows</b>:
+
+            <div class='terminal'>
+              <ol>
+                <li><span class='prompt'></span>LiSiCA{x86|x64}.exe -R &lt;path to reference molecule&gt; -T &lt;path to target molecules&gt; [parameters]</li>
+              </ol>
+            </div>
+
+            <b>Linux:</b>
+
+            <div class='terminal'>
+              <ol>
+                <li><span class='prompt'></span>./lisica -R &lt;path to reference molecule&gt; -T &lt;path to target molecules&gt; [parameters]</li>
+              </ol>
+            </div>
+
+          </div>
+          <div class='note' style="margin-top:50px; text-align:justify;">
+            Both the reference and the target compound files must be in the Tripos mol2 format. Alternatively, the target database file can be a  mol2 file compressed with gzip [mol2.gz]. The LiSiCA similarity search depends on comparing SYBYL atom types (e.g., C.2, C.3, O.3), therefore this data must me present in the fifth column. The reference file should contain only one (reference) compound; the target file may contain many compounds. If the reference file contains more than one compound, the first molecule is used as a reference. Molecules in the target file having the same name (the line after the "@<TRIPOS>MOLECULE" line) are considered as different conformers of the same molecule. Only the best-scoring (by Tanimoto coefficient) conformer will be shown by default in the final output for the 3D screening option. To save the final output (ranked list by Tanimoto coefficient) to a file in Linux, use the bash standard output redirection function (see examples below).
+          </div>
+
+
+            <!-- parameters -->
+          <h2 style="margin-top:100px;">Input Parameters</h2>
+          <hr class="line-div"></hr>
+          <div>
+            LiSiCA uses the following optional parameters:
+            <br>
+            <ul>
+              <li>          
+                <b>-n</b> <br>
+                Description: number of CPU threads to use<br> 
+                Default value: the default is to try to detect the number of CPUs and use all of them or, failing that, use 1
+              </li>
+              <li>
+                <b>-d</b> <br>
+                Description: product graph dimension<br> 
+                Possible input: 2, 3<br>  <!-- ne Å¡e "b" :) -->
+                Default value: 2
+              </li>
+              <li>
+                <b>-m</b> <br>
+                Description: maximum allowed atom spatial distance difference for the 3D product graph measured in angstroms<br> 
+                Default value: 1.0
+              </li>
+              <li>
+                <b>-s</b><br> 
+                Description: maximum allowed shortest path difference for the 2D product graph measured in the number of covalent bonds between atoms<br> 
+                Default value: 1
+              </li>
+              <li>
+                <b>-h</b> <br>
+                Description: consider hydrogens.<br> 
+                Default value: False
+              </li>
+              <li>
+                <b>-w</b> <br>
+                Description: number of highest ranked molecules to write to output<br> 
+                Default value: 0
+              </li>
+              <li>
+                <b>-c</b><br>
+                Description: maximum allowed number of highest scoring conformations to be outputed<br> 
+                Default value: 1
+              </li>
+              <li>
+                <b>--help</b><br> 
+                Description: print LiSiCA parameters
+              </li>
+            </ul>
+
+          </div>
+          <div class='note' style="margin-top:50px; text-align:justify;">
+            <p>The -d option tells LiSiCA which screening option to use. The 2D option is based on finding similarities between ligands which have the same (-s option = 0) or similar (-s option > 0) number of covalent bond between the same type of atoms. Accordingly, the 3D option is based on finding similarities between ligands where spatial distance between the same type of atoms is similar (or the same if the -m option = 0.0). </p>
+            <p>The -m option corresponds to the maximum allowed difference in spatial distances between atoms of the two compared product graph vertices. Lesser values correspond to a more rigorous screening. This option can only be used in combination with the -d 3 (3D screening option) option.</p>
+            <p>The -s option corresponds to the maximum allowed difference in shortest-path lengths between atoms of the two compared product graph vertices. Lesser values correspond to a more rigorous screening. This option can only be used in combination with the -d 2 (2D screening) option.</p>
+            <p>If the -w option is set to a value higher than 0, LiSiCA will create mol2 files of the highest scoring target molecules with a comment section at the end of the file where the matching atom pairs are displayed.</p>
+            <p>The -c option corresponds to the maximum number of outputted files of one molecule in different conformations.</p>
+            <p>The -h option lets the user choose if the hydrogen atoms are to be considered for the calculation of the similarity using the maximum clique algorithm. By default, hydrogen atoms are not considered in finding the largest substructure common to the reference and target molecules, so as to obtain faster results. </p>
+          </div>
+
+
+           <!-- examples -->
+          <h2 style="margin-top:100px;">Examples</h2>
+          <hr class="line-div"></hr>
+          <div>
+            <div class='page page_crta' style="margin-top:50px;">          
+              <ul>
+                <li>1. 2D screening with default options where the final results are saved to the results_2D.dat file: </li>
+                <li>./lisica -R reference.mol2 -T database.mol2[.gz] &gt; results_2D.dat</li>
+                <li><br></li>
+                <li>2. 3D screening with default options where the final results are saved to the results_3D.dat:</li>
+                <li>./lisica -R reference.mol2 -T database.mol2[.gz] -d 3 &gt; results_3D.dat </li>
+                <li><br></li>
+                <li>3. Rigorous 3D screening where results are send to the standard output only:</li>
+                <li>./lisica -R reference.mol2 -T database.mol2[.gz] -d 3 -m 0.5</li>
+                <li><br></li>
+                <li>4. 3D screening where 30 highest scoring target molecules are written in mol2 files with their matching atoms (to the ones in the reference molecule) displayed in the comment section of the mol2 file. Two mol2 files of the best scoring conformers for each molecule are allowed to be written.</li>
+                <li>./lisica -R reference.mol2 -T database.mol2[.gz] -d 3 -w 30 -c 2</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- reference tab -->
+        <div class="tab-pane fade" id="ref">
+
+            <h2 style="margin:20px 0 10px 0;">Related Publications</h2>
+            <hr class="line-div"></hr>
+
+           
+            <div class="page page_bela" style="padding:50px; margin-top:10px;"> 
+                <a href="http://pubs.acs.org/doi/abs/10.1021/acs.jcim.5b00136" target="_blank">
+                  <img src="pictures/external_link.svg" class="img-responsive" alt="pdf" style="margin:-3px 0 0 0; height:20px;float:left; cursor:pointer;">
+                </a>
+                S. Lesnik, T. Stular, B. Brus, D. Knez, S. Gobec, D. Janezic, J. Konc, LiSiCA: A Software for Ligand-Based Virtual Screening and Its Application for the Discovery of Butyrylcholinesterase Inhibitors, J. Chem. Inf. Model., 2015, 55, 1521â1528.
+            </div>
+
+            <div class="cite" style="margin-top:50px;" >
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="active"><a href="#mla" aria-controls="mla" role="tab" data-toggle="tab">MLA</a></li>
+                  <li ><a href="#apa" aria-controls="apa" role="tab" data-toggle="tab">APA</a></li>
+                  <li ><a href="#iso" aria-controls="iso" role="tab" data-toggle="tab">ISO 690</a></li>
+                  <li ><a href="#bibtex" aria-controls="bibtex" role="tab" data-toggle="tab">BibTex</a></li>
+                  <li ><a href="#endnote" aria-controls="endnote" role="tab" data-toggle="tab">EndNote</a></li>
+                  <li ><a href="#refman" aria-controls="refman" role="tab" data-toggle="tab">RefMan</a></li>
+                </ul>
+
+                <div class="tab-content page page_bela" style="text-align: justify; margin:0 20px 0 20px;">
+                    <div role="tabpanel" class="tab-pane active fade in" id="mla" style="margin: 0px 20px 0 30px;" onclick="selectText(this.id);">
+                        LesÌnik, Samo, et al. "LiSiCA: A Software for Ligand-Based Virtual Screening and Its Application for the Discovery of Butyrylcholinesterase Inhibitors." Journal of chemical information and modeling 55.8 (2015): 1521-1528.
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="apa" style="margin: 0px 20px 0 30px;" onclick="selectText(this.id);">
+                        LesÌnik, S., SÌtular, T., Brus, B., Knez, D., Gobec, S., JanezÌicÌ, D., & Konc, J. (2015). LiSiCA: A Software for Ligand-Based Virtual Screening and Its Application for the Discovery of Butyrylcholinesterase Inhibitors. Journal of chemical information and modeling, 55(8), 1521-1528.
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="iso" style="margin: 0px 20px 0 30px;" onclick="selectText(this.id);">
+                        LESÌNIK, Samo, et al. LiSiCA: A Software for Ligand-Based Virtual Screening and Its Application for the Discovery of Butyrylcholinesterase Inhibitors. Journal of chemical information and modeling, 2015, 55.8: 1521-1528.
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="bibtex" style="margin: 0px 20px 0 30px;" onclick="selectText(this.id);">
+                      @article{lesÌnik2015lisica,<br>
+                      &emsp;title={LiSiCA: A Software for Ligand-Based Virtual Screening and Its Application for the Discovery of Butyrylcholinesterase Inhibitors},<br>
+                      &emsp;author={LesÌnik, Samo and SÌtular, Tanja and Brus, Boris and Knez, Damijan and Gobec, Stanislav and JanezÌicÌ, DusÌanka and Konc, Janez},<br>
+                      &emsp;journal={Journal of chemical information and modeling},<br>
+                      &emsp;volume={55},<br>
+                      &emsp;number={8},<br>
+                      &emsp;pages={1521--1528},<br>
+                      &emsp;year={2015},<br>
+                      &emsp;publisher={ACS Publications}<br>
+                      }
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="endnote" style="margin: 0px 20px 0 30px;" onclick="selectText(this.id);">
+                      %0 Journal Article<br>
+                      %T LiSiCA: A Software for Ligand-Based Virtual Screening and Its Application for the Discovery of Butyrylcholinesterase Inhibitors<br>
+                      %A LesÌnik, Samo<br>
+                      %A SÌtular, Tanja<br>
+                      %A Brus, Boris<br>
+                      %A Knez, Damijan<br>
+                      %A Gobec, Stanislav<br>
+                      %A JanezÌicÌ, DusÌanka<br>
+                      %A Konc, Janez<br>
+                      %J Journal of chemical information and modeling<br>
+                      %V 55<br>
+                      %N 8<br>
+                      %P 1521-1528<br>
+                      %@ 1549-9596<br>
+                      %D 2015<br>
+                      %I ACS Publications
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="refman" style="margin: 0px 20px 0 30px;" onclick="selectText(this.id);">
+                      TY  - JOUR<br>
+                      T1  - LiSiCA: A Software for Ligand-Based Virtual Screening and Its Application for the Discovery of Butyrylcholinesterase Inhibitors<br> <!-- tu je mini teÅ¾ava, da so kljukice od Å¡umnikov nekaj zamaknjene-->
+                      A1  - LesÌnik, Samo<br>
+                      A1  - SÌtular, Tanja<br>
+                      A1  - Brus, Boris<br>
+                      A1  - Knez, Damijan<br>
+                      A1  - Gobec, Stanislav<br>
+                      A1  - JanezÌicÌ, DusÌanka<br>
+                      A1  - Konc, Janez<br>
+                      JO  - Journal of chemical information and modeling<br>
+                      VL  - 55<br>
+                      IS  - 8<br>
+                      SP  - 1521<br>
+                      EP  - 1528<br>
+                      SN  - 1549-9596<br>
+                      Y1  - 2015<br>
+                      PB  - ACS Publications<br>
+                      ER  - 
+                    </div>
+                </div>
+            </div>
+        </div>
+                   
+      </div> <!-- /tab content -->                
+
+    </div>
+
+</div>
+
+		
+
+		</div> <!-- container -->
+
+		 <footer class="footer" style="border-top:8px solid #e5e5e5; background-color:#eaeaea;height:150px;text-align:justify; margin-top:50px;">
+      		<div class="container" style="margin-top:30px;">
+<!--
+				<small style="color:#6e6e6e;">
+					If you wish to know more, write to 
+					<a href="mailto:konc@insilab.org" target="_top">konc@insilab.org</a>.
+				</small>	
+-->	
+
+
+				<div class="row">
+					<div class="text-center col-xs-12" style="padding:10px 10px;">
+						<p style="color:#6e6e6e;">If you have any questions, you want to meet up or you need more information, send us a message: 
+						<a href="mailto:konc@cmm.ki.si" target="_top">konc@cmm.ki.si</a></p>
+					</div>
+				</div>
+
+      		</div>
+    	</footer>
+
+	</body>
+</html>

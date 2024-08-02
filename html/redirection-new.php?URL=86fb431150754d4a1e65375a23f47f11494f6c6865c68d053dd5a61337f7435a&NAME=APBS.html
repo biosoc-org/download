@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=3baab1e095541a8e46fe27b5e144379fedf8555b">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Why study electrostatics and solvation? | APBS &amp; PDB2PQR</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Why study electrostatics and solvation?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Software for biomolecular electrostatics and solvation" />
+<meta property="og:description" content="Software for biomolecular electrostatics and solvation" />
+<link rel="canonical" href="https://www.poissonboltzmann.org/" />
+<meta property="og:url" content="https://www.poissonboltzmann.org/" />
+<meta property="og:site_name" content="APBS &amp; PDB2PQR" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Why study electrostatics and solvation?" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Software for biomolecular electrostatics and solvation","headline":"Why study electrostatics and solvation?","name":"APBS &amp; PDB2PQR","url":"https://www.poissonboltzmann.org/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7FMXVFLGG3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7FMXVFLGG3');
+</script>
+
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          
+
+          <h1 id="project_title">APBS & PDB2PQR</h1>
+          <h2 id="project_tagline">Software for biomolecular electrostatics and solvation</h2>
+
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="why-study-electrostatics-and-solvation">Why study electrostatics and solvation?</h1>
+
+<p>An understanding of electrostatic interactions is essential for the study of biomolecular processes. The structures of proteins and other biopolymers are being determined at an increasing rate through structural genomics and other efforts while specific linkages of these biopolymers in cellular pathways or supramolecular assemblages are being detected by genetic and proteomic studies. To integrate this information in physical models for drug discovery or other applications requires the ability to evaluate the energetic interactions within and between biopolymers. Among the various components of molecular energetics, solvation properties and electrostatic interactions are of special importance due to the long range of these interactions and the substantial charges of typical biopolymer components.</p>
+
+<h1 id="what-software-is-available-here">What software is available here?</h1>
+
+<h2 id="apbs">APBS</h2>
+
+<p>APBS (Adaptive Poisson-Boltzmann Solver) solves the equations of continuum electrostatics for large biomolecular assemblages. This software was designed “from the ground up” using modern design principles to ensure its ability to interface with other computational packages and evolve as methods and applications change over time. The APBS code is accompanied by extensive documentation for both users and programmers and is supported by a variety of utilities for preparing calculations and analyzing results. Finally, the free, open-source APBS license ensures its accessibility to the entire biomedical community.</p>
+
+<h2 id="pdb2pqr">PDB2PQR</h2>
+
+<p>The use of continuum solvation methods such as APBS requires accurate and complete structural data as well as force field parameters such as atomic charges and radii. Unfortunately, the limiting step in continuum electrostatics calculations is often the addition of missing atomic coordinates to molecular structures from the Protein Data Bank and the assignment of parameters to these structures. To address this problem, we have developed PDB2PQR. This software automates many of the common tasks of preparing structures for continuum solvation calculations as well as many other types of biomolecular structure modeling, analysis, and simulation. These tasks include:</p>
+
+<p>Adding a limited number of missing heavy (non-hydrogen) atoms to biomolecular structures.
+Estimating titration states and protonating biomolecules in a manner consistent with favorable hydrogen bonding.
+Assigning charge and radius parameters from a variety of force fields.
+Generating “PQR” output compatible with several popular computational modeling and analysis packages.
+This service is intended to facilitate the setup and execution of electrostatics calculations for both experts and non-experts and thereby broaden the accessibility of biomolecular solvation and electrostatics analyses to the biomedical community.</p>
+
+<h1 id="how-do-i-get-started">How do I get started?</h1>
+
+<ol>
+  <li>Please <a href="http://eepurl.com/by4eQr">register your use of the software</a> to increase the likelihood of its continued support and development.</li>
+  <li>Identify the molecule you want to analyze (e.g., from the <a href="https://www.rcsb.org/">Protein Data Bank</a>).</li>
+  <li>Prepare the structure with <a href="https://github.com/Electrostatics/pdb2pqr">PDB2PQR</a> using a local download or the <a href="http://server.poissonboltzmann.org">web server</a>. Learn more from the <a href="https://pdb2pqr.readthedocs.io">PDB2PQR documentation</a>.</li>
+  <li>Calculate electrostatic and solvation properties with <a href="https://github.com/Electrostatics/apbs">APBS</a> using a local download or the <a href="http://server.poissonboltzmann.org">web server</a>.  Learn more from the <a href="https://apbs.readthedocs.io">APBS documentation</a>.</li>
+  <li>Visualize the results using PyMOL, VMD, Chimera, UnityMol, via the web server, or with many other software packages.</li>
+</ol>
+
+<h1 id="who-paid-for-this">Who paid for this?</h1>
+
+<p>This software is made possible by generous support from the US National Institutes of Health through grant <a href="https://pubmed.ncbi.nlm.nih.gov/?term=R01+GM069702%2FGM%2FNIGMS+NIH+HHS%2FUnited+States%5BGrant+Number%5D">GM69702</a>.</p>
+
+<p>Please support the continued development of APBS by <a href="http://eepurl.com/by4eQr">registering your use</a> and citing the following in your publication:</p>
+
+<p>Jurrus E, Engel D, Star K, Monson K, Brandi J, Felberg LE, Brookes DH, Wilson L, Chen J, Liles K, Chun M, Li P, Gohara DW, Dolinsky T, Konecny R, Koes DR, Nielsen JE, Head-Gordon T, Geng W, Krasny R, Wei G-W, Holst MJ, McCammon JA, Baker NA. Improvements to the APBS biomolecular solvation software suite. <em>Protein Sci</em>, 27 (1), 112-128, 2018. DOI:<a href="https://doi.org/10.1002/pro.3280">10.1002/pro.3280</a></p>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>

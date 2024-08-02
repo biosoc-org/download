@@ -1,0 +1,207 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>Main page - MolProbity</title>
+    <link rel="StyleSheet" href="css/default.css" TYPE="text/css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="ROBOTS" content="INDEX, NOFOLLOW">
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+    <td width="150"><img src="img/small-logo5.gif" alt="MolProbity logo"></td>
+    <td valign="bottom"><div class="pageheader">
+        <h1>Main page</h1>
+    </div></td>
+    <td width="1"><img src="img/host-banner" alt=""></td>
+    <td width="1"><img src="img/placeholder.png" alt=""></td>
+</tr>
+<tr><td valign="top" width="150">
+    <div class="leftnav">
+<a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=2'><b>Main page</b></a><br />
+<div class='minornav'><a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=3'>About hydrogens</a><br />
+</div><div class='minornav'><a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=4'>Evaluate X-ray</a><br />
+</div><div class='minornav'><a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=5'>Evaluate NMR</a><br />
+</div><div class='minornav'><a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=6'>Fix up structure</a><br />
+</div><div class='minornav'><a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=7'>Work with kins</a><br />
+</div><br />
+<a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=8'>View &amp; download files</a><br />
+<a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=9'>Lab notebook</a><br />
+<a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=10'>Feedback &amp; bugs</a><br />
+<a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=11'>Site map</a><br />
+<br />
+<a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=12'>Save session</a><br />
+<a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=13'>Log out</a><br />
+<br />You are using 0% of your 200 Mb of disk space.
+    </div>
+</td>
+<td valign="top" colspan="3">
+    <div class="pagecontent">
+<div class=w3-panel w3-blue>  Dear MolProbity users, <strong>MolProbity Server Problems?</strong> Please contact us at molprobity.bugreports AT gmail.com and provide a date, time, time zone, and description. Thank you.</div><div class=feature><strong> User at University of Iowa: Please contact us through our bug report email (see link in this site) or github molprobity project page regarding recent usage incident and other past warnings. We may be able to help you develop alternatives to using this public server for your project. </strong></div><div class=feature><strong>Looking at deposited SARS-CoV-2 related structures?  Check PDB for updated versions as well as new structures.
+      <br>(Our Fetch &gt; always returns the latest version.)
+<br>Solving or improving them? Look at MolProbity's CaBLAM outliers, and at sparse H-bonds.</strong></div><form method='post' enctype='multipart/form-data' action='index.php'>
+<input type='hidden' name='MolProbSID' value='c7v6rbugp1og8582fagqfq1uq2'>
+<input type='hidden' name='eventID' value='14'>
+
+<h5 class='welcome'>File Upload/Retrieval (<a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=15' onclick='toggleUploadOptions(); return false' id='upload_options_link'>more options</a>)</h5><script language='JavaScript'>
+<!--
+function toggleUploadOptions()
+{
+    var block = document.getElementById('upload_options_block')
+    var link = document.getElementById('upload_options_link')
+    if(block.style.display == 'none')
+    {
+        block.style.display = 'block'
+        link.innerHTML = 'hide options'
+    }
+    else
+    {
+        block.style.display = 'none'
+        link.innerHTML = 'more options'
+    }
+}
+// -->
+</script>
+<div class='indent'><table border='0' width='100%'>
+<tr>
+    <td>PDB/NDB code: <input type="text" name="pdbCode" size="6" maxlength="10"></td>
+    <td>type:
+        <select name='fetchType'>
+            <option value='pdb'>PDB coords</option>
+            <option value='pdb_xray'>PDB coords & xray data</option>
+            <option value='biolunit'>Biol. unit (PDB only)</option>
+            <option value='biolunit_xray'>Biol. unit & xray data (PDB only)</option>
+            <option value='eds_2fofc'>2Fo-Fc map (EDS)</option>
+            <option value='eds_fofc'>Fo-Fc map (EDS)</option>
+        </select>
+    </td>
+    <td><input type="submit" name="cmd" value="Fetch &gt;"></td>
+</tr><tr><td colspan='3'><hr></td></tr><tr>
+    <td><input type="file" name="uploadFile"></td>
+    <td>type:
+        <select name='uploadType'>
+            <option value='pdb'>PDB coords</option>
+            
+        </select>
+    </td>
+    <td><input type="submit" name="cmd" value="Upload &gt;"></td>
+</tr>
+</table>
+    <div class='inline_options' style='display:none' id='upload_options_block'>
+        <label><input type="checkbox" name="isCnsFormat" value="1"> File is from CNS refinement</label>
+        <br><label><input type="checkbox" name="ignoreSegID" value="1"> Ignore segID field</label>
+    </div>
+</div></form>
+<div class=feature>
+      <br><b>Usage Guidelines:</b>
+      <br>These web services are provided for analysis of individual structures.
+      <br>For batch runs, please <a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=16'>download and install</a> your own copy of MolProbity.</div></div>
+<br>
+<div class='pagecontent'>
+<table border='0' width='100%'><tr valign='top'><td width='45%'>
+<h3>Walkthroughs, tutorials, and usage FAQs:</h3>
+<p><b><a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=17'>Evaluate X-ray structure</a>:</b>
+Typical steps for a published X-ray crystal structure
+or one still undergoing refinement.</p>
+<p><b><a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=18'>Evaluate NMR structure</a>:</b>
+Typical steps for a published NMR ensemble
+or one still undergoing refinement.</p>
+<p><b><a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=19'>Fix up structure</a>:</b>
+Rebuild the model to remove outliers
+as part of the refinement cycle.</p>
+<p><b><a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=20'>Work with kinemages</a>:</b>
+Create and view interactive 3-D graphics
+from your web browser.</p>
+<p><b><a target="_blank" href="help/reduce_guide/reduce_guide.html">Guide to Reduce options</a>:</b>
+Learn about adding hydrogens to a structure for all-atom contact analysis.</p>
+<p><b><a target="_blank" href="help/validation_options/summary_table_guide.html">Guide to summary statistics</a>:</b>
+Interpret structure-level validation statistics.</p>
+<p><b><a target="_blank" href="help/validation_options/validation_options.html">Guide to validation options</a>:</b>
+Choose validations appropriate to a structure.</p>
+
+<h3>What's new in 4.5.2</h3><ul>
+      <li><b>MolProbity score calculation has changed slightly</b> for structures with alternate conformations.
+      The Ramachandran component now uses only residues from the 'A' conformer of multiple conformers are present.
+      This matches the Ramachandran values reported in the Summary Statistics table, which are also for the 'A' conformer.</li>
+      <li>Further commandline tools have been updated.  No effect on the website, but those with home builds will find oneline-analysis to be fully up to date now.</li>
+  </ul>
+   <h3>What's new in 4.5.1</h3><ul>
+      <li>New validation: Ramachandran Z-score assesses whether total Rama distribution is realistic.</li>
+      <li>Improved bullseye kinemage for CBdev distribution.</li>
+      <li>Updated cmdline tools for multichart and multikin, added one for cbetadev_kinemage.</li>
+      <li>Added chiral volume outliers to the Guide to validation options.</li>
+  </ul>
+  <h3>What's new in 4.5</h3><ul>
+      <li>Added an option to visualize 3D validation markup online using the Javascript NGL viewer software.</li>
+      <li>New 'UnDowser' validation for waters with clashes.</li>
+      <li>New validation for chiral volume outliers and D/L misnamings.</li>
+      <li>Changes to the bug reporting/email system.</li>
+      <li>New installation script for home users.</li>
+      <li>Added <a target='_blank' href='help/validation_options/summary_table_guide.html'>guide to summary statistics</a> table.</li>
+  </ul>
+  <h3>What's new in 4.4</h3><ul>
+      <li>This versioned release is timed to correspond with the Phenix 1.12 official release, and is expected to work with the corresponding version of the cctbx project.</li>
+      <li>MolProbity now provides simultaneous validation for ensemble structures up to 80 models. After validation is complete, use the tabs to switch between the results for the models.</li>
+      <li>MolProbity now accepts mmCIF file uploads and can fetch structures only available as mmCif. These files will be automatically converted to PDB hybrid36 format for validation.</li>
+      <li>Severely twisted peptides (more than 45&deg; from planar) are now colored red in the multicriterion chart, like other especially severe outliers.</li>
+      <li>Limited CaBLAM validation now available for CA-only models.</li>
+      <li>More user control of feedback for non-trans peptides is available in the validation selection menu.</li>
+  </ul>
+
+      </td><td width='10%'><!-- horizontal spacer --></td><td width=='45%'>
+<h3>Citations, science, and technical FAQs:</h3>
+<p><b><a href='help/about.html' target='_blank'>Cite MolProbity</a></b>:
+    <small>Williams et al. (2018)
+    <a href="http://kinemage.biochem.duke.edu/lab/papers.php" target="_blank">MolProbity:
+    More and better reference data for improved all-atom structure validation.</a>
+    Protein Science 27: 293-315.
+    </small></p>
+<p><b><a href='help/about.html' target='_blank'>Cite KiNG</a></b>:
+    <small>Chen et al. (2009)
+    <a href="http://kinemage.biochem.duke.edu/lab/papers.php" target="_blank">KiNG (Kinemage, Next Generation):
+    A versatile interactive molecular and scientific visualization program.</a>
+    Protein Science 18:2403-2409.
+    </small></p>
+<p><b><a href='help/about.html' target='_blank'>Cite CCTBX</a></b>:
+    <small>Grosse-Kunstleve et al. (2002)
+    <a href="http://scripts.iucr.org/cgi-bin/paper?ks0118" target="_blank">The Computational Crystallography Toolbox:
+    crystallographic algorithms in a reusable software framework.</a>
+    J. Appl. Cryst. 35:126-136.
+    </small></p>
+<p><b><a href='help/about.html' target='_blank'>Cite NGL</a></b>:
+    <small>Rose et al. (2018)
+    <a href="https://doi.org/10.1093/bioinformatics/bty419" target="_blank">NGL viewer: web-based molecular graphics for large complexes.</a>
+    Bioinformatics. 34:3755–3758.
+    </small></p>
+<p><b><a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=21'>About hydrogens</a>:</b>
+Why have the hydrogen bondlengths changed?</p>
+<p><b><a href='help/java.html' target='_blank'>Installing Java</a></b>: how to make kinemage graphics work in your browser.</p>
+<p><b><a href='index.php?MolProbSID=c7v6rbugp1og8582fagqfq1uq2&eventID=22'>Download MolProbity</a></b>: how can I run a private MolProbity server, or run from the command line?</p>
+<p><small><i>NB: the back button doesn't work inside MolProbity</i></small></p><!-- by request of DCR -->
+</td></tr></table>
+<script language='JavaScript'>
+<!--
+    if(!navigator.javaEnabled())
+    {
+        document.writeln("<br><div class='alert'>");
+        document.writeln("It appears that Java is not enabled in your browser, so you may not be able to use KiNG interactive graphics.");
+        document.writeln("<br><a href='help/java.html' target='_blank'>Click here for help.</a>");
+        document.writeln("</div>");
+    }
+// -->
+</script>
+
+    </div>
+</td></tr>
+<tr><td colspan="4">
+    <div class="pagefooter">
+About <a href="help/about.html" target="_blank">MolProbity</a>
+| Website for <a href="http://kinemage.biochem.duke.edu" target="_blank">the Richardson Lab</a> | Using ecloud x-H
+| Internal reference 4.5.2
+    </div>
+</td></tr>
+</table>
+
+</body>
+</html>

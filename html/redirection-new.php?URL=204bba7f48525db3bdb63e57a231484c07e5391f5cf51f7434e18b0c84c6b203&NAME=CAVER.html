@@ -1,0 +1,354 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="content-language" content="cs" />
+        <title>
+            CAVER - software tool for protein analysis and visualization        </title>
+		<meta name="description" content="CAVER - software tool for protein analysis and visualization" />
+        <meta name="keywords" content="protein, tunnel, channel, molecule, analysis, dynamics, trajectory, substrate, amino acid" />
+        <meta name="author" content="Vilém Šustr (Vilem Sustr); vilem.sustr@caver.cz" />
+        <meta name="copyright" content="&copy; 2015 Vilém Šustr" />
+        <meta name="robots" content="all, index" />
+        <link href="favicon.png" rel="icon" type="image/png" />
+        <link href="style_acad.css" type="text/css" rel="stylesheet" />        <!-- External module stylesheets -->
+        <link href="mod/ArticleStyle/ArticleStyle.css" type="text/css" rel="stylesheet" />
+        <link href="mod/FormStyle/FormStyle.css" type="text/css" rel="stylesheet" />
+        <link href="mod/Message/Message.css" type="text/css" rel="stylesheet" />
+        <link href="mod/RelatedLinks/RelatedLinks.css" type="text/css" rel="stylesheet" />
+        <link href="mod/Publications/Publications.css" type="text/css" rel="stylesheet" />
+        <link href="mod/Publications/Citations.css" type="text/css" rel="stylesheet" />
+        <link href="mod/FAQs/FAQs.css" type="text/css" rel="stylesheet" />
+        <link href="mod/News/News.css" type="text/css" rel="stylesheet" />
+        <link href="mod/IssueTracker/IssueTracker.css" type="text/css" rel="stylesheet" />
+        <link href="inc/styles/category.css" type="text/css" rel="stylesheet" />
+        <!-- External scripts -->
+        <script type="text/javascript" src="inc/scripts/popupMenu.js"></script>
+        <script type="text/javascript" src="inc/scripts/categoryTabs.js"></script>
+    </head>
+    <body>
+        <div id="masterMenu">
+            <div id="menuWrapper">
+                <div id="searchBar">
+                    <div style="float: right;">
+                        <form action="index.php?sid=100" method="post">
+                            <input style="color: rgb(51, 54, 59);" class="formField" type="text" name="search" value="" size="32" maxlength="100" />
+                            <input style="padding-left: 2px; padding-right: 2px;" class="formField" type="submit" name="searchRequest" value="Search" />
+                        </form>
+                    </div>
+                </div>
+                <div id="menu">
+                    <ul id="sddm">
+                        <li><a href="index.php?sid=100" title="CAVER Home">home</a></li>
+                        <li class="spacer"></li>
+
+                                                    <li><a href="index.php?sid=120" onmouseover="mopen('m1')" onmouseout="mclosetime()" title="About CAVER">about <span class="popup_sign">&gt;</span></a>
+                                <div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+                                    <a href="index.php?sid=120" title="CAVER Concept">concept</a>
+                                    <a href="index.php?sid=123" title="How to cite CAVER">how to cite</a>
+                                    <a href="index.php?sid=124" title="CAVER Citations">news</a>
+                                </div>
+                            </li>
+                            <li class="spacer"></li>
+                                                        <li><a href="index.php?sid=199" onmouseover="mopen('m2')" onmouseout="mclosetime()" title="CAVER Resources">resources <span class="popup_sign">&gt;</span></a>
+                                <div id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+                                    <a href="index.php?sid=199" title="CAVER Download">download</a>
+                                    <!--<a href="index.php?sid=231" title="CAVER Online">run online</a>-->
+                                    <a href="index.php?sid=132" title="CAVER User Guides">user guide</a>
+                                    <a href="index.php?sid=134" title="CAVER Examples">examples</a>
+                                    <a href="index.php?sid=122" title="CAVER Publications">publications</a>
+                                    <!--<a href="index.php?sid=132" title="">examples/tutorials</a>-->
+                                    <a href="index.php?sid=133" title="Related Sites and Links">related links</a>
+                                </div>
+                            </li>
+                                                <li class="spacer"></li>
+                        <li><a href="index.php?sid=148" onmouseover="mopen('m3')" onmouseout="mclosetime()" title="CAVER Support">support <span class="popup_sign">&gt;</span></a>
+                            <div id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+                                                                    <!--<a href="index.php?sid=140" title="Frequently Asked Questions">faq</a>
+                                    <a href="index.php?sid=141" title="CAVER Troubleshooting">troubleshooting</a>-->
+                                                                <a href="index.php?sid=146" title="Scientific and Technical Support">scientific support</a>
+                                <!--<a href="index.php?sid=147" title="Online Trainings and Webinars">online trainings</a>-->
+                                <!--<a href="index.php?sid=148" title="Information Materials">information materials</a>-->
+                                <!--<a href="index.php?sid=142" title="">forum</a>-->
+                                                                    <a href="index.php?sid=243" title="Report Issues, Bugs or New Features">report issue</a>
+                                    <a href="index.php?sid=144" title="Known Issues">known issues</a>
+                                                            </div>
+                        </li>
+                        <li class="spacer"></li>
+                        <li><a href="index.php?sid=110" title="CAVER News">news</a></li>
+                        <li class="spacer"></li>
+                                                <li><a href="index.php?sid=150" title="Contact">contact</a></li>
+                        <!--<li><a href="index.php?sid=150" onmouseover="mopen('m5')" onmouseout="mclosetime()" title="Contact">contact <span class="popup_sign">&gt;</span></a>
+                            <div id="m5" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+                                <a href="index.php?sid=150" title="Company">company</a>
+                                <a href="index.php?sid=151" title="Research group">research group</a>
+                                <a href="index.php?sid=151" title="">contact form</a>-->
+                        <!--</div>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="masterHead">
+            <div id="headWrapper">
+                <div id="head">
+                                            <a href="index.php" id="logotype" title="CAVER - software tool for protein analysis and visualization"><span class="hidden">CAVER - software tool for protein analysis and visualization</span></a>
+                                        <div id="navigationBar">
+                                                    <a class="online" href="index.php?sid=121" title="Explore the features of CAVER tools"><span class="title">tools</span><br /><span class="description">explore the features<br />of CAVER tools</span></a>
+                            <a class="concept" href="index.php?sid=120" title="Learn more about caver principles"><span class="title">concept</span><br /><span class="description">learn more about<br />CAVER principles</span></a>
+                            <a class="download" href="index.php?sid=199" title="Download latest build and plugins"><span class="title">download</span><br /><span class="description">download latest build<br />and plugins</span></a>
+                            <a class="help" href="index.php?sid=132" title="Find help, fix troubles, report bugs, request features"><span class="title">help</span><br /><span class="description">user guide, examples,<br />publications</span></a>
+                                            </div>
+                </div>
+            </div>
+        </div>
+        <div id="masterPage">
+            <div id="pageWrapper">
+                <div id="page">
+                    <div id="content">
+                        <div class="article">
+    <!--<h1>CAVER - software tool for protein analysis and visualization</h1>-->
+    <!--<p>CAVER provides rapid, accurate and fully automated calculation of pathways leading from buried cavities to outside solvent in protein structures. Study of these pathways is important in drug design and molecular enzymology. </p>
+    <p>CAVER facilitates analysis of any molecular structure including proteins, nucleic acids, inorganic materials, and is available as online version or PyMOL plugin. </p>
+    <p>CAVER Analyst enables efficient visualization of calculated pathways and can be run online using Java Web Start technology.</p>
+    
+    <p>
+    <span class="bold black">CAVER</span> is a software tool for protein analysis leading to detection of channels.
+    Channels are in fact void pathways leading from buried cavities to the outside
+    solvent of a protein structure. Studying of these pathways is highly important in the
+    area of drug design and molecular enzymology.
+    </p>
+    <p>
+    <span class="bold black">CAVER</span> provides rapid, accurate and fully automated calculation of channels not
+    only for static molecules, but also for dynamic molecular simulations.
+    </p>
+    <p>
+    <span class="bold black">CAVER</span> facilitates analysis of any molecular structure including proteins,
+    nucleic acids or inorganic materials.
+    </p>
+    <p>
+    <span class="bold black">CAVER</span> can be used in two possible ways. If you are accustomed with the PyMOL
+    application, you can download the CAVER plugin for PyMOL. Then the standard
+    functionality of PyMOL application for the subsequent exploration of computed
+    channels can be used. The other possibility is to take advantage of our CAVER
+    Analyst application, which has been designed exactly for the problem of detection
+    and mainly for further exploration of channels. It includes the CAVER algorithm
+    for computation of channels in static molecule as well as in molecular dynamics.
+    So when you want to avoid the limited capabilities of PyMOL when operating with
+    large sequences of dynamics simulations, CAVER Analyst is the right solution.
+    CAVER Analyst can be downloaded and installed as a standalone version or you can
+    use the online version based on the Java Web Start technology.
+    </p>
+    <p>
+    <span class="bold black">CAVER</span> Analyst is able to load one file or a sequence of files for molecular dynamics.
+    In both cases the file is in the standard Protein Data Bank format (PDB). Except for
+    the standard functionality of applications for molecular visualization, such as
+    visualization models, making selections of atoms, aminoacids, etc., CAVER Analyst
+    provides the user with some specific functions, such as:
+    </p>
+    <ul>
+    <li>processing of large sequences of molecular dynamics (thousands of snapshots)</li>
+    <li>various methods for visualization of channels</li>
+    <li>computation and visualization of cavities (voids, hollows)</li>
+    <li>advanced settings of the position of the start point for channel computation (active site)</li>
+    <li>visualization of channel profile and other characteristics using graphs</li>
+    <li>advanced clipping plane</li>
+    <li>loading of molecular dynamics from other file formats such as AMBER, CHARMM or GROMACS</li>
+    <li>computation of distances between selected structures, dihedral or torsion angles</li>
+    <li>multiplatform use</li>
+    </ul>-->
+
+    <p>
+        <span class="bold">CAVER</span> is a software tool for analysis and
+        visualization of tunnels and channels in protein structures. Tunnels
+        are void pathways leading from a cavity buried in a protein core to
+        the surrounding solvent. Unlike tunnels, channels lead through the protein
+        structure and their both endings are opened to the surrounding solvent.
+        Studying of these pathways is highly important for drug design
+        and molecular enzymology.
+    </p>
+    <p style="text-align: center">
+        <img src="img/content/main_photo_1.png" alt="CAVER Analyst" /><br /><br />
+        <!--<span class="italic">Protein surface</span>-->
+    </p>
+    <p>
+        <span class="bold">CAVER</span> provides rapid, accurate and fully
+        automated calculation of tunnels and channels in static and dynamic structures.
+        The molecules amendable to analysis of <span class="bold">CAVER</span>
+        include proteins, nucleic acids, or inorganic materials.
+    </p>
+    <p>
+        The software is available as <span class="bold">CAVER 3.0</span> command-line version, <span class="bold">CAVER 3.0 PyMol plugin</span> or graphical application <span class="bold">CAVER Analyst 1.0</span>. 
+        The latest version of CAVER enables the analysis of molecular dynamics simulations. CAVER Analyst allows easy set-up of calculation, visualization of results, and efficient visual analysis of data.
+        
+    </p>
+</div>
+                        <br />
+                        <br />
+                    </div>
+                    <div id="sidePanel">
+                                                    <h2>sign in</h2>
+    <form action="" method="post">
+    <table>
+        <tr>
+            <td>E-mail:</td>
+            <td><input class="formField" type="text" name="email" size="20" maxlength="50" /></td>
+        </tr>
+        <tr>
+            <td>Password:&nbsp;&nbsp;&nbsp;</td>
+            <td><input class="formField" type="password" name="password" size="20" maxlength="20" /></td>
+        </tr>
+        <tr>
+            <td align="right" colspan="2"><input class="formField" type="submit" name="loginUser" value="Sign in" /></td>
+        </tr>
+    </table>
+</form>
+    <hr />
+    <a  href="index.php?sid=103">Create new user account</a><br /><br />
+<span class="gray">Forgot your password? Please contact us at <a style="color: rgb(249, 157, 0);" href="mailto:caver@caver.cz">caver@caver.cz</a>.</span>
+<br /><br />						
+						<h2><a href="https://loschmidt.chemi.muni.cz/academy">HANDS-ON COMPUTATIONAL ENZYME DESIGN COURSE</a></h2>
+						<div><a href="https://loschmidt.chemi.muni.cz/academy"><img style="width:100%" src="img/banners/academy_2024.jpg" /></a></div>
+						
+						 <h2>user statistics</h2><span class="bold black">1219</span> citations <!--<span class="gray italic">(Web of Knowledge)</span>--><br /><span class="bold black">6648</span> registered users<br /><span class="bold black">112525</span>x CAVER downloaded<br />                        <br />
+						
+                        <!--?php include("./inc/functions/newsletter.php"); ?>
+                        <br />-->
+                        <h2>news</h2>
+			<!--<div class="newsEntryPreview">
+				<div class="newsEntryPreviewHead">
+				<div class="newsEntryPreviewTitle">
+							<a href="https://loschmidt.chemi.muni.cz/academy/"> 2ND HANDS-ON COMPUTATIONAL ENZYME DESIGN COURSE</a>
+						</div>
+				<div class="newsEntryPreviewDate">January 19, 2021</div>
+				</div>
+				<p class="newsEntryPreviewBody">
+					<a href="https://loschmidt.chemi.muni.cz/academy/">
+						<img src="img/banners/academy_2021.png" style="width:100%" />
+					</a>
+				</p>
+			</div>-->
+				<div class="newsEntryPreview">
+	    <div class="newsEntryPreviewHead">
+		<div class="newsEntryPreviewTitle">
+                    <a href="index.php?sid=111&amp;newsEntryId=164">CAVER cited in NATURE Communications</a>
+                </div>
+		<div class="newsEntryPreviewDate">
+		June 27, 2024		</div>
+	    </div>
+	    <p class="newsEntryPreviewBody">
+	    CAVER was recently cited in NATURE Communications in the paper entitled Long-range charge transfer...	    </p>
+
+                        <p class="newsEntryPreviewFoot">
+		<a href="index.php?sid=111&amp;newsEntryId=164">Read more</a>
+	    </p>
+            	</div>
+    	<div class="newsEntryPreview">
+	    <div class="newsEntryPreviewHead">
+		<div class="newsEntryPreviewTitle">
+                    <a href="index.php?sid=111&amp;newsEntryId=163">CAVER cited in NATURE Communications</a>
+                </div>
+		<div class="newsEntryPreviewDate">
+		May 13, 2024		</div>
+	    </div>
+	    <p class="newsEntryPreviewBody">
+	    CAVER was recently cited in NATURE Communications in paper entitled Structural insights into drug...	    </p>
+
+                        <p class="newsEntryPreviewFoot">
+		<a href="index.php?sid=111&amp;newsEntryId=163">Read more</a>
+	    </p>
+            	</div>
+    	<div class="newsEntryPreview">
+	    <div class="newsEntryPreviewHead">
+		<div class="newsEntryPreviewTitle">
+                    <a href="index.php?sid=111&amp;newsEntryId=162">CAVER cited in NATURE</a>
+                </div>
+		<div class="newsEntryPreviewDate">
+		April 15, 2024		</div>
+	    </div>
+	    <p class="newsEntryPreviewBody">
+	    CAVER was recently cited in NATURE paper entitled Bitter taste receptor activation by cholesterol...	    </p>
+
+                        <p class="newsEntryPreviewFoot">
+		<a href="index.php?sid=111&amp;newsEntryId=162">Read more</a>
+	    </p>
+            	</div>
+                <div class="rightAlign"><a href="index.php?sid=110">View all news &nbsp;</a></div>
+                                <br />
+			<h2>other tools</h2>
+			<a href="http://loschmidt.chemi.muni.cz/predictsnp/" target="_blank">
+				<img src="img/predictsnp.png" width="150">
+			</a>	
+			<a href="http://loschmidt.chemi.muni.cz/fireprot/" target="_blank" style="display:block; margin-top:5px;">
+				<img src="img/fireprot.png" width="130">
+			</a>
+			<a href="http://loschmidt.chemi.muni.cz/hotspotwizard/" target="_blank" style="display:block; margin-top:5px;">
+				<img src="img/hotspotwizard.png" width="120">
+			</a>
+			
+			
+			<h2>acknowledgement</h2>
+			<a href="http://www.elixir-czech.cz" target="_blank">
+				<img src="img/elixir_logo.png" width="85">
+			</a>	
+			<a href="http://www.c4sys.cz/" target="_blank">
+				<img src="img/c4sys_logo.png" width="85">
+			</a>
+			</div>
+				<div class="clear"></div>
+			</div>
+            </div>
+        </div>
+        <div id="masterFoot">
+            <div id="footWrapper">
+                <div id="foot">
+                                            <div class="links">
+                            <!--<div id="copyrigt"></div>-->
+                            <br /><br />
+                            <p>Copyright &copy; 2024 <span class="bold">CAVER Team</span> | <a href="mailto:caver@caver.cz">caver@caver.cz</a></p>
+                        </div>
+                        <!--<div id="links"><a href="#">search</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">contact</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="index.php?sid=300">administration</a></div>-->
+
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-20770981-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <!-- Piwik -->
+        <script type="text/javascript">
+            var _paq = _paq || [];
+            _paq.push(["trackPageView"]);
+            _paq.push(["enableLinkTracking"]);
+
+            (function () {
+                var u = (("https:" == document.location.protocol) ? "https" : "http") + "://loschmidt.chemi.muni.cz/piwik/";
+                _paq.push(["setTrackerUrl", u + "piwik.php"]);
+                _paq.push(["setSiteId", "6"]);
+                var d = document, g = d.createElement("script"), s = d.getElementsByTagName("script")[0];
+                g.type = "text/javascript";
+                g.defer = true;
+                g.async = true;
+                g.src = u + "piwik.js";
+                s.parentNode.insertBefore(g, s);
+            })();
+        </script>
+        <!-- End Piwik Code -->
+    </body>
+</html>

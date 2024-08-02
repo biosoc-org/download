@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang="en"><head><title>SWISS-MODEL</title><meta name="google-site-verification" content="b9is0bMUORIVsNjIJ3zigkFHMlGrnRCa6VldJKH5crU" /><meta charset="utf-8"><!-- Matomo --><script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://matomo.sib.swiss/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '3']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script><!-- End Matomo Code --><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="ROBOTS" content="ALL" /><meta name="theme-color" content="#e30613" /><meta name="description" content="SWISS-MODEL is a fully automated protein structure homology-modelling server. The purpose of this server is to make protein modelling accessible to all life science researchers worldwide." /><link rel="preload" as="font" type="font/woff" href="/static/css/AzeretMono-VariableFont_wght.ttf" as="Azaret Mono" /><link rel="stylesheet" type="text/css" href="/static/css/bootstrap-3.4.1.min.css" media="screen,print"/><link rel="stylesheet" type="text/css" href="/static/fancybox-2.1.4/jquery.fancybox.css"/><link rel="stylesheet" type="text/css" href="/static/jquery-ui-1.13.1/jquery-ui.min.css"/><link rel="stylesheet" type="text/css" href="/static/css/master.css?v=1722437078"  media="all" /><link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" /><link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png" /><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Roboto+Mono:wght@100&display=swap" rel="stylesheet"><style>
+
+.navbar{
+  margin-bottom: 0px;
+}
+
+h1, h2, h3 { 
+  font-family:  'IBM Plex Mono', monospace;
+}
+
+.section {
+  padding: 32px 8px 32px 8px;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainSection {
+  background-color:#bdcfdd;
+}
+.mainSection p a{
+  font-weight: bold;
+}
+
+.mainSection img {
+  max-height: 140px;
+}
+.mainSection > div  {
+  margin: 42px;
+}
+.mainSection input {
+  color: #333;
+}
+.tbn {
+    border-radius: 3px;
+    height:55px;
+    width:55px;
+    border: 1px solid #DDD;
+}
+.tbn img{
+    border-radius: 3px;
+    height:53px;
+    width:53px;
+    border: 1px solid #FFF;
+}
+
+
+.newFeature{
+  border:1px solid rgb(204, 214, 221); 
+  border-radius:15px; 
+  padding:16px;
+  max-width: 30%;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+}
+.newFeature a {
+  text-align: center;
+}
+.readMore{
+  padding-top:12px;
+  text-align: right;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+
+.aboutSection{ 
+  background-color: #bdcfdd;
+}
+.aboutSection > div {
+  max-width: 90vw;
+}
+
+.reference, .eu {
+  width: 90vw;
+  justify-content: center;
+}
+.reference ul {
+  padding: 0px 12px;
+}
+.contact {
+  width: 80vw;
+  justify-content: space-between;
+}
+.contact, .eu, .reference {
+  display:flex;
+  gap: 0px 6px;
+}
+.contact img {
+  max-width:100%; 
+  max-height:120px;
+  padding:8px;
+}
+
+.eu {
+  margin: 32px 32px 32px 32px;
+}
+.eu > div {
+  margin: 0px 16px;
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 32px 8px 32px 8px;
+  }
+  .tbn {
+    border-radius: 3px;
+    height:40px;
+    width:40px;
+    border: 1px solid #DDD;
+  }
+  .tbn img{
+    border-radius: 3px;
+    height:38px;
+    width: 38px;
+    border: 1px solid #FFF;
+  }
+  .mainSection > div > div {
+    max-width: 100%; 
+  } 
+  .newFeature {
+    max-width: 100%; 
+    margin: 8px;
+  } 
+  h2, h3 {
+    text-align: center;
+    margin: 0px;
+  }
+  .contact {
+    flex-wrap: wrap;
+  }
+  .contact > div {
+    width: 100%;
+    text-align: center;
+    margin-right: 0px;
+    margin-bottom: 32px;
+  }
+}
+
+</style><script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    
+    "description": "SWISS-MODEL is a fully automated protein structure homology modelling server",
+    "featureList": ["https://bioportal.bioontology.org/ontologies/EDAM?p=classes&conceptid=topic_2275"],
+    "name": "SWISS-MODEL",
+    "@type": "SoftwareApplication",
+    "softwareVersion": "1.0",
+    "url": "https://swissmodel.expasy.org",
+    "keywords":"SWISS-MODEL, homology model, protein structure models",
+    "license": {
+        "@type": "CreativeWork",
+        "name": "Creative Commons CC4 Attribution",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "provider": [
+        {
+            "@id": "https://www.sib.swiss/",
+            "@type": "Organization",
+            "name":"SIB Swiss Institute of Bioinformatics",
+            "url":"https://sib.swiss"
+        },
+        {
+            "@type": "Organization",
+            "name":"Biozentrum - University of Basel",
+            "url":"https://www.biozentrum.unibas.ch"
+        }
+    ],
+    "citation": [
+        {
+            "@type": "CreativeWork",
+            "name": "SWISS-MODEL: homology modelling of protein structures and complexes",
+            "url": "https://doi.org/10.1093/nar/gky427",
+            "sameAs":"https://pubmed.ncbi.nlm.nih.gov/29788355"
+        }
+    ],
+    
+    
+    "applicationCategory": "Web Application",
+    "operatingSystem": "Any",
+
+    "softwareHelp": {
+        "@type": "CreativeWork",
+        "name": "Help section",
+        "url": "https://swissmodel.expasy.org/docs/help"
+    },
+    "Keywords": [
+        "https://bioportal.bioontology.org/ontologies/EDAM?p=classes&conceptid=topic_2275",
+        "Homology Modelling"
+    ],
+    "potentialAction": [
+        {
+            "@type": "SearchAction",
+            "object": {
+                "@type": "Dataset",
+                "additionalType": "https://bioportal.bioontology.org/ontologies/EDAM?p=classes&conceptid=data_2976"
+            },
+            "result": {
+                "@type": "Dataset",
+                "additionalType": "https://bioportal.bioontology.org/ontologies/EDAM?p=classes&conceptid=operation_0292"
+            }
+        },
+        {
+            "@type": "CreateAction",
+            "object": {
+                "@type": "Dataset",
+                "additionalType": "https://bioportal.bioontology.org/ontologies/EDAM?p=classes&conceptid=data_2976"
+            },
+            "result": {
+                "@type": "Dataset",
+                "additionalType": "https://bioportal.bioontology.org/ontologies/EDAM?p=classes&conceptid=operation_0477"
+            }
+        }
+    ]
+}
+</script></head><body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button aria-controls="navbar" aria-expanded="false" data-target=".collapseThis" data-toggle="collapse" class="navbar-toggle collapsed" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/" style="padding:10px 0px 10px 18px;"><img style="height:100%" src="/static/images/SWISS-MODEL.tsb.svg"></a></div><div id="navbar" class="collapseThis navbar-collapse collapse"><!-- Collect the nav links, forms, and other content for toggling --><ul class="nav navbar-nav navbar-right"><li class="dropdown "><a href="/interactive" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Modelling</a><ul class="dropdown-menu" role="menu"><li><a class="text-left" href="/interactive">myWorkspace</a></li><li><a class="text-left" href="/interactive#alignment">Alignment Mode</a></li><li><a class="text-left" href="/interactive#structure">User Template Mode</a></li><li><a class="text-left" href="/interactive#deepview">DeepView Project Mode</a></li><li><a href="/api-docs/">Modelling API</a></li><li class="divider"></li><li><a class="text-left" href="/templates/">Template Library</a></li></ul></li><li id="smrLink" class="dropdown "><a href="/repository" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Repository</a><ul class="dropdown-menu" role="menu"><li><a href="/repository">SWISS-MODEL Repository</a></li><li><a href="/repository/api-docs">Repository API</a></li><li><a href="/3d-beacons">3D-Beacons API</a></li><li><a href="/repository/annotation">Annotation Projects</a></li><li><a href="/var3d">TBvar3D</a></li></ul></li><li class="dropdown "><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tools</a><ul class="dropdown-menu" role="menu"></li><li><a href="/assess">Structure Assessment</a></li><li><a href="/comparison/">Structure Comparison</a></li><li><a href="/qmean/" tabindex="-1">QMEAN</a></li></ul></li><li class="dropdown "><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Documentation</a><ul class="dropdown-menu" role="menu"><li><a href="/docs/help" tabindex="-1">SWISS-MODEL</a></li><li><a href="/docs/examples" tabindex="-1">Examples</a></li><li><a href="/docs/tutorial" tabindex="-1">Video Tutorial</a></li><li><a href="/docs/blog" tabindex="-1">New Features</a></li><li role="separator" class="divider"></li><li><a href="/docs/repository_help" tabindex="-1">SWISS-MODEL Repository</a></li><li role="separator" class="divider"></li><li><a href="/qmean/help" tabindex="-1">QMEAN</a></li><li><a href="/assess/help">Structure Assessment</a></li><li><a href="/comparison/help">Structure Comparison</a></li><li><a href="/var3d/help">TBvar3D</a></li><li role="separator" class="divider"></li><li><a href="/course" tabindex="-1">Protein Structure Course</a></li><li role="separator" class="divider"></li><li><a href="/docs/references" tabindex="-1">References</a></li></ul></li><li><a onclick="showLogin();">Log in</a></li><li><a onclick="createAccount();">Create Account</a></li></ul></div></div><!-- /container-fluid --></nav><div id="tools"></div><div id="main-content"></div><div class="section mainSection"><div style="max-width: 775px"><div><div style="text-align: center; margin-bottom: 16px;"><a href="/interactive" ><img title="SWISS-MODEL logo" src="/static/images/SWISS-MODEL.sb.svg"/></a></div><p >
+        is a fully automated protein structure homology-modelling server, 
+        accessible via the <a href="https://www.expasy.org/">Expasy web server</a>.
+      </p><p>
+        The purpose of this server is to make protein modelling accessible 
+        to all life science researchers worldwide.
+      </p><p style="text-align:center; margin:32px 0;"><button class="btn btn-lg btn-primary" onclick="document.location='/interactive'">Start Modelling</button></p></div><div style="margin-top: 64px"><h1><a style="color:inherit" href="/repository">Repository</a></h1><p>
+        Every week we model all the sequences for thirteen core species 
+        based on the latest UniProtKB proteome. Is your protein already 
+        modelled and up to date in <a href="/repository">SWISS-MODEL Repository</a>?
+      </p><form method="get" action="/repository"><div class="input-group scrollable-dropdown-menu"><span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button></span><input placeholder="Search SWISS-MODEL Repository" class="typeahead" autocomplete="off" type="text" id="query" name="query"></div></form><div class="text-center" style="margin-top:12px;"><div class=" text-center" style="display:inline-block; padding:2px;" title="Human"><div class="tbn"><a href="/repository/species/9606"><img src="/static/images/9606_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Mouse"><div class="tbn"><a href="/repository/species/10090"><img src="/static/images/10090_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Caenorhabditis elegans"><div class="tbn"><a href="/repository/species/6239"><img src="/static/images/6239_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Escherichia coli"><div class="tbn"><a href="/repository/species/83333"><img src="/static/images/83333_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Mouse-ear cress"><div class="tbn"><a href="/repository/species/3702"><img src="/static/images/3702_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Fruit fly"><div class="tbn"><a href="/repository/species/7227"><img src="/static/images/7227_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Baker&#x27;s yeast"><div class="tbn"><a href="/repository/species/559292"><img src="/static/images/559292_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Fission yeast"><div class="tbn"><a href="/repository/species/284812"><img src="/static/images/284812_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Caulobacter crescentus"><div class="tbn"><a href="/repository/species/190650"><img src="/static/images/190650_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Mycobacterium tuberculosis"><div class="tbn"><a href="/repository/species/83332"><img src="/static/images/83332_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Pseudomonas aeruginosa"><div class="tbn"><a href="/repository/species/208964"><img src="/static/images/208964_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Staphylococcus aureus"><div class="tbn"><a href="/repository/species/93061"><img src="/static/images/93061_header.png"></a></div></div><div class=" text-center" style="display:inline-block; padding:2px;" title="Plasmodium falciparum"><div class="tbn"><a href="/repository/species/36329"><img src="/static/images/36329_header.png"></a></div></div></div></div></div></div><div class="section"><h3>What's new</h3><div style="display:flex; flex-wrap: wrap; justify-content: space-evenly;"><div class="newFeature"><p>
+        The Structure Assessment web server has been published in the 2024  
+        Nucleic Acids Research Web Server issue
+      </p><a href="/docs/blog#nar2024"><img style="max-height:220px; max-width:100%; " src="/static/images/blog/assessAbstract.png"></a><a href="/docs/blog#nar2024"><div class="readMore">Read more...</div></a></div><div class="newFeature"><p>
+        AlphaFoldDB structures are available as templates in the SWISS-MODEL homology modelling pipeline.         
+      </p><a href="/docs/blog#afdbTemplates"><img style="max-height:220px; max-width:100%; " src="/static/images/blog/afdbTemplate.png"></a><a href="/docs/blog#afdbTemplates"><div class="readMore">Read more...</div></a></div><div class="newFeature"><p>
+        We have added a simple way to annotate the results of your modelling or structure assessment projects.
+      </p><a href="/docs/blog#modelAnnotations"><img style="max-height:220px; max-width:100%; " src="/static/images/blog/modelAnnotations-small.png"></a><a href="/docs/blog#modelAnnotations"><div class="readMore">Read more...</div></a></div></div><div class="text-center" style="font-style:italic; font-size:1.2em; margin-top: 32px"><p>
+      For all the latest developments and news, follow SWISS-MODEL on
+    </p><p style="display:flex; align-items:center; justify-content: space-evenly; line-height: 1em;"><a href="https://mstdn.science/@SWISS_MODEL" title="Follow SWISS-MODEL on Mastodon"><svg height="24" viewBox="0 0 61 65" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60.7539 14.3904C59.8143 7.40642 53.7273 1.90257 46.5117 0.836066C45.2943 0.655854 40.6819 0 29.9973 0H29.9175C19.2299 0 16.937 0.655854 15.7196 0.836066C8.70488 1.87302 2.29885 6.81852 0.744617 13.8852C-0.00294988 17.3654 -0.0827298 21.2237 0.0561464 24.7629C0.254119 29.8384 0.292531 34.905 0.753482 39.9598C1.07215 43.3175 1.62806 46.6484 2.41704 49.9276C3.89445 55.9839 9.87499 61.0239 15.7344 63.0801C22.0077 65.2244 28.7542 65.5804 35.2184 64.1082C35.9295 63.9428 36.6318 63.7508 37.3252 63.5321C38.8971 63.0329 40.738 62.4745 42.0913 61.4937C42.1099 61.4799 42.1251 61.4621 42.1358 61.4417C42.1466 61.4212 42.1526 61.3986 42.1534 61.3755V56.4773C42.153 56.4557 42.1479 56.4345 42.1383 56.4151C42.1287 56.3958 42.1149 56.3788 42.0979 56.3655C42.0809 56.3522 42.0611 56.3429 42.04 56.3382C42.019 56.3335 41.9971 56.3336 41.9761 56.3384C37.8345 57.3276 33.5905 57.8234 29.3324 57.8156C22.0045 57.8156 20.0336 54.3384 19.4693 52.8908C19.0156 51.6397 18.7275 50.3346 18.6124 49.0088C18.6112 48.9866 18.6153 48.9643 18.6243 48.9439C18.6333 48.9236 18.647 48.9056 18.6643 48.8915C18.6816 48.8774 18.7019 48.8675 18.7237 48.8628C18.7455 48.858 18.7681 48.8585 18.7897 48.8641C22.8622 49.8465 27.037 50.3423 31.2265 50.3412C32.234 50.3412 33.2387 50.3412 34.2463 50.3146C38.4598 50.1964 42.9009 49.9808 47.0465 49.1713C47.1499 49.1506 47.2534 49.1329 47.342 49.1063C53.881 47.8507 60.1038 43.9097 60.7362 33.9301C60.7598 33.5372 60.8189 29.8148 60.8189 29.4071C60.8218 28.0215 61.2651 19.5781 60.7539 14.3904Z" fill="url(#paint0_linear_89_8)"/><path d="M50.3943 22.237V39.5876H43.5185V22.7481C43.5185 19.2029 42.0411 17.3949 39.036 17.3949C35.7325 17.3949 34.0778 19.5338 34.0778 23.7585V32.9759H27.2434V23.7585C27.2434 19.5338 25.5857 17.3949 22.2822 17.3949C19.2949 17.3949 17.8027 19.2029 17.8027 22.7481V39.5876H10.9298V22.237C10.9298 18.6918 11.835 15.8754 13.6453 13.7877C15.5128 11.7049 17.9623 10.6355 21.0028 10.6355C24.522 10.6355 27.1813 11.9885 28.9542 14.6917L30.665 17.5633L32.3788 14.6917C34.1517 11.9885 36.811 10.6355 40.3243 10.6355C43.3619 10.6355 45.8114 11.7049 47.6847 13.7877C49.4931 15.8734 50.3963 18.6899 50.3943 22.237Z" fill="white"/><defs><linearGradient id="paint0_linear_89_8" x1="30.5" y1="0" x2="30.5" y2="65" gradientUnits="userSpaceOnUse"><stop stop-color="#6364FF"/><stop offset="1" stop-color="#563ACC"/></linearGradient></defs></svg></a><a href="https://bsky.app/profile/swiss-model.bsky.social" title="Follow SWISS-MODEL on Bluesky"><svg fill="none" viewBox="0 0 64 57" height="24"><defs><linearGradient x1="0" y1="0" x2="0" y2="1" id="sky"><stop offset="0" stop-color="#0A7AFF" stop-opacity="1"></stop><stop offset="1" stop-color="#59B9FF" stop-opacity="1"></stop></linearGradient></defs><path fill="url(#sky)" d="M13.873 3.805C21.21 9.332 29.103 20.537 32 26.55v15.882c0-.338-.13.044-.41.867-1.512 4.456-7.418 21.847-20.923 7.944-7.111-7.32-3.819-14.64 9.125-16.85-7.405 1.264-15.73-.825-18.014-9.015C1.12 23.022 0 8.51 0 6.55 0-3.268 8.579-.182 13.873 3.805ZM50.127 3.805C42.79 9.332 34.897 20.537 32 26.55v15.882c0-.338.13.044.41.867 1.512 4.456 7.418 21.847 20.923 7.944 7.111-7.32 3.819-14.64-9.125-16.85 7.405 1.264 15.73-.825 18.014-9.015C62.88 23.022 64 8.51 64 6.55c0-9.818-8.578-6.732-13.873-2.745Z"></path></svg></a><a title="twitter" href="https://twitter.com/SWISS_MODEL" style="color:#5ea9dd"><img height="24px" width="24px" title="Follow SWISS-MODEL on platform previously known as Twitter" 
+            src="/static/images/twitter.svg"></a></p></div></div><div class="section aboutSection"><div class="contact"><div><address class="code" style="margin:0px"><strong>Computational Structural Biology Group</strong><br>
+      c/o Prof. Torsten Schwede<br>
+      Swiss Institute of Bioinformatics<br>
+      Biozentrum, University of Basel<br>
+      Spitalstrasse 41<br>
+      CH-4056 Basel / Switzerland<br><a href="mailto:mouseover@for.address" class="swissmodelContactRef">help<span class="canttouchthis">v3b</span>-swiss<span class="canttouchthis">ac</span>mode<span class="canttouchthis">lu</span>l@u<span class="canttouchthis">qvc</span>nibas<span class="canttouchthis">c9</span>.<span class="canttouchthis">qov</span>ch</a></address></div><div><a href="https://www.biozentrum.unibas.ch/research/research-groups/research-groups-a-z/overview/unit/research-group-torsten-schwede"><img src="/static/images/bz_logo.svg" ></a></div><div><a href="https://www.sib.swiss"><img src="/static/images/sib_logo.svg" style="max-height: 120px;"></a></div></div><div class="eu"><p><img src="/static/images/EU.jpg" style="max-width:80px; padding:4px 8px 0px 0px" align="left">
+      SWISS-MODEL is developed by the </a><a href="https://www.biozentrum.unibas.ch/research/research-groups/research-groups-a-z/overview/unit/research-group-torsten-schwede">Computational Structural Biology Group</a> at the <a href="https://www.sib.swiss/" >SIB Swiss Institute of Bioinformatics</a> and the <a href="https://www.biozentrum.unibas.ch/">Biozentrum of the University of Basel</a>.
+      This project has furthermore received funding from ELIXIR and the 
+      European Union's Horizon 2020 research and innovation programme under 
+      grant agreement number 101003551.
+    </p></div><div class="reference"><div><p>
+        When you publish or report results using SWISS-MODEL, please cite the relevant publications:
+      </p><ul class="references subtle"><li><div>Waterhouse A, Bertoni M, Bienert S, Studer G, Tauriello G, Gumienny R, Heer FT, de Beer TAP, Rempfer C, Bordoli L, Lepore R, Schwede T </div><div class="title">SWISS-MODEL: homology modelling of protein structures and complexes. </div><div class="refLinks">Nucleic Acids Res 46, W296-W303. (2018) <a title="Show PubMed record" href="https://pubmed.ncbi.nlm.nih.gov/29788355"><img alt="PubMed logo" src="/static/images/pubmed.png" />29788355</a><a title="Show DOI record" href="https://doi.org/10.1093/nar/gky427"><img alt="DOI logo" src="/static/images/doi.png" />10.1093/nar/gky427</a></div></li><li><div>Bienert S, Waterhouse A, de Beer TAP, Tauriello G, Studer G, Bordoli L, Schwede T </div><div class="title">The SWISS-MODEL Repository - new features and functionality. </div><div class="refLinks">Nucleic Acids Res 45, D313-D319. (2017) <a title="Show PubMed record" href="https://pubmed.ncbi.nlm.nih.gov/27899672"><img alt="PubMed logo" src="/static/images/pubmed.png" />27899672</a><a title="Show DOI record" href="https://doi.org/10.1093/nar/gkw1132"><img alt="DOI logo" src="/static/images/doi.png" />10.1093/nar/gkw1132</a></div></li><li><div>Guex N, Peitsch MC, Schwede T </div><div class="title">Automated comparative protein structure modeling with SWISS-MODEL and Swiss-PdbViewer: A historical perspective. </div><div class="refLinks">Electrophoresis 30, S162-S173. (2009) <a title="Show PubMed record" href="https://pubmed.ncbi.nlm.nih.gov/19517507"><img alt="PubMed logo" src="/static/images/pubmed.png" />19517507</a><a title="Show DOI record" href="https://doi.org/10.1002/elps.200900140"><img alt="DOI logo" src="/static/images/doi.png" />10.1002/elps.200900140</a></div></li><li><div>Studer G, Rempfer C, Waterhouse AM, Gumienny R, Haas J, Schwede T </div><div class="title">QMEANDisCo - distance constraints applied on model quality estimation. </div><div class="refLinks">Bioinformatics 36, 1765-1771. (2020) <a title="Show PubMed record" href="https://pubmed.ncbi.nlm.nih.gov/31697312"><img alt="PubMed logo" src="/static/images/pubmed.png" />31697312</a><a title="Show DOI record" href="https://doi.org/10.1093/bioinformatics/btz828"><img alt="DOI logo" src="/static/images/doi.png" />10.1093/bioinformatics/btz828</a></div></li><li><div>Bertoni M, Kiefer F, Biasini M, Bordoli L, Schwede T </div><div class="title">Modeling protein quaternary structure of homo- and hetero-oligomers beyond binary interactions by homology. </div><div class="refLinks">Scientific Reports 7. (2017) <a title="Show PubMed record" href="https://pubmed.ncbi.nlm.nih.gov/28874689"><img alt="PubMed logo" src="/static/images/pubmed.png" />28874689</a><a title="Show DOI record" href="https://doi.org/10.1038/s41598-017-09654-8"><img alt="DOI logo" src="/static/images/doi.png" />10.1038/s41598-017-09654-8</a></div></li></ul><p>
+      * Please note the <a href="/docs/terms_of_use">terms of use</a> of SWISS-MODEL.
+      </p></div></div></div><div id="loginForm" style="display:none;text-align:center;"></div><footer class="footer hidden-print"><div id="sib_footer"><ul class="list-inline" style="margin-bottom:0px; padding-bottom:4px;padding-top:4px;"><li><a href="https://www.sib.swiss"><span class="footerLg">Swiss Institute of Bioinformatics</span><span class="footerSm">SIB</span></a></li><li><a href="https://www.biozentrum.unibas.ch/research/researchgroups/overview/unit/schwede/">Schwede Group</a></li><li><a  href="mailto:mouseover@for.address" class="swissmodelContactRef">Contact Us</a></li><li><a href="/docs/terms_of_use">Terms of use</a></li><li class="pull-right"><a id="sib_footer_gototop" onclick="window.scrollTo(0,0);"><i class="glyphicon glyphicon-arrow-up"></i><span class="footerLg"> Back to the Top</span></a></li></ul><div class="clearfix"></div></div></footer><script src="/static/js/jquery-3.7.0.min.js"></script><script src="/static/jquery-ui-1.13.1/jquery-ui.min.js"></script><script src="/static/js/bootstrap-3.4.1.min.js"></script><script src="/static/fancybox-2.1.4/jquery.fancybox.pack.js"></script><script src="/static/js/bootstrap3-typeahead.min.js"></script><script>
+
+$('a[obfLink]').on('focus mouseover', function(){
+  let obf = $(this).attr('obflink').split('|')
+  let href = '/repository/uniprot'
+  $(this).attr('href', '/repository/uniprot/' + obf[0]
+        +'?annotations='+obf[1]
+        +(obf.length==3?'?annot='+obf[2]:''));
+});
+
+const smrSuggest = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  remote: {
+    url: '/repository/suggest/XXX',
+    wildcard: 'XXX',
+    rateLimitWait:1000,
+    transform: function (result) {  return result.suggestions  }
+  }
+});
+
+$('#query').typeahead({  minLength:3},{
+  name:"smr",
+  limit:200,
+  source: smrSuggest
+});
+</script><script>
+    $('a.smng-help').append('<icon class="glyphicon glyphicon-question-sign"></i>');
+    $(document).on('click','a.smng-help',function()
+    { 
+        window.open($(this).attr('href'),
+            'Help',
+            'width=920,height=600,left=20,top=100,directories=no,menubar=yes,toolbar=yes,'
+                +'status=no,scrollbars=yes,resizable=no');
+        return false;
+    });
+
+     $('a.swissmodelContactRef')
+        .on('mouseover',function()
+            {
+                $(this).attr('href',["ch", ".", "nibas", "l@u",
+             "mode", "-swiss",
+              ":help", "to", "ail", "m"].reverse().join(''));
+                $(this).off('mouseover');
+            });
+
+     function showLogin()
+     {
+        $('#loginForm')
+            .load('/login', { 'csrfmiddlewaretoken':'9B9SnngxEhKmzQEKeUemVZ5hgyF5I8TrPKBI41wcfzzDUoaZaiBDJoOy2CMMZp1p' },
+                function()
+                {
+                    $("<a href='#loginForm'/>'").fancybox().trigger('click');  
+                    $('#id_username').focus();
+                });    
+     }
+     function createAccount()
+     {
+        $('#loginForm')
+            .load('/create_account',
+                function()
+                {
+                    $("<a href='#loginForm'/>'").fancybox().trigger('click'); 
+                    $('#id_username').focus();  
+                });
+     }
+</script></body></html>

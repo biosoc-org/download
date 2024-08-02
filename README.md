@@ -19,6 +19,40 @@
    ```
 
 
+```bash
+python scraper.py https://www.click2drug.org/ Cats2 --output_file output2.csv
+```
+```bash
+python scraper.py https://www.click2drug.org/ Cats3 --output_file output3.csv
+```
+```bash
+python scraper.py https://www.click2drug.org/ Cats4 --output_file output4.csv
+```
+```bash
+python scraper.py https://www.click2drug.org/ Cats5 --output_file output5.csv
+```
+```bash
+python scraper.py https://www.click2drug.org/ Cats6 --output_file output6.csv
+```
+```bash
+python scraper.py https://www.click2drug.org/ Cats7 --output_file output7.csv
+```
+```bash
+python scraper.py https://www.click2drug.org/ Cats8 --output_file output8.csv
+```
+```bash
+python scraper.py https://www.click2drug.org/ Cats9 --output_file output9.csv
+```
+```bash
+python scraper.py https://www.click2drug.org/ Cats10 --output_file output10.csv
+```
+```bash
+python scraper.py https://www.click2drug.org/ Cats11 --output_file output11.csv
+```
+```bash
+python scraper.py https://www.click2drug.org/ Cats12 --output_file output12.csv
+```
+
 
 
 Aby zrealizować żądanie, możemy zmodyfikować funkcję `createTable` tak, aby automatycznie skracała ciągi znaków bez spacji, które są dłuższe niż 20 znaków, dodając na końcu trzy kropki ("..."). Oto pełny przykład, uwzględniający te zmiany:

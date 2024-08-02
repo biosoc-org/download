@@ -1,0 +1,634 @@
+<html>
+<head>
+<title>I-TASSER server for protein structure and function prediction</title>
+
+
+<script type="text/javascript">
+<!--
+function formAction (action, id)
+{
+	if (action == 'show')
+	{
+		document.getElementById("optionForm"+id).style.display= "block";
+		document.getElementById("optionGraphic"+id).src="../image/down_triangle.gif";
+		document.getElementById("option"+id).href= "javascript:formAction('hide', "+id+")";
+	}
+	
+	if (action == 'hide')
+	{
+		document.getElementById("optionForm"+id).style.display= "none";
+		document.getElementById("optionGraphic"+id).src="../image/right_triangle.gif";
+		document.getElementById("option"+id).href= "javascript:formAction('show', "+id+")";
+	}
+}
+//-->
+</script>
+
+<!-- ==AAA== ======beginning of head====== -->
+<!--
+  When you compose a webpage at the webserver, please have following in mind:
+     1, please keep the following 4 tags unchanged:
+            ==AAA==
+            ==BBB==
+            ==CCC==
+            ==DDD==
+         These tags will be used to update the frame of the webpages.
+     2, the content between '==AAA==' and '==BBB==' and content between 
+        '==CCC==' and '==DDD==' will be mandatorily rewritten by the system 
+        program. You can put your own contents outside these two regions.
+	Thus, your page should look like the following:
+	   [your content]
+            ==AAA==
+ 	      [system content]
+            ==BBB==
+	   [your content]
+            ==CCC==
+ 	      [system content]
+            ==DDD==
+-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/css/all.css" type="text/css" />
+<script type="text/javascript" src="/css/minmax.js"></script>
+<script type="text/javascript" src="/css/all.js"></script>
+</head>
+<body>
+<!-- End of declaration -->
+
+<div id="z_top">
+<a href="https://zhanggroup.org/" id="z_lab_logo"><img alt="Zhang Lab" src="https://zhanggroup.org/image/logo_top.jpg" /></a>
+<a href="http://www.umich.edu" id="z_um_logo"><img alt="University of Michigan" src="https://zhanggroup.org/image/wordmark_m_web.gif" /></a>
+</div>
+
+<div id="z_menu">
+  <a class="z_menu_main" href="https://zhanggroup.org">Home</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/research">Research</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/COVID-19/">COVID-19</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/services">Services</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/papers">Publications</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/people">People</a>
+  <a class="z_menu_main" href="https://medicine.umich.edu/dept/dcmb/education/course-descriptions/bioinf-528-structural-bioinformatics">Teaching</a>
+  <!-- <a class="z_menu_main" href="https://zhanggroup.org/funding">Funding</a> -->
+  <a class="z_menu_main" href="https://zhanggroup.org/job">Job Opening</a>
+<!--  <a class="z_menu_main" href="https://zhanggroup.org/facility">Facilities</a> -->
+  <a class="z_menu_main" href="https://zhanggroup.org/news">News</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/forum">Forum</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/labonly">Lab Only</a>
+  <div class="z_clear"></div>
+</div>
+
+<div id="z_body">
+  <div id="z_sidebar">
+    <a id="z_sidebar_title" href="https://zhanggroup.org/services">Online Services</a>
+    <p class="z_sidebar_menu z_sidebar_menu1">
+    <a href="https://zhanggroup.org/I-TASSER">&#9679;<span>I-TASSER</span></a>
+      <a href="https://zhanggroup.org/I-TASSER-MTD">&#9679;<span>I-TASSER-MTD</span></a>
+      <a href="https://zhanggroup.org/C-I-TASSER">&#9679;<span>C-I-TASSER</span></a>
+      <a href="https://zhanggroup.org/CR-I-TASSER">&#9679;<span>CR-I-TASSER</span></a>
+      
+      <a href="https://zhanggroup.org/QUARK">&#9679;<span>QUARK</span></a>
+      <a href="https://zhanggroup.org/C-QUARK">&#9679;<span>C-QUARK</span></a>
+      
+      <a href="https://zhanggroup.org/LOMETS">&#9679;<span>LOMETS</span></a>
+      <a href="https://zhanggroup.org/MUSTER">&#9679;<span>MUSTER</span></a>
+      <a href="https://zhanggroup.org/CEthreader">&#9679;<span>CEthreader</span></a>
+      <a href="https://zhanggroup.org/SEGMER">&#9679;<span>SEGMER</span></a>
+
+      <a href="https://zhanggroup.org/DeepFold">&#9679;<span>DeepFold</span></a>
+      <a href="https://zhanggroup.org/DeepFoldRNA">&#9679;<span>DeepFoldRNA</span></a>
+      <a href="https://zhanggroup.org/FoldDesign">&#9679;<span>FoldDesign</span></a>
+      
+      <a href="https://zhanggroup.org/COFACTOR">&#9679;<span>COFACTOR</span></a>
+      <a href="https://zhanggroup.org/COACH">&#9679;<span>COACH</span></a>
+      <a href="https://zhanggroup.org/MetaGO">&#9679;<span>MetaGO</span></a>
+      <a href="https://zhanggroup.org/TripletGO">&#9679;<span>TripletGO</span></a>
+      <a href="https://zhanggroup.org/IonCom">&#9679;<span>IonCom</span></a>
+      
+      <a href="https://zhanggroup.org/FG-MD">&#9679;<span>FG-MD</span></a>
+      <a href="https://zhanggroup.org/ModRefiner">&#9679;<span>ModRefiner</span></a>
+      <a href="https://zhanggroup.org/REMO">&#9679;<span>REMO</span></a>
+      
+      <a href="https://zhanggroup.org/DEMO">&#9679;<span>DEMO</span></a>
+      <a href="https://zhanggroup.org/DEMO-EM">&#9679;<span>DEMO-EM</span></a>
+
+      <a href="https://zhanggroup.org/DMFold">&#9679;<span>DMFold</span></a>         
+      <a href="https://zhanggroup.org/spring">&#9679;<span>SPRING</span></a>
+      <a href="https://zhanggroup.org/COTH">&#9679;<span>COTH</span></a>
+      
+      <a href="https://zhanggroup.org/Threpp">&#9679;<span>Threpp</span></a>
+      <a href="https://zhanggroup.org/PEPPI">&#9679;<span>PEPPI</span></a>
+      <a href="https://zhanggroup.org/BSpred">&#9679;<span>BSpred</span></a>
+      
+      <a href="https://zhanggroup.org/ANGLOR">&#9679;<span>ANGLOR</span></a>
+      
+      <a href="https://zhanggroup.org/EDock">&#9679;<span>EDock</span></a>
+      <a href="https://zhanggroup.org/BSP-SLIM">&#9679;<span>BSP-SLIM</span></a>
+      
+      <a href="https://zhanggroup.org/SAXSTER">&#9679;<span>SAXSTER</span></a>
+      
+      <a href="https://zhanggroup.org/FUpred">&#9679;<span>FUpred</span></a>
+      <a href="https://zhanggroup.org/ThreaDom">&#9679;<span>ThreaDom</span></a>
+      <a href="https://zhanggroup.org/ThreaDomEx">&#9679;<span>ThreaDomEx</span></a>
+      
+      <a href="https://zhanggroup.org/EvoDesign">&#9679;<span>EvoDesign</span></a>
+      <a href="https://zhanggroup.org/BindProf">&#9679;<span>BindProf</span></a>
+      <a href="https://zhanggroup.org/BindProfX">&#9679;<span>BindProfX</span></a>
+      <a href="https://zhanggroup.org/SSIPe">&#9679;<span>SSIPe</span></a>
+
+      <a href="https://zhanggroup.org/GPCR-I-TASSER">&#9679;<span class="z_narrow">GPCR-I-TASSER</span></a>
+      <a href="https://zhanggroup.org/MAGELLAN">&#9679;<span>MAGELLAN</span></a>
+
+      <a href="https://zhanggroup.org/ResQ">&#9679;<span>ResQ</span></a>
+      
+      <a href="https://zhanggroup.org/STRUM">&#9679;<span>STRUM</span></a>
+      <a href="https://zhanggroup.org/DAMpred">&#9679;<span>DAMpred</span></a>
+    </p>
+    <p class="z_sidebar_menu z_sidebar_menu2">
+      <a href="https://zhanggroup.org/TM-score">&#9679;<span>TM-score</span></a>
+      <a href="https://zhanggroup.org/TM-align">&#9679;<span>TM-align</span></a>
+      <a href="https://zhanggroup.org/US-align">&#9679;<span>US-align</span></a>
+      <a href="https://zhanggroup.org/MM-align">&#9679;<span>MM-align</span></a>
+      <a href="https://zhanggroup.org/RNA-align">&#9679;<span>RNA-align</span></a>
+      
+      <a href="https://zhanggroup.org/NW-align">&#9679;<span>NW-align</span></a>
+      <a href="https://zhanggroup.org/LS-align">&#9679;<span>LS-align</span></a>
+      
+      <a href="https://zhanggroup.org/EDTSurf">&#9679;<span>EDTSurf</span></a>
+      <a href="https://zhanggroup.org/MVP">&#9679;<span>MVP</span></a>
+      <a href="https://zhanggroup.org/MVP-Fit">&#9679;<span>MVP-Fit</span></a>
+      
+      <a href="https://zhanggroup.org/SPICKER">&#9679;<span>SPICKER</span></a>
+      <a href="https://zhanggroup.org/HAAD">&#9679;<span>HAAD</span></a>
+      <a href="https://zhanggroup.org/PSSpred">&#9679;<span>PSSpred</span></a>
+      <a href="https://zhanggroup.org/3DRobot">&#9679;<span>3DRobot</span></a>
+      
+      <a href="https://zhanggroup.org/MR-REX">&#9679;<span>MR-REX</span></a>
+      <a href="https://zhanggroup.org/I-TASSER-MR">&#9679;<span>I-TASSER-MR</span></a>
+      
+      <a href="https://zhanggroup.org/SVMSEQ">&#9679;<span>SVMSEQ</span></a>
+      <a href="https://zhanggroup.org/NeBcon">&#9679;<span>NeBcon</span></a>
+      <a href="https://zhanggroup.org/ResPRE">&#9679;<span>ResPRE</span></a>
+      <a href="https://zhanggroup.org/TripletRes">&#9679;<span>TripletRes</span></a>
+      <a href="https://zhanggroup.org/DeepPotential">&#9679;<span>DeepPotential</span></a>
+      
+      <a href="https://zhanggroup.org/WDL-RF">&#9679;<span>WDL-RF</span></a>
+      <a href="https://zhanggroup.org/ATPbind">&#9679;<span>ATPbind</span></a>
+      
+      <a href="https://zhanggroup.org/DockRMSD">&#9679;<span>DockRMSD</span></a>
+      <a href="https://zhanggroup.org/DeepMSA">&#9679;<span>DeepMSA</span></a>
+      <a href="https://zhanggroup.org/FASPR">&#9679;<span>FASPR</span></a>
+      
+      <a href="https://zhanggroup.org/EM-Refiner">&#9679;<span>EM-Refiner</span></a>
+      <a href="https://zhanggroup.org/GPU-I-TASSER">&#9679;<span>GPU-I-TASSER</span></a>
+    </p>
+    <p class="z_sidebar_menu z_sidebar_menu1">
+      <a href="https://zhanggroup.org/BioLiP">&#9679;<span>BioLiP</span></a>
+      <a href="https://zhanggroup.org/Ecoli">&#9679;<span>E. coli</span></a>
+      
+      <a href="https://zhanggroup.org/GLASS">&#9679;<span>GLASS</span></a>
+      <a href="https://zhanggroup.org/GPCR-HGmod">&#9679;<span>GPCR-HGmod</span></a>
+      <a href="https://zhanggroup.org/GPCR-RD">&#9679;<span>GPCR-RD</span></a>
+      <a href="https://zhanggroup.org/GPCR-EXP">&#9679;<span>GPCR-EXP</span></a>
+      
+      <a href="https://zhanggroup.org/Tara-3D">&#9679;<span>Tara-3D</span></a>
+      <a href="https://zhanggroup.org/TM-fold">&#9679;<span>TM-fold</span></a>
+      
+      <a href="https://zhanggroup.org/decoys">&#9679;<span>DECOYS</span></a>
+      <a href="https://zhanggroup.org/potential">&#9679;<span>POTENTIAL</span></a>
+      <a href="https://zhanggroup.org/RW">&#9679;<span>RW/RWplus</span></a>
+      <a href="https://zhanggroup.org/EvoEF">&#9679;<span>EvoEF</span></a>
+      <a href="https://zhanggroup.org/HPSF">&#9679;<span>HPSF</span></a>
+      <a href="https://zhanggroup.org/THE-DB">&#9679;<span>THE-DB</span></a>
+      <a href="https://zhanggroup.org/ADDRESS">&#9679;<span>ADDRESS</span></a>
+      <a href="https://zhanggroup.org/Alpaca-Antibody">&#9679;<span>Alpaca-Antibody</span></a>
+      
+      <a href="https://zhanggroup.org/casp7">&#9679;<span>CASP7</span></a>
+      <a href="https://zhanggroup.org/casp8">&#9679;<span>CASP8</span></a>
+      <a href="https://zhanggroup.org/casp9">&#9679;<span>CASP9</span></a>
+      <a href="https://zhanggroup.org/casp10">&#9679;<span>CASP10</span></a>
+      <a href="https://zhanggroup.org/casp11">&#9679;<span>CASP11</span></a>
+      <a href="https://zhanggroup.org/casp12">&#9679;<span>CASP12</span></a>
+      <a href="https://zhanggroup.org/casp13">&#9679;<span>CASP13</span></a>
+      <a href="https://zhanggroup.org/casp14">&#9679;<span>CASP14</span></a>
+    </p>
+  </div>
+  <div id="z_page">
+<!-- ==BBB== ======ending of head======== -->
+
+
+<!--------begin text ----------->
+
+<center>
+<img src=https://zhanggroup.org/image/ITASSER.png width=450><br>
+
+
+(The server completed predictions for
+<a href=http://zhanglab.ccmb.med.umich.edu/I-TASSER/queue.php class="minorlevel">789397
+proteins</a> submitted by 
+<a href=http://zhanglab.ccmb.med.umich.edu/I-TASSER/statistics.html class="minorlevel">198126 
+users</a>  from 
+<a href=http://zhanglab.ccmb.med.umich.edu/I-TASSER/statistics.html class="minorlevel">163 
+countries</a>)<br> 
+(<a href=http://zhanglab.ccmb.med.umich.edu/library>The template library</a> was updated on <u>2024/04/09</u>)
+
+
+</center>
+<p align="justify">
+I-TASSER (Iterative Threading ASSEmbly Refinement)
+is a hierarchical approach to protein structure prediction
+and structure-based function annotation.
+It first identifies structural templates from the PDB by 
+multiple threading approach
+<a href=/LOMETS/>LOMETS</a>,
+with full-length atomic models constructed by
+iterative template-based fragment assembly simulations.
+Function insights of the target are then derived by 
+re-threading the 3D models through protein function database
+<a href=/BioLiP/>BioLiP</a>.
+I-TASSER (as 'Zhang-Server' or 'UM-TBM') 
+was ranked as the No 1 server for protein structure prediction
+in recent community-wide
+<a href=/casp7/21.html target=_blank>CASP7</a>,
+<a href=https://predictioncenter.org/casp8/groups_analysis.cgi?target_type=0&gr_type=server target=_blank>CASP8</a>, 
+<a href=https://predictioncenter.org/casp9/CD/data/html/groups.2.html target=_blank>CASP9</a>,
+<a
+href=http://predictioncenter.org/casp10/groups_analysis.cgi?type=server target=_blank>CASP10</a>,
+<a href=http://www.predictioncenter.org/casp11/zscores_final.cgi?gr_type=server_only target=_blank>CASP11</a>,
+<a href=http://www.predictioncenter.org/casp12/zscores_final.cgi?&gr_type=server_only  target=_blank>CASP12</a>,
+<a href=http://www.predictioncenter.org/casp13/zscores_final.cgi?model_type=best&gr_type=server_only  target=_blank>CASP13</a>,
+<a href=http://www.predictioncenter.org/casp14/zscores_final.cgi?gr_type=server_only target=_blank>CASP14</a>,
+and 
+<!--
+<a href=https://predictioncenter.org/casp15/zscores_final.cgi?formula=assessors&gr_type=server_only
+target=_blank>CASP15</a>,
+-->
+<a href=https://predictioncenter.org/casp15/zscores_interdomain.cgi target=_blank>CASP15</a>
+experiments.
+It was also ranked the best for function prediction in 
+<a href=http://predictioncenter.org/casp9/doc/presentations/CASP9_FN.pdf target=_blank>CASP9</a>.
+The server is in active development with
+the goal to provide the most accurate protein structure and function predictions 
+using state-of-the-art algorithms.
+The server is only for non-commercial use.
+Please report problems and questions at 
+<a href=/forum>
+I-TASSER message board</a> and our developers will study and answer the questions accordingly.
+(<a href=/I-TASSER/about.html>>> More about
+the server ...</a>)
+<p>
+
+
+<center>
+<a href=casp16.html>
+  <b>
+    CASP: Call for targets for the 2024 CASP modeling experiment</a> [valid till 2024/7/1]
+  </b><img src="/image/new.gif">
+</center>
+<p>
+
+<center>
+[<a href=/I-TASSER/queue.php><b>Queue</b></a>]
+[<a href=/forum><b>Forum</b></a>]
+[<a href=/I-TASSER/download><b>Download</b></a>]
+[<a href=/I-TASSER/search.html><b>Search</b></a>]
+[<a href=/I-TASSER/registration.html><b>Registration</b></a>]
+[<a href=/I-TASSER/statistics.html><b>Statistics</b></a>]
+[<a href=/I-TASSER/remove.html><b>Remove</b></a>]
+[<a href=/potential><b>Potential</b></a>]
+[<a href=/decoys><b>Decoys</b></a>]
+[<a href=/I-TASSER/news.html><b>News</b></a>]
+[<a href=/I-TASSER/annotation><b>Annotation</b></a>]
+<!--[<a
+href=http://www.dnastar.com/t-products-NovaFold.aspx><b>DNAStar</b></a>]-->
+[<a href=/I-TASSER/about.html><b>About</b></a>]
+[<a href=/I-TASSER/FAQ.html><b>FAQ</b></a>]
+</center>
+<p>
+
+<!--<p>-->
+<!---
+<h3> <font color="red">
+Due to power outage and webserver failure, 
+the I-TASSER is currently unavailable for use. 
+We are working on restoring the system which will come back around the first week of March.
+We apologize for the inconvenience that this may cause.
+</font></h3>
+--->
+<SCRIPT TYPE="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+window.open(href, windowname, 'width=500,height=200,scrollbars=yes');
+return false;
+}
+//-->
+
+function example()
+{
+var STR=IO("example.fasta");
+document.form1.SEQUENCE.value = STR;
+}
+
+
+function IO(U, V) 
+{
+    var X = !window.XMLHttpRequest ? new ActiveXObject('Microsoft.XMLHTTP') : new XMLHttpRequest();
+    X.open(V ? 'PUT' : 'GET', U, false );
+    X.setRequestHeader('Content-Type', 'text/html')
+    X.send(V ? V : '');
+return X.responseText;
+}
+
+</SCRIPT>
+<p>
+<hr width=100% align=left>
+<p>
+<b>I-TASSER On-line Server</b> (<a
+href=/I-TASSER/example>View an example of I-TASSER output</a>):</b>
+<ul>
+<table style="font-family:Times New Roman;">
+	<tr>
+	<td>
+	<FORM id="form1" name="form1" METHOD="POST" ENCTYPE="MULTIPART/FORM-DATA" ACTION="/cgi-bin/itasser_submit.cgi">
+	Copy and paste your sequence within [10, 1500] residues in
+<a href=http://zhanggroup.org/FASTA>FASTA format</a>.  <a href="javascript:example()">Click here for a sample input:</a>
+	<br>
+	<TEXTAREA NAME="SEQUENCE" ROWS=8 COLS=75></TEXTAREA>
+        <p>
+	Or upload the sequence from your local computer:
+	<br/>
+	<input type="file" name="seq_file" size="50">
+	<p>
+	Email: (mandatory, where results will be sent to)<br>
+	<input type="text" name="REPLY-E-MAIL" size=30>
+
+        <p> 
+	Password: 
+	(mandatory, please click <a href=registration.html>here</a> 
+	if you do not have a password)<br>
+	<input type="password" name="password" size=30>
+        <p>
+	ID: (optional, your given name of the protein)<br>
+	<input type="text" name="TARGET-NAME" size=30><p>
+
+	<!-- changes made for javascript hideable form -->
+	<a id="option1" href="javascript:formAction('show', 1)"><img id="optionGraphic1" border=0 src="../image/right_triangle.gif" />
+	<b>Option I:</b> Assign additional restraints & templates to guide I-TASSER modeling.
+	<noscript>
+	(<a href=restraint.html target="_blank">More explanation on how to add restraints</a>)</a>
+	</p>
+           <ul>
+           <p>
+           <table cellpadding="5" >
+           <tr>
+               <td align="left"><li>Assign contact/distance restraints</td>
+               <td><input type="file" name="RESTRAINT1" size="25"></td>
+               <td> Atom-atom restraints <A HREF="option1.html" onClick="return popup(this, 'notes')">Explanation</A></td>
+           </tr>
+           <tr>
+               <td align="left"><li>Specify template without alignment</td>
+               <td><input type="text" name="pdb" size=25> </td>
+               <td>Type a PDB ID        <A HREF="option2.html"  onClick="return popup(this, 'notes')">Explanation</A></td>
+           </tr>
+           <tr>
+               <td align="left"><li>Specify template without alignment </td>
+               <td><input type="file" name="pdbfile" size="25"></td>
+               <td>Upload a structure <A HREF="option3.html" onClick="return popup(this, 'notes')">Explanation</A></td>
+           </tr>
+           <tr>
+               <td align="left"><li>Specify template with alignment </td>
+               <td><input type="file" name="RESTRAINT2" size="25"></td>
+               <td>Template & alignment <A HREF="option4.html" onClick="return popup(this, 'notes')">Explanation</A></td>
+           </tr>
+
+           </table>
+           </ul>
+        </p>
+        <p>
+	</noscript>
+	<div id="optionForm1" style="display:none">
+        </p>
+	   <ul>
+	(<a href=restraint.html target="_blank">Read more explanation on how to add restraints</a>)</a>
+	   <p>
+	   <table cellpadding="5" >
+	   <tr>
+               <td align="left"><li>Assign contact/distance restraints</td>
+               <td><input type="file" name="RESTRAINT1" size="25"></td>
+               <td> Atom-atom restraints <A HREF="option1.html" onClick="return popup(this, 'notes')">Explanation</A></td>
+  	   </tr>
+           <tr>
+	       <td align="left"><li>Specify template without alignment</td>
+	       <td><input type="text" name="pdb" size=25> </td>
+	       <td>Type a PDB ID	<A HREF="option2.html" 	onClick="return popup(this, 'notes')">Explanation</A></td>
+           </tr>        
+           <tr>
+	       <td align="left"><li>Specify template without alignment </td>
+	       <td><input type="file" name="pdbfile" size="25"></td>
+	       <td>Upload a structure <A HREF="option3.html" onClick="return popup(this, 'notes')">Explanation</A></td>
+           </tr>	
+	   <tr>
+	       <td align="left"><li>Specify template with alignment </td>
+	       <td><input type="file" name="RESTRAINT2" size="25"></td>
+	       <td>Template & alignment	<A HREF="option4.html" onClick="return popup(this, 'notes')">Explanation</A></td>
+	   </tr>
+
+	   </table>
+	   </ul>
+	</p>
+	<p> 
+	</div>
+
+        <p>
+	<a id="option2" href="javascript:formAction('show',2)"><img id="optionGraphic2" border=0 src="../image/right_triangle.gif" /><b>Option II:</b> Exclude some templates from I-TASSER  template library.</a>
+	<noscript>
+            <ul>
+            <table cellpadding="5" >    
+            <tr>
+                <td align="left">
+                <li>Exclude homologous templates </td>
+                <td><input type="text" name="SID" size="25"></td>
+                <td> Type a cutoff (e.g. '60%')
+                <A HREF="option5.html"  onClick="return popup(this, 'notes')">Explanation</A></td>
+            </tr>
+            <tr>
+                <td align="left">
+                <li>Exclude specific template proteins </td>
+                <td><input type="file" name="HOMOL" size="25"></td>
+                <td>Upload a file listing all PDB IDs <A HREF="option6.html"        onClick="return popup(this, 'notes')">Explanation</A></td>
+            </tr>
+            </table>
+             </ul>
+	</noscript>
+        <div id="optionForm2" style="display:none">
+	    <ul>
+	    <table cellpadding="5" >	
+            <tr>
+	        <td align="left">
+		<li>Exclude homologous templates </td>
+		<td><input type="text" name="SID" size="25"></td>
+		<td> Type a cutoff (e.g. '60%')
+		<A HREF="option5.html" 	onClick="return popup(this, 'notes')">Explanation</A></td>
+	    </tr>
+	    <tr>
+	        <td align="left">
+		<li>Exclude specific template proteins </td>
+		<td><input type="file" name="HOMOL" size="25"></td>
+		<td>Upload a file listing all PDB IDs <A HREF="option6.html" 	onClick="return popup(this, 'notes')">Explanation</A></td>
+	    </tr>
+	    </table>	
+	     </ul>	
+	</div>
+
+         </p>
+
+
+	<a id="option3" href="javascript:formAction('show',3)"><img id="optionGraphic3" border=0 src="../image/right_triangle.gif" /><b>Option III:</b> Specify secondary structure for specific residues.</a>
+	<noscript>
+            <ul>
+            <table cellpadding="5" >
+	   <tr>
+	       <td align="left"><li>Specify secondary structure </td>
+	       <td><input type="file" name="SS" size="25"></td>
+	       <td>Upload a file listing secondary structure <A HREF="optionss.html" onClick="return popup(this, 'notes')">Explanation</A></td>
+	   </tr>
+            </table>
+             </ul>
+	</noscript>
+        <div id="optionForm3" style="display:none">
+	    <ul>
+	    <table cellpadding="5" >	
+	   <tr>
+	       <td align="left"><li>Specify secondary structure </td>
+	       <td><input type="file" name="SS" size="25"></td>
+	       <td>Upload a file listing secondary structure <A HREF="optionss.html" onClick="return popup(this, 'notes')">Explanation</A></td>
+	   </tr>
+	    </table>	
+	     </ul>	
+	</div>
+
+	<br>
+        <p>
+          <input type="checkbox" name="PRI" value="no" checked> Keep
+my results public (uncheck this box if you want to keep your job private, and a key will be assigned
+for you to access the results. We received numerous requests from users who loss their key 
+to access result. To save your time, please keep results public, or ensure you remember the key
+if you choose to keep job private)
+        <p>
+	
+	<INPUT TYPE="submit" VALUE="Run I-TASSER"> <INPUT TYPE="reset" VALUE="Clear form">
+	
+	<br>(Please submit a new job only after your old job is completed)
+	<!--
+        <br>(If you want to submit multiple urgent jobs, please go to <a href=http://www.dnastar.com/t-products-NovaFold.aspx>DNAStar</a>
+which implements I-TASSER through cloud computing)-->
+	</FORM>
+	</td>
+	</tr>
+</table>
+</ul>
+
+<hr width=50% align=left>
+<b>I-TASSER Suite:</b>
+<ul>
+<a href=/I-TASSER/download>Download I-TASSER Standalone Package (Version 5.1)</a>
+<!--<img src="https://zhanggroup.org/image/new.gif">-->
+</ul>
+
+<hr width=50% align=left>
+<b>I-TASSER Resource:</b>
+<ul>
+<a href=https://www.xsede.org><img src=power_by_xsede.gif></a>
+</ul>
+
+<A NAME="update"></A>
+<hr width=50% align=left>
+<b>I-TASSER News:</b>
+<ul>
+
+<li><b>2022/12/15</b>:  
+An updated version of I-TASSER, 
+<a href=https://zhanggroup.org/D-I-TASSER/>D-I-TASSER</a> (as
+'UM-TBM'),
+was ranked as the No. 1 server 
+in two categories of protein structure predictions 
+in the 15th CASP experiment, 
+including
+<a href=https://predictioncenter.org/casp15/zscores_interdomain.cgi>
+Multi-domain Targets</a>, 
+<a href=
+https://predictioncenter.org/casp15/zscores_final.cgi?formula=assessors&gr_type=server_only>
+Single-domain Targets</a>, and DMFold (as 'Zheng')
+was ranked as the No. 1 predictor 
+in protein complex structure prediction category 
+<a href=https://predictioncenter.org/casp15/zscores_multimer.cgi
+target=_blank>
+(i.e., Multi-chain Targets)</a>.
+
+<li><b>2022/04/13</b>: 
+A new platform, <a href=https://zhanggroup.org/I-TASSER-MTD/>I-TASSER-MTD</a>,
+specifically designed to model structure and function of multi-domain proteins,
+was accepted for publication in Nature Protocols.
+ 
+<li><b>2022/02/08</b>: 
+<a href=https://zhanggroup.org/CR-I-TASSER/>CR-I-TASSER</a> couples I-TASSER simulation
+with cryo-EM density maps and significantly improves accuracy of protein structure determination;
+the article was published in <a href=https://zhanggroup.org/papers/2022_1.pdf>Nature Methods</a>.
+ 
+<li><b>2021/07/26</b>: 
+A new version of I-TASSER, 
+<a href=https://zhanggroup.org/C-I-TASSER/>C-I-TASSER</a>, 
+was published in <a href=https://zhanggroup.org/papers/2021_10.pdf>Cell Reports Methods</a>, 
+which incorporates
+deep-learning contact-maps and significantly improve I-TASSER's ability in modeling
+non-homologous proteins.
+
+  
+<li><b>2020/12/01</b>: 
+  I-TASSER (as 'Zhang-Server') was ranked as the No. 1 protein structure prediction server in the
+  <a href=https://www.predictioncenter.org/casp14/zscores_final.cgi?gr_type=server_only>14th 
+    CASP experiment</a>.
+  
+
+<p>
+<a href=/I-TASSER/news.html>>> Read more I-TASSER news ...</a>
+</ul>
+
+<hr width=50% align=left>
+<b>References:</b><br>
+<ul>
+<li>X Zhou, W Zheng, Y Li, R Pearce, C Zhang, EW Bell, G Zhang, Y Zhang.
+I-TASSER-MTD: a deep-learning-based platform for multi-domain protein structure and function prediction.
+Nature Protocols, 17: 2326-2353 (2022).
+(<a href=/papers/2022_7.pdf>PDF</a> and <a href="/papers/2022_7_support.pdf">supplementary</a>).
+<li>W Zheng, C Zhang, Y Li, R Pearce, EW Bell, Y Zhang.
+Folding non-homology proteins by coupling deep-learning contact maps with I-TASSER assembly simulations.
+Cell Reports Methods, 1: 100014 (2021).
+(<a href=/papers/2021_10.pdf>PDF</a> and <a href="/papers/2021_10_support.pdf">supplementary</a>).
+<li>J Yang, Y Zhang.
+I-TASSER server: new development for protein structure and function predictions.
+Nucleic Acids Research, 43: W174-W181 (2015).
+(<a href=/papers/2015_9.pdf>PDF</a> and <a href="/papers/2015_9_support.pdf">supplementary</a>).
+
+</ul>
+<!--------end text -------->
+
+<!-- ==CCC== ======beginning of tail==== -->
+ </div></div> <!-- for closing all the opening tags. -->
+</div>
+<p>
+  
+<p id="z_foot">
+<a href="mailto:zhanglab\@zhanggroup.org">zhanglab<img src=/image/at.gif width=10 border=0>zhanggroup.org</a>  
+|  (734) 647-1549 | 100 Washtenaw Avenue, Ann Arbor, MI 48109-2218
+</p>
+<br>
+</body>
+</html>
+<!-- ==DDD== =======ending of tail====== -->

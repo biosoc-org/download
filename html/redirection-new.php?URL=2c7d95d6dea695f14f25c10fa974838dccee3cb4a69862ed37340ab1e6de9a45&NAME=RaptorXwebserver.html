@@ -1,0 +1,295 @@
+<html>
+
+<head>
+
+
+<!-- 1. header settings -->
+
+<!-- 1.1 custom header keyword -->
+
+  <meta name="keywords" content="protein structure prediction server, protein structure prediction software, protein function prediction server, protein function prediction software, protein ligand binding site prediction, protein ligand binding residue prediction, protein binding pocket prediction server, protein model local and global quality assessment, protein function prediction, protein contact prediction, protein structure prediction, protein structure prediction program and software, homology modeling and protein threading, RaptorX, protein threading, protein folding, secondary structure prediction, multiple-template protein modeling, protein sequence alignment, multiple sequence alignment, alignment quality assessment, protein domain parsing, protein structure alignment, multiple structure alignment, conditional random fields, protein, protein structure, threading, folding, prediction, alignment, 蛋白质结构预测, 蛋白质序列比对" />
+
+
+
+<!-- 1.2 custom header link & script -->
+
+<!-- 1.2.1 custom header link -->
+
+<link href="/site_media/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link href="/site_media/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.1/build/fonts/fonts-min.css" /> 
+<link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/2.8.1/build/progressbar/assets/skins/sam/progressbar.css">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.1/build/tabview/assets/skins/sam/tabview.css">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.1/build/menu/assets/skins/sam/menu.css" /> 
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.1/build/button/assets/skins/sam/button.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.1/build/container/assets/skins/sam/container.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/fonts/fonts-min.css" /> 
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/autocomplete/assets/skins/sam/autocomplete.css" />  
+
+
+<!-- 1.2.1 custom header script -->
+
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+<script src="http://yui.yahooapis.com/2.8.1/build/yahoo/yahoo-min.js"></script>
+<script src="http://yui.yahooapis.com/2.8.1/build/dom/dom-min.js"></script>
+<script src="http://yui.yahooapis.com/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/dragdrop/dragdrop-min.js"></script> 
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/container/container-min.js"></script>
+<script src="http://yui.yahooapis.com/2.8.1/build/element/element-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/tabview/tabview-min.js"></script> 
+<script src = "http://yui.yahooapis.com/2.8.1/build/progressbar/progressbar-min.js" ></script>
+<script src="http://yui.yahooapis.com/2.8.1/build/animation/animation-min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/slider/slider-min.js"></script> 
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/menu/menu-min.js"></script>  
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/button/button-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/connection/connection-min.js"></script> 
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/animation/animation-min.js"></script> 
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/datasource/datasource-min.js"></script> 
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/autocomplete/autocomplete-min.js"></script>  
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+
+
+
+
+<!-- 1.3 custom header content --> 
+
+
+<!-- 1.3.1 custom header autocomplete -->
+
+<style type="text/css"> 
+#myAutoComplete
+{
+	width:15em; /* set width here or else widget will expand to fit its container */
+	padding-bottom:2em;
+}
+</style>
+
+
+<!-- 1.3.2 custom header topstruc_class -->
+
+<style type="text/css">
+.topstruc_class
+{
+	display: inline;
+	float: left;
+	margin-right: 7px;
+	width: 623.025px;
+	margin: 10px;
+	margin-left: 2px;
+	border-top: 1px black solid;
+	border-bottom: 1px black solid;
+	padding-top: 3px;
+	font-size: 14px;
+	overflow-x: hidden;
+}
+</style>
+
+
+<!-- 1.3.2 custom header topinfo_class -->
+
+<style type="text/css">
+.topinfo_class
+{ 
+	display: inline; 
+	float: left; 
+	margin-right: 7px; 
+	width: 176.425px; 
+	display: inline; 
+	float: left; 
+	padding: 5px; 
+}
+</style>
+
+
+<!-- 1.3.3 custom header multialign_class -->
+
+<style type="text/css">
+.multialign_class
+{
+	display: inline;
+	float: left;
+	margin-right: 7px;
+	width: 631px;
+	border-top: 1px black solid;
+	display: inline;
+	float: left;
+	height: 252px;
+	margin-top: 10px;
+	margin-right: 3px;
+	padding-left: 3px;
+	padding-top: 10px;
+	overflow-y: Scroll;
+	overflow-x: hidden;
+}
+</style>
+
+
+
+
+</head>
+
+
+
+<!-- 1.4 custom background --> 
+
+
+<!-- 1.4.1 custom background slider-bg -->
+
+<style type="text/css"> 
+#slider-bg
+{
+	background:url(http://yui.yahooapis.com/2.8.1/build/slider/assets/bg-fader.gif) 5px 0 no-repeat;
+}
+</style>
+
+
+<!-- 1.4.2 custom background yui -->
+
+<style type="text/css">
+.yui-pb
+{
+	background-color: white;
+	background-image: none;
+	border: 1px solid black;
+}
+.yui-pb-bar
+{
+	background-color: #065c80;
+	background-image: none;
+}
+.yui-pb-mask
+{
+	border: none;
+	margin: 0;
+}
+</style>
+
+
+<!-- 1.4.3 custom background yuimenu -->
+
+<style type="text/css"> 
+div.yuimenu .bd 
+{
+	zoom: normal;
+}
+#button-example-form fieldset 
+{
+	border: 2px groove #ccc;
+	margin: .5em;
+	padding: .5em;
+}
+</style>
+
+
+
+
+
+<!-- add to change style-->
+<style type="text/css">
+body.three-col #mainbody #content #batch{
+    width: 690px
+}
+body.three-col #mainbody #content #batch #header #batchtop{
+    width: 690px
+}
+body.three-col #mainbody #content #batch #header #batchbottom{
+    width: 680px
+}
+</style>
+
+<!-- 2. body settings -->
+
+<!-- 2.1 title setting --> 
+<title>
+   Download RaptorX
+</title>
+
+
+<body class="bp three-col" >
+	<div id="container">
+
+		<!-- 2.2 top setting --> 
+		<div id="top">
+		
+		
+			<!-- 2.2.1 logo setting --> 
+			<div id="logo">
+			
+				<a href="/"><img src="/site_media/logo.png"></a>
+			
+			</div>
+			
+			<!-- 2.2.2 menu setting --> 
+			<div id="menu">
+			
+				<h4>
+				<ul>
+				<li><a href="/myjobs/"> My Jobs </a></li>
+				<li><a href="/documentation/">Docs</a></li>
+				<li><a href="/download/"> Download</a></li>
+				<li><a href="/contact/">Inquiry & Bug Report</a></li>
+				<li><a href="/about/"> About </a></li>
+				<li><a href="http://ttic.uchicago.edu/~jinbo/">Xu Group</a></li>
+				<li class="last"><a href="http://raptorx5.uchicago.edu/bbs"> Forum </a></li>
+				</ul>
+				</h4>
+			
+			</div>
+			
+		
+		</div>
+
+
+		<!-- 2.3 main body -->
+		<div id="mainbody">
+
+			<!-- 2.3.1 message set -->
+			
+			
+			<!-- 2.3.2 body set -->
+			
+
+				<!-- 2.3.2.1 content set -->
+				<div id="content">
+				
+<h3>Download the standalone programs underlying the RaptorX servers (but not the prediction results)</h3>
+
+<form action="/download/" method="POST" enctype="multipart/form-data">
+<div id="formgroup">
+		<div id="title">Fill out the form</div>
+        Please fill out the below form. Afterwards, a download URL will be emailed to you, so please make sure that your email address is correct. 
+Currently an email addess ending with <font size="3"> .com or .net is NOT acceptable </font>. 
+If you do not have other types of email addresses, please send us <font size="3">your name, organization and your email address </font> through <a href="/contact/">contact us</a> and we will do some internal setup so that you can download the software. 
+Your email address shall be the one provided by your organization instead of gmail or hotmail. <br><br>
+        <label for="id_yourname">Name</label>:
+        <input id="id_yourname" type="text" name="yourname" maxlength="50" /><br>
+        <label for="id_email">Email</label>:
+        <input type="text" name="email" id="id_email" /><br>
+        <label for="id_organization">Organization</label>:
+        <input id="id_organization" type="text" name="organization" maxlength="100" /><br>
+</div>
+<input type="submit" value="Submit"/>
+</form>
+
+				</div>
+
+				<!-- 2.3.2.2 rightside set -->
+				<div id="right-side" style="margin-left:40px;">				
+				
+				
+				</div>
+			
+		</div>
+
+		<!-- 2.4 footer -->
+		<div id="footer">
+			
+				<a href="/about/">Citing RaptorX</a> | <a href="/myjobs/">My Jobs</a> | <a href="/about/">RaptorX Storage for Publication</a>
+			
+		</div>
+		
+	</div>
+</body>
+
+</html>

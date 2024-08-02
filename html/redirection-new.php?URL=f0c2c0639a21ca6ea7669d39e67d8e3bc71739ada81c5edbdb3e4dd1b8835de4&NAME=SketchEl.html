@@ -1,0 +1,158 @@
+<html>
+<head>
+<title>SketchEl</title>
+<meta name="description" content="SketchEl">
+<meta name="keywords" content="chemistry,sketcher,drawing">
+<link rel="icon" href="icon.png" type="image/png">
+</head> 
+
+<body background="bkgr1.png" bgcolor="#408040" text="#ffffff" link="#80ff80" vlink="#70d070" alink="#80ffff">
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+    var pkBaseURL = (("https:" == document.location.protocol) ? "https://sourceforge.net/apps/piwik/sketchel/" : "http://sourceforge.net/apps/piwik/sketchel/");
+    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+    piwik_action_name = '';
+    piwik_idsite = 1;
+    piwik_url = pkBaseURL + "piwik.php";
+    piwik_log(piwik_action_name, piwik_idsite, piwik_url);
+    </script>
+    <object><noscript><p><img src="http://sourceforge.net/apps/piwik/sketchel/piwik.php?idsite=1" alt="piwik"/></p></noscript></object>
+    <!-- End Piwik Tag -->
+
+<div align=center><table border="0">
+
+<tr><td valign="center"><img src="logo.png"></td>
+<td><h1>&nbsp;&nbsp;SketchEl</h1></td></tr>
+
+</table></div>
+
+<p><table border="0" cellpadding="5">
+
+<tr><th valign="top">About</th>
+<td>
+
+<p><i>SketchEl</i> is an interactive chemical molecule sketching tool, and molecular spreadsheet data entry application. The feature set provided
+by the molecular sketcher is largely limited to the minimum features required to conveniently edit diagram representations of small molecule
+structures. Toolbars, templates, mouse gestures, keyboard shortcuts, utility commands and several view modes are offered in order to make this as
+convenient as possible. Molecules can be easily interconverted with the ubiquitous MDL MOL file format, though not not necessarily without
+information loss. Molecule diagrams are rendered interactively in high quality, and can also be exported as SVG graphics.
+
+<p>The newer datasheet feature of <i>SketchEl</i> allows viewing and editing of simple tables of data, for which each column is a common scalar
+type (string, int, real, boolean) or a molecule. Editing and viewing of molecules is linked to the molecule sketching tool. The datasheet editing
+is intended to be convenient for entering numeric property and identification data, alongside the molecular structures of interest. The native
+format is XML based, with features for interconverting with MDL SD files.
+
+<p>All of the <i>SketchEl</i> features are written and compiled with Java 1.5, and make full use of the features available in the default
+libraries. There are no additional dependencies. The code is most extensively tested on Linux platforms, frequently on Windows, and occasionally
+on Mac OS X. The single-molecule editing feature can be run as a Java Applet within a web page, and the underlying molecule contents can be
+manipulated by JavaScript programs.
+
+</td></tr>
+
+<tr><th valign="top">Appearance</th>
+<td>
+
+<p><img src="sksnap01.png">
+
+<p><img src="sksnap02.png">
+
+</td></tr>
+
+<tr><th valign="top">Status</th>
+<td>
+
+<p>Feature-complete. Version 1.00 provided all of the baseline features for single-molecule sketching. Subsequent improvements include the
+datasheet editor and SVG export, as well as regular bug fixes and minor improvements. Most recent files often contain experimental features which
+may not have been tested extensively. Consult changelogs for more information.
+
+</td></tr>
+
+<tr><th valign="top">Features</th>
+<td>
+
+<ul>
+
+<p><li>Easy to use interactive tools for placing atoms and bonds. 
+
+<p><li>Tools are multipurposed in order to provide convenient access to necessary drawing modes, and to operate with either fine-control or
+generally reasonable assumptions.
+
+<p><li>Automatic or manual control over creation, calculation and rendering of hydrogen atoms.
+
+<p><li>Built-in structure templates.
+
+<p><li>Aesthetically pleasant output, using anti-aliased rendering and arbitrary size scaling.
+
+<p><li>Molecules can be exported as SVG (Scalable Vector Graphics) pictures for external use.
+
+<p><li>More recently, pictures can be exported as ODG (OpenDocument Graphics) pictures, which can be used within the OpenOffice
+suite, among others.
+
+<p><div align="center">
+<a href="chromism.png" target="_blank"><img src="chromism.png" width="364" height="382" border="2"></a>
+<br><i>Two molecule vector graphics diagrams created by SketchEl,
+<br>embedded in an OpenOffice Presentation</i>
+<br>See also: <a href="chromism.odp">ODP file</a> and <a href="chromism.pdf">exported PDF</a>
+</div>
+
+<p><li>Reads and writes industry standard MDL MOL files, a flavour of CML XML, as well as its own format.
+
+<p><li>Provides a datasheet editor, which allows tables of data with molecular structures to be edited alongside accompanying data.
+
+<p><li>Datasheets use an XML format, and can be interconverted with MDL SD files.
+
+<p><li>Platform independent and open source; uses Java 1.5, Swing with no further dependencies. All source code is copyrighted by
+the author, and made available under the GPL v2.0.
+
+<p><li>Applet mode can be used for embedding molecular sketching in a web page.
+
+<p>
+
+</ul>
+
+</td></tr>
+
+<tr><th valign="top">Download</th>
+<td>
+
+<p><a href="http://sourceforge.net/projects/sketchel">http://sourceforge.net/projects/sketchel</a>
+
+<tr><th valign="top">Applet&nbsp;Demo</th>
+<td>
+
+<!--<p>Click <a href="applet.html">here</a> to try an applet version of SketchEl.-->
+
+
+<p><a href="applet.html" target="_blank">
+<img src="appletpreview.png" width="300" height="300" align="right" alt="Applet Mode"></a>
+
+Click on the applet preview picture to test-drive the embedded Java applet version of SketchEl.
+
+
+<tr><th valign="top">Documentation</th>
+<td>
+
+<p>No official user documentation exists at the present time, though the menu entries, toolbar icons and popup help should be
+largely self-explanatory, given a modicum of experimentation. The most uptodate description of the molecule file format is
+provided on the <a href="http://molmatinf.com/fmtsketchel.html" target="_blank">Molecular Materials Informatics</a> website.
+
+<tr><th valign="top">Author</th>
+<td>
+
+<p><a href="http://sourceforge.net/users/aclark">Dr. Alex M. Clark</a>
+
+
+</td></tr>
+
+</table>
+
+<div align="right">
+  <a href="http://sourceforge.net/projects/sketchel/">
+  <img src="http://sflogo.sourceforge.net/sflogo.php?group_id=153865&amp;type=16" width="150" height="40"
+    	border="0" alt="SourceForge Logo"></a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<HTML>
+<HEAD>
+
+  <META HTTP-EQUIV = "Content-Type" CONTENT = "text/html; charset=iso-8859-1">
+   
+  <META NAME = "Description" CONTENT = "Wishart Pharmaceutical Research Group -
+   Vadar Program">
+   
+  <META NAME = "Keywords" CONTENT = "pharmacy, University of Alberta,
+   Pharmaceutical Sciences, shifty, proteins, peptides, Wishart, Chemical,
+   Shifts, Chemical Shift Prediction, Bioinformatics, Computer aided Drug
+   Design, NMR, NMR Spectroscopy, Protein Engineering, Micelles, Peptide
+   synthesis, Antibody Engineering, Protease">
+   
+  <TITLE>VADAR</TITLE>
+<link ref="vadar.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!--
+
+function displayHelp() {
+  window.open("help.html");
+}
+
+//-->
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56285286-16', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</HEAD>
+
+<BODY bgcolor="#ffffff">
+
+<div align="center">
+  <center>
+
+<TABLE width="710" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse" bordercolor="#111111">
+  <TR valign="top">
+    <TD align="center">
+      <IMG SRC="images/vadar.jpg" ALT="VADAR molecules image">
+      <P><H2 align="center">Single (or Multiple) Model Protein Structure Analysis</H2><br/>
+      <!--font color=green><br><b>Note: VADAR cannot process proteins > 2000 residues in each model</font></b-->
+<p align="left" style="border:grey solid thin; padding:10px; text-align:justify">
+      <!--IMG SRC="/images/blueline.gif" ALT="blue line" width="644" height="7"--><BR>
+      <span style="color:black">VADAR (Volume, Area, Dihedral Angle Reporter) is 
+      a compilation of more than 15 different algorithms and programs for 
+      analyzing and assessing peptide and protein structures from their PDB 
+      coordinate data. The results have been validated through extensive 
+      comparison to published data and careful visual inspection.&nbsp; The VADAR web 
+      server supports the submission of either PDB formatted files or PDB 
+      accession numbers.&nbsp; VADAR produces extensive tables and high quality 
+      graphs for quantitatively and qualitatively assessing protein structures 
+      determined by X-ray crystallography, NMR spectroscopy, 3D-threading or 
+      homology modelling.&nbsp;
+     <br> 
+ <br>Please cite the following: <a href="http://nar.oupjournals.org/cgi/content/full/31/13/3316" target="_blank">Leigh Willard, Anuj Ranjan, Haiyan Zhang, Hassan Monzavi, Robert F. Boyko, Brian D. Sykes, and David S. Wishart
+      "VADAR: a web server for quantitative evaluation of protein structure quality" <i>Nucleic Acids Res.</i> 2003 July 1; 31 (13): 3316&ndash;3319.</a>
+<br><br><font color=red>We have another advanced server for assessing the quality of protein structures: <a href='http://www.resprox.ca' target="_blank">www.resprox.ca</a></font><br>
+<br>
+<a href="/download/vadar_project.tar.gz">Download project source code</a><br/>
+
+      </span>
+      <!--IMG SRC="/images/blueline.gif" ALT="blue line" width="645" height="7"-->
+    </TD>
+  </TR>
+</TABLE>
+
+<Table><tr><td> &nbsp;</td></tr></table>
+
+<FORM ACTION = "/cgi-bin/vadar.cgi" METHOD = "POST" ENCTYPE="multipart/form-data">
+
+<TABLE style="background-color:#C3FDB8; border: 1px solid grey; padding:10px; width:700px;">
+
+  <TR valign="top">
+    <TD height="20" colspan=2 width="646">For additional information on how to run VADAR click this button
+      <INPUT TYPE="button" name="HELP" value="HELP" onClick="displayHelp();">
+    </TD>
+  </TR>
+</TABLE>
+<Table><tr><td> &nbsp;</td></tr></table>
+
+<TABLE style="background-color:	#EEEEEE; border: 1px solid grey; padding:10px; width:700px;">
+  <TR>    
+    <TD height=52  colspan=2 width="646">Select desired PDB file <INPUT TYPE="file" NAME="file" VALUE="" SIZE=50>
+    </TD>
+   </TR>
+  <TR>  
+    <TD height="54" colspan=2  width="646">Note: the uploaded file must be in PDB format in order for this form to work.  Refer to the <B>HELP</B> button above.
+    </TD>
+  </TR>
+  <TR>  
+    <TD height="55"  colspan=2 width="646"><STRONG><font color=green>OR</font></STRONG> Enter PDB accession number
+      <INPUT NAME="pdbid" maxlength=5 size="20">
+      <br>
+    (Please specify the chain e.g. 4TRXA (4TRX chain A), If not specified, all chains will be processed, e.g.  4TRX)</TD>
+</tr><tr>
+   <td  colspan=2 align=center > <INPUT TYPE="submit" NAME="Submit" VALUE="Submit">
+      <INPUT TYPE="reset" NAME="Clear" VALUE="Clear"> </td>
+  </TR>
+  <TR>  
+    <TD height="198"  colspan=2  width="646"><p> <hr></p>
+
+
+ <fieldset><legend><b>Program Options:</b></legend>
+<!--br>
+  <br>-->
+  <ol>
+    <li> <input type=checkbox name=waterhbond value="ON" > Calculate hydrogen bonds to water </li>
+   <!--br--> <li> Values for Van der waals radii
+   <ul><li><input type=radio name=vwr value=0>Chothia</li>
+    <li> <input type=radio name=vwr value=1>Eisenberg</li>
+ <li><input type=radio name=vwr value=2>Richards</li>
+ <li><input type=radio name=vwr value=3 checked>Shrake</li>
+</ul>
+<!--br--></li>
+  <li>Take definition of polar/nonpolar ASA and charged ASA from
+   <ul><li><input type=radio name=asa value=0>Chothia</li>
+     <li><input type=radio name=asa value=1>Eisenberg</li>
+ <li><input type=radio name=asa value=2 checked>Shrake</li>
+<!--br--></ul></li>
+    <li>Type of volume calculation
+   <ul><li> <input type=radio name=volcal value=1 checked>Standard Voronoi procedure></li>
+     <li><input type=radio name=volcal value=2>Richards Method B</li>
+ <li><input type=radio name=volcal value=3 >Radical Plane procedure</li>
+</ul></li>
+</ol>
+</fieldset>
+ 
+    </TD>
+</tr>
+<TR>
+    <TD height="164" valign=top width="300">
+
+  <fieldset><legend><b>Table Output Options:</b><legend>
+
+  <br><input type=checkbox name=maininfo value=1 checked>Main Chain Information 
+   <br> <input type=checkbox name=sideinfo value=1 checked>Side Chain Information 
+<br><input type=checkbox name=hydroinfo value=1 checked>Hydrogen Bond Information
+  <br><input type=checkbox name=qualityinfo value=1 checked>Quality Index Information 
+   <br><input type=checkbox name=statsinfo value=1 checked>Statistics Information
+   <br><!--input type=radio name=onefile value=0 checked>output in separate files(.bond .main .side .stats) <input type=radio name=onefile value=1>output in one file -->
+</fieldset>
+</TD>
+<td width=346 valign=top>
+<!--b>Graphic Display Options:<br></b>
+<br><input type=radio name=format value=png> PNG Format, Fixed Size 
+<br><input type=radio name=format value=fix checked> JPEG Format, Fixed Size
+<br><input type=radio name=format value=var1> JPEG Format, Variable Size, 2 pix/residue
+<br><input type=radio name=format value=var2> JPEG Format, Variable Size, 4 pix/residue
+<br-->
+</td>
+  </TR>
+</TABLE>
+  </center>
+</div>
+</FORM>
+<TABLE align="center" style="background-color:	#EEEEEE; border: 1px solid grey; padding:10px; width:700px;">
+  <TR valign="top">
+    <TD align=center><P>
+      Problems? Questions? Suggestions? Please contact
+      <a href="http://feedback.wishartlab.com?site=VADAR">feedback</a></p>
+    </TD>
+  </TR>
+<tr><td><IMG SRC="/images/blueline.gif" ALT="blue line" width="650" height="7"></td></tr><tr><td align="center">
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+</tr></td>
+<tr><td  height=25 valign="middle" align=center>Funding for this project was provided by &nbsp;
+<a href="http://www.pence.ca/pence/index_noflash.html" target=_blank><img SRC="/images/pence.jpeg" border="0" height="42" width="42"></a> ,
+<a href="http://www.cihr-irsc.gc.ca" target=_blank>
+<img SRC="/images/cihr.jpeg" height=60 border="0" height="42" width="180"></a>
+ &nbsp;and <a href="http://www.genomealberta.ca" target=_blank>
+<img SRC="/images/genomeAlbertaLogo.jpg" border="0" height="70"></a>
+<br>
+
+
+
+    </TD>
+  </TR>
+</TABLE></div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <title>AutoT&T V2.0 - Automatic Tailoring and Transplanting</title>
+
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <meta name="description" content="AutoT&T V2.0 - Automatic Tailoring and Transplanting">
+           <meta name="author" content="CCBG">
+           <meta name="keywords" content="AutoT&T V2.0, Automatic Tailoring and Transplanting">
+           <meta name="robots" content="index,follow">
+           <meta name="application-name" content="AutoT&T V2.0">
+
+            <!-- Le styles -->
+            <link href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">
+            <link type="text/css" href="style/css/sbsbsbsb---jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+            <link type="text/css" href="style/css/custom-theme/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
+            <link type="text/css" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.min.css" rel="stylesheet" />
+            <!--[if IE 7]>
+            <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome-ie7.min.css">
+            <![endif]-->
+            <!--[if lt IE 9]>
+            <link rel="stylesheet" type="text/css" href="style/css/custom-theme/jquery.ui.1.10.0.ie.css"/>
+            <![endif]-->
+            <link href="style/css/docs.css" rel="stylesheet">
+            <link href="http://cdn.bootcss.com/prettify/r224/prettify.css" rel="stylesheet">
+            <link href="style/css/customxxxxx.css" rel="stylesheet">
+            
+            <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+            <!--[if lt IE 9]>
+            <script src="http://cdn.bootcss.com/html5shiv/3.6.2/html5shiv.js"></script>
+            <![endif]-->
+
+            <!-- Le fav and touch icons -->
+            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+            <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+            <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+            <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+            <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+ 
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+            <script src="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/bootstrap.min.js" type="text/javascript"></script>
+            <script src="style/js/jquery-ui-1.10.0.custom.min.js" type="text/javascript"></script>
+            <script src="http://cdn.bootcss.com/prettify/r224/prettify.js" type="text/javascript"></script>
+            <script src="style/js/docs.js" type="text/javascript"></script>
+            <script src="style/js/demo.js" type="text/javascript"></script>
+
+
+            <link href="style/iChecker/skins/square/green.css" rel="stylesheet">
+            <script src="style/iChecker/icheck.min.js"></script>
+            
+
+
+  
+<script type="text/javascript">
+	
+function formSubmit(){
+
+
+     if( !($("input[name='agreelicense']:checked").val()=="yes") ){
+		    alert("You should agree with our license terms before registration!");
+		    return false;
+	   }
+
+     //if(!$("#username").val()){
+		 //   alert("Username should not be empty!");
+		 //   $("#username").focus();
+		 //   return false;
+	   //}
+	   	   
+     if( !$("#email").val()){
+         alert("Sorry, Email is required!");
+         $("#email").focus();
+			   return false;
+     }else{
+	       if(!($("#email").val().indexOf("@")>0)){
+			     alert("Invalid Email Address!");
+           $("#email").focus();
+			     return false;
+		     }
+     }
+
+     if(!$("#onepwd").val()){
+		    alert("Password 1 should not be empty!");
+		    $("#onepwd").focus();
+		    return false;
+	   }
+
+     if(!$("#repwd").val()){
+		    alert("Password 2 should not be empty!");
+		    $("#repwd").focus();
+		    return false;
+	   }
+	   
+	   if($("#onepwd").val() !=$("#repwd").val()){
+		    alert("The two password do not match!");
+		    $("#onepwd").focus();
+		    return false;
+	   }
+	  
+	   if(! $("#firstname").val()){
+	      alert("Sorry, first name is required!");
+		    $("#firstname").focus();
+		    return false;
+	   }
+
+	   if(! $("#lastname").val()){
+	      alert("Sorry, last name is required!");
+		    $("#lastname").focus();
+		    return false;
+	   }
+
+	   if(! $("#company").val()){
+	      alert("Sorry, Institution/Organization is required!");
+		    $("#company").focus();
+		    return false;
+	   }
+
+	   
+	  //Ajax submit form
+		$.ajax({
+		   url:"ajaxcode.php?action=register",
+		   data: $('#registerform').serialize(),
+		   success: function (data){
+                if(data.indexOf('SUCCESS')>=0){
+				            alert("Successfully registered!");
+				            //window.location.href='index.php?page='+data.substr(7); 
+                }
+                
+
+                if(data.indexOf('ERROR')>=0){
+				            alert(data.replace("ERROR",""));       
+				            //window.location.href='index.php?page=index'; 
+                    //$("#email").focus();
+                }
+		   }
+		});
+
+}
+
+
+function loginSubmit(){
+
+
+     //if( !($("input[name='agreelicense']:checked").val()=="yes") ){
+		 //   alert("You should agree with our license terms before registration!");
+		 //   return false;
+	   //}
+
+	   	   
+     if( !$("#email").val()){
+         alert("Sorry, Email is required!");
+         $("#email").focus();
+			   return false;
+     }else{
+	       if(!($("#email").val().indexOf("@")>0)){
+			     alert("Invalid Email Address!");
+           $("#email").focus();
+			     return false;
+		     }
+     }
+
+     if(!$("#onepwd").val()){
+		    alert("Password should not be empty!");
+		    $("#onepwd").focus();
+		    return false;
+	   }
+   
+	  //Ajax submit form
+		$.ajax({
+		   url:"ajaxcode.php?action=login",
+		   data: $('#loginform').serialize(),
+		   success: function (data){
+                if(data.indexOf('SUCCESS')>=0){
+				            alert("Successfully login!");
+				            window.location.href='./?action=download'; 
+                }
+                
+
+                if(data.indexOf('ERROR')>=0){
+				            alert(data.replace("ERROR",""));       
+                }
+		   }
+		});
+
+}
+</script>
+</head> 
+
+
+        <!-- Navbar
+        ================================================== -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="./" title="Home">AutoT&T v2.0</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li  class="active" >
+                                <a href="./index.php">About AutoT&T</a>
+                            </li>
+                            
+                            <li >
+                                <a href="./index.php?action=demo">Online Demo</a>
+                            </li>
+
+                            <li >
+                                <a href="./index.php?action=register">Registration</a>
+                            </li>
+                            
+                            <li >
+                                <a href="./index.php?action=download">Download</a>
+                            </li>
+
+
+                            <li >
+                                <a href="./index.php?action=help">Help</a>
+                            </li>
+                            
+                                                                                    
+                        </ul>
+                        <div id="twitter-share" class="pull-right">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Subhead
+        ================================================== -->
+        <header class="jumbotron subhead" id="overview">
+            <div class="container">
+                <h1>AutoT&T v2.0</h1>
+                <p class="lead">A versatile computational tool for automatic lead optimization as well as lead discovery</p>
+            </div>
+        </header>
+        
+
+
+
+
+
+
+           
+
+		  <table width="940" border="0" align="center" cellpadding="0" cellspacing="2">
+<!--
+            <tr>
+              <td align="left" valign="bottom" class="title"><a href="http://www.sioc-ccbg.ac.cn/software/att2/" title="Index page of AutoT&T 2"><img src="ATT2.gif" width="640" border="0" align="absbottom"></a></td>
+            <hr style="color:#CCCCCC">
+            </tr>
+            
+-->
+
+            <tr>
+              <td class="arial_black">
+<span style="font-size:18px; font-weight:bold; line-height:28px;"><b>What is AutoT&T? </b></span><br>
+The Automatic Tailoring and Transplanting (AutoT&T) method is developed as a versatile computational tool for automatic lead optimization as well as lead discovery in molecular-targeted drug design. This method detects suitable fragments on reference molecules and then transplants them onto the given lead compound to generate new ligand molecules. Binding affinities, synthetic feasibilities, and drug-likeness properties are also evaluated to select the promising candidates for further consideration.<br><br>
+
+<div style="text-align:center;"><img src="ATT2-figure.jpg" border="0"></div> 
+
+AutoT&T represents a new category of de novo design method. Compared to conventional build-up methods, it has the following technical advantages: <br><br>
+<ol>
+<li>AutoT&T does not reply on a pre-defined built-in library of building blocks. All fragments used in structural operation are truncated directly from reference molecules. Reference molecules are supplied by the users in a straightforward manner.</li>
+<li>AutoT&T does not need to perform conformational sampling during structural construction. The binding poses of all reference molecules are generated in prior, for example, through a virtual screening job against the given target protein. </li>
+<li>AutoT&T is able to conduct a systematic crossover between the lead molecule and all given reference molecules. It does not need to tackle the “combinatorial explosion” problem confronted by conventional build-up methods.
+We have tested AutoT&T on several different types of drug targets. Our results indicated that AutoT&T could not only produce more reasonable designs, it was also much more efficient than the conventional build-up methods. </li>
+</ol>
+<br>
+
+
+
+
+<span style="font-size:18px; font-weight:bold; line-height:28px;"><b>AutoT&T version 2</b></span><br>
+The original version of AutoT&T was published in 2011. Significant improvements have been made since then. The new version, i.e. AutoT&T2, is faster by up to a few thousand folds in a multi-round optimization job. New applications are also implemented in AutoT&T2, for example, performing structural crossover among multiple lead molecules or design of ligand molecules from scratch. Please refer to our latest publication or the user manual for more details.
+<br><br>
+
+Click this link for a copy of the user manual of AutoT&T2, <a href="UserManual_AutoT&T2_EN.pdf" target="_blank"><font color="blue"><b>[User manual of AutoT&T2]</b></font></a><br><br>
+</td>
+</tr>
+
+
+
+
+            <tr>
+              <td colspan="2" class="arial_black">
+<span style="font-size:18px; font-weight:bold; line-height:28px;"><b>Obtain the AutoT&T2 software suite</b></span><br>
+The AutoT&T2 software suite is now available under a modest license fee. The license fee is collected for non-profit purpose, e.g. maintenance and personnel cost. Different license fees apply to different categories of users:
+<br>
+<ul style="list-style-type:none;">
+<li style="list-style-type:none;">(1)	The license fee for all academic, governmental, and other non-profit organizations is 300 USD (2000 CNY for users in China). </li>
+<li style="list-style-type:none;">(2)	The license fee for all commercial, industrial, and other for-profit organizations is 3000 USD (20000 CNY for users in China). This fee grants a site license with an unlimited number of users.</li>
+<li style="list-style-type:none;">(3)	The license fee for non-profit and for-profit computing centers is also 3000 USD (20000 CNY for users in China).</li>
+</ul>
+<br>
+
+To obtain the AutoT&T2 software suite, please go to the following <a href="./?action=register" target="_blank"><font color="blue"><b>[REGISTRATION]</b></font></a> page, select the correct category (i.e. academic/government or commercial) and fill in necessary contact information. Upon registration, an end-user license agreement must be signed for copyright protection. Then, we will provide you a formal invoice with payment information. Once we receive the payment, we will send you through e-mail further instruction on downloading the AutoT&T2 software suite.<br><br>
+
+The AutoT&T2 suite includes the source codes and executable codes (for Linux and Windows platforms) of all major functions, the user manual, and the necessary material for running the several demo examples described in our publication. It is provided as a TAR.gz package (155 MB in size).<br><br>
+
+
+
+<span style="font-size:18px; font-weight:bold; line-height:28px;"><strong>Reference:</strong></span>
+<pre class="prettyprint linenums prettyprinted">
+<ol class="linenums">
+  <li>Yan Li, Zhixiong Zhao, Zhihai Liu, and Renxiao Wang*, <em style="font-style: normal">"AutoT&T v2: An Efficient and Versatile Tool for Lead Structure Generation and Optimization"</em>, <em> J. Chem. Inf. Model.</em>, <em style="font-style: normal"><b>2016</b></em>, 56, 435-453. (<span style="color:#3072B5;">AutoT&T version 2</span>)</li>
+  <li>Yan Li, Yuan Zhao, Zhihai Liu, Renxiao Wang*, <em style="font-style: normal">"Automatic Tailoring and Transplanting: A Practical Method that Makes Virtual Screening More Useful"</em>, <em> J. Chem. Inf. Model.,</em><em style="font-style: normal"><b>2011</b>, </em> Vol. 51, pp 1474-1491. (<span style="color:#3072B5;">AutoT&T version 1</span>) </li>
+</ol>
+</pre> 
+
+
+
+</td>
+            </tr>
+
+</table>
+
+<br><br>
+<p style="text-align:center; font: 14px arial,tahoma,sans-serif; border-top:4px solid #666666; width:100%; padding-bottom:14px; padding-top:14px; margin:0;">
+Copyright ©2015-2020    Shanghai Institute of Organic Chemistry, Chinese Academy of Sciences
+</p>
+

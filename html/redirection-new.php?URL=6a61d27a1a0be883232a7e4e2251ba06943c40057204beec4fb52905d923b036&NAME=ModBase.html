@@ -1,0 +1,167 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>ModBase Search Page</title>
+<link rel="stylesheet" type="text/css" href="//modbase.compbio.ucsf.edu//css/modbase.css" />
+<link rel="stylesheet" type="text/css" href="/fontawesome6/css/fontawesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/fontawesome6/css/brands.min.css" />
+<link rel="stylesheet" type="text/css" href="//modbase.compbio.ucsf.edu//css/modbase.css" media="handheld"/>
+<script src="//modbase.compbio.ucsf.edu//js/svg.min.js" type="text/JavaScript"></script>
+<script src="//modbase.compbio.ucsf.edu//js/modbase.js" type="text/JavaScript"></script>
+<script src="//modbase.compbio.ucsf.edu//js/overlib.js" type="text/JavaScript"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+ <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div><div class="ucsf_header">
+  <div style="width:875px; text-align:left; padding-left:115px; margin:6px 0 4px 0;"><a href="http://www.ucsf.edu/">University of California San Francisco</a> | <a href="http://www.ucsf.edu/about">About UCSF</a> | <a href="http://www.ucsfbenioffchildrens.org/" class="vit">UCSF Benioff Children's Hospital San Francisco</a></div>
+</div><div id="container">
+    <div id="header1" align="center"> 
+        <a href="/"><img src="//modbase.compbio.ucsf.edu//img/modbase_logo_white.jpg" height="40px" alt="" /></a><h3>ModBase: Database of Comparative Protein Structure Models</h3><a href="//salilab.org"><img src="/img/logo_small.png" height="40px" alt="" /></a>
+    </div>
+    <div id="navigation_lab">
+
+            <ul><li><a href="//salilab.org">Sali Lab Home</a></li>
+
+        <li><a href="//salilab.org/modweb/">ModWeb</a></li>
+        <li><a href="//salilab.org/modloop/">ModLoop</a></li>
+        <li><a href="//salilab.org/modbase/">ModBase</a></li>
+        <li><a href="//salilab.org/modeval/">ModEval</a></li>
+        <li><a href="//salilab.org/pcss/">PCSS</a></li>
+        <li><a href="//salilab.org/foxs/">FoXS</a></li>
+        <li><a href="//integrativemodeling.org/">IMP</a></li>
+        <li><a href="//salilab.org/modpipe/">ModPipe</a></li>
+        <li><a href="https://twitter.com/salilab_ucsf" class="fab fa-x-twitter" title="Follow us on X/Twitter"></a></li></ul>
+    
+</div>
+    <div id="navigation_second"><ul><li><a href="//salilab.org/modbase">ModBase Home</a></li>
+<li><a href="/modweb/userrun">ModBase Datasets for User:Anonymous</a></li>
+<li><a href="https://modbase.compbio.ucsf.edu/account">User Login</a></li>
+<li><a href="/help">Help</a></li>
+<li><a href="/news">News</a></li>
+<li><a href="/contact">Contact</a></li>
+<li><a href="//modbase.compbio.ucsf.edu/modbase-cgi/manage_datasets.cgi" onmouseout="return nd();" onmouseover="return overlib('&lt;div id=&quot;resulttable&quot;&gt;&lt;table &gt;&lt;tr&gt;&lt;th&gt;Username:&lt;/th&gt;&lt;th&gt;Dataset:&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;');">Current Datasets</a></li>
+<li></li></ul></div>
+        <div style="clear:both;"></div><div id="bodypart"> 
+<div id="left">
+              <ul><li><a href="/general">General Information</a></li><li><a href="/statistics">Statistics and <br /> Genome Datasets</a></li><li><a href="/news">News</a></li><li><a href="/projects/">Project Pages</a></li><li><a href="/authors">Authors and<br />Acknowledgements</a></li><li><a href="//salilab.org/publications">Publications</a></li><li><a href="https://salilab.org/modbase-download/">Downloads</a></li><li><a href="/related">Related Resources</a></li></ul><p>Please address inquiries to:<br /><script type="text/JavaScript">escramble('modbase','salilab.org')</script></p><p class="disclaimer">MODBASE is <i>no longer under active development</i>, and contains theoretically calculated models, not experimentally determined structures. The models may contain <i>significant</i> errors.</p>
+</div><div id="fullpart"><div id="resulttable"><table><tr><td width="95%">&nbsp;</td></tr> <tr><td width="95%"><form method="get" action="///modbase.compbio.ucsf.edu/modbase-cgi/model_search.cgi" enctype="multipart/form-data" name="searchform"> <h2>ModBase Search</h2><p>ModBase is a database of comparative protein structure models, calculated by our modeling pipeline <a href="https://salilab.org/modpipe">ModPipe</a>.</p><table class="topsearch" width="100%"><tr><td colspan="4"><b>&nbsp;</b></td> <td colspan="2"><input type="submit" value="Search" /> <br /> <br /></td></tr> <tr><td class="wide">Search type <a class="helplink" href="/help#searchmode" onclick="launchHelp('/help#searchmode'); return false;"></a></td> <td align="left" class="text wide"><select name="searchmode"  onchange="location=&quot;//modbase.compbio.ucsf.edu/modbase-cgi/search_form.cgi?searchmode=&quot; + this.options[this.selectedIndex].value+&quot;&amp;searchvalue=&quot;+this.form.searchvalue.value;">
+<option value="seqsim">Sequence Similarity (Blast)</option>
+<option selected="selected" value="default">Model(Default)</option>
+</select></td> <td class="wide">Display type <a class="helplink" href="/help#displaymode" onclick="launchHelp('/help#displaymode'); return false;"></a></td> <td align="left" class="text wide"><select name="displaymode" >
+<option selected="selected" value="moddetail">Model Detail (graphical)</option>
+<option value="modpage">Model Detail (schema)</option>
+<option value="overseqview">Sequence Overview</option>
+<option value="overmodel">Model Overview</option>
+</select></td></tr> <tr><td colspan="8"><hr width="100%" /></td></tr></table> <table><tr><td><b>All available datasets are selected <a class="helplink" href="/help#datasets" onclick="launchHelp('/help#datasets'); return false;"></a></b></td></tr> <tr><td>To include the academic (comprehensive) dataset, go to <a href="//modbase.compbio.ucsf.edu/modbase-cgi/manage_datasets.cgi">Current Datasets</a>!</td></tr> <tr><td colspan="5"><hr width="100%" /></td></tr></table> <table class="propsearch" width="100%"><tr><td class="wide" colspan="2" width="10%">Search by properties</td></tr> <tr><td class="wide" width="10%">Property <a class="helplink" href="/help#properties" onclick="launchHelp('/help#properties'); return false;"></a></td> <td width="10%"><select name="searchproperties"  class="stext">
+<option value="ALL">ALL</option>
+<option value="annotation">Annotation Keywords</option>
+<option selected="selected" value="database_id">Database Accession Number</option>
+<option value="genename">Gene Name</option>
+<option value="internal">Internal ID</option>
+<option value="pdb">Template PDB Code </option>
+<option value="pdbhom">Template or Homolog PDB Code</option>
+</select></td> <td><input class="cleardefault" maxlength="400" name="searchvalue" size="30" type="text" value="A8K5B1" /></td> <td>&nbsp;</td></tr> <tr><td class="wide" width="10%">Organism <a class="helplink" href="/help#organism" onclick="launchHelp('/help#organism'); return false;"></a></td> <td class="wide" width="10%"><select name="organism"  class="stext">
+<option value="ALL">ALL</option>
+<option value="7159">Aedes aegypti</option>
+<option value="56636">Aeropyrum pernix</option>
+<option value="3702">Arabidopsis thaliana</option>
+<option value="2234">Archaeoglobus fulgidus</option>
+<option value="5062">Aspergillus oryzae</option>
+<option value="5865">Babesia bovis</option>
+<option value="1423">Bacillus subtilis</option>
+<option value="6279">Brugia malayi</option>
+<option value="13373">Burkholderia mallei</option>
+<option value="6239">Caenorhabditis elegans</option>
+<option value="5476">Candida albicans</option>
+<option value="9615">Canis familiaris</option>
+<option value="813">Chlamydia trachomatis</option>
+<option value="272563">Clostridium difficile 630</option>
+<option value="1513">Clostridium tetani</option>
+<option value="103904">Coxsackievirus B3 (strain Woodruff)</option>
+<option value="237895">Cryptosporidium hominis</option>
+<option value="5807">Cryptosporidium parvum</option>
+<option value="31635">Dengue virus 2 16681-PDK53</option>
+<option value="7227">Drosophila melanogaster</option>
+<option value="6210">Echinococcus granulosus</option>
+<option value="6211">Echinococcus multilocularis</option>
+<option value="498217">Edwardsiella tarda EIB202</option>
+<option value="5759">Entamoeba histolytica</option>
+<option value="562">Escherichia coli</option>
+<option value="83333">Escherichia coli K12</option>
+<option value="941442">Giardia lamblia (assemblage A)</option>
+<option value="658858">Giardia Lamblia P15</option>
+<option value="85962">Helicobacter pylori 26695</option>
+<option value="9606">Homo sapiens</option>
+<option value="39054">Human enterovirus 71</option>
+<option value="12081">Human poliovirus 1 Mahoney</option>
+<option value="557436">Lactobacillus reuteri DSM 20016</option>
+<option value="548485">Lactobacillus reuteri MM4-1A</option>
+<option value="491077">Lactobacillus reuteri SD2112</option>
+<option value="5660">Leishmania braziliensis</option>
+<option value="5661">Leishmania donovani</option>
+<option value="5671">Leishmania infantum</option>
+<option value="5664">Leishmania major</option>
+<option value="5665">Leishmania mexicana</option>
+<option value="7209">Loa loa</option>
+<option value="634498">Methanobrevibacter ruminantium M1</option>
+<option value="2190">Methanococcus jannaschii</option>
+<option value="2320">Methanopyrus kandleri</option>
+<option value="10090">Mus musculus</option>
+<option value="410289">Mycobacterium bovis BCG str. Pasteur 1173P2</option>
+<option value="1769">Mycobacterium leprae</option>
+<option value="246196">Mycobacterium smegmatis str. MC2 155</option>
+<option value="1773">Mycobacterium tuberculosis</option>
+<option value="83332">Mycobacterium tuberculosis H37Rv</option>
+<option value="1809">Mycobacterium ulcerans</option>
+<option value="2097">Mycoplasma genitalium</option>
+<option value="2104">Mycoplasma pneumoniae</option>
+<option value="160232">Nanoarchaeum equitans</option>
+<option value="29176">Neospora caninum</option>
+<option value="6282">Onchocerca volvulus</option>
+<option value="38727">Panicum virgatum</option>
+<option value="82076">Picrophilus torridus</option>
+<option value="5823">Plasmodium berghei ANKA</option>
+<option value="5833">Plasmodium falciparum</option>
+<option value="5850">Plasmodium knowlesi</option>
+<option value="5855">Plasmodium vivax</option>
+<option value="5861">Plasmodium yoelii</option>
+<option value="287">Pseudomonas aeruginosa</option>
+<option value="13773">Pyrobaculum aerophilum</option>
+<option value="2261">Pyrococcus furiosus</option>
+<option value="782">Rickettsia prowazekii</option>
+<option value="4932">Saccharomyces cerevisiae</option>
+<option value="2697049">SARS-CoV-2</option>
+<option value="6182">Schistosoma japonicum</option>
+<option value="6183">Schistosoma mansoni</option>
+<option value="282458">Staphylococcus aureus subsp. aureus MRSA252</option>
+<option value="1309">Streptococcus mutans</option>
+<option value="1314">Streptococcus pyogenes</option>
+<option value="2287">Sulfolobus solfataricus</option>
+<option value="5875">Theileria parva</option>
+<option value="2303">Thermoplasma acidophilum</option>
+<option value="50339">Thermoplasma volcanium</option>
+<option value="274">Thermus Thermophilus</option>
+<option value="5811">Toxoplasma gondii</option>
+<option value="160">Treponema pallidum</option>
+<option value="5691">Trypanosoma brucei</option>
+<option value="31285">Trypanosoma brucei gambiense</option>
+<option value="5692">Trypanosoma congolense</option>
+<option value="5693">Trypanosoma cruzi</option>
+<option value="953">Wolbachia</option>
+<option value="8353">Xenopus</option>
+<option value="632">Yersinia pestis</option>
+</select> &nbsp;&nbsp;&nbsp;or</td> <td align="left" class="stext" valign="middle"><input maxlength="400" name="organismtext" size="30" type="text" /></td></tr></table><table><tr><td colspan="2"><a href="//modbase.compbio.ucsf.edu/modbase-cgi/search_form.cgi?selectdatasets=&amp;advancedproperties=y&amp;searchmode=default&amp;"><br />Advanced search</a></td> <td colspan="4"><input type="submit" value="Search" /></td></tr> <tr><td colspan="6"><hr /></td></tr></table> </form></td></tr></table><div class="example"><h3>Model Details Example</h3> <a href="//modbase.compbio.ucsf.edu/modbase-cgi/model_search.cgi?databaseID=Q12321" target="_blank">Database ID: Q12321</a><br /> <p>This page makes all models and model details for one sequence available.</p> <a href="//modbase.compbio.ucsf.edu/modbase-cgi/model_search.cgi?databaseID=Q12321" target="_blank"><img alt="Example details" src="//modbase.compbio.ucsf.edu//img/example_details.png" width="300px" /></a> <ul><li>The current model is shown prominently</li>
+                        <li>Additional models are accessible through their thumbnails.</li> 
+                        <li>Use the <strong>Perform action</strong> pull-down menu for<ul>
+                            <li>Coordinates</li>
+                            <li>Alignments</li> 
+                            <li>Various ModBase representations</li> 
+                            <li>links to UCSF Chimera </li></ul></li></ul></div><div class="example"><h3>Overview Example</h3> <a href="//modbase.compbio.ucsf.edu/modbase-cgi/model_search.cgi?dataset=dengue" target="_blank">Dengue Virus</a> <p>Models for several sequences are displayed on the <strong>Sequence Overview</strong> page. </p> <a href="//modbase.compbio.ucsf.edu/modbase-cgi/model_search.cgi?dataset=dengue" target="_blank"><img alt="Example dataset" src="//modbase.compbio.ucsf.edu//img/example_dataset.png" width="300px" /></a> <ul><li>A coverage sketch illustrates sequence section(s) covered by a model</li>  <li>The sketch also links to the <strong>Model Details</strong> page.</li></ul></div></div></div></div><div style="clear:both;"></div><div id="address"><b>Users of ModBase are requested to cite this article in their publications:</b><br /><a href="https://salilab.org/pdf/Pieper_NucleicAcidsRes_2013a.pdf">
+            MODBASE, a database of annotated comparative protein structure models and associated resources.</a> Ursula Pieper, Benjamin M. Webb, Guang Qiang Dong, Dina Schneidman-Duhovny, Hao Fan,
+             Seung Joong Kim, Natalia Khuri, Yannick G. Spill, Patrick Weinkam, Michal Hammel,
+             John A. Tainer, Michael Nilges, Andrej Sali
+            <i>Nucleic Acids Research</i> <b>42</b>, D336-46, 2014.<br />MODBASE is maintained by Ben Webb in the group of <a href="https://salilab.org">Andrej Sali</a>, Department of Bioengineering and Therapeutic Sciences and California Institute for Quantitative Biomedical Research, Mission Bay Campus, Byers Hall, University of California San Francisco, San Francisco, CA 94143. Please address all inquiries to <script type="text/javascript">escramble('modbase','salilab.org')</script>.</div></div>
+</body>
+</html>

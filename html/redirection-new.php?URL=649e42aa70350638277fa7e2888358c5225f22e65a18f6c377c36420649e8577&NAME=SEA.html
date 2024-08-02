@@ -1,0 +1,172 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <title> SEA Search Server </title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/static/libs/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2RTCXJ139H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2RTCXJ139H');
+</script>
+</head>
+
+<body class="">
+
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      SEA Search Server
+    </a>
+  </div>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li class=""><a href="/">Home</a></li>
+      <li class=""><a href="/search">Library Search</a></li>
+      <li class="active"><a href="/datasets">Datasets</a></li>
+      <li><a href="/metabolism">Metabolism (legacy)</a></li>
+      <li class=""><a href="/jobs/">Recent Jobs</a></li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+</nav>
+
+
+<header></header>
+<div class="container">
+
+  <div role="main">
+    
+    
+    
+
+    
+<div class="jumbotron clearfix">
+    <h1>Similarity ensemble approach (SEA)</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <p>
+                The Similarity ensemble approach relates proteins based on the set-wise 
+                chemical similarity among their ligands. It can be used to rapidly search 
+                large compound databases and to build cross-target similarity maps.
+            </p>
+            <form action="/search" method="POST" name="batch">
+                <input id="csrf_token" name="csrf_token" type="hidden" value="Ijk2MzUyN2U0YThlYzFmMmZjZTE5NTk5MDdhODllZWE0NTFjZGUyYjUi.Zq1Ddg.txZ4Q3VSLho39SP5aAEH-Ffk4Fc">
+		<input type="hidden" name="ref_type" value="library"/>
+		<input type="hidden" name="ref_library_id" value="default"/>
+		<input type="hidden" name="query_type" value="custom"/>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label for="query-smiles" class="sr-only">SMILES</label>
+                            <input class="form-control input-lg" name="query_custom_targets_paste" placeholder="Paste SMILES or try the example below">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary btn-lg">Try SEA</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="/static/img/beach.jpg" alt="The SEA" class="img-thumbnail img-responsive">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+       <h2><a href="/library/targets">Browse Library</a></h2>
+       <p>Browse searchable targets from ChEMBL</p>
+    </div>
+    <div class="col-md-3">
+       <h2><a href="/search">Search Library</a></h2>
+       <p>Submit a search of ChEMBL or custom targets</p>
+    </div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+    <h2>How to use SEA</h2>
+    <p>You can try SEA yourself via the online SEA search tool.</p>
+    <p>SEA is provided by the Shoichet Laboratory in the Department of Pharmaceutical Chemistry at the University of California, San Francisco (UCSF).</p>
+    <p>Caveat Emptor! SEA is provided free-of-charge in the hope that it will be useful, but you must use it at your own risk. We make no guarantees 
+       about data confidentiality on this public service website. If you would like to use SEA securely, please contact support+sea*bkslab*org.
+    <p>To determine whether SEA's predictions for your compounds are already known, we recommend you visit the extensive Ki Database 
+       at the NIMH Psychoactive Drug Screening Program.</p>
+    <h3>Example Queries</h3>
+    <ul class="list-unstyled">
+        <li><kbd>CNCCC(c1ccccc1)Oc2ccc(cc2)C(F)(F)F fluoxetine</kbd></li>
+        <li><kbd>Cn1cnc2c1c(=O)n(c(=O)n2C)C caffeine</kbd></li>
+    </ul>
+    <h2>How to cite SEA</h2>
+    <p>If you use SEA results in your publications, please cite the following:</p>
+    <blockquote>
+        <p>Keiser MJ, Roth BL, Armbruster BN, Ernsberger P, Irwin JJ, Shoichet BK. Relating protein pharmacology by ligand chemistry. 
+        <i>Nat Biotech</i><b> 25</b> (2), 197-206 (2007).</p>
+        <ul class="list-inline">
+        <li><a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&cmd=Retrieve&dopt=AbstractPlus&list_uids=17287757&query_hl=1&itool=pubmed_docsum">Pubmed</a></li>
+        <li><a href="http://dx.doi.org/10.1038/nbt1284">DOI</a></li>
+        <li><a href="http://shoichetlab.compbio.ucsf.edu/publications/keiser_nbt.pdf">PDF</a></li>
+        </ul>
+    </blockquote>
+</div>
+</div>
+
+  </div>
+
+</div><!-- end container -->
+
+<footer>
+  <small>
+  <ul class="company">
+    <li>UCSF, Shoichet Lab</li>
+  </ul>
+
+    <ul class="footer-nav">
+
+      <li><a href="/">Home</a></li>
+      <li><a href="/search">Search</a></li>
+      <li><a href="/jobs/">Recent Jobs</a></li>
+
+      <li><a href="mailto:chemistry4biology at gmail dot com">Contact</a></li>
+    </ul>
+  </small>
+</footer>
+
+<!-- JavaScript at the bottom for fast page loading -->
+<script type="text/javascript" src="/static/libs/jQuery/dist/jquery.js"></script>
+<script type="text/javascript" src="/static/libs/jquery-migrate-1.2.1.js"></script>
+<script type="text/javascript" src="/static/libs/bootstrap/dist/js/bootstrap.js"></script>
+
+<!-- end scripts -->
+
+</body>
+</html>

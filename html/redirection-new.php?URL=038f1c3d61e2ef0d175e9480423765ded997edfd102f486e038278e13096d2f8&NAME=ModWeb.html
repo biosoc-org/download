@@ -1,0 +1,110 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+
+<head>
+<title>ModWeb</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="/saliweb/css/server.css" />
+<link href="/fontawesome6/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+<link href="/fontawesome6/css/brands.min.css" rel="stylesheet" type="text/css" />
+
+<script src="/saliweb/js/salilab.js" type="text/JavaScript"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="container">
+    <div id="header1">
+        <h3><a href="https://salilab.org"><img src="//salilab.org/img/logo_small.gif" height="40" alt="" /></a>ModWeb</h3>
+    </div>
+
+<div id="navigation_lab">
+&bull;&nbsp;<a href="//salilab.org/">Sali Lab Home</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modweb/">ModWeb</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modbase/">ModBase</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/evaluation/">ModEval</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/peptide/">PCSS</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/foxs/">FoXS</a>&nbsp;&bull;&nbsp;
+<a href="//integrativemodeling.org/">IMP</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/multifit/">MultiFit</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modpipe/">ModPipe</a>&nbsp;&bull;&nbsp;
+&nbsp;&nbsp;<a href="https://twitter.com/salilab_ucsf" class="fab fa-x-twitter" title="Follow us on X/Twitter"></a>
+</div>
+
+<div id="navigation_second">
+
+  <a href="https://modbase.compbio.ucsf.edu/account/">Login</a>&nbsp;&bull;&nbsp;
+  <a href="/modweb/">ModWeb Home</a>&nbsp;&bull;&nbsp;
+  <a href="/modweb/job">Current ModWeb queue</a>&nbsp;&bull;&nbsp;
+  <a href="/modweb/help">Help</a>&nbsp;&bull;&nbsp;
+  <a href="/modweb/contact">Contact</a>&nbsp;&bull;&nbsp;
+  <a href="/modweb/news">News</a>
+
+</div>
+        <div style="clear:both;"></div><div id="bodypart">
+<div id="left">
+<p>
+<i>Please note that the ModWeb modeling pipeline is no longer under active
+development, and the resulting models should be treated accordingly.</i>
+</p>
+
+<h4><small>Developers:</small></h4>
+<p>Eswar Narayanan<br />
+Ursula Pieper<br />
+Ben Webb</p>
+
+<h4><small>Acknowledgements:</small></h4>
+<p>David Eramian<br />Mallur S. Madhusudhan<br />
+Marc A. Marti-Renom<br />
+Min-Yi Shen<br />
+Andrej Sali</p>
+
+<p><strong>Additional functionality for registered users:</strong></p>
+  <ul>
+    <li>Model leverage calculations</li>
+    <li>Access to all user's ModWeb datasets</li>
+  </ul>
+
+<p><i>ModWeb version r274</i></p>
+
+</div>
+<div id="right">
+
+<div id="fullpart"><div id="resulttable">
+<form method="post" action="/modweb/job" enctype="multipart/form-data" name="modwebform">
+<table>
+		
+<tr><td colspan="5"><h2 align="center">ModWeb: A Server for Protein Structure Modeling</h2></td></tr>
+<tr><td><h3>General information <a class="helplink" href="/modweb/help#modweb_general"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></h3></td></tr>
+<tr><td>Email address (optional)</td> <td colspan="4"><input type="text" name="email" value="" size="25" maxlength="50" /></td></tr>
+<tr><td>Modeller license key <a class="helplink" href="/modweb/help#licensekey"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a><br /></td> <td colspan="4"><input type="password" name="modellerkey" value="" size="25" maxlength="50" /></td></tr>
+<tr><td>Dataset/job name (optional)</td> <td colspan="4"><input type="text" name="runname"  size="25" maxlength="50" /></td></tr>
+<tr><td>Availability <a class="helplink" href="/modweb/help#academic"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></td> <td><label><input type="checkbox" name="academic" value="academic" checked="checked" />Add to academic dataset</label></td></tr>
+<tr><td><h3>Input data <a class="helplink" href="/modweb/help#sequence"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></h3></td></tr>
+<tr><td>Input protein sequences <a class="helplink" href="/modweb/help#sequence"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></td> <td colspan="4"><textarea name="sequence" rows="5" cols="60" ></textarea></td></tr>
+<tr><td>or upload sequences file <a class="helplink" href="/modweb/help#fasta"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a><br /> (FASTA Format)</td> <td colspan="4"><input type="file" name="seqfile"  /></td></tr>
+<tr><td colspan="4"><center><input type="submit" value="Calculate Models" /> <input type="reset" /></center><p>&nbsp;</p></td></tr>
+<tr><td><h3>Model selection criteria <a class="helplink" href="/modweb/help#model_selection"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></h3></td> <td><label><input type="checkbox" name="dope" value="MPQS" checked="checked" />Best scoring model</label></td> <td><label><input type="checkbox" name="longdope" value="LONGEST_DOPE" checked="checked" />Longest well scoring model</label></td></tr>
+<tr><td><h3>Fold assignment methods <a class="helplink" href="/modweb/help#options"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></h3></td> <td><select name="search" >
+<option value="Seq-Seq">Very Fast (Seq-Seq)</option>
+<option value="Seq-Seq,Seq-Prf">Fast (Seq-Prf)</option>
+<option selected="selected" value="Seq-Seq,Seq-Prf,PSI-Blast-Prf-Seq,PSI-Blast-Prf-Prf">Slow (Seq-Prf, PSI-Blast)</option>
+<option value="Seq-Seq,HHSearchPP">HHSearch (test-mode)</option>
+<option value="Seq-Seq,HHBlitsPP">HHBlits (test-mode)</option>
+</select></td> <td><label><input type="checkbox" name="modbase" value="modbase" checked="checked" />Upload models to ModBase</label></td></tr>
+
+</table>
+<input type="hidden" name="type" value="submit" />
+
+
+</form>
+
+</div></div>
+</div>
+</div><div style="clear:both;"></div>
+</div>
+
+</body>
+</html>

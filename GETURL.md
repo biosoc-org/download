@@ -22,7 +22,39 @@ python geturl.py output.csv https://www.click2drug.org/ URL html html.csv
 - `output.csv` to nazwa pliku wyjściowego, w którym będą zapisane wyniki.
 
 
-
+```sh
+python geturl.py output2.csv https://www.click2drug.org/ URL html html.csv
+```
+```sh
+python geturl.py output3.csv https://www.click2drug.org/ URL html html.csv
+```
+```sh
+python geturl.py output4.csv https://www.click2drug.org/ URL html html.csv
+```
+```sh
+python geturl.py output5.csv https://www.click2drug.org/ URL html html.csv
+```
+```sh
+python geturl.py output6.csv https://www.click2drug.org/ URL html html.csv
+```
+```sh
+python geturl.py output7.csv https://www.click2drug.org/ URL html html.csv
+```
+```sh
+python geturl.py output8.csv https://www.click2drug.org/ URL html html.csv
+```
+```sh
+python geturl.py output9.csv https://www.click2drug.org/ URL html html.csv
+```
+```sh
+python geturl.py output10.csv https://www.click2drug.org/ URL html html.csv
+```
+```sh
+python geturl.py output11.csv https://www.click2drug.org/ URL html html.csv
+```
+```sh
+python geturl.py output12.csv https://www.click2drug.org/ URL html html.csv
+```
 
 ### Opis działań skryptu:
 

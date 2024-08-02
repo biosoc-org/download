@@ -1,0 +1,224 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<META NAME="Copyright" CONTENT="© 2004-2016 PharmaInformatic, Emden Germany,  All rights reserved.">
+<META NAME="Description" CONTENT="PharmaInformatic uses chemInformatics, bioInformatics and artificial intelligence to produce new products and services for the pharmaceutical industry. Our expert systems identify promising drug candidates at the earliest stage. This reduces failure rates and will save you  time and money. Deutsch: PharmaInformatic benutzt neue wissenschaftliche Erkenntnisse aus der ChemieInformatik, BioInformatik und der künstlichen Intelligenz, um innovative Produkte und Dienstleistungen für die Pharmaindustie zu entwickeln. Unsere Expertensysteme erkennen frühzeitig die sinnvollen Substanz-Kandidaten und senken somit die Entwicklungskosten neuer Medikamenten drastisch.">
+<META NAME="Keywords" CONTENT="MolScore-Antibiotics, probability, antibiotic activity, NON-ANTIBIOTIC, ANTIBIOTIC, prediction, buying, selecting of compounds, focussed biological screening, prioritisation of compounds from large compound collections, neural networks, pharmacophore models, decision-trees, affinity prognosis, antibiotic drug targets, science, technology, complicated, error rate, estimation, independent validation data set, excellent generalisation ability, cherry-picked, external database, supplier, in-house database, hit-rate,HTS campaign, SDF-file, plated compounds, potential drugs">
+<META NAME="Language" CONTENT="english">
+<TITLE>MolScore-Antibiotics</TITLE>
+<SCRIPT>
+<!--
+function F_loadRollover(){} function F_roll(){}
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="../assets/rollover.js"></SCRIPT>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../html/style.css">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../html/site.css">
+<STYLE>
+</STYLE><NOLAYER>
+<STYLE ID="NOF_STYLE_SHEET">
+<!--
+DIV#LayoutLYR { position:absolute; top:0; left:0; z-index: 1; visibility:inherit; }
+DIV#Navigationsleiste2LYR { position:absolute; visibility:inherit; top:0; left:187; width:800; height:35; z-index:1 }
+DIV#Navigationsleiste21LYR { position:absolute; visibility:hidden; top:0; left:0; z-index:1; }
+DIV#Navigationsleiste22LYR { position:absolute; visibility:hidden; top:0; left:0; z-index:1; }
+DIV#Navigationsleiste23LYR { position:absolute; visibility:hidden; top:0; left:0; z-index:1; }
+DIV#Navigationsleiste24LYR { position:absolute; visibility:hidden; top:0; left:0; z-index:1; }
+DIV#Navigationsleiste25LYR { position:absolute; visibility:hidden; top:0; left:0; z-index:1; }
+DIV#Bild2LYR { position:absolute; visibility:inherit; top:78; left:0; width:187; height:58; z-index:2 }
+DIV#Bild3LYR { position:absolute; visibility:inherit; top:35; left:187; width:800; height:101; z-index:3 }
+DIV#Bild1LYR { position:absolute; visibility:inherit; top:0; left:0; width:187; height:78; z-index:4 }
+DIV#Tabelle2LYR { position:absolute; visibility:inherit; top:1207; left:0; width:985; height:19; z-index:5 }
+DIV#Bild5LYR { position:absolute; visibility:inherit; top:136; left:0; width:987; height:1; z-index:6 }
+DIV#Text59LYR { position:absolute; visibility:inherit; top:137; left:0; width:184; height:158; z-index:7 }
+DIV#Tabelle4LYR { position:absolute; visibility:inherit; top:291; left:0; width:184; height:215; z-index:8 }
+DIV#Tabelle5LYR { position:absolute; visibility:inherit; top:648; left:0; width:184; height:142; z-index:9 }
+DIV#Text8LYR { position:absolute; visibility:inherit; top:299; left:184; width:656; height:57; z-index:10 }
+DIV#Bild10LYR { position:absolute; visibility:inherit; top:383; left:215; width:351; height:109; z-index:11 }
+DIV#Text11LYR { position:absolute; visibility:inherit; top:543; left:184; width:656; height:38; z-index:12 }
+DIV#Text6LYR { position:absolute; visibility:inherit; top:379; left:582; width:263; height:114; z-index:13 }
+DIV#Text12LYR { position:absolute; visibility:inherit; top:489; left:220; width:354; height:20; z-index:14 }
+DIV#Text5LYR { position:absolute; visibility:inherit; top:137; left:859; width:130; height:904; z-index:15 }
+DIV#Tabelle6LYR { position:absolute; visibility:inherit; top:617; left:219; width:627; height:151; z-index:16 }
+DIV#Text61LYR { position:absolute; visibility:inherit; top:793; left:184; width:656; height:304; z-index:17 }
+DIV#Text62LYR { position:absolute; visibility:inherit; top:137; left:184; width:656; height:58; z-index:18 }
+DIV#Text2LYR { position:absolute; visibility:inherit; top:207; left:184; width:656; height:60; z-index:19 }
+-->
+</STYLE>
+
+</NOLAYER>
+</HEAD>
+<BODY NOF="(MB=(ProducAntibio, 137, 19, 184, 0), L=(MolScoreAntibioticsLayout, 830, 1070))" STYLE="background-color: rgb(255,255,255);">
+    <DIV ID="LayoutLYR"><LAYER ID="LayoutLYR" TOP=0 LEFT=0 VISIBILITY=INHERIT WIDTH=1014 HEIGHT=1226 Z-INDEX=1><DIV ID="Text8LYR" CLASS="TextObject"><LAYER ID="Text8LYR" VISIBILITY=INHERIT TOP=299 LEFT=184 WIDTH=656 HEIGHT=57 Z-INDEX=1>
+    <UL>
+        <P STYLE="text-align: justify;">MolScore-Antibiotics discriminates between antibiotics and non-antibiotics. The MolScore-Antibiotics of a compound measures the probability of having antibiotic activity and is defined as a value between 0 and 1. </P>
+    </UL>
+    </LAYER></DIV><DIV ID="Bild10LYR"><LAYER ID="Bild10LYR" VISIBILITY=INHERIT TOP=383 LEFT=215 WIDTH=351 HEIGHT=109 Z-INDEX=2><IMG ID="Bild10" HEIGHT=109 WIDTH=351 SRC="../assets/images/autogen/a_RotGelbGrun5Antibiotics.jpg" BORDER=0 ALT=""></LAYER></DIV><DIV ID="Text11LYR" CLASS="TextObject" STYLE="background-color: rgb(255,255,255);"><LAYER ID="Text11LYR" VISIBILITY=INHERIT TOP=543 LEFT=184 WIDTH=656 HEIGHT=38 Z-INDEX=3  bgcolor="#FFFFFF">
+    <UL>
+        <P STYLE="text-align: justify;">MolScores-Antibiotics is able to detect and prioritise candidates for clinical development. The expert system has been <A HREF="../html/future_drugs.html">validated with novel antibacterials</A> which are now in clinical trials.</P>
+    </UL>
+    </LAYER></DIV><DIV ID="Text6LYR" CLASS="TextObject"><LAYER ID="Text6LYR" VISIBILITY=INHERIT TOP=379 LEFT=582 WIDTH=263 HEIGHT=114 Z-INDEX=4>
+    <P STYLE="text-align: justify;"><B>MolScore-Antibiotics near 0: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   </B>=&gt; lowest predicted antibiotic activity</P>
+    <P STYLE="text-align: justify;"><B>MolScore-Antibiotics near 1: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   </B>=&gt; highest predicted antibiotic activity<BR>&nbsp;&nbsp; &nbsp; &nbsp;  attractive ADME-profile</P>
+    </LAYER></DIV><DIV ID="Text12LYR" CLASS="TextObject"><LAYER ID="Text12LYR" VISIBILITY=INHERIT TOP=489 LEFT=220 WIDTH=354 HEIGHT=20 Z-INDEX=5>
+    <P STYLE="text-align: center;"><B><SPAN STYLE="font-size: medium;">MolScore-Antibiotics</SPAN></B></P>
+    </LAYER></DIV><DIV ID="Text5LYR" CLASS="TextObject" STYLE="background-color: rgb(255,255,255); background-image: url('../assets/images/PixelHellblau.jpg');"><LAYER ID="Text5LYR" VISIBILITY=INHERIT TOP=137 LEFT=859 WIDTH=130 HEIGHT=904 Z-INDEX=6  bgcolor="#FFFFFF" background="../assets/images/PixelHellblau.jpg">
+    <P STYLE="text-align: center; border: 1pt solid rgb(137,211,238); margin: 2pt;"><IMG ID="Bild12" HEIGHT=79 WIDTH=120 SRC="../assets/images/AntibioticsLogo120.jpg" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 ALT=""></P>
+    <P STYLE="text-align: center; border: 1pt solid rgb(137,211,238); margin: 2pt;"><BR><A HREF="../MolScore-Antibiotics_englisch.pdf">Download<BR>product<BR>description<BR>(pdf)</A><BR>&nbsp;</P>
+    <P STYLE="text-align: center; border: 1pt solid rgb(137,211,238); margin: 2pt;"><B><BR><SPAN STYLE="font-size: medium;">More than 95%</SPAN> </B>have been assigned correctly. Analysis based on<BR>5000 compounds (independent validation data).<BR>&nbsp;</P>
+    <P STYLE="text-align: center; border: 1pt solid rgb(137,211,238); margin: 2pt;"><BR>We supply <BR>our results in <BR><A HREF="../html/sd-format.html"><B>SDF-files</B></A>.<BR>Results can be easily imported into other commercial software for selection of compounds with additional filters.<BR>&nbsp;</P>
+    <P STYLE="text-align: center; margin: 2pt; border-left-style: none; border-top-style: none; border-right-style: none; border-bottom-style: none;">Further Links:<BR><A HREF="../html/drug_design.html">Drug design</A><BR><A HREF="../html/products.html">Drug discovery</A><BR><A HREF="../html/about_pharmainformatic.html">Drug development</A><BR><A HREF="../html/what_influences_f__.html">Pharmacokinetics</A><BR><A HREF="../html/oral_bioavailability__f__.html">Bioavailability</A><BR><A HREF="../html/science___technology.html">Computational chemistry</A><BR><A HREF="../html/scientific_network.html">Molecular<BR>modeling</A><BR><A HREF="../html/lead_prioritisation.html">Clinical trials</A><BR><A HREF="../html/adme___tox_predictions.html">Preclinical<BR>Research</A><BR><A HREF="../html/products.html">Cheminformatic<BR>software</A></P>
+    </LAYER></DIV><DIV ID="Tabelle6LYR"><LAYER ID="Tabelle6LYR" VISIBILITY=INHERIT TOP=617 LEFT=219 WIDTH=627 HEIGHT=151 Z-INDEX=7>
+    <TABLE ID="Tabelle6" BORDER=2 CELLSPACING=3 CELLPADDING=1 WIDTH="100%">
+        <TR>
+            <TD WIDTH=206 STYLE="background-image: url('../assets/images/PixelHellblau.jpg');" HEIGHT=130>
+                <P>
+                    <TABLE WIDTH="100%" BORDER=0 CELLSPACING=8 CELLPADDING=0 NOF=TE>
+                        <TR>
+                            <TD ALIGN="CENTER"><IMG ID="Bild16" HEIGHT=121 WIDTH=190 SRC="../assets/images/AB_190.jpg" BORDER=0 ALT="" USEMAP="#map0"><MAP NAME="map0"><AREA SHAPE=RECT ALT="" COORDS="0,0,190,121" HREF="../html/proof_of_principle.html"></MAP></TD>
+                        </TR>
+                    </TABLE>
+                </P>
+            </TD>
+            <TD WIDTH=400 STYLE="background-image: url('../assets/images/PixelHellblau.jpg'); padding: 6px;">
+                <P STYLE="text-align: justify;">The expert system uses a number of different strategies to find novel antibiotics. Models, based on neural networks, pharmacophore models, structure-ADME-relations, decision-trees  and affinity prediction to antibiotic drug targets have been included, see <A HREF="../html/science___technology.html">science &amp; technology</A>. It is complicated to calculate but easy to use!</P>
+            </TD>
+        </TR>
+    </TABLE>
+    </LAYER></DIV><DIV ID="Text61LYR" CLASS="TextObject" STYLE="background-color: rgb(255,255,255);"><LAYER ID="Text61LYR" VISIBILITY=INHERIT TOP=793 LEFT=184 WIDTH=656 HEIGHT=304 Z-INDEX=8  bgcolor="#FFFFFF">
+    <UL>
+        <P STYLE="text-align: justify;">Our methods have been proven to predict the antibiotic activity with an extremely low error. The error rate, estimated with an independent validation data set, was less than 5 %. This shows the excellent generalisation ability of the models used.</P>
+        <P STYLE="text-align: justify;">We have analysed whether MolScore-Antibiotics could select antibiotic drugs from the <A HREF="../html/blockbuster_drugs.html">blockbusters</A> of the last five years. All antibiotic blockbusters had MolScore-Antibiotics results higher than 0.996, see <A HREF="../html/proof_of_principle.html">proof of principle</A> for details. MolScore-Antibiotics has also detected <A HREF="../html/future_drugs.html">future drugs</A>, which are now in clinical trials.</P>
+        <P STYLE="text-align: justify;">MolScore-Antibiotics can be used to guide the buying or selecting of compounds for focussed biological screening (prioritisation of compounds from large compound collections). Our expert system revealed that many compound databases from external suppliers only have a small amount of compounds with antibiotic activity. Interesting compounds can be easily cherry-picked, see our <A HREF="../html/case_study.html">example</A> (selection of antibiotics from an external database of 195.064 compounds).</P>
+        <P STYLE="text-align: justify;">==&gt; <A HREF="../html/lead_optimization.html">Lead optimisation and drug-candidate selection</A></P>
+    </UL>
+    </LAYER></DIV><DIV ID="Text62LYR" CLASS="TextObject"><LAYER ID="Text62LYR" VISIBILITY=INHERIT TOP=137 LEFT=184 WIDTH=656 HEIGHT=58 Z-INDEX=9>
+    <P STYLE="text-align: center;"><B><SPAN STYLE="font-size: medium;"><BR>MolScore-Antibiotics</SPAN></B></P>
+    <UL>
+    </UL>
+    </LAYER></DIV><DIV ID="Text2LYR" CLASS="TextObject"><LAYER ID="Text2LYR" VISIBILITY=INHERIT TOP=207 LEFT=184 WIDTH=656 HEIGHT=60 Z-INDEX=10>
+    <UL>
+        <P STYLE="text-align: left;"><B><SPAN STYLE="font-size: medium;">Expert system for antibacterial research<BR>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ==&gt; Hit detection &amp; validation<BR>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ==&gt; Lead selection &amp; prioritisation</SPAN></B></P>
+    </UL>
+    </LAYER></DIV><DIV ID="Navigationsleiste2LYR"><LAYER ID="Navigationsleiste2LYR" VISIBILITY=INHERIT TOP=0 LEFT=187 WIDTH=800 HEIGHT=35 Z-INDEX=11>
+    <TABLE ID="Navigationsleiste2" BORDER=0 CELLSPACING=0 CELLPADDING=0 NOF=NB_FNHPNY021 WIDTH=800>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=160><A HREF="../html/about_pharmainformatic.html" onMouseOver="F_roll('Navigationsschaltflaeche1',1)" onMouseOut="F_roll('Navigationsschaltflaeche1',0)"><ILAYER ID="Navigationsschaltflaeche1"></ILAYER><IMG ID="Navigationsschaltflaeche1" NAME="Navigationsschaltflaeche1" HEIGHT=35 WIDTH=160 SRC="../assets/images/autogen/About_PharmaInformatic_Nbutton_pri_1.jpg" onLoad="F_loadRollover(this,'About_PharmaInformatic_NRbutton_pri_3.jpg',new Array(35, 'Navigationsleiste21',true))" BORDER=0 ALT="About PharmaInformatic" TITLE="About PharmaInformatic"></A></TD>
+            <TD WIDTH=160><A HREF="../html/products.html" onMouseOver="F_roll('Navigationsschaltflaeche2',1)" onMouseOut="F_roll('Navigationsschaltflaeche2',0)"><ILAYER ID="Navigationsschaltflaeche2"></ILAYER><IMG ID="Navigationsschaltflaeche2" NAME="Navigationsschaltflaeche2" HEIGHT=35 WIDTH=160 SRC="../assets/images/autogen/Products_Hbutton_pri_2.jpg" onLoad="F_loadRollover(this,'Products_HRbutton_pri_4.jpg',new Array(35, 'Navigationsleiste22',true))" BORDER=0 ALT="Products" TITLE="Products"></A></TD>
+            <TD WIDTH=160><A HREF="../html/databases.html" onMouseOver="F_roll('Navigationsschaltflaeche3',1)" onMouseOut="F_roll('Navigationsschaltflaeche3',0)"><ILAYER ID="Navigationsschaltflaeche3"></ILAYER><IMG ID="Navigationsschaltflaeche3" NAME="Navigationsschaltflaeche3" HEIGHT=35 WIDTH=160 SRC="../assets/images/autogen/Databases_Nbutton_pri_1.jpg" onLoad="F_loadRollover(this,'Databases_NRbutton_pri_3.jpg',new Array(35, 'Navigationsleiste23',true))" BORDER=0 ALT="Databases" TITLE="Databases"></A></TD>
+            <TD WIDTH=160><A HREF="../html/lead_optimization.html" onMouseOver="F_roll('Navigationsschaltflaeche4',1)" onMouseOut="F_roll('Navigationsschaltflaeche4',0)"><ILAYER ID="Navigationsschaltflaeche4"></ILAYER><IMG ID="Navigationsschaltflaeche4" NAME="Navigationsschaltflaeche4" HEIGHT=35 WIDTH=160 SRC="../assets/images/autogen/Lead_optimization_Nbutton_pri_1.jpg" onLoad="F_loadRollover(this,'Lead_optimization_NRbutton_pri_3.jpg',new Array(35, 'Navigationsleiste24',true))" BORDER=0 ALT="Lead optimization" TITLE="Lead optimization"></A></TD>
+            <TD WIDTH=160 HEIGHT=35><A HREF="../html/service___support.html" onMouseOver="F_roll('Navigationsschaltflaeche5',1)" onMouseOut="F_roll('Navigationsschaltflaeche5',0)"><ILAYER ID="Navigationsschaltflaeche5"></ILAYER><IMG ID="Navigationsschaltflaeche5" NAME="Navigationsschaltflaeche5" HEIGHT=35 WIDTH=160 SRC="../assets/images/autogen/Service___Support_Nbutton_pri_1.jpg" onLoad="F_loadRollover(this,'Service___Support_NRbutton_pri_3.jpg',new Array(35, 'Navigationsleiste25',true))" BORDER=0 ALT="Service & Support" TITLE="Service & Support"></A></TD>
+        </TR>
+    </TABLE>
+    </LAYER></DIV><DIV ID="Bild2LYR"><LAYER ID="Bild2LYR" VISIBILITY=INHERIT TOP=78 LEFT=0 WIDTH=187 HEIGHT=58 Z-INDEX=12><IMG ID="Bild2" HEIGHT=58 WIDTH=187 SRC="../assets/images/molekuelbanner_neu_links.jpg" BORDER=0 ALT=""></LAYER></DIV><DIV ID="Bild3LYR"><LAYER ID="Bild3LYR" VISIBILITY=INHERIT TOP=35 LEFT=187 WIDTH=800 HEIGHT=101 Z-INDEX=13><IMG ID="Bild3" HEIGHT=101 WIDTH=800 SRC="../assets/images/molekuelbanner_neu_rechts.jpg" BORDER=0 ALT=""></LAYER></DIV><DIV ID="Bild1LYR"><LAYER ID="Bild1LYR" VISIBILITY=INHERIT TOP=0 LEFT=0 WIDTH=187 HEIGHT=78 Z-INDEX=14><A HREF="../index.html"><IMG ID="Bild1" HEIGHT=78 WIDTH=187 SRC="../assets/images/logo_mit_blau.jpg" BORDER=0 ALT=""></A></LAYER></DIV><DIV ID="Tabelle2LYR" STYLE="background-color: rgb(182,182,255);"><LAYER ID="Tabelle2LYR" VISIBILITY=INHERIT TOP=1207 LEFT=0 WIDTH=985 HEIGHT=19 Z-INDEX=15  bgcolor="#B6B6FF">
+    <TABLE ID="Tabelle2" BORDER=1 BGCOLOR="#B6B6FF" CELLSPACING=0 CELLPADDING=1 WIDTH="100%">
+        <TR>
+            <TD WIDTH=979 STYLE="background-color: rgb(137,211,238);" HEIGHT=13>
+                <P STYLE="text-align: right;"><SPAN STYLE="font-size: xx-small;">&#169; <B>Copyright 2004-2021 PharmaInformatic Boomgaarden. All rights reserved. &nbsp; &nbsp; &nbsp; &nbsp;  <A HREF="../html/site_map.html">Site map</A> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A HREF="../html/contact_us.html">Contact</A> &nbsp; &nbsp; &nbsp; &nbsp;  <A HREF="../html/terms_of_use.html">Terms of Use</A> &nbsp; &nbsp; &nbsp; &nbsp;  <A HREF="../html/imprint___copyright.html">Imprint</A> &nbsp; &nbsp; &nbsp; &nbsp;  </B></SPAN></P>
+            </TD>
+        </TR>
+    </TABLE>
+    </LAYER></DIV><DIV ID="Bild5LYR"><LAYER ID="Bild5LYR" VISIBILITY=INHERIT TOP=136 LEFT=0 WIDTH=987 HEIGHT=1 Z-INDEX=16><IMG ID="Bild5" HEIGHT=1 WIDTH=987 SRC="../assets/images/balken_schwarz.jpg" BORDER=0 ALT=""></LAYER></DIV><DIV ID="Text59LYR" CLASS="TextObject" STYLE="background-color: rgb(255,255,255); background-image: url('../assets/images/PixelHellblau.jpg');"><LAYER ID="Text59LYR" VISIBILITY=INHERIT TOP=137 LEFT=0 WIDTH=184 HEIGHT=158 Z-INDEX=17  bgcolor="#FFFFFF" background="../assets/images/PixelHellblau.jpg">
+    <P STYLE="text-align: center; border: 1pt solid rgb(137,211,238); margin: 2pt;"><BR><IMG ID="Bild11" HEIGHT=112 WIDTH=170 SRC="../assets/images/AntibioticsLogo170.jpg" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 ALT="" USEMAP="#map1"><MAP NAME="map1"><AREA SHAPE=RECT ALT="" COORDS="0,0,170,112" HREF="../html/molscore-antibiotics.html"></MAP><BR>&nbsp;</P>
+    </LAYER></DIV><DIV ID="Tabelle4LYR" STYLE="background-color: rgb(255,255,255); background-image: url('../assets/images/PixelHellblau.jpg');"><LAYER ID="Tabelle4LYR" VISIBILITY=INHERIT TOP=291 LEFT=0 WIDTH=184 HEIGHT=215 Z-INDEX=18  bgcolor="#FFFFFF" background="../assets/images/PixelHellblau.jpg">
+    <TABLE ID="Tabelle4" BORDER=0 BGCOLOR="#FFFFFF" BACKGROUND="../assets/images/PixelHellblau.jpg" CELLSPACING=2 CELLPADDING=1 WIDTH="100%">
+        <TR>
+            <TD WIDTH=178 HEIGHT=97>
+                <P>
+                    <TABLE WIDTH="100%" BORDER=0 CELLSPACING=0 CELLPADDING=0 NOF=TE>
+                        <TR>
+                            <TD ALIGN="CENTER">
+                                <TABLE ID="Navigationsleiste8" BORDER=0 BGCOLOR="#FFFFFF" CELLSPACING=4 CELLPADDING=0 NOF=NB_UNVSNY020NOF=NB_UNVSNY020NOF=NB_UNVSNY020 WIDTH=168>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../index.html" onMouseOver="F_roll('Navigationsschaltflaeche6',1)" onMouseOut="F_roll('Navigationsschaltflaeche6',0)"><IMG ID="Navigationsschaltflaeche6" NAME="Navigationsschaltflaeche6" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/Home_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'Home_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="Home" TITLE="Home"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/molscore-antibiotics.html" onMouseOver="F_roll('Navigationsschaltflaeche7',1)" onMouseOut="F_roll('Navigationsschaltflaeche7',0)"><IMG ID="Navigationsschaltflaeche7" NAME="Navigationsschaltflaeche7" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/MolScore-Antibiotics_Hbutton_sec_2.jpg" onLoad="F_loadRollover(this,'MolScore-Antibiotics_HRbutton_sec_4.jpg',0)" BORDER=0 ALT="MolScore-Antibiotics" TITLE="MolScore-Antibiotics"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/proof_of_principle.html" onMouseOver="F_roll('Navigationsschaltflaeche8',1)" onMouseOut="F_roll('Navigationsschaltflaeche8',0)"><IMG ID="Navigationsschaltflaeche8" NAME="Navigationsschaltflaeche8" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/___Proof_of_principle_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'___Proof_of_principle_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="   Proof of principle" TITLE="   Proof of principle"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/case_study.html" onMouseOver="F_roll('Navigationsschaltflaeche9',1)" onMouseOut="F_roll('Navigationsschaltflaeche9',0)"><IMG ID="Navigationsschaltflaeche9" NAME="Navigationsschaltflaeche9" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/___Case_Study_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'___Case_Study_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="   Case Study" TITLE="   Case Study"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/future_drugs.html" onMouseOver="F_roll('Navigationsschaltflaeche10',1)" onMouseOut="F_roll('Navigationsschaltflaeche10',0)"><IMG ID="Navigationsschaltflaeche10" NAME="Navigationsschaltflaeche10" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/___Detecting_future_drugs_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'___Detecting_future_drugs_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="   Detecting future drugs" TITLE="   Detecting future drugs"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/lead_prioritisation.html" onMouseOver="F_roll('Navigationsschaltflaeche11',1)" onMouseOut="F_roll('Navigationsschaltflaeche11',0)"><IMG ID="Navigationsschaltflaeche11" NAME="Navigationsschaltflaeche11" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/___Lead_prioritisation_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'___Lead_prioritisation_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="   Lead prioritisation" TITLE="   Lead prioritisation"></A></TD>
+                                    </TR>
+                                </TABLE>
+                            </TD>
+                        </TR>
+                    </TABLE>
+                </P>
+                <P>
+                    <TABLE WIDTH="100%" BORDER=0 CELLSPACING=0 CELLPADDING=0 NOF=TE>
+                        <TR>
+                            <TD ALIGN="CENTER">
+                                <TABLE ID="Navigationsleiste3" BORDER=0 BGCOLOR="#FFFFFF" CELLSPACING=0 CELLPADDING=0 NOF=NB_UNVSNY020NOF=NB_UNVSNY020NOF=NB_UNVSNY020 WIDTH=160>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/blockbuster_drugs.html" onMouseOver="F_roll('Navigationsschaltflaeche12',1)" onMouseOut="F_roll('Navigationsschaltflaeche12',0)"><IMG ID="Navigationsschaltflaeche12" NAME="Navigationsschaltflaeche12" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/Oral_Bioavailability_of_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'Oral_Bioavailability_of_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="Oral Bioavailability of" TITLE="Oral Bioavailability of"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/blockbuster_drugs.html" onMouseOver="F_roll('Navigationsschaltflaeche13',1)" onMouseOut="F_roll('Navigationsschaltflaeche13',0)"><IMG ID="Navigationsschaltflaeche13" NAME="Navigationsschaltflaeche13" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/Blockbuster_Drugs_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'Blockbuster_Drugs_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="Blockbuster Drugs" TITLE="Blockbuster Drugs"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/blockbuster_drugs.html" onMouseOver="F_roll('Navigationsschaltflaeche14',1)" onMouseOut="F_roll('Navigationsschaltflaeche14',0)"><IMG ID="Navigationsschaltflaeche14" NAME="Navigationsschaltflaeche14" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/in_Humans_and_Animals_Nbutton_sec_1_1.jpg" onLoad="F_loadRollover(this,'in_Humans_and_Animals_NRbutton_sec_3_1.jpg',0)" BORDER=0 ALT="in Humans and Animals" TITLE="in Humans and Animals"></A></TD>
+                                    </TR>
+                                </TABLE>
+                            </TD>
+                        </TR>
+                    </TABLE>
+                </P>
+            </TD>
+        </TR>
+    </TABLE>
+    </LAYER></DIV><DIV ID="Tabelle5LYR" STYLE="background-color: rgb(255,255,255); background-image: url('../assets/images/PixelHellblau.jpg');"><LAYER ID="Tabelle5LYR" VISIBILITY=INHERIT TOP=648 LEFT=0 WIDTH=184 HEIGHT=142 Z-INDEX=19  bgcolor="#FFFFFF" background="../assets/images/PixelHellblau.jpg">
+    <TABLE ID="Tabelle5" BORDER=0 BGCOLOR="#FFFFFF" BACKGROUND="../assets/images/PixelHellblau.jpg" CELLSPACING=2 CELLPADDING=1 WIDTH="100%">
+        <TR>
+            <TD WIDTH=178 HEIGHT=97>
+                <P>
+                    <TABLE WIDTH="100%" BORDER=0 CELLSPACING=0 CELLPADDING=0 NOF=TE>
+                        <TR>
+                            <TD ALIGN="CENTER">
+                                <TABLE ID="Navigationsleiste9" BORDER=0 BGCOLOR="#FFFFFF" CELLSPACING=4 CELLPADDING=0 NOF=NB_UNVSNY020NOF=NB_UNVSNY020NOF=NB_UNVSNY020 WIDTH=168>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/plasma_protein_binding.html" onMouseOver="F_roll('Navigationsschaltflaeche15',1)" onMouseOut="F_roll('Navigationsschaltflaeche15',0)"><IMG ID="Navigationsschaltflaeche15" NAME="Navigationsschaltflaeche15" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/Plasma_Protein_Binding_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'Plasma_Protein_Binding_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="Plasma Protein Binding" TITLE="Plasma Protein Binding"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/impact-f__bioavailability_.html" onMouseOver="F_roll('Navigationsschaltflaeche16',1)" onMouseOut="F_roll('Navigationsschaltflaeche16',0)"><IMG ID="Navigationsschaltflaeche16" NAME="Navigationsschaltflaeche16" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/IMPACT-F__Bioavailability__Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'IMPACT-F__Bioavailability__NRbutton_sec_3.jpg',0)" BORDER=0 ALT="IMPACT-F (Bioavailability)" TITLE="IMPACT-F (Bioavailability)"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/pact-f.html" onMouseOver="F_roll('Navigationsschaltflaeche17',1)" onMouseOut="F_roll('Navigationsschaltflaeche17',0)"><IMG ID="Navigationsschaltflaeche17" NAME="Navigationsschaltflaeche17" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/PACT-F_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'PACT-F_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="PACT-F" TITLE="PACT-F"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/molscore-drugs.html" onMouseOver="F_roll('Navigationsschaltflaeche18',1)" onMouseOut="F_roll('Navigationsschaltflaeche18',0)"><IMG ID="Navigationsschaltflaeche18" NAME="Navigationsschaltflaeche18" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/MolScore-Drugs_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'MolScore-Drugs_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="MolScore-Drugs" TITLE="MolScore-Drugs"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/molscore-antivirals.html" onMouseOver="F_roll('Navigationsschaltflaeche19',1)" onMouseOut="F_roll('Navigationsschaltflaeche19',0)"><IMG ID="Navigationsschaltflaeche19" NAME="Navigationsschaltflaeche19" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/MolScore-Antivirals_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'MolScore-Antivirals_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="MolScore-Antivirals" TITLE="MolScore-Antivirals"></A></TD>
+                                    </TR>
+                                    <TR VALIGN=TOP ALIGN=LEFT>
+                                        <TD WIDTH=160 HEIGHT=18><A HREF="../html/contact_us.html" onMouseOver="F_roll('Navigationsschaltflaeche20',1)" onMouseOut="F_roll('Navigationsschaltflaeche20',0)"><IMG ID="Navigationsschaltflaeche20" NAME="Navigationsschaltflaeche20" HEIGHT=18 WIDTH=160 SRC="../assets/images/autogen/Contact_us_Nbutton_sec_1.jpg" onLoad="F_loadRollover(this,'Contact_us_NRbutton_sec_3.jpg',0)" BORDER=0 ALT="Contact us" TITLE="Contact us"></A></TD>
+                                    </TR>
+                                </TABLE>
+                            </TD>
+                        </TR>
+                    </TABLE>
+                </P>
+            </TD>
+        </TR>
+    </TABLE>
+    </LAYER></DIV></LAYER></DIV>
+    <SCRIPT language="javascript">
+    F_menu(new Array('Navigationsleiste21', '../html/partnerships.html','../assets/images/autogen/Partnerships_Nbutton_sec_1.jpg','../assets/images/autogen/Partnerships_NRbutton_sec_3.jpg','../html/contact_us.html','../assets/images/autogen/Contact_us_Nbutton_sec_1.jpg','../assets/images/autogen/Contact_us_NRbutton_sec_3.jpg'));
+    F_menu(new Array('Navigationsleiste22', '../html/impact-f__bioavailability_.html','../assets/images/autogen/IMPACT-F__Bioavailability__Nbutton_sec_1.jpg','../assets/images/autogen/IMPACT-F__Bioavailability__NRbutton_sec_3.jpg','../html/protein_binding_prediction.html','../assets/images/autogen/Protein_Binding_prediction_Nbutton_sec_1.jpg','../assets/images/autogen/Protein_Binding_prediction_NRbutton_sec_3.jpg','../html/molscore-drugs.html','../assets/images/autogen/MolScore-Drugs_Nbutton_sec_1.jpg','../assets/images/autogen/MolScore-Drugs_NRbutton_sec_3.jpg','../html/molscore-antibiotics.html','../assets/images/autogen/MolScore-Antibiotics_Nbutton_sec_1.jpg','../assets/images/autogen/MolScore-Antibiotics_NRbutton_sec_3.jpg','../html/molscore-antivirals.html','../assets/images/autogen/MolScore-Antivirals_Nbutton_sec_1.jpg','../assets/images/autogen/MolScore-Antivirals_NRbutton_sec_3.jpg','../html/adme___tox_predictions.html','../assets/images/autogen/ADME___Tox_predictions_Nbutton_sec_1.jpg','../assets/images/autogen/ADME___Tox_predictions_NRbutton_sec_3.jpg'));
+    F_menu(new Array('Navigationsleiste23', '../html/plasma_protein_binding.html','../assets/images/autogen/Plasma_Protein_Binding_Nbutton_sec_1.jpg','../assets/images/autogen/Plasma_Protein_Binding_NRbutton_sec_3.jpg','../html/oral_bioavailability__f__.html','../assets/images/autogen/Oral_bioavailability__F___Nbutton_sec_1.jpg','../assets/images/autogen/Oral_bioavailability__F___NRbutton_sec_3.jpg','../html/pact-f.html','../assets/images/autogen/PACT-F_Nbutton_sec_1.jpg','../assets/images/autogen/PACT-F_NRbutton_sec_3.jpg','../html/content_of_pact-f.html','../assets/images/autogen/Content_of_PACT-F_Nbutton_sec_1.jpg','../assets/images/autogen/Content_of_PACT-F_NRbutton_sec_3.jpg','../html/use_of_pact-f.html','../assets/images/autogen/Use_of_PACT-F_Nbutton_sec_1.jpg','../assets/images/autogen/Use_of_PACT-F_NRbutton_sec_3.jpg','../html/what_influences_f__.html','../assets/images/autogen/What_influences_F___Nbutton_sec_1.jpg','../assets/images/autogen/What_influences_F___NRbutton_sec_3.jpg'));
+    F_menu(new Array('Navigationsleiste24', '../html/lead_prioritisation.html','../assets/images/autogen/Lead_prioritisation_Nbutton_sec_1.jpg','../assets/images/autogen/Lead_prioritisation_NRbutton_sec_3.jpg'));
+    F_menu(new Array('Navigationsleiste25', '../html/press_releases.html','../assets/images/autogen/Press_releases_Nbutton_sec_1.jpg','../assets/images/autogen/Press_releases_NRbutton_sec_3.jpg','../html/in_the_news.html','../assets/images/autogen/In_the_News_Nbutton_sec_1.jpg','../assets/images/autogen/In_the_News_NRbutton_sec_3.jpg','../html/downloads.html','../assets/images/autogen/Downloads_Nbutton_sec_1.jpg','../assets/images/autogen/Downloads_NRbutton_sec_3.jpg','../html/site_map.html','../assets/images/autogen/Site_map_Nbutton_sec_1.jpg','../assets/images/autogen/Site_map_NRbutton_sec_3.jpg'));
+    </SCRIPT>
+</BODY>
+</HTML>
+ 

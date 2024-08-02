@@ -1,0 +1,820 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<LINK REL="SHORTCUT ICON"
+       HREF="../../images/VLifeLogo.png">
+       
+<meta name="description" CONTENT=" QSARPro inherits 2D QSAR and 3D QSAR. QSARPro evaluates more than 1000 molecular QSAR descriptors. Refer to 2D QSAR and 3D QSAR module of VLifeMDS to know more about QSARPro">
+
+<meta name="keywords" content="qsar, qsar descriptors, 2d qsar, 3d qsar, qsar software, qsar softwares, qsar modeling, qsar toxicity, introduction to qsar, descriptor, qsar analysis and qsar program">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12366000-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<title>QSAR, QSAR descriptors, 2D QSAR, 3D QSAR, QSAR modeling Software</title>
+<link href="../../stylesheet/vlife_stylesheet.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../dropdownmenu.js"></script>
+<script type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<script language="JavaScript" src="../../mm_menu.js"></script>
+<script language="JavaScript" src="../../dropdownmenu.js"></script>
+<style type="text/css">
+<!--
+#borderTable {
+border: 1px solid #CCCCCC;
+}
+#border {
+border: 1px solid #666666;
+}
+.style9 {
+	color: #515151;
+	font-size: 10px;
+	font-family: verdana;
+	text-decoration: none;
+}
+.style37 {
+	font-family:verdana;
+	font-size:12px;
+	color:#0E4776;
+	text-decoration:none;
+	}
+
+.Text_Index {
+font-family:Verdana, Arial;
+font-size:12px;
+color:#528DC5;
+font-weight:bold;
+cursor: pointer;
+line-height:20px;
+}
+-->
+</style>
+<script src="../../Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+menu_status = new Array();
+
+function showHide(theid){
+   if (document.getElementById) {
+    var switch_id_1 = document.getElementById("mymenu1");
+	var switch_id_2 = document.getElementById("mymenu2");
+	var switch_id_3 = document.getElementById("mymenu3");
+	var switch_id_4 = document.getElementById("mymenu4");
+	var switch_id_5 = document.getElementById("mymenu5");
+	var switch_id_6 = document.getElementById("mymenu6");
+	var switch_id_7 = document.getElementById("mymenu7");
+
+	var expand_id_1 = document.getElementById("mymenu1_a");
+	var expand_id_2 = document.getElementById("mymenu2_a");
+	var expand_id_3 = document.getElementById("mymenu3_a");
+	var expand_id_4 = document.getElementById("mymenu4_a");
+	var expand_id_5 = document.getElementById("mymenu5_a");
+	var expand_id_6 = document.getElementById("mymenu6_a");
+	var expand_id_7 = document.getElementById("mymenu7_a");
+
+	var switch_id = document.getElementById(theid);
+
+	if(theid != "mymenu1"){
+	switch_id_1.className = 'hide';
+	menu_status["mymenu1"] = 'hide';
+	expand_id_1.src= "images/Expand.png";
+	}
+	if(theid != "mymenu2"){
+	switch_id_2.className = 'hide';
+	menu_status["mymenu2"] = 'hide';
+	expand_id_2.src= "images/Expand.png";
+	}
+	if(theid != "mymenu3"){
+	switch_id_3.className = 'hide';
+	menu_status["mymenu3"] = 'hide';
+	expand_id_3.src= "images/Expand.png";
+	}
+	if(theid != "mymenu4"){
+	switch_id_4.className = 'hide';
+	menu_status["mymenu4"] = 'hide';
+	expand_id_4.src= "images/Expand.png";
+	}
+	if(theid != "mymenu5"){
+	switch_id_5.className = 'hide';
+	menu_status["mymenu5"] = 'hide';
+	expand_id_5.src= "images/Expand.png";
+	}
+	if(theid != "mymenu6"){
+	switch_id_6.className = 'hide';
+	menu_status["mymenu6"] = 'hide';
+	expand_id_6.src= "images/Expand.png";
+	}
+	if(theid != "mymenu7"){
+	switch_id_7.className = 'hide';
+	menu_status["mymenu7"] = 'hide';
+	expand_id_7.src= "images/Expand.png";
+	}
+	}
+
+    if (document.getElementById) {
+    var switch_id = document.getElementById(theid);
+	var expand_id = document.getElementById(theid+"_a");
+	if(menu_status[theid] != 'show') {
+          switch_id.className = 'show';
+          menu_status[theid] = 'show';
+		  expand_id.src= "images/Collapse.png";
+     }else{
+           switch_id.className = 'hide';
+           menu_status[theid] = 'hide';
+   		   expand_id.src= "images/Expand.png";
+     }
+    }
+}
+
+function showHideSolutions(theid){
+    if (document.getElementById) {
+    var switch_id_1 = document.getElementById("mymenu8");
+	var switch_id_2 = document.getElementById("mymenu9");
+	var switch_id_3 = document.getElementById("mymenu10");
+	var switch_id_4 = document.getElementById("mymenu11");
+	var switch_id_5 = document.getElementById("mymenu12");
+	var switch_id_6 = document.getElementById("mymenu13");
+	var switch_id_7 = document.getElementById("mymenu14");
+
+	var expand_id_1 = document.getElementById("mymenu8_a");
+	var expand_id_2 = document.getElementById("mymenu9_a");
+	var expand_id_3 = document.getElementById("mymenu10_a");
+	var expand_id_4 = document.getElementById("mymenu11_a");
+	var expand_id_5 = document.getElementById("mymenu12_a");
+	var expand_id_6 = document.getElementById("mymenu13_a");
+	var expand_id_7 = document.getElementById("mymenu14_a");
+
+	if(theid != "mymenu8"){
+	switch_id_1.className = 'hide';
+	menu_status["mymenu8"] = 'hide';
+	expand_id_1.src= "images/Expand.png";
+	}
+
+	if(theid != "mymenu9"){
+	switch_id_2.className = 'hide';
+	menu_status["mymenu9"] = 'hide';
+	expand_id_2.src= "images/Expand.png";
+	}
+	if(theid != "mymenu10"){
+	switch_id_3.className = 'hide';
+	menu_status["mymenu10"] = 'hide';
+	expand_id_3.src= "images/Expand.png";
+	}
+	if(theid != "mymenu11"){
+	switch_id_4.className = 'hide';
+	menu_status["mymenu11"] = 'hide';
+	expand_id_4.src= "images/Expand.png";
+	}
+	if(theid != "mymenu12"){
+	switch_id_5.className = 'hide';
+	menu_status["mymenu12"] = 'hide';
+	expand_id_5.src= "images/Expand.png";
+	}
+	if(theid != "mymenu13"){
+	switch_id_6.className = 'hide';
+	menu_status["mymenu13"] = 'hide';
+	expand_id_6.src= "images/Expand.png";
+	}
+	if(theid != "mymenu14"){
+	switch_id_7.className = 'hide';
+	menu_status["mymenu14"] = 'hide';
+	expand_id_7.src= "images/Expand.png";
+	}
+	}
+
+    if (document.getElementById) {
+    var switch_id = document.getElementById(theid);
+	var expand_id = document.getElementById(theid+"_a");
+	if(menu_status[theid] != 'show') {
+          switch_id.className = 'show';
+          menu_status[theid] = 'show';
+		  expand_id.src= "images/Collapse.png";
+     }else{
+           switch_id.className = 'hide';
+           menu_status[theid] = 'hide';
+   		   expand_id.src= "images/Expand.png";
+     }
+    }
+}
+
+//-->
+</script>
+<style type="text/css">
+.menu1 {
+font-family:Verdana, Arial;
+font-size:12px;
+color:#505050;
+font-weight:bold;
+vertical-align:top;
+line-height:20px;
+}
+.hide {
+	display: none;
+	font-family:verdana;
+	font-size:11px;
+	color:#505050;
+	text-align: Left;
+	letter-spacing: normal;
+}
+.show{
+ 	display: block;
+	font-family:verdana;
+	font-size:11px;
+	color:#505050;
+	text-align: Left;
+	letter-spacing: normal;
+}
+.style23 {color: #FFFFFF}
+.style30 {font-size: 10px}
+.style33 {
+	font-family: Verdana, Arial;
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;
+	cursor: pointer;
+	vertical-align: top;
+	line-height: 20px;
+}
+.style34 {color: #FF9900}
+.menu11 {font-family:Verdana, Arial;
+font-size:12px;
+color:#505050;
+font-weight:bold;
+vertical-align:top;
+line-height:20px;
+}
+</style>
+</head>
+<body onload="MM_preloadImages('../../images/request_info_but_o.jpg')">
+<script language="JavaScript1.2">mmLoadMenus();</script>
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="94" class="top_ban"><div align="right"><span class="style9"><br />
+              <a href="../../index.php" class="style9">Home</a> |<a href="../../aboutus/About_us_career.php" class="style9"> Careers</a> |<a href="../../support/Support_contact_us.php" class="style9"> Contact us</a>&nbsp;</span>&nbsp;&nbsp;&nbsp;</div>
+        <div align="left" class="divH" ></div>
+      <div align="left" class="divHeight">
+          <table width="1000" height="30" border="0" cellpadding="0" cellspacing="0"  class="divHeight">
+            <tr valign="bottom">
+              <td height="30" width="203" align="left" valign="top" class="divHeight"></td>
+
+              	<td height="30" width="135" align="center" valign="middle" background=../../images/Products_but_o.jpg>
+              <a href="../Products.php" name="link1" class="menu_p" id="link3" onmouseover="MM_showMenu(window.mm_menu_0628195845_0,0,29,null,'link3')" onmouseout="MM_startTimeout();">Products</a></td>
+
+       		  <td width="2"><img src="../../images/menu_divider.jpg" width="2" height="30" /></td>
+
+        		<td width="135" align="center" valign="middle" background="../../images/Technology_but_o.jpg"><a href="../../technology/Technology.php" name="link0" class="menu_product" id="link0" onmouseover="MM_showMenu(window.mm_menu_0625202137_0,0,29,null,'link0')" onmouseout="MM_startTimeout();">Technology</a></td>
+
+           	  <td width="2"><img src="../../images/menu_divider.jpg" width="2" height="30" /></td>
+
+              	<td width="135" align="center" valign="middle" background="../../images/Services_but_o.jpg"><a href="../../services/Services.php" name="link6" class="menu_product" id="link6" onmouseover="MM_showMenu(window.mm_menu_0631189553_0,0,29,null,'link6')" onmouseout="MM_startTimeout();">Services</a></td>
+
+           	  <td width="2"><img src="../../images/menu_divider.jpg" width="2" height="30" /></td>
+
+              	<td width="135" align="center" valign="middle" background="../../images/Aboutus_but_o.jpg"><a href="../../aboutus/Aboutus.php"name="link5" class="menu_product" id="link5" onmouseover="MM_showMenu(window.mm_menu_0634183262_0,0,29,null,'link5')" onmouseout="MM_startTimeout();">About us</a></td>
+
+              <td width="8" align="center" valign="middle" bgcolor="#FFFFFF"></td>
+              <td width="235" align="center" valign="middle" bgcolor="#0E4776"><strong class="Right_menu">News</strong></td>
+              <td width="8" align="center" valign="middle" bgcolor="#FFFFFF"></td>
+            </tr>
+        </table>
+    </div></td>
+  </tr>
+  <tr>
+  	<td bgcolor="#FFFFFF" valign="top"><table width="1000" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="8">&nbsp;</td>
+        <td width="741" valign="top"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,28,0" width="741" height="235" wmode="opaque">
+          <param name="movie" value="../../images/QSARpro_Banner.swf" />
+          <param name="quality" value="high" />
+          <param name="wmode" value="opaque" />
+	  <embed src="../../images/QSARpro_Banner.swf" width="741" height="235" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="opaque"></embed>
+          <img src="../../vlifeimages/qsarpro1.png" width="741" height="235">
+        </object></td>
+        <td width="8">&nbsp;</td>
+        <td width="235" valign="top"><table width="235" border="0" cellspacing="0" cellpadding="0" id="borderTable">
+          <tr>
+            <td height="101" align="center" valign="middle" bgcolor="#FFFFFF"><span class="menu1" style="padding:0px;">
+            <a href="http://www.vlifesciences.com/aboutus/newsevents_2015/BIRAC_award.php" class="menu1">NovaLead receives "BIRAC Innovator Award 2015"</a><!-- <a href="http://www.vlifesciences.com/support/Support_contact_us.php" class="menu1">IMU, KL, Malaysia</a>
+-->
+			 </span></td>
+          </tr>
+          <tr>
+            <td height="4"></td>
+          </tr>
+          <tr>
+            <td height="30" align="center" valign="middle" bgcolor="#333333"><strong class="Right_menu">PRODUCTS NEWS
+
+<!--echo 'VLife BLOG';--></strong></td>
+          </tr>
+          <tr>
+            <td height="99" align="center" valign="middle" bgcolor="#FFFFFF"><span class="menu1" style="padding:0px;">
+	                <a href="https://portal.vlifesciences.com/buy/index.php" target="_blank" ><img src="http://vlifesciences.com/images/offer.jpg" width="225" height="95" class="forimage" /><br></a>
+
+
+<!--echo '<a href="http://blog.vlifesciences.com/?p=73" target="_blank" ><img src="http://vlifesciences.com/images/PythonScripting.png" width="150" height="70" class="forimage" /><br></a>';
+echo '<a href="http://blog.vlifesciences.com/?p=73" target="_blank" class="menu1">Molecular Modeling Scripting</a>';
+
+ 
+<img src="http://vlifesciences.com/images/32x32_mol.png" width="48" height="48" class="forimage" /><br>
+
+echo '<a href="http://www.vlifesciences.com/support/BestPublication.php"><img src="http://vlifesciences.com/images/ResearchContest.jpg" width="200" height="95" class="forimage"/></a>';
+
+
+
+echo '<a href="https://play.google.com/store/apps/details?id=com.vlife.molsnap" target="_blank" ><img src="http://vlifesciences.com/images/48x48_mol.png" width="48" height="48" class="forimage" /><br></a>';
+
+echo '<a href="https://play.google.com/store/apps/details?id=com.vlife.molsnap" class="menu1">A quick and easy way to scan and<br></a>';
+echo '<a href="https://play.google.com/store/apps/details?id=com.vlife.molsnap" class="menu1">make structures on your phone.</a>';
+
+
+
+echo '<table border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top" class="menu1" ><a href="https://play.google.com/store/apps/details?id=com.vlife.molsnap" target="_blank" >
+    A quick and easy way to scan and make structures on your phone.</a></td>
+    <td width="100" align="center" valign="middle"><img src="http://vlifesciences.com/images/80_molsnaplink.png" class="forimage" /></td>
+  </tr>
+</table>';
+-->
+            </span></td>
+          </tr>
+        </table></td>
+        <td width="8">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+  	<td height="4" bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+  	<td bgcolor="#FFFFFF" valign="top"><table width="1000" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="19" valign="top">&nbsp;</td>
+        <td width="730" valign="top"><table width="730" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="124" height="40" valign="bottom"><img src="../../images/QSARproLogo.png" alt="QSARpro Logo" width="113" height="28" /></td>
+            <td width="610" valign="bottom"><strong class="Product_header"> Advanced software suite  for QSAR modeling and activity prediction</strong></td>
+          </tr>
+          <tr>
+            <td width="730" height="50" colspan="2"><span class="read_more"><a href="../Products.php" class="read_more">Products</a> &gt; </span><span class="small_body_text">QSARpro</span></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+            <table width="730" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="120" height="20" align="center" bgcolor="#828387"><a href="../../support/request_demo.php?id=2" class="Product_menu">Request a demo</a><a href="../../support/Brochures/VLifeMDS.pdf" target="_blank" class="Product_menu"></a></td>
+                <td width="1" bgcolor="#525053"></td>
+                <td width="120" height="20" align="center" bgcolor="#828387"><a href="../../support/request_quote.php?id=2" class="Product_menu">Request a quote</a><a href="../../support/Brochures/VLifeMDS.pdf" target="_blank" class="Product_menu"></a></td>
+                <td width="1" bgcolor="#525053"></td>
+                <td width="125" align="center" bgcolor="#828387"><span class="Product_menu"><a href="../../webinar/Onlinepresentation.php" class="Product_menu">Online presentation</a><a href="../../support/request_demo.php" class="Product_menu"></a><a href="../../support/Brochures/VLifeMDS.pdf" class="Product_menu"></a></span></td>
+                <td width="1" bgcolor="#525053"></td>
+                <td width="117" align="center" bgcolor="#828387"><a href="../../webinar/Webinar.php" class="Product_menu">Webinar</a></td>
+                <td width="1" bgcolor="#525053"></td>
+                <td width="121" align="center" bgcolor="#828387"><a href="../../support/Training.php" class="Product_menu">VLife Training</a></td>
+                <td width="1" bgcolor="#525053"></td>
+                <td width="121" align="center" bgcolor="#828387"><a href="../../support/Publications.php" class="Product_menu">Publications</a></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td height="8" colspan="2"></td>
+          </tr>
+          <tr>
+            <td colspan="2"><table width="730" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="425" valign="top"><table width="425" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="10" class="small_body_text"></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left"><table width="425" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="30" align="center"><a href="../../support/Brochures/QSARpro_Broucher.pdf" target="_blank"><img src="../../images/pdf_icon.png" alt="Download QSARpro Brochure" width="25" height="25" class="forimage" title="Download QSARpro Brochure" /></a></td>
+                        <td width="10">&nbsp;</td>
+                        <td width="30" align="center"><a href="../../support/faqs.php"><img src="../../images/faqicon.png" alt="faqs" width="19" height="25" class="forimage" title="FAQs" /></a></td>
+                        <td width="10">&nbsp;</td>
+                        <td width="30" align="center"><a href="../../support/Support_System_requirements.php"><img src="../../images/system_config.png" alt="System Configuration" width="25" height="25" class="forimage" title="System Configuration" /></a></td>
+                        <td width="10" align="left">&nbsp;</td>
+                        <td width="30" align="center"><a href="mailto:bizdev@vlifesciences.com"><img src="../../images/E_mail.png" alt="E-mail" width="24" height="24" class="forimage" title="E-mail" /></a></td>
+                        <td width="10" align="left">&nbsp;</td>
+                        <td width="30" align="center"><a href="../../support/Ask_VLife_Expert.php"><img src="../../images/AskUs.jpg" alt="Ask us" width="24" height="24" class="forimage" title="Ask Us" /></a></td>
+                        <td width="11" align="left">&nbsp;</td>
+                        <td width="233" align="left">&nbsp;</td>
+                      </tr>
+                    </table></td>
+                    </tr>
+                  <tr>
+                    <td height="10" class="small_body_text"></td>
+                  </tr>
+                  <tr>
+                    <td class="small_body_text">QSARpro  is the most comprehensive and powerful product for the indirect approach to drug design using QSAR. QSARpro not only predicts activity but also allows researchers to optimize leads with insights from QSAR results and generate focused molecular libraries. In addition to multiple 2D/ 3D QSAR methods, QSARpro also provides:<br />
+                      <ul>
+                        <li>VLife's patent pending GQSAR technology for fragment based QSAR approach to obtain site specific design clues which are critical for lead optimization</li>
+                        <li>Novel kNN-MFA methodology which creates robust 3D QSAR models by considering non-linear relationships between molecular properties and its activity</li>
+                        <li>A wide array of over 40 method options for building QSAR models for prediction of activity and activity based profiling of a molecular dataset</li>
+                        <li>A comprehensive collection of 1000+ molecular descriptors including 2D,  3D, alignment dependent and alignment independent for building robust QSAR models</li>
+                      </ul>
+                      QSARpro is  available for both Linux and Windows<sup>&reg;</sup> operating systems.</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://portal.vlifesciences.com" target="_blank"><img src="../../images/Portal_Offer_425x42.png" width="425" height="42" class="forimage" /></a></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td height="30" bgcolor="#0E4776"><span class="Right_menu_Bold" style="padding-left:8px;">Standard inclusions in QSARpro</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td style="padding:8px;"><a href="VLifeQSAR.php" class="read_more">2D QSAR &amp; 3D QSAR methods:</a><span class="small_body_text"> QSARpro has multiple 2D QSAR and 3D QSAR methods for researchers to apply based on particular datasets</a></span></td>
+                        </tr>
+                      <tr>
+                        <td style="padding:8px;"><a href="Technology_GQSAR.php" class="read_more">Patent pending GQSAR method: </a><span class="small_body_text">QSARpro is powered by GQSAR, which provides site specific clues for lead design and optimization</span></td>
+                        </tr>
+                      <tr>
+                        <td style="padding:8px;"><a href="../../support/QSAR_Descriptor_Definations_faqs_Answer.php" class="read_more">Descriptor calculations:</a><span class="small_body_text"> QSARpro provides facilities for calculation of over 1000 molecular descriptors of various classes</span></td>
+                        </tr>
+                      <tr>
+                        <td style="padding:8px;"><a href="VLifeEngine.php" class="read_more">VLifeEngine:</a> <span class="small_body_text">For all molecular operations and the key activities of conformer generation and molecular alignment.</a></span></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table></td>
+                <td width="11">&nbsp;</td>
+                <td width="294" valign="top"><table width="293" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td valign="top"><img src="../../images/293x186_QSARpro.jpg" alt="kNN-MFA isosurface maps illustrating electrostati features" width="293" height="186" /></td>
+                  </tr>
+                  <tr>
+                    <td height="30" class="small_body_text" style="padding:8px;"><span class="small_body_text">kNN-MFA isosurface maps illustrating electrostati features in combination with NSAID compound</span></td>
+                  </tr>
+                  <tr>
+                    <td height="8"></td>
+                  </tr>
+                  <tr>
+                    <td height="40"><a href="../../support/VLifeMDSRelease_Highlights.php"><img src="../../images/293_Proudct.jpg" alt="VLifeMDS 4.0 features" width="293" height="40" class="forimage" /></a></td>
+                  </tr>
+                  <tr>
+                    <td height="8"></td>
+                  </tr>
+                  <tr>
+                    <td><table width="293" border="0" cellspacing="0" cellpadding="0" id="borderTable" >
+                      <tr>
+                        <td height="30" colspan="2" bgcolor="#0E4776" style="padding-left:8px;"></a><span class="Right_menu_Bold">Advantages of QSARpro</span></td>
+                      </tr>
+                      <tr>
+                        <td height="5" colspan="2" ></td>
+                      </tr>
+                      <td height="30" colspan="2" style="padding-left:8px; padding-bottom:8px; padding-right:8px;"><a class="small_body_text_bold">Peer reviewed algorithms</a><br />
+                        <span class="small_body_text">Algorithms in QSARpro have wide acceptance in scientific community. These algorithms are either published or are patent pending. There are multiple case studies of research conducted with QSARpro.</span></a></td>
+                      <tr>
+                    <td height="30" colspan="2" style="padding:8px;"><a class="small_body_text_bold">Wide method options</a><br />
+                      <span class="small_body_text">QSARpro has a wide choice of statistical methods to suit requirements of the most demanding datasets. Allowing reserachers to combine model building with variable selection, QSARpro provides over 40 options for  researchers to choose from.</span></td>
+                  </tr>
+<tr>
+                    <td height="30" colspan="2" style="padding:8px;"><a class="small_body_text_bold">Accurate predictions</a><br />
+                      <span class="small_body_text">QSARpro has 1000+ molecular descriptors which significantly contribute to building a robust QSAR model. These include 2D,  3D,  alignment dependent and alignment independent descriptors.</span></a></td>
+                  </tr>
+                  <td height="10" colspan="2"><a href="http://www.researchgate.net/group/QSAR/" title=" Join the group QSAR at ResearchGATE" target="_blank" rel="nofollow"><img src="http://www.researchgate.net/images/public/profile_image_join_group_small.png" alt=" Join the group QSAR at ResearchGATE" align="right" class="forimage" /></a></td>
+                  </tr></table>
+                  <tr>
+                        <td height="10"></td>
+                  </tr>
+                  </table></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td colspan="2"><table width="730" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="3" width="730" valign="top"><table width="730" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td height="30" bgcolor="#666666"><span class="Right_menu_Bold" style="padding-left:8px;"><span class="Right_menu_Bold">Optionals: Capability enhacing technologies</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0" id="borderTable">
+                      <tr>
+                        <td style="padding:8px;"><a href="../Functional_products/Molsign.php" class="read_more">MolSign:</a><span class="small_body_text"> To analyze pharmacophoric features of ligands and for a pharmacophore guided design.</span></td>
+                        </tr>
+                      <tr>
+                        <td style="padding:8px;"><span class="small_body_text"><span><a href="../Functional_products/leadgrow.php" class="read_more">LeadGrow:</a></span>To create combinatorial library with a choice of  substitutions.</a></span></td>
+                        </tr>
+                      <tr>
+                        <td style="padding:8px;"><a href="../technology/Technology_LeadGrow+.php" class="read_more">LeadGrow+:</a><span class="small_body_text"> An extension to the combinatorial library generation capability of VLifeMDS 4.0 which ensures that molecules which can be synthesized can only be generated in a library.</span></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table></td>
+                <td width="11">&nbsp;</td>
+            </table></td>
+          </tr>
+          <tr>
+            <td colspan="2"><table width="730" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="3" width="730" valign="top"><table width="730" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td height="30" bgcolor="#666666"><span class="Right_menu_Bold" style="padding-left:8px;">Case studies: Application of VLife products</span></td>
+                  </tr>
+                  <tr>
+                    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0" id="borderTable">
+                      <tr>
+                        <td width="76" height="58" style="padding-left:8px;"><img src="../../images/68_Azoles_Anti-fungal.jpg" alt="Dual active antifungals" width="68" height="56" /></td>
+                        <td width="653" style="padding:8px;"><span class="small_body_text">Development of dual active antifungals <a target="_blank" href="https://portal.vlifesciences.com/buy/popup/a-page.php?pdf=Development of dual active antifungals.pdf" class="read_more"> View</a></span></td>
+                      </tr>
+                      <tr>
+                        <td width="76" height="58" style="padding-left:8px;"><img src="../../images/68_ClassificationModels.jpg" alt="Classification model development" width="68" height="56" /></td>
+                        <td width="653" style="padding:8px;"><span class="small_body_text">Anti-cancer: Classification model development <a target="_blank" href="https://portal.vlifesciences.com/buy/popup/a-page.php?pdf=Anti-cancer Classification model development.pdf" class="read_more"> View</a></span></td>
+                      </tr>
+                      <tr>
+                        <td width="76" height="58" style="padding-left:8px;"><img src="../../images/68_3D_QSAR.jpg" alt="Pharmacophore identification and lead optimization" width="68" height="56" /></td>
+                        <td width="653" style="padding:8px;"><span class="small_body_text">Pharmacophore identification and lead optimization for novel antifungals <a target="_blank" href="https://portal.vlifesciences.com/buy/popup/a-page.php?pdf=Pharmacophore identification and lead optimization for novel antifungals.pdf" class="read_more"> View</a></span></td>
+                      </tr>
+                      </table></td>
+                  </tr>
+                </table></td>
+                <td width="11">&nbsp;</td>
+            </table></td>
+          </tr>
+        </table></td>
+        <td width="8" valign="top">&nbsp;</td>
+        <td valign="top">
+        <table width="235" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="60"><!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style">
+<a href="http://www.addthis.com/bookmark.php?v=250&amp;username=yogeshsw" class="addthis_button_compact style37">Share this</a>
+<span class="addthis_separator">|</span>
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=yogeshsw"></script>
+<!-- AddThis Button END --></td>
+          </tr>
+          <tr>
+            <td width="238" height="185" align="left" valign="top" class="small_body_text" id="borderTable" style="padding:6px;"><span class="small_body_text">&quot;Having done a thorough look-out for QSAR software in the global market, we found QSARpro to be the most comprehensive QSAR product in the market. The kNN-MFA and GQSAR add a unique dimension not found in any other product.&quot;<br />
+                <br />
+                </strong><span class="read_more">S. P. Gupta.  Ph.D.</span><br />
+                <span class="small_body_text">Ex-Head, Pharmacy<br />
+BITS - Pilani</span></span></span></td>
+          </tr>
+          <tr>
+            <td width="238" height="8" align="left" valign="top" ></td>
+          </tr>
+          <tr>
+            <td><table width="235" border="0" cellpadding="0" cellspacing="0" bgcolor="#E5E5E5" id="borderTable">
+              <tr>
+                <td height="30" align="left" valign="middle" bgcolor="#0E4776"><strong class="Right_menu" style="padding-left:8px;">Product suites</strong></td>
+              </tr>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text_bold" style="padding-left:8px;"><a href="../VLifeMDS/Product_VLifeMDS.php" class="read_more_2">VLifeMDS</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text" style="padding-left:8px;">Full function suite</span></td>
+                  </tr>
+                  <tr>
+                    <td height="1" bgcolor="#E5E5E5"></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="left" bgcolor="#666666"><span class="Right_menu_Bold" style="padding-left:8px;">QSARpro</span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#666666"><span class="Right_menu" style="padding-left:8px;">Comprehensive 2D/ 3D QSAR</span></td>
+                  </tr>
+                  <tr>
+                    <td height="1" bgcolor="#E5E5E5"></td>
+                  </tr>
+                </table></td>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text_bold" style="padding-left:8px;"><a href="../BioPredicta/Product_BioPredicta.php" class="read_more_2">BioPredicta</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text" style="padding-left:8px;">All about proteins and docking</span></td>
+                  </tr>
+                  <tr>
+                    <td height="1" bgcolor="#E5E5E5"></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="238" height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text_bold" style="padding-left:8px;"><a href="../ChemXplor/Product_ChemXplor.php" class="read_more_2">ChemXplor</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text" style="padding-left:8px;">Cheminformatics</span></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+               <td width="238" height="8"bgcolor="#FFFFFF"></td>
+             </tr>
+          <tr>
+            <td valign="top"><table width="240" border="0" cellpadding="0" cellspacing="0" id="borderTable">
+              <tr>
+				<td height="30" align="left" valign="middle" bgcolor="#0E4776" style="padding-left:8px"><strong class="Right_menu">Functional products</strong></td>
+              </tr>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="read_more_1" style="padding-left:8px;"><a href="../Functional_products/EngineBase.php" class="read_more_1">VLifeBase</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text" style="padding-left:8px;">Molecule visualization</span></td>
+                  </tr>
+                  <tr>
+                    <td height="1" bgcolor="#E5E5E5"></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="read_more_1" style="padding-left:8px;"><a href="../Functional_products/VLifeEngine.php" class="read_more_1">VLife Engine</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text" style="padding-left:8px;">Conformer, force field analysis</span></td>
+                  </tr>
+                  <tr>
+                    <td height="1" bgcolor="#E5E5E5"></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="read_more_1" style="padding-left:8px;"><a href="../Functional_products/Protein_Modeller.php" class="read_more_1">ProModel</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text" style="padding-left:8px;">Homology modeling & analysis</span></td>
+                  </tr>
+                  <tr>
+                    <td height="1" bgcolor="#E5E5E5"></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="read_more_1" style="padding-left:8px;"><a href="../Functional_products/VLifeDock.php" class="read_more_1">VLifeDock</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="Left" bgcolor="#FFFFFF"><span class="small_body_text" style="padding-left:8px;">Protein - Ligand docking</span></td>
+                  </tr>
+                  <tr>
+                    <td height="1" bgcolor="#E5E5E5"></td>
+                  </tr>
+                </table></td>
+              </tr>
+            	<tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="Left" bgcolor="#FFFFFF"><span class="read_more_1" style="padding-left:8px;"><a href="../Functional_products/VLifeQSAR.php" class="read_more_1">VLifeQSAR</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text" style="padding-left:8px;">2D QSAR,  3D QSAR</span></td>
+                  </tr>
+                  <tr>
+                    <td height="1" bgcolor="#E5E5E5"></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="read_more_1" style="padding-left:8px;"><a href="../Functional_products/Molsign.php" class="read_more_1">MolSign</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text" style="padding-left:8px;">Pharmacophore generation</span></td>
+                  </tr>
+                  <tr>
+                    <td height="1" bgcolor="#E5E5E5"></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="read_more_1" style="padding-left:8px;"><a href="../Functional_products/leadgrow.php" class="read_more_1">LeadGrow</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text" style="padding-left:8px;">Combinatorial library generation</span></td>
+                  </tr>
+                  <tr>
+                    <td height="1" bgcolor="#E5E5E5"></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="read_more_1" style="padding-left:8px;"><a href="../Functional_products/ChemDBS.php" class="read_more_1">ChemDBS</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF" style="padding-left:8px;"><span class="small_body_text">Database searches</span></td>
+                  </tr>
+                  <tr>
+                    <td height="1" bgcolor="#E5E5E5"></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td><table width="235" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="read_more_1" style="padding-left:8px;"><a href="../Functional_products/ProViz.php" class="read_more_1">ProViz</a></span></td>
+                  </tr>
+                  <tr>
+                    <td height="25" align="left" bgcolor="#FFFFFF"><span class="small_body_text" style="padding-left:8px;">Property visualization</span></td>
+                  </tr>
+                </table></td>
+              </tr>
+             <tr>
+               <td width="238" height="8"bgcolor="#FFFFFF"></td>
+             </tr>
+              </table></td>
+          </tr>
+        </table></td>
+        <td width="8" valign="top">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+
+
+  <tr>
+    <td width="1000" valign="middle"><table width="749" border="0" cellpadding="0" cellspacing="0">
+    </table>
+    <tr>
+  	<td height="4" bgcolor="#FFFFFF"></td>
+  </tr>
+  <tr>
+  	<td height="30" align="center" valign="middle" bgcolor="#FFFFFF"><table width="200" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center" valign="middle"><a href="../../site_map.php" class="footer_links">Sitemap </a></td>
+            <td class="footer style36"></td>
+            <td align="center" valign="middle"><a href="../../glossary.php" class="footer_links">Glossary</a></td>
+            <td class="footer"><span class="footer style36"></span></td>
+            <td align="center" valign="middle"><a href="../../legal_information.php" class="footer_links">Legal Notice</a></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+  	<td height="20" align="center" valign="middle"><span class="footer_links">&copy; Copyrights 2014, NovaLead Pharma. All Rights Reserved </span></td>
+  </tr>
+</table>
+<!-- Start of HubSpot Logging Code  -->
+<script type="text/javascript" language="javascript">
+var hs_portalid=121905; 
+var hs_salog_version = "2.00";
+var hs_ppa = "vlifesciences.app11.hubspot.com";
+document.write(unescape("%3Cscript src='" + document.location.protocol + "//" + hs_ppa + "/salog.js.aspx' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- End of HubSpot Logging Code --></body>
+</html>

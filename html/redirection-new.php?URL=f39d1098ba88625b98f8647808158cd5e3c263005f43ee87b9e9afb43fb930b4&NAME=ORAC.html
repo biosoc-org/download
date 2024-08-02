@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+  <HEAD>
+    <META NAME="generator" CONTENT="http://txt2tags.sf.net">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <TITLE>ORAC (release 6) - A molecular dynamics program to simulate solvated biomolecules</TITLE>
+  </HEAD>
+  <BODY BGCOLOR="white" TEXT="black">
+    <P ALIGN="center"><CENTER><H1>ORAC<img src="/img/Copyleft.svg.png" height="25" width="25">  - An OpenMP/MPI molecular dynamics engine to simulate solvated biomolecules (release 6) </H1>
+	<FONT SIZE="4">
+      </FONT></CENTER>
+      
+    <P></P>
+    <HR NOSHADE SIZE=1>
+    <P></P>
+    <UL>
+      <LI><A HREF="#toc1">General Information</A>
+      <LI><A HREF="#toc2">Who is behind Orac</A>
+      <LI><A HREF="#toc3">Citation</A>
+      <LI><A HREF="#toc4">Licensing information</A>
+      <LI><A HREF="#toc5">Download</A>
+      <li><a href="RELEASE_NOTES">Release notes</a>
+      <LI><A HREF="#toc5">PrimaDORAC </A> <a href=primadorac> <font size="3" color="red"> (NEW!) </font> </a> 
+    </UL>
+    
+    <P></P>
+    <HR NOSHADE SIZE=1>
+    <P></P>
+    <A NAME="toc1"></A>
+    <H2>General Information</H2>
+    <P>
+      This is release 6 (started 2014) of the <I>ORAC</I> engine, a
+      FORTRAN suite to simulate at the atomistic level complex
+      biosystems. The release 4 of the <I>ORAC</I> code
+      [ <I>J. Comput. Chem. <B>18</B>:1834-1862, 1997</I> ] included
+      multiple time steps integration, Smooth Particle Mesh Ewald
+      method, constant pressure and constant temperature
+      simulations. <A HREF="orac.5_4_1.tags.rel_5.4.1.r2747.tar.gz"> Release 5</A>  (<i>
+      J. Comp. Chem.</I> <B>31</B>:1106:1116, 2010 ) was 
+      supplemented with the most advanced techniques for enhanced
+      sampling in atomistic systems including replica exchange with
+      solute tempering, metadynamics on multidimensional reaction
+      coordinates subspaces, and potential of mean force
+      reconstruction along arbitrary reaction paths using non
+      equilibrium molecular dynamics techniques. All these
+      computational technologies have been implemented on parallel
+      architectures using the standard MPI communication protocol. In
+      Release 6 ORAC implements a weak scaling parallel algorithm via
+      MPI calls in H-REM/SGE generalized ensemble simulations or
+      driven simulations technologies based on nonequilibrium theorem
+      and a <b> strong scaling parallel approach on the OpenMP layer </b> 
+      based on particle decomposition for the computation of the forces.
+    </P>
+    <UL>
+      <li> Read ORAC <A HREF="orac-manual.pdf">manual (PDF)</A>. 
+      <li> View a PDF presentation on <A HREF="orac-advanced-present.pdf">Performing advanced MD simulations with ORAC</A>
+      <li> input examples are provided in the directory <code> tests </code> and include:
+      <ul>
+      <li> <a href="README_basic"> Basic tests</a>: NVE, NVT, NPT simulations using multiple time steps integration and PME    
+      <li> <a href="README_jarp"> Jarzynski/Crooks tests</a>: non equilibrium driven trajectories on bond and/or bend  and/or torsional user-selected coordinates
+      <li> <a href="README_rem"> Replica Exchange tests</a>: Applications of standard H-REM algorithm, torsional tempering and solute tempering schemes 
+      <li> <a href="README_SGE"> Serial Generalized Ensemble tests</a>: Applications of SGE schemes
+      <li> <a href="README_meta"> Metadynamics tests</a>: Self Healing Umbrella Sampling and well tempered metadynamics applications.
+      <li> <a href="README_alchemyp"> Alchemy tests</a>: Non equilibrium alchemical annihilation/creation of organic molecules in explicit solvent.
+      </ul>
+    </UL>
+<P>
+  <I>ORAC</I> is an open-source program distributed free of charge under the
+  GNU general public license (GPL).
+</P>
+<HR NOSHADE SIZE=1>
+    <P></P>
+    <A NAME="toc2"></A>
+    <H2>Who is behind Orac</H2>
+    <UL>
+      <LI>The main authors of the code are Massimo Marchi (CEA, Saclay,
+	Paris, FR) and Piero Procacci (Florence University, IT)
+	<P></P>
+      <LI> Contributors are Simone Marsili (CNIO, Madrid ES),
+	Giorgio F. Signorini, Riccardo Chelli (Florence University, IT),
+        Tom Darden (NIEH, Triangle Park NC, USA),
+	Marc Souaille (University of Evry, FR) and Emanuele Paci
+	(University of Leeds, UK) 
+    </UL>
+    
+    <HR NOSHADE SIZE=1>
+    <P></P>
+    <A NAME="toc3"></A>
+    <H2>Citation</H2>
+    <P>
+      <b> orac6.x citation:</b> 
+    </P>
+    <PRE>
+      P. Procacci
+      "Hybrid MPI/OpenMP Implementation of the ORAC Molecular Dynamics Program
+       for Generalized Ensemble and Fast Switching Alchemical Simulations"
+      J. Chem. Inf. Model., 2016, 56 (6), pp 1117-1121
+    </PRE>
+    <P>
+      Please use the following citations when publishing results obtained with
+      orac5.x:
+    </P>
+    <PRE>
+      P. Procacci, E. Paci, T. Darden, M. Marchi
+      "ORAC: A Molecular Dynamics Program to Simulate
+      Complex Molecular Systems with Realistic Electrostatic Interactions"
+      J. Comp. Chemistry, 18, No. 15 1848-1862 (1997).
+    </PRE>
+    <P></P>
+    <PRE>
+      S. Marsili, G. F. Signorini, R. Chelli, M. Marchi and P. Procacci 
+      "Orac: A molecular dynamics simulation program 
+      to explore free energy surfaces in biomolecular systems at the atomistic level."
+      J. Comp. Chemistry, 31, No. 5 1106-1116 (2010) 
+    </PRE>
+    <P></P>
+    <HR NOSHADE SIZE=1>
+    <P></P>
+    <A NAME="toc4"></A>
+    <H2>Licensing information</H2>
+    <P>
+      The <I>ORAC</I> program is <B>free</B> software and is distributed free of
+charge; you can redistribute it and/or modify it under the terms of the
+      GNU General Public License (<B>GPL</B>).
+      There is no warranty for the program and no professional support is
+      provided.
+      Bugs are fixed at the authors' earliest convenience, upon request to the
+      E-mail address <A HREF="mailto:piero.procacci@unifi.it">piero.procacci@unifi.it</A>.
+      Read carefully the <A HREF="http:GPL.html">GPL TERMS AND CONDITIONS FOR USE, DISTRIBUTION AND MODIFICATION</A> prior to downloading.
+    </P>
+    <HR NOSHADE SIZE=1>
+    <P></P>
+    <A NAME="toc5"></A>
+    <H2>Download</H2>
+    <P>
+      Orac is available <B>only for UNIX</B> operating systems as a tar archive
+      at this site.
+    </P>
+    <UL>
+      <LI>Download now:
+	<ul>
+<!--
+	  <li><A HREF="http://www.chim.unifi.it/orac/orac.5_3_0.trunk.r1843.tar.gz">the latest, non-stable revision of trunk code</A>
+	  <li><A HREF="http://www.chim.unifi.it/orac/orac.5_3_3.trunk.r2161.tar.gz"> the latest, non-stable revision (includes alchemical transformations) </A>
+-->
+	  <li><A HREF="orac.6_1.tar.gz"> the latest OpenMP/MPI release (6.1)</A>
+	  <li><A HREF="http://www.chim.unifi.it/orac/orac.5_4_1.tags.rel_5.4.1.r2747.tar.gz"> old release (5.4.1)</A>
+	  <li><A HREF="primadorac.tar.gz"> PrimaDORAC </A> stand-alone f90 source  for tpg assignment
+	  <li> Tests bundle for running <A HREF="popc.tar.gz"> HREM with torsional tempering  </A> on POPC model membrane (NPT ensemble with semi-isotropic stress)   
+           <li> Full output reference <a HREF="REF.PAR.tar.bz2"> PARxxxx dirs </a> for POPC HREM simulation
+	</ul>
+      <LI>To unpack the archive, move it to a suitable directory and type: <CODE>tar -zxvf orac.x_y_z.tar.gz</CODE>
+      <LI><A HREF="http:BUILDING">Building instructions</A>
+    </UL>
+    
+    <P>
+      Releases 5.x are no longer supported
+    </P>
+    
+<HR NOSHADE SIZE=1>
+    <P></P>
+    <A NAME="toc6"></A>
+    <H2><a href=primadorac> PrimaDORAC </a></H2>
+
+PrimaDORAC is a free web interface for
+  the assignment of partial charges, chemical topology and bonded
+  parameters in organic or drug molecules.
+<br> 
+The interface relies on our in-house FORTRAN90 parser,
+working on the recently released Generalized Amber Force Field
+parameter set (GAFF2). AM1/BCC charges are computed using the Public
+Domain version of the MOPAC7 program and the bond charge corrections
+(BCC) reported in Ref. Jakalian <i>  et al </i>  , J Comp
+Chem, 2002, 23, 1623-1641.  The interface has been tested on about
+60000 compounds (identified with a CAS-registry number) taken from the
+National Cancer Institute (NCI) Open Database, producing GAFF2 minimized structures bearing
+a mean Root Square Displacement of about 0.01 nm  respect to the
+original CORINA generated 3D NCI structures.
+
+    <!-- --------------------------------------------------------------------- --><hr>
+    
+    <ADDRESS>
+      This project has been partially funded by Regione Toscana. 
+      <p>
+      <!-- HTML validation tag, and link to service -->
+      <a href="http://validator.w3.org/check?uri=referer"><img
+							     src="http://www.w3.org/Icons/valid-html401"
+							     alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+      <!--                                          -->
+      
+      <a href="http://www.anybrowser.org/campaign/"><img src="/img/anybrowser4.gif"
+							 width="88" height="31" alt="Viewable With Any Browser"></a>
+      
+      <SCRIPT   language="JavaScript" type="text/javascript">
+	var data=""; data=document.lastModified;
+	document.write("Last update: " + data);
+      </SCRIPT>
+    </ADDRESS>
+    
+    
+  </BODY>
+</HTML>

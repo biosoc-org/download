@@ -1,0 +1,602 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ 
+ 
+  <title> VMD - Visual Molecular Dynamics </title> 
+ 
+
+ <meta name="description" content="VMD - Visual Molecular Dynamics, molecular graphics software for MacOS X, Unix, and Windows">
+
+<style type="text/css">
+<!--
+@import url("/include/home.css");
+@import url("/include/level2b.css");
+@import url("/include/tcb.css");
+@import url("/include/dropdownstyles.css");
+-->
+</style>
+
+<script type="text/javascript" src="/include/jquery-latest.js"></script>
+<script type="text/javascript" src="/include/scrollingbackground.js"></script>
+<script type="text/javascript" src="/include/jScrollPane.js"></script>
+
+<script type="text/javascript">
+ var blank = new Image();
+ blank.src = '/include/images/template_images_2010/blank.gif';
+ 
+ $(document).ready(function() {
+   var badBrowser = (/MSIE ((5\.5)|6)/.test(navigator.userAgent) && navigator.platform == "Win32");
+   if (badBrowser) {
+     // get all pngs on page
+     $('img[src$=.png]').each(function() {
+       if (!this.complete) {
+         this.onload = function() { fixPng(this) };
+       } else {
+         fixPng(this);
+       }
+     });
+   }
+ });
+ 
+ function fixPng(png) {
+   // get src
+   var src = png.src;
+   // set width and height
+   if (!png.style.width) { png.style.width = $(png).width(); }
+   if (!png.style.height) { png.style.height = $(png).height(); }
+   // replace by blank image
+   png.onload = function() { };
+   png.src = blank.src;
+   // set filter (display original image)
+   png.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "',sizingMethod='scale')";
+ }
+ 
+ 
+	jQuery(function()
+	{ 
+	jQuery('#scrollpane').jScrollPane({showArrows:true, dragMinHeight:7,dragMaxHeight:7,scrollbarWidth:17});
+	});
+
+
+
+ </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-40575643-1', 'uiuc.edu');  
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body>
+
+<div id="container">
+  <div id="header">
+  
+  
+  
+  
+  
+  
+
+  
+  <div id="nihuiuc">
+  
+   <nobr>
+  <table cellpadding="0" cellspacing="0" width="100%">
+  <tr valign="middle"><td>
+  <a
+  href="https://nigms.nih.gov/Research/mechanisms/Pages/R24-Funded-Resources---Computation-%26-Modeling.aspx" class="nih">NIH Resource for Macromolecular Modeling &amp; Visualization</a>
+  <a href="http://illinois.edu/" class="uiuc">University of Illinois at Urbana-Champaign</a>
+  </td>
+  
+  <td>
+<!-- Search Google -->
+<div id="searchform">
+  <FORM method=GET action="https://www.google.com/search">
+      
+        <input type=hidden name=sitesearch 
+	 value="www.ks.uiuc.edu/Research/vmd/" />
+      
+
+     <INPUT TYPE=text class="btninput" name=q maxlength=255 
+                   value="Type Keywords" onfocus="this.value=''" />
+     <INPUT class="btnG" type=submit name=btnG VALUE="" />
+  </FORM>
+</div>
+<!-- End Google Search -->
+
+  </td>
+  
+  </tr>
+  </table>
+    </nobr>
+
+  </div>
+  
+
+  
+    <div id="logo">
+   <a title="Theoretical Biophysics Group" class='clear' href="/"><img style="margin-top: 18px; margin-left: 20px;" src="/include/images/template_images_2010/logo.png" border="0" alt="Theoretical and Computational Biophysics Group" /></a>
+    </div>
+  </div>
+
+
+
+    
+
+
+
+
+
+
+
+<ul class="pureCssMenu pureCssMenum">
+<!-- Home -->
+  <li><a href="/" class="menulink">Home</a></li>
+
+<!-- Research ########################################################## -->
+  <li><a href="/Research/Categories/" class="menulink">Research<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Research/dbps/">Driving Projects</a></li>
+      <li><a href="/Research/Collaborations/">Collaborations</a></li>
+      <li><a href="/Highlights/">Highlights</a></li>
+      <li><a href="/Research/Categories/viruses/">Viruses</a></li>
+      <li><a href="/Research/Categories/symbiontBacteria/">Symbiont Bacteria</a></li>
+      <li><a href="/Research/Categories/molecularMotors/">Molecular Motors</a></li>
+      <li><a href="/Research/Categories/neuronsSynapses/">Neurons and Synapses</a></li>
+      <li><a href="/Research/Categories/bioenergeticMembranes/">Bioenergetic Membranes</a></li>
+      <li><a href="/Research/Categories/nanosensors/">Nanosensors</a></li>
+      <li><a href="/Research/Categories/ribosome/">Ribosome</a></li>
+      <li><a href="/Research/Categories/mechanosensing/">Mechanosensing</a></li>
+      <li><a href="/Research/Categories/proteinFolding/">Protein Folding</a></li>
+      <li><a href="/Research/mdff/">Integrative Modeling</a></li>
+      <li><a href="/Research/Categories/more/">More Topics</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+<!-- Publications ###################################################### -->
+  <li><a href="/Publications/" class="menulink">Publications<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Publications/Papers/">Papers</a></li>
+      <li><a href="/Publications/HighlyCited/">Highly&nbsp;Cited</a></li>
+      <li><a href="/Publications/Papers/representative/">Representative</a></li>
+      <li><a href="/Publications/Covers/">Covers</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+  <!-- Software ########################################################### -->
+  <li><a href="/Development/" class="menulink">Software<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Research/namd/">NAMD<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+        <ul>
+          <li><a href="/Development/Download/download.cgi?PackageName=NAMD">Download</a></li>
+          <li><a href="/Research/namd/current/ug/">User's&nbsp;Guide</a></li>
+          <li><a href="/Research/namd/mailing_list/">Mailing&nbsp;List</a></li>
+        </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+      </li>
+      <li><a href="/Research/vmd/">VMD<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+        <ul>
+          <li><a href="/Development/Download/download.cgi?PackageName=VMD">Download</a></li>
+          <li><a href="/Research/vmd/plugins/">Plugins</a></li>
+          <li><a href="/Research/vmd/current/ug/">User's&nbsp;Guide</a></li>
+          <li><a href="/Research/vmd/mailing_list/vmd-l/">Mailing&nbsp;List</a></li>
+        </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+      </li>
+      <li><a href="/Research/gpu/">GPU&nbsp;Computing</a></li>
+      <li><a href="/Research/cloud/">Cloud&nbsp;Computing</a></li>
+      <li><a href="http://www.scs.illinois.edu/schulten/lm/">Lattice&nbsp;Microbes</a></li>
+      <li><a href="http://bionano.physics.illinois.edu/arbd">Atomic&nbsp;Resolution<br>Brownian&nbsp;Dynamics</br></a></li>
+<!--      <li><a href="/Research/biocore/">BioCoRE</a></li> -->
+      <li><a href="/Research/mdff/">MDFF</a></li>
+      <li><a href="/Research/qwikmd/">QwikMD</a></li>
+      <li><a href="/Research/vnd/">VND (Neuronal)</a></li>
+      <li><a href="/Development/OtherSoft/">Other</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+<!-- Instruction ##################################################### -->
+  <li><a href="/Outreach/" class="menulink">Instruction<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Training/">Training</a></li>  
+      <li><a href="/Training/Workshop/">Workshops</a></li>
+      <li><a href="/Services/Seminar/">Seminars</a></li>
+      <li><a href="/Training/Tutorials/">Tutorials</a></li>
+      <li><a href="/Training/CaseStudies/">Case&nbsp;Studies</a></li>
+      <li><a href="/Training/multimedia/">Multimedia&nbsp;Lectures</a></li>
+      <li><a href="/Gallery/Brochure/">Brochures</a></li>   
+      <li><a href="/Services/Class/">Classes</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+<!-- News ############################################################# -->  
+  <li><a href="/Publications/stories.cgi" class="menulink">News</a></li>
+<!-- Media ############################################################# -->
+  <li><a href="/Gallery/" class="menulink">Galleries<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Gallery/Science-New/">Images</a></li>
+      <li><a href="/Gallery/Movies/">Movies</a></li>
+      <li><a href="/Gallery/Posters/">Posters</a></li>
+      <li><a href="/Gallery/Brochure/">Brochures</a></li>
+      <li><a href="/Gallery/Photos/">Photos</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+<!-- Facilities ###################################################### -->
+  <li><a href="/Development/Computers/spotlight.cgi" class="menulink">Facilities<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Development/Computers/">Computational</a></li>
+      <li><a href="/Outreach/VisitorFacilities/">Visitor</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+<!-- About Us ####################################################### -->
+  <li><a href="/" class="menulink">About&nbsp;Us<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Overview/People/">Center&nbsp;Members</a></li>
+      <li><a href="/Overview/">Mission</a></li>
+      <li><a href="/Gallery/Brochure/">Brochures</a></li>
+      <li><a href="/Overview/reach.html">Contact&nbsp;Us</a></li>
+      <li><a href="/Overview/acknowledge.html">Acknowledge&nbsp;Us</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+  <div class="clear"></div>
+</ul>
+<!-- End Drop Down Menu ************************************************* -->
+
+
+  <div class="clear"></div>
+
+
+
+
+  <div id="main">
+ 
+     <div id="sidenav">
+
+  
+     <div>
+
+
+ <ul>
+   <li> <h2><a href="/">Home</a></h2></li>
+   <li> <h2><a href="/Overview/">Overview</a></h2></li>
+   <li> <h2><a href="/Publications/">Publications</a></h2></li>
+   <li> <h2><a href="/Research/Categories/">Research</a></h2></li>
+
+   <li id="active"> <h2><a href="/Development/">Software</a></h2></li>
+   <li> <h3><a href="/Research/vmd/">VMD Molecular Graphics Viewer</a></h3></li>
+   <li> <h3><a href="/Research/namd/">NAMD Molecular Dynamics Simulator</a></h3></li>
+   <li> <h3><a href="/Research/biocore/">BioCoRE Collaboratory Environment</a></h3></li>
+   <li> <h3><a href="/Development/MDTools/">MD Service Suite</a></h3></li>
+   <li> <h3><a href="/Development/biosoftdb/">Structural Biology Software Database</a></h3> </li>
+   <li> <h3><a href="/Development/Computers/">Computational Facility</a></h3></li>
+
+   <li> <h2><a href="/Outreach/">Outreach</a></h2></li>
+ </ul>
+
+
+
+<p> &nbsp; </p> 
+<p> &nbsp; </p> 
+<p> <a href="/Research/vmd/mailing_list">VMD <br /> Mailing <br />List</a> </p>
+<p> &nbsp; </p> 
+<p> <a href="/Development/Download/download.cgi?PackageName=VMD">Download <br /> VMD </a> </p>
+<p> &nbsp; </p> 
+<p> <a href="/Research/vmd/current/docs.html#tutorials">VMD <br /> Tutorials</a> </p>
+<p> &nbsp; </p> 
+<p> <a href="/Research/vmd/current/docs.html">VMD <br /> Manuals </a> </p>
+<p> &nbsp; </p> 
+</div>
+
+
+
+  
+
+  <div id="sidetext">
+   
+   
+  </div>
+
+  <div id="sidenav">
+   
+  </div>
+
+ </div>
+
+    <div id="text">
+      <h2 class='navinfo'><table><tr><td valign=bottom align=middle><img border=0 src="images/vmd_logo_left.gif" alt="VMD - Visual Molecular Dynamics"></table></h2>
+    
+
+
+      <!-- End Headers -->
+
+
+
+<!-- CONTENT BEGINS HERE -->
+
+
+<p>
+<table border=0 cellspacing=5 cellpadding=0 width="99%">
+<tr><td>
+<table width="99%">
+<tr><td>
+  VMD is a molecular visualization program for displaying, animating,
+  and analyzing large biomolecular systems using 3-D graphics and 
+  built-in scripting.  
+  VMD supports computers running MacOS X, Unix, or Windows, 
+  is distributed free of charge, and includes source code.  
+ <br>(<a href=allversions/what_is_vmd.html>more details...</a>)
+
+<!--
+<p>
+<a href="http://www.ks.uiuc.edu/Services/Employment/vmd-biocore-assis.html">Part-time Undergraduate Position Available</a>
+      <img src="/icons/newnih.gif">
+-->
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+
+<!--
+<div>
+<h3 class="headarea">Top News</h3>
+<table width=99%>
+  <tr>
+    <td>
+      NAMD and VMD are part of the team winning the
+      <a href="http://www.ks.uiuc.edu/Research/gordonbell2020/">2020 ACM Gordon Bell Special Prize</a>
+      for high performance computing-based <b>COVID-19 research</b>, for the paper <a href="http://www.ks.uiuc.edu/Research/gordonbell2020/">AI-Driven Multiscale Simulations Illuminate Mechanisms of SARS-CoV-2 Spike Dynamics</a>, presented at Supercomputing 2020, Nov 18, 2020.
+    </td>
+    <td align=right>
+      <a href="http://www.ks.uiuc.edu/Research/gordonbell2020/">
+        <img src="/Research/gordonbell2020/images/gordonbell2020.jpg" height="150" alt="ACM Gordon Bell Special Prize">
+      </a>
+    </td>
+  </tr> 
+</table>
+</div>
+-->
+
+<p>
+
+<table width="99%">
+<tr><td>
+
+<h3 class="headarea">Spotlight</h3>
+<table>
+<tr><td> 
+VMD is capable of working with very large structures up to the limits
+of available memory.  The 64-bit versions of VMD allow large-size and
+long-timescale simulation trajectories to be loaded into physical memory 
+and accommodate large volumetric datasets.  
+The 64 million atom HIV capsid simulation
+described in the <a href="http://www.ks.uiuc.edu/Publications/Papers/paper.cgi?tbcode=ZHAO2013">May 30, 2013 issue of Nature</a> is a first-class
+example of what can be done with VMD on an appropriately equipped
+graphics workstation.  The HIV-1 model was prepared for simulation
+using the structure building tools and scripting features of VMD were
+later used for trajectory analysis.  The all-atom structure of the 
+HIV-1 capsid shown on the Nature cover was rendered within VMD
+using the internal 
+<a href="/Research/vmd/minitutorials/tachyonao/">Tachyon</a> 
+ray tracing engine, and was then composited with an artistic 
+representation of the viral envelope and the Nature cover text.
+</td></tr>
+<tr valign=bottom><td valign=bottom>
+<FONT SIZE = -1>
+<A HREF="/Research/vmd/spotlight/">Other Spotlights</A></FONT>
+</td></tr>
+</table>
+</td><td >
+<img src="/Research/vmd/spotlight/images/naturehiv.jpg"
+ valign=top align=right border=1>
+</td></tr>
+</table>
+
+
+<div style="clear: right; float: left; width: 24%">
+
+<h3 class="headarea">Overview</h3>
+<p>
+<!--  
+  <br/><a href="allversions/overview.html">Overview of VMD</a>
+-->
+  <a href="allversions/repimages/">Molecular representations</a>
+  <br/><a href="plugins/">VMD plugin library</a>
+  <br/><a href="plugins/molfile/">Molecular file formats</a>
+<!--
+  <br/><a href="allversions/supported_output.html">Publication quality rendering</a>
+-->
+  <br/><a href="/Research/gpu/">GPU-accelerated computing</a> 
+  <br/><a href="imd">Interactive molecular dynamics</a>
+<!--
+  <br/><a href="allversions/related_programs.html">Required software</a>
+-->
+  <br/><a href="allversions/progs_use_vmd.html">Programs that use VMD</a>
+  <br/><a href="publications/">VMD research publications</a>
+  <br/><a href="allversions/cite.html">How to cite VMD</a>
+  <br/><a href="allversions/citations/">VMD citation list</a> (37,000 as of Mar'21) 
+</p>
+  
+<h3 class="headarea">Download</h3>
+<p>
+  <a href = "/Development/Download/download.cgi?PackageName=VMD">Download</a> (all versions)
+  <br/><a href="vmd-1.9.4/">VMD 1.9.4 (MacOS X, Unix, Windows)</a>
+  <br/><a href="vmd-1.9.3/">VMD 1.9.3 (MacOS X, Unix, Windows)</a>
+  <br/><a href="script_library/">VMD script library</a>
+  <br/><a href="current/LICENSE.html">License</a>, <a href = "allversions/disclaimer.html">Copyright and Disclaimer</a>
+</p>
+
+
+<h3 class="headarea">Documentation and Support</h3>
+  <a href="current/docs.html">User and installation guides</a>
+  <br/><a href="mailing_list/">VMD-L mailing list</a>
+  <br/><a href="https://www.youtube.com/watch?v=ip7lmmD7Z2k">Publication image tutorial</a> (YouTube)
+  <br/><a href="vmd_help.html">Quick help</a>
+  <br/><a href="allversions/vmd_faq.html">FAQ</a>
+  <br/><a href="allversions/vmd_bugs.html">Bug List</a>
+<!--
+  <br/><a href="contact_info.html">Email us comments and questions</a>
+-->
+</p>
+
+</div>
+
+<div style="float: right; width: 75%">
+
+<h3 class="headarea">News and Announcements</h3>
+<p>
+<!--  <br><a href="vmd-1.9.3/">VMD 1.9.3 (MacOS X, Unix, Windows)</a> -->
+  <a href="https://doi.org/10.3389/fcell.2023.1214962">Dynamics of chromosome organization in a minimal bacterial cell</a>, FCDB, 2023
+      <img src="/icons/newnih.gif">
+
+  <br><a href="https://doi.org/10.1021/acs.jcim.3c00658">VMD as a Platform for Interactive Small Molecule Preparation and Visualization in Quantum and Classical Simulations</a>, JCIM, 2023
+      <img src="/icons/newnih.gif">
+      
+  <br><a href="https://doi.org/10.1021/acs.jctc.1c01081">Human Learning for Molecular Simulations: The Collective Variables Dashboard in VMD</a>, JCTC, 2022
+
+  <br><a href="https://doi.org/10.1109/MCSE.2022.3163151">ANARI: A 3D Rendering API Standard</a>, CiSE, 2022
+  
+  <br><a href="/Research/gb21airborne/">#COVIDisAirborne: AI-Enabled Multiscale Computational Microscopy of Delta SARS-CoV-2 in a Respiratory Aerosol</a>, IJHPCA, 2022
+
+  <br><a href="/Research/gb21intelligentresolution/">Intelligent Resolution: Integrating Cryo-EM with AI-Driven Multi-Resolution Simulations to Observe the SARS-CoV-2 Replication-Transcription Machinery in Action</a>, IJHPCA, 2022
+
+  <br><a href="https://www.nytimes.com/interactive/2021/12/01/science/coronavirus-aerosol-simulation.html">The Coronavirus in a Tiny Drop</a>, VMD visualizations of aerosolized SARS-CoV-2, NYT, 2021
+
+  <br><a href="https://directorsblog.nih.gov/2021/08/10/the-amazing-brain-visualizing-data-to-understand-brain-networks/">NIH Director's blog highlights neuroscience adaptation of VMD</a>
+
+  <br><a href="https://journals.sagepub.com/doi/10.1177/10943420211006452">AI-driven multiscale simulations illuminate mechanisms of SARS-CoV-2 spike dynamics</a>, IJHPCA, 2021
+
+  <br><a href="https://doi.org/10.1016/j.parco.2020.102698">Multiscale modeling and cinematic visualization of photosynthetic energy conversion processes from electronic to cell scales</a>, J. Par. Comp. 2021
+
+  <br><a href="http://www.ks.uiuc.edu/Research/gordonbell2020/">NAMD and VMD part of the team winning the ACM COVID-19 Gordon Bell Prize for 2020</a>
+
+  <br><a href="https://www.nytimes.com/interactive/2020/health/coronavirus-unveiled.html">The Coronavirus Unveiled</a>, VMD visualizations of SARS-CoV-2, NYT, 2020
+
+  <br><a href="https://doi.org/10.1063/5.0014475">Scalable molecular dynamics on CPU and GPU architectures with NAMD</a>, JCP, 2020
+
+  <br><a href="/Research/vmd/alpha/">VMD test builds for MacOS X 10.15 "Catalina" (April 24, 2020)</a>
+
+  <br/><a href="allversions/oldannouncements.html">Past announcements</a>
+</p>
+
+
+<h3 class="headarea">Gallery</h3>
+<p>
+  <a href="https://sc19.supercomputing.org/proceedings/sci_viz/sci_viz_pages/svs110.html">An Accessible Visual Narrative for the Primary Energy Source of Life from the Fulldome Show Birth of Planet Earth</a>, <b>1st Place Winner, SC'19 Viz. Showcase</b>
+
+  <br><a href="https://youtu.be/Bpz_5Z8JTVc">Chromatophore VR demo (VMD + Unreal Game Engine) shown in NVIDIA booth at SC'16</a>
+
+  <br><a href="https://www.youtube.com/playlist?list=PL8XC6Vx8S1GBT311VIFLt84iuSRhPuXAB">Example VMD VR/3-D YouTube videos</a>
+
+  <br><a href="http://sc15.supercomputing.org/sites/all/themes/SC15images/sci_vis/sci_vis_pages/svs112.html">Chemical Visualization of Human Pathogens: the Retroviral Capsids</a>, <b>Finalist, SC'15 Viz. Showcase</b>
+  <br><a href="http://sc14.supercomputing.org/sites/all/themes/sc14/files/archive/sci_vis/sci_vis_pages/svs115.html">Visualization of Energy Conversion Processes in a Light Harvesting Organelle at Atomic Detail</a>, <b>1st Place Winner, SC'14 Viz. Showcase</b>
+  <br><a href="http://www.youtube.com/user/tcbguiuc/videos?live_view=500&flow=list&sort=dd&view=0">VMD movie gallery on YouTube</a>
+  <br><a href="/Gallery/">Gallery of Posters, Images, and Movies made with VMD</a>
+<!--
+  <br><a href = "eventgallery/">Events and tutorial picture gallery</a>
+  <br><a href = "gallery/">Image gallery</a>
+  <br/><a href = "/Overview/movie_gallery/Movies/">Movie gallery</a> 
+  <br/><a href="http://www.ks.uiuc.edu/Publications/Brochures/VMD_Brochure/">Brochure</a>
+-->
+  <br><a href="http://www.youtube.com/watch?v=toUU-ENUleU">VMD running in the NanoDome at Temple University</a>
+</p>
+
+<h3 class="headarea">Development</h3>
+<p>
+  <a href="survey/">VMD User Survey Results</a> 
+  <br/><a href="vmd-new/">VMD development status and pre-release test downloads</a>
+  <br/><a href = "doxygen/cvsget.html">CVS source code access</a> 
+  <br/><a href = "doxygen/">VMD Programmer's documentation</a>
+<!--
+  <br/><a href = "doxygen/bugtracking.html">Bug tracking database</a> 
+  <br/><a href = "doxygen/devtools.html#devtools">VMD Development tools</a>
+-->
+</p>
+</div>
+
+</table>
+
+<p>
+   </div>
+   
+   
+   <div class="clear"></div></div>
+   
+   
+   
+   <div class="clear"></div>
+
+  	 
+  	
+  	<div id="footercontainer">
+  	
+  	<div id="footerlogos">
+  		<a href="/Research/nihresources/">
+      <DIV>Funded by a grant from<BR>
+      the National Institute of <BR>
+      General Medical Sciences <BR>
+      of the National Institutes<BR>
+      of Health</DIV></a>
+  		<a href="http://www.nsf.gov"><img src="/include/images/template_images_2010/nsf.gif" alt="" /></a>
+  		<a href="http://www.cplc.illinois.edu/"><img src="/include/images/template_images_2010/centerphysicslivingcells.jpg" alt="" /></a>
+  	</div>
+
+  	<div id="footerlogos2">
+  	<a href="http://illinois.edu/"><img src="/include/images/template_images_2010/uclogo_horz_bold.gif" alt="" /></a>
+  	</div>
+  	
+    <div id="footer">
+      <a href="http://www.beckman.uiuc.edu/">Beckman Institute for Advanced 
+	Science and Technology</a> 
+      // <a href="http://www.nih.gov/">National Institutes of Health</a>
+      // <a href="http://www.nsf.gov/">National Science Foundation</a>
+      // <a href="http://www.physics.uiuc.edu/">Physics</a>, 
+         <a href="http://www.cs.uiuc.edu/">Computer Science</a>, and
+         <a href="http://www.life.uiuc.edu/biophysics/">Biophysics</a>
+	  at <a href="http://illinois.edu/">University of Illinois at Urbana-Champaign</a> 
+	  
+	  <div class="morepadding">
+      <a href="/Overview/reach.html">Contact Us</a> //
+      Material on this page is <a href="/copyright.html">copyrighted</a>;
+       contact <a href="mailto:webserver@ks.uiuc.edu">Webmaster</a> for more 
+       information. //
+      Document last modified on 05 Oct 2023 //
+      7099887 accesses since 20 Mar 2006
+.
+      </div>
+    </div>
+    
+    <div class="clear"></div>
+    
+  </div>
+  
+</div>
+</div>
+
+</body></html>
+
+
+
+
+
+</BODY></HTML>
+

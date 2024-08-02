@@ -1,0 +1,620 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="Generator" content="Eliza@yasara.com">
+<meta name="keywords" content="YASARA, molecular modeling, molecular modelling, molecular dynamics, interactive molecular dynamics, interactive real-time molecular dynamics,
+protein, DNA, fold prediction, protein modeling, protein modelling, docking, NMR, NOESY, distance restraints, molecule visualisation, molecule visualization, molecular visualisation,
+molecular visualization, molecule rendering, molecular graphics, CASP, CASP1, CASP2, CASP3, CASP4, CASP5, supercomputer, parallel computing, Models@Home, cluster, computer cluster,
+CMBI, stereo graphics, shutter glasses, protein folding, protein fold prediction, protein modeling, protein modelling">
+<title>YASARA - Yet Another Scientific Artificial Reality Application</title>
+<link rel="stylesheet" href="stylesh.css" type="text/css">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="YASARA Changelog" href="changelog.rss">
+</head>
+
+<body style=" background-color: rgb(255, 255, 255); background-image: url(bgcmbi.gif);"
+ bgproperties="fixed" topmargin="0" marginwidth="0" marginheight="0" leftmargin="0">
+<script language="JavaScript">
+<!--
+if (document.images)
+{ button1=new Image(190,36);button1.src="button1.gif";button1p=new Image(190,36);button1p.src="button1p.gif";
+  button2=new Image(190,36);button2.src="button2.gif";button2p=new Image(190,36);button2p.src="button2p.gif";
+  button3=new Image(190,36);button3.src="button3.gif";button3p=new Image(190,36);button3p.src="button3p.gif";
+  button4=new Image(190,36);button4.src="button4.gif";button4p=new Image(190,36);button4p.src="button4p.gif";
+  button5=new Image(190,36);button5.src="button5.gif";button5p=new Image(190,36);button5p.src="button5p.gif";
+  button6=new Image(190,36);button6.src="button6.gif";button6p=new Image(190,36);button6p.src="button6p.gif"; }
+function swapimg(imgname,objsrc)
+{ if (document.images)
+  { document.images[imgname].src=eval (objsrc + ".src"); } }
+// -->
+</script>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="200" bgcolor="#7676EC" height="60"><img
+        src="border1.gif" width="200" height="60"></td>
+        <td valign="bottom" width="100%"><div align="left"><table
+        border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td valign="bottom" width="96" bgcolor="#7676EC"><img
+                src="spacer96.gif" width="96" height="1"></td>
+                <td valign="bottom" bgcolor="#7676EC"><img
+                src="border6.gif"
+                alt="Endonuclease PvuII (1PVI) " width="324"
+                height="50"></td>
+                <td valign="bottom" width="110" bgcolor="#7676EC"><img
+                src="spacer11.gif" width="110" height="1"></td>
+                <td><img src="border8.gif"
+                alt="DNA - GATTACAGATTACA" width="116"
+                height="60"></td>
+            </tr>
+        </table>
+        </div></td>
+    </tr>
+    <tr>
+        <td align="right" bgcolor="#7676EC" height="104"><img
+        src="border2.gif"
+        alt="CAP - Catabolite gene Activating Protein (1BER)"
+        width="150" height="104"></td>
+        <td><table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td><img src="border4.gif"
+                alt="DNA - GATTACAGATTACAGATTACA" width="96"
+                height="104"></td>
+                <td><img src="border10.gif"
+                alt="Endonuclease PvuII bound to palindromic DNA recognition site CAGCTG (1PVI) "
+                width="324" height="104"></td>
+                <td><img src="border7.gif"
+                alt="DNA - GATTACAGATTACAGATTACA" width="110"
+                height="104"></td>
+                <td><img src="border9.gif"
+                alt="TBP - TATA box  Binding Protein (1C9B)"
+                width="116" height="104"></td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36"><img src="border11.gif"
+        alt="CAP - Catabolite gene Activating Protein (1BER)"
+        width="200" height="36"></td>
+        <td valign="top" width="100%"><img src="border5.gif"
+        width="32" height="32"></td>
+    </tr>
+    <tr>
+        <td valign="top" height="60"><table border="0"
+        cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td><img src="border3.gif"
+                alt="GCN4 - leucine zipper transcription factor bound to palindromic DNA recognition site ATGAC(G)TCAT (1YSA)"
+                width="200" height="60"></td>
+            </tr>
+            <tr>
+                <td><a href="index.html" onMouseOver="swapimg('button1','button1p')" onMouseOut="swapimg('button1','button1')">
+               <img src="button1.gif" border="0" width="190" height="36" name="button1"></a></td>
+            </tr>
+            <tr>
+                <td><img src="border12.gif"
+                alt="GCN4 - leucine zipper transcription factor bound to palindromic DNA recognition site ATGAC(G)TCAT (1YSA)"
+                width="190" height="78"></td>
+            </tr>
+            <tr>
+                <td><a href="products.htm" onMouseOver="swapimg('button2','button2p')" onMouseOut="swapimg('button2','button2')">
+               <img src="button2.gif" border="0" width="190" height="36" name="button2"></a></td>
+            </tr>
+            <tr>
+                <td><img src="border12.gif"
+                alt="GCN4 - leucine zipper transcription factor bound to palindromic DNA recognition site ATGAC(G)TCAT (1YSA)"
+                width="190" height="78"></td>
+            </tr>
+            <tr>
+               <td><a href="downloads.htm" onMouseOver="swapimg('button5','button5p')" onMouseOut="swapimg('button5','button5')">
+               <img src="button5.gif" border="0" width="190" height="36" name="button5"></a></td>
+            </tr>
+            <tr>
+                <td><img src="border12.gif"
+                alt="GCN4 - leucine zipper transcription factor bound to palindromic DNA recognition site ATGAC(G)TCAT (1YSA)"
+                width="190" height="78"></td>
+            </tr>
+            <tr>
+                <td><a href="news.htm" onMouseOver="swapimg('button3','button3p')" onMouseOut="swapimg('button3','button3')">
+                <img src="button3.gif" border="0" width="190" height="36" name="button3"></a></td>
+            </tr>
+            <tr>
+                <td><img src="border12.gif"
+                alt="GCN4 - leucine zipper transcription factor bound to palindromic DNA recognition site ATGAC(G)TCAT (1YSA)"
+                width="190" height="78"></td>
+            </tr>
+            <tr>
+                <td><a href="contact.htm"  onMouseOver="swapimg('button4','button4p')" onMouseOut="swapimg('button4','button4')">
+                <img src="button4.gif" border="0" width="190" height="36" name="button4"></a></td>
+            </tr>
+            <tr>
+                <td><img src="border12.gif"
+                alt="GCN4 - leucine zipper transcription factor bound to palindromic DNA recognition site ATGAC(G)TCAT (1YSA)"
+                width="190" height="78"></td>
+            </tr>
+            <tr>
+                <td><a href="about.htm"  onMouseOver="swapimg('button6','button6p')" onMouseOut="swapimg('button6','button6')">
+                <img src="button6.gif" border="0" width="190" height="36" name="button6"></a></td>
+            </tr>
+            <tr>
+                <td><img src="border13.gif"
+                alt="TBP - TATA box  Binding Protein (1C9B)"
+                width="190" height="155"></td>
+            </tr>
+ <tr>
+ <td><img src="spacer30.gif" width="30" height="30"></td>
+ </tr>
+ <tr>
+ <td class="jr" bgcolor="#ffffff">
+ <table cellspacing="0" cellpadding="0" border="0">
+ <tbody>
+ <tr>
+ <td><font size="2">What does YASARA look like? </font><a
+ href="selscrshots.htm"><font size="2">Click here
+ to visit the Vulkan screenshot gallery</font></a>. <br>
+ </td>
+ <td><img src="spacer11.gif" width="11" height="11"></td>
+ </tr>
+ </tbody>
+ </table>
+ </td>
+ </tr>
+ <tr>
+ <td><img src="spacer11.gif" width="11" height="11"></td>
+ </tr>
+ <tr>
+ <td><img src="scrthumb1.png" alt="Tyrosine Chi1/2 correlation plot"
+ width="168" height="134"></td>
+ </tr>
+ <tr>
+ <td><img src="spacer11.gif" width="11" height="11"></td>
+ </tr>
+ <tr>
+ <td><img src="scrthumb2.png" alt="Molecular modeling of myosine"
+ width="168" height="134"></td>
+ </tr>
+ <tr>
+ <td><img src="spacer11.gif" width="11" height="11"></td>
+ </tr>
+ <tr>
+ <td><img src="scrthumb3.png" alt="Real-time molecular dynamics simulation"
+ width="168" height="134"></td>
+ </tr>
+ <tr>
+ <td><img src="spacer11.gif" width="11" height="11"></td>
+ </tr>
+ <tr>
+ <td><img src="scrthumb4.png" alt="Interactive surface visualization"
+ width="168" height="134"></td>
+ </tr>
+ <tr>
+ <td><img src="spacer11.gif" width="11" height="11"></td>
+ </tr>
+ <tr>
+ <td><img src="scrthumb5.png" alt="Water molecules rolling over molecular surface"
+ width="168" height="134"></td>
+ </tr>
+ </tbody>
+ </table>
+ </td>
+ <td colspan="5" width="100%" valign="top">
+ <center> <a href="viewdl.htm"><font size="4">Click here for instant
+ download of the free <b>YASARA View</b>!</font></a> <br>
+ <span style="font-weight: bold;">NEW:</span> <a href="vr.htm"><b>YASARA
+ enters a virtual reality on Linux and Windows PCs with Vive,
+ Index and Quest 2, watch the welcome movie here</b></a><b>.</b> <br>
+ </center>
+ <p align="center"><font size="4" color="#000000">WELCOME TO</font> </p>
+ <p align="center"><img src="yalo640w.jpg" alt="YASARA Logo" width="639"
+ height="247"> </p>
+ <p align="center"><font color="#000000"><img src="yasara.gif" alt="Yet Another Scientific Artificial Reality Application"
+ width="581" height="30"></font> </p>
+ <br>
+ <br>
+ 
+      <table class="frame1" cellspacing=0 cellpadding=0 border=0 rules=none>
+      <tbody>
+      <tr>
+      <td class="frame101l" valign="top" width="0" height="0"><img src="frame101.png" align=top border=0 width=12 height=12 hspace=0 vspace=0></td>
+      <td class="frame101r" rowspan=2>About YASARA - Watching Nature@Work
+      </td>
+      </tr>
+      <tr>
+      <td class="frame102l">&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="frame103l"><img src="frame104.png" border=0 width=12 height=12></td>
+      <td class="frame103r"></td>
+      </tr>
+      <tr>
+      <td class="frame104l"></td>
+      <td class="frame104r">
+       <img src="strofday20240802.gif"
+ title="Structure of the day, press Reload if outdated" alt="Structure of the day, press Reload if outdated"
+ style="border: 0px solid ; width: 320px; height: 240px;" align="right">
+ <p class="jir13">YASARA is a molecular-graphics, -modeling and
+ -simulation program for Windows, Linux, MacOS and <a href="android.htm">Android</a>
+ developed since 1993, that finally makes it really easy to answer
+ your questions. With an <a href="selscrshots.htm">intuitive user
+ interface, photorealistic graphics</a> and support for <a href="vr.htm">virtual
+ reality headsets</a>, <a href="products.htm#viewsonic">shutter
+ glasses</a>, <a href="products.htm#virtualwin">autostereoscopic
+ displays</a> and <a href="products.htm#lab">input devices</a>,
+ YASARA creates <a href="why.htm">a new level of interaction with
+ the 'artificial reality'</a>, that allows you to focus on your
+ goal and forget about the details of the program. </p>
+ <p class="jir13">YASARA is powered by PVL (Portable Vector
+ Language), a new development framework that provides <a href="benchmarks.htm">performance
+ way above traditional software</a>. PVL allows you to visualize
+ even the largest proteins and enables true interactive real-time
+ simulations with highly accurate force fields on standard PCs, <a
+ href="gpu.htm">making use of GPUs</a> if available (<a href="benchmarks.htm">see
+ benchmarks</a>). You can push and pull molecules around and work
+ with dynamic models instead of static pictures. </p>
+ <p class="jir13">Being rooted in the academic world, all methods
+ introduced by YASARA are <a href="sciencenews.htm">described in
+ peer-reviewed journals</a>. You can obtain the initial stage <a
+ href="products.htm#view">YASARA View</a> for free, while higher
+ stages (<a href="products.htm#model">YASARA Model</a>, <a href="products.htm#dynamics">YASARA
+ Dynamics</a>, <a href="products.htm#structure">YASARA Structure</a>)
+ require a <a href="licensefee.htm">license fee</a> that allows us
+ to guarantee new developments, updates and support also in the
+ future, independent of temporary grants. As a YASARA user, you are
+ not limited to the role of a consumer. You can <a href="weblinks.htm">extend
+ YASARA with macros, movies and plugins</a>, or create <a href="gigastructures.htm">gigastructures</a>
+ to share with the community. <br>
+ </p>
+ <p class="jir13">Click on one of the videos below to see YASARA in
+ action&hellip; </p>
+ <table style="float: left;" cellspacing="2" cellpadding="2" border="0">
+ <tbody>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><a href="vr.htm"><img
+ style="border: 0px solid ; width: 200px; height: 150px;"
+ alt="VR on PCs" src="video_vr.png"></a> <br>
+ </td>
+ </tr>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><small>Watch
+ VR in Linux and Windows.</small> <br>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <table style="float: left;" cellspacing="2" cellpadding="2" border="0">
+ <tbody>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><a href="gigastructures.htm"><img
+ style="border: 0px solid ; width: 200px; height: 150px;"
+ alt="Gigastructures" src="video_gigastructures.png"></a> <br>
+ </td>
+ </tr>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><small>Watch
+ structures will billions of atoms.</small> <br>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <table style="float: left;" cellspacing="2" cellpadding="2" border="0">
+ <tbody>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><a href="coarsegrained.htm"><img
+ style="border: 0px solid ; width: 200px; height: 150px;"
+ alt="Coarse-grained MD simulations" src="video_coarsegrained.png"></a> <br>
+ </td>
+ </tr>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><small>Watch
+ coarse-grained simulations.</small> <br>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <table style="float: left;" cellspacing="2" cellpadding="2" border="0">
+ <tbody>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><a href="smallmolbuilder.htm"><img
+ style="border: 0px solid ; width: 200px; height: 150px;"
+ alt="Small molecule builder" src="video_smallmolbuilder.png"></a> <br>
+ </td>
+ </tr>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><small>Watch
+ the small molecule builder.</small> <br>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <table style="float: left;" cellspacing="2" cellpadding="2" border="0">
+ <tbody>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><a href="androidvr.htm"><img
+ style="border: 0px solid ; width: 200px; height: 150px;"
+ alt="YASARA VR Workstation" src="video_vrworkstation.png"></a> <br>
+ </td>
+ </tr>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><small>Watch
+ VR on Android.</small> <br>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <table style="float: left;" cellspacing="2" cellpadding="2" border="0">
+ <tbody>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><a href="windows8.htm"><img
+ style="border: 0px solid ; width: 200px; height: 150px;"
+ alt="YASARA for Windows 8" src="video_windows8.jpg"></a> <br>
+ </td>
+ </tr>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><small>Watch
+ YASARA on Windows tablets.</small> <br>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <table style="float: left;" cellspacing="2" cellpadding="2" border="0">
+ <tbody>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><a href="android.htm"><img
+ style="border: 0px solid ; width: 200px; height: 150px;"
+ alt="YASARA for Android Phones" src="video_androidphone.jpg"></a> <br>
+ </td>
+ </tr>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><small>Watch
+ YASARA on smartphones</small> <br>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <table style="float: left;" cellspacing="2" cellpadding="2" border="0">
+ <tbody>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><a href="android.htm#tabletvideo"><img
+ style="border: 0px solid ; width: 200px; height: 150px;"
+ alt="YASARA for Android Tablets" src="video_androidtablet.jpg"></a> <br>
+ </td>
+ </tr>
+ <tr>
+ <td style="vertical-align: top; text-align: center;"><small>Watch
+ YASARA on Android tablets</small> <br>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <p class="jir13">
+      </td></tr>
+      <tr>
+      <td class="frame105l"><img src="frame107.png" border=0 width=12 height=24></td>
+      <td class="frame105r"><img src="frame108.png" border=0 width=12 height=24></td>
+      </tr>
+      </tbody>
+      </table>
+       <br>
+ 
+      <table class="frame1" cellspacing=0 cellpadding=0 border=0 rules=none>
+      <tbody>
+      <tr>
+      <td class="frame101l" valign="top" width="0" height="0"><img src="frame101.png" align=top border=0 width=12 height=12 hspace=0 vspace=0></td>
+      <td class="frame101r" rowspan=2>Unique YASARA features
+      </td>
+      </tr>
+      <tr>
+      <td class="frame102l">&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="frame103l"><img src="frame104.png" border=0 width=12 height=12></td>
+      <td class="frame103r"></td>
+      </tr>
+      <tr>
+      <td class="frame104l"></td>
+      <td class="frame104r">
+       </p>
+ <p class="jir13">In addition to a wide range of functions that can
+ partly also be found in other programs, YASARA provides a number
+ of features with unique properties:
+ <table>
+ <tbody>
+ <tr>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td colspan="3" width="50%"><a href="vr.htm">Feature
+ complete virtual reality on PCs, conveniently seated or
+ standing </a></td>
+ </tr>
+ <tr>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="selscrshots.htm">Molecular graphics
+ with Vulkan, soft shadows and ambient occlusion or
+ OpenGL <br>
+ </a></td>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="movies.htm">Molecular movies and
+ eLearning</a></td>
+ </tr>
+ <tr>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="benchmarks.htm#mdaccuracy">Molecular
+dynamics
+ with 4 clicks for all-atom systems</a> <br>
+ </td>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="gigastructures.htm">Building and
+ visualizing gigastructures with billions of atoms</a></td>
+ </tr>
+ <tr>
+ <td><img src="buckyrot.gif" width="24" height="24"></td>
+ <td><a href="http://yasara6.org/petworld/index.html">The
+ PetWorld gigastructure database, contribute and get
+ YASARA for free</a></td>
+ <td><img src="buckyrot.gif" width="24" height="24"></td>
+ <td><a href="coarsegrained.htm">Rigid molecular dynamics for
+ coarse-grained systems</a></td>
+ </tr>
+ <tr>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="mdanalysis.htm">Scientific reports
+ with 4 clicks</a></td>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="smallmolbuilder.htm">Interactive
+ small-molecule builder</a></td>
+ </tr>
+ <tr>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%">New force fields: <a href="kbpotentials.htm">YASARA</a>,
+ <a href="yamber.htm">YAMBER</a>, <a href="nova.htm">NOVA</a></td>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="typing.htm">pH-dependent typing of
+ organic molecules</a></td>
+ </tr>
+ <tr>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td style="vertical-align: top;"><a href="benchmarks.htm">Fastest
+molecular
+ dynamics algorithms for CPU and GPU, see benchmarks</a>
+ and <a href="gpu.htm">recommendations.</a> <br>
+ </td>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td style="vertical-align: top;"><a href="membranemd.htm">MD
+ simulation of membrane proteins with 4 clicks</a> <br>
+ </td>
+ </tr>
+ <tr>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="autosmiles.htm">Automatic force
+ field parameter assignment for 98% of the PDB</a> <br>
+ </td>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%">Yanaconda macros and Python scripts</td>
+ </tr>
+ <tr>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="homologymodeling.htm">Homology
+ modeling with 4 clicks</a> and <a href="casp8.htm">CASP
+ approval</a> <br>
+ </td>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="docking.htm">Small-molecule docking
+ with 4 clicks</a></td>
+ </tr>
+ <tr>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="android.htm">Modeling and
+ simulation on smartphones and tablets <br>
+ </a></td>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="sidechains.htm">Side-chain
+ prediction</a></td>
+ </tr>
+ <tr>
+ <td><img src="buckyrot.gif" width="24" height="24"></td>
+ <td><a href="androidvr.htm">Virtual reality with
+ head-tracking for just 175 EUR</a></td>
+ <td><img src="buckyrot.gif" width="24" height="24"></td>
+ <td><a href="validation.htm">Structure validation including
+ ligands</a></td>
+ </tr>
+ <tr>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="hbondnet.htm">pH dependent hydrogen
+ bonding networks</a></td>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="kbpotentials.htm">Multi-dimensional
+ knowledge-based potentials</a></td>
+ </tr>
+ <tr>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24"></td>
+ <td width="50%"><a href="nmr.htm">NMR structure
+ determination with 4 clicks</a></td>
+ <td width="16"><img src="buckyrot.gif" width="24" height="24">
+ </td>
+ <td width="50%">Interactive real-time surfaces </td>
+ </tr>
+ </tbody>
+ </table>
+ 
+      </td></tr>
+      <tr>
+      <td class="frame105l"><img src="frame107.png" border=0 width=12 height=24></td>
+      <td class="frame105r"><img src="frame108.png" border=0 width=12 height=24></td>
+      </tr>
+      </tbody>
+      </table>
+       <br>
+ 
+      <table class="frame1" cellspacing=0 cellpadding=0 border=0 rules=none>
+      <tbody>
+      <tr>
+      <td class="frame101l" valign="top" width="0" height="0"><img src="frame101.png" align=top border=0 width=12 height=12 hspace=0 vspace=0></td>
+      <td class="frame101r" rowspan=2>WHAT IF YASARA knows the answer?!
+      </td>
+      </tr>
+      <tr>
+      <td class="frame102l">&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="frame103l"><img src="frame104.png" border=0 width=12 height=12></td>
+      <td class="frame103r"></td>
+      </tr>
+      <tr>
+      <td class="frame104l"></td>
+      <td class="frame104r">
+       <img src="twinset320.jpg"
+ title="Twinset" alt="The WHAT IF / YASARA Twinset" style="width: 320px; height: 200px;"
+ align="right"> </p>
+ <p class="jir13"> With over 5000 citations, <a href="https://swift.cmbi.umcn.nl/whatif">WHAT
+ IF</a> is a widely used modeling program, well known e.g. for
+ its structure validation and prediction tools. The <a href="products.htm#twinset">WHAT
+ IF / YASARA Twinset</a> is a unified all-in-one distribution of
+ the two programs with extended functionality. If you run the
+ Twinset WHAT IF, an additional YASARA menu provides quick access
+ to molecular simulations. And vice versa, users of the Twinset
+ YASARA can simply run WHAT IF commands, so that WHAT IF inherits
+ YASARA's user interface, graphics engine, macro language and
+ convenience functions like unlimited undo/redo. This approach
+ makes WHAT IF quickly accessible, also to users outside the
+ bioinformatics expert community. </p>
+ 
+      </td></tr>
+      <tr>
+      <td class="frame105l"><img src="frame107.png" border=0 width=12 height=24></td>
+      <td class="frame105r"><img src="frame108.png" border=0 width=12 height=24></td>
+      </tr>
+      </tbody>
+      </table>
+      
+ <table style="text-align: left; width: 100%;" cellspacing="2" cellpadding="2"
+ border="0">
+ <tbody>
+ <tr>
+ <td style="vertical-align: top;"> <br>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <p class="jr" align="left"><font size="2"><em><strong><u>Acknowledgements</u>
+ </strong></em>: YASARA would not exist in its present form
+ without the support of: </font><font size="2"><font size="2">Prof.
+ Dr. Gert Vriend (<a href="http://www.cmbi.ru.nl">CMBI</a>,
+ University of Nijmegen, the Netherlands), </font>Prof. Dr.
+ Gregor Hoegenauer (Institute for Molecular biology, Biochemistry
+ and Microbiology, <a href="http://www.kfunigraz.ac.at/imkwww/">IMBM</a>,
+ University of Graz, Austria), Prof. Dr. Guenther Koraimann (<a href="http://www.kfunigraz.ac.at/imkwww/">IMBM</a>,
+ University of Graz, Austria), Prof. Dr. Andreas Kungl <a href="http://www.kfunigraz.ac.at/ipcwww/staff/kungl.html">(Institute
+ for Pharmaceutical Chemistry</a>, University of Graz,
+ Austria). YASARA is a molecular graphics, modeling and
+ simulation program for Linux, Windows, MacOS and Android,
+ &copy;1993-2023 by Elmar Krieger.</font> </p>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </body>
+</html>

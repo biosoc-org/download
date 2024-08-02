@@ -1,0 +1,422 @@
+
+
+
+
+<head>
+<title>Predict DNA-Drug Interaction Strength - PREDDICTA</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META 
+content="Predict DNA-Drug Interaction strength by Computing  delta Tm and Affinity of binding "name=description>
+<META 
+content="DNA, Drug, Binding free energy, Binding Affinity,delta tm, Saher, B. jayaram, Preddicta, Dna Drug interaction" 
+name=keywords>
+<SCRIPT src="jscripts/movingtext.js">
+</SCRIPT>
+<link rel="stylesheet" type="text/css"
+href="styles/tooltip.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/layoutmain.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/stylelink.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/stylefont.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/showmenu.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/menu.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/slidemenu.css" />
+<script src="jscripts/showmenuscript.js"></script>
+
+<script src="jscripts/main_nav.js"></script>
+<style type="text/css">
+body {
+	
+	background-image: url(images/bg.gif);
+}
+.style115 {color: #000000}
+.style117 {color: #0000FF}
+A.graphlink {
+display: block;
+width: 140px;
+text-align: left;
+text-decoration: none;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+font-weight:100;
+padding-left:5px; padding-bottom:2px; padding-top:2px;
+color: #000000;
+BORDER: none;
+border: solid 0px #ffffff;
+}
+
+A.graph:hover {
+border: solid 0px #BFBDBD;
+background-color:#CDDCE8;
+}
+a.dropmenudiv{
+border:1px solid #B5B5BD;
+       background-color:#C1C1FF;
+       border-bottom-width: 1;
+font:normal 11px Verdana;
+color:#000000;
+      line-height:23px;
+      z-index:100;
+}
+
+a.dropmenudiv {
+width: 100%;
+display: block;
+width: 200px;
+	 text-indent: 3px;
+	 border-bottom: 1px solid #B5B5BD;
+padding-left: 0px;
+	 text-align:center;
+	 text-decoration: none;
+	 font-weight: 100px;
+color: #000000;
+}
+
+a.dropmenudiv:hover{ /*hover background color*/
+	background-color:#A3C7F3;
+color: #000000;
+
+}
+</style>
+
+
+
+<SCRIPT language=JavaScript type=text/javascript>
+                        function check() {
+                                var ext = document.upload.myFile.value;
+                                ext = ext.substring(ext.length-3,ext.length);
+                                ext = ext.toLowerCase();
+                                if(ext != 'pdb') {
+                                  alert('Please select a .pdb extension file!');
+                                  return false; }
+                                else
+                                  return true;
+  return true;
+                        }
+
+                        function CIBEnergy(){
+
+                                if(document.upload.Tm.value==0){
+                                        alert('Please enter Tm value');
+                                        return false;
+                                }
+
+                                  if (isNaN(document.upload.Tm.value))
+                                        alert('Please enter valid Tm');
+                                    // contains something else that a digit
+                                  else{
+                                        document.upload.BFE.value=(-1.468 * document.upload.Tm.value - 59.777)/7.909;
+                                //      alert(document.upload.BFE.value);
+                                        var rlength=2;
+                                        var rnum=document.upload.BFE.value;
+                                        document.upload.BFE.value= Math.round(rnum*Math.pow(10,rlength))/Math.pow(10,rlength);
+
+                                  }
+
+                                        return false;
+
+
+                        }
+
+                        function TCIEnergy(){
+
+                                if(document.upload.SBFE.value==0){
+                                        alert('Please enter correct Binding Free value');
+                                        return false;
+                                }
+
+                                  if (isNaN(document.upload.SBFE.value))
+                                        alert('Please enter valid Binding Free Energy value');
+                                    // contains something else that a digit
+ else{
+                                        document.upload.STm.value=-(7.909*document.upload.SBFE.value+59.777)/1.468;
+                                        var rlength=2;
+                                        var rnum=document.upload.STm.value;
+                                        document.upload.STm.value= Math.round(rnum*Math.pow(10,rlength))/Math.pow(10,rlength);
+                                  }
+
+                                        return false;
+
+
+                        }
+
+
+                        function popUp(URL){
+                                fname = document.getElementsByName("myFile")[0].value;
+                                if (fname != "")
+                                        window.open(URL+"?first&uplMonitor="+encodeURIComponent(fname),"","width=400,height=150,resizable=yes,depend=yes")
+                        }
+
+                        function clearForm(){
+                               // document.upload.reset();
+                                document.upload.email.value="";
+                                document.upload.METHOD[0].checked="true";
+                                document.upload.charge.value="0";
+                                document.upload.seq.value="";
+                                document.upload.myFile.value="";
+                                document.upload.charge.disabled=true;
+				   return true;
+                        }
+
+                        function checkForm(){
+ var email=document.upload.email.value;
+                                document.upload.seq.value="";
+                                if(document.upload.METHOD[0].checked==true)
+                                        return true;
+                                else if(email.length==0 || (email.indexOf("@")==-1 ||  email.indexOf(".")==-1)){
+                                        alert('Please enter a valid email address for getting the result');
+                                        return false;
+                                }
+
+                                return true;
+                        }
+			function clear_textbox()
+			{
+
+			document.upload.Tm.value = "";
+			document.upload.BFE.value = "";
+			} 
+
+			function clear_textbox1()
+                        {
+
+                        document.upload.STm.value = "";
+                        document.upload.SBFE.value = "";
+                        }
+
+			function enableField()
+			{
+			document.upload.charge.disabled=false;
+			//alert(upload.charge.value);
+			}
+			function disableField()
+			{
+			document.upload.charge.disabled=true;
+			
+			}               
+ </SCRIPT>
+</head>
+<body class="main" >
+<center>
+  <table cellpadding="0" cellspacing="0"   class="main" id="main">
+    <tr>
+      <td align="center" class="mnptop2"><img src="images/scfstrip_merged.jpg" width="750" height="76"></td>
+    </tr>
+    <tr>
+      <td width="757" height="718"  align="center" valign="top" ><table background="images/topmenubg1.gif"  width="757" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <th height="15" align="left" scope="col" ></th>
+            <th  align="right" scope="col" ><table  width="419" height="15" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="543"  height="10" align="right"><a class="topmenu" href="http://www.scfbio-iitd.res.in/main.htm">Home</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/scfbiogroup/scfgroup.htm">Group</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/publication/publication.htm">Publications</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/resources/resources.htm">Resources</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/contact/contactus.htm">Contact Us</a></td>
+                </tr>
+            </table></th>
+          </tr>
+        </table>
+          <table border="0" cellpadding="0" cellspacing="0" >
+            <tr>
+              <td width="757" height="703" align="center" class="mnptop2" valign="top">
+      
+      <table width="685" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+               <TD 
+                style="FONT-SIZE: 20px; COLOR: #000000; FONT-FAMILY: Comic Sans MS" 
+                align=middle colSpan=2 height=70>PreDDICTA<BR><SPAN 
+                  style="FONT-SIZE: 13px; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif" 
+                  align="center" colspan="2"><br><B 
+                  style="COLOR: #b5283e">Pre</B>dict <B 
+                  style="COLOR: #b5283e">D</B>NA-<B 
+                  style="COLOR: #b5283e">D</B>rug <B 
+                  style="COLOR: #b5283e">I</B>nteraction strength by <B 
+                  style="COLOR: #b5283e">C</B>omputing &#916;<B 
+                  style="COLOR: #b5283e">T</B>m and <B 
+                  style="COLOR: #b5283e">A</B>ffinity of binding.</SPAN><br></TD></TR>
+		  <tr><td align=center><table><tr><td align=left width=300>
+		  <a class=dropmenudiv href="javascript:window.open('example/aboutpreddicta.html','name','height=600,width=600');window.focus();" >About Preddicta</a><br>
+		   <a class=dropmenudiv href="http://www.scfbio-iitd.res.in/doc/preddicta.pdf" target="_blank">DNA Drug Interaction</a><br>
+		   <a class=dropmenudiv href="http://www.scfbio-iitd.res.in/software/drugdesign/dnadrugdataset.jsp" target="_blank">DNA Drug Complex Data Set</a>
+		  </td>
+		  <td ><img  src="images/drugdna.gif"></td></tr></table> </td></tr>
+		  <TR>
+                <TD  width=570 ><p class="style29 margin1" align=justify  >&nbsp;&nbsp; 
+                  </TH>
+                </TR></TABLE>
+            <TABLE class=style29 cellSpacing=0 cellPadding=0 width=600 
+            bgColor=#fdf7f2 border=0>
+              <TR>
+                <TD id=anchortag class=stylelefttop scope=col width=600 
+                background=images/grad.gif><A name=IE></A><LEFT><SPAN 
+                  style="FONT-SIZE: 14px">Tool 
+                  1</SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                  Predict &#916;T<SUB>m</SUB> and &#916; G<sup>o</sup><SUB>bind</SUB> from 3-D 
+                  structure</LEFT>        
+</td></tr> 
+       <form name="upload" action="preddicta.jsp#anchortag"  enctype="multipart/form-data" method="POST">
+
+                                
+                                      
+                                             <tr >
+                                                <td >
+						
+						
+						<fieldset><legend>Select Option</legend>
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input onclick=disableField() type="Radio" name="METHOD" value="1" checked="checked">Option 1&nbsp;<A class=six href="javascript:window.open('example/method1.html','name','height=250,width=350');window.focus();">[About]</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input onclick=enableField() type="Radio" name="METHOD" value="2" >Option 2&nbsp;<A class=six href="javascript:window.open('example/method2.html','name','height=250,width=350');window.focus();">[About]</A>&nbsp;&nbsp;&nbsp;
+                                                        Formal Drug Charge
+                                                        <select disabled name="charge" value="null" class="style29">
+                                                                <option value="0">0</option>
+                                                                <option value="-10">-10</option>
+                                                                <option value="-9">-9</option>
+                                                                <option value="-8">-8</option>
+                                                                <option value="-7">-7</option>
+                                                                <option value="-6">-6</option>
+                                                                <option value="-5">-5</option>
+                                                                <option value="-4">-4</option>
+                                                                <option value="-3">-3</option>
+                                                                <option value="-2">-2</option>
+                                                                <option value="-1">-1</option>
+                                                                <option value="0">0</option>
+                                                                <option value="1">+1</option>
+                                                                <option value="2">+2</option>
+                                                                <option value="3">+3</option>
+                                                                <option value="4">+4</option>
+                                                                <option value="5">+5</option>
+                                                                <option value="6">+6</option>
+                                                                <option value="7">+7</option>
+                                                                <option value="8">+8</option>
+                                                                <option value="9">+9</option>
+                                                                <option value="10">+10</option>
+                                                        </select>
+<br></fieldset> </td>
+                                        </tr>
+
+                                
+
+                                
+
+                                
+
+                                        <tr>
+                                                <td  ><fieldset><legend>Input</legend><br>
+                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Input PDB file :
+                                                        <input type="hidden" name="dir" value="/home/websuite/software/"> 
+                                                        <input class="style29" type="file" name="myFile">&nbsp;&nbsp;<A class=six 
+                  href="javascript:window.open('example/input1.html','name','toolbar=yes,status=yes,width=600,height=500,scrollbars=yes,resizable=yes');window.focus();">[Input Format]</A>&nbsp;&nbsp;<A class=six 
+                  href="http://www.scfbio-iitd.res.in/software/drugdesign/dnadrugdataset.jsp" 
+                  target=_blank>[Data 
+                  set]</A>
+			<br><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E-mail address:  <input class="style29" type="text" name="email" value="" > (Required for Option 2)
+<br><br><br>
+                                                        <center>
+                                                        <input class="style29" title="Upload selected file to the current working directory" type="submit" name="uploadbtn" value="&nbsp;&nbsp;Submit" onclick="return(checkForm()&&check());">
+                                                        <input class="style29" type="button" value="&nbsp;&nbsp;Reset" onclick="return(clearForm());" >  
+                                                        </center>
+                                              </fieldset>  </td>
+                                        </tr>
+
+                        
+                                        <tr>
+                                                <td align="center" ><fieldset><legend>Output</legend><br>
+                                                        <TEXTAREA  NAME="seq" COLS="70" ROWS="10"></textarea>
+                                                 <br><br></fieldset> </td>
+                                        </tr>
+                        
+
+                                              
+                        
+                </table><br>
+                
+           <table width="600" cellSpacing=0 cellPadding=0 bgColor=#fdf7f2 border=0  class="style29"  width="650">
+          <tr>
+            <TD class=stylelefttop width=600 
+                  background=images/grad2.gif><LEFT><SPAN 
+                  style="FONT-SIZE: 14px">Tool 
+                  2</SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+                  name=Tm>Predict Binding Affinity from 
+                &#916;T<SUB>m</SUB></A></LEFT></TD>          
+
+</tr>
+    
+             
+                                    
+                                <tr>
+                                        <td align="center" bgColor=#edf4ec ><br><b>Input &#916;Tm </b><input class="style29" onfocus=clear_textbox() type="text" name="Tm" value="" size="5">&nbsp;Kelvin&nbsp;<input class="style29" type="button" value="&nbsp;&nbsp;Calculate" onClick="return (CIBEnergy());">&nbsp;<br><br>                              
+                                
+                                        <b>Predicted Binding Free Energy</b> <input class="style29" type="text" name="BFE" value="" size="5" readonly="true">&nbsp;kcal/mol</td>
+                                </tr>
+                        
+               </table>
+ 
+<br>
+<table class="style29" align="center" width="600">
+<tr>
+        <TD class=stylelefttop 
+                  background=images/grad1.gif><LEFT><SPAN 
+                  style="FONT-SIZE: 14px">Tool 
+                  3</SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><A 
+                  name=BF>Predict &#916;T<SUB>m</SUB> from Binding free 
+                  energy</A></B></LEFT></TD>
+</tr>
+                        
+                                <tr>
+                                        <td align="center" bgColor=#dee4fa><br><b>Input Binding Free Energy</b><input onfocus=clear_textbox1()  class="style29" type="text" name="SBFE" value="" size="5">&nbsp;kcal/mol&nbsp;<input class="style29" type="button" value="&nbsp;&nbsp;Calculate" onClick="return (TCIEnergy());">&nbsp;<br><br>
+                                        <b>Predicted &#916;Tm</b> <input class="style29" type="text" name="STm" value="" size="5" readonly="true">&nbsp;Kelvin</td>
+                                </tr>
+                        
+
+
+                </form>
+
+
+        
+        
+        
+      
+
+		
+        </td></tr>
+        <tr><td class="style29"><br>
+
+      <div  style="background color:green;color:white;font-size:14px;font-weight:bold;">Number of Hits since 20th March 2007: 38783</div>
+
+     <hr>   
+     <b>Reference:</b><br>  
+     <p> <a name=ref1></a> &quot;A Swift All-atom Energy based Computational Protocol to Predict DNA-Drug Binding Affinity and &Delta;Tm&quot; Shaikh S.A. and Jayaram B., 2007. J Med Chem., 2007, 50, 2240-2244 </p>
+
+
+
+       </td></tr>
+        
+            </table>
+            <br><br><br>     
+            </tr>
+            <tr>
+               <td height="10"  align="center" valign="top" ><table width="757" border="0" cellpadding="0" cellspacing="0">
+                 <tr>
+                    <td>
+   
+                    <table  width="757" height="16"  cellpadding="0" cellspacing="0" class="footertable" >
+                            <tr>
+        <td width="100%" height="10" align="left"  scope="col" class=mnptop2 ><script language="javascript" src="jscripts/footer.js"></script></td>
+          </tr>
+        </table>
+ <table  width="757" height="16"  cellpadding="0" cellspacing="0" class="footertable" >
+                            <tr>
+        <td width="100%" height="10" align="left"  scope="col" class=mnptop2 ><tr>For further queries, suggestions and comments kindly contact the Web Administrator at <A href="mailto:anjali@scfbio-iitd.res.in"> anjali@scfbio-iitd.res.in</a></tr></td></table>
+
+      </table>          </tr>
+  </table>
+  </td>
+  </tr>
+</table>
+
+</center>
+</body>
+</html>
+

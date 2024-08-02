@@ -1,0 +1,759 @@
+<HTML>
+
+<STYLE>
+P {
+COLOR: BLACK;
+}
+.FONT1 {
+FONT-SIZE: 18px;
+}
+.FONT2 {
+FONT-SIZE: 14px;
+}
+</STYLE>
+
+<HEAD>
+<TITLE>Tinker Molecular Modeling Package</TITLE>
+<META NAME="DESCRIPTION" CONTENT="Jay Ponder Lab Home Page">
+<META NAME="KEYWORDS" CONTENT="COMPUTATIONAL, CHEMISTRY, TINKER, AMOEBA,
+      MOLECULAR, MODELING, MECHANICS, DYNAMICS, SIMULATION, PROTEIN,
+      BIOMOLECULES, THEORY, RESEARCH, ACADEMIC, FACULTY">
+<META NAME="google-site-verification"
+      CONTENT="3-GApDBY9Lj3v7drW-t8MK1Ta9AlfGmsIDf9JVu2_VA" />
+<META NAME="google-site-verification"
+      CONTENT="xkDpdtj4icAUN_0o82DgnZ15GVdpP4zTT9YXcCyrq0I" />
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<CENTER>
+<BR>
+<HR ALIGN=CENTER SIZE=8 WIDTH=80% NOSHADE>
+<P><B><FONT SIZE=7>Tinker Molecular Modeling</FONT></B></P>
+<P><IMG SRC="mechanic.gif" width="594" height="426"></I>
+<HR ALIGN=CENTER SIZE=8 WIDTH=80% NOSHADE>
+<H1><B><I>Tinker - Software Tools for Molecular Design</I></B></H1>
+<H2><P>Current Major Version: Tinker 8.11</P></H2>
+<H2><P>Release Date: February 2024</P></H2>
+<H2><P>Minor Version: 8.11.3 (June 21, 2024)</P></H2>
+<HR ALIGN=CENTER SIZE=8 WIDTH=80% NOSHADE>
+
+<TABLE>
+<BR>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=7%>
+</TD>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+
+<CENTER><P>
+<H2>Introduction</H2>
+</P></CENTER>
+
+<UL><P CLASS="FONT1">
+The Tinker molecular modeling software is a complete and general
+package for molecular mechanics and dynamics, with some special features
+for biopolymers. Tinker has the ability to use any of several common
+parameter sets, such as Amber (ff94, ff96, ff98, ff99, ff99SB), CHARMM
+(19, 22, 22/CMAP), Allinger MM (MM2-1991 and MM3-2000), OPLS (OPLS-UA,
+OPLS-AA), Merck Molecular Force Field (MMFF), Liam Dang's polarizable
+model, AMOEBA (2004, 2009, 2013, 2017, 2018) polarizable atomic multipole
+force fields, AMOEBA+ that adds charge penetration effects, and our new
+HIPPO (Hydrogen-like Interatomic Polarizable POtential) force field.
+Parameter sets for other force field models are under consideration for
+future releases.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+The Tinker software contains a variety of interesting algorithms
+such as: flexible implementation of atomic multipole-based electrostatics
+with explicit dipole polarizability, various continuum solvation treatments
+including several generalized Born (GB/SA) models, generalized Kirkwood
+implicit solvation for AMOEBA, an interface to APBS for Poisson-Boltzmann
+calculations, efficient truncated Newton (TNCG) local optimization,
+surface areas and volumes with derivatives, free energy calculations via
+the Bennett Acceptance Ratio (BAR) method, normal mode vibrational analysis,
+minimization in Cartesian, torsional or rigid body space, symplectic RESPA
+multiple time step integration for molecular dynamics, velocity Verlet
+stochastic dynamics, pairwise neighbor lists and splined spherical energy
+cutoff methods, particle mesh Ewald (PME) summation for partial charges and
+polarizable multipoles, a novel reaction field treatment of long range
+electrostatics, fast distance geometry metrization with better sampling
+than standard methods, Elber's reaction path algorithm, potential
+smoothing and search (PSS) methods for global optimization, Monte Carlo
+Minimization (MCM) for efficient potential surface scanning, tools for
+fitting charge, multipole and polarization models to QM-based electrostatic
+potentials and more....
+</P></UL>
+
+<CENTER>
+<H2>Current Release</H2>
+</CENTER>
+
+<UL><P CLASS="FONT1">
+Tinker 8 is a major new release of the Ponder Lab tool set for
+molecular mechanics and dynamics calculations. An important change in
+this new version is the switch from old-style common blocks to Fortran
+modules. Use of modules and greatly increased use of dynamic memory
+allocation means Tinker can now support very large molecular systems.
+Tinker 8 also implements improved OpenMP parallelization throughout
+many parts of the code. Additional major improvements include parallel
+neighbor list building and updating, a big reduction in iterations
+needed to converge polarization via an efficient PCG solver, and the
+reparameterizaton of Poisson-Boltzmann and Generalized Kirkwood
+implicit solvation models..
+</P></UL>
+
+<UL><P CLASS="FONT1">
+Other changes from the previous Tinker version include new and updated
+force field parameter sets and numerous minor additions and bug fixes,
+many of them suggested by users of the package. Please note that as with
+prior new releases, version 8 is neither backward nor forward compatible
+with earlier versions of Tinker. In particular, older versions of parameter
+files should not be used with Tinker 8 executables and vice versa.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+While we strongly suggest users switch to Tinker 8 with its many
+important new features and bug fixes, we provide download links below
+for prior stable versions, Tinker 7.1.3, Tinker 6.3.3, Tinker 5.1.9 and
+Tinker 4.3. Tinker 6 and later releases are OpenMP parallel and written
+in Fortran 95, while Tinker 4 and 5 are in serial, extended Fortran 77.
+</P></UL>
+
+<CENTER>
+<H2>Availability</H2>
+</CENTER>
+
+<UL><P CLASS="FONT1">
+This distribution version of Tinker, with full source code, is licensed
+free of charge to academic research groups, government laboratories, and
+non-profit organizations. Use in commercial settings requires a commercial
+license, as described in the Tinker License Agreement found below.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+Download links are provided in the bottom section of this web page. Major
+new releases of the package with additional features are generally placed
+on this site during February, June and October. Minor changes and bug fixes
+are added to the distribution version as we finish testing them. The basic
+package has been used by the Ponder lab and others at Washington
+University for several years and should be fairly robust. All we ask
+is that you notify us of any bugs, features you would like to see
+implemented, or major code extensions that you add yourself.
+</P></UL>
+
+<UL><P CLASS="FONT1"> 
+Non-commercial users who make significant use of the package should
+complete and return by regular post or email the license form available
+below. The forms are used to aid us in convincing colleagues Tinker is
+used outside of Washington University, which helps us justify further
+development of the programs. We try to respond to email as time allows.
+Comments are always welcome and should be directed to Jay Ponder at
+ponder@dasher.wustl.edu.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+Tinker is also available on Github! The TinkerTools organization has a full
+Github site at <A HREF="https://github.com/TinkerTools">
+https://github.com/TinkerTools</A> with complete source code
+for canonical Tinker and other packages in the Tinker software suite. The
+master repository on the Github site is updated frequently with new minor
+features and bug fixes. It the place to go for the latest revisions of the
+software. Prebuilt executables are not available via the Github site.
+</P></UL>
+
+<CENTER>
+<H2>Installation</H2>
+</CENTER>
+
+<UL><P CLASS="FONT1">
+Tinker 8 is provided as a complete source distribution via the links below.
+After unpacking the distribution, you can build a set of Tinker executables
+on almost any machine with a Fortran compiler. Makefiles, a GNU autoconf
+configure script, as well as standalone scripts to compile, build object
+libraries, and link executables on a wide variety of machine-CPU-operating
+system combinations are provided.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+If you wish to build the OpenMP-capable parallel version of Tinker, object
+libraries from the FFTW 3.3 Fourier transform package are required. The FFTW
+libraries must be available in the one of the locations searched by the
+Tinker Makefile prior to building Tinker executables. Optional Support for
+APBS Poisson-Boltzmann calculations within Tinker requires object libraries
+from the APBS 1.3 software package.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+Pre-built Tinker executables for Linux, macOS, and Windows are also available
+for download below. They should run on most recent vintage machines using
+the above operating systems, and can handle a maximum of 1 million atoms
+provided sufficient memory is available. The Linux executables require at
+least glibc-2.6 or later. Note starting with Tinker 8, we no longer provide
+pre-built executables for 32-bit operating systems.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+The provided executables are OpenMP capable, but do not support APBS
+or the Tinker-FFE interface. You will still need to have a copy of the
+complete Tinker distribution as it contains the parameter sets, examples,
+benchmarks, test files and documentation required to use the package.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+Only a very few portions of Tinker still make use of static memory
+allocation, however some of the executables can require a large memory
+(<I>i.e.,</I> total of actual RAM and swap space/virtual memory) to handle
+large molecular systems. There are instructions available on the internet for
+increasing the size of the swap space/virtual memory under various versions
+of Linux and Windows. If a program fails with the message "insufficient
+virtual memory", "resource temporarily unavailable" or a "segmentation
+fault", then you may need to add swap space. macOS increases the size
+of the swap space automatically as needed, and such modifications are not
+needed to use Tinker on a Macintosh.
+</P></UL>
+
+<CENTER>
+<H2>Tinker9</H2>
+</CENTER>
+
+<UL><P CLASS="FONT1">
+Tinker9 is a new software package built on top of the current Tinker version,
+and intended to provide high performance on single NVIDIA GPU-based systems.
+The code is written in C++ with GPU extensions utilizing OpenACC and CUDA,
+and it links against the Fortran Tinker library. Tinker9 is available from
+the TinkerTools site on Github (https://github.com/TinkerTools/tinker9/) with
+source code, documentation and instructions for building executables. At
+present, Tinker9 supports traditional biomolecular force fields including
+Amber, CHARMM and OPLS, as well as the AMOEBA, AMOEBA+ and HIPPO models
+developed by the Ponder lab and our collaborators.
+</P></UL>
+
+<CENTER>
+<H2>Tinker-OpenMM</H2>
+</CENTER>
+
+<UL><P CLASS="FONT1">
+OpenMM is a molecular modeling library developed at Stanford University.
+It supports the AMOEBA force field, and supplies CUDA code implementing AMOEBA
+on NVIDIA GPUs. On this site we provide code interfacing selected Tinker
+programs with OpenMM. The source code and a Makefile needed to construct
+OpenMM-enabled Tinker ANALYZE, BAR and DYNAMIC programs is available below
+for download. The Makefile assumes OpenMM 7.1 or later is installed and a
+CUDA-capable graphics card is present. Depending upon the size of the system
+being simulated and the GPU card available, OpenMM-based Tinker molecular
+dynamics is very significantly faster than the standard CPU-based version.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+To build Tinker-OpenMM executables, you must have an NVIDIA GPU installed
+on your build system along with the CUDA development environment including
+the "nvcc" CUDA compiler. Download and install the current OpenMM version
+from Github. Then follow the instructions in the /openmm directory of the
+full Tinker distribution, or use the equivalent Tinker interface code for
+OpenMM for provided as a separate download below. Tinker-OpenMM executables
+have been tested on Linux, and should also work under Windows. Due to the
+regretable disfunction between Apple and NVIDIA, the last version of macOS
+with available NVIDIA graphics drivers is 10.13.6 (High Sierra), the last
+version of CUDA to work with macOS is CUDA 10.2, and only GPU cards through
+the GeForce GTX 10 ("Pascal") series are supported.
+</P></UL>
+
+<CENTER>
+<H2>Tinker on Android Devices</H2>
+</CENTER>
+
+<UL><P CLASS="FONT1">
+Tinker is available on the Google Play Store for a variety of Android devices
+via self-extracting installers implemented and maintained by Alan Liska and
+Veronika Ruzickova of the J. Heyrovksy Institute of Physical Chemistry in
+Prague. Binaries and documentation are also available from the Mobile
+Chemistry Portal located at http://www.jh-inst.cas.cz/~liska/Tinker.htm/.
+</P></UL>
+
+<CENTER>
+<H2>Tinker-FFE ("Force Field Explorer")</H2>
+</CENTER>
+
+<UL><P CLASS="FONT1">
+Force Field Explorer (Tinker-FFE) is a Java-based GUI for the Tinker package.
+It provides visualization for Tinker molecule files, as well as launching of
+Tinker calculations from a graphical interface. The original version of FFE
+was written by Michael Schnieders, now on the Biomedical Engineering faculty
+at the University of Iowa, prior to and during his thesis work in St. Louis.
+It was further revised by Jeff Bigg, Tyler Ponder and Brendan McMorrow during
+summers spent in the Ponder lab. A major update for Tinker 8, renamed
+Tinker-FFE, was completed in July 2017. Tinker-FFE for Linux, macOS and
+Windows can be downloaded from the lower section of this web page as
+"installation kits" containing the FFE GUI and an FFE-enabled version of
+Tinker. Tinker-FFE requires a 64-bit CPU and operating system, as 32-bit
+systems are no longer supported.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+Integration with Tinker, including the ability to interactively run Tinker
+calculations, and to access molecule downloads from the PubChem, NCI and PDB
+databases make Tinker-FFE a useful tool in classroom teaching environments.
+For research work, we recommend using the latest command line version of
+Tinker for numerical calculations, and using FFE or another visualization
+program to view results. Several other visualization programs (including VMD,
+Avogadro, Jmol, MOLDEN, WebMO, some PyMOL versions, <I>etc.</I>) can display
+Tinker structure and MD trajectory files. 
+</P></UL>
+
+<UL><P CLASS="FONT1">
+For those wishing to modify the FFE GUI or build a version from source,
+we provide a complete development package for Tinker-FFE. This is a large
+download which contains the code for all components, including the Java source
+for FFE itself and the many required Java libraries. This package allows
+building Tinker-FFE on all three supported operating systems from a common
+code base. External requirements are the GNU compiler suite with gcc, g++ and
+gfortran (on Windows use the MinGW-w64 GNU compilers under Cygwin), and the
+Install4j Multi-Platform Java Installer Builder.
+</P></UL>
+
+<UL><H3><P>
+Installation Notes for Tinker-FFE on Linux:
+</P></H3></UL>
+
+<UL><P CLASS="FONT1">
+The Tinker-FFE Installer for Linux is provided as a gzipped shell script.
+Uncompress the the .gz archive to produce an .sh script, and then run
+the script. The script must have the "executable" attribute, set via
+"chmod +x *.sh", prior to being run. If you have the installer generate a
+desktop icon, you may need to make the icon "launchable". This is done on
+Ubuntu by right clicking on the icon and selecting "Allow Launching".
+</P></UL>
+
+<UL><P CLASS="FONT1">
+On some older Linux distributions, the Tinker-FFE Installer does not launch
+correctly or hangs. For these systems, we provide an alternative Tinker-FFE
+distribution as a gzipped tar archive. Download this Tinker-FFE archive,
+ungzip the file and copy it to the end user's home directory, then extract
+the distribution there via the "tar xvf" command. The application is located
+in $HOME/Tinker-FFE/ffe/.
+</P></UL>
+
+<UL><H3><P>
+Installation Notes for Tinker-FFE on macOS:
+</P></H3></UL>
+
+<UL><P CLASS="FONT1">
+<B><I>Note: The current version of FFE may not run on macOS versions later
+than High Sierra (10.13). We are looking into this problem.</I></B>
+</P></UL>
+
+<UL><P CLASS="FONT1">
+The Tinker-FFE Installer for macOS is provided as a .dmg disk image file.
+Double-click on the file to run the installer. Recent versions of macOS
+contain a security feature called Gatekeeper that keeps applications not
+obtained via the App Store or Apple-approved developers from being opened.
+Gatekeeper is enabled by default, and may result in the (incorrect!) error
+message: "Tinker-FFE Installer.app is damaged and can't be opened."
+To turn off Gatekeeper, go to the panel System Preferences > Security &
+Privacy > General, and set "Allow apps downloaded from:" to "Anywhere". This
+will require an Administrator account, and must be done before invoking the
+FFE installer. Once FFE is installed and launched for the first time, you
+can return the System Preference to its prior value. On macOS 10.12 and
+later, the "Anywhere" option has been removed. In most cases the Security
+& Privacy panel will open and permit the user to run the installer. 
+Alternatively, the "Anywhere" option can be restored by running the command
+"sudo spctl --master-disable" in a Terminal window.
+</P></UL>
+
+<UL><H3><P>
+Installation Notes for Tinker-FFE on Windows:
+</P></H3></UL>
+
+<UL><P CLASS="FONT1">
+The Tinker-FFE Installer for Windows is provided as a zipped executable.
+First, unzip the .zip file, then run the resulting executable .exe file.
+In order to perform minimizations or molecular dynamics from within FFE,
+some environment variables and symbolic links must be set prior to using
+the program. A batch file named "FFESetupWin.bat" is installed in the
+main Tinker-FFE directory, which by default resides in the user's home
+directory. To complete the setup of FFE, this batch file should be run
+from a Command Prompt window following installation. It is only necessary
+to invoke this batch file once, as the settings should persist between
+logins.
+</P></UL>
+
+<CENTER>
+<H2>Future Development</H2>
+</CENTER>
+
+<UL><P CLASS="FONT1">
+We have big plans for the Tinker package going forward. New program packages
+in the Tinker family, Tinker 9 and Tinker-HP, are under active development.
+Our future development will focus on free energy calculations, major new
+sampling methods, enhanced crystal modeling capability, improved force field
+parameterization methods, additions to the AMOEBA model, and new force fields,
+including AMOEBA+ and HIPPO.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+Tinker 9 is a reimplementation of significant portions of Tinker in C++,
+using OpenACC and CUDA to support NVIDIA GPU calculations. Tinker-HP is an
+distributed, MPI-parallel Fortran code that is also GPU capable via use of
+CUDA for compute intensive functions. Both of these Tinker-based codes are
+available from the TinkerTools Github site. Suggestions and comments
+regarding possible additions to Tinker or other codes in the Tinker family
+are always welcome. Of course, offers to provide or help write code are even
+better....
+</P></UL>
+
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=9%>
+<P></P>
+</TD>
+</TABLE>
+
+<HR ALIGN=CENTER SIZE=8 WIDTH=80% NOSHADE>
+
+<TABLE WIDTH=765 CELLPADDING=0>
+
+<CENTER><P>
+<H2>Tinker Resources</H2>
+</P></CENTER>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker Summary Sheet</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/summary.pdf"><H3>PDF</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker License Agreement</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/license.pdf"><H3>PDF</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>TinkerTools Community Site</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="https://tinkertools.org"><H3>WEBSITE</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>TinkerTools on GitHub</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="https://github.com/tinkertools"><H3>WEBSITE</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker User's Guide</H3></P>
+</TD>
+<TD COLSPAN=2 ALIGN=LEFT WIDTH=8%>
+<P><A HREF="downloads/tinker-guide.pdf"><H3>PDF</H3></A></P>
+</TD>
+<TD COLSPAN=2 ALIGN=LEFT WIDTH=8%>
+<P><A HREF="distribution/doc/sphinx/tinker/_build/html/index.html"><H3>HTML</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker Logo Illustration</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/logo.gif"><H3>GIF</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker Distribution Directory</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="distribution"><H3>VIEW</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Force Field Parameter Sets</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="distribution/params"><H3>VIEW</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker Source Code Directory</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="distribution/source"><H3>VIEW</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker Package Distribution (GZIP, 73.3 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/tinker-8.11.3.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker Package Distribution (ZIP, 82.5 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/tinker-8.11.3.zip"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker Executables for Linux (GZIP, 110.3 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/bin-linux-8.11.3.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker Executables for macOS (GZIP, 100.7 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/bin-macos-8.11.3.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker Executables for Windows (ZIP, 103.7 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/bin-windows-8.10.5.zip"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Equilibrated AMOEBA Water Boxes (GZIP, 25.0 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/waterbox.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker Validation Suite for MMFF (GZIP, 5.68 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/mmff.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker Interface Code for OpenMM (GZIP, 64.6 Kb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/openmm.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Previous Release of Tinker 7.1.3 (GZIP, 28.7 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/tinker-7.1.3.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Previous Release of Tinker 6.3.3 (GZIP, 20.5 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/tinker-6.3.3.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Previous Release of Tinker 5.1.9 (GZIP, 14.1 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/tinker-5.1.9.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Previous Release of Tinker 4.3 (GZIP, 7.5 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%><P>
+<P><A HREF="downloads/tinker-4.3.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker-FFE (Force Field Explorer) User's Guide</H3></P>
+</TD>
+<TD COLSPAN=2 ALIGN=LEFT WIDTH=8%>
+<P><A HREF="downloads/ffe-guide.pdf"><H3>PDF</H3></A></P>
+</TD>
+<TD COLSPAN=2 ALIGN=LEFT WIDTH=8%>
+<P><A HREF="distribution/doc/sphinx/ffe/_build/html/index.html"><H3>HTML</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker-FFE Installer for Linux (GZIP SH, 346.9 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/ffe-linux-8.10.1.sh.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker-FFE Distribution for Linux (GZIP TAR, 349.1 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/ffe-linux-8.10.1.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker-FFE Installer for macOS (DMG, 287.8 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/ffe-macos-8.10.2.dmg"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Tinker-FFE Installer for Windows (ZIP, 282.5 Mb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/ffe-windows-8.10.1.zip"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+<TR VALIGN=TOP>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+<P><H3>Force Field Explorer Development Kit (GZIP, 1.45 Gb)</H3></P>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=8%>
+<P><A HREF="downloads/ffe-8.10.1.tar.gz"><H3>DOWNLOAD</H3></A></P>
+</TD></TR>
+
+</H3>
+</TABLE>
+
+<HR ALIGN=CENTER SIZE=8 WIDTH=80% NOSHADE>
+<BR>
+
+<TABLE>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=7%>
+<P></P>
+</TD>
+<TD COLSPAN=1 ALIGN=LEFT WIDTH=84%>
+
+<UL><P CLASS="FONT1">
+Tinker's <I>"Molecular Mechanics"</I> Logo Illustration by Jay Nelson.
+Courtesy of Prof. Robert Paine, Chemistry Department, University of
+New Mexico.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+Installation kits for Force Field Explorer (FFE) are built using the
+<A HREF="https://www.ej-technologies.com/products/install4j/overview.html">
+Install4j Multi-Platform Java Installer Builder</A> from ej-technologies GmbH.
+</P></UL>
+
+<CENTER>
+<IMG SRC="install4j.png" WIDTH="130" HEIGHT="45">
+</CENTER>
+
+<UL><P CLASS="FONT1">
+Early development of Tinker was supported by Awards DBI 9808317,
+MCB 0344670 and CHE 0535675 from the National Science Foundation, and
+NIH Grant R01 GM58712 from the United States National Institutes of Health.
+Recent funding of the Tinker software and AMOEBA polarizable force
+has been provided by NSF Awards CHE 1152823 and CHE 1265731, and by NIH
+Grants R01 GM106137 and R01 GM 114237.
+</P></UL>
+
+<UL><P CLASS="FONT1">
+Any opinions, findings, and conclusions or recommendations expressed
+in the Tinker Molecular Modeling package are those of the authors and do
+not reflect the views of either the National Science Foundation or the
+National Institutes of Health.
+</P></UL>
+
+<CENTER>
+<IMG SRC="nsf.jpg" WIDTH="85" HEIGHT="85">
+<IMG SRC="blank.gif" WIDTH="100" HEIGHT="80">
+<IMG SRC="nih.png" WIDTH="80" HEIGHT="80">
+</CENTER>
+</TD>
+<TD COLSPAN=1 ALIGN=CENTER WIDTH=9%>
+</TD>
+</TABLE>
+
+<BR>
+<HR ALIGN=CENTER SIZE=8 WIDTH=80% NOSHADE>
+
+<ADDRESS>
+<P CLASS="FONT1">
+Last Update: July 18, 2024
+<BR>Maintainer: ponder@dasher.wustl.edu
+<A HREF="mailto:ponder@dasher.wustl.edu">(sendmail)</A></P>
+</ADDRESS>
+
+<HR ALIGN=CENTER SIZE=8 WIDTH=80% NOSHADE>
+<BR>
+
+</CENTER>
+</BODY>
+</HTML>

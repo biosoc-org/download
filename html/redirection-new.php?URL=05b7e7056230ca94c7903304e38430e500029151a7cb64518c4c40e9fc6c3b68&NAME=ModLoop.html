@@ -1,0 +1,135 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+
+<head>
+<title>ModLoop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="/saliweb/css/server.css" />
+<link href="/fontawesome6/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+<link href="/fontawesome6/css/brands.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/modloop/html/modloop.css" />
+
+<script src="/saliweb/js/salilab.js" type="text/JavaScript"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="container">
+    <div id="header1">
+        <h3><a href="https://salilab.org"><img src="//salilab.org/img/logo_small.gif" height="40" alt="" /></a>ModLoop</h3>
+    </div>
+
+<div id="navigation_lab">
+&bull;&nbsp;<a href="//salilab.org/">Sali Lab Home</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modweb/">ModWeb</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modbase/">ModBase</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/evaluation/">ModEval</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/peptide/">PCSS</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/foxs/">FoXS</a>&nbsp;&bull;&nbsp;
+<a href="//integrativemodeling.org/">IMP</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/multifit/">MultiFit</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modpipe/">ModPipe</a>&nbsp;&bull;&nbsp;
+&nbsp;&nbsp;<a href="https://twitter.com/salilab_ucsf" class="fab fa-x-twitter" title="Follow us on X/Twitter"></a>
+</div>
+
+<div id="navigation_second">
+
+  <a href="https://modbase.compbio.ucsf.edu/account/">Login</a>&nbsp;&bull;&nbsp;
+  <a href="/modloop/">ModLoop Home</a>&nbsp;&bull;&nbsp;
+  <a href="/modloop/job">Current ModLoop queue</a>&nbsp;&bull;&nbsp;
+  <a href="/modloop/help">Help</a>&nbsp;&bull;&nbsp;
+  <a href="/modloop/download">Download</a>&nbsp;&bull;&nbsp;
+  <a href="/modloop/contact">Contact</a>
+
+</div>
+        <div style="clear:both;"></div><div id="bodypart">
+<div id="left">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h4><small>Developer:</small></h4><p>Andras Fiser</p>
+<h4><small>Acknowledgements:</small></h4>
+<p>Ben Webb<br />
+Ursula Pieper<br />
+<br />
+Andrej Sali</p>
+<p><i>Version <a href="https://github.com/salilab/modloop">main.8ba3792</a></i></p>
+
+</div>
+<div id="right">
+
+<div id="fullpart"><div id="resulttable">
+<h2 align="center">ModLoop: Modeling of Loops in Protein Structures</h2>
+
+<form method="post" action="/modloop/job"
+ enctype="multipart/form-data" name="modloopform">
+  <table>
+    <tr>
+      <td colspan="2">
+        <p>ModLoop is a web server for automated modeling of loops in protein
+        structures. The server relies on the loop modeling routine in MODELLER
+        that predicts the loop conformations by satisfaction of spatial
+        restraints, without relying on a database of known protein structures.
+        <br />&nbsp;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h3>General information <a class="helplink" href="/modloop/help#general"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></h3>
+      </td>
+    </tr>
+    <tr>
+      <td>Email address (optional) <a class="helplink" href="/modloop/help#email"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a>
+      </td>
+      <td><input type="text" name="email" value="" size="5" class="wide" />
+      </td>
+    </tr>
+    <tr>
+      <td>Modeller license key <a class="helplink" href="/modloop/help#modkey"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a>
+      </td>
+      <td><input type="text" name="modkey" value="" size="5" class="wide" />
+      </td>
+    </tr>
+    <tr>
+      <td>Upload coordinate file <a class="helplink" href="/modloop/help#file"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a>
+      </td>
+      <td><input type="file" name="pdb"  />
+      </td>
+    </tr>
+    <tr>
+      <td><h3>Enter loop segments <a class="helplink" href="/modloop/help#loop"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></h3>
+      </td>
+      <td><textarea name="loops"  rows="10" cols="20" class="loopsegs"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td><h3>Name your model <a class="helplink" href="/modloop/help#name"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></h3>
+      </td>
+      <td><input type="text" name="name" value="loop" size="9" class="wide" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" value="Process" /><input type="reset" value="Reset" /></center><p>&nbsp;</p>
+      </td>
+    </tr>
+  </table>
+</form>
+
+</div></div>
+</div>
+</div><div style="clear:both;"></div>
+<div id="address">
+<center><a href="https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&amp;cmd=Retrieve&amp;dopt=AbstractPlus&amp;list_uids=11045621&amp;query_hl=2&amp;itool=pubmed_docsum">
+<b>A. Fiser,  R.K.G. Do and A. Sali, Prot Sci, (2000) <i>9,</i> 1753-1773</b></a>
+&nbsp;<a href="https://salilab.org/pdf/Fiser_ProteinSci_2000.pdf"><img src="/modloop/html/img/pdf.gif" alt="PDF" /></a><br />
+<a href="https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&amp;cmd=Retrieve&amp;dopt=AbstractPlus&amp;list_uids=14668246&amp;query_hl=2&amp;itool=pubmed_docsum">
+<b>A. Fiser, and A. Sali, Bioinformatics, (2003) <i>19,</i> 2500-01</b></a>
+&nbsp;<a href="https://salilab.org/pdf/Fiser_ProteinSci_2000.pdf"><img src="/modloop/html/img/pdf.gif" alt="PDF" /></a></center>
+</div>
+
+</div>
+
+</body>
+</html>

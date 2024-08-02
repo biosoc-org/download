@@ -1,0 +1,137 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="refresh" content="0.2;url=http://g6altair.sci.hokudai.ac.jp/g6/service/pocasa/">
+<meta http-equiv="content-script-type" content="text/javascript">
+<script type="text/javascript" src="pocasa_params.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<title>POCASA1.1 on the web</title>
+</head>
+
+<body>
+
+<h1>POCASA 1.1</h1>
+
+
+<div class="link">
+<h3>
+It is recommended to read the <a href="manual.html">manual</a> before trying the web POCASA.
+</h3>
+</div>
+
+<form name="form1" action="launch.cgi" method="post" enctype="multipart/form-data" onSubmit="return check_value()">
+
+<table class="input" align="center">
+<tr>
+<td rowspan="2">
+Input as
+<td>
+<input type="radio" name="input" value="file" checked> <label for="pdbfilename">file</label>
+<td>
+<input type="file" name="pdbfile" id="pdbfilename">
+
+<tr>
+<td>
+<input type="radio" name="input" value="pdbid"> <label for="pdbid">PDB ID</label>
+<td>
+<input type="text" name="pdbid" id="pdbid">
+<tr>
+<td colspan="3">
+<div class="expl">pdb file which contains protein coordinates</div>
+
+
+<tr>
+<td colspan="3" style="padding:5px;text-align:center">
+<!--<input type="button" value="Set default values" onClick="set_default()">-->
+
+<tr>
+<td colspan="2">
+<label for="chain">Chain ID</label>
+<td>
+<input type="text" name="chain" id="chain" value="NULL">
+<tr>
+<td colspan="3">
+<div class="expl">"NULL" (means the first chain) or like:"A", "a,b", "1 2" or "ABC"</div>
+
+
+<tr>
+<td colspan="2">
+<label for="probe_radius">Probe radius</label>
+<td>
+<input type="text" name="radius" id="probe_radius" value="2">
+<tr>
+<td colspan="3">
+<div class="expl">The radius (&#x212b;) of probe sphere (positive integer)</div>
+
+
+<tr>
+<td colspan="2">
+<label for="spf">SPF</label>
+<td>
+<input type="text" name="spf" id="spf" value="16">
+<tr>
+<td colspan="3">
+<div class="expl">Single Point Flag (nonnegative integer less than 28)</div>
+
+
+<tr>
+<td colspan="2">
+<label for="pdf">PDF</label>
+<td>
+<input type="text" name="pdf" id="pdf" value="18">
+<tr>
+<td colspan="3">
+<div class="expl">Protein Depth Flag (nonnegative integer less than 28)</div>
+
+
+<tr>
+<td colspan="2">
+<label for="topn">Top N</label>
+<td>
+<input type="text" name="topn" id="topn" value="5">
+<tr>
+<td colspan="3">
+<div class="expl">The number of results to show. specify 0 to show all candidates.</div>
+
+
+<tr>
+<td colspan="2">
+grid size
+<td>
+<input type="radio" name="grid" value="1" checked>1&#x212b;
+<input type="radio" name="grid" value="0.5">0.5&#x212b;
+<tr>
+<td colspan="3">
+<div class="expl">The size of unit grid.</div>
+
+<tr>
+<td colspan="2">
+atom type
+<td>
+<input type="radio" name="atom_type" value="protein">protein
+<input type="radio" name="atom_type" value="all" checked>all
+<tr>
+<td colspan="3">
+<div class="expl">The type of atom.</div>
+
+</table>
+
+<div style="text-align:center">
+<input type="submit" value="Get Pockets and Cavities">
+<input type="reset" value="Reset">
+</div>
+</form>
+
+
+<div class="link">
+<a href="/g6/Research/POCASA_e.html">[Back]</a>
+<a href="http://altair.sci.hokudai.ac.jp/g6/" target="_blank">[Laboratory of X-ray structural biology]</a>
+
+</div>
+
+
+
+</body>
+
+</html>

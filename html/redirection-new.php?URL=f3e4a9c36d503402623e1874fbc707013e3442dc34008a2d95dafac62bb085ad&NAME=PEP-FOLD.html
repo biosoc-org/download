@@ -1,0 +1,1103 @@
+<!--?xml version="1.0" encoding="iso-8859-1"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="fr"><head>
+    <title>PEP-FOLD Peptide Structure Prediction Server</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="tuffery Pierre" >
+    <meta name="copyright" content="Maupetit Julien">
+    <meta name="description" content="PEP-FOLD server documentation"> 
+    <meta name="keywords" content="PEP-FOLD, PepFold, Greedy, Peptide structure
+    prediction, OPEP, Structural Alphabet, HMM">
+    <link rel="stylesheet" href="css/service-doc-new.css" type="text/css" title="service-doc">
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+  var chart2013;
+  $(document).ready(function() {
+    chart2013 = new Highcharts.Chart({
+      chart: {
+        renderTo: 'stats_pep-fold',
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false
+      },
+      title: {
+        text: 'PEP-FOLD 2013 statistics per country'
+      },
+      tooltip: {
+        formatter: function() {
+          return '<b>'+ this.point.name +'</b>: '+ this.point.y +' runs';
+        }
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            color: '#000000',
+            connectorColor: '#000000',
+            formatter: function() {
+              return this.y > 0.01 ? '<b>'+ this.point.name +'</b>: '+ Math.round(this.percentage*100)/100 +' %'  : null;
+            }
+          }
+        }
+      },
+      series: [{
+        type: 'pie',
+        name: 'Services',
+        data: [
+          ['United States', 5576],
+          ['India', 2184],
+          ['Republic of Korea', 1912],
+          ['Mexico', 1752],
+          ['France', 1238],
+          ['Germany', 1220],
+          ['United Kingdom', 1010],
+          ['China', 672],
+          ['Sweden', 606],
+          ['Malaysia', 502],
+          ['Japan', 482],
+          ['Other Europe', 2244],
+          ['Other America', 1760],
+          ['Other Asia', 1498],
+          ['Others', 5242]
+        ]
+      }]
+    });
+
+  });
+
+    </script>
+
+  </head>
+
+  <body>
+    <!-- Start main -->
+    <div id="main">
+
+      <a name="top"></a>
+
+      <!-- Start header -->
+      <div id="header">
+  <a href="http://mobyle2.rpbs.univ-paris-diderot.fr/cgi-bin/portal.py?forms::PEP-FOLD">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+  </a>
+
+      </div>
+      <!-- End header -->
+
+      <!-- Start menu -->
+      <div id="menu">
+  <ul>
+    <li><a href="#Features">Features</a></li>
+    <li><a href="#Limitations">Limitations</a></li>
+    <li><a href="#Usage">Usage</a></li>
+    <li><a href="#Examples">Examples, sample tests</a></li>
+    <li><a href="#Concepts">Concepts</a></li>
+    <li><a href="#Validation">Validation</a></li>
+    <li><a href="#Statistics">Statistics</a></li>
+    <li><a href="#History">History</a></li>  
+    <li><a href="#Problems">Known problems and answers</a></li>
+    <li><a href="#References">References</a></li>
+  </ul>
+      </div>
+      <!-- End menu -->
+
+      <!-- Start content -->
+      <div id="content">
+
+        
+  <div id="synopsis">
+   <h2>Welcome to the  PEP-FOLD 2011 improved service!</h2><br/>
+          PEP-FOLD is a <em>de novo</em> approach aimed at predicting
+    peptide structures from amino acid sequences. This method,
+    based on structural alphabet SA letters to describe the
+    conformations of four consecutive residues, couples the
+    predicted series of SA letters to a greedy algorithm and a
+    coarse-grained force field. <br/>
+  <h3>What's new:</h3>
+    <br/><b>Jan 2016:</b> <a href="http://bioserv.rpbs.univ-paris-diderot.fr/services/PEP-FOLD3/" target="__blank"><b>PEP-FOLD3</b></a> is on-line. <b>Faster, open for linear peptides in solution from 5 up to 50 amino acids, allows preliminary peptide protein interaction studies.</b> Not optimized yet for disulfide bonds or user specified constraints. Use this service for such constrained peptides.<br/><br/>
+
+    PEP-FOLD latest evolution improves performance for linear peptides up to 36 amino acids - best model with an averaged RMSd of 2.1 A from NMR structure, also allows user specified constraints such as disulfide bonds and inter-residue proximities.<br/><br/>
+  <table>
+  <tr> 
+  
+        <td align="CENTER"><img src="images/1wqc-SSBonds.png" alt="1wqc model and experimental conformations" class="flow" height="120px" width="120px"></td>
+        <td align="CENTER"><img src="images/1jbl.png" alt="1jbl model and experimental conformations" class="flow" height="120px" width="120px"></td>
+        <td align="CENTER"><img src="images/1e0n-22.png" alt="1e0n model and experimental conformations" class="flow" height="120px" width="120px"></td>
+  </tr>
+  <tr> 
+   <td align="CENTER"> <span class="smallnote">1wqc PEP-FOLD best model (cyan)  and experimental (green) conformations. 1.4 A RMSd.</span></td>
+   <td align="CENTER"> <span class="smallnote">1jbl PEP-FOLD best model (cyan)  and native (green) conformations. 1.8 A RMSd.</span></td>
+   <td align="CENTER"><span class="smallnote">1e0n PEP-FOLD best model (cyan)  and experimental (green) conformations. <br/>Some side chains illustrate the beta sheet superimposition.</span></td>
+  </tr>
+  </table>
+  </div>
+  <div id="hurry">
+    Access the 
+    <a href="http://mobyle2.rpbs.univ-paris-diderot.fr/cgi-bin/portal.py#forms::PEP-FOLD" target="_blank"> PEP-FOLD </a> server @ the
+    <a href="http://mobyle2.rpbs.univ-paris-diderot.fr/cgi-bin/portal.py" target="_blank"> RPBS Mobyle</a> Portal.
+    <br>
+    
+    <div class="warning">[ Presently restricted to peptide sizes from 9 to
+    36 residues ]</div> 
+
+    <form>
+      <input value="Mobyle server" onclick="window.open('http://mobyle2.rpbs.univ-paris-diderot.fr/cgi-bin/portal.py#forms::PEP-FOLD','_blank')" type="button"> 
+    </form>
+          <br/>
+          When using this service, please cite the following references:<br/>
+          <div class="reference">
+            <span class="authors">Shen Y, Maupetit J, Derreumaux P, Tuff&eacute;ry P.</span><br/>
+            <span class="papTitle">Improved PEP-FOLD approach for peptide and miniprotein structure prediction</span><br/>
+            <span class="jRef">J. Chem. Theor. Comput. 2014; 10:4745-4758</span>
+          </div>
+          <div class="reference">
+            <span class="authors">Th&eacute;venet P, Shen Y, Maupetit J, Guyon F, Derreumaux P, 
+              Tuff&eacute;ry P.</span><br/>
+            <span class="papTitle"><a href="http://www.ncbi.nlm.nih.gov/pubmed/22581768" target="_blank">PEP-FOLD: an updated de novo structure prediction server for both linear and disulfide bonded cyclic peptides.</a>
+            </span><br/>
+            <span class="jRef">Nucleic Acids
+              Res. 2012. 40, W288-293.</span>
+          </div>
+          <br/>
+          Older references:
+          <br/>
+          <div class="reference">
+            <span class="authors">Maupetit J, Derreumaux P,
+              Tuff&eacute;ry P.</span><br/>
+            <span class="papTitle"><a href="http://www.ncbi.nlm.nih.gov/pubmed/19433514" target="_blank">
+              PEP-FOLD: an online resource for de novo peptide structure prediction.</a></span><br/>
+            <span class="jRef">Nucleic Acids
+              Res. 2009. 37(Web Server issue):W498-503. doi:10.1093/nar/gkp323</span>
+          </div>
+          <div class="reference">
+            <a name="PEPFOLD"></a>
+            <span class="authors">Maupetit J, Derreumaux P, Tuffery
+            P.</span><br/>
+            <span class="papTitle"><a href="http://www.ncbi.nlm.nih.gov/pubmed/19569182" target="_blank">
+              A fast and accurate method for large-scale de novo peptide structure prediction. </a>
+            </span><br/>
+            <span class="jRef">J Comput Chem. 2010. 31-726-38.</span>
+          </div>
+
+
+
+    <br>
+  
+  </div>
+
+  <div class="section">
+    <a name="Features"></a>
+    <div class="title">New Features</div>
+
+    <ul class="itemize">
+      
+      <li>
+        <span class="item">Peptide structure prediction:</span>
+        Starting from a single amino acid sequence, PEP-FOLD improved version runs up to 200
+        simulations rather than 40 before. By default, 100 simulations are performed. It returns an archive of all the models generated, the detail of the clusters and the best conformation of the 5 best clusters. 
+      </li> 
+
+      <li>
+        <span class="item">Prediction constraints:</span> The
+          PEP-FOLD accepts user specified constraints such as disulfide bonds or residue proximities. <br/>Note that constraint satisfaction is not systematic in all the models returned since 
+          (i) constraints - particularly if erroneous - can, in some cases, conflict with the local structure prediction.
+          (ii) PEP-FOLD is a coarse grained approach and the all atom generation from coarse grained representation can result in unclosed disulfide bonds in the all atom representation, even if the cysteines are close. <br/>Important: PEP-FOLD does not perform disulfide bond prediction. You can guess disulfide bond connectivity from services such as: <a href="http://biomedical.ctust.edu.tw/edbcp/" target="_blank">EDBCP</a>
+      </li>
+
+  </ul>
+  
+    <div class="title">Other Features</div>
+
+    <ul class="itemize">
+      <li>
+        <span class="item">Reference structure:</span> PEP-FOLD
+        server allows you to upload a reference structure in
+        order to compare PEP-FOLD models with it
+        (see <a href="#Usage">usage</a>).
+      </li>
+      <li>
+        <span class="item">Fast folding:</span> Execution time on the server usually vary from few minutes to less than one hour, once your job is
+        running, depending on server load. Usually, PEP-FOLD
+        prediction takes about 40 minutes for a 36-residue
+        peptide.
+<br/> Note that PEP-FOLD prediction and folding is presently assumed for <b>neutral pH</b>.
+      </li>
+      
+    </ul>
+
+    <a href="#top" class="top">&lt;Back to top&gt;</a>
+  </div>
+  
+  <div class="section">
+    <a name="Limitations"></a>
+    <div class="title">Limitations</div>
+
+    <ul class="itemize">
+
+      <li>
+        <span class="item">Amino acid sequence size:</span> For
+        now, PEP-FOLD prediction is limited to amino acid
+        sequence between 9 and 36 residues, although PEP-FOLD has been tested off-line for sizes up to 50 amino acids.
+        For sizes more than 30 amino acids, users can contact the authors.
+        We consider to open up to 50 amino acids depending on server load.  
+      </li>
+
+      <li>
+        <span class="item">Peptide properties:</span> Presently,
+        PEP-FOLD is not able to process peptides with
+        D-amino-acids, non standard amino acids, nor circular
+        peptides involving other than disulfide bonds. 
+      </li>
+
+    </ul>
+    
+    <a href="#top" class="top">&lt;Back to top&gt;</a>
+  </div>
+
+  <div class="section">
+    <a name="Usage"></a>
+    <div class="title">Usage</div>
+    <div class="subtitle">Input</div>
+    <ul class="itemize">
+    
+      <li>
+        <span class="item">Pre-configured test:</span> By setting this option to "Yes", PEP-FOLD will be run using the amino acid sequence of 1jbl: <br/>
+        >1jbl <br/> GRCTKSIPPICFPD <br/> specifying a disulfide bond between cysteine 3 and 11. All input data specified in the other input fields will be ignored.
+      </li>
+      
+      <li>
+        <span class="item">Input sequence:</span> Input sequence
+        file must be in FASTA format. The
+        query peptide sequence must contain a string of only the 20 standard
+        amino acids in uppercase, using the 1 letter code (see the pre-configured test example).
+        The size of the input sequence can be as long as 50 amino acids, but the simulation must be restricted to 36 amino acids using the "3D reconstruction range" option (see below).
+      </li>
+      </ul>
+      
+     <div class="subtitle">Input options</div>
+    <ul class="itemize">
+      <li>
+        <span class="item"> Run label:</span>
+        A title for your run. It MUST be a single word (no spaces, no special characters). It will be used to generate the name of the models.
+      </li>
+  
+     <li>
+        <span class="item"> Type of simulation:</span>
+        The default short simulations correspond to 100 model generation runs. In most cases, our results show it 
+        is sufficient to identify the correct fold. 
+        Long simulations will launch the generation of 200 models.
+      </li>
+      
+     <li>
+        <span class="item"> Sort models by:</span>
+        Once generated, models are clustered using Apollo [<a href="#APOLLO">6</a>] to identify groups 
+        of similar models. The clusters are then sorted using either the sOPEP energy value, 
+        or Apollo predicted TMscore (tm). For peptides up to 36 residues, using sOPEP as a key to 
+        to sort the clusters will often result in proposing native or near native conformations in 
+        the top 5 ranks.
+      </li>
+   
+     <li>
+        <span class="item"> 3D reconstruction range:</span>
+        PEP-FOLD accepts sequence input up to 50 amino acids, but specifying a maximal 36-residue region 
+        subjected to 3D modelling. This facility is useful for peptides where the N- and C- terminal 
+        regions are known to be disordered and the user wishes to focus on the modelling of the 
+        structured core. To this end, our tests show that the prediction of the SA profile is best 
+        using the complete sequence rather than a truncated sequence. The region that will undergo 
+        the 3D modelling must be specified on the form: x-y (e.g. 15-50), indicating that the 3D models 
+        will encompass the region between residues 15 and 50 (included), where 1 is the first residue of 
+        the input sequence. 
+      </li>
+
+
+      <li>
+        <span class="item">Disulfide bonds:</span> You can specify the pairings of the cysteines using the format: x-y where x, y  are the numbers of the cysteines, 1 being the number of the first residue in the sequence. 
+        <br/>
+        Multiple disufide bonds can be specified by separating pairings using a ':'. 
+For instance 1-30:5-10 stands for 2 disulfide bonds. The first is between cysteines 1 and 30, the second between cysteines 5 and 10.
+      </li>
+      <li>
+        <span class="item">Residue proximities:</span> You can specify one or several proximities between two residues using the same format as for disulfide bonds.
+
+      </li>
+      <li>
+        <span class="item"> Reference structure:</span>
+        Input reference structure file must be in <b>PDB</b>
+        format. This file must only contains a single model,
+        with no hetero-residues and have the exact same length
+        (in amino acids) as the query sequence. If a 3D reconstruction range is specified, the reference
+        structure must match exactly and *ONLY* the sequence for which 3D models will be generated. 
+        The residue number must match those of the models, i.e. start at residue 1 if no 3D reconstruction 
+        range is specified or at residue x if a range x-y is specified.
+      </li>
+    </ul>
+      
+    <div class="subtitle">Results</div>
+
+        
+      <ul class="itemize">
+        <li>
+                PEP-FOLD produces
+        informative report to guide the user through the best
+        model selection.
+        </li>
+    <li>
+    <span class="item">Progress report</span>
+    <img src="images/ProgressReport-v2.png" alt="ProgressReport" height="100px" width="490px">
+      This section will incrementally provide information about job progression and errors if any.
+      A typical run should produce a report similar to that. Errors related to the input data specified are now also reported in this section.
+    </li>
+    
+    <li>
+      <span class="item">Clustering report</span>
+      
+            <img src="images/ClusterReport-html.png" alt="ClusterReport" height="250px" width="490px">
+      This report is primarily a table file that describes the clusters. For each model generated, up to 10 numbers are reported:
+      avg, gdt, max, q, tm are the scores predicted by Apollo 
+        [<a href="#APOLLO">6</a>], where gdt is the predicted GDT_TS, 
+      q is the predicted Qmean score and tm is the predicted TMscore. 
+       sOPEP is the coarse grained energy of PEP-FOLD. If a reference file has been specified in input,
+        additional columns correspond to the TMscore and the cRMSd obtained by aligning respectively the model onto the reference using TMalign or a 
+        rigid fit procedure minimizing the alpha carbon RMS deviation. The CGCNS and nSS are related to user constraints. CGCNS stands for a Coarse Grained CoNstraint Satisfaction, between 0 and 100, where 100 means all the constraints satisfied. nSS stands for the number of disulfide bond obtained at the all atom representation level (N/A for not appliable). <br/>
+        Additionally, this table gives access to model download at different levels: The archive of all the models (top of table), archives of all models in a cluster - if the cluster contains several models, and each individual models.<br/><br/>
+        The cluster ranks are defined according to their scores (sOPEP or tm) - see the input option "Sort models by". The cluster representatives correspond to  the models of the clusters having the best scores, i.e. with the lowest sOPEP energy (resp. highest tm value). They are denoted as "modelx", where x is the rank of the cluster according to the sort key
+       . When a cluster has several models, it is in turn sorted according to the sort key. The first model in the table is the representative, denoted on the form "modelx" and the following models are numbered using the "modelx.y" convention where x is the rank of the cluster and y the rank of the model in the cluster.
+      
+      <div class="footnote">
+      cRMSd<span class="footnote">*</span>
+      (alpha <u>c</u>arbons <u>R</u>oot <u>M</u>ean <u>S</u>quare <u>d</u>eviation),
+      GDT_TS<span class="footnote">*</span>
+      (<u>G</u>lobal <u>D</u>istance <u>T</u>est <u>T</u>otal <u>S</u>core,
+      for more information
+      see: <a href="http://predictioncenter.org/casp/casp7/public/doc/LCS_GDT.README" target="_blank">predictioncenter.org</a>), sOPEP
+      energy (see <a href="#Concepts">concepts
+      section</a>), TM
+      score<span class="footnote">*</span> (for more
+      information
+      see <a href="http://zhanglab.ccmb.med.umich.edu/TM-score/" utarget="_blank">Zhang server</a>) and a single
+      character indicating if it is the cluster centroid
+      (*) or not (-). <br>
+      <span class="footnote">* compared to the reference
+      structure if provided.</span>
+      </div>
+    </li>
+    
+    <li>
+      <div class="item">Model 1 to 5</div>
+
+      Representatives o the 5 best clusters (according to tm - see CLustering report)
+      predicted structure are provided in PDB format. 
+      <img src="images/Model1-v2.png" alt="Model" height="200px" width="490px">
+      You can either save the file onto your computer, or view it using JMol.
+      In the Mobyle environment, PDB files can also be piped to other analyses such as the identification of seondary structures using stride or p-sea.
+      For this, select the approriate method beside the "further analysis" button, then auch it by clicking on "further analysis".
+
+    </li>
+    
+
+    <li>
+      <div class="item">Local Structure prediction profile</div>
+      <img src="images/1jblProfile.png" alt="Model" height="100px" width="100">
+            It corresponds to a graphical representation of the probabilities of each Structural Alphabet (SA) - see  the
+    <a href="#Concepts">Concepts</a>-
+ letter (vertical axis) at each position of the sequence (horizontal axis). Note that SA letters correspond to fragments of 4 residue length.
+      The profile is presented using the follwing color code: red: helical, green: extended, blue: coil.
+    </li>
+
+    <li>
+      <div class="item">Models archive</div>
+
+      <img src="images/Archive.png" alt="archive" height="60px" width="490px">
+
+      This archive contains all the models generated. It is in the unix tar format compressed using gzip.<br/>
+      Once saved on your computer, enter for instance (unix) tar xzf AllModels.tgz to inflate the archive.
+    </li>
+
+    </ul>
+
+
+
+    <a href="#top" class="top">&lt;Back to top&gt;</a>
+  </div>
+
+  <div class="section">
+    <a name="Examples"></a>
+    <div class="title">Examples, sample tests</div>
+
+    <ul class="itemize">
+
+      <li>
+        <img src="images/wmv_icon.gif" alt="WMV icon">
+        
+        <br>
+        <br>
+        A <b><a href="http://bioserv.rpbs.univ-paris-diderot.fr/PEP-FOLD/media/videos/Mobyle_Tutorial.wmv">Mobyle
+        video tutorial</a></b> is available [WMV format (14
+        Mb)].
+        <div class="floatbarrier"></div>
+      </li>
+
+      <li> 
+        As a simple test, <b>you can either choose to</b>:
+      </li>
+
+      <li>
+        <span class="item">Copy, paste</span> the following
+        sequence to the "Peptide amino acid sequence" field:
+        <div class="code">
+    &gt;1egs_A mol:protein length:9 GROES<br>
+    TKSAGGIVL
+        </div>
+      </li>
+
+      <li> or use Mobyle facilities :</li>
+
+      <li> 
+        <img src="images/PepFold-Mobyle-Form.jpg" alt="MobyleForm" height="442px" width="400px"> 
+        
+        <div class="floatbarrier"></div>
+
+        <span class="item">Fill the input data</span> 1. click
+        "DB" radio button 2. select pdbaa database 3. write your
+        sequence identifier (here: 1egs_A) 4. add this sequence
+        to the form field,
+      </li>
+
+      <li> 
+        <span class="item">Fill the options</span> 1. click
+        "DB" radio button 2. select PDB database 3. write your
+        sequence identifier (here: 1egs_A) 4. add this PDB file
+        to the form field.
+      </li>
+
+      <li> <b>In both cases:</b> </li>
+
+      <li> 
+        <span class="item">Run</span> Launch PEP-FOLD
+        prediction, by clicking "Run" at the top of the page. <br>
+        <br>
+        <div class="warning"><em>nota bene:</em> For
+        non-registred users, a captcha will ask you to type the
+        text from the image before submitting your job. Once
+        your job has been submitted, you can check your results
+        availability by clicking the "update job status"
+        button. </div>
+      </li>
+
+    </ul>
+
+    <a href="#top" class="top">&lt;Back to top&gt;</a>
+  </div>
+
+  <div class="section">
+    <a name="Concepts"></a>
+    <div class="title">Concepts</div>
+
+    <ul class="itemize">
+      
+      <li>
+        <span class="item">Structural alphabet</span>
+        PEP-FOLD is based on the concept of 
+        <a href="/help/SAHelp.html" target="_blank">structural alphabet</a>
+        [<a href="#HMM2">1</a>]
+        , <em>i.e.</em>  an ensemble of elementary prototype
+        conformations able to describe the whole diversity of
+        protein structures.
+      </li>
+
+      <li>
+        <span class="item">Greedy algorithm</span> HMM-SA
+        letters are assembled by an enhanced greedy algorithm
+        described in
+        [<a href="#PEPFOLD">2</a>].
+      </li>
+      
+      <li>
+        <span class="item">Coarse grained force field</span> The
+        OPEP potential helps us to limit the roughness of the
+        peptides energetic landscape, by simplifying side chains
+        representation by a single bead. OPEP v3 parameters are
+        optimized by a genetic algorithm procedure using a large
+        ensemble of protein decoys [<a href="#OPEP3">3</a>]. OPEP
+        is the objective function that drive the greedy
+        algorithm during the rebuilding process.<br><br>
+
+        OPEP (Optimized Potential for Eï¬cient structure
+        Prediction) version 3 is expressed as a sum of local,
+        nonbonded and hydrogen-bond (H-bond) terms:<br>
+        
+        <img src="images/OPEPv3_Eq_01.png" alt="OPEPv3 Equation" class="flow">
+        
+        <br><br>
+        The local potentials are expressed by:<br>
+        
+        <img src="images/OPEPv3_Eq_02.png" alt="OPEPv3 Equation" class="flow">
+        
+        <br>
+        The term Elocal contains force constants associated with
+        changes in bond lengths and bond angles of all particles
+        as well as force constants related to changes in
+        improper torsions of the side-chains and the peptide
+        bonds.<br><br>
+        
+        The nonbonded potentials are expressed by:<br>
+        <img src="images/OPEPv3_Eq_03.png" alt="OPEPv3 Equation" class="flow">
+
+        <br> 
+        with 1, 4 the 1-4 interactions along each torsional
+        degree of freedom, M â² the N, Câ, O and H main chain
+        atoms, and Sc the side-chain. As seen, we separate
+        short-range from long-range (j &gt; i+4) interactions, and
+        the C alpha atom from the other main chain atoms. For
+        more details on the EVdW potential, see ref
+        [<a href="#OPEP3">6</a>,<a href="#PEPFOLD">5</a>].<br><br>
+
+        The hydrogen-bonding potential (EHâbond) consists of
+        two-body (EHB1) and four-body (EHB2) terms. Two-body
+        H-bonds are deï¬ned by:<br>
+        <img src="images/OPEPv3_Eq_04.png" alt="OPEPv3 Equation" class="flow">
+        <!-- <img src="media/images/OPEPv3_Eq_05.png" alt="OPEPv3 Equation" class="flow" /> -->
+        
+        <br>
+        Four-body eï¬ects, which represent cooperative energies
+        between hydrogen bonds ij and kl, are deï¬ned by:<br>
+        
+        <img src="images/OPEPv3_Eq_06.png" alt="OPEPv3 Equation" class="flow">
+        <!-- <img src="media/images/OPEPv3_Eq_07.png" alt="OPEPv3 Equation" class="flow" /> -->
+        <br><br>
+
+        <div class="footnote">
+    Please note that all details about the OPEP force
+    field used in PEP-FOLD are available in refs
+    [<a href="#OPEP3">2</a>,<a href="#PEPFOLD">3</a>] and further references included.
+        </div>
+      </li>
+      <li>
+        <span class="item">Disulfide bonds and residue proximities: </span> The sOPEP force field has been adapted for SSBonds and residue proximities by using a asymetric nonbonded contribution represented below (black: original sOPEP formulation, red: new formulation): <br/>
+  <center>
+        <img src="images/SSBonds.jpg" alt="SSBond interaction energy" class="flow" height="200px" width="200px">
+  </center>
+      </li>
+      
+    </ul>
+
+    <a href="#top" class="top">&lt;Back to top&gt;</a>
+  </div>
+
+  <div class="section">
+    <a name="Validation"></a>
+    <div class="title">Validation</div>
+    
+    <div class="txtzone">
+      Validation tests have been performed on two differents
+      peptides set:
+    </div>
+      
+    <ul class="itemize">
+
+      <li>
+        <span class="item">PepLook cyclic peptide set</span> This test set
+        includes 34 peptides containing disulfide bonds
+        characterized by NMR spectroscopy. 
+        [<a href="#PEPLOOK">5</a>].
+On this test set, PEP-FOLD average RMSd for the best model is of 2.75 A.
+      </li>
+
+      <li>
+        <span class="item">PepStr set</span> This test set
+        includes 42 linear bioactive peptides free of any
+        disulfide bridge characterized by NMR spectroscopy in
+        both aqueous and non-aqueous solutions
+        [<a href="#PEPSTR">4</a>].
+      </li>
+
+      <li>
+        <span class="item">PEP-FOLD set</span> To complete
+        PepStr set, we designed our own test set consituted of
+        two subsets of PDB structures solved in aqueous
+        solution, selected for their sizes and topology
+        diversity.
+
+        <ul class="itemizeIn">
+    <li>
+      <span class="item">Short peptides</span> PDB codes
+      (10 targets from 10 to 23 aa) : 1dep, 1k43, 1le1,
+      1le3, 1pei, 1uao, 1wbr, 1wz4, 2evq and the beta
+      hairpin fragment of 2gb1.
+    </li>
+    <li>
+      <span class="item">Long peptides</span> PDB codes
+      (14 targets from 27 to 49 aa) : 1abz, 1aie, 1bbl,
+      1bdd, 1e0l, 1e0n, 1f4i, 1fsd, 1i6c, 1kjk, 1psv,
+      1vii, 1vpu and 2p81.
+    </li>
+        </ul>
+      </li>
+      
+    <li>
+              <span class="item">PEP-FOLD results on a test set of peptides less than 25 amino acids</span><br/>
+(January 2012)<br/>
+      <table cellspacing="0" dir="ltr" id="Sheet3table" style="margin-top:0;margin-bottom:0;border-collapse:separate;border-spacing:0;table-layout:fixed;white-space:nowrap">
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">&nbsp; </td>
+          <td class="Default" style="text-align:center;font-weight:bold;vertical-align:bottom;width:85.68px"> sOPEP</td>
+          <td class="Default" style="text-align:center;font-weight:bold;vertical-align:bottom;width:85.68px"> </td>
+          <td class="Default" style="text-align:center;font-weight:bold;vertical-align:bottom;width:85.68px">  Best</td>
+          <td class="Default" style="text-align:center;font-weight:bold;vertical-align:bottom;width:85.68px"> </td>
+        </tr>
+        <tr style="height:17.1936px">
+          <td class="Default" style="border-top:none;border-bottom:1.0px solid #000000;border-left:none;border-right:1.0px solid #000000;padding-top:1.8528001px;padding-bottom:1.8528001px;padding-left:1.3248px;padding-right:1.3248px;font-weight:bold;vertical-align:bottom;width:82.0304px;text-align:left">&nbsp;</td>
+          <td class="Default" style="border-top:none;border-bottom:1.0px solid #000000;border-left:none;border-right:none;padding-top:1.8528001px;padding-bottom:1.8528001px;padding-left:1.3248px;padding-right:1.3248px;text-align:center;font-weight:bold;vertical-align:bottom;width:83.0304px">  FS  </td>
+          <td class="Default" style="border-top:none;border-bottom:1.0px solid #000000;border-left:none;border-right:none;padding-top:1.8528001px;padding-bottom:1.8528001px;padding-left:1.3248px;padding-right:1.3248px;text-align:center;font-weight:bold;vertical-align:bottom;width:83.0304px">  RC  </td>
+          <td class="Default" style="border-top:none;border-bottom:1.0px solid #000000;border-left:none;border-right:none;padding-top:1.8528001px;padding-bottom:1.8528001px;padding-left:1.3248px;padding-right:1.3248px;text-align:center;font-weight:bold;vertical-align:bottom;width:83.0304px">  FS  </td>
+          <td class="Default" style="border-top:none;border-bottom:1.0px solid #000000;border-left:none;border-right:none;padding-top:1.8528001px;padding-bottom:1.8528001px;padding-left:1.3248px;padding-right:1.3248px;text-align:center;font-weight:bold;vertical-align:bottom;width:83.0304px"> RC   </td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1a13 </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.6</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.3</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1b03 </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">3</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">3</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.5</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1dep </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">3.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">3.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.5</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1du1 </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">5.2</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">5.2</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">3.8</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">3.8</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1e0q </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.7</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.7</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1egs </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.1</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1gjf </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.4</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1in3 </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.6</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.6</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.7</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1k43 </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.8</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1l2y </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.2</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.9</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1l3q </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">4.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">4.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.5</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1lcx </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">3</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.3</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.9</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1le1 </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.4</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1le3 </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.7</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.7</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.9</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.9</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1niz </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.8</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.8</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.1</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1nkf </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">4.7</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">4.7</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.1</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1pef </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.7</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.7</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.7</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.7</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1pei </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1pgbF</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.8</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.8</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1rpv </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.8</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.7</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1uao </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">3.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">2.9</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.9</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">0.7</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">1wbr </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">4.8</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">3.5</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">1.2</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">2bta </td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">4</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">3.1</td>
+          <td class="Default" style="text-align:center;vertical-align:bottom;width:85.68px">3.1</td>
+        </tr>
+        <tr style="height:17.1936px">
+          <td class="Default" style="border-top:none;border-bottom:1.0px solid #000000;border-left:none;border-right:1.0px solid #000000;padding-top:1.8528001px;padding-bottom:1.8528001px;padding-left:1.3248px;padding-right:1.3248px;font-weight:bold;vertical-align:bottom;width:82.0304px;text-align:left">2evq </td>
+          <td class="Default" style="border-top:none;border-bottom:1.0px solid #000000;border-left:none;border-right:none;padding-top:1.8528001px;padding-bottom:1.8528001px;padding-left:1.3248px;padding-right:1.3248px;text-align:center;vertical-align:bottom;width:83.0304px">0.4</td>
+          <td class="Default" style="border-top:none;border-bottom:1.0px solid #000000;border-left:none;border-right:none;padding-top:1.8528001px;padding-bottom:1.8528001px;padding-left:1.3248px;padding-right:1.3248px;text-align:center;vertical-align:bottom;width:83.0304px">0.4</td>
+          <td class="Default" style="border-top:none;border-bottom:1.0px solid #000000;border-left:none;border-right:none;padding-top:1.8528001px;padding-bottom:1.8528001px;padding-left:1.3248px;padding-right:1.3248px;text-align:center;vertical-align:bottom;width:83.0304px">0.3</td>
+          <td class="Default" style="border-top:none;border-bottom:1.0px solid #000000;border-left:none;border-right:none;padding-top:1.8528001px;padding-bottom:1.8528001px;padding-left:1.3248px;padding-right:1.3248px;text-align:center;vertical-align:bottom;width:83.0304px">0.3</td>
+        </tr>
+        <tr style="height:17.088001px">
+          <td class="Default" style="border-top:none;border-bottom:none;border-left:none;border-right:1.0px solid #000000;font-weight:bold;vertical-align:bottom;width:84.68px;text-align:left">mean </td>
+          <td class="Default" style="text-align:center;font-weight:bold;vertical-align:bottom;width:85.68px">2.8</td>
+          <td class="Default" style="text-align:center;font-weight:bold;vertical-align:bottom;width:85.68px">2.5</td>
+          <td class="Default" style="text-align:center;font-weight:bold;vertical-align:bottom;width:85.68px">1.7</td>
+          <td class="Default" style="text-align:center;font-weight:bold;vertical-align:bottom;width:85.68px">1.5</td>
+        </tr>
+      </table>
+
+   sOPEP: Lowest energy model; Best: Lowest RMSd model (compared to experimental structure);  FS: Full Structure RMSd;  RC: Rigid Core RMSd
+       </li>
+  </ul>
+    <a href="#top" class="top">&lt;Back to top&gt;</a>
+  </div>
+
+  <div class="section">
+    <a name="Statistics"></a>
+    <div class="title">Statistics</div>
+    <h4>PEP-FOLD 2013 statistics per country (27898 runs between 2013-01-01 and 2013-12-31)</h4>
+      <div id="stats_pep-fold" style="width: 550px; height: 400px; margin: 0 auto"></div>
+    <a href="#top" class="top">&lt;Back to top&gt;</a>
+  </div>
+
+  <div class="section">
+    <a name="History"></a>
+    <div class="title">History</div>
+
+    <ul class="itemize">      
+     <li>
+  <div class="section">       <span class="item">2012, Feb 11 -</span> Small adjustments for better SS-bond results.
+      </li>
+     <li>
+        <span class="item">2011, nov 17 -</span> User SS-bond specification available online.
+      </li>
+
+      <li>
+        <span class="item">2011, sep 17 -</span> Restricted opening of PEP-FOLD improved version, including improved local structure prediction and clustering.
+      </li>
+      <li>
+        <span class="item">2009, sep 17 -</span> Bugfix: in some
+        cases, secondary structure prediction constraints were
+        not efficient.
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <a name="Problems"></a>
+    <div class="title">Known problems and answers</div>
+There is presently very few feedback reporting problems with PEP-FOLD. 
+Most are related to Java and browser dependent behavior.<br/> 
+PEP-FOLD has been tested successfully using various OS / browser combinations, including:<br/>
+ Firefox 11 and Chrome 18 under Linux, <br/>
+Internet Explorer 9, Firefox 3.6 and 11, Chrome 18 under Windows 7, Firefox 7 and Internet Explorer 8 under Windows XP, <br/>
+Safari 5.1.(2,3), Firefox 11 and Chrome 18 under MacOS X (lion, snow leopard). 
+    <ul class="itemize">      
+     <li>
+  <div class="section">       
+  <span class="item">Jmol and OpenAstex applet/viewer will not launch properly</span> In most cases, it
+is related to (i) security issue related to Java : check  for messages asking for permission to launch the applet (ii) Java virtual machine does not behave properly: presently, please prefer official sun/oracle JRE or JDK to other implementations such as openJDK.   
+   </li>
+       <li>
+  <div class="section">       
+  <span class="item">Results will not display on PEP-FOLD termination</span> - Mobyle upload button will not work. This has been observed in early version of PEP-FOLD 2011, and seems to have been solved.
+  If you encounter such behavior, just perform a full refresh of the result page (press Ctrl R or press Enter in the url specification field of the browser).
+
+</li>
+    </ul>
+  </div>
+  <!-- <div class="section"> -->
+  <!--   <a name="webservice"></a> -->
+  <!--   <div class="title">Web service ?</div> -->
+
+  <!--   <div class="txtzone">       -->
+  <!--     A <a href="http://biomoby.open-bio.org/">BioMoby</a> web -->
+  <!--     service will come soon thanks to -->
+  <!--     the <a href="http://lipm-bioinfo.toulouse.inra.fr/biomoby/playmoby/">PlayMOBY</a> -->
+  <!--     project. -->
+  <!--   </div> -->
+
+  <!--   <a href="#top" class="top">&lt;Back to top&gt;</a> -->
+  <!-- </div> -->
+
+  <div class="section">
+    <a name="References"></a>
+    <div class="title">References</div>
+
+    <div class="reference"> 
+      [1]<a name="HMM2"></a> 
+      <span class="authors">Camproux AC, Gautier R, Tuffery
+        P.</span><br> 
+      <span class="papTitle">
+        <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=pubmed&amp;dopt=Abstract&amp;list_uids=15147844&amp;query_hl=5&amp;itool=pubmed_docsum" target="_blank">A hidden markov model derived
+    structural alphabet for proteins.
+      </a></span><br>
+      <span class="jRef">J Mol Biol. 2004 Jun
+        4;339(3):591-605. </span> 
+    </div>
+
+    <div class="reference"> 
+      [2]<a name="PEPFOLD"></a> 
+      <span class="authors">Maupetit J, Derreumaux P, Tuffery
+      P.</span><br>
+      <span class="papTitle">
+        <a href="http://www.ncbi.nlm.nih.gov/pubmed/19569182" target="_blank">A fast and accurate method for large-scale de novo peptide structure prediction.</a>
+      </span><br>
+      <span class="jRef">J Comput Chem. 2010 Mar;31(4):726-38.</span> 
+    </div>
+
+    <div class="reference"> 
+      [3]<a name="OPEP3"></a> 
+      <span class="authors">Maupetit J, Tuffery P, Derreumaux
+      P.</span><br>
+      <span class="papTitle">
+        <a href="http://www.ncbi.nlm.nih.gov/pubmed/17600832?ordinalpos=1&amp;itool=EntrezSystem2.PEntrez.Pubmed.Pubmed_ResultsPanel.Pubmed_DefaultReportPanel.Pubmed_RVDocSum" target="_blank">A coarse-grained protein force field
+     for folding and structure prediction.
+      </a></span><br>
+      <span class="jRef">Proteins. 2007 Nov
+      1;69(2):394-408.</span><br>
+    </div>
+
+    <div class="reference"> 
+      [4]<a name="PEPSTR"></a> 
+      <span class="authors">Kaur H, Garg A, Raghava GP.</span><br>
+      <span class="papTitle">
+        <a href="http://www.ncbi.nlm.nih.gov/pubmed/17897087?ordinalpos=2&amp;itool=EntrezSystem2.PEntrez.Pubmed.Pubmed_ResultsPanel.Pubmed_DefaultReportPanel.Pubmed_RVDocSum" target="_blank">PEPstr: a de novo method for tertiary
+     structure prediction of small bioactive peptides.
+      </a></span><br>
+      <span class="jRef">Protein Pept
+      Lett. 2007;14(7):626-31.</span><br>
+    </div>
+
+    <div class="reference"> 
+      [5]<a name="APOLLO"></a> 
+      <span class="authors">Wang Z, Eickholt J, Cheng J.</span><br>
+      <span class="papTitle">
+        <a href="http://www.ncbi.nlm.nih.gov/pubmed/21546397" target="_blank">
+  APOLLO: a quality assessment service for single and multiple protein models.
+      </a></span><br>
+      <span class="jRef">Bioinformatics. 2011 27(12):1715-6.
+      </span><br>
+    </div>
+
+    <div class="reference"> 
+      [6]<a name="PEPLOOK"></a> 
+      <span class="authors">Beaufays J, Lins L, Thomas A, Brasseur R.</span><br>
+      <span class="papTitle">
+        <a href="http://www.ncbi.nlm.nih.gov/pubmed/22033979?ordinalpos=2&amp;itool=EntrezSystem2.PEntrez.Pubmed.Pubmed_ResultsPanel.Pubmed_DefaultReportPanel.Pubmed_RVDocSum" target="_blank">
+  In silico predictions of 3D structures of linear and cyclic peptides with natural and non-proteinogenic residues.
+      </a></span><br>
+      <span class="jRef">J. Pept. Sci.
+      2011; epub ahead of print.</span><br>
+    </div>
+
+
+
+    <!-- <div class="reference">  -->
+    <!--   [2]<a name="OPEP1"></a>  -->
+    <!--   <span class="authors">Derreumaux P.</span><br/> -->
+    <!--   <span class="papTitle"> -->
+    <!--     From polypeptide sequences to structures using Monte -->
+    <!--   Carlo simulations and an optimized potential. -->
+    <!--   </span><br/>  -->
+    <!--   <span class="jRef">J Chem Phys. 1999;111:2301-2310.</span>  -->
+    <!-- </div> -->
+
+    <!-- <div class="reference">  -->
+    <!--   [3]<a name="OPEP2"></a>  -->
+    <!--   <span class="authors">Wei G, Mousseau N, Derreumaux P.</span><br/> -->
+    <!--   <span class="papTitle"> -->
+    <!--     Exploring the energy landscape of proteins: a -->
+    <!--     characterization of the activation relaxation technique. -->
+    <!--   </span><br/> -->
+    <!--   <span class="jRef">J Chem -->
+    <!--   Phys. 2002;117:11379-11387.</span><br/> -->
+    <!-- </div> -->
+
+    <!-- <div class="reference">  -->
+    <!--   [7]<a name="SABBAC"></a> -->
+    <!--   <span class="authors"> Maupetit J, Gautier R, Tuffery -->
+    <!--     P. </span><br/> -->
+    <!--   <span class="papTitle"> -->
+    <!--     <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&cmd=Retrieve&dopt=AbstractPlus&list_uids=16844979&query_hl=13&itool=pubmed_DocSum" -->
+    <!--   target="_blank">SABBAC: online Structural -->
+    <!--  Alphabet-based protein BackBone reconstruction from -->
+    <!--  Alpha-Carbon trace. -->
+    <!--   </a></span><br/> -->
+    <!--   <span class="jRef">Nucleic Acids Res. 2006 Jul 1;34(Web -->
+    <!--     Server issue):W147-51. </span><br/>  -->
+    <!-- </div> -->
+
+    <!-- <div class="reference">  -->
+    <!--   [8]<a name="SCit"></a>  -->
+    <!--   <span class="authors">Gautier R, Camproux AC, Tuffery -->
+    <!--     P.</span><br/>  -->
+    <!--   <span class="papTitle"> -->
+    <!--     <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=pubmed&amp;dopt=Abstract&amp;list_uids=15215438&amp;query_hl=1&amp;itool=pubmed_docsum" -->
+    <!--   target="_blank">SCit: web tools for protein side chain -->
+    <!--  conformation analysis. -->
+    <!--   </a></span><br/> -->
+    <!--   <span class="jRef">Nucleic Acids Res. 2004 Jul 1;32(Web -->
+    <!--     Server issue):W508-11. </span><br/>     -->
+    <!-- </div> -->
+
+    <!-- <div class="reference">  -->
+    <!--   [10]<a name="OPEP4"></a>  -->
+    <!--   <span class="authors">Derreumaux P, Mousseau N.</span><br/> -->
+    <!--   <span class="papTitle"> -->
+    <!--     <a href="http://www.ncbi.nlm.nih.gov/pubmed/17228975?ordinalpos=7&itool=EntrezSystem2.PEntrez.Pubmed.Pubmed_ResultsPanel.Pubmed_DefaultReportPanel.Pubmed_RVDocSum" -->
+    <!--   target="_blank">Coarse-grained protein molecular -->
+    <!--   dynamics simulations. -->
+    <!--   </a></span><br/> -->
+    <!--   <span class="jRef">J Chem Phys. 2007 Jan -->
+    <!--   14;126(2):025101.</span> -->
+    <!-- </div> -->
+
+
+
+    <!-- <div class="reference">  -->
+    <!--   [12]<a name="PSIPRED"></a>  -->
+    <!--   <span class="authors">Jones DT.</span><br/> -->
+    <!--   <span class="papTitle"> -->
+    <!--     <a href="http://www.ncbi.nlm.nih.gov/pubmed/10493868?ordinalpos=1&itool=EntrezSystem2.PEntrez.Pubmed.Pubmed_ResultsPanel.Pubmed_DefaultReportPanel.Pubmed_RVDocSum" -->
+    <!--   target="_blank">Protein secondary structure prediction -->
+    <!--  based on position-specific scoring matrices. -->
+    <!--   </a></span><br/> -->
+    <!--   <span class="jRef">J. Mol. Biol. 292: 195-202.</span><br/> -->
+    <!-- </div> -->
+
+    <!-- <div class="reference">  -->
+    <!--   [13]<a name="PYY"></a>  -->
+    <!--   <span class="authors">Zellefrow CD, Griffiths JS, Saha S, -->
+    <!--   Hodges AM, Goodman JL, Paulk J, Kritzer JA, Schepartz -->
+    <!--   A.</span><br/> -->
+    <!--   <span class="papTitle"> -->
+    <!--     <a href="http://www.ncbi.nlm.nih.gov/pubmed/17177392?ordinalpos=1&itool=EntrezSystem2.PEntrez.Pubmed.Pubmed_ResultsPanel.Pubmed_DefaultReportPanel.Pubmed_RVDocSum" -->
+    <!--   target="_blank">Encodable activators of SRC family -->
+    <!--   kinases. -->
+    <!--   </a></span><br/> -->
+    <!--   <span class="jRef">J Am Chem Soc. 2006 Dec -->
+    <!--   27;128(51):16506-7.</span><br/> -->
+    <!-- </div> -->
+
+    <a href="#top" class="top">&lt;Back to top&gt;</a>
+  </div>
+
+      </div>
+      <!-- End content -->
+
+      <!-- Start footer -->
+      <div id="footer">
+
+      </div>
+      <!-- End footer -->
+
+    </div>
+    <!-- End Main -->
+
+    <!-- Start bottom -->
+    <div id="bottom">
+      Last-Update: 2008/12/18
+    </div>
+    <!-- End bottom -->
+
+    <script type="text/javascript" src="Highcharts/js/highcharts.js"></script>
+    <script type="text/javascript" src="Highcharts/js/modules/exporting.js"></script>  
+
+</body></html>

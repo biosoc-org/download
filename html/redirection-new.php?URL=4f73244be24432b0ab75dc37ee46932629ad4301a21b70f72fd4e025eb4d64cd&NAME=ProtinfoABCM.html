@@ -1,0 +1,101 @@
+<title> Protinfo ABCM - ab initio, comparative modelling, and fold recreation server modules </title>
+
+<h1> Protinfo ABCM </h1>
+
+<ul>
+  <li> Hung L-H, Ngan S-C, Liu T, Samudrala R.
+  <a
+  href="http://compbio.org/publications/samudrala_2005g.pdf">PROTINFO:
+  New algorithms for enhanced protein structure
+  prediction</a>. <cite>Nucleic Acids Research</cite> 33: W77-W80,
+  2005.
+  
+  <li> Hung L-H, Samudrala R. <a
+  href="http://compbio.org/publications/samudrala_2003c.pdf">PROTINFO: Secondary and tertiary
+  protein structure prediction</a>. <i>Nucleic Acids Research</i> 31:
+  3296-3299, 2003.
+  
+  <li> <a href="http://compbio.org/ongoing_research.html">A
+  variety of papers on aspects of protein structure prediction
+  (energy functions, sampling techniques, etc.)</a> contribute to the
+  overall server.  
+</ul>
+
+<p> Currently, due to heavy usage (more than 20 sequences/day on
+average), expect delays for model building. Also, the multicore server
+running the Protinfo AB module for public use is down and either needs
+to be repaired or replaced. Until that is done, Protinfo AB jobs will
+not be processed. We're sorry for the inconvenience but CASP9 and
+tight funding are complicating the solution, which we hope to
+implement any time. </p>
+
+<p> Please read the <a href="documentation.html">documentation</a> as
+well as <a href="results/results.html">some caveats</a> based on the
+analysis of the server modules' performance before submitting a
+sequence. In particular, please do realise <!-- that that the fold
+regurgitation procedure is highly experimental and works best only
+when a good template is supplied but an alignment is not known, and
+--> that the <i>de novo</i> (AB) approach is best only for smaller
+sequences (100 amino acids or less). Also, users submitting a large
+number of sequences simultaneously will be moved to a separate queue
+which would be (naturally) slower). </p>
+
+<hr>
+
+<form method="post" action="/cgi-bin/model" enctype=multipart/form-data>
+
+<p> Submit the following information: </p>
+
+<table>
+<tr> <td> Target name: </td> <td> <input name="TARGET-NAME" size="20">  </td> </tr>
+<tr> <td> Email: </td> <td> <input name="REPLY-E-MAIL" size="20"> </td> </tr>
+<tr> <td> Sequence: </td> <td> <input name="SEQUENCE" size="80"> </td> </tr>
+</table>
+
+<p> to: </p>
+
+<dl>
+  <dt> <input type="checkbox" name="PREDICTION-METHOD1" value="cm_ramp_q">
+  generate comparative models
+
+  <!--
+  <dt> <input type="checkbox" name="PREDICTION-METHOD2" value="fr_ramp_q">
+  generate fold regurgitation models
+  -->
+
+  <dt> <input type="checkbox" name="PREDICTION-METHOD3" value="ab_ramp_q">
+  generate <i>de novo</i> models
+</dl>
+
+<p>
+<input type=submit value="submit"> <input type=reset value="clear">
+</p>
+
+<p> The 3D template structure along with the alignment between the
+template and target proteins can optionally be supplied for
+comparative modelling and/or fold recognition (it is ignored
+otherwise): </p>
+
+<table>
+<tr> <td> Template PDB file:   </td> <td> <input name="TEMPLATE-PDB-FILE" size="20" type="file">  </td> </tr>
+<tr> <td> Template sequence: </td> <td> <input name="TEMPLATE-SEQUENCE" size="80"> </td> </tr>
+<tr> <td> Target Sequence:   </td> <td> <input name="TARGET-SEQUENCE" size="80"> </td> </tr>
+</table>
+
+<p> Submitting additional information puts the methods into a
+preemptive mode. If an alignment is provided, then that alignment
+along with a template structure (which must also be provided) is used
+for all further modelling. If a 3D structure is provided, then that
+structure is used as a template for modelling.  </p>
+
+</form>
+
+<p> <b>[<a href="monitor.html">monitor</a>]</b> </p>
+
+<hr>
+<a href="http://protinfo.org">Protinfo</a> <b>||</b>
+<a href="http://bioverse.org">Bioverse</a> <b>||</b>
+<a href="http://compbio.org">Samudrala Computational Biology Research Group</a> <b>||</b>
+<var><a href="mailto:protinfo@compbio.org">protinfo@compbio.org</a></var>
+
+<hr>

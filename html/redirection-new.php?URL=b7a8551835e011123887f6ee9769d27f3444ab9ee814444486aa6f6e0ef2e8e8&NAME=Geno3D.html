@@ -1,0 +1,81 @@
+<HTML><HEAD><TITLE>GENO3D :  AUTOMATIC MODELING OF PROTEINS THREE-DIMENSIONAL STRUCTURE</TITLE>
+<META HTTP-EQUIV=refresh CONTENT="0;URL=/cgi-bin/geno3d_automat.pl?page=/GENO3D/geno3d_home.html">
+</HEAD>
+<BODY>
+
+
+<H2><FONT SIZE=+1>GENO3D Release 2 : AUTOMATIC MODELING OF PROTEINS THREE-DIMENSIONAL STRUCTURE</FONT></H2>
+
+<P>
+<B>
+[Abstract]
+[<A HREF=/cgi-bin/geno3d_automat.pl?page=/GENOHLP/genohlp_help2.html TARGET=_blank>GENO3D help</A>]
+[Original server]
+</B>
+</P>
+
+<FORM METHOD=post ACTION=/cgi-bin/d3_geno3d2.pl>
+
+<P><B>Database :</B>
+<SELECT NAME=optd>
+<OPTION SELECTED VALUE="NRPROT">Non-redundant protein sequences
+<OPTION VALUE="NPSA3D95">NPS@ 3D SEQUENCES AT 95% IDENTITY (from PDB)
+<OPTION VALUE="NPSA3DB">NPS@ 3D SEQUENCES (from PDB)
+</SELECT>
+
+<!-- user sequence begin -->
+<P>
+<B>Sequence 1 name (optional) : </B> <INPUT TYPE=text NAME=title0 SIZE=30><BR>
+<B>Paste protein 1 sequence below : </B> <A HREF=/cgi-bin/geno3d_automat.pl?page=/GENOHLP/genohlp_sequence.html TARGET=_blank>help</A>
+<BR><TEXTAREA NAME=notice0 ROWS=8 COLS=60></TEXTAREA>
+</P>
+<!-- user sequence end -->
+<!-- user restrict begin -->
+<P>
+<B>Sequence 2 name (optional) : </B> <INPUT TYPE=text NAME=title1 SIZE=30><BR>
+<B>Paste protein 2 sequence below : </B> <A HREF=/cgi-bin/geno3d_automat.pl?page=/GENOHLP/genohlp_sequence.html TARGET=_blank>help</A>
+<BR><TEXTAREA NAME=notice1 ROWS=8 COLS=60></TEXTAREA>
+</P>
+<P>
+<B>Sequence 3 name (optional) : </B> <INPUT TYPE=text NAME=title2 SIZE=30><BR>
+<B>Paste protein 3 sequence below : </B> <A HREF=/cgi-bin/geno3d_automat.pl?page=/GENOHLP/genohlp_sequence.html TARGET=_blank>help</A>
+<BR><TEXTAREA NAME=notice2 ROWS=8 COLS=60></TEXTAREA>
+</P>
+<!-- user restrict end -->
+
+
+<P>
+ Filter query sequence (-F) : <SELECT NAME=optF><OPTION SELECTED VALUE=T>True<OPTION VALUE=F>False</SELECT>(DUST with BLASTN, SEG with others)<BR>
+ Expectation value (-e, real) : <SELECT  NAME=opte><OPTION VALUE=1e-06>1e-06<OPTION VALUE=1e-03>1e-03<OPTION VALUE=1.0>1.0<OPTION SELECTED  VALUE=10.0>10.0<OPTION VALUE=100.0>100.0</SELECT><BR>
+ Number of on-line description (-v, int) : <SELECT  NAME=optv>
+ <OPTION SELECTED VALUE=500>500
+ <OPTION VALUE=1000>1000
+<!-- user restrict begin -->
+ <OPTION VALUE=2000>2000
+ <OPTION VALUE=5000>5000
+ <OPTION VALUE=10000>10000
+<!-- user restrict end -->
+ </SELECT>
+ <BR>
+ Number of alignments to show (-b, int) : <SELECT  NAME=optb>
+<OPTION SELECTED VALUE=500>500
+<OPTION VALUE=1000>1000
+<!-- user restrict begin -->
+ <OPTION VALUE=2000>2000
+ <OPTION VALUE=5000>5000
+ <OPTION VALUE=10000>10000
+<!-- user restrict end -->
+</SELECT>
+<BR>
+ Matrix (-M) :  <SELECT NAME=optM><OPTION VALUE=BLOSUM45>BLOSUM45<OPTION SELECTED VALUE=BLOSUM62>BLOSUM62<OPTION VALUE=BLOSUM80>BLOSUM80<OPTION VALUE=PAM30>PAM30<OPTION VALUE=PAM70>PAM70</SELECT><BR>
+ Expectation value threshold for inclusion in multipass model(-h, real) : <SELECT NAME=opth><OPTION VALUE=0.001>0.001<OPTION SELECTED VALUE=0.002>0.002<OPTION VALUE=0.01>0.01<OPTION VALUE=0.1>0.1</SELECT><BR>
+ Maximum number of passes to use in multipass version (-j, int) : <SELECT NAME=optj><OPTION VALUE=1>1<OPTION VALUE=2>2<OPTION SELECTED VALUE=3>3<OPTION VALUE=4>4<OPTION VALUE=5>5<OPTION VALUE=6>6<OPTION VALUE=7>7<OPTION VALUE=8>8<OPTION VALUE=9>9<OPTION VALUE=10>10</SELECT> (limited to 10)<BR>
+</P>
+
+
+<P><INPUT TYPE=submit VALUE=SUBMIT> <INPUT TYPE=reset VALUE=CLEAR>
+
+</FORM>
+
+</BODY>
+</HTML>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<HTML lang="en">
+<HEAD>
+    <title> LAMMPS Molecular Dynamics Simulator </title>
+    <meta name="Description" content="LAMMPS home page">
+    <meta name="keywords" content="LAMMPS, molecular dynamics">
+    <meta name="google-site-verification" content="bCGf5pfsVPVjrNrnC6-RJK3IOyVHQGy_AXefkGXMRps" />
+    <meta name="filename" content="index.html" />
+    <meta name="subject" content="LAMMPS home page" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="canonical" href="https://www.lammps.org/" />
+    <meta name="viewport" content="width=device-width">
+
+<!-- this bit of CSS magic from Stuart Nicholls at http://www.cssplay.co.uk -->
+
+<style>
+a.hver {display:block; width:384px; height:112px; 
+       background:#fff url(images/logo.png) no-repeat; 
+       overflow:hidden; cursor:default;
+       margin-left: auto; margin-right: auto;
+}
+a.hver img {visibility:hidden;}
+a.hver:hover {background:0;}
+a.hver:hover img {visibility:visible; border:0;}
+</style>
+</HEAD>
+
+<CENTER><H2>LAMMPS Molecular Dynamics Simulator 
+</H2></CENTER>
+<CENTER><I><B>lamp</B>: a device that generates light, heat, or therapeutic radiation;
+something that illumines the mind or soul</I> -- www.dictionary.com 
+</CENTER>
+<p style="text-align: center">
+hover to animate -- <A HREF = "inputs/in.logo.txt">input script</A>
+<a class="hver" href="#nogo"><img alt="Animated LAMMPS logo" src="movies/logo.gif" width="384" height="112"></a>
+<A HREF = "https://sciencedemonstrations.fas.harvard.edu/presentations/reversible-fluid-mixing">physical analog</A>
+</p>
+
+<!--
+<p style="text-align: center">
+<IMG ALT="[new]" SRC="images/new.gif"> 2023 LAMMPS Workshop
+& Symposium, held virtually from Aug 8-11, 2023.  Visit <a href="https://www.lammps.org/workshops/Aug23/">workshop website</a>.
+</p>
+-->
+
+<p style="text-align: center">
+<IMG ALT="[new]" SRC="images/new.gif"> There is a new LAMMPS overview
+paper which you can cite in your publications.  See
+<a href="cite.html">citation details here</a> and
+<a href="pictures.html#lammpspaper">cool images here</a>.
+</p>
+
+<P><!-- 
+Past top-of-the-page NEW items: 
+</P>
+<P><p style="text-align: center"> <IMG ALT="<B>new</B>" SRC="images/new.gif">
+The LAMMPS website has moved to <A
+HREF="https://www.lammps.org">https://www.lammps.org</A>.
+</P>
+<P><p style="text-align: center"> <IMG ALT="<B>new</B>" SRC="images/new.gif">
+The <a href="https://github.com/lammps/lammps">LAMMPS GitHub</a>
+branch names for the main development tree and patch releases <br>
+have been renamed from <b><i>master</i></b> and <b><i>unstable</i></b>
+to <b><i>develop</i></b> and <b><i>release</i></b>, respectively. <br>
+Please update your git checkouts and forks accordingly.
+</P>
+<P>https://docs.google.com/forms/d/e/1FAIpQLSf3LUjky-KRdgfCCrK1P-bjQfMoU--KN00NEFXlSBFa4Ykiww/viewform?usp=sf_link
+-->
+</P>
+<DIV ALIGN=center><TABLE  WIDTH="80%" BORDER=1 >
+<TR ALIGN="center"><TD ><B>Big Picture</B></TD><TD ><B>Code</B></TD><TD ><B>Documentation</B></TD><TD ><B>Results</B></TD><TD ><B>Related Software</B></TD><TD ><B>Context</B></TD><TD ><B>User Support</B></TD></TR>
+<TR ALIGN="center"><TD >  <A HREF = "https://docs.lammps.org/Intro_features.html">Features</A></TD><TD >  <A HREF = "download.html">Download</A></TD><TD >  <A HREF = "https://docs.lammps.org/Manual.html">Manual</A></TD><TD >  <A HREF = "papers.html">Publications</A></TD><TD >  <A HREF = "prepost.html">Pre/Post processing</A></TD><TD >  <A HREF = "authors.html">Authors</A></TD><TD >  <A HREF = "forum.html">MatSci forum</A></TD></TR>
+<TR ALIGN="center"><TD >  <A HREF = "https://docs.lammps.org/Intro_nonfeatures.html">Non-features</A></TD><TD >  <A HREF = "https://github.com/lammps/lammps">GitHub</A></TD><TD >  <A HREF = "https://docs.lammps.org/Manual.html#programmer-documentation">Programmer guide</A></TD><TD >  <A HREF = "pictures.html">Picture gallery</A></TD><TD >  <A HREF = "external.html">External packages & tools</A></TD><TD >  <A HREF = "history.html">History</A></TD><TD >  <A HREF = "slack.html">Slack</A> channel</TD></TR>
+<TR ALIGN="center"><TD >  <A HREF = "https://docs.lammps.org/Packages.html">Packages</A></TD><TD >  <A HREF = "https://sourceforge.net/projects/lammps">SourceForge</A></TD><TD >  <A HREF = "tutorials.html">Tutorials</A></TD><TD >  <A HREF = "movies.html">Movie gallery</A></TD><TD >  <A HREF = "http://lammps.github.io/pizza">Pizza.py toolkit</A></TD><TD >  <A HREF = "funding.html">Funding</A></TD><TD >  <A HREF = "irc.html">IRC</A> channel</TD></TR>
+<TR ALIGN="center"><TD >  <A HREF = "FAQ.html">FAQ</A></TD><TD >  <A HREF = "bug.html">Latest features & bug fixes</A></TD><TD >  <A HREF = "glossary.html">MD to LAMMPS glossary</A></TD><TD >  <A HREF = "bench.html">Benchmarks</A></TD><TD >  <A HREF = "viz.html">Visualization</A></TD><TD >  <A HREF = "https://docs.lammps.org/Intro_opensource.html">Open source</A></TD><TD >  <A HREF = "workshops.html">Workshops</A></TD></TR>
+<TR ALIGN="center"><TD >  <A HREF = "future.html">Wish list</A></TD><TD >  <A HREF = "unbug.html">Report bugs & request features</A></TD><TD >  <A HREF = "https://docs.lammps.org/Commands_all.html">Commands</A></TD><TD >  <A HREF = "cite.html">Citing LAMMPS</A></TD><TD >  <A HREF = "other.html">Other MD codes</A></TD><TD >  <A HREF = "contribute.html">Contribute to LAMMPS</A></TD><TD >  <A HREF = "books.html">Books about MD</A>
+</TD></TR></TABLE></DIV>
+
+<p></p>
+
+<HR>
+
+<DIV ALIGN=center>
+
+<A HREF = "pictures.html#diblock-copolymers"><IMG SRC = "images/macro24_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#nano-droplets"><IMG SRC = "images/jcp22_small.png" width="75" height="100"></A>
+
+<A HREF = "pictures.html#ion-exchange"><IMG SRC = "images/macro22_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#superionic"><IMG SRC = "images/pnas22_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#hydrodegrade"><IMG SRC = "images/jpcb22_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#lammpspaper"><IMG SRC = "images/cpc22_small.png" width="75" height="100"></A>
+
+<A HREF = "pictures.html#jamming2"><IMG SRC = "images/sm22_small.png" width="75" height="100"></A>
+
+<A HREF = "pictures.html#silvernanoparticles"><IMG SRC = "images/jpcc21_small.png" width="75" height="100"></A>
+
+<A HREF = "pictures.html#reactphoto"><IMG SRC = "images/jpcb20b_small.png" width="75" height="100"></A>
+
+<A HREF = "pictures.html#chemsnap"><IMG SRC = "images/jpca20_small.png" width="75" height="100"></A>
+
+<A HREF = "pictures.html#pegda-hydrogels"><IMG SRC = "images/jpcb20_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#lipid-water"><IMG SRC = "images/bp20_small.png" width="75" height="100"></A>
+
+<br>
+
+<A HREF = "pictures.html#thermoset"><IMG SRC = "images/polychem19_small.png" width="75" height="100"></A>
+
+<A HREF = "pictures.html#silvernanoparticles"><IMG SRC = "images/jpcc19_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#thermaldegrade"><IMG SRC = "images/jpca18_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#spherocylinders"><IMG SRC = "images/prl17_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#nanosurf"><IMG SRC = "images/pm17_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#dislocations"><IMG SRC = "images/nature17_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#acidpoly"><IMG SRC = "images/macro16_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#npcoat"><IMG SRC = "images/lang16_small.jpg" width="75" height="100"></A>
+
+<A HREF = "movies.html#manifold"><IMG SRC = "images/bp16_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#dftb"><IMG SRC = "images/jpcc15_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#bop"><IMG SRC = "images/jcc15_small.jpg" width="75" height="100"></A>
+
+<br>
+
+<A HREF = "pictures.html#elbawater"><IMG SRC = "images/jctc14_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#electrochem"><IMG SRC = "images/cpc14_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#npagg"><IMG SRC = "images/ns14b_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#lcfilm"><IMG SRC = "images/ns14_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#dftb"><IMG SRC = "images/jpca13a_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#polyshear"><IMG SRC = "images/sm13_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#ionomer"><IMG SRC = "images/acs13_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#dftb"><IMG SRC = "images/jpca13b_small.jpg" width="75" height="100"></A>
+
+<A HREF = "movies.html#evaporation"><IMG SRC = "images/jcp13_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#impact"><IMG SRC = "images/prl12_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#kappa"><IMG SRC = "images/jap12_small.jpg" width="75" height="100"></A>
+
+<br>
+
+<A HREF = "pictures.html#foam"><IMG SRC = "images/mrs12_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#plumed"><IMG SRC = "images/jacs12_small.jpg" width="75" height="100"></A>
+
+<A HREF = "movies.html#eff"><IMG SRC = "images/jcc11_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#gold"><IMG SRC = "images/chemcomm10_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#coating"><IMG SRC = "images/prl10_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#ttm"><IMG SRC = "images/jcp09_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#nanotip"><IMG SRC = "images/langmuir08_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#mono"><IMG SRC = "images/langmuir08a_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#cg"><IMG SRC = "images/science08_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#nanotip"><IMG SRC = "images/jom05_small.jpg" width="75" height="100"></A>
+
+<A HREF = "pictures.html#droplet"><IMG SRC = "images/langmuir05_small.jpg" width="75" height="100"></A>
+
+</DIV>
+
+<HR>
+
+<P>LAMMPS is a classical molecular dynamics code with a focus on materials
+modeling.  It's an acronym for Large-scale Atomic/Molecular Massively
+Parallel Simulator.
+</P>
+<P>LAMMPS has potentials for solid-state materials (metals, semiconductors)
+and soft matter (biomolecules, polymers) and coarse-grained or
+mesoscopic systems.  It can be used to model atoms or, more generically,
+as a parallel particle simulator at the atomic, meso, or continuum
+scale.
+</P>
+<P>LAMMPS runs on single processors or in parallel using message-passing
+techniques and a spatial-decomposition of the simulation domain.  Many
+of its models have versions that provide accelerated performance on
+CPUs, GPUs, and Intel Xeon Phis.  The code is designed to be easy to
+modify or extend with new functionality.
+</P>
+<P>LAMMPS is distributed as an <A HREF = "https://docs.lammps.org/Intro_opensource.html">open source
+code</A> under the terms of
+the <A HREF = "https://github.com/lammps/lammps/blob/master/LICENSE">GPLv2</A>.  The current version can be downloaded
+<A HREF = "download.html">here</A>.  Links are also included to older versions.  All
+LAMMPS development is done via
+<A HREF = "https://github.com/lammps/lammps">GitHub</A>, so all versions can also be
+accessed there.
+</P>
+<P>The main authors of LAMMPS can be contacted via email to "developers at
+lammps.org" and are listed individually on <A HREF = "authors.html">this page</A>
+along with contact info and other contributors.  Funding for LAMMPS
+development has come primarily from the US Deparment of Energy (OASCR,
+OBER, ASCI, LDRD, ECP, Genomes-to-Life) and is <A HREF = "funding.html">acknowledged
+here</A>.
+</P>
+
+
+
+
+
+
+
+
+<p style="text-align: center">
+<div>
+<img src="images/RD100_small.png" style="vertical-align: middle;" width="72px"/>
+<span style="vertical-align: middle;"> &emsp; LAMMPS received an R&D 100 award
+in 2018.  Click <A HREF = "rd100.html">here</A> for more info and a video.</span>
+</div>
+</p>
+
+<HR>
+
+<CENTER><H4>Search the LAMMPS web pages 
+</H4></CENTER>
+<script async src="https://cse.google.com/cse.js?cx=000956471495417073164:4moexg3dnly">
+</script>
+<div class="gcse-search"></div>
+
+<HR>
+
+<CENTER><H4>Recent LAMMPS News 
+</H4></CENTER>
+<UL><LI><IMG ALT="<B>new</B>" SRC="images/new.gif"> (4/24) Support for input and
+output of general triclinic geometries.  See <A HREF = "https://github.com/lammps/lammps/pull/3984">details
+here</A> and
+<A HREF = "https://docs.lammps.org/Howto_triclinic.html">here</A> 
+
+<LI><IMG ALT="<B>new</B>" SRC="images/new.gif"> (8/23) New stable release,
+2Aug2023 version.  See <A HREF = "https://github.com/lammps/lammps/releases/tag/stable_2Aug2023">details
+here</A> 
+
+<LI><IMG ALT="<B>new</B>" SRC="images/new.gif"> (3/23) New <A HREF = "https://docs.lammps.org/fix_mdi_qm.html">fix
+mdi/qm</A> and
+<A HREF = "https://docs.lammps.org/fix_mdi_qmmm.html">mdi/qmmm</A> commands to make
+it easier to couple LAMMPS with quantum codes via the <A HREF = "https://molssi-mdi.github.io/MDI_Library/html/index.html">MDI code
+coupling
+library</A>.
+Examples for PySCF, LATTE, and NWChem are included in
+examples/QUANTUM. 
+
+<LI><IMG ALT="<B>new</B>" SRC="images/new.gif"> (12/22) New distributed grid
+3d/2d classes and associated commands to make it easier to develop new
+hybrid particle/grid models.  See details
+<A HREF = "https://docs.lammps.org/Howto_grid.html">here</A> and
+<A HREF = "https://docs.lammps.org/Developer_grid.html">here</A> 
+
+<LI><IMG ALT="<B>new</B>" SRC="images/new.gif"> (8/22) New AMOEBA package with
+implementations of the AMOEBA and HIPPO polarized force fields from
+the Tinker MD code. See <A HREF = "https://docs.lammps.org/Howto_amoeba.html">details
+here</A> 
+
+<LI><IMG ALT="<B>new</B>" SRC="images/new.gif"> (6/22) New stable release, 23Jun22
+version.  See <A HREF = "https://github.com/lammps/lammps/releases/tag/stable_23Jun2022">details
+here</A>
+
+
+<LI><IMG ALT="<B>new</B>" SRC="images/new.gif"> (9/21) New stable release, 29Sep21
+version.  See <A HREF = "https://github.com/lammps/lammps/releases/tag/stable_29Sep2021">details
+here</A>
+
+
+<LI><IMG ALT="<B>new</B>" SRC="images/new.gif"> (5/21) Support for the <A HREF = "https://molssi-mdi.github.io/MDI_Library/html/index.html">MolSSI Driver
+Interface (MDI) code-coupling
+library</A> to
+enable LAMMPS to act as an MD engine in a client/server manner.  See
+<A HREF = "https://github.com/lammps/lammps/pull/2611">details here</A> 
+
+<LI><IMG ALT="<B>new</B>" SRC="images/new.gif"> (5/21) New and improved multi
+length-scale neighboring algorithm.  See <A HREF = "https://github.com/lammps/lammps/pull/2536">details
+here</A> 
+
+<LI><A HREF = "new.html">Old news</A> <IMG ALT="<B>new</B>" SRC="images/new.gif"> 
+</UL>
+<HR>
+
+<CENTER><H4>LAMMPS Highlight 
+</H4></CENTER>
+<CENTER>(see the <A HREF = "pictures.html">Pictures</A> and
+<A HREF = "movies.html">Movies</A> pages for more examples of LAMMPS
+calculations) 
+</CENTER>
+<H4>Blood flow in capillaries 
+</H4>
+<P>This is work by Kirill Lykov (kirill.lykov at usi.ch), Xuejin Li et al
+at the USI, Switzerland and Brown University, USA to develop new Open
+Boundary Condition (OBC) methods for particle-based methods suitable
+to simulate flow of deformable bodies in complex computational domains
+with several inlets and outlets.
+</P>
+<P>The image (left) and movie (right) show the application of the OBCs to
+red blood cell flow in a straight pipe, bifurcation, and a part of a
+capillary network.  The program Blender was used for the rendering.
+</P>
+<A HREF = "images/blood.png"><IMG SRC = "images/blood_small.png"></A>
+
+<A HREF = "movies/mp4/blood.mp4"><IMG SRC = "images/blood_small.png"></A>
+
+<P>This paper has further details.
+</P>
+<P><B>Inflow/Outflow Boundary Conditions for Particle-Based Blood Flow
+Simulations: Application to Arterial Bifurcations and Trees</B>, K.
+Lykov, X. Li, H. Lei, I. V. Pivkin, G. E. Karniadakis, PLoS
+Computational Biology 11(8): e1004410
+(2015). (doi:10.1371/journal.pcbi.1004410)
+(<A HREF = "abstracts/plos15.html">abstract</A>)
+</P>
+<!-- Past LAMMPS highlights:
+1 Sept 2004, Mark's membrane self-assembly pictures
+17 Jan 2005, Paul's rhodopsin movie
+3 Jun 2005, Scott's tensile polymer pull
+10 Nov 2005, Paul's RuBisCO movie
+12 Apr 2006, Gee and Lacevic image/movie
+17 Jul 2006, Jin Sun Brazil nut movies
+1 Oct 2006, Harold Park Au nanowire movie
+12 Feb 2007, Chandross/Webb nanotip pics
+22 Jun 2007, Heine/Grest/Webb Langmuir drop spreading pics
+5 Oct 2007, Carrillo and Dobrynin polyelectrolytes at charged surface
+22 Jan 2008, Cao nanowire pictures
+21 May 2008, Jang dendritic polymer pictures
+9 Jan 2009, Zimmerman metal bubble movie
+7 Jul 2009, Lane/Grest/Chandross/Stevens/Lorenz water with SAMs
+15 Jan 2010, ATC pics
+10 Sept 2010, Klein CG pics
+9 Jan 2012, Zybin REAX shock pics
+1 Feb 2014, Shengfeng and Gary evaporation nanoparticle model
+4 Feb 2016, blood flow in capillaries by Lykov and Brown U
+-->
+
+</HTML>

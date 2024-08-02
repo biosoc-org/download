@@ -1,0 +1,2579 @@
+<!doctype html><html lang="en"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>Molecular Docking Software for Virtual Screening</title>
+    <link rel="shortcut icon" href="https://www.eyesopen.com/hubfs/favicon-reverse-hubspot48x48.png">
+    <meta name="description" content="OEDocking is a suite of molecular docking tools and workflows, each specifically designed to address its own unique aspect of protein-ligand interaction. OpenEye streamlines your ligand docking, induced-fit docking, and ligand posing needs.">
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="/hs/hsstatic/jquery-libs/static-1.4/jquery/jquery-1.11.2.js"></script>
+<script>hsjQuery = window['jQuery'];</script>
+    <meta property="og:description" content="OEDocking is a suite of molecular docking tools and workflows, each specifically designed to address its own unique aspect of protein-ligand interaction. OpenEye streamlines your ligand docking, induced-fit docking, and ligand posing needs.">
+    <meta property="og:title" content="Molecular Docking Software for Virtual Screening">
+    <meta name="twitter:description" content="OEDocking is a suite of molecular docking tools and workflows, each specifically designed to address its own unique aspect of protein-ligand interaction. OpenEye streamlines your ligand docking, induced-fit docking, and ligand posing needs.">
+    <meta name="twitter:title" content="Molecular Docking Software for Virtual Screening">
+
+    
+
+    
+    <style>
+a.cta_button{-moz-box-sizing:content-box !important;-webkit-box-sizing:content-box !important;box-sizing:content-box !important;vertical-align:middle}.hs-breadcrumb-menu{list-style-type:none;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px}.hs-breadcrumb-menu-item{float:left;padding:10px 0px 10px 10px}.hs-breadcrumb-menu-divider:before{content:'›';padding-left:10px}.hs-featured-image-link{border:0}.hs-featured-image{float:right;margin:0 0 20px 20px;max-width:50%}@media (max-width: 568px){.hs-featured-image{float:none;margin:0;width:100%;max-width:100%}}.hs-screen-reader-text{clip:rect(1px, 1px, 1px, 1px);height:1px;overflow:hidden;position:absolute !important;width:1px}
+</style>
+
+<link rel="stylesheet" href="https://www.eyesopen.com/hs-fs/hub/73182/hub_generated/template_assets/164776760655/1719347299371/mjtw/css/2024-updated-styles.min.css">
+<link rel="stylesheet" href="https://www.eyesopen.com/hs-fs/hub/73182/hub_generated/module_assets/65262674455/1719253380123/module_65262674455_mjtw-site-header.min.css">
+
+<style>
+  #hs_cos_wrapper_module_site_header header.site-header--scroll-down .s2-header-logo {
+  transition:0.3s ease opacity;
+  -webkit-transition:0.3s ease opacity;
+}
+
+#hs_cos_wrapper_module_site_header header.site-header--scroll-down .s2-header-logo[always-show-anim="true"] { opacity:1 !important; }
+
+#hs_cos_wrapper_module_site_header .upper-nav-inner img {
+  height:auto;
+  width:140px;
+  min-width:140px;
+}
+
+#hs_cos_wrapper_module_site_header .upper-nav-inner {
+  height:60px;
+  display:flex;
+  max-width:1426px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:10px 15px;
+  flex-direction:row;
+  justify-content:space-between;
+  flex-wrap:nowrap;
+  align-items:center;
+}
+
+#hs_cos_wrapper_module_site_header .upper-nav {
+  box-shadow:0 .875em 1.875em rgba(0,0,0,.1),0 .1875em 1em rgba(0,0,0,.07);
+  position:fixed;
+  top:0px;
+  z-index:24;
+  width:100%;
+  left:0px;
+}
+
+#hs_cos_wrapper_module_site_header .header-banner {
+  position:fixed;
+  top:calc(92px + 40px);
+  z-index:7;
+  width:100%;
+  display:inline-block;
+  left:0px;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+#hs_cos_wrapper_module_site_header .header-banner a { color:#0000ee; }
+
+#hs_cos_wrapper_module_site_header .upper-nav-copy { font-weight:700; }
+
+#hs_cos_wrapper_module_site_header .mobile-menu__inner { top:60px; }
+
+#hs_cos_wrapper_module_site_header header.site-header { top:42px; }
+
+@media (min-width:992px) {
+  #hs_cos_wrapper_module_site_header .upper-nav-inner img {
+    height:auto;
+    width:140px;
+  }
+
+  #hs_cos_wrapper_module_site_header .upper-nav-inner { padding:10px 37px; }
+
+  #hs_cos_wrapper_module_site_header .header-banner {
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+}
+
+@media (min-width:768px) {
+  #hs_cos_wrapper_module_site_header header.site-header { top:60px; }
+
+  #hs_cos_wrapper_module_site_header .header-banner { top:calc(92px + 63px); }
+}
+
+@media (min-width:992px) and (max-width:1440px) {
+  #hs_cos_wrapper_module_site_header .header-banner { top:calc(92px + 60px); }
+}
+
+#hs_cos_wrapper_module_site_header .site-header__logo img {
+  width:14.5em;
+  width:14.5em;
+}
+
+  
+  body {
+    padding-top:55px !important;
+  }
+  .hs-content-name-home-page-v2 {
+    margin-top:-55px;
+  }
+  
+  
+  
+  .logo-animation-billboard--animated .logo-animation-billboard__logo .logo-img-svg, .logo-animation-billboard--animating .logo-animation-billboard__logo .logo-img-svg {
+    top: 83px!important;
+    top: 74px!important;
+    left: 30px!important;
+  }
+  @media (min-width: 768px) and (max-width: 991px){
+    .logo-animation-billboard--animated .logo-animation-billboard__logo .logo-img-svg, .logo-animation-billboard--animating .logo-animation-billboard__logo .logo-img-svg {
+      top: 94px!important;
+    }
+    
+  }
+  @media (max-width: 767px){
+    .logo-animation-billboard--animated .logo-animation-billboard__logo .logo-img-svg, .logo-animation-billboard--animating .logo-animation-billboard__logo .logo-img-svg {
+      top: 74px!important;
+      left: 15px!important;
+    }
+  }
+  
+  
+  
+</style>
+
+
+<style id="">
+  #hs_cos_wrapper_module_site_header .site-header__inner {
+  background-color:transparent !important;
+  transition:0.1s ease all;
+  -webkit-transition:0.1s ease all;
+}
+
+#hs_cos_wrapper_module_site_header .upper-nav {
+  transition:0 ease all;
+  -webkit-transition:0 ease all;
+}
+
+#hs_cos_wrapper_module_site_header .mobile-menu.open { z-index:26; }
+
+#hs_cos_wrapper_module_site_header .header-parts {
+  top:0px !important;
+  z-index:25;
+}
+
+@media (max-width:992px) {
+  #hs_cos_wrapper_module_site_header .site-header.header-parts {
+    transform:translateY(-16px);
+    -webkit-transform:translateY(-16px);
+  }
+}
+
+#hs_cos_wrapper_module_site_header .site-header {
+  transition:0.2s;
+  -webkit-transition:0.2s;
+}
+
+#hs_cos_wrapper_module_site_header .upper-nav.hide {
+  opacity:0;
+  transition:0.3s ease all;
+  -webkit-transition:0.3s ease all;
+}
+
+</style>
+
+
+<style>
+
+  .module_site_footer .copy-two-col {display: flex;flex-wrap: wrap;justify-content: space-between;align-items: center;
+    padding-top: 30px;border-top: 1px solid rgb(255 255 255 / 50%);}
+  .module_site_footer .copyright-text {font-size: 14px;line-height: 1.57;}
+  .module_site_footer .privacy-menu > ul {display: none !important;}
+  .module_site_footer .privacy-menu ul {display: flex;flex-wrap: wrap;align-items: center;margin: 0 -10px;}
+  .module_site_footer .privacy-menu ul > li > a {font-size: 14px;line-height: 1.57;font-weight: 400;}
+  .module_site_footer .privacy-menu ul > li {padding-left: 10px;padding-right: 10px;}
+  .module_site_footer .footer-fst-col {display: flex;flex-wrap: wrap;position: relative;}
+  .module_site_footer .menu-icons {width: 100%;text-align: right;position: absolute;bottom: 0;right: 0;z-index: 1;}
+  .module_site_footer .menu-icons ul {display: flex;justify-content: flex-end;flex-wrap: wrap;}
+  .module_site_footer .mobile-s { display: none; }
+  .module_site_footer.new-footer {padding-bottom: 125px;}
+  
+  @media (min-width: 768px) {
+  
+    .module_site_footer .site-footer__social-menu .social-link__icon {opacity: 1;}
+    .module_site_footer .site-footer__social-menu .social-link__icon:hover {opacity: 0.5;}
+  
+  }
+
+  @media (max-width: 1080px) {
+
+    .module_site_footer .privacy-menu {padding-left: 0 !important;padding-top: 20px;}
+
+  }
+
+  @media (max-width: 767px) {
+
+    .module_site_footer .desktop-s { display: none; }
+    .module_site_footer .mobile-s { display: block; }
+    .module_site_footer .copy-two-col {padding-top: 35px;}
+
+    .module_site_footer .privacy-menu {order: 1;width: 100%;}
+    .module_site_footer .mobile-s .menu-icons {position: static;}
+    .module_site_footer .mobile-s {order: 2;width: 100%;padding-top: 35px;margin-bottom: 0 !important;}
+    .module_site_footer .copyright-text {width: 100%;order: 3;margin-bottom: 0 !important;padding-top: 35px;}
+    .module_site_footer .privacy-menu ul {display: block;}
+    .module_site_footer .privacy-menu ul > li {width: 100%;text-align: center;padding: 0;}
+    .module_site_footer .privacy-menu ul > li + li {padding-top: 20px;}
+    .module_site_footer .privacy-menu ul {margin: 0;}
+    .module_site_footer .menu-icons ul {justify-content: center;}
+    .module_site_footer .privacy-menu {padding-top: 0;}
+    .module_site_footer.new-footer {padding-bottom: 50px;}
+  }
+
+
+</style>
+
+<style>
+@font-face {
+  font-family: "Rubik";
+  src: url("https://www.eyesopen.com/hubfs/raw_assets/public/mjtw/fonts/Rubik/Rubik-Bold.ttf") format("truetype"),url("https://www.eyesopen.com/hubfs/raw_assets/public/mjtw/fonts/Rubik/Rubik-Bold.woff") format("woff"),url("https://www.eyesopen.com/hubfs/raw_assets/public/mjtw/fonts/Rubik/Rubik-Bold.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("https://www.eyesopen.com/hubfs/raw_assets/public/mjtw/fonts/Rubik/Rubik-SemiBold.ttf") format("truetype"),url("https://www.eyesopen.com/hubfs/raw_assets/public/mjtw/fonts/Rubik/Rubik-SemiBold.woff") format("woff"),url("https://www.eyesopen.com/hubfs/raw_assets/public/mjtw/fonts/Rubik/Rubik-SemiBold.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("https://www.eyesopen.com/hubfs/raw_assets/public/mjtw/fonts/Rubik/Rubik-Regular.ttf") format("truetype"),url("https://www.eyesopen.com/hubfs/raw_assets/public/mjtw/fonts/Rubik/Rubik-Regular.woff") format("woff"),url("https://www.eyesopen.com/hubfs/raw_assets/public/mjtw/fonts/Rubik/Rubik-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+}
+</style>
+
+    
+
+    
+<!--  Added by GoogleTagManager integration -->
+<script>
+var _hsp = window._hsp = window._hsp || [];
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+var useGoogleConsentModeV2 = true;
+var waitForUpdateMillis = true ? 1000 : 0;
+
+
+
+var hsLoadGtm = function loadGtm() {
+    if(window._hsGtmLoadOnce) {
+      return;
+    }
+
+    if (useGoogleConsentModeV2) {
+
+      gtag('set','developer_id.dZTQ1Zm',true);
+
+      gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': waitForUpdateMillis
+      });
+
+      _hsp.push(['useGoogleConsentModeV2'])
+    }
+
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P296JHG');
+
+    window._hsGtmLoadOnce = true;
+};
+
+_hsp.push(['addPrivacyConsentListener', function(consent){
+  if(consent.allowed || (consent.categories && consent.categories.analytics)){
+    hsLoadGtm();
+  }
+}]);
+
+</script>
+
+<!-- /Added by GoogleTagManager integration -->
+
+    <link rel="canonical" href="https://www.eyesopen.com/oedocking">
+
+
+
+ 
+
+
+<meta name="google-site-verification" content="eByUgbr-T40ogQ6_IYADuGTp-b7jisYSAJHiAokxUME">
+
+
+<script type="text/javascript" src="https://www.eyesopen.com/hs-fs/hub/73182/hub_generated/template_assets/63054792739/1641221697253/render-script.min.js"></script>
+<meta property="og:url" content="https://www.eyesopen.com/oedocking">
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+ 
+    
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
+
+    
+      
+    
+  <style>
+    body.leadin-styled #leadinModal-598001 .leadinModal-content {
+      background: #000478 !important;
+    }
+  </style><meta name="generator" content="HubSpot"></head>
+  
+  
+  
+  <body class="leadin-styled">
+<!--  Added by GoogleTagManager integration -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P296JHG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- /Added by GoogleTagManager integration -->
+
+    <div class="hs-search-hidden" style="display:none;">
+      
+    </div>
+    
+<div class="">
+
+      <div class="body-wrapper   hs-content-id-3392142284 hs-site-page page hs-content-path-oedocking hs-content-name-solutions-by-topic-lead-discovery-oedocking  ">
+
+        
+          <div id="hs_cos_wrapper_module_site_header" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+<div class="upper-nav" style="background:#FFFFFF;">
+  <div class="upper-nav-inner">
+    <div class="upper-nav-logo">
+      
+      
+      <a href="https://www.cadence.com/" class="upper-nav-logo-container" style="display:flex;" target="_blank" rel="noopener">
+        
+        
+        
+        
+        <img src="https://www.eyesopen.com/hs-fs/hubfs/Cadence_Logo_Red.png?width=842&amp;height=158&amp;name=Cadence_Logo_Red.png" alt="Cadence_Logo_Red" loading="lazy" width="842" height="158" srcset="https://www.eyesopen.com/hs-fs/hubfs/Cadence_Logo_Red.png?width=421&amp;height=79&amp;name=Cadence_Logo_Red.png 421w, https://www.eyesopen.com/hs-fs/hubfs/Cadence_Logo_Red.png?width=842&amp;height=158&amp;name=Cadence_Logo_Red.png 842w, https://www.eyesopen.com/hs-fs/hubfs/Cadence_Logo_Red.png?width=1263&amp;height=237&amp;name=Cadence_Logo_Red.png 1263w, https://www.eyesopen.com/hs-fs/hubfs/Cadence_Logo_Red.png?width=1684&amp;height=316&amp;name=Cadence_Logo_Red.png 1684w, https://www.eyesopen.com/hs-fs/hubfs/Cadence_Logo_Red.png?width=2105&amp;height=395&amp;name=Cadence_Logo_Red.png 2105w, https://www.eyesopen.com/hs-fs/hubfs/Cadence_Logo_Red.png?width=2526&amp;height=474&amp;name=Cadence_Logo_Red.png 2526w" sizes="(max-width: 842px) 100vw, 842px">
+        
+      </a>
+    </div>
+    <div class="upper-nav-copy" style="color:#222222;text-align:right;">
+      OpenEye Scientific is now part of Cadence
+    </div>
+  </div>
+</div>
+
+<header class="site-header site-header--on-light  has-upper-nav " role="banner">
+  <div class="site-header__top">
+   
+  </div>
+  <div class="site-header__inner">
+    <div class="site-header__left">
+      <div always-show-anim="true" class="s2-header-logo site-header__logo">
+        
+        
+        <a href="/">
+          <span class="on-light">
+            
+            <img src="https://www.eyesopen.com/hubfs/mjtw-assets/logos/Horizontal-OpenEye-Cadence-2024.svg" alt="openeye-logo" width="1015" height="353">
+            
+          </span>
+          <span class="on-dark">
+            
+            <img src="https://www.eyesopen.com/hubfs/mjtw-assets/logos/Horizontal-OpenEye-Cadence-all-white-2024-01.svg" alt="openeye-logo-on-dark" width="143" height="51">
+            
+            
+          </span>
+        </a>
+      </div>
+      <div class="site-header__main-menu">
+        <div id="hs_menu_wrapper_module_site_header_" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="MJTW Header Main Menu" data-menu-id="76459993423" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/solutions" aria-haspopup="true" aria-expanded="false" role="menuitem">Solutions</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">OpenEye Solutions</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="javascript:;" role="menuitem">Science | Speed | Scale</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/solutions" role="menuitem">Learn More</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">Product</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/orion" role="menuitem">Orion® Molecular Design Platform</a>
+       <ul role="menu" class="hs-menu-children-wrapper">
+        <li class="hs-menu-item hs-menu-depth-4" role="none"><a href="https://www.eyesopen.com/orion/small-molecule-discovery-suite" role="menuitem">Small Molecule Discovery Suite</a></li>
+        <li class="hs-menu-item hs-menu-depth-4" role="none"><a href="https://www.eyesopen.com/orion/antibody-discovery-suite" role="menuitem">Antibody Discovery Suite</a></li>
+        <li class="hs-menu-item hs-menu-depth-4" role="none"><a href="https://www.eyesopen.com/orion/formulations-suite" role="menuitem">Formulations Suite</a></li>
+        <li class="hs-menu-item hs-menu-depth-4" role="none"><a href="https://www.eyesopen.com/orion/gaussian" role="menuitem">Gaussian Module</a></li>
+       </ul></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/applications" role="menuitem">Applications</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/cheminformatics-modeling-toolkits" role="menuitem">Cheminformatics &amp; Modeling Toolkits</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/visualizer-and-data-management" role="menuitem">Visualization &amp; Data Management</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/databases" role="menuitem">Curated Databases</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">Topic</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/large-scale-virtual-screening" role="menuitem">Virtual Screening</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/lead-discovery" role="menuitem">Lead Discovery</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/lead-optimization" role="menuitem">Lead Optimization</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/formulations-suite" role="menuitem">Drug Formulation</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/abxtract" role="menuitem">Antibody Discovery</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/structural-biology" role="menuitem">Structural Biology</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">Interest</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/ligand-based-design" role="menuitem">Ligand-Based Design</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/structure-based-design" role="menuitem">Structure-Based Design</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/properties-calculations" role="menuitem">Properties Calculations</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/abxtract" role="menuitem">Antibody Engineering</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/structural-biology" role="menuitem">Biomolecular Modeling</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/protein-and-data-preparation" role="menuitem">Protein &amp; Data Preparation</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/formulations-suite" role="menuitem">Crystal Structure Prediction</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/quantum-mechanics" role="menuitem">Quantum Chemistry</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/machine-learning" role="menuitem">Machine Learning</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/scientific-ai-in-drug-discovery" role="menuitem">Artificial Intelligence</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">Industry Sector</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/biotech-pharmaceuticals" role="menuitem">Biotech &amp; Pharmaceuticals</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/academics" role="menuitem">Academic Institutions</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/agrochemicals" role="menuitem">Agrochemicals</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/flavors-fragrance" role="menuitem">Flavors &amp; Fragrances</a></li>
+     </ul></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/services" aria-haspopup="true" aria-expanded="false" role="menuitem">Services</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">OpenEye Services</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/services" role="menuitem">Find out more about our services</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/services" role="menuitem">Services</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/drug-discovery-consulting" role="menuitem">Drug Discovery Consulting</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/crystal-structure-prediction" role="menuitem">Crystal Structure Prediction for Drug Formulation</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/development-and-coding" role="menuitem">Custom Scientific Method Development</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/partnerships-engagements" role="menuitem">Partnerships and Engagements</a></li>
+     </ul></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/resources" aria-haspopup="true" aria-expanded="false" role="menuitem">Resources</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">OpenEye Resources</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/resources" role="menuitem">Find out more about our resources</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/resources" role="menuitem">Resources</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/openeye-events" role="menuitem">Events</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="/resources?resource_type=News" role="menuitem">News</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://docs.eyesopen.com/" role="menuitem" target="_blank" rel="noopener">Documentation</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="/resources?resource_type=Presentations" role="menuitem">Presentations</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="/resources?resource_type=Upcoming+Webinars" role="menuitem">Webinars</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="/resources?resource_type=Publications" role="menuitem">Publications</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/customer-software-download" role="menuitem">Download</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/support" role="menuitem">Support</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/academic-licensing" role="menuitem">Academic Licensing</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/software-integration-partners" role="menuitem">Software Integration Partners</a></li>
+     </ul></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/about" aria-haspopup="true" aria-expanded="false" role="menuitem">About</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">About OpenEye</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/about" role="menuitem">Find out more about OpenEye</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/about" role="menuitem">About</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/why-openeye" role="menuitem">Why OpenEye</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/openeye-leadership" role="menuitem">Team</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/openeye-scientific-advisory-board" role="menuitem">Scientific Advisory Board</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/careers" role="menuitem">Careers</a></li>
+     </ul></li>
+   </ul></li>
+ </ul>
+</div>
+      </div>
+    </div>
+
+    <div class="site-header__right">
+
+      <div class="site-header__search-menu">
+        <form class="site-header__search-form" action="/search">
+          <input class="site-header__search-input hs-search-field__input" type="search" name="term" autocomplete="off" placeholder="Search">
+          <button class="site-header__search-submit" type="submit" aria-label="Search the site">
+            <svg width="18" height="17" viewbox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.677 16.6069L9.96198 10.8909C7.41965 12.6984 3.91642 12.2562 1.90285 9.87383C-0.110711 7.49141 0.0371394 3.96349 2.24298 1.7579C4.44824 -0.448656 7.97651 -0.597146 10.3594 1.41631C12.7422 3.42977 13.1846 6.93334 11.377 9.4759L17.092 15.1919L15.678 16.6059L15.677 16.6069ZM6.48498 1.99988C4.58868 1.99946 2.95267 3.33057 2.56745 5.18733C2.18224 7.04409 3.15369 8.91617 4.89366 9.67014C6.63362 10.4241 8.66388 9.85273 9.75522 8.30195C10.8466 6.75117 10.699 4.64721 9.40198 3.2639L10.007 3.8639L9.32498 3.1839L9.31298 3.1719C8.56477 2.41907 7.54637 1.99702 6.48498 1.99988Z" fill="#18407E" />
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <div class="site-header__secondary-menu">
+        <div id="hs_menu_wrapper_module_site_header_" class="hs-menu-wrapper active-branch no-flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="MJTW Header Secondary Menu" data-menu-id="65272153357" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.eyesopen.com/contact" role="menuitem">Let's Connect</a></li>
+ </ul>
+</div>
+      </div>
+
+      <div class="menu-trigger__container">
+        <button class="menu-trigger__button" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="30" height="20" viewbox="0 0 30 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 20H15V16.6667H30V20ZM30 11.6667H0V8.33333H30V11.6667ZM30 3.33333H0V0H30V3.33333Z" fill="#009ADC" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="mobile-menu">
+  <div class="mobile-menu__wrapper">
+    <div class="mobile-menu__background"></div>
+    <div class="mobile-menu__inner">
+      <div class="mobile-menu__actions">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a class="cta-btn cta-btn--medium cta-btn--secondary-fill" href="javascript:;">Let's Connect</a>
+          
+        
+        <button class="mobile-menu__close-btn">
+          <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.3163 0.333344L11.9997 9.65001L2.68301 0.333344L0.333008 2.68334L9.64967 12L0.333008 21.3167L2.68301 23.6667L11.9997 14.35L21.3163 23.6667L23.6663 21.3167L14.3497 12L23.6663 2.68334L21.3163 0.333344Z" fill="#009ADC" />
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-menu__search">
+        <form class="mobile-menu__search-form" action="/search">
+          <input class="mobile-menu__search-input hs-search-field__input" type="search" name="term" autocomplete="off" placeholder="Search">
+          <button class="mobile-menu__search-submit" type="submit" aria-label="Search the site">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <div class="mobile-menu__main-menu">
+        <div id="hs_menu_wrapper_module_site_header_" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="MJTW Header Main Menu" data-menu-id="76459993423" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/solutions" aria-haspopup="true" aria-expanded="false" role="menuitem">Solutions</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">OpenEye Solutions</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="javascript:;" role="menuitem">Science | Speed | Scale</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/solutions" role="menuitem">Learn More</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">Product</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/orion" role="menuitem">Orion® Molecular Design Platform</a>
+       <ul role="menu" class="hs-menu-children-wrapper">
+        <li class="hs-menu-item hs-menu-depth-4" role="none"><a href="https://www.eyesopen.com/orion/small-molecule-discovery-suite" role="menuitem">Small Molecule Discovery Suite</a></li>
+        <li class="hs-menu-item hs-menu-depth-4" role="none"><a href="https://www.eyesopen.com/orion/antibody-discovery-suite" role="menuitem">Antibody Discovery Suite</a></li>
+        <li class="hs-menu-item hs-menu-depth-4" role="none"><a href="https://www.eyesopen.com/orion/formulations-suite" role="menuitem">Formulations Suite</a></li>
+        <li class="hs-menu-item hs-menu-depth-4" role="none"><a href="https://www.eyesopen.com/orion/gaussian" role="menuitem">Gaussian Module</a></li>
+       </ul></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/applications" role="menuitem">Applications</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/cheminformatics-modeling-toolkits" role="menuitem">Cheminformatics &amp; Modeling Toolkits</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/visualizer-and-data-management" role="menuitem">Visualization &amp; Data Management</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/databases" role="menuitem">Curated Databases</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">Topic</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/large-scale-virtual-screening" role="menuitem">Virtual Screening</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/lead-discovery" role="menuitem">Lead Discovery</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/lead-optimization" role="menuitem">Lead Optimization</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/formulations-suite" role="menuitem">Drug Formulation</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/abxtract" role="menuitem">Antibody Discovery</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/structural-biology" role="menuitem">Structural Biology</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">Interest</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/ligand-based-design" role="menuitem">Ligand-Based Design</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/structure-based-design" role="menuitem">Structure-Based Design</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/properties-calculations" role="menuitem">Properties Calculations</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/abxtract" role="menuitem">Antibody Engineering</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/structural-biology" role="menuitem">Biomolecular Modeling</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/protein-and-data-preparation" role="menuitem">Protein &amp; Data Preparation</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/formulations-suite" role="menuitem">Crystal Structure Prediction</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/quantum-mechanics" role="menuitem">Quantum Chemistry</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/machine-learning" role="menuitem">Machine Learning</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/scientific-ai-in-drug-discovery" role="menuitem">Artificial Intelligence</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">Industry Sector</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/biotech-pharmaceuticals" role="menuitem">Biotech &amp; Pharmaceuticals</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/academics" role="menuitem">Academic Institutions</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/agrochemicals" role="menuitem">Agrochemicals</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/flavors-fragrance" role="menuitem">Flavors &amp; Fragrances</a></li>
+     </ul></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/services" aria-haspopup="true" aria-expanded="false" role="menuitem">Services</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">OpenEye Services</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/services" role="menuitem">Find out more about our services</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/services" role="menuitem">Services</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/drug-discovery-consulting" role="menuitem">Drug Discovery Consulting</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/crystal-structure-prediction" role="menuitem">Crystal Structure Prediction for Drug Formulation</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/development-and-coding" role="menuitem">Custom Scientific Method Development</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/partnerships-engagements" role="menuitem">Partnerships and Engagements</a></li>
+     </ul></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/resources" aria-haspopup="true" aria-expanded="false" role="menuitem">Resources</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">OpenEye Resources</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/resources" role="menuitem">Find out more about our resources</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/resources" role="menuitem">Resources</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/openeye-events" role="menuitem">Events</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="/resources?resource_type=News" role="menuitem">News</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://docs.eyesopen.com/" role="menuitem" target="_blank" rel="noopener">Documentation</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="/resources?resource_type=Presentations" role="menuitem">Presentations</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="/resources?resource_type=Upcoming+Webinars" role="menuitem">Webinars</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="/resources?resource_type=Publications" role="menuitem">Publications</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/customer-software-download" role="menuitem">Download</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/support" role="menuitem">Support</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/academic-licensing" role="menuitem">Academic Licensing</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/software-integration-partners" role="menuitem">Software Integration Partners</a></li>
+     </ul></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/about" aria-haspopup="true" aria-expanded="false" role="menuitem">About</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="javascript:;" role="menuitem">About OpenEye</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/about" role="menuitem">Find out more about OpenEye</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/about" role="menuitem">About</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/why-openeye" role="menuitem">Why OpenEye</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/openeye-leadership" role="menuitem">Team</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/openeye-scientific-advisory-board" role="menuitem">Scientific Advisory Board</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/careers" role="menuitem">Careers</a></li>
+     </ul></li>
+   </ul></li>
+ </ul>
+</div>
+      </div>
+      
+      <div class="mobile-menu__spacer"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<style id="additional-header-style">
+</style>
+
+
+
+
+
+<!-- END --></div>
+
+        
+
+        
+<main class="body-container-wrapper">
+  <div class="flex-top-full">
+    <span id="hs_cos_wrapper_flex-top-full" class="hs_cos_wrapper hs_cos_wrapper_widget_container hs_cos_wrapper_type_widget_container" style="" data-hs-cos-general-type="widget_container" data-hs-cos-type="widget_container"><div id="hs_cos_wrapper_widget_66431770203" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="breadcrumb-menu module">
+  <div class="module__inner constrain">
+    <div class="module__section-main">
+      <div class="module__content constrain--12">
+        <div class="breadcrumb-menu__content-inner">
+          <div class="breadcrumb-menu__content">
+            <ul></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div>
+<div id="hs_cos_wrapper_widget_66431770204" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  <div class="two-column module  module--padding-top-xxs  module--padding-bottom-large  module--on-light  module--bg-transparent">
+
+    
+  
+  
+  
+  
+  
+
+  
+    <div class="module__underlay" aria-hidden="true">
+      
+        
+        
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <picture class="module__underlay-image">
+      
+        
+        <source media="(max-width: 360px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=720&amp;name=molecule-bg-accent.png">
+        <source media="(max-width: 360px)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=360&amp;name=molecule-bg-accent.png">
+
+        
+        <source media="(max-width: 480px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=960&amp;name=molecule-bg-accent.png">
+        <source media="(max-width: 480px)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=480&amp;name=molecule-bg-accent.png">
+
+        
+        <source media="(max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=1534&amp;name=molecule-bg-accent.png">
+        <source media="(max-width: 767px)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=767&amp;name=molecule-bg-accent.png">
+      
+
+      
+      <source media="(max-width: 991px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=1982&amp;name=molecule-bg-accent.png">
+      <source media="(max-width: 991px)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=991&amp;name=molecule-bg-accent.png">
+
+      
+      <source media="(max-width: 1439px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=2878&amp;name=molecule-bg-accent.png">
+      <source media="(max-width: 1439px)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=1439&amp;name=molecule-bg-accent.png">
+
+      
+      <source media="(max-width: 1920px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=3200&amp;name=molecule-bg-accent.png">
+      <source media="(max-width: 1920px)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=1600&amp;name=molecule-bg-accent.png">
+
+      
+      <source media="(max-width: 1920px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=3840&amp;name=molecule-bg-accent.png">
+      <source media="(max-width: 1920px)" srcset="https://f.hubspotusercontent30.net/hub/73182/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png?width=1920&amp;name=molecule-bg-accent.png">
+
+      
+      <img class="module__underlay-image-element module__underlay-image-element--bottom-right module__underlay-image-element--auto" src="https://www.eyesopen.com/hubfs/mjtw-assets/backgrounds/molecule-bg-accent.png" alt="" loading="lazy">
+    </picture>
+  
+
+  
+
+      
+    </div>
+
+    
+  
+
+
+    <div class="module__inner  constrain">
+      
+
+      <div class="module__section-main module__section-main--block-align-center">
+        <div class="module__content module__content--text-align-left constrain--12">
+          
+  <div class="two-column__grid two-column__grid--content-photo two-column__grid--50-50 two-column__grid--middle two-column__grid--gap-large">
+    
+      
+        
+        
+      
+      
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="two-column__content">
+      <div class="two-column__content-inner">
+        <div class="animated-content">
+          <span class="h6">LEAD DISCOVERY</span>
+<h1>OEDocking</h1>
+<p>OEDocking is a suite of well-validated molecular docking tools and workflows, each specifically designed to address its own unique aspect of protein-ligand interaction. Specifically, it features <a href="/posit" rel="noopener">POSIT</a> for informed pose prediction as well as FRED and HYBRID as complementary tools for virtual screening.</p>
+<p>Most of the functionality available in OEDocking is also available in toolkit form via the <a href="/oedocking-tk" rel="noopener">OEDocking TK</a>.</p>
+
+          
+            
+            
+  
+  
+  
+  
+      
+  <div class="module__testimonial">
+    
+      <div class="module__testimonial-content">
+        <blockquote style="font-size: 14px;">We identified the ureido methylpiperidine carboxylate derivative [using OEDocking], compound 7, as a reversible, selective, and potent inhibitor of cathepsin V. – Mitrovic et al. (<a href="https://doi.org/10.1016/j.csbj.2022.08.046" rel="noopener" target="_blank">CSBJ, 2022</a>)</blockquote>
+      </div>
+    
+
+    
+      <div class="module__testimonial-citation">
+        <div class="module__testimonial-citation-inner">
+          
+  
+          
+            <div class="module__testimonial-citation-content">
+              
+                <span class="module__testimonial-citation-name"></span>
+              
+  
+              
+                <span class="module__testimonial-citation-title"></span>
+              
+            </div>
+          
+        </div>
+      </div>
+    
+  </div>
+
+          
+  
+          
+        </div>
+        
+      </div>
+    </div>
+  
+
+    
+      
+        
+        
+      
+      
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    <div class="two-column__photo">
+      <div class="two-column__photo-inner module--bg-white">
+        <div class=" shadow--level-4">
+          
+            
+  
+    
+      
+    
+
+    <picture class="module__picture">
+
+      
+      <source media="(max-width: 360px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=660&amp;name=2IKO_receptor.jpg">
+      <source media="(max-width: 360px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=330&amp;name=2IKO_receptor.jpg">
+
+      
+      <source media="(max-width: 480px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=900&amp;name=2IKO_receptor.jpg">
+      <source media="(max-width: 480px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=450&amp;name=2IKO_receptor.jpg">
+
+      
+      
+      <source media="(max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=1474&amp;name=2IKO_receptor.jpg">
+      <source media="(max-width: 767px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=737&amp;name=2IKO_receptor.jpg">
+
+      
+      <source media="(max-width: 991px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=896&amp;name=2IKO_receptor.jpg">
+      <source media="(max-width: 991px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=448&amp;name=2IKO_receptor.jpg">
+
+      
+      <source media="(max-width: 1439px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=1152&amp;name=2IKO_receptor.jpg">
+      <source media="(max-width: 1439px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=576&amp;name=2IKO_receptor.jpg">
+
+      
+      <source media="(max-width: 1920px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=1280&amp;name=2IKO_receptor.jpg"> 
+      <source media="(max-width: 1920px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/2IKO_receptor.jpg?width=640&amp;name=2IKO_receptor.jpg">
+
+      
+      <img class="module__picture-element" src="https://www.eyesopen.com/hs-fs/hubfs/2IKO_receptor.jpg?width=623&amp;height=505&amp;name=2IKO_receptor.jpg" alt="2IKO receptor." width="623" height="505" srcset="https://www.eyesopen.com/hs-fs/hubfs/2IKO_receptor.jpg?width=312&amp;height=253&amp;name=2IKO_receptor.jpg 312w, https://www.eyesopen.com/hs-fs/hubfs/2IKO_receptor.jpg?width=623&amp;height=505&amp;name=2IKO_receptor.jpg 623w, https://www.eyesopen.com/hs-fs/hubfs/2IKO_receptor.jpg?width=935&amp;height=758&amp;name=2IKO_receptor.jpg 935w, https://www.eyesopen.com/hs-fs/hubfs/2IKO_receptor.jpg?width=1246&amp;height=1010&amp;name=2IKO_receptor.jpg 1246w, https://www.eyesopen.com/hs-fs/hubfs/2IKO_receptor.jpg?width=1558&amp;height=1263&amp;name=2IKO_receptor.jpg 1558w, https://www.eyesopen.com/hs-fs/hubfs/2IKO_receptor.jpg?width=1869&amp;height=1515&amp;name=2IKO_receptor.jpg 1869w" sizes="(max-width: 623px) 100vw, 623px">
+    </picture>
+  
+
+          
+        </div>
+        
+        
+      </div>
+    </div>
+
+  
+
+    
+  </div>
+
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+<div id="hs_cos_wrapper_widget_66431770205" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  <div class="nested-layout module  module--padding-top-xxs  module--padding-bottom-small  module--on-light  module--bg-transparent">
+
+    
+  
+  
+  
+  
+  
+
+  
+
+
+    <div class="module__inner  constrain">
+      
+
+      <div class="module__section-main module__section-main--block-align-center">
+        <div class="module__content module__content--text-align-center constrain--12">
+          
+  <div class="nested-layout__grid nested-layout__grid--one-col">
+    
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class="nested-layout__column nested-layout__column--card">
+      <div class="nested-layout__column-inner">
+        <div class="column card">
+          <div class="column__inner">
+
+          
+
+          <div class="column__content">
+            
+              <h2>Features</h2>
+<ul class="three-column checklist text-align--left">
+<li>FRED - super fast exhaustive docking (virtual screening)</li>
+<li>HYBRID - very fast ligand guided docking (virtual screening)</li>
+<li>POSIT - fast knowledge guided pose prediction (optimization)</li>
+<li>Induced Fit Posing - dock and predict binding pose for flexible target sites.</li>
+<li>Can utilize multiple crystallographic protein structures</li>
+<li>Can use the crystallographic structure of a ligand to guide docking</li>
+<li>5-100 times faster than competing software</li>
+</ul>
+            
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    
+  </div>
+
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+<div id="hs_cos_wrapper_widget_66431770206" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  <div class="two-column module  module--padding-top-xs  module--padding-bottom-medium  module--on-light  module--bg-transparent">
+
+    
+  
+  
+  
+  
+  
+
+  
+
+
+    <div class="module__inner  constrain">
+      
+
+      <div class="module__section-main module__section-main--block-align-center">
+        <div class="module__content module__content--text-align-left constrain--12">
+          
+  <div class="two-column__grid two-column__grid--photo-content two-column__grid--50-50 two-column__grid--middle two-column__grid--gap-large two-column__grid--reverse-order-on-mobile">
+    
+      
+        
+        
+      
+      
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    <div class="two-column__photo">
+      <div class="two-column__photo-inner module--bg-white">
+        <div class="">
+          
+            
+  
+    
+      
+    
+
+    <picture class="module__picture">
+
+      
+      <source media="(max-width: 360px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=660&amp;name=FRED_HSP90_Hit.png">
+      <source media="(max-width: 360px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=330&amp;name=FRED_HSP90_Hit.png">
+
+      
+      <source media="(max-width: 480px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=900&amp;name=FRED_HSP90_Hit.png">
+      <source media="(max-width: 480px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=450&amp;name=FRED_HSP90_Hit.png">
+
+      
+      
+      <source media="(max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=1474&amp;name=FRED_HSP90_Hit.png">
+      <source media="(max-width: 767px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=737&amp;name=FRED_HSP90_Hit.png">
+
+      
+      <source media="(max-width: 991px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=896&amp;name=FRED_HSP90_Hit.png">
+      <source media="(max-width: 991px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=448&amp;name=FRED_HSP90_Hit.png">
+
+      
+      <source media="(max-width: 1439px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=1152&amp;name=FRED_HSP90_Hit.png">
+      <source media="(max-width: 1439px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=576&amp;name=FRED_HSP90_Hit.png">
+
+      
+      <source media="(max-width: 1920px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=1280&amp;name=FRED_HSP90_Hit.png"> 
+      <source media="(max-width: 1920px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/FRED_HSP90_Hit.png?width=640&amp;name=FRED_HSP90_Hit.png">
+
+      
+      <img class="module__picture-element" src="https://www.eyesopen.com/hs-fs/hubfs/FRED_HSP90_Hit.png?width=1010&amp;height=576&amp;name=FRED_HSP90_Hit.png" alt="FRED_HSP90_Hit" width="1010" height="576" srcset="https://www.eyesopen.com/hs-fs/hubfs/FRED_HSP90_Hit.png?width=505&amp;height=288&amp;name=FRED_HSP90_Hit.png 505w, https://www.eyesopen.com/hs-fs/hubfs/FRED_HSP90_Hit.png?width=1010&amp;height=576&amp;name=FRED_HSP90_Hit.png 1010w, https://www.eyesopen.com/hs-fs/hubfs/FRED_HSP90_Hit.png?width=1515&amp;height=864&amp;name=FRED_HSP90_Hit.png 1515w, https://www.eyesopen.com/hs-fs/hubfs/FRED_HSP90_Hit.png?width=2020&amp;height=1152&amp;name=FRED_HSP90_Hit.png 2020w, https://www.eyesopen.com/hs-fs/hubfs/FRED_HSP90_Hit.png?width=2525&amp;height=1440&amp;name=FRED_HSP90_Hit.png 2525w, https://www.eyesopen.com/hs-fs/hubfs/FRED_HSP90_Hit.png?width=3030&amp;height=1728&amp;name=FRED_HSP90_Hit.png 3030w" sizes="(max-width: 1010px) 100vw, 1010px">
+    </picture>
+  
+
+          
+        </div>
+        
+          <div class="two-column__photo-caption two-column__photo-caption--left two-column__photo-caption--text-align-center">
+            
+            Prospective results on HSP-90 protein. OEDocking successfully identified a biologically active compound from commercially available database search.
+          </div>
+        
+        
+      </div>
+    </div>
+
+  
+
+    
+      
+        
+        
+      
+      
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="two-column__content">
+      <div class="two-column__content-inner">
+        <div class="animated-content">
+          <h2>Docking and Virtual Screening</h2>
+<h3>FRED - Fast Exhaustive Docking</h3>
+<p>Within a given, but practical, resolution FRED performs a systematic and non-stochastic examination of all possible protein-ligand poses, filters for shape complementarity and chemical feature alignment before selecting and optimizing poses using the Chemgauss4 scoring function [1,2,3,4]. It comes with a powerful GUI for preparing the active site and adding custom restraints. It also provides a detailed scoring analysis that uses our <a href="/grapheme-tk" rel="noopener">Grapheme toolkit</a>. In one example, Brus et al used FRED to discover a validated 2.7nM inhibitor of BChE, an Alzheimer's target [5]. The authors describe FRED as "by far the fastest docking tool and thus particularly suitable for ultrahigh-throughput docking".</p>
+<p><span>Especially useful when you possess information solely from the apo-protein structure.</span></p>
+<h3>HYBRID - Ligand guided docking</h3>
+<p>HYBRID uses bound ligand information to improve virtual screening performance, e.g. as POSIT improves poses HYBRID improves enrichment. Like FRED, HYBRID performs a systematic, exhaustive, non-stochastic examination of poses within the protein active site; however, HYBRID reduces this search space based on shape and chemical complementarity to the bound ligand. This ligand-guided docking provides equivalent or better enrichment when compared to most docking procedures [1,2].</p>
+<p><span>Highly valuable when you have information from the holo-protein structure.</span></p>
+<p>For more detailed information on OEDocking, check out the link below:</p>
+<a class="cta-link cta-link--underline" href="https://docs.eyesopen.com/" rel="noopener" target="_blank">Documentation</a>
+
+          
+  
+          
+        </div>
+        
+      </div>
+    </div>
+  
+
+    
+  </div>
+
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+<div id="hs_cos_wrapper_widget_1647884527357" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  <div class="two-column module  module--padding-top-medium  module--padding-bottom-medium  module--on-light  module--bg-transparent">
+
+    
+  
+  
+  
+  
+  
+
+  
+
+
+    <div class="module__inner  constrain">
+      
+
+      <div class="module__section-main module__section-main--block-align-center">
+        <div class="module__content module__content--text-align-left constrain--12">
+          
+  <div class="two-column__grid two-column__grid--content-photo two-column__grid--50-50 two-column__grid--middle two-column__grid--gap-large">
+    
+      
+        
+        
+      
+      
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="two-column__content">
+      <div class="two-column__content-inner">
+        <div class="animated-content">
+          <h2>Ligand Posing and Analysis</h2>
+<h3>POSIT - Knowledge guided pose prediction</h3>
+<p>POSIT leverages bound ligand information for enhanced pose prediction. Using a combination of OpenEye's techniques, including structure generation, shape alignment, and flexible fitting, POSIT assesses a target ligand's similarity to bound ligands, guiding the algorithm and offering an accuracy estimate. <span>Both 2D and 3D similarity measures are used in this reliability index, which is an industry first.</span></p>
+<p>Furthermore, when given a set of ligand-receptor complexes from a crystallographic series, POSIT can autonomously identify the most suitable structure for guiding new ligand docking. The performance of this 'best guess' structure closely rivals that of using each structure individually and selecting the best result in hindsight. For single-pose generation, POSIT efficiently utilizes one structure, reducing computational load while maintaining high performance. For multiple pose generation, it offers the flexibility to use either the 'best guess' structure or all available structures for superior pose quality.</p>
+
+          
+  
+          
+        </div>
+        
+      </div>
+    </div>
+  
+
+    
+      
+        
+        
+      
+      
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    <div class="two-column__photo">
+      <div class="two-column__photo-inner module--bg-white">
+        <div class="">
+          
+            
+  
+    
+      
+    
+
+    <picture class="module__picture">
+
+      
+      <source media="(max-width: 360px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=660&amp;name=posit_images_001.png">
+      <source media="(max-width: 360px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=330&amp;name=posit_images_001.png">
+
+      
+      <source media="(max-width: 480px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=900&amp;name=posit_images_001.png">
+      <source media="(max-width: 480px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=450&amp;name=posit_images_001.png">
+
+      
+      
+      <source media="(max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=1474&amp;name=posit_images_001.png">
+      <source media="(max-width: 767px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=737&amp;name=posit_images_001.png">
+
+      
+      <source media="(max-width: 991px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=896&amp;name=posit_images_001.png">
+      <source media="(max-width: 991px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=448&amp;name=posit_images_001.png">
+
+      
+      <source media="(max-width: 1439px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=1152&amp;name=posit_images_001.png">
+      <source media="(max-width: 1439px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=576&amp;name=posit_images_001.png">
+
+      
+      <source media="(max-width: 1920px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=1280&amp;name=posit_images_001.png"> 
+      <source media="(max-width: 1920px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/posit_images_001.png?width=640&amp;name=posit_images_001.png">
+
+      
+      <img class="module__picture-element" src="https://www.eyesopen.com/hs-fs/hubfs/posit_images_001.png?width=1300&amp;height=975&amp;name=posit_images_001.png" alt="posit_images_001" width="1300" height="975" srcset="https://www.eyesopen.com/hs-fs/hubfs/posit_images_001.png?width=650&amp;height=488&amp;name=posit_images_001.png 650w, https://www.eyesopen.com/hs-fs/hubfs/posit_images_001.png?width=1300&amp;height=975&amp;name=posit_images_001.png 1300w, https://www.eyesopen.com/hs-fs/hubfs/posit_images_001.png?width=1950&amp;height=1463&amp;name=posit_images_001.png 1950w, https://www.eyesopen.com/hs-fs/hubfs/posit_images_001.png?width=2600&amp;height=1950&amp;name=posit_images_001.png 2600w, https://www.eyesopen.com/hs-fs/hubfs/posit_images_001.png?width=3250&amp;height=2438&amp;name=posit_images_001.png 3250w, https://www.eyesopen.com/hs-fs/hubfs/posit_images_001.png?width=3900&amp;height=2925&amp;name=posit_images_001.png 3900w" sizes="(max-width: 1300px) 100vw, 1300px">
+    </picture>
+  
+
+          
+        </div>
+        
+          <div class="two-column__photo-caption two-column__photo-caption--right two-column__photo-caption--text-align-">
+            
+            POSIT utilizes the shape constraint of the bound-ligand to drive a flexible fit while simultaneously limiting strain
+          </div>
+        
+        
+      </div>
+    </div>
+
+  
+
+    
+  </div>
+
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+<div id="hs_cos_wrapper_widget_1694518834117" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  <div class="two-column module  module--padding-top-medium  module--padding-bottom-medium  module--on-light  module--bg-transparent">
+
+    
+  
+  
+  
+  
+  
+
+  
+
+
+    <div class="module__inner  constrain">
+      
+
+      <div class="module__section-main module__section-main--block-align-center">
+        <div class="module__content module__content--text-align-left constrain--12">
+          
+  <div class="two-column__grid two-column__grid--photo-content two-column__grid--50-50 two-column__grid--middle two-column__grid--gap-large">
+    
+      
+        
+        
+      
+      
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    <div class="two-column__photo">
+      <div class="two-column__photo-inner module--bg-white two-column__photo-inner--has-offset-image">
+        <div class="">
+          
+            
+  
+    
+      
+    
+
+    <picture class="module__picture">
+
+      
+      <source media="(max-width: 360px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=660&amp;name=IFP_Floe_report_top_CDK2.png">
+      <source media="(max-width: 360px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=330&amp;name=IFP_Floe_report_top_CDK2.png">
+
+      
+      <source media="(max-width: 480px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=900&amp;name=IFP_Floe_report_top_CDK2.png">
+      <source media="(max-width: 480px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=450&amp;name=IFP_Floe_report_top_CDK2.png">
+
+      
+      
+      <source media="(max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=1474&amp;name=IFP_Floe_report_top_CDK2.png">
+      <source media="(max-width: 767px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=737&amp;name=IFP_Floe_report_top_CDK2.png">
+
+      
+      <source media="(max-width: 991px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=896&amp;name=IFP_Floe_report_top_CDK2.png">
+      <source media="(max-width: 991px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=448&amp;name=IFP_Floe_report_top_CDK2.png">
+
+      
+      <source media="(max-width: 1439px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=1152&amp;name=IFP_Floe_report_top_CDK2.png">
+      <source media="(max-width: 1439px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=576&amp;name=IFP_Floe_report_top_CDK2.png">
+
+      
+      <source media="(max-width: 1920px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=1280&amp;name=IFP_Floe_report_top_CDK2.png"> 
+      <source media="(max-width: 1920px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_Floe_report_top_CDK2.png?width=640&amp;name=IFP_Floe_report_top_CDK2.png">
+
+      
+      <img class="module__picture-element" src="https://www.eyesopen.com/hs-fs/hubfs/IFP_Floe_report_top_CDK2.png?width=2333&amp;height=1279&amp;name=IFP_Floe_report_top_CDK2.png" alt="IFP_Floe_report_top_CDK2" width="2333" height="1279" srcset="https://www.eyesopen.com/hs-fs/hubfs/IFP_Floe_report_top_CDK2.png?width=1167&amp;height=640&amp;name=IFP_Floe_report_top_CDK2.png 1167w, https://www.eyesopen.com/hs-fs/hubfs/IFP_Floe_report_top_CDK2.png?width=2333&amp;height=1279&amp;name=IFP_Floe_report_top_CDK2.png 2333w, https://www.eyesopen.com/hs-fs/hubfs/IFP_Floe_report_top_CDK2.png?width=3500&amp;height=1919&amp;name=IFP_Floe_report_top_CDK2.png 3500w, https://www.eyesopen.com/hs-fs/hubfs/IFP_Floe_report_top_CDK2.png?width=4666&amp;height=2558&amp;name=IFP_Floe_report_top_CDK2.png 4666w, https://www.eyesopen.com/hs-fs/hubfs/IFP_Floe_report_top_CDK2.png?width=5833&amp;height=3198&amp;name=IFP_Floe_report_top_CDK2.png 5833w, https://www.eyesopen.com/hs-fs/hubfs/IFP_Floe_report_top_CDK2.png?width=6999&amp;height=3837&amp;name=IFP_Floe_report_top_CDK2.png 6999w" sizes="(max-width: 2333px) 100vw, 2333px">
+    </picture>
+  
+
+          
+        </div>
+        
+          <div class="two-column__photo-caption two-column__photo-caption--left two-column__photo-caption--text-align-center">
+            
+            OpenEye's Induced Fit Posing yields intuitive results that assist scientists in selecting high-quality candidates. An illustrative example is provided for its results against the CDK2 protein target.
+          </div>
+        
+        
+          <div class="two-column__photo-offset two-column__photo-offset--left">
+            <div class="">
+              
+  
+    
+      
+    
+
+    <picture class="module__picture">
+
+      
+      <source media="(max-width: 360px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=660&amp;name=IFP_schematic_img.png">
+      <source media="(max-width: 360px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=330&amp;name=IFP_schematic_img.png">
+
+      
+      <source media="(max-width: 480px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=900&amp;name=IFP_schematic_img.png">
+      <source media="(max-width: 480px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=450&amp;name=IFP_schematic_img.png">
+
+      
+      
+      <source media="(max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=1474&amp;name=IFP_schematic_img.png">
+      <source media="(max-width: 767px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=737&amp;name=IFP_schematic_img.png">
+
+      
+      <source media="(max-width: 991px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=630&amp;name=IFP_schematic_img.png">
+      <source media="(max-width: 991px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=315&amp;name=IFP_schematic_img.png">
+
+      
+      <source media="(max-width: 1439px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=810&amp;name=IFP_schematic_img.png">
+      <source media="(max-width: 1439px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=405&amp;name=IFP_schematic_img.png">
+
+      
+      <source media="(max-width: 1920px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=1280&amp;name=IFP_schematic_img.png"> 
+      <source media="(max-width: 1920px)" srcset="https://73182.fs1.hubspotusercontent-na1.net/hub/73182/hubfs/IFP_schematic_img.png?width=450&amp;name=IFP_schematic_img.png">
+
+      
+      <img class="module__picture-element" src="https://www.eyesopen.com/hs-fs/hubfs/IFP_schematic_img.png?width=1146&amp;height=416&amp;name=IFP_schematic_img.png" alt="IFP_schematic_img" width="1146" height="416" srcset="https://www.eyesopen.com/hs-fs/hubfs/IFP_schematic_img.png?width=573&amp;height=208&amp;name=IFP_schematic_img.png 573w, https://www.eyesopen.com/hs-fs/hubfs/IFP_schematic_img.png?width=1146&amp;height=416&amp;name=IFP_schematic_img.png 1146w, https://www.eyesopen.com/hs-fs/hubfs/IFP_schematic_img.png?width=1719&amp;height=624&amp;name=IFP_schematic_img.png 1719w, https://www.eyesopen.com/hs-fs/hubfs/IFP_schematic_img.png?width=2292&amp;height=832&amp;name=IFP_schematic_img.png 2292w, https://www.eyesopen.com/hs-fs/hubfs/IFP_schematic_img.png?width=2865&amp;height=1040&amp;name=IFP_schematic_img.png 2865w, https://www.eyesopen.com/hs-fs/hubfs/IFP_schematic_img.png?width=3438&amp;height=1248&amp;name=IFP_schematic_img.png 3438w" sizes="(max-width: 1146px) 100vw, 1146px">
+    </picture>
+  
+
+            </div>
+            
+              <div class="two-column__photo-caption two-column__photo-caption--offset two-column__photo-caption--text-align-center two-column__photo-caption--text-align-  on-light">
+                Schematic depiction of OpenEye's Induced Fit Posing. 
+              </div>
+            
+          </div>
+        
+      </div>
+    </div>
+
+  
+
+    
+      
+        
+        
+      
+      
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="two-column__content">
+      <div class="two-column__content-inner">
+        <div class="animated-content">
+          <h2>Induced Fit Posing</h2>
+<p>Predicting the binding of diverse ligands becomes notably challenging when adjustments are necessary in the receptor’s binding site. OpenEye’s Induced-fit posing (IFP) offers a specialized solution for accurate binding pose prediction in these scenarios. IFP predicts binding configuration of ligands that impact receptor’s binding site residue side chains. Use IFP to gain insights into the binding mechanisms of your compounds with flexible target sites and streamline selection of your lead compounds for optimization.</p>
+
+          
+  
+          
+        </div>
+        
+      </div>
+    </div>
+  
+
+    
+  </div>
+
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+<div id="hs_cos_wrapper_widget_66431770208" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  <div class="one-column module  module--padding-top-small  module--padding-bottom-xxs  module--on-light  module--bg-transparent">
+
+    
+  
+  
+  
+  
+  
+
+  
+
+
+    <div class="module__inner  constrain">
+      
+
+      <div class="module__section-main module__section-main--block-align-left">
+        <div class="module__content module__content--text-align-left constrain--10">
+          
+  <div class="one-column__grid">
+    
+      
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="one-column__content">
+      <div class="one-column__content-inner">
+        <div class="animated-content">
+          <h2 class="h5">References</h2>
+<ol class="smaller">
+<li><strong>"<a href="https://pubs.acs.org/doi/10.1021/ci100436p" rel="noopener" target="_blank">FRED Pose Prediction and Virtual Screening Accuracy</a>"</strong>, M. McGann, J. Chem. Inf. Model., 2011, 51, 578-596</li>
+<li><strong>"<a href="https://link.springer.com/article/10.1007/s10822-012-9584-8" rel="noopener" target="_blank">FRED and HYBRID Docking Performance on Standardized Datasets</a>"</strong>, M. McGann J. Comp.-Aid. Mol. Design, 2012, 26, 897-906</li>
+<li><strong>"<a href="https://pubs.acs.org/doi/10.1021/ci700052x" rel="noopener" target="_blank">Comparison of Topological, Shape, and Docking Methods in Virtual Screening</a>"</strong>, G.B. McGaughey, R.P. Sheridan, C.I. Bayly, J.C. Culberson, C. Kreatsolas, S. Lindsley, V. Maiorov, J.-F. Truchon and W.D. Cornell, J. Chem. Inf. Model., 2007, 47, 1504-1519</li>
+<li><strong>"<a href="https://onlinelibrary.wiley.com/doi/10.1002/bip.10207" rel="noopener" target="_blank">Gaussian docking functions</a>"</strong>, M. McGann, H.R. Almond, A. Nicholls, J.A. Grant and F.K. Brown, Biopolymers, 2003, 68, 76-90</li>
+<li><a href="https://pubs.acs.org/doi/abs/10.1021/jm501195e" rel="noopener" target="_blank"><strong>Discovery, Biological Evaluation, and Crystal Structure of a Novel Nanomolar Selective Butyrylcholinesterase Inhibitor</strong></a>, B. Brus, U. Kosak, S, Turk, A. Pislar, N. Coquelle, J. Kos, J. Stojan, J Colletier, S. Gobec, J. Med. Chem, 2014, 57, 8167-8179</li>
+</ol>
+
+          
+  
+          
+        </div>
+        
+      </div>
+    </div>
+  
+
+    
+  </div>
+
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+<div id="hs_cos_wrapper_widget_66431770209" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  <div class="quick-resources module  module--padding-top-medium  module--padding-bottom-medium  module--on-dark  module--bg-primary-dark">
+
+    
+  
+  
+  
+  
+  
+
+  
+
+
+    <div class="module__inner  constrain">
+      
+
+      <div class="module__section-main module__section-main--block-align-center">
+        <div class="module__content module__content--text-align-left constrain--12">
+          
+  <div class="quick-resources__content">
+    <div class="quick-resources__content-content">
+      <p class="subheading">RESOURCES</p>
+<h2>Glimpse the Future through News, Events, Webinars and more</h2>
+    </div>
+  </div>
+  <div class="quick-resources__grid">
+    
+      
+        <div class="quick-resources__column">
+          <a class="resource-card" href="https://www.eyesopen.com/news/bees">
+            <span class="resource-card__label">News</span>
+            <h3 class="resource-card__title">Cadence Harvests Leafcutter Bees at the Bis-BEE Campus</h3>
+            <span class="resource-card__description p small">Cadence Molecular Sciences (OpenEye)—a business unit of Cadence Design Systems, Inc. recently opened a new facility in Santa Fe, New Mexico. In …</span>
+            <span class="resource-card__link">Read now</span>
+          </a>
+        </div>
+      
+    
+      
+        <div class="quick-resources__column">
+          <a class="resource-card" href="https://www.eyesopen.com/events/minicup-boston-2024">
+            <span class="resource-card__label">Event</span>
+            <h3 class="resource-card__title">miniCUP Boston 2024</h3>
+            <span class="resource-card__description p small">miniCUP Boston 2024 will be held on November 7th, 2024 miniCUP Boston is a single-day in-person gathering that will provide the opportunity to hear …</span>
+            <span class="resource-card__link">Register now</span>
+          </a>
+        </div>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    <div class="quick-resources__column">
+      <div class="quick-resources__feed">
+        
+          
+        
+          
+        
+          
+            <a class="quick-resources__feed-item" href="https://www.eyesopen.com/events/minicup-sanfrancisco-2024">
+              <div class="quick-resources__feed-item-label accent-1">Event</div>
+              <h3 class="quick-resources__feed-item-title">miniCUP San Francisco 2024</h3>
+              <div class="quick-resources__feed-item-description p small">miniCUP San Francisco 2024 will be held on …</div>
+            </a>
+          
+        
+          
+            <a class="quick-resources__feed-item" href="https://www.eyesopen.com/events/minicup-sandiego-2024">
+              <div class="quick-resources__feed-item-label accent-1">Event</div>
+              <h3 class="quick-resources__feed-item-title">miniCUP San Diego 2024</h3>
+              <div class="quick-resources__feed-item-description p small">miniCUP San Diego 2024 will be held on October …</div>
+            </a>
+          
+        
+          
+            <a class="quick-resources__feed-item" href="https://www.eyesopen.com/events/minicup-frankfurt-2024">
+              <div class="quick-resources__feed-item-label accent-1">Event</div>
+              <h3 class="quick-resources__feed-item-title">miniCUP Frankfurt 2024</h3>
+              <div class="quick-resources__feed-item-description p small">miniCUP Frankfurt 2024 will be held on October …</div>
+            </a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </div>
+    
+  </div>
+
+  
+    <div class="quick-resources__content-link">
+      <a class="cta-link cta-link--chevron" href="https://www.eyesopen.com/resources">See more resources</a>
+    </div>
+  
+
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+<div id="hs_cos_wrapper_widget_66431770210" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  <div class="cta-bar module  module--padding-top-medium  module--padding-bottom-medium  module--on-dark  module--bg-primary">
+
+    
+  
+  
+  
+  
+  
+
+  
+    <div class="module__underlay" aria-hidden="true">
+      
+        
+        
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+      
+    </div>
+
+    
+      
+  
+  
+
+  <div class="module__overlay module__overlay--strength-dark module__overlay--type-gradient"></div>
+
+    
+  
+
+
+    <div class="module__inner  constrain">
+      
+
+      <div class="module__section-main module__section-main--block-align-center">
+        <div class="module__content module__content--text-align-center constrain--8">
+          
+  <div class="cta-bar__content-inner">
+    <h2>Accelerate your Science with OpenEye</h2>
+<p class="h4">Find out how you can improve speed and results</p>
+<p><a class="cta-btn cta-btn--large" href="/contact" rel="noopener">Let's Connect</a></p>
+<p>&nbsp;</p>
+  </div>
+
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div></span>
+  </div>
+  <div class="page-container">
+    <div id="hs_cos_wrapper_page_bg" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  <div class="page-bg module  module--padding-top-none  module--padding-bottom-none  module--on-light  module--bg-transparent">
+
+    
+  
+  
+  
+  
+  
+
+  
+
+
+    <div class="module__inner  full-width">
+      
+
+      <div class="module__section-main module__section-main--block-align-center">
+        <div class="module__content module__content--text-align-left constrain--12">
+          
+  
+
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+    <div class="page page--sheet">
+      <div class="flex-top-sheet">
+        <span id="hs_cos_wrapper_flex-top-sheet" class="hs_cos_wrapper hs_cos_wrapper_widget_container hs_cos_wrapper_type_widget_container" style="" data-hs-cos-general-type="widget_container" data-hs-cos-type="widget_container"></span>
+      </div>
+      <div class="flex-bottom-sheet">
+        <span id="hs_cos_wrapper_flex-bottom-sheet" class="hs_cos_wrapper hs_cos_wrapper_widget_container hs_cos_wrapper_type_widget_container" style="" data-hs-cos-general-type="widget_container" data-hs-cos-type="widget_container"></span>
+      </div>
+    </div>
+  </div>
+  <div class="flex-bottom-full">
+    <span id="hs_cos_wrapper_flex-bottom-full" class="hs_cos_wrapper hs_cos_wrapper_widget_container hs_cos_wrapper_type_widget_container" style="" data-hs-cos-general-type="widget_container" data-hs-cos-type="widget_container"></span>
+  </div>
+</main>
+
+        
+        <div id="hs_cos_wrapper_module_site_footer" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+<footer class="site-footer new-footer module_site_footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="site-footer__logo footer__logo">
+      
+
+      <span id="hs_cos_wrapper_module_site_footer_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_logo" style="" data-hs-cos-general-type="widget" data-hs-cos-type="logo"><a href="https://www.eyesopen.com/" id="hs-link-module_site_footer_" style="border-width:0px;border:0px;"><img src="https://www.eyesopen.com/hubfs/mjtw-assets/logos/Horizontal-OpenEye-Cadence-all-white-2024-01.svg" class="hs-image-widget " height="59" style="height: auto;width:273px;border-width:0px;border:0px;" width="273" alt="Horizontal-OpenEye-Cadence-all-white-2024-01" title="Horizontal-OpenEye-Cadence-all-white-2024-01" loading=""></a></span>
+    </div>
+    <div class="site-footer__main-menu footer-fst-col">
+      <div id="hs_menu_wrapper_module_site_footer_" class="hs-menu-wrapper active-branch no-flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="MJTW Footer Menu" data-menu-id="65272136749" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/solutions" aria-haspopup="true" aria-expanded="false" role="menuitem">Solutions</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/orion" role="menuitem">Orion® Molecular Design Platform</a>
+     <ul role="menu" class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/small-molecule-discovery-suite" role="menuitem">Small Molecule Discovery Suite</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/antibody-discovery-suite" role="menuitem">Antibody Discovery Suite</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/formulations-suite" role="menuitem">Formulations Suite</a></li>
+      <li class="hs-menu-item hs-menu-depth-3" role="none"><a href="https://www.eyesopen.com/orion/gaussian" role="menuitem">Gaussian Module</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/applications" role="menuitem">Applications</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/cheminformatics-modeling-toolkits" role="menuitem">Cheminformatics &amp; Modeling Toolkits</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/visualizer-and-data-management" role="menuitem">Visualization &amp; Data Management</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/databases" role="menuitem">Curated Databases</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/services" aria-haspopup="true" aria-expanded="false" role="menuitem">Services</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/drug-discovery-consulting" role="menuitem">Drug Discovery Consulting</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/crystal-structure-prediction" role="menuitem">Crystal Structure Prediction for Drug Formulation</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/development-and-coding" role="menuitem">Custom Scientific Method Development</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/partnerships-engagements" role="menuitem">Partnerships and Engagements</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/resources" aria-haspopup="true" aria-expanded="false" role="menuitem">Resources</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/openeye-events" role="menuitem">Events</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="/resources?resource_type=News" role="menuitem">News</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://docs.eyesopen.com/" role="menuitem" target="_blank" rel="noopener">Documentation</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="/resources?resource_type=Presentations" role="menuitem">Presentations</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="/resources?resource_type=Upcoming+Webinars" role="menuitem">Webinars</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="/resources?resource_type=Publications" role="menuitem">Publications</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/customer-software-download" role="menuitem">Download</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/support" role="menuitem">Support</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/about" aria-haspopup="true" aria-expanded="false" role="menuitem">About</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/why-openeye" role="menuitem">Why OpenEye</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/openeye-leadership" role="menuitem">Team</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/openeye-scientific-advisory-board" role="menuitem">Scientific Advisory Board</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/careers" role="menuitem">Careers</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="https://www.eyesopen.com/contact" aria-haspopup="true" aria-expanded="false" role="menuitem">Contact Us</a>
+   <ul role="menu" class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/subscribe" role="menuitem">Subscribe</a></li>
+    <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://www.eyesopen.com/academic-licensing" role="menuitem">Academic Licensing</a></li>
+   </ul></li>
+ </ul>
+</div>
+
+      <div class="site-footer__social-menu menu-icons desktop-s">
+        <div id="hs_menu_wrapper_module_site_footer_" class="hs-menu-wrapper active-branch no-flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="MJTW Social Links" data-menu-id="65268009517" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.youtube.com/@OpenEyeScientific" role="menuitem" target="_blank" rel="noopener">YouTube</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.linkedin.com/company/openeye-scientific-software/" role="menuitem" target="_blank" rel="noopener">LinkedIn</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://twitter.com/OpenEyeSoftware" role="menuitem" target="_blank" rel="noopener">Twitter</a></li>
+ </ul>
+</div>
+      </div>
+
+    </div>
+    <div class="site-footer__copyright copy-two-col">
+
+      <div class="site-footer__copyright-text copyright-text">©2024 OpenEye, Cadence Molecular Sciences. All rights reserved.</div>
+      <div class="mobile-s">
+        <div class="site-footer__social-menu menu-icons">
+          <div id="hs_menu_wrapper_module_site_footer_" class="hs-menu-wrapper active-branch no-flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="MJTW Social Links" data-menu-id="65268009517" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.youtube.com/@OpenEyeScientific" role="menuitem" target="_blank" rel="noopener">YouTube</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.linkedin.com/company/openeye-scientific-software/" role="menuitem" target="_blank" rel="noopener">LinkedIn</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://twitter.com/OpenEyeSoftware" role="menuitem" target="_blank" rel="noopener">Twitter</a></li>
+ </ul>
+</div>
+        </div>
+      </div>
+      <div class="site-footer__legal-menu privacy-menu">
+        <div id="hs_menu_wrapper_module_site_footer_" class="hs-menu-wrapper active-branch no-flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="MJTW Legal Menu V1" data-menu-id="100952969269" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.cadence.com/en_US/home/company/u-s-trademarks.html" role="menuitem">US Trademarks</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.cadence.com/en_US/home/terms-of-use-agreement.html" role="menuitem">Terms of Use</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.cadence.com/en_US/home/privacy/privacy-policy.html" role="menuitem">Privacy</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.cadence.com/en_US/home/privacy/cookie-policy.html" role="menuitem">Cookie Policy</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.cadence.com/en_US/home/accessibility.html" role="menuitem">Accessibility</a></li>
+ </ul>
+</div>
+      </div>
+
+
+    </div>
+  </div>
+</footer>
+
+</div>
+      </div>
+    </div>
+
+    
+<!-- HubSpot performance collection script -->
+<script defer src="https://static.hsappstatic.net/content-cwv-embed/static-1.971/embed.js"></script>
+<script defer src="https://www.eyesopen.com/hs-fs/hub/73182/hub_generated/template_assets/80375692727/1718310823852/mjtw/js/s2-main.min.js"></script>
+<script>
+var hsVars = hsVars || {}; hsVars['language'] = 'en';
+</script>
+
+<script src="/hs/hsstatic/cos-i18n/static-1.53/bundles/project.js"></script>
+<script src="/hs/hsstatic/keyboard-accessible-menu-flyouts/static-1.17/bundles/project.js"></script>
+
+<script>
+  $('.mobile-menu .mobile-menu__inner').addClass('header-parts-toggle');
+  var UpperNav = $('.upper-nav');
+  var mainSiteHeader = $('header.site-header');
+  mainSiteHeader.addClass('header-parts-toggle');
+  var toggleParts = $('.header-parts-toggle');
+  var additionalStyle = $('#additional-header-style');
+  var funcWindow = $(window);
+  function CheckHeaderPositioNonSticky(){
+    var topNavHeight = 56 - funcWindow.scrollTop();
+    if (topNavHeight < 0){
+      topNavHeight = 0;
+    }
+    //     if(funcWindow.scrollTop() >= 59) {
+    if(funcWindow.scrollTop() >= 1) {
+      //       additionalStyle.html('.header-parts{top:0px !important;z-index:25;}');
+      if (mainSiteHeader.hasClass('header-parts')){
+        // do nothing
+      }else{
+        UpperNav.addClass('hide');
+        toggleParts.addClass('header-parts');
+      }
+    }else{
+      //       additionalStyle.html('.header-parts{top:'+(topNavHeight)+'px !important;}');
+      if (mainSiteHeader.hasClass('header-parts')){
+        toggleParts.removeClass('header-parts');
+        UpperNav.removeClass('hide');
+      }
+      
+    }
+    
+  }
+  
+  $(document).ready(function(){
+    CheckHeaderPositioNonSticky();
+  });
+  $(window).scroll(function(){
+    CheckHeaderPositioNonSticky();
+  });
+  
+  
+  $(document).ready(function(){
+    let mobileParents = $('.mobile-menu .hs-menu-children-wrapper');
+    mobileParents.each(function(){
+      let me = $(this).prev('a');
+      let target = me.attr('href');
+      let text = me.text();
+      me.attr('back-href',target);
+      let parent = $(this).parent();
+      if (!parent.hasClass('hs-menu-depth-3')){
+        me.html('<span class="target-span" data-target="'+target+'">'+text+'</span>');
+        me.attr('href','javascript:;');
+      }
+    });
+
+    let singleLists = $('.mobile-menu .hs-menu-depth-1 > ul');
+    singleLists.each(function(){
+      let direct_items = $(this).find('> li');
+      if (direct_items && direct_items.length == 2){
+        $(direct_items[1]).addClass('open always-open');
+      }
+    });
+
+    $('body').click(function(){
+      setTimeout(function(){
+        $('.always-open').addClass('open');
+        $('.target-span').unbind().on("click",function(){
+          let closestLi = $(this).parent().parent();
+          if (closestLi.hasClass('hs-menu-depth-1') && closestLi.hasClass('open')){
+          
+          }else{
+            let target_span = $(this);
+            let parent = target_span.parent();
+            let targetValue = parent.attr('target');
+            if (targetValue && targetValue.toLowerCase() == '_blank'){
+              window.open(
+                target_span.attr('data-target'),
+                '_blank' // <- This is what makes it open in a new window.
+              );
+            }else {
+              window.open(
+                target_span.attr('data-target'),
+                '_self' // <- This is what makes it open in a new window.
+              );
+            }
+          }
+        });
+      },400);
+    });
+  });
+  
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+
+<!-- Start of HubSpot Analytics Code -->
+<script type="text/javascript">
+var _hsq = _hsq || [];
+_hsq.push(["setContentType", "standard-page"]);
+_hsq.push(["setCanonicalUrl", "https:\/\/www.eyesopen.com\/oedocking"]);
+_hsq.push(["setPageId", "3392142284"]);
+_hsq.push(["setContentMetadata", {
+    "contentPageId": 3392142284,
+    "legacyPageId": "3392142284",
+    "contentFolderId": null,
+    "contentGroupId": null,
+    "abTestId": null,
+    "languageVariantId": 3392142284,
+    "languageCode": null,
+    
+    
+}]);
+</script>
+
+<script type="text/javascript" id="hs-script-loader" async defer src="/hs/scriptloader/73182.js"></script>
+<!-- End of HubSpot Analytics Code -->
+
+
+<script type="text/javascript">
+var hsVars = {
+    render_id: "a496d050-3da7-42cf-a96d-a95f1064f98a",
+    ticks: 1722349690931,
+    page_id: 3392142284,
+    
+    content_group_id: 0,
+    portal_id: 73182,
+    app_hs_base_url: "https://app.hubspot.com",
+    cp_hs_base_url: "https://cp.hubspot.com",
+    language: "en",
+    analytics_page_type: "standard-page",
+    scp_content_type: "",
+    analytics_page_id: "3392142284",
+    category_id: 1,
+    folder_id: 0,
+    is_hubspot_user: false
+}
+</script>
+
+
+<script defer src="/hs/hsstatic/HubspotToolsMenu/static-1.349/js/index.js"></script>
+
+
+
+
+ 
+
+
+  
+</body></html>

@@ -1,0 +1,463 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang='en'>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="ROBOTS" content="all">
+  <meta name="title" content="SwissTargetPrediction">
+  <title>SwissTargetPrediction</title>
+  <link rel="stylesheet" href="/css/sib-swissSim.css" type="text/css" media="screen" title="" charset="utf-8">
+  <link rel="stylesheet" href="/css/sib-mod-swissSim.css" type="text/css" media="screen" title="" charset="utf-8">
+<link rel="stylesheet" href="css/progress-bar.css" type="text/css" media="screen" title="" charset="utf-8">
+
+  <script src="marvinjs-21/js/lib/jquery-1.9.1.min.js"></script>
+  <script src="marvinjs-21/js/lib/rainbow/rainbow-custom.min.js"></script>
+  <script src="marvinjs-21/gui/lib/promise-1.0.0.min.js"></script>
+  <script src="marvinjs-21/js/marvinjslauncher.js"></script>
+  <script src="marvinjs-21/js/lib/molchange.js"></script>
+  <script src="marvinjs-21/js/util.js"></script>
+  <script src="marvinjs-21/js/webservices.js"></script>
+
+
+  <link rel="icon" href="sib_images/SDD_sigle_rvb-01.svg"> 
+
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://matomo.sib.swiss/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '46']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+
+
+</head>
+
+
+
+
+  
+
+
+<body>	
+
+
+
+
+
+
+<!-- ********************************************************************************************** -->
+<!-- START OF HEADER information on top of the page -->
+<div class='maintable shadow' style="width: 950px;">
+<link rel="stylesheet" href="/shared/navigationbar/css/navigationbar.css" type="text/css" media="screen" title="" charset="utf-8">
+<script  type="text/javascript" src="/shared/navigationbar/js/navigationbar.js"></script>
+
+<div id="navigationbar">
+
+        <div class="navigationitem">
+                <a href="//www.swissdock.ch/" title="Docking of small molecules into protein active sites" target="_blank"><span class="navigationitemlink">SwissDock</span></a>
+                <br>
+                <a href="//www.swissdock.ch/" title="Docking of small molecules into protein active sites" target="_blank"><img src="/shared/navigationbar/img/SD-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//swissparam.ch" title="Generate CHARMM/GROMACS topology and parameters for small organic molecules"><span class="navigationitemlink">SwissParam</span></a>
+                <br>
+                <a href="//swissparam.ch" title="Generate CHARMM/GROMACS topology and parameters for small organic molecules"><img src="/shared/navigationbar/img/SP-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//www.swisssidechain.ch/" title="Structural and molecular mechanics database of non-natural amino-acid sidechains" target="_blank"><span class="navigationitemlink">SwissSidechain</span></a>
+                <br>
+                <a href="//www.swisssidechain.ch/" title="Structural and molecular mechanics database of non-natural amino-acid sidechains" target="_blank"><img src="/shared/navigationbar/img/SSC-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//www.swissbioisostere.ch/" title="Database of molecular replacements and their impact on bioactivity" target="_blank"><span class="navigationitemlink">SwissBioisostere</span></a>
+                <br>
+                <a href="//www.swissbioisostere.ch/" title="Database of molecular replacements and their impact on bioactivity" target="_blank"><img src="/shared/navigationbar/img/SB-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//www.swisstargetprediction.ch/" title="Target prediction for bioactive small molecules" target="_blank"><span class="navigationitemlink">SwissTargetPrediction</span></a>
+                <br>
+                <a href="//www.swisstargetprediction.ch/" title="Target prediction for bioactive small molecules" target="_blank"><img src="/shared/navigationbar/img/STP-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//www.swissadme.ch/" title="Calculate molecular parameters in relation with pharmacokinetics and dynamics properties" target="_blank"><span class="navigationitemlink">SwissADME</span></a>
+                <br>
+                <a href="//www.swissadme.ch/" title="Calculate molecular parameters in relation with pharmacokinetics and dynamics properties" target="_blank"><img src="/shared/navigationbar/img/SA-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="//www.swisssimilarity.ch/" title="Perform ligand-based screening" target="_blank"><span class="navigationitemlink">SwissSimilarity</span></a>
+                <br>
+                <a href="//www.swisssimilarity.ch/" title="Perform ligand-based screening" target="_blank"><img src="/shared/navigationbar/img/SS-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+		
+</div>
+
+<hr style="width:100%; display: block; height: 1px; border: 0px; border-top: 1px solid #5c5c5c ; margin: 0em; padding-top: 10px; padding-bottom: 5px; background:white;">
+<div id='sib_container'>
+  <div id='sib_header'> 				  
+     <a href='https://www.molecular-modelling.ch/swiss-drug-design.html' id='sib_logo'><span>Swiss Institute of Bioinformatics</span></a>
+      <div  id = 'sib_title'>
+      </div>
+      
+      <!--  BEGIN DROP_DOWN MENU-->
+      <div class="sib_drop_menu">  
+	  <ul>
+<!--             <li><a href="http://old.swisstargetprediction.ch"><font color="#ff8080">old.swisstargetprediction.ch</font></a></li> --> 
+             <li><a href="/contact.php">Contact</a></li> 
+	     <li><a href="/download.php">Download</a></li> 
+             <li><a href="/citing.php">Citing</a></li>
+	     <li><a href="/help.php">Help</a></li> 
+             <li><a href="/faq.php">FAQ</a></li> 
+             <li><a href="/about.php">About</a></li>
+	     <li><a href="/index.php">Home</a></li>
+          </ul>
+      </div>     
+      
+  </div>
+<!-- END OF HEADER -->
+<!-- ********************************************************************************************** -->			
+<div>
+
+	<hr style="width:95%; height:1px; background: #ededed; border: 0px;">
+<!--    <hr style="width:95%; height:1px; background: #ededed; border: 0px; margin-top:10px;"> -->
+    <div id='sib_body' style="min-height: 600px;"> 
+
+
+
+
+<script type="text/javascript" src="/js/ua-parser.js"></script>
+
+<script src="marvinjs-21/gui/lib/promise-1.0.0.min.js"></script>
+<script src="marvinjs-21/js/marvinjslauncher.js"></script>
+<script src="marvinjs-21/js/lib/molchange.js"></script>
+
+
+
+
+<div id="loading" >
+  <br><br><br>
+  <b>Target prediction has been submitted.</b><br><br>
+  Calculations can take up to one minute.<br>
+  Please be patient.<br><br>
+  <img src="/images/ajax-loader.gif" alt="Loading..." />
+</div>
+
+<br>
+
+
+
+
+<!-- DIV to explain that there is no change in technologies -->
+<div style="float:left; height:30px; width:90%; margin-left: 5%; margin-right: 5%; margin-top: 20px; margin-bottom:25px; font: 11pt  Helvetica,Verdana, sans-serif; padding: 7px; padding-top:15px; box-shadow: 0px 2px 4px 0px rgba(100,100,100,.8); vertical-align: middle; ">
+        <div style="float:left; border-left: 5px solid red; height: 35px; margin-top: -5px; margin-left: 3px; margin-right: 7px;"></div>
+	<b>For information:</b> We have changed the look and feel of our tool. However, we have <b>NOT</b> changed the underlying technologies and parameters. Consequently, this updated Web tool provides exactly the same results as the previous version.
+</div>
+
+<!-- DIV for the survey -->
+<!--
+<div style="float:left; height:20px; width:90%; margin-left: 5%; margin-right: 5%; margin-top: 20px; margin-bottom:25px; font: 11pt  Helvetica,Verdana, sans-serif; padding: 7px; padding-top:15px; box-shadow: 0px 2px 4px 0px rgba(100,100,100,.8); vertical-align: middle; ">
+        <span style="color:#ff0f00; font: 15px;"><b>&emsp;|&emsp;</b></span>
+        <div style="float:left; border-left: 5px solid red; height: 25px; margin-top: -5px; margin-left: 3px; margin-right: 7px;"></div> 
+        Please, take our <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSccp_586qIxEcDVGIhw39V6nyvW5D5DyNRSdZ5vjhQnN1a4RA/viewform?usp=sf_link">survey</a> to find out how you use our tools and how we could improve them. It only takes 8 min.
+
+</div>
+-->
+
+
+
+<!-- <h1 align="center"><font color='red'>Due to an exceptionally large number of long calculations, the SwissTargetPrediction service was facing problems.<br>Some jobs submitted on May 10 and on May 11 have been lost.<br>
+Please, remind that SwissTargetPrediction estimate targets of druglike molecules, but NOT of large peptides.<br>As well, this service is provided to treat one molecule at a time. Any abuse prevents other users getting their results.<br>Thanks for your help and understanding.</h1></font>
+-->
+<form method="post" id="myForm" action="/predict.php">
+
+<div style="float: left; width: 415px; height: 430px; margin-left: 0px; margin-right: 5px; font: 12pt  Helvetica,Verdana, sans-serif;">
+         <div style="clear: both; width: 400px; height: 140px; margin-top: 40px;">
+          <!--<font color="red"><b>1</b>. Choose an organism:<br></font>-->
+            <div class="submitSection">Select a species</div>
+
+	    <div style="clear: both; width: 900px; height: 15px;" name="horizontal spacer"></div>
+            <input type="radio" name="organism" value="Homo_sapiens" checked> Homo sapiens<br>
+<input type="radio" name="organism" value="Mus_musculus"> Mus musculus<br>
+<input type="radio" name="organism" value="Rattus_norvegicus"> Rattus norvegicus<br>
+         </div>
+         <div style="clear: both; width: 400px; height: 30px; margin-bottom: 5px;">
+            <!--<font color="red"><b>2</b>. Paste a SMILES in this box, or draw a molecule:<br></font>-->
+	    <div class="submitSection">Paste a SMILES in this box, or draw a molecule</div>
+         </div>
+	 <div style="float: left; width: 400px; height: 150px; margin-top: 2px; margin-right: 5px;">
+	    <input type="text" name="smiles"  id="smilesBox" value="" style=" width:400px;"/><br>
+	    <div style="clear: both; width: 300px; height: 5px;" name="horizontal spacer"></div>
+
+	    <div style="float: left;">
+            <select name="Example" id="optionList" onchange="applyExample();">
+            <option value='' selected>Examples:</option>
+<option name="Example" value='CCC[C@H]1CCCCN1'>Coniine</option>
+            <option name="Example" value='OC1=CC(Cl)=CC=C1OC1=CC=C(Cl)C=C1Cl'>Triclosan</option>
+            <option name="Example" value='CC1=C(N(N=C1C(=O)NN1CCCCC1)C1=CC=C(Cl)C=C1Cl)C1=CC=C(Cl)C=C1'>Rimonabant</option>
+	    </select>
+            </div>
+            <div style="float: right;">
+            <input type="button" name="clear" value="Clear" onclick="clearSMILES();" />
+            </div>
+
+	    <div class="submitSection" style="margin-top: 60px;"></div>
+	    <p align="middle"><input type="button" id="submitButton" onclick="formSubmit()" value="Predict targets" disabled="true" style="width:200px; height: 50px; font-size:15px; font-weight: bold; border-radius:7px;"></p>  
+            <p align="middle" id="commentOnSubmit"><small><em>(Provide a SMILES before submitting)</em></small></p> 
+            <input type="hidden" name="ioi" value="" />
+<!--	    <p align="middle" id="commentOnSubmit"><small><em>Do not submit more jobs!</em></small></p><br> -->
+	 </div>         
+</div>
+
+
+
+<div style="float: left; width: 30px; height: 440px; margin-right: 5px;">
+      <div style="clear: both; width: 10px; height: 252px;" name="horizontal spacer"></div>
+      <img src="images/equal-sign-2-48-black.png" width="30px" />
+</div>
+
+<div style="float: left; width: 475px; height: 470px; margin-left: 5px; margin-right: 5px; padding: 5px; ">
+	<div style="clear: both; width: 450px; height: 30px;" name="horizontal spacer"></div>
+	<iframe id="sketch" src="marvinjs-21/editorws.html" seamless="seamless" scrolling="no" frameborder="0" style="overflow: hidden; min-width: 450px; min-height: 430px; border: 1px solid darkgray;" ></iframe>
+</div>
+
+<!--<div style="clear: both; width: 100%; height: 10px; " name="horizontal spacer"></div>-->
+
+<div id="chemaxon_logo" style="text-align:right;"><a href="http://www.chemaxon.com" target="_blank"><img src="img/chemaxon_logo.png" style="width:250px; margin-top:25px;" alt="chemaxon logo"></a></div>
+</form>
+
+
+
+
+<script language="javascript" type="text/javascript">
+
+        var submitButton=document.getElementById('submitButton');
+
+        submitButton.addEventListener("click", getClickPosition, false);
+
+        function getClickPosition(e) {
+                var xPosition = e.clientX;
+                var yPosition = e.clientY;
+                $.ajax({
+                url: "http://www.swisstargetprediction.ch/locate.php",
+                        method: "POST",
+                        data: { "x":  xPosition, "y": yPosition}
+                        })
+        }
+
+
+</script>
+
+
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+	function formSubmit()
+	  { 
+ 	    if (document.forms[0].smiles.value=="") {
+ 	        alert("Please, provide a query molecule");
+ 	    } else {
+		//document.getElementById('loading').style.display='block';
+		//$("#loading").css("color", "black");
+                document.getElementById("myForm").ioi.value=1;    
+	        document.getElementById("myForm").submit();
+	    }
+	  }
+</script>
+
+
+
+<script language="javascript" type="text/javascript">
+  function checkForm()
+    {
+      var canSubmit = true;
+      if (document.forms[0].smiles.value=="") {
+	canSubmit = false;
+      }
+      document.getElementById('submitButton').disabled = !canSubmit;
+      if (canSubmit) {
+      document.getElementById('submitButton').style.backgroundColor= '#FF0000';
+      document.getElementById('submitButton').style.color= '#FFFFFF';      
+      $('#commentOnSubmit').html("<small><em>(Can take up to one minute)</em></small>"); 
+      } else {
+      document.getElementById('submitButton').style.backgroundColor= '#BBBBBB';
+      document.getElementById('submitButton').style.color= '#888888';
+      $('#commentOnSubmit').html("<small><em>(Provide a SMILES before submitting)</em></small>"); 
+      }
+    }
+</script>
+
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+
+var 	sk1Controller;
+var 	smilesBox;
+var 	marvinSketcherInstance1;
+var	smilesBoxSetByFrame = false;		
+ 
+var smilesBoxTimeout = 0;
+ 
+ 
+    var marvinSketcherInstance;
+    var smilesBoxJustChanged = 0;
+
+ 
+    $(document).ready(function handleDocumentReady (e) {
+    
+        // Initiate the sketcher & create an "onMolChange" change handler
+        MarvinJSUtil.getEditor("#sketch").then(function (sketcherInstance) {
+            marvinSketcherInstance = sketcherInstance;
+            new MolChangeHandler(marvinSketcherInstance, onMolChange);
+            initControl();
+            },function (error) {
+                alert("Cannot retrieve sketcher instance from iframe:"+error);
+            });
+
+
+        // Handle actions to be performed upon changes in the Sketcher    
+        function onMolChange(e) {
+                marvinSketcherInstance.exportStructure("smiles").then(function(smiles) {
+                        if (smilesBoxJustChanged===1) {
+                        } else {
+                            document.getElementById("smilesBox").value = smiles;
+                        }
+                        smilesBoxJustChanged=0;
+                        checkForm();                       
+                    }, function(error) {
+                        alert("Molecule export failed:"+error);	
+                    });
+            };             
+            
+        // Change the content of the sketcher when a SMILES is inputted or changed in the SMILES box
+        function initControl () {
+            $("#smilesBox").keyup ( function() {
+                smilesBoxJustChanged=1;
+                marvinSketcherInstance.importStructure("smiles", document.getElementById("smilesBox").value);
+                checkForm();
+            });       
+            $("#smilesBox").change( function() {
+                marvinSketcherInstance.importStructure("smiles", document.getElementById("smilesBox").value);
+                checkForm();
+            });  
+        }
+
+
+    });    
+
+
+    // Put selected molecule in the SMILES box and in the sketcher when something is selected from the examples
+    function applyExample() {    
+        document.getElementById("smilesBox").value=document.getElementById('optionList').value; 
+        marvinSketcherInstance.importStructure("smiles", document.getElementById("smilesBox").value); 
+        clearSelectedFile(); 
+        checkForm();
+    }
+
+    
+    // Remove SMILES from SMILES box
+    function clearSMILES() {
+        document.getElementById("smilesBox").value='';
+        document.getElementById('optionList').value=''
+        marvinSketcherInstance.importStructure("smiles", " ");
+        checkForm();
+    };
+
+
+
+    var parser = new UAParser();
+    var result = parser.getResult();
+    if (result.browser.name != "Safari" && result.browser.name != "Chrome" && result.browser.name != "Firefox") {
+	    alreadyWarned="";
+	    var name = "SwissTargetPredictionBadBrowser" + "=";
+	    var decodedCookie = decodeURIComponent(document.cookie);
+	    var ca = decodedCookie.split(';');
+  	    for(var i = 0; i <ca.length; i++) {
+    		var c = ca[i];
+		while (c.charAt(0) == ' ') {
+      			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+      			alreadyWarned="Yes"; 
+    		}
+  	    }
+	    if (alreadyWarned == "") {
+		    confirm("Please note that we recommend the use of Chrome, Firefox or Safari for this website.");
+		    var d = new Date();
+		    d.setTime(d.getTime() + 7 * 24 * 60 * 60 * 1000);
+		    var expires = "expires="+d.toUTCString(); /* Add a cookie which will be deleted after 1 week, or after restarting the browser */
+		    document.cookie = "SwissTargetPredictionBadBrowser" + "=" + "Warned" + ";" + expires + ";path=/";
+	    }
+
+    };
+
+
+</script>
+
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+<!-- ********************************************************************************************** -->
+<!-- START OF FOOTER information at the bottom of the page -->
+<div id='sib_footer'>			
+  <div id='sib_footer_content'>
+    <a href="https://www.sib.swiss"><img src="/images/sib_emblem_trans_background.png" height="35px"></a>
+    This Web tool is operated by the <a href="https://www.molecular-modelling.ch">Molecular Modelling Group</a> of the <a href="https://www.unil.ch">University of Lausanne</a> and the <a href="https://www.sib.swiss">SIB Swiss Institute of Bioinformatics</a> | <a href="
+http://www.swisstargetprediction.ch/termsofuse.php">Terms of use</a> | <a href="https://www.sib.swiss/privacy-policy">SIB privacy policy</a>
+  </div>
+</div>
+<!-- END OF FOOTER -->
+<!-- ********************************************************************************************** -->	
+
+
+
+
+</body>
+</html>
+
+
+
+
+

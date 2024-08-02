@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+
+<html>
+<head><title>SwissBioisostere - A database of molecular replacements for ligand design</title>
+<meta name="description" content="Are you interested in lead optimization and bioisosteric replacements? Welcome to SwissBioisostere! Here, you can query historical knowledge on molecular replacements and their effect on bioactivity." >
+<meta name="keywords" content="Molecular Replacements, Matched Molecular Pairs, Bioisosteres, Bioisosteric Replacements, Cheminformatics, Chemoinformatics, Medicinal Chemistry, MedChem, Lead Optimization, Drug Design, Drug Discovery, CADD, Data Mining, ChEMBL, SIB">
+<meta name="author" content="Alessandro Cuozzo"><meta name="author" content="Matthias Wirth"><meta name="author" content="Christophe Bovigny"><meta name="author" content="Antoine Daina"><meta name="author" content="Vincent Zoete">
+
+<!---------------------------------->
+<!-- Source predifined page style -->
+<!---------------------------------->
+<link rel="stylesheet" href="css/footer.css" type="text/css" />
+<link rel="stylesheet" href="css/startPage.css" type="text/css" />
+<link rel="stylesheet" href="css/sib.css" type="text/css" />
+<link rel="stylesheet" href="css/pageloader.css" type="text/css" />
+
+
+	<!--------------->
+	<!-- marvin JS -->
+	<!--------------->
+        <script src="marvinjs-21/js/lib/jquery-1.9.1.min.js"></script>
+        <script src="marvinjs-21/js/lib/rainbow/rainbow-custom.min.js"></script>
+        <script src="marvinjs-21/gui/lib/promise-1.0.0.min.js"></script>
+        <script src="marvinjs-21/js/marvinjslauncher.js"></script>
+        <script src="marvinjs-21/js/lib/molchange.js"></script>
+        <script src="marvinjs-21/js/util.js"></script>
+	<script src="marvinjs-21/js/webservices.js"></script>
+
+
+<!----------------------------->
+<!-- Source Email Javascript -->
+<!----------------------------->
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<!----------------------------->
+<!-- Variable initialisation -->
+<!----------------------------->
+<script>
+    var cxsmiles1="";
+    var cxsmiles2="";
+    var oneSketch=1;
+</script>
+
+<!---------------------------------->
+<!-- Source predefined page style -->
+<!---------------------------------->
+<script type="text/javascript">
+	$(function(){ $("#includeHeader").load("includes/header.php"); });
+	//$(function(){ $("#includeSDDHeader").load("shared/navigationbar/include/navigationbar.html"); });
+	$(function(){ $("#includeFooter").load("includes/footer.php"); });
+	// adds the contact information into contact div that is created from the includes.
+	$(window).load( function() {
+		$('#loading').hide();
+		//document.getElementById("contact").innerHTML = '<a href=\"mailto:' + user + '@' + domain + '?subject=' + subject +  '\" target=\"_blank\">SwissBioisostere contact</a>';
+	});
+</script>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://matomo.sib.swiss/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '44']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+
+
+</head>
+<!-- <body> -->
+
+<!----------------------------------------------------------------------------------->
+<!-- Loading message when retrieving results from the database for the user query  -->
+<!----------------------------------------------------------------------------------->
+<div id="page-loader"><b>Database is queried.</b><br/><br/> Loading time is depending on the number of replacements observed.<br/>A typical query takes between a couple of seconds to a minute.<br/><br/>We are analysing 65.7 million datapoints.<br>Please be patient.<br/><br/><img src="img/ajax-loader.gif" alt="-animated loader-" height="48px" width="48px"></div>
+
+<table class="maintable">
+<tbody><tr class="trmaintable">
+<td class="tdmaintable" id="borderleft"></td>
+<td class="tdmaintable">
+<div id="fullPageContainer">
+<div id="includeSDDHeader"></div>
+
+
+<!------------>
+<!-- HEADER -->
+<!------------>
+<div id="includeHeader"> </div>
+
+
+
+
+
+
+<!----------------------------------------------------------------->
+<!-- Add the possibility to display only one sketcher by default -->
+<!----------------------------------------------------------------->
+<script>
+
+    var sideChainExample1 = "[*]C1SC(=O)NC1=O |$_R1;;;;;;;$|"
+    var sideChainExample2 = "OC(=O)C([*])NC1=CC=CC=C1C(=O)C1=CC=CC=C1 |$;;;;_R1;;;;;;;;;;;;;;;$|"
+    var linkerExample1 = "[*]NC([*])=O |$_R1;;;_R2;$|" 
+    var linkerExample2 = "[*]NS(=O)(=O)C1=CC=C([*])C=C1 |$_R1;;;;;;;;;_R2;;$|"
+    var scaffoldExample1 = "[*]N1CCC2=C(N([*])N=C2[*])C1=O |$_R1;;;;;;;_R3;;;_R2;;$|"
+    var scaffoldExample2 = "[*]N1CC=CC2=C(N([*])N=C2[*])C1=O |$_R1;;;;;;;;_R3;;;_R2;;$|" 
+
+    //var sideChainExample1 = "NC1([*])CC1 |$;;_R1;;$|"
+    //var sideChainExample2 = "[*]C1CCCN1 |$_R1;;;;;$|"
+    //var linkerExample1 = "[*]C(=O)NC[*] |$_R1;;;;;_R2$|" // "[*]CNC([*])=O |$_R2;;;;_R1;$|"
+    //var linkerExample2 = "[*]c1nnc([*])o1 |$_R1;;;;;_R2;$|"
+    //var scaffoldExample1 = "[*]C([*])CC1OC(=O)C(=C)C1[*] |$_R1;;_R2;;;;;;;;;_R3$|"
+    //var scaffoldExample2 = "[*]CCC1C(CC([*])[*])OC(=O)C1=C |$_R2;;;;;;;_R1;_R3;;;;;$|"
+
+    function oneSketcher() {
+	clearSketcher2();
+	let sleep = ms => { return new Promise(resolve => setTimeout(resolve, ms)); };
+	sleep(30).then(() => {
+		document.getElementById("box2_sketch").style.display = "none";
+        	document.getElementById("arrow").style.display = "none";
+        	document.getElementById("smilesfieldsToHide").style.display = "none";
+        	document.getElementById("fragmentToHide").style.display = "none";
+        	document.getElementById("one").style.backgroundColor = "#ccc";
+        	document.getElementById("one").style.border="1.5px solid #444444"
+        	document.getElementById("two").style.backgroundColor = "#f1f1f1";
+       		document.getElementById("two").style.border="1px solid #bbbbbb";
+		document.getElementById("submissionButton").style.width="450px";
+		document.getElementById("EmailOption").style.marginLeft="70px"; //190
+		oneSketch=1;
+	});
+    }
+    
+    function twoSketchers() {
+        document.getElementById("box2_sketch").style.display = "block";
+        document.getElementById("arrow").style.display = "block";
+        document.getElementById("smilesfieldsToHide").style.display = "block";
+        document.getElementById("fragmentToHide").style.display = "block";
+        document.getElementById("one").style.backgroundColor = "#f1f1f1";
+        document.getElementById("one").style.border="1px solid #bbbbbb"
+        document.getElementById("two").style.backgroundColor = "#ccc";
+        document.getElementById("two").style.border="1.5px solid #444444";
+	document.getElementById("submissionButton").style.width="950px";
+	document.getElementById("EmailOption").style.marginLeft="310px"; // 440
+	oneSketch=0;
+	if (document.getElementById("box1_smiles").value == sideChainExample1.split(' ')[0]) { applySideChainExample() }
+        else if (document.getElementById("box1_smiles").value == linkerExample1.split(' ')[0]) { applyLinkerExample() }
+	else if (document.getElementById("box1_smiles").value == scaffoldExample1.split(' ')[0]) { applyScaffoldExample() }
+    }    
+    
+</script>
+
+<!------------------------------------------->
+<!-- Add the possibility to send an E-mail -->
+<!------------------------------------------->
+<script>
+
+	function showOrHideEmail() { 
+		if (document.getElementById("mailInput").style.display == "none"){
+			document.getElementById("mailInput").style.display = "block";
+			document.getElementById("three").style.backgroundColor = "#f1f1f1";
+         		document.getElementById("three").style.border = "1px solid #bbbbbb";
+		}
+
+		else{
+			document.getElementById("mailInput").style.display = "block";
+			document.getElementById("three").style.backgroundColor = "#ffffff";
+			document.getElementById("three").style.border = "none";
+			//document.mailForm.mail.value = "";
+		}
+	}
+
+	
+	function sendEmail(mailUser, smiles, jobID, category, from) {
+
+		let link = "http://swissbioisostere.ch/forward"+category+".php?smiles="+smiles.replace(' ','+').replace(' ','+')+"&jobID="+jobID+"&from="+from;
+		let mailBody = "<html>Dear user,<br><br>We have processed your query. Your job ID is: "+jobID+".<br>You will find here the link to your results.<br><br><a href=\""+link+"\">"+link+"</a><br><br>Thank you for using SwissBioisostere. We hope our service will be useful to you.<br><br>Best regards,<br>SwissDrugDesign Team<br><img src=\"view-source:https://www.molecular-modelling.ch/images/SDD_horizontal_rvb.png\"></html>";
+
+		Email.send({
+        		Host: "ssl0.ovh.net", // "smtp.gmail.com"
+			Username: "swissbioisostere@swissdrugdesign.ch",
+        		Password:  "MMG-SBI@2021",
+        		To: mailUser,
+        		From: "swissbioisostere@swissdrugdesign.ch",
+        		Subject: "SwissBioisostere - your query results - job ID "+jobID,
+        		Body: mailBody,
+      		})//.then(function (message) { alert("Mail sent successfully.\nIf you do not see it, please check your spam box.")}); // "mail sent successfully"
+	}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+<!------------------------------------>
+<!-- Select Fragment or Replacement -->
+<!------------------------------------>
+<div style="width: 100%; height: 20px; "></div>
+<div style="width: 970px; margin-left:20px; margin-right:20px; border: 1.5px solid #ccc; padding-bottom: 20px;">
+    <div>
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td style="cursor: pointer; text-align: center; width: 50%; font-size: 12px; height: 25px; padding:8px; border: 1.5px solid #444444; background-color: #ccc;" id="one" onClick="oneSketcher()">I want to search for possible replacements of a fragment</td>
+                <td style="cursor: pointer; text-align: center; width: 50%; font-size: 12px; height: 25px; padding:8px; border: 1px solid #bbbbbb; background-color: #f1f1f1; transition: display 0.75s;" id="two" onClick="twoSketchers()">I want to get information on a given molecular replacement</td>
+	    </tr>
+	</table>
+    </div>
+
+    <!---------------------->
+    <!-- Marvin sketchers -->
+    <!---------------------->
+    <br><br>
+    <div id="marvin_sketches">
+    <table class="marvintable" width="950px">
+        <tr>
+            <th width="450px">Fragment 1</th>
+            <th width=" 50px"></th>
+            <th width="450px" id="fragmentToHide" style="display: none;">Fragment 2</th>
+        </tr>
+        <tr>
+            <td width="450px"> 
+                <iframe id="box1_sketch" src="/marvinjs-21/editorws.html" seamless="seamless" scrolling="no" frameborder="0" style="overflow: hidden; width: 420px; min-height: 480px; border: 1px solid darkgray; margin-left:10px;" ></iframe>
+            </td>
+
+            <td width="50px" style="padding: 5px; vertical-align: middle;">
+                <img id="arrow" src="img/startPage/Right-Arrow.gif" height=40 width=40 alt="&rarr;" style="margin-left: 5px; display: none;"> <!-- Image for arrow between the 2 boxes -->
+            </td>
+
+            <td width="450px">
+                <iframe id="box2_sketch" src="/marvinjs-21/editorws.html" seamless="seamless" scrolling="no" frameborder="0" style="overflow: hidden; width: 420px; min-height: 480px; border: 1px solid darkgray; margin-left:10px; display:none;"  ></iframe>
+            </td>
+        </tr>
+        
+</div>
+
+<!---------------------------------->
+<!-- User input SMILES text boxes -->
+<!---------------------------------->
+    <tr> 
+        <td width="450px">
+            <table>
+                <tr class="smilesfields">
+                    <td>
+                        <label for="smiles1" style="font-size: 14px;">SMILES:</label>
+                        <input type="text" id="box1_smiles" class="smilesinput" autocomplete="off" style="width:280px; height:25px; font-size:12px;">
+                        <input type="button" name="clear" value="Clear" onclick="clearSketcher1()" style="font-size: 12px; width:60px; height: 30px; padding:1px; vertical-align: center"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td width="50px"></td>
+        <td width="450px" id="smilesfieldsToHide" style="display: none;">
+	    <table>
+                <tr class="smilesfields" >
+                    <td>
+                        <label for="smiles2" style="font-size: 14px;">SMILES:</label>
+                        <input type="text" id="box2_smiles" class="smilesinput" autocomplete="off" style="width:280px; height:25px; font-size:12px;">
+                       <input type="button" name="clear" value="Clear" onclick="clearSketcher2()" style="font-size: 12px; width:60px; height: 30px; padding:1px; vertical-align: center"/>                        
+                    </td>
+		</tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!------------------->
+<!-- E-mail option -->
+<!------------------->
+<div name="EmailOption" id="EmailOption" style=" margin-left:70px; padding-bottom: 10px; width:450px; text-align: center; transition: margin-left 0.75s;"> <!--200px 190px-->
+<table><div name="EmailIcon" id="EmailIcon">
+<tr><td style="cursor: pointer; font-size:8px" id="three" onClick=showOrHideEmail()><img src="img/email_icon.png" width="20" height="20"><!--<br>Results by E-mail--></td></div>
+<td><div name= "mailInput" id="mailInput" class="form-group" style="display:block; font-size:10px"> <!--none-->
+<form name="mailForm" id="mailForm" class="form-control input-sm" method="get" style="padding: 10px 5px; line-height: 8px;">
+	<span style="color: #2F4F4F">&nbsp;E-mail (optional): </span><input name="mail" value="" size="17" style="font-size: 12"/>
+</form></div></td></tr></div></table></div>
+
+<!--------------------------->
+<!-- QUERY DATABASE BUTTON -->
+<!--------------------------->
+<div id="submissionButton" style="padding-top 20px; padding-bottom: 20px; width:450px; text-align: center; transition: width 0.75s;">
+    <form name="buttonform2" id="buttonform2" method="get" action="forwardReplacement.php" target="_blank" onSubmit="return launchFragQuery(); return true;">
+	<input type="hidden" name="smiles" value=""/>
+	<input type="hidden" name="jobID" value=""/>
+	<input type="hidden" name="from" value="Home"/>
+        <input type="submit" class="buttonstyle" name="submit2" value="Query Database" style="cursor: pointer; text-align:center;"/>
+    </form>
+    <div style="height: 10px"></div>
+    <span style="font-size:12px">Fill with an example:&nbsp;<span style="text-decoration: underline; cursor: pointer" onClick="applySideChainExample()">side chain</span>,&nbsp;<span style="text-decoration: underline; cursor: pointer" onClick="applyLinkerExample()">linker</span>,&nbsp;<span style="text-decoration: underline; cursor: pointer" onClick="applyScaffoldExample()">scaffold</span></span><br>
+    <!-- <span style="font-size:12px; cursor: pointer;" onClick="applyExample2()">Fill with an example 2</span><br>
+    <span style="font-size:12px; cursor: pointer;" onClick="applyExample3()">Fill with an example 3</span> -->
+</div> <!-- End of submit button div -->
+</div> <!-- marvin sketches -->
+</div> <!-- End of content div -->
+
+<!------------>
+<!-- FOOTER -->
+<!------------>
+<div id="chemaxon_logo"><a href="http://www.chemaxon.com" target="_blank"><img src="img/chemaxon_logo.png" style="width:250px; margin-top:25px;" alt="chemaxon logo"></a></div>
+<div id="includeFooter"> </div>
+</div>
+</td>
+<!-- <td class="tdmaintable" id="borderright"></td> -->
+</tbody>
+</table>
+<div id="error"></div>
+
+<!--------------------------------------------------------------->
+<!-- INTEROPERABILITY - import a received SMILES in sketcher 1 -->
+<!--------------------------------------------------------------->
+
+</body>
+</html>
+
+<!------------------------------------------------------------------------------------------------>
+<!-- IMPORT SMILES STRINGS USER INPUT INTO SKETCHERS AND THEN EXPORT DRAWING AS A SMILES STRING -->
+<!------------------------------------------------------------------------------------------------>
+<script type="text/javascript">
+    var sk1Controller, sk2Controller;
+    var smiles1, smiles2;
+    var marvinSketcherInstance1, marvinSketcherInstance2;
+
+    var	smiles1SetByFrame = false;
+    var	smiles2SetByFrame = false;
+
+    var	molchange1DueToSmiles = false;
+    var	molchange2DueToSmiles = false;
+
+    var smiles1Timeout = 0;
+    
+    var smilesBoxJustChanged1 = 0;
+    var smilesBoxJustChanged2 = 0;
+
+
+    $(document).ready(function handleDocumentReady (e) {
+    
+        // Initiate the sketchers & create "onMolChange" change handlers; choose the appropriate layout for the sketchers
+        MarvinJSUtil.getEditor("#box1_sketch").then(function (sketcherInstance) {
+            marvinSketcherInstance1 = sketcherInstance;
+            marvinSketcherInstance1.setDisplaySettings({"toolbars": "markush" });     
+            new MolChangeHandler(marvinSketcherInstance1, onMolChange1);
+            initControl1();
+	  },function (error) {
+		if (error.toString().search("The browser may block the request if it violates the same origin policy.")!=-1){
+			alert("Cannot retrieve sketcher instance from iframe:"+error+"\n\nPlease ensure that both your browser and your infrastructure allow web services.");
+		}
+                else{
+                        alert("Cannot retrieve sketcher instance from iframe:"+error);
+                }
+            });
+        MarvinJSUtil.getEditor("#box2_sketch").then(function (sketcherInstance) {
+            marvinSketcherInstance2 = sketcherInstance;
+            marvinSketcherInstance2.setDisplaySettings({"toolbars": "markush" });
+            new MolChangeHandler(marvinSketcherInstance2, onMolChange2);
+            initControl2();
+	  },function (error) {
+		if (error.toString().search("The browser may block the request if it violates the same origin policy.")!=-1){
+			alert("Cannot retrieve sketcher instance from iframe:"+error+"\n\nPlease ensure that both your browser and your infrastructure allow web services.");
+		}
+		else{
+			alert("Cannot retrieve sketcher instance from iframe:"+error);
+		}
+            });           
+            
+
+        // Handle actions to be performed upon changes in the Sketchers    
+        function onMolChange1(e) {
+                marvinSketcherInstance1.exportStructure("smiles").then(function(smiles1) {
+                        //console.log(smilesBoxJustChanged1);
+                        if (smilesBoxJustChanged1===1) {
+                            smilesBoxJustChanged1=0;
+                        } else {
+                            document.getElementById("box1_smiles").value = smiles1;
+                            //console.log('=>'+smilesBoxJustChanged1);
+                            smilesBoxJustChanged1=0;
+                        }
+                        smilesBoxJustChanged1=0;
+                        //console.log('===>'+smilesBoxJustChanged1);
+                        //checkForm();                       
+		     }, function(error) {
+                        if (error.toString().search("The browser may block the request if it violates the same origin policy.")!=-1){
+				alert("Molecule export failed:"+error+"\n\nPlease ensure that both your browser and your infrastructure allow web services.");
+			}
+                        else{
+                                alert("Molecule export failed:"+error); 
+                        }
+                    });
+                marvinSketcherInstance1.exportStructure("cxsmiles").then(function(cxsmiles) {  
+                    cxsmiles1=cxsmiles; // cxsmiles1 now contains the first fragment, as shown in the sketcher, in cxsmiles format
+                });
+            };    
+        function onMolChange2(e) {
+                marvinSketcherInstance2.exportStructure("smiles").then(function(smiles2) {
+                        //console.log(smilesBoxJustChanged2);
+                        if (smilesBoxJustChanged2===1) {
+                            //smilesBoxJustChanged2=0;
+                        } else {
+                            document.getElementById("box2_smiles").value = smiles2;
+                            //console.log('=>'+smilesBoxJustChanged2);
+                            smilesBoxJustChanged2=0;
+                        }
+                        smilesBoxJustChanged2=0;
+                        //console.log('===>'+smilesBoxJustChanged2);
+                        //checkForm();                       
+		    }, function(error) {
+			if (error.toString().search("The browser may block the request if it violates the same origin policy.")!=-1){
+				alert("Molecule export failed:"+error+"\n\nPlease ensure that both your browser and your infrastructure allow web services.");
+			}
+			else{
+                        	alert("Molecule export failed:"+error);	
+			}
+                    });
+                marvinSketcherInstance2.exportStructure("cxsmiles").then(function(cxsmiles) {  
+                    cxsmiles2=cxsmiles;   // cxsmiles2 now contains the first fragment, as shown in the sketcher, in cxsmiles format
+                });                
+            };    
+                        
+            
+        // Change the content of the sketcher when a SMILES is inputted or changed in the corresponding SMILES box
+        function initControl1 () {
+            $("#box1_smiles").keyup ( function() {
+                smilesBoxJustChanged1=1;
+                //console.log('<='+smilesBoxJustChanged1);
+                marvinSketcherInstance1.importStructure("smiles", document.getElementById("box1_smiles").value);
+                //checkForm();
+                //console.log('<=='+smilesBoxJustChanged1);
+            });       
+            $("#box1_smiles").change( function() {         
+                //smilesBoxJustChanged1=1;
+                //console.log('<=>'+smilesBoxJustChanged1);
+                marvinSketcherInstance1.importStructure("smiles", document.getElementById("box1_smiles").value);
+                //checkForm();
+                //console.log('<==>'+smilesBoxJustChanged1);
+            });  
+        }
+        function initControl2 () {
+            $("#box2_smiles").keyup ( function() {
+                smilesBoxJustChanged2=1;
+                //console.log('<='+smilesBoxJustChanged1);
+                marvinSketcherInstance2.importStructure("smiles", document.getElementById("box2_smiles").value);
+                //checkForm();
+                //console.log('<=='+smilesBoxJustChanged2);
+            });       
+            $("#box2_smiles").change( function() {         
+                //smilesBoxJustChanged2=1;
+                //console.log('<=>'+smilesBoxJustChanged2);
+                marvinSketcherInstance2.importStructure("smiles", document.getElementById("box2_smiles").value);
+                //checkForm();
+                //console.log('<==>'+smilesBoxJustChanged2);
+            });  
+        }
+            
+
+    });
+
+
+</script>
+
+
+
+<!--------------------------------------------------------------->
+<!-- CAPTURE & EXPORT DRAWNED MOLECULES FROM THE SKETCHER      -->
+<!-- convert Marvin (Mrv) format molecules to CXSMILES strings -->
+<!-- Make sure R-groups are correctly attached to the SMILES   -->
+<!--------------------------------------------------------------->
+<script type="text/javascript">
+function launchFragQuery() // FragmentQuery.php
+{
+
+  	
+    	console.log('SMILES of sketcher 1 is : ', cxsmiles1);
+    	console.log('SMILES of sketcher 2 is : ', cxsmiles2); 
+
+    	
+    	smiles1=cxsmiles1;
+    	smiles2=cxsmiles2;
+    	
+	if( smiles1 =="[*][H] |$_R0;$|" ){ smiles1 ="[*][H] |$_R1;$|"; }
+	if( smiles2 =="[*][H] |$_R0;$|" ){ smiles2 ="[*][H] |$_R1;$|"; }
+	
+	var f1r1_count, f1r2_count, f1r3_count, singleC1, doubleC1, tripleC1;
+	var f2r1_count, f2r2_count, f2r3_count, singleC2, doubleC2, tripleC2;
+    
+	// ------------------------- //
+        // if fragment 1 is NOT empy //
+        // ------------------------- //
+    if( smiles1 != "" )
+    {
+        if( smiles1.match( /R/g ) == null ){ alert( 'Please highlight attachment points with R!' ); return false;  }
+        
+        f1r1_count = smiles1.match( /R1/g ) && smiles1.match( /R1/g ).length || 0;
+    	f1r2_count = smiles1.match( /R2/g ) && smiles1.match( /R2/g ).length || 0;
+    	f1r3_count = smiles1.match( /R3/g ) && smiles1.match( /R3/g ).length || 0;
+    	singleC1 = ( f1r1_count == 1 && f1r2_count == 0 && f1r3_count == 0 );
+        doubleC1 = ( f1r1_count == 1 && f1r2_count == 1 && f1r3_count == 0 );
+        tripleC1 = ( f1r1_count == 1 && f1r2_count == 1 && f1r3_count == 1 );
+        
+        if( smiles1.match( /R[4-9]/g ) ){ alert( 'Please ensure correct attachment point annotation in fragment 1, using R or R1-R3!' ); return false;  }
+        if( ! singleC1 && ! doubleC1 && ! tripleC1 ){ 
+        	if( smiles2 != "" ){
+        	alert( 'Please ensure correct attachment point annotation in fragment 1!' ); return false;  }
+        }
+    }
+	// ------------------------- //
+	// if fragment 2 is NOT empy //
+	// ------------------------- //
+    if( smiles2 != "" )
+    {
+    	if( smiles2.match( /R/g ) == null ){ alert( 'Please highlight attachment points with R!' ); return false;  }
+    	
+    	f2r1_count = smiles2.match( /R1/g ) && smiles2.match( /R1/g ).length || 0;
+    	f2r2_count = smiles2.match( /R2/g ) && smiles2.match( /R2/g ).length || 0;
+    	f2r3_count = smiles2.match( /R3/g ) && smiles2.match( /R3/g ).length || 0;
+    	singleC2 = ( f2r1_count == 1 && f2r2_count == 0 && f2r3_count == 0 );
+        doubleC2 = ( f2r1_count == 1 && f2r2_count == 1 && f2r3_count == 0 );
+        tripleC2 = ( f2r1_count == 1 && f2r2_count == 1 && f2r3_count == 1 );
+        
+        if( smiles2.match( /R[4-9]/g ) ){ alert( 'Please ensure correct attachment point annotation in fragment 2, using R or R1-R3!' ); return false;  }
+        if( ! singleC2 && ! doubleC2 && ! tripleC2 ){ alert( 'Please ensure correct attachment point annotation in fragment 2!' ); return false;  }
+    }
+
+    replacement = smiles1+">>"+smiles2;
+    
+    var count_attach_v1 = f1r1_count + f1r2_count + f1r3_count;
+    var count_attach_v2 = f2r1_count + f2r2_count + f2r3_count;
+    if( count_attach_v1 > 3 || count_attach_v2 > 3 ){ alert( 'Only up to 3 attachment points can be considered!' ); return false; }
+   
+	// ------------------------------------------------------------------ //
+	// if the user requested a replacement (both fragments are NOT empty) //
+	// ------------------------------------------------------------------ //
+    if( smiles1 != "" && smiles2 != "" )
+    {
+     
+    	if( f1r1_count != f2r1_count || f1r2_count != f2r2_count || f1r3_count != f2r3_count ){ alert( 'R-group annotation is not equal in the two fragments. Please ensure correct attachment point annotation!' ); return false;  }
+        
+	    //document.buttonform2.smiles.value = encodeURIComponent(replacement);
+	    document.buttonform2.smiles.value = replacement;
+	    document.buttonform2.jobID.value = "1725376711";
+	    if (document.mailForm.mail.value!="") { 
+			sendEmail(document.mailForm.mail.value, replacement, "431125948", "Replacement", "Home")
+	    }
+	    //document.getElementById('page-loader').style.display='block';
+            //document.getElementById('fullPageContainer').style.visibility='hidden';
+            document.buttonform2.action = "forwardReplacement.php";     
+            window.scrollTo(0,0);
+            document.getElementById('buttonform2').submit(); 
+    }
+
+	// --------------------------------- //
+        // if at least one fragment is empty //
+        // --------------------------------- //
+    else{
+		// ---------------------- //
+        	// if fragment 2 IS EMPTY //
+        	// ---------------------- //
+            if( smiles2 =="" )
+            { 
+		//document.buttonform2.smiles.value = encodeURIComponent(smiles1);
+		document.buttonform2.smiles.value = smiles1;
+		document.buttonform2.jobID.value = "915819124";
+		if (document.mailForm.mail.value!="") { 
+                	sendEmail(document.mailForm.mail.value, smiles1, "504736879", "Fragment", "Home")
+            	}
+            }
+
+	        // -------------------------- //
+                // if fragment 2 is NOT EMPTY //
+                // -------------------------- //
+            else
+            { 
+		//document.buttonform2.smiles.value = encodeURIComponent(smiles2);
+		document.buttonform2.smiles.value = smiles2;
+		document.buttonform2.jobID.value = "942455992";
+		if (document.mailForm.mail.value!="") { 
+                	sendEmail(document.mailForm.mail.value, smiles2, "1190464249", "Fragment", "Home")
+            	}
+            }
+            
+	    	// --------------------------- //
+        	// if both fragments ARE EMPTY //
+       	 	// --------------------------- //
+            if( smiles1 == "" && smiles2 == "" ){
+            	alert("Please enter either a single fragment in sketcher 1, or fragments in sketcher 1 & 2, respectively.");
+            	return false; // warning message
+            }
+
+	    	// --------------------------------- //
+                // if NOT both fragments 2 are empty //
+                // --------------------------------- //
+	    else { //else if ((smiles1 == "" & smiles2 != "") | (smiles1 != "" & smiles2 == "")){
+		document.buttonform2.action = "forwardFragment.php"; // previously FragQuery.jsp
+                //document.getElementById('page-loader').style.display='block';
+                //document.getElementById('fullPageContainer').style.visibility='hidden';
+                
+
+                window.scrollTo(0,0);
+                document.getElementById("buttonform2").submit();
+
+            }
+    }
+
+    return false;    
+}
+
+</script>
+
+
+<script>
+  
+    // Put example fragments in the sketcher when "Fill with example" is clicked
+    function applySideChainExample() {
+        if (oneSketch == 1) {       
+            marvinSketcherInstance1.importStructure("cxsmiles", sideChainExample1); 
+        }
+        if (oneSketch == 0) {
+            marvinSketcherInstance1.importStructure("cxsmiles", sideChainExample1);        
+            marvinSketcherInstance2.importStructure("cxsmiles", sideChainExample2);  
+        }
+    }
+
+    function applyLinkerExample() {
+        if (oneSketch == 1) {
+            marvinSketcherInstance1.importStructure("cxsmiles", linkerExample1);
+        }
+        if (oneSketch == 0) {
+            marvinSketcherInstance1.importStructure("cxsmiles", linkerExample1);
+            marvinSketcherInstance2.importStructure("cxsmiles", linkerExample2);
+        }
+    }
+
+    function applyScaffoldExample() {
+        if (oneSketch == 1) {
+            marvinSketcherInstance1.importStructure("cxsmiles", scaffoldExample1);
+        }
+        if (oneSketch == 0) {
+            marvinSketcherInstance1.importStructure("cxsmiles", scaffoldExample1);
+	    marvinSketcherInstance2.importStructure("cxsmiles", scaffoldExample2);
+
+	}
+    }
+
+
+    // Remove molecule from sketchers
+    function clearSketcher1() {
+        marvinSketcherInstance1.importStructure("smiles", " ");
+    };
+     function clearSketcher2() {
+        marvinSketcherInstance2.importStructure("smiles", " ");
+    };
+    
+</script>
+
+
+
+

@@ -1,0 +1,1004 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ 
+ 
+  <title> NAMD - Scalable Molecular Dynamics </title> 
+ 
+
+ <meta name="description" content="NAMD is a parallel molecular dynamics
+  code for large biomolecular systems.  NAMD is free with source code.">
+
+<style type="text/css">
+<!--
+@import url("/include/home.css");
+@import url("/include/level2b.css");
+@import url("/include/tcb.css");
+@import url("/include/dropdownstyles.css");
+-->
+</style>
+
+<script type="text/javascript" src="/include/jquery-latest.js"></script>
+<script type="text/javascript" src="/include/scrollingbackground.js"></script>
+<script type="text/javascript" src="/include/jScrollPane.js"></script>
+
+<script type="text/javascript">
+ var blank = new Image();
+ blank.src = '/include/images/template_images_2010/blank.gif';
+ 
+ $(document).ready(function() {
+   var badBrowser = (/MSIE ((5\.5)|6)/.test(navigator.userAgent) && navigator.platform == "Win32");
+   if (badBrowser) {
+     // get all pngs on page
+     $('img[src$=.png]').each(function() {
+       if (!this.complete) {
+         this.onload = function() { fixPng(this) };
+       } else {
+         fixPng(this);
+       }
+     });
+   }
+ });
+ 
+ function fixPng(png) {
+   // get src
+   var src = png.src;
+   // set width and height
+   if (!png.style.width) { png.style.width = $(png).width(); }
+   if (!png.style.height) { png.style.height = $(png).height(); }
+   // replace by blank image
+   png.onload = function() { };
+   png.src = blank.src;
+   // set filter (display original image)
+   png.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "',sizingMethod='scale')";
+ }
+ 
+ 
+	jQuery(function()
+	{ 
+	jQuery('#scrollpane').jScrollPane({showArrows:true, dragMinHeight:7,dragMaxHeight:7,scrollbarWidth:17});
+	});
+
+
+
+ </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-40575643-1', 'uiuc.edu');  
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body>
+
+<div id="container">
+  <div id="header">
+  
+  
+  
+  
+  
+  
+
+  
+  <div id="nihuiuc">
+  
+   <nobr>
+  <table cellpadding="0" cellspacing="0" width="100%">
+  <tr valign="middle"><td>
+  <a
+  href="https://nigms.nih.gov/Research/mechanisms/Pages/R24-Funded-Resources---Computation-%26-Modeling.aspx" class="nih">NIH Resource for Macromolecular Modeling &amp; Visualization</a>
+  <a href="http://illinois.edu/" class="uiuc">University of Illinois at Urbana-Champaign</a>
+  </td>
+  
+  <td>
+<!-- Search Google -->
+<div id="searchform">
+  <FORM method=GET action="https://www.google.com/search">
+      
+     <input type=hidden name=sitesearch value="www.ks.uiuc.edu" />
+      
+
+     <INPUT TYPE=text class="btninput" name=q maxlength=255 
+                   value="Type Keywords" onfocus="this.value=''" />
+     <INPUT class="btnG" type=submit name=btnG VALUE="" />
+  </FORM>
+</div>
+<!-- End Google Search -->
+
+  </td>
+  
+  </tr>
+  </table>
+    </nobr>
+
+  </div>
+  
+
+  
+    <div id="logo">
+   <a title="Theoretical Biophysics Group" class='clear' href="/"><img style="margin-top: 18px; margin-left: 20px;" src="/include/images/template_images_2010/logo.png" border="0" alt="Theoretical and Computational Biophysics Group" /></a>
+    </div>
+  </div>
+
+
+
+    
+
+
+
+
+
+
+
+<ul class="pureCssMenu pureCssMenum">
+<!-- Home -->
+  <li><a href="/" class="menulink">Home</a></li>
+
+<!-- Research ########################################################## -->
+  <li><a href="/Research/Categories/" class="menulink">Research<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Research/dbps/">Driving Projects</a></li>
+      <li><a href="/Research/Collaborations/">Collaborations</a></li>
+      <li><a href="/Highlights/">Highlights</a></li>
+      <li><a href="/Research/Categories/viruses/">Viruses</a></li>
+      <li><a href="/Research/Categories/symbiontBacteria/">Symbiont Bacteria</a></li>
+      <li><a href="/Research/Categories/molecularMotors/">Molecular Motors</a></li>
+      <li><a href="/Research/Categories/neuronsSynapses/">Neurons and Synapses</a></li>
+      <li><a href="/Research/Categories/bioenergeticMembranes/">Bioenergetic Membranes</a></li>
+      <li><a href="/Research/Categories/nanosensors/">Nanosensors</a></li>
+      <li><a href="/Research/Categories/ribosome/">Ribosome</a></li>
+      <li><a href="/Research/Categories/mechanosensing/">Mechanosensing</a></li>
+      <li><a href="/Research/Categories/proteinFolding/">Protein Folding</a></li>
+      <li><a href="/Research/mdff/">Integrative Modeling</a></li>
+      <li><a href="/Research/Categories/more/">More Topics</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+<!-- Publications ###################################################### -->
+  <li><a href="/Publications/" class="menulink">Publications<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Publications/Papers/">Papers</a></li>
+      <li><a href="/Publications/HighlyCited/">Highly&nbsp;Cited</a></li>
+      <li><a href="/Publications/Papers/representative/">Representative</a></li>
+      <li><a href="/Publications/Covers/">Covers</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+  <!-- Software ########################################################### -->
+  <li><a href="/Development/" class="menulink">Software<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Research/namd/">NAMD<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+        <ul>
+          <li><a href="/Development/Download/download.cgi?PackageName=NAMD">Download</a></li>
+          <li><a href="/Research/namd/current/ug/">User's&nbsp;Guide</a></li>
+          <li><a href="/Research/namd/mailing_list/">Mailing&nbsp;List</a></li>
+        </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+      </li>
+      <li><a href="/Research/vmd/">VMD<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+        <ul>
+          <li><a href="/Development/Download/download.cgi?PackageName=VMD">Download</a></li>
+          <li><a href="/Research/vmd/plugins/">Plugins</a></li>
+          <li><a href="/Research/vmd/current/ug/">User's&nbsp;Guide</a></li>
+          <li><a href="/Research/vmd/mailing_list/vmd-l/">Mailing&nbsp;List</a></li>
+        </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+      </li>
+      <li><a href="/Research/gpu/">GPU&nbsp;Computing</a></li>
+      <li><a href="/Research/cloud/">Cloud&nbsp;Computing</a></li>
+      <li><a href="http://www.scs.illinois.edu/schulten/lm/">Lattice&nbsp;Microbes</a></li>
+      <li><a href="http://bionano.physics.illinois.edu/arbd">Atomic&nbsp;Resolution<br>Brownian&nbsp;Dynamics</br></a></li>
+<!--      <li><a href="/Research/biocore/">BioCoRE</a></li> -->
+      <li><a href="/Research/mdff/">MDFF</a></li>
+      <li><a href="/Research/qwikmd/">QwikMD</a></li>
+      <li><a href="/Research/vnd/">VND (Neuronal)</a></li>
+      <li><a href="/Development/OtherSoft/">Other</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+<!-- Instruction ##################################################### -->
+  <li><a href="/Outreach/" class="menulink">Instruction<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Training/">Training</a></li>  
+      <li><a href="/Training/Workshop/">Workshops</a></li>
+      <li><a href="/Services/Seminar/">Seminars</a></li>
+      <li><a href="/Training/Tutorials/">Tutorials</a></li>
+      <li><a href="/Training/CaseStudies/">Case&nbsp;Studies</a></li>
+      <li><a href="/Training/multimedia/">Multimedia&nbsp;Lectures</a></li>
+      <li><a href="/Gallery/Brochure/">Brochures</a></li>   
+      <li><a href="/Services/Class/">Classes</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+<!-- News ############################################################# -->  
+  <li><a href="/Publications/stories.cgi" class="menulink">News</a></li>
+<!-- Media ############################################################# -->
+  <li><a href="/Gallery/" class="menulink">Galleries<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Gallery/Science-New/">Images</a></li>
+      <li><a href="/Gallery/Movies/">Movies</a></li>
+      <li><a href="/Gallery/Posters/">Posters</a></li>
+      <li><a href="/Gallery/Brochure/">Brochures</a></li>
+      <li><a href="/Gallery/Photos/">Photos</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+<!-- Facilities ###################################################### -->
+  <li><a href="/Development/Computers/spotlight.cgi" class="menulink">Facilities<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Development/Computers/">Computational</a></li>
+      <li><a href="/Outreach/VisitorFacilities/">Visitor</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+<!-- About Us ####################################################### -->
+  <li><a href="/" class="menulink">About&nbsp;Us<![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+      <li><a href="/Overview/People/">Center&nbsp;Members</a></li>
+      <li><a href="/Overview/">Mission</a></li>
+      <li><a href="/Gallery/Brochure/">Brochures</a></li>
+      <li><a href="/Overview/reach.html">Contact&nbsp;Us</a></li>
+      <li><a href="/Overview/acknowledge.html">Acknowledge&nbsp;Us</a></li>
+    </ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+  <div class="clear"></div>
+</ul>
+<!-- End Drop Down Menu ************************************************* -->
+
+
+  <div class="clear"></div>
+
+
+
+
+  <div id="main">
+ 
+     <div id="sidenav">
+
+  
+    <ul>
+  <li> <h2><a href="/">Home</a></h2></li>
+  <li> <h2><a href="/Overview/">Overview</a></h2></li>
+  <li> <h2><a href="/Publications/">Publications</a></h2></li>
+  <li > <h2><a href="/Research/Categories/" >Research</a></h2></li>
+<!--
+  <li> <h3><a href="/Research/Categories/Ongoing/">Ongoing Projects</a></h3></li>
+  <li> <h3><a href="/Research/Categories/All/" 
+       		   >All Research Projects</a></h3></li>
+-->
+  <li id="active"> <h2><a href="/Development/">Software</a></h2></li>
+
+  <li> <h3><a href="/Research/namd/"
+			   >NAMD</a></h3></li>
+  <li> <h3><a href="/Research/vmd/"
+			   >VMD</a></h3></li>
+  <li> <h3><a href="/Research/gpu/"
+			   >GPU Computing</a></h3></li>
+  <li> <h3><a href="http://www.scs.illinois.edu/schulten/lm/"
+			   >Lattice Microbes</a></h3></li>
+  <li> <h3><a href="http://bionano.physics.illinois.edu/arbd"
+			   >Atomic Resolution Brownian Dynamics</a></h3></li>
+  <!-- <li> <h3><a href="/Research/biocore/"
+			   >BioCoRE</a></h3></li> -->
+  <li> <h3><a href="/Research/mdff/"
+			   >MDFF</a></h3></li>
+  <li> <h3><a href="http://www.ks.uiuc.edu/Research/qwikmd/"
+			   >QwikMD</a></h3></li>
+  <li> <h3><a href="/Research/vnd/"
+			   >VND (Neuronal)</a></h3></li>
+  <li> <h3><a href="/Development/OtherSoft/"
+			   >Other</a></h3></li>
+
+  <li> <h2><a href="/Outreach/">Outreach</a></h2></li>
+</ul>
+
+  
+
+  <div id="sidetext">
+   
+   
+    <p> &nbsp; </p> 
+    <p> <div align=center>
+  <br><br><br><a href="/Development/Download/download.cgi?PackageName=NAMD">Download NAMD</a>
+  <br><br><br><a href="/Development/Download/download.cgi?PackageName=VMD">Download VMD</a>
+  <br><br><br><a href="http://charm.cs.illinois.edu/">Parallel Programming Laboratory</a>
+</div> </p>
+    <p> &nbsp; </p> 
+   
+  </div>
+
+  <div id="sidenav">
+   
+     <!-- No search bar if we have a sidebar! -->
+   
+  </div>
+
+ </div>
+
+    <div id="text">
+      <h2 class='navinfo'><img border=0 src="logo/namd_logo_left.gif" alt="NAMD - Scalable Molecular Dynamics" width=315 height=48></h2>
+    
+
+
+      <!-- End Headers -->
+
+
+
+<div>
+
+<p>
+NAMD, recipient of a <a href="https://web.archive.org/web/20181124112559/http://www.supercomputing.org/sc2002/news_nrp_conclude.html">2002 Gordon Bell Award</a>, a
+<!-- <a href="http://engineering.illinois.edu/news/2012/10/09/two-engineering-illinois-professors-receive-2012-ieee-computer-society-sidney-fernba">2012 Sidney Fernbach Award</a>,-->
+<a href="http://sc12.supercomputing.org/content/sc12-honor-hpc-innovators-ieee-computer-society-and-acm-awards.html">2012 Sidney Fernbach Award</a>,
+and a <a href="/Research/gordonbell2020/">2020 Gordon Bell Prize</a>,
+is a parallel molecular dynamics code designed for
+high-performance simulation of large biomolecular systems.  Based on
+<a href="http://charm.cs.illinois.edu/">Charm++ parallel objects</a>, NAMD
+<a href="benchmarks/">scales</a>
+to hundreds of cores for typical simulations and
+<a href="http://charm.cs.illinois.edu/papers/14-17">beyond 500,000 cores</a>
+for the largest simulations.
+NAMD uses the popular molecular graphics program <a href="../vmd/">VMD</a>
+for simulation setup and trajectory analysis, but is also file-compatible
+with AMBER, CHARMM, and X-PLOR.
+NAMD is distributed <a href="license.html">free of charge</a> with source code.
+You can <a href="development.html">build</a> NAMD yourself or download
+<a href="/Development/Download/download.cgi?PackageName=NAMD">binaries</a>
+for a wide variety of platforms.
+Our <a href="/Training/Tutorials/">tutorials</a> show
+you how to use NAMD and <a href="../vmd/">VMD</a> for biomolecular modeling.
+</p>
+
+<!--
+<p>
+The 2005 reference paper
+<a href="http://onlinelibrary.wiley.com/doi/10.1002/jcc.20289/abstract">
+Scalable molecular dynamics with NAMD</a> has over <a href="6000cites.html">6,000 citations</a> as of October 2016.
+       <img align=top src="/images/new.gif">
+</p>
+
+<p>
+<a href="http://news.illinois.edu/news/13/0529HIVcapsid_KlausSchulten.html">Wit, grit and a supercomputer yield chemical structure of HIV capsid</a>
+(article referring to NAMD simulations on <a href="http://www.ncsa.illinois.edu/BlueWaters/">Blue Waters</a> reported in <a href="http://www.nature.com/nature/journal/v497/n7451/full/nature12162.html">Zhao <em>et al.</em>, <em>Nature</em>, 497:643-646, 2013</a>.)
+</p>
+
+<p>
+  <a href="http://onlinelibrary.wiley.com/doi/10.1002/jcc.23422/abstract">Rapid parameterization of small molecules using the force field toolkit</a>, JCC, 2013.
+</p>
+
+<p>
+  <a href="http://www.ncsa.illinois.edu/news/story/ncsa_receives_honors_in_2013_hpcwire_readers_and_editors_choice_awards">HPCwire Editors' Choice Award: Best use of HPC in life sciences</a>
+</p>
+
+<p>
+        <a href="https://itunes.apple.com/us/app/molecules-by-theodore-gray/id923383841">NAMD Powers <em>Molecules by Theodore Gray</em> App for iPhone and iPad</a>
+</p>
+
+<p>
+<a href="http://pubs.acs.org/doi/full/10.1021/ct5009075">Multilevel Summation Method for Electrostatic Force Evaluation</a>, JCTC, 2014.
+</p>
+
+<p>
+<a href="http://www.nature.com/articles/srep26536"> QwikMD - integrative molecular dynamics toolkit for novices and experts</a>, <em>Scientific Reports</em>, 2016.
+       <img align=top src="/images/new.gif">
+</p>
+-->
+
+<!--
+<p>
+Want to make NAMD and VMD better?  <strong>Join our <a href="/Overview/People/">team</a>!</strong>  We are hiring for
+<a href="https://jobs.illinois.edu/academic-job-board/job-details?jobID=91767">research programmer and senior research programmer positions</a>.
+<font color="darkgreen">Apply by February 23.</font>
+       <img align=top src="/images/new.gif">
+</p>
+-->
+
+<!--
+<p>
+       <img align=top src="/images/new.gif">
+<a href="http://linkinghub.elsevier.com/retrieve/pii/S104784770600308X">
+High performance computing in biology: Multimillion atom simulations of nanoscale systems.</a>
+K.Y.&nbsp;Sanbonmatsu and C.-S.&nbsp;Tung.
+<em>Journal of Structural Biology</em>, 157:470-480, 2007.
+</p>
+
+<p>
+<img align=top src="/images/new.gif">
+<a href="http://www.sdsc.edu/News%20Items/PR032207_febs.html">
+Supercomputer Simulations May Pinpoint Causes of Parkinson's,
+Alzheimer's Diseases</a>
+(SDSC article referring to NAMD simulations on Blue Gene/L reported in <a href="http://content.febsjournal.org/cgi/content/full/274/7/1862">Tsigelny <em>et al.</em>,
+<em>FEBS Journal</em>, 274:1862-1877, 2007</a>.)
+</p>
+-->
+
+<FORM method=GET action="https://www.google.com/search">
+<p>
+       <strong>Search all NAMD resources:</strong>
+ <input type=hidden name=sitesearch value="www.ks.uiuc.edu">
+ <input type=hidden name=hq value="site:www.ks.uiuc.edu/Research/namd OR site:www.ks.uiuc.edu/Training/Tutorials/">
+ <INPUT TYPE=text name=q size=40 maxlength=255 value="Search NAMD web site and tutorials"
+  onfocus="this.value=''">
+  <INPUT type=submit name=btnG VALUE="Google">
+</p>
+</FORM>
+
+
+</div>
+<div>
+<h3 class="headarea">Breaking News</h3>
+<table width=99%>
+  <tr>
+    <td>
+      <a href="3.0/announce.html">NAMD 3.0 Release</a> - 
+      Stable release featuring new GPU-resident mode
+      for NVIDIA and compatible AMD GPUs.
+      Updates to Colvars, Charm++, and user guide documentation.
+    </td>
+  </tr>
+</table>
+    <hr>
+<!--
+<table width=99%>
+  <tr>
+    <td>
+      <a href="3.0b7/announce.html">NAMD 3.0b7 Release</a> - 
+      GPU-resident mode now calculates meaningful averages for energy, 
+      temperature, and pressure. Improves HIP performance. 
+      Fixes use of GPU atom migration with advanced features. 
+      Supports vdW force switching for GPU-based alchemy. 
+      Fixes some race conditions and calculation issues for 
+      GPU-based alchemy. 
+    </td>
+  </tr>
+</table>
+    <hr>
+-->
+<table width=99%>
+  <tr>
+    <td>
+      <a href="3.0/features.html">NAMD 3.0 New Features</a> - webpage is posted
+    </td>
+  </tr>
+</table>
+    <hr>
+<table width=99%>
+  <tr>
+    <td>
+      <a href="benchmarks">NAMD GPU-resident benchmarks</a> - results and data sets with GPU-optimized configuration posted
+    </td>
+  </tr>
+</table>
+    <hr>
+<!--
+<table width=99%>
+  <tr>
+    <td>
+      <a href="3.0b6/announce.html">NAMD 3.0b6 Release</a> - fixes important bugs from last two beta releases
+    </td>
+  </tr>
+</table>
+    <hr>
+-->
+<table width=99%>
+  <tr>
+    <td>
+      <a href="/Development/Download/download.cgi?PackageName=NAMD">NAMD 2.15 ALPHA Release</a> 
+      providing GPU-offload support for
+      <a href="https://www.intel.com/content/www/us/en/products/details/discrete-gpus/data-center-gpu/max-series.html">Intel GPU Max Series</a>.
+      This source code release available on the
+      <a href="/Development/Download/download.cgi?PackageName=NAMD">download page</a>
+      includes <a href="https://www.khronos.org/sycl/">SYCL</a> 
+      code that can be built using the
+      <a href="https://intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html">Intel oneAPI toolkits</a>.
+      Following the download link reveals a page 
+      with detailed build instructions.
+    </td>
+  </tr>
+</table>
+<!--
+    <hr>
+<table width=99%>
+  <tr>
+    <td>
+      NAMD 2.15 alpha 2 has <b>AVX-512 kernel support for AMD Zen 4 CPUs</b>.  Visit the <a href="/Development/Download/download.cgi?PackageName=NAMD">download page</a> and follow the link to the <b>AVX-512 version</b> to find out more information. 
+    </td>
+  </tr>
+</table>
+    <hr>
+<table width=99%>
+  <tr>
+    <td>
+      NAMD and VMD are part of the team winning the
+      <a href="http://www.ks.uiuc.edu/Research/gordonbell2020/">2020 ACM Gordon Bell Special Prize</a>
+      for high performance computing-based <b>COVID-19 research</b>, for the paper <b>AI-Driven Multiscale Simulations Illuminate Mechanisms of SARS-CoV-2 Spike Dynamics</b>, presented at Supercomputing 2020, Nov 18, 2020.
+    </td>
+    <td align=right>
+      <a href="http://www.ks.uiuc.edu/Research/gordonbell2020/">
+        <img src="gordonbell2020.jpg" height="250" alt="ACM Gordon Bell Special Prize">
+      </a>
+    </td>
+  </tr>
+</table>
+    <hr>
+<table width=99%>
+  <tr>
+    <td>
+      <a href="/Research/namd/press/intel_coe_announcement.html">University of Illinois has established a oneAPI academic 
+      Center of Excellence</a>, using oneAPI to bring its
+      cross-architecture single programming model to NAMD
+      in order to address exascale computing challenges of COVID-19.
+    </td>
+  </tr>
+</table>
+    <hr>
+<table width=99%>
+  <tr>
+    <td>
+      NAMD is able to achieve 9x throughput with version 3.0alpha running on
+      NVIDIA A100 GPUs. Details available on the
+      <a href="https://developer.nvidia.com/blog/delivering-up-to-9x-throughput-with-namd-v3-and-a100-gpu/">NVIDIA developer blog</a>.
+    </td>
+  </tr>
+</table>
+    <hr>
+<table width=99%>
+  <tr>
+    <td>
+      The <a href="https://doi.org/10.1063/5.0014475">new NAMD reference paper</a> has been published online.
+      The paper provides an overview of the many features available
+      in NAMD, its scalability on CPU and GPU platforms on system
+      sizes of up to a billion atoms,
+      and the recent performance enhancements for GPU accelerators.
+    </td>
+  </tr>
+</table>
+-->
+<!--
+    <hr>
+<table width=99%>
+<tr>
+<td>
+<a href="https://www.hpcwire.com/off-the-wire/coronavirus-massive-simulations-completed-on-frontera-supercomputer/">
+NAMD will be used for groundbreaking coronavirus simulations
+</a>
+that will run on the Frontera supercomputer at TACC.
+The Amaro Lab of UC San Diego is working to 
+build the first complete all-atom model of
+the SARS-COV-2 coronavirus envelope
+in order to investigate how the virus interacts with receptors 
+within the host cell membrane.
+The coronavirus model is anticipated to contain 200 million atoms.
+The simulations will run on up to 4,000 nodes
+or about 250,000 processing cores of Frontera.
+<br>
+<br>
+</td>
+<td align=right>
+<img src="TACC-coronavirus.jpg" height="100" alt="coronavirus">
+<br>
+</td>
+</tr>
+</table>
+-->
+<br>
+</div>
+<!-- <div> -->
+
+<div style="float: right; position: relative"><p><a href="spotlight/">Other Spotlights</a>&nbsp;</p>
+</div><h3 class="headarea">Spotlight: Linux Clusters the Easy Way (June 2006)</h3>
+<div style="float: right">
+<a class='clear' href="/Training/Workshop/Cluster4/"><img
+ src="/images/ofmonth/2006-06/workshop_tn.jpg" border="0"
+ alt="participants working on their clusters" width=200 height=132></a>
+</div>
+<div>
+<P>
+For hard-working scientists, the task of maintaining a single desktop
+computer is an unwelcome distraction.
+
+But what if your work requires the power of ten or a hundred machines?
+
+Our recent series of workshops
+(<a href="/Training/Workshop/Cluster1/">Sep 2005</a>,
+<a href="/Training/Workshop/Cluster/">Nov 2005</a>,
+<a href="/Training/Workshop/Cluster3/">Mar 2006</a>, and
+<a href="/Training/Workshop/Cluster4/">Apr 2006</a>)
+has given nearly one hundred participants
+<a href="/Training/Workshop/Cluster4/labs.html">hands-on experience</a>
+installing and using
+<a href="/Development/Computers/Cluster/">low-cost Linux clusters</a>.
+
+Students were taught to eliminate many sources of complexity, such as
+hard drives, and to automate what remained with cluster management
+software and a queueing system.
+
+<a href="/Training/Workshop/Cluster4/lectures.html">Lectures</a>
+on cluster design stressed the importance of knowing
+which applications would be run and choosing cost-effective
+hardware to meet those specific needs,
+as well as less-obvious aspects of cluster
+acquisition such as electrical power, cooling, and the purchasing process.
+
+After assembling and installing small four-node clusters, students ran both
+the molecular dynamics program <a href="/Research/namd/">NAMD</a>
+and a more typical parallel application that they compiled from scratch.
+
+Most participants were motivated by concrete plans to build clusters
+for their own groups in the near future and felt better-equipped to
+do so following their experience.
+</P>
+</div>
+
+
+<!-- </div> -->
+
+<div style="clear: right; float: left; width: 49%">
+
+<h3 class="headarea">Overview</h3>
+<p>
+<!--
+        <a href="bugreport.html">Having Problems with NAMD?</a>
+  <br/> 
+  -->
+        <a href="motivation">Why NAMD?</a> (in pictures)
+  <br/> <a href="papers.html">How to Cite NAMD</a>
+<!--
+  <br/> <a href="/Research/mdff/">Molecular Dynamics Flexible Fitting</a>
+  <br/> <a href="/Research/smd_imd/">Steered Molecular Dynamics</a>
+  <br/> <a href="/Research/vmd/imd/">Interactive Molecular Dynamics</a>
+-->
+  <br/> <a href="features.html">Features and Capabilities</a>
+  <br/> <a href="benchmarks/">Performance Benchmarks</a>
+  <br/> <a href="papers.html">Publications</a> and
+        <a href="papers.html#cites">Citations</a>
+<!--
+       <img align=top src="/images/new.gif">
+-->
+  <br/> <a href="credits.html">Credits and Development Team</a>
+</p>
+
+<h3 class="headarea">Availability</h3>
+<p>
+       <a href="license.html">Read the License</a>
+  <br/> <a href="/Development/Download/download.cgi?PackageName=NAMD">Download NAMD Binaries</a>
+    (also <a href="/Development/Download/download.cgi?PackageName=VMD">VMD</a>)
+  <br/> <a href="development.html">Build from Source Code</a>
+  <font color="darkgreen">- Git access now available</font>
+  <br/> Run at <a href="wiki/index.cgi?NamdAtNCSA">NCSA</a>, <a href="wiki/index.cgi?NamdAtSDSC">SDSC</a>, <a href="wiki/index.cgi?NamdAtNICS">NICS</a>, or <a href="wiki/index.cgi?NamdAtTexas">Texas</a>
+  <!-- <br/> <a href="http://www.nvidia.com/MD_Test_Drive">Free GPU Test Drive from NVIDIA Partners</a> -->
+  <!--<br/> <a href="http://www.scienomics.com/">NAMD in Scienomics Software</a>-->
+</p>
+
+<h3 class="headarea">Training</h3>
+<p>
+<!--
+        <a href="http://charm.cs.illinois.edu/workshops/charmWorkshop2020/">Charm++ Workshop in Urbana</a> (May 5-6, 2020)
+       <img align=top src="/images/new.gif">
+  <br/>--> <a href="/Training/Workshop/Urbana2019/">NAMD Developer Workshop in Urbana</a> (August 19-20, 2019)
+       <!-- <img align=top src="/images/new.gif"> -->
+  <br/> <a href="/Training/Workshop/Stockholm2019/">PRACE School on HPC for Life Sciences</a> (June 10-13, 2019)
+  <br/> <a href="/Training/Workshop/Pittsburgh2019/">"Hands-On" Workshop in Pittsburgh</a> (May 13-17, 2019)
+  <br/> <a href="http://charm.cs.illinois.edu/workshops/charmWorkshop2019/">Charm++ Workshop in Urbana</a> (May 1-2, 2019)
+  <br/> <a href="/Training/Workshop/Urbana2018b/">Enhanced Sampling and Free-Energy Workshop</a> (Sept 10-14, 2018)
+        <!-- <br/>&nbsp;&nbsp;&nbsp;&nbsp;Held in Urbana. <font color="darkgreen">Apply by August 3.</font> <img align=top src="/images/new.gif"> -->
+  <br/> <a href="/Training/Workshop/Urbana2018a/">NAMD Developer Workshop in Urbana</a> (June 11-12, 2018)
+        <!-- <br/>&nbsp;&nbsp;&nbsp;&nbsp;<font color="darkgreen">Apply by May 4.</font> <img align=top src="/images/new.gif"> -->
+  <br/> <a href="/Training/Workshop/Pittsburgh2018/">"Hands-On" Workshop in Pittsburgh</a> (May 21-25, 2018)
+        <!-- <br/>&nbsp;&nbsp;&nbsp;&nbsp;<font color="darkgreen">Apply by April 15.</font> <img align=top src="/images/new.gif"> -->
+<!--
+  <br/> <a href="http://charm.cs.illinois.edu/workshops/charmWorkshop2018/">Charm++ Workshop in Urbana</a> (April 11-12, 2018)
+-->
+  <br/> <a href="/Training/Workshop/Urbana2018/">"Hands-On" QM/MM Simulation Workshop</a> (April 5-7, 2018)
+  <br/> <a href="/Training/Workshop/">Older "Hands-On" Workshops</a>
+</p>
+
+<h3 class="headarea">Support</h3>
+<FORM method=GET action="https://www.google.com/search">
+        <a href="bugreport.html">Having Problems with NAMD?</a>
+  <br/>
+  <br/> <a href="wiki/">NAMD Wiki</a> (<a href="wiki/?RecentChanges">Recent Changes</a>)
+ <br/>&nbsp;&nbsp;<input type=hidden name=sitesearch value="www.ks.uiuc.edu/Research/namd/wiki/">
+ <input type=hidden name=hq value="site:www.ks.uiuc.edu/Research/namd/wiki/">
+ <INPUT TYPE=text name=q size=30 maxlength=255 value="Search NAMD Wiki"
+  onfocus="this.value=''">
+ <INPUT type=submit name=btnG VALUE="Google">
+</FORM>
+<FORM method=GET action="https://www.google.com/search">
+        <a href="mailing_list/">NAMD-L Mailing List</a>
+       (<a href="mailing_list/namd-l/">Archive</a>)
+ <br/>&nbsp;&nbsp;<input type=hidden name=sitesearch value="www.ks.uiuc.edu/Research/namd/mailing_list/namd-l/">
+ <input type=hidden name=hq value="site:www.ks.uiuc.edu/Research/namd/mailing_list/namd-l/">
+ <INPUT TYPE=text name=q size=30 maxlength=255 value="Search NAMD-L Archive"
+  onfocus="this.value=''">
+ <INPUT type=submit name=btnG VALUE="Google">
+</FORM>
+<FORM method=GET action="https://www.google.com/search">
+        <a href="/Training/Tutorials/mailing_list/">Tutorial-L Mailing List</a>
+       (<a href="/Training/Tutorials/mailing_list/tutorial-l/">Archive</a>)
+ <br/>&nbsp;&nbsp;<input type=hidden name=sitesearch value="www.ks.uiuc.edu/Training/Tutorials/mailing_list/tutorial-l/">
+ <input type=hidden name=hq value="site:www.ks.uiuc.edu/Training/Tutorials/mailing_list/tutorial-l/">
+ <INPUT TYPE=text name=q size=30 maxlength=255 value="Search Tutorial-L Archive"
+  onfocus="this.value=''">
+ <INPUT type=submit name=btnG VALUE="Google">
+</FORM>
+  <br/> <a href="http://www.theregister.co.uk/2014/04/08/yahoo_breaks_every_mailing_list_in_the_world_says_email_guru/">Mailing List Issues for Yahoo.com Addresses</a>
+<!--
+<FORM method=GET action="https://www.google.com/search">
+        <a href="/mailman/listinfo/cluster-l/">Cluster-L Mailing List</a>
+       (<a href="/pipermail/cluster-l/">Archive</a>)
+ <br/>&nbsp;&nbsp;<input type=hidden name=sitesearch value="www.ks.uiuc.edu/pipermail/cluster-l/">
+ <input type=hidden name=hq value="site:www.ks.uiuc.edu/pipermail/cluster-l/">
+ <INPUT TYPE=text name=q size=30 maxlength=255 value="Search Cluster-L Archive"
+  onfocus="this.value=''">
+ <INPUT type=submit name=btnG VALUE="Google">
+</FORM>
+-->
+
+</div>
+<div style="float: right; width: 49%">
+<h3 class="headarea">Announcements</h3>
+<!--
+  <a href="https://jobs.illinois.edu/academic-job-board/job-details?jobID=91767">Research Programmer Position</a>
+       <img align=top src="/images/new.gif">
+      <br/>&nbsp;&nbsp;&nbsp; <font color="darkgreen">Apply by Feb 23.</font>
+  <br/>
+-->
+  <a href="3.0/announce.html">NAMD 3.0 Release</a> (June 2024)
+       <img align=top src="/images/new.gif">
+<!--
+  <br> <a href="3.0b7/announce.html">NAMD 3.0b7 Release</a> (May 2024)
+       <img align=top src="/images/new.gif">
+-->
+  <br> <a href="3.0/features.html">NAMD 3.0 New Features</a> (Feb 2024)
+       <img align=top src="/images/new.gif">
+  <br/> <a href="2.14/bugfixes.html">NAMD 2.14 Bug Fixes</a> (Apr 2022)
+  <br/> <a href="2.14/announce.html">NAMD 2.14 Release</a> (Aug 2020)
+<!--
+  <br/> <a href="2.14b1/announce.html">NAMD 2.14b2 Release</a> (June 2020)
+  <br/> <a href="2.14b1/announce.html">NAMD 2.14b1 Release</a> (May 2020)
+-->
+  <br/>  <a href="2.14/features.html">NAMD 2.14 New Features</a> 
+<!--
+  <br/> <a href="2.13b2/announce.html">NAMD 2.13b2 Release</a> (Oct 2018)
+  <br/> <a href="2.13b1/announce.html">NAMD 2.13b1 Release</a> (Sep 2018)
+  <br/> <a href="2.13/announce.html">NAMD 2.13 Release</a> (Nov 2018)
+  <br/> <a href="2.13/features.html">NAMD 2.13 New Features</a> 
+-->
+  <br/> <a href="/Research/cloud/">One-click NAMD/VMD in the cloud</a>
+  <br/> <a href="/Research/qmmm/">QM/MM Interface to MOPAC and ORCA</a> 
+  <br/> <a href="/Research/qwikmd">QwikMD GUI Released in VMD 1.9.3</a> 
+  <!--
+  <br/> <a href="2.12/features.html">NAMD 2.12 New Features</a> 
+  <br/> <a href="2.12/announce.html">NAMD 2.12 Release</a> (Dec 2016)
+  <br/> <a href="survey/">2016 User Survey Report</a>
+  <br/> <a href="2.11/features.html">NAMD 2.11 New Features</a> 
+  <br/> <a href="2.11/announce.html">NAMD 2.11</a> (Dec 2015)
+  <br/> <a href="2.10/features.html">NAMD 2.10 New Features</a> 
+  <br/> <a href="2.10/announce.html">NAMD 2.10</a> (Dec 2014)
+  <br/> <a href="2.9/features.html">NAMD 2.9 New Features</a> 
+  <br/> <a href="2.9/announce.html">NAMD 2.9</a> (April 2012)
+  <br/> <a href="survey/">2011 User Survey Report</a>
+  <br/> <a href="2.8/features.html">NAMD 2.8 New Features</a> 
+  <br/> <a href="2.8/announce.html">NAMD 2.8</a> (May 2011)
+  <br/> <a href="2.7/features.html">NAMD 2.7 New Features</a> 
+  <br/> <a href="2.7/announce.html">NAMD 2.7</a> (Oct 2010)
+  -->
+  <!-- <br/> <a href="http://www.nvidia.com/MD_Test_Drive">Free GPU Test Drive</a> (July 2010) -->
+<!--
+  <br/> <a href="2.6/announce.html">NAMD 2.6</a> (August 2006)
+  <br/> <a href="survey/NAMD_2005_Survey_Report.pdf">2005 User Survey Report</a>
+  <br/> <a href="2.5/announce.html">NAMD 2.5</a> (Sept. 2003)
+  <br/> <a href="2.4/announce.html">NAMD 2.4</a> (Mar. 2002)
+-->
+  <br/> <a href="announcements.html">Previous Announcements</a>
+</p>
+
+<h3 class="headarea">Documentation</h3>
+  
+
+<!--
+<form method="GET" action="/Research/namd/ug_search/namazu.cgi">
+-->
+<form method="GET" action="https://www.google.com/search">
+  <a href="current/ug/">NAMD 3.0 User's Guide</a>
+<!--
+    <br/>&nbsp;&nbsp;&nbsp;<input type="text" name="query" size="30" value="Search User's Guide" onfocus="this.value=''">
+-->
+    <br/>&nbsp;&nbsp;<input type=hidden name=sitesearch value="www.ks.uiuc.edu/Research/namd/3.0/ug/">
+    <input type=hidden name=hq value="site:www.ks.uiuc.edu/Research/namd/3.0/ug/">
+    <INPUT TYPE=text name=q size=30 maxlength=255 value="Search User's Guide" onfocus="this.value=''">
+    <INPUT type=submit namd=btnG VALUE="Google">
+    <br/>&nbsp;&nbsp;&nbsp;(also
+    <a href="current/ug.tar.gz">4.7M HTML</a> or
+    <a href="current/ug.pdf">4.5M PDF</a>)
+
+  <br/> <a href="current/notes.html">NAMD 3.0 Release Notes</a>
+  <br/> <a href="https://charm.readthedocs.io/en/latest/charm++/manual.html#running-charm-programs">Running Charm++ Programs</a> (including NAMD)
+  <br/> <a href="http://www.nvidia.com/object/gpu-accelerated-applications-namd-running-jobs.html">Running GPU-Accelerated NAMD</a> (from NVIDIA)
+<!--
+  <br/> <a href="wiki/index.cgi?Namd211Release">Post-Release Updates on NAMD Wiki</a>
+-->
+  <br/> <a href="/Training/Tutorials/index.html#namd">Introductory NAMD Tutorials</a>
+<!--
+  <br/> <a href="/Training/Tutorials/index-all.html#vmd">Introductory VMD Tutorials</a>
+  <br/> <a href="/Training/Tutorials/index-all.html#freeenergymethods">Free Energy Tutorials</a>
+  <br/> <a href="/Training/Tutorials/index-all.html#specializedtopics">Specialized Topic Tutorials</a>
+  <br/> <a href="/Training/Tutorials/index-all.html#bionanotechnology">Bionanotechnology Tutorials</a>
+-->
+</form>
+<FORM method=GET action="https://www.google.com/search">
+        <a href="/Training/Tutorials/">All NAMD & VMD Tutorials</a>
+ <br/>&nbsp;&nbsp;<input type=hidden name=sitesearch value="www.ks.uiuc.edu/Training/Tutorials/">
+ <input type=hidden name=hq value="site:www.ks.uiuc.edu/Training/Tutorials/">
+ <INPUT TYPE=text name=q size=30 maxlength=255 value="Search Tutorials"
+  onfocus="this.value=''">
+ <INPUT type=submit name=btnG VALUE="Google">
+</FORM>
+<p>
+<!--
+        <a href="http://www.edam.uhp-nancy.fr/ABF/">Adaptive Biasing Force Website</a>
+  <br/> <a href="/Research/vmd/imd/tutorial/">Interactive Molecular Dynamics Tutorial</a>
+  <br/> 
+-->
+        <a href="utilities/">Related Codes, Scripts, and Examples</a>
+  <br/> <a href="wiki/">NAMD Wiki</a> (<a href="wiki/?RecentChanges">Recent Changes</a>)
+  <br/> <a href="documentation.html">Older Documentation</a>
+</p>
+
+<h3 class="headarea">News</h3>
+<p>
+  <a href="https://news.illinois.edu/view/6367/668002791">Sparing healthy microbes while using a novel antibiotic</a>
+       <img align=top src="/images/new.gif">
+  <br/> <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.3c01648">AMBER force field use in NAMD for large scale simulation</a>
+       <img align=top src="/images/new.gif">
+  <br/> <a href="benchmarks">NAMD GPU-resident benchmarks available</a>
+       <img align=top src="/images/new.gif">
+  <br/> <a href="https://www.acm.org/media-center/2020/november/gordon-bell-special-prize-covid-research-2020">NAMD and VMD share in COVID-19 Gordon Bell Special Prize</a>
+  <br/> <a href="https://doi.org/10.1063/5.0014475">NAMD reference paper published online</a>
+  <br/> <a href="https://www.udel.edu/udaily/2020/march/covid-research-supercomputer-simulations-juan-perilla-jodi-hadden-perilla/">Coronavirus Simulations by U. Delaware Team</a>
+  <br/> <a href="https://www.hpcwire.com/off-the-wire/coronavirus-massive-simulations-completed-on-frontera-supercomputer/">Coronavirus Simulations on Frontera Supercomputer</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/news/story/blue_waters_aids_researchers_in_breakthrough_flu_simulations">Breakthrough Flu Simulations</a>
+  <br/> <a href="https://www.olcf.ornl.gov/2019/09/04/caar-partnerships-for-frontier-announced/">Oak Ridge Exascale Readiness Program</a>
+  <br/> <a href="https://www.nersc.gov/news-publications/nersc-news/nersc-center-news/2019/nesap-teams-start-prepping-applications-for-next-generation-perlmutter-architecture/">Prepping for Next-Generation Cray at NERSC</a>
+  <br/> <a href="https://insidehpc.com/2018/08/supercomputing-hiv-1-replication-tacc/">Supercomputing HIV-1 Replication</a>
+  <br/> <a href="https://blogs.nvidia.com/blog/2018/04/17/antibiotic-resistant-staph-infection/">How GPUs help in the fight against staph infections</a>
+  <br/> <a href="https://news.illinois.edu/view/6367/630024">Computational Microscope Gets Subatomic Resolution</a>
+<!--
+  <br/> <a href="https://www.alcf.anl.gov/early-science-program">Early Science Project on First US Exascale Machine</a>
+-->
+  <br/> <a href="http://images.nvidia.com/content/tesla/namd/pdf/nvidia-success-story-namd.pdf">Opening New Frontiers in the Battle Against HIV/AIDS</a>
+  <br/><a href="https://news.illinois.edu/blog/view/6367/532452">HIV Capsid Interacting with Environment</a>
+  <br/> <a href="https://www.olcf.ornl.gov/2017/05/09/assembling-lifes-molecular-motor/">Assembling Life's Molecular Motor</a>
+<!--
+  <br/> <a href="https://www.alcf.anl.gov/articles/early-science-projects-aurora-supercomputer-announced">Roux Early Science Project on ANL Aurora</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/news/story/blue_waters_simulates_largest_membrane_channel_made_of_dna_origami">Membrane Channel Made of DNA Origami</a>
+  <br/> <a href="6000cites.html">NAMD Paper Has 6000 Citations</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/news/story/tiny_terrors_researcher_works_to_uncover_how_bacteria_develop_antibiotic_re">Antibiotic Resistance Through Efflux Pumps</a>
+  <br/> <a href="http://www.alcf.anl.gov/articles/multiyear-simulation-study-provides-breakthrough-membrane-protein-research">Membrane Protein Breakthrough</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/news/story/blue_waters_enables_massive_flu_simulations">Massive Flu Virus Simulations</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/news/story/better_understanding_of_voltage_gated_like_ion_channels_may_spark_improveme">Ion Channels in General Anesthesia</a>
+  <br/> <a href="https://news.illinois.edu/blog/view/6367/335013">How HIV Defeats Cellular Defender</a>
+  <br/> <a href="https://news.illinois.edu/blog/view/6367/290048">Key Component in Bacterial Decisions</a>
+  <br/> <a href="/events/sc2015/">TCBG Papers and Presentations at SC15</a>
+  <br/> <a href="http://charm.cs.illinois.edu/supercomputing/">Charm++-Related Events at SC15</a>
+  <br/> <a href="/Announcements/Fortieth/">TCBG Reaches Milestone 40th Workshop</a>
+  <br/> <a href="5000cites.html">NAMD Paper Has 5000 Citations</a>
+  <br/> <a href="http://beckman.illinois.edu/news/2015/09/tajkhorshid-molecular-world">Transport Cycle in Atomic Detail</a>
+  <br/> <a href="http://beckman.illinois.edu/news/2015/08/immature-retrovirus-structure">Atomic Model of Immature Retrovirus</a>
+  <br/> <a href="http://www.alcf.anl.gov/articles/alcf-selects-projects-theta-early-science-program">ANL Supercomputer Early Science Program</a>
+  <br/> <a href="http://www.scientificcomputing.com/articles/2015/07/cellulosomes-one-lifes-strongest-biomolecular-bonds-discovered-use-supercomputers">Cellulosomes: One of Life's Strongest Bonds</a>
+  <br/> <a href="https://www.olcf.ornl.gov/2015/04/15/olcf-selects-application-readiness-projects-to-prepare-for-next-generation-summit-supercomputer/">ORNL Supercomputer Readiness Program</a>
+  <br/> <a href="https://www.tacc.utexas.edu/-/supercomputers-help-solve-puzzle-like-bond-for-biofuels">Solving Puzzle-Like Bond for Biofuels</a>
+  <br/> <a href="https://www.tacc.utexas.edu/-/real-science-using-stampede-s-xeon-phi">Real Science Using Stampede's Xeon Phi</a>
+  <br/> <a href="http://beckman.illinois.edu/news/2014/12/molecules-for-the-masses">App Puts Chemistry at the Tips of Users' Fingers</a>
+  <br/> <a href="https://itunes.apple.com/us/app/molecules-by-theodore-gray/id923383841">NAMD Powers <em>Molecules by Theodore Gray</em></a>
+  <br/> <a href="https://www.youtube.com/watch?v=_0J919cm6fY">Big Ten Network "Computing a Virus" Feature</a>
+  <br/> <a href="4000cites.html">NAMD Paper Has 4000 Citations</a>
+  <br/> <a href="http://www.hpcwire.com/2014/07/31/bolstering-extreme-scale-computational-biology/">Bolstering Extreme Scale Computational Biology</a>
+  <br/> <a href="http://blogs.nvidia.com/blog/2014/03/27/researchers-win-third-annual-cuda-achievement-award-three-new-cuda-fellows-named/">CUDA Achievment Award for Fighting HIV</a>
+  <br/><a href="http://news.illinois.edu/news/13/1202membrane_transport_EmadTajkhorshid.html">Team learns how membrane transporter moves</a>
+  <br/> <a href="http://www.hpcwire.com/2013/11/18/extreme-computational-biology-sc13-interview-dr-klaus-schulten/">Extreme Computational Biology at SC13</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/news/story/ncsa_receives_honors_in_2013_hpcwire_readers_and_editors_choice_awards">Editors' Choice: Best use of HPC in life sciences</a>
+  <br/> <a href="http://onlinelibrary.wiley.com/doi/10.1002/jcc.23422/abstract">Rapid parameterization of small molecules</a>
+  <br/> <a href="3000cites.html">NAMD Paper Has 3000 Citations</a>
+  <br/> <a href="http://ascr-discovery.science.doe.gov/synchronized/namd1.shtml">Code cracks HIV capsid, opens drug possibilities</a>
+  <br/> <a href="http://news.illinois.edu/news/13/0529HIVcapsid_KlausSchulten.html">HIV-1 Capsid Structure Determined</a>
+  <br/> <a href="http://www.vidrl.org.au/publications/supercomputer_simulations/polio/sc_polio_idx.htm">Poliovirus Simulated on BlueGene/Q</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/News/Stories/RHDV/">Virus Structure Determined with Blue Waters</a>
+  <br/> <a href="/History/NAMD/">Fashioning NAMD: A History of Risk and Reward</a>
+  <br/> <a href="http://engineering.illinois.edu/news/2012/10/09/two-engineering-illinois-professors-receive-2012-ieee-computer-society-sidney-fernba">Kale, Schulten Receive Fernback Award</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/News/Stories/ESShistory/">Making History on Blue Waters</a>
+  <br/> <a href="http://www.olcf.ornl.gov/2011/11/09/researchers-show-how-proteins-help-dna-replicate-past-a-damaged-site/">Proteins Help DNA Replicate Past Damage</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/News/Video/2011/sc11_bohm.html">SC11: Scaling to 100 Million Atoms</a>
+  <br/> <a href="http://news.ncsu.edu/releases/tp-rose/">Copper Folds Parkinson's Plaques</a>
+  <br/> <a href="http://news.illinois.edu/news/11/0418proteins_KlausSchulten_RolandBeckmann.html">Mechanics of Membrane Proteins</a>
+  <br/> <a href="http://news.illinois.edu/news/11/0531-blood-clottiing_JamesMorrissey.html">Molecular Mystery of Blood Clotting</a>
+  <br/> <a href="http://www.osc.edu/press/releases/2010/alzheimer.shtml">Alzheimer's Misfolding Simulated</a>
+  <br/> <a href="http://www.psc.edu/science/2010/cellularbones/">When Cellular Bones Soften</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/News/Stories/nucleosomes/">Getting the Rabbit in the Hat</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/News/Stories/deaf/">Insights Into Deafness</a>
+  <br/> <a href="http://www.nccs.gov/2010/06/24/supercomputers-simulate-molecular-machines-replicate-repair-dna/">Molecular Machines Replicate and Repair DNA</a>
+  <br/> <a href="http://www.tacc.utexas.edu/news/feature-stories/2010/sound-science/">Sound Science</a>
+  <br/> <a href="http://www.tacc.utexas.edu/news/feature-stories/2010/blueprint-for-the-affordable-genome/">Blueprint for the Affordable Genome</a>
+  <br/> <a href="http://mcb.harvard.edu/NewsEvents/News/gaudet7_4-15-10.html">Mechanics of Hearing and Deafness</a>
+  <br/> <a href="1000cites.html">NAMD Paper Has 1000 Citations</a>
+  <br/> <a href="http://www.ncsa.illinois.edu/News/Stories/Gaps/">Closing the Gaps</a>
+  <br/> <a href="http://www.tacc.utexas.edu/documents/13601/88789/InsideTheSwineFlu.pdf">Inside the Swine Flu Virus</a>
+  -->
+  <br/> <a href="announcements.html">Older News Items</a>
+</p>
+
+</div>
+
+<!-- the last item on the page should not be a float -->
+<div class="cleardiv"></div>
+
+   </div>
+   
+   
+   <div class="clear"></div></div>
+   
+   
+   
+   <div class="clear"></div>
+
+  	 
+  	
+  	<div id="footercontainer">
+  	
+  	<div id="footerlogos">
+  		<a href="/Research/nihresources/">
+      <DIV>Funded by a grant from<BR>
+      the National Institute of <BR>
+      General Medical Sciences <BR>
+      of the National Institutes<BR>
+      of Health</DIV></a>
+  		<a href="http://www.nsf.gov"><img src="/include/images/template_images_2010/nsf.gif" alt="" /></a>
+  		<a href="http://www.cplc.illinois.edu/"><img src="/include/images/template_images_2010/centerphysicslivingcells.jpg" alt="" /></a>
+  	</div>
+
+  	<div id="footerlogos2">
+  	<a href="http://illinois.edu/"><img src="/include/images/template_images_2010/uclogo_horz_bold.gif" alt="" /></a>
+  	</div>
+  	
+    <div id="footer">
+      <a href="http://www.beckman.uiuc.edu/">Beckman Institute for Advanced 
+	Science and Technology</a> 
+      // <a href="http://www.nih.gov/">National Institutes of Health</a>
+      // <a href="http://www.nsf.gov/">National Science Foundation</a>
+      // <a href="http://www.physics.uiuc.edu/">Physics</a>, 
+         <a href="http://www.cs.uiuc.edu/">Computer Science</a>, and
+         <a href="http://www.life.uiuc.edu/biophysics/">Biophysics</a>
+	  at <a href="http://illinois.edu/">University of Illinois at Urbana-Champaign</a> 
+	  
+	  <div class="morepadding">
+      <a href="/Overview/reach.html">Contact Us</a> //
+      Material on this page is <a href="/copyright.html">copyrighted</a>;
+       contact <a href="mailto:webserver@ks.uiuc.edu">Webmaster</a> for more 
+       information. //
+      Document last modified on 21 Jun 2024 //
+      2854615 accesses since 20 Mar 2006
+.
+      </div>
+    </div>
+    
+    <div class="clear"></div>
+    
+  </div>
+  
+</div>
+</div>
+
+</body></html>
+
+
+

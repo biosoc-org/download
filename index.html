@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -8,31 +9,30 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
-
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
         }
-
         th {
             background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
-<h1>Output CSV Table</h1>
+<h1>Output CSV Tables</h1>
 <div id="table-container"></div>
 
 <script>
-    async function fetchCSV() {
-        const response = await fetch('output.csv');
+    async function fetchCSV(file) {
+        const response = await fetch(file);
         const csvText = await response.text();
         return csvText;
     }
 
     function csvToArray(str, delimiter = ',') {
-        const [headerLine, ...lines] = str.split('\n');
+        const [headerLine, ...lines] = str.trim().split('\n');
         const headers = headerLine.split(delimiter);
 
         return lines.map(line => {
@@ -44,14 +44,7 @@
         });
     }
 
-    function truncateText(text, maxLength = 15) {
-        if (text.length <= maxLength) {
-            return text;
-        }
-        return text.substring(0, maxLength) + '...';
-    }
-
-    function truncateLongText(text, maxLength = 30) {
+    function truncateLongText(text, maxLength = 20) {
         if (text.length > maxLength && !text.includes(' ')) {
             return text.slice(0, maxLength) + '...';
         }
@@ -80,13 +73,13 @@
                 let cellContent = row[header];
                 // Check if cell content is a URL
                 if (cellContent.startsWith('http://') || cellContent.startsWith('https://')) {
-                    const link = document.createElement('a');
+                    let link = document.createElement('a');
                     link.href = cellContent;
                     link.textContent = truncateText(cellContent);
                     cell.appendChild(link);
                 } else {
                     if (header == "URL") {
-                        const link = document.createElement('a');
+                        link = document.createElement('a');
                         link.href = "html/" + cellContent + ".html";
                         link.textContent = truncateText(cellContent);
                         cell.appendChild(link);
@@ -100,14 +93,18 @@
         return table;
     }
 
-    async function loadAndDisplayCSV() {
-        const csvData = await fetchCSV();
-        const dataArray = csvToArray(csvData);
-        const table = createTable(dataArray);
-        document.getElementById('table-container').appendChild(table);
+    async function loadAndDisplayCSVs(files) {
+        const container = document.getElementById('table-container');
+        for (const file of files) {
+            const csvData = await fetchCSV(file);
+            const dataArray = csvToArray(csvData);
+            const table = createTable(dataArray);
+            container.appendChild(table);
+        }
     }
 
-    loadAndDisplayCSV();
+    const csvFiles = ['output.csv', 'output2.csv', 'output3.csv', 'output4.csv', 'output5.csv', 'output6.csv', 'output7.csv', 'output8.csv', 'output9.csv', 'output10.csv', 'output11.csv', 'output12.csv']; // tutaj możesz wstawić swoje pliki CSV
+    loadAndDisplayCSVs(csvFiles);
 </script>
 </body>
 </html>

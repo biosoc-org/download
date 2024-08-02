@@ -1,0 +1,686 @@
+<?xml version="1.0" ?><!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  '../dtd/xhtml1-transitional.dtd'><html>
+  <head>
+    <link href="css/new_style.css" rel="stylesheet" title="new" type="text/css"/>
+    <link href="http://bkchem.zirael.org/bkchem.rss" rel="alternate" title="BKchem news RSS feed" type="application/rss+xml"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta content="nZIFxomMhtsiS5hcITgdCqDfluXYiNr9cZzTwo06J5Y=" name="verify-v1"/>
+<!--    <script src="red_button.js" type="text/javascript"> </script>  -->
+    <title>BKChem</title>
+  </head>
+
+  <body>
+    <div id="page">
+      <div id="navigation">
+    <ul class="border">
+      <li><a class="index" href="index.html">Title page</a></li>
+      <li><a class="index" href="features_en.html">Features</a></li>
+      <li><a class="index" href="inchi_en.html">InChI support</a></li>
+      <li><a class="index" href="screenshots_en.html">Screenshots</a></li>
+      <li><a class="index" href="download_en.html">Download</a></li>
+      <li><a class="index" href="fna_en.html">FNA (FAQ)</a></li>
+      <li><a class="index" href="wiki">Wiki</a></li>
+      <li><a class="index" href="oasa_en.html">OASA library</a> <img alt="new" src="img/new-icon.gif"/></li>
+      <li><a class="index" href="install_en.html">Install</a></li>
+      <li><a class="index" href="help_en.html">How can you help</a></li>
+      <li><a class="index" href="arch_en.html">Development archives</a></li>
+      <li><a class="index" href="https://savannah.nongnu.org/projects/bkchem/">Savannah page of BKChem</a></li>
+      <li><a class="index" href="bugs_en.html">Known bugs</a></li>
+      <!--li><a href="history_en.html">History</a></li-->
+      <li><a class="index" href="translation_en.html">For translators</a></li>
+      <li><a class="index" href="bkchem.rss">News <img alt="RSS" src="img/rss.gif"/> feed</a></li>
+    </ul>
+
+    <!-- PICTURES FOR :CREATED & VALIDITY -->
+    <div class="transparent" id="validity-marks">
+      <a class="index" href="http://www.gnu.org/software/emacs/">
+	<img alt="Created with Emacs" height="33" src="img/emacs.png" style="border:0" width="88"/>
+      </a>
+      <br/>
+      <a class="index" href="http://validator.w3.org/check/referer">
+	<img alt="Valid XHTML 1.0!" height="31" src="http://www.w3.org/Icons/valid-xhtml10" style="border:0" width="88"/>
+      </a>
+	<br/>
+      <a class="index" href="http://jigsaw.w3.org/css-validator/">
+	<img alt="Valid CSS!" src="http://jigsaw.w3.org/css-validator/images/vcss" style="border:0;width:88px;height:31px"/>
+      </a>
+      <br/>
+<!-- NAVRCHOLU.cz -->
+<script src="http://c1.navrcholu.cz/code?site=50263;t=w88" type="text/javascript"> </script>
+<noscript><div><a class="index" href="http://navrcholu.cz/"><img alt="NAVRCHOLU.cz" height="31" src="http://c1.navrcholu.cz/hit?site=50263;t=w88;ref=;jss=0" style="border:none" width="88"/></a></div></noscript>
+<!-- NAVRCHOLU.cz - konec -->
+
+<!--<a href="javascript:the_big_red_button()"><img src="img/brb256.png" width="100" height="100" alt="the big red button"/></a>-->
+    </div>
+
+
+  </div>
+      <div id="main">
+
+	
+    <h2>Welcome to homepage of BKChem - a free chemical drawing program.</h2>
+
+    <p>
+      BKChem is a free (as in <a href="http://www.gnu.org/philosophy/free-sw.html">free
+	software</a> :o) chemical drawing program. It was conceived and written by 
+      <a href="mailto:beda@zirael.org">Beda Kosata</a> and is currently maintained by 
+    <a href="mailto:rei4dan@gmail.com">Reinis Danne</a>.</p> 
+    <p>BKChem is written in <a href="http://www.python.org">Python</a>, an interpreted and very nice
+      programming language.  This implies some of the program features:</p>
+    <ul>
+      <li>platform independence - BKChem should run on any platform that Python does.*</li>
+      <li>performance - as Python is interpreted language you should not expect the performance of a
+	native code compiled application (in present days a very cheap tradeoff for platform
+      independence). However BKChem should be pretty usable on all modern systems.</li>
+    </ul>
+    <p>* BKChem is developed on GNU/Linux. It was however successfully used under WinXP and <a href="fna_en.html#mac_os">MacOS X</a>.</p>
+
+    <hr/>
+
+    <h3>News</h3>
+    <ul class="news">
+      <li class="news" id="news-47"><b class="news_title">2010-08-12 - BKChem 0.14.0-pre2 is out</b>:
+      <p>This is a first release prepared by the new maintainer Reinis Danne.</p>
+      <p>This release contains several significant changes:</p>
+      <ul>
+	<li>new maintainer</li>
+	<li>sources are now managed using Git and hosted at gitorious.org</li>
+	<li>increase required Python version to 2.5</li>
+	<li>improved Unicode support</li>
+	<li>open BKChem on Windows in &quot;My Documents&quot; by default</li>
+	<li>support for plural forms in translations</li>
+	<li>bugfixes</li>
+      </ul>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      <p>All translators are encouraged to update their translations. Please, send them
+      in before the end of August, that will ensure that your updates will be
+      included in the final 0.14.0 release.</p>
+      </li>
+
+      <li class="news" id="news-46"><b class="news_title">2010-06-25 - BK is dead - long live BKChem</b>:
+      <p>Dear BKChem users,<br/><br/> it is already more than 10 years since I started to work on BKChem. It has never occurred to me that it could develop into something useful and interesting for others. Now, after those long years of almost solitary work on BKChem, I think the time has come for me to step down and pass the torch to someone new.</p>
+      <p>I will not bother you with my reasons, as I believe they are pretty standard - family, work, no time to spend on hobby projects The result is that I was not able to work on BKChem properly for a year or more. Because of this, I decided to make one last release and announce the death of BKChem. By a lucky coincidence, I was contacted by Reinis Danne, who has shown much interest in working on BKChem, before I actually did this. After a few emails and patches, I offered him to take over the project and he accepted it.</p>
+      <p>This means that in the following weeks, more and more of the BKChem development will move to Reinis' hands. As start, my Git repository will no longer be the current one. The new repository and project pages are located on Gitorious - <a href="http://gitorious.org/bkchem">http://gitorious.org/bkchem</a> and <a href="http://gitorious.org/oasa">http://gitorious.org/oasa</a>.</p>
+      <p>I wish you all a very nice summer and better and faster BKChem releases.</p>
+      <p>Beda</p>
+      </li>
+
+      <li class="news" id="news-45"><b class="news_title">2010-06-25 - Video tutorial for BKChem</b>:
+      <p>One of my students, Martin MastnÃ½, produced a very nice tutorial on drawing in BKChem. For those interested, it can be found here: <a href="http://bkchem.zirael.org/tutorial/">http://bkchem.zirael.org/tutorial/</a>.</p>
+      </li>
+
+      <li class="news" id="news-44"><b class="news_title">2010-04-15 - Development sources move from Tla to Git</b>:
+      <p>After a long time of using tla (GNU Arch) for BKChem only, I decide to switch it to Git, which I use for everything else. I have updated the <a href="arch_en.html">corresponding page</a>, so you can give it a try. It should certainly make the access to BKChem development sources much less painful.</p>
+      </li>
+
+      <li class="news" id="news-43"><b class="news_title">2010-01-07 - BKChem 0.14.0-pre1 is out</b>:
+      <p>After almost a year from the last release, there is finally something new - the first preview release of the 0.14 series. It includes several new or updated translations, brand new icon-set contributed by Yassine Mrabet, many bugfixes and some enhancements.</p>
+      <p>As usually, more info is in the <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-42"><b class="news_title">2009-09-24 - OASA 0.13.1 windows package for Python 2.6 is available</b>:
+      <p>Thanks to Noel O'Boyle a windows package of OASA is now also available for <a href="download/oasa-0.13.1.win.python2.6.zip">Python 2.6</a>.</p>
+      </li>
+
+      <li class="news" id="news-41"><b class="news_title">2009-04-16 - BKChem 0.13.0 for MacOS X</b>:
+      <p>Petri KelottijÃ¤rvi contributed a Mac OS 10.5 package for the newest version of BKChem. More info in the <a href="http://bkchem.zirael.org/wiki/available_packages#mac_os_x_10.5">wiki</a>.</p>
+</li>
+
+
+      <li class="news" id="news-40"><b class="news_title">2009-03-19 - OASA 0.13.1 is out</b>:
+      <p>This release of OASA includes several fixes, most notably of lockup during generation of images of complex systems of fused rings. Also image generation now works much faster for larger systems. I encourage everyone using OASA to upgrade to the new version.</p>
+      <p>More information and download links are available <a href="oasa_en.html">here</a>.</p>
+      </li>
+
+      <li class="news" id="news-39"><b class="news_title">2009-02-26 - BKChem enters <a href="http://www.trophees-du-libre.org/">Trophees du Libre</a></b>:
+      <p>I am pround to announce that <a href="http://www.trophees-du-libre.org/content/view/144/56/lang,en/">BKChem has entered</a> the competition for important free software awards - <a href="http://www.trophees-du-libre.org/">Trophees du Libre</a>.</p>
+      </li>
+
+      <li class="news" id="news-38"><b class="news_title">2009-02-23 - OASA 0.13.0 is out</b>:
+      <p>Accompanying BKChem I also relase version 0.13 of OASA. This release includes several fixes and an enhancement of drawing of 3D rotated molecules similar to that of BKChem.</p>
+      <p>More information and download links are available <a href="oasa_en.html">here</a>.</p>
+      </li>
+
+      <li class="news" id="news-37"><b class="news_title">2009-02-23 - BKChem 0.13.0 is out</b>:
+      <p>I decide to use the opportunity of two months in a row which have Friday the 13th to release version 0.13 of BKChem. This release includes one fix in InChIKey generation and an enhancement of drawing of 3D rotated molecules (examples will soon appear on <a href="http://notimetolouse.blogspot.com/">my blog</a>). BKChem also underwent some much needed code cleanup.</p>
+      <p>As usually, more info is in the <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li class="news" id="news-36"><b class="news_title">2009-02-17 - BKChem 0.12.6 is out</b>:
+      <p>This release brings new options for 3D rotation - ability to fix one bond and rotate around it, coupled with the possibility to rotate only one part of the molecule to adjust conformation of the molecule. It also includes a few bugfixes and translation updates.</p>
+      <p>This release also finally includes the new Spanish and Italian translations promised in 0.12.5 (I apologize for the stupid packaging bug).</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li class="news" id="news-35"><b class="news_title">2009-02-09 - BKBlog</b>:
+      <p>I started <a href="http://notimetolouse.blogspot.com/">my personal blog</a> to share random news and ideas related to BKChem, OASA, InChI, cheminformatics, etc.</p>
+      </li>
+
+      <li class="news" id="news-34"><b class="news_title">2009-02-09 - OASA 0.12.7 is out</b>:
+      <p>This version fixes a bug in cairo_out that prevented the background from being painted. Therefore the export always had a transparent background, regardless of the value of <code>background</code>. More information and download links are available <a href="oasa_en.html">here</a>.</p>
+      </li>
+
+      <li class="news" id="news-33"><b class="news_title">2009-01-29 - OASA 0.12.6 is out</b>:
+      <p>This version of OASA adds export to SVG and PDF as well as support for more than one molecule per drawing. More information and download links are available <a href="oasa_en.html">here</a>.</p>
+      </li>
+
+      <li class="news" id="news-32"><b class="news_title">2008-12-08 - BKChem 0.12.5 for Mac OS X</b>:
+      <p>New Mac OS X package was contributed by Martin Ballaschk. You can find it on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li class="news" id="news-32"><b class="news_title">2008-11-26 - OASA 0.12.5 is out</b>:
+      <p>There are some minor enhancements and fixes in the cairo_out code that might be worth checking out. More information and download links are available <a href="oasa_en.html">here</a>.</p>
+      </li>
+
+      <li class="news" id="news-31"><b class="news_title">2008-11-26 - BKChem 0.12.5 is out</b>:
+      <p>A problem with the BLT library reported on Ubuntu 8.10 was fixed (sidestepped) in this release. There are also a few bugfixes, a minor enhancement in form of monoisotopic mass calculation and new Italian and Spanish translations.</p> 
+      <p>I have also added a list of current translators to the <a href="translation_en.html">translations</a> page.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li class="news" id="news-30"><b class="news_title">2008-10-24 - 0.12.4 is out, please update</b>:
+      <p>As I posted earlier today, there is a bug in version 0.12.3 which causes corrupted files to be saved under specific conditions (for users without existing personal standard settings). This release rectifies this error and is also capable of reading corrupted files produced by the previous version.</p>
+      <p><b>Please update.</b> Download <a href="download_en.html">from here</a>.</p>
+      </li>
+
+      <li class="news" id="news-29"><b class="news_title">2008-10-24 - serious bug found in 0.12.3</b>:
+      <p>There is a stupid bug in the 0.12.3 version that bites only new users or users of fresh installs of BKChem. The details of this bug are described <a href="bugs_en.html#ref_0_12_3">here</a>, together with a temporary solution. A new version of BKChem rectifying this issue will follow soon.</p>
+      <p>I am sorry for the inconvenience.</p>
+      </li>
+
+      <li class="news" id="news-28"><b class="news_title">2008-10-09 - 0.12.3 is out</b>:
+      <p>This release adds a few minor features (simple minor mode for easy drawing of wavy lines that are used to depict the attachment point of a fragment, many more paper sizes and better handling of parts of drawing that accidentally get out of the paper, 2D rotation of arrows,...). For the first time, this release is also available without the Piddle libraries, which contain a jumble of different licences that might be in unacceptable for some users. Windows users should benefit from addition of a new Cairo based PDF export (for Linux users this is already available for quite a time).</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li class="news" id="news-29"><b class="news_title">2008-06-11 - Kludging BKChem</b>:
+      <p>Gary Bartholomew contributed a nice step-by-step tutorial that shows how to wrestle BKChem to do what you want. It contains screenshots of every step and is well commented. You can download the tutorial from the wiki <a href="http://bkchem.zirael.org/wiki/howtos">howtos page</a>.</p>
+      </li>
+
+      <li class="news" id="news-28"><b class="news_title">30.5.2008 - 0.12.2 is out</b>:
+      <p>In 0.12.1 I fixed a problem that caused H<sub>2</sub>O to appear as OH<sub>2</sub>. Unfortunately this fix also introduced a new bug - not hydrogens were automatically positioned, so OH appeared as OH regardless of position of its neighbor atom (-OH and OH-). This release was published mainly to deal with this stupid error.</p>
+      <p>This release also features an improved and polished version of BKChem icon which was <a href="http://cubestuff.wordpress.com/2008/05/16/bkchem-goes-tango/">contributed by Jakub Szypulka</a>.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-27"><b class="news_title">27.5.2008 - new version of the BKChem bundle for Mac OS 10.5</b>:
+      <p>The all-in-one bundle of BKChem for Mac OS 10.5 was updated by Martin Ballaschk. You can download it on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-26"><b class="news_title">26.5.2008 - BKChem bundle for Mac OS 10.5</b>:
+      <p>Martin Ballaschk contributed an all-in-one bundle of BKChem for Mac OS 10.5. You can download it on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li class="news" id="news-25"><b class="news_title">20.5.2008 - new release of the OASA library</b>:
+      <p>After a bug hunting session, a new version of OASA is available for download. More information and download links are available <a href="oasa_en.html">here</a>. Thanks to Noel O'Boyle for helping me find several of the bugs.</p>
+      </li>
+
+      <li class="news" id="news-24"><b class="news_title">16.5.2008 - OASA library first public release</b>:
+      <p>I have released a separate package for the OASA library which forms the basis of BKChem's. More information about this library is available <a href="oasa_en.html">here</a> together with links to the packages.</p>
+      </li>
+
+      <li class="news" id="news-23"><b class="news_title">12.5.2008 - 0.12.1 is out</b>:
+      <p>The second stable release in the 0.12 series is finally out. It fixes several bugs and adds some new features, such as cis-trans stereochemistry parsing from SMILES and nicer strained double bonds drawing.</p>
+      <div><img alt="old code" src="img/demo1-old.png"/> vs. <img alt="old code" src="img/demo1-new.png"/></div>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li class="news" id="news-22"><b class="news_title">10.12.2007 - 0.12.0 is finally out</b>:
+      <p>The first stable release in the 0.12 series is finally out. It fixes several problems from the previous pre-release and although not every issue was resolved, it is much better than the last stable release 0.11.6.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li class="news" id="news-21"><b class="news_title">5.11.2007 - preview release 0.12.0_pre7</b>:
+      <p>Another iteration in the process of preparing perfect export plugins. This bugfix release should solve potential problems of BKChem getting stuck on some cairo-based exports (reported for SVG and EPS on Windows).</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li class="news" id="news-20"><b class="news_title">30.10.2007 - preview release 0.12.0_pre6</b>:
+      <p>In quick succession another preview release is out. This one adds two important Cairo based exports - PostScript and SVG. Both have the same high quality of Cairo exports as the older PNG and PDF plugins. The new SVG export is also compatible with the popular RSVG viewing and rendering program, which does not support all the SVG features used by the default SVG export.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-19"><b class="news_title">25.10.2007 - preview release 0.12.0_pre5</b>:
+      <p>This is a quick-fix release. In pre4 a file essential for the ODF plugin is not installed during the install process using setup.py. This results in ODF export crashing with &quot;<i>The manifest file not found in the plugin directory</i>&quot;.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li class="news" id="news-18"><b class="news_title">22.10.2007 - preview release 0.12.0_pre4</b>:
+      <p>This release adds support for different arrow types (retro, electron-transfer, equilibrium) and ODF (OpenOffice 2.0) export plugin.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li class="news" id="news-17"><b class="news_title">2.10.2007 - BKChem has a wiki now</b>:
+      <p>To give the users the possibility to share their experience with BKChem I have started <a href="http://bkchem.zirael.org/wiki">BKChem wiki</a>. Thanks to the effort of RenÃ© Genz, there are already two articles on BKChem -&gt; OpenOffice interaction. Please do not hesitate to contribute you tips, tricks and other BKChem related stuff.</p>
+      </li>
+
+      <li class="news" id="news-16"><b class="news_title">17.9.2007 - preview release 0.12.0_pre3</b>:
+      <p>This release finally contains full support for spline arrows in SVG, PNG and PDF exports. It also contains fixes for several bugs. Although it is marked as preview release, I would encourage everyone to update because it is surely better than 0.11.6.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-15"><b class="news_title">4.4.2007 - preview release 0.12.0_pre2</b>:
+      <p>This release fixes a few of problems with 0.12.0_pre1. Unfortunately I did not have time
+      to fix all the reported problems, not speaking about new features. On the other hand, it is better
+      than nothing.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-14"><b class="news_title">26.10.2006 - preview release 0.12.0_pre1</b>:
+      <p>This release finally brings together all the changes that I had in my repository and the
+      online version. There are several bugfixes and many enhancements.</p>
+      <p>Not all the issues that were reported by users were fixed yet, but the ones that remain are
+      small. The main focus of this release is to publish the new code for review before Xmas.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-13"><b class="news_title">26.10.2006 - 0.11.6 is out</b>:
+      <p>This version is yet another bug-fix release of the 0.11 series. It fixes two major bugs,
+      one in the German translation, the other in OpenOffice Draw export. There are also a few other fixes.
+      </p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-12"><b class="news_title">30.8.2006 - 0.11.5 is out</b>:
+      <p>After a long time of silence, I decided to publish an older snapshot of BKChem, so that at
+      least something new appears. In this release several bugs were fixed, German translation was
+      updated and the Windows package now includes <a href="http://cairographics.org/">Cairo</a>
+      thus enabling high quality PNG export.</p>
+      <p>Also thanks to Jerome Pansanel I have a small howto on <a href="fna_en.html#mac_os">installation on MacOS X</a> and a new <a href="screenshots_en.html">Mac OS X screenshot</a>.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-11"><b class="news_title">14.8.2006 - I aten't dead</b>:
+      <p>Because questions from users start to crop up if BKChem is still developed, I decided to
+      update the website even without a new release.
+      Unfortunately, I did not have much time lately to work on BKChem. Some progress has been made,
+      but I have no time for the boring and time consuming work needed to make a reasonably good
+      release. I am sorry for that, especially because there is a new German translation waiting
+      to be included and several bugfixes. Shame on me.</p>
+      <p>To do at least something for the users, I have updated the <a href="arch_en.html">development sources page</a>, because the howto was out of date and did
+      not work, and also the Arch build scripts.</p>
+      <p>I hope to make a release soon, but I can't promise anything.</p>
+      </li>
+
+
+      <li class="news" id="news-10"><b class="news_title">23.2.2006 - 0.11.4 is out</b>:
+      <p>In this release several bugs were fixed and also some functionality added. The Cairo PNG
+      export now asks for resolution of the exported file, thus enabling creation of high
+      resolution exports. Also parsing of linear formulas was improved.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-10"><b class="news_title">14.2.2006 - 0.11.3 is out</b>:
+      <p>This bugfix release fixes problems with unicode path names on both Linux and Windows, problems with
+      corrupted preference file preventing BKChem to start and some other bugs.</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-9"><b class="news_title">11.1.2006 - 0.11.2 is out</b>:
+      <p>This bugfix release fixes problems with privileges on Windows machines by writting bkchems config
+      files and user templates to the users directory instead of the install directory. Also French translation was
+      updated (I forgot the update last time :( ).</p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-8"><b class="news_title">5.12.2005 - info for translators</b>:
+      <p>I have placed <a href="translation_en.html">the .pot file needed for translation</a> of
+      BKChem to the homepage, so that it is easily accessible for the translators.</p></li>
+      
+
+      <li class="news" id="news-7"><b class="news_title">5.12.2005 - 0.11.1 is out</b>:
+      <p>After a long time a new version of BKChem is out. It is mostly a bugfix release.
+      </p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-6"><b class="news_title">4.10.2005 - BKChem site update</b>:
+      <p>I have changed the look of the BKChem site a little and updated some information in <a href="fna_en.html">FNA</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-5"><b class="news_title">29.9.2005 - 0.11.0-final is out</b>:
+      <p>The final release of the 0.11 branch is out. This release fixes one annoying bug in
+      coordinate generation that made BKChem crash when reading some SMILES or InChIs.
+      </p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-4"><b class="news_title">26.9.2005 - 0.11.0_pre2 is out</b>:
+      <p>The second preview release of the 0.11 branch is out. This release focuses on improving the
+      InChI reading capabilities. BKChem can now successfully read 98.5% of InChIs generated from
+      the NCI database (about 120 000 compounds). More information about this feature can be found
+      <a href="inchi_en.html">here</a>.
+      Also some minor bugs in other parts of the program were fixed.
+      </p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-3"><b class="news_title">8.9.2005 - 0.11.0_pre1 is out</b>:
+      <p>The first preview release of the 0.11 branch is out. It includes many enhancements as
+      well as bugfixes. There is for instance the ability to search a directory for BKChem files
+      containing specified molecular fragment (with use of free-sites, A,Q,X query atoms etc.), or a
+      simple support for creating brackets. As with all pre-releases, the number of bugs might be
+      slightly above average :)
+      </p>
+      <p>As usually, more info is in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li class="news" id="news-2"><b class="news_title">1.9.2005 - news RSS feed</b>:
+      <p>I have created a <a href="http://www.xml.com/pub/a/2002/12/18/dive-into-xml.html">RSS</a>
+      feed for the BKChem news. You can use it to stay tuned to the BKChem development.</p>
+      </li>
+      
+
+      <li class="news" id="news-1"><b class="news_title">14.7.2005 - 0.10.2 is out</b>:
+      <p>This is a quick-bugfix release. I have found a bug that prevents reading of some files back to 
+      BKChem. It occurs when there are some atoms with font size set to different value than is the standard.
+      I have also fixed an encoding related bug in dialogs in the localized build.</p>
+      <p>Because I have finished work on Cairo export plugin yesterday, I am releasing it 
+      together with this release. It works only on Linux (as there is no Cairo for Windows) and you have to have
+      pycairo-0.5.1 installed (look <a href="http://cairographics.org/snapshots/">here</a> and 
+      <a href="http://cairographics.org/download">here</a> for sources). It provides very nice PDF and PNG export
+      and supports (unlike the piddle based plugins) export of unicode strings.</p>
+      <p>As usually, more info in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li><b>30.6.2005 - 0.10.1 is out</b>:
+      <p>A bugfix release <b>0.10.1</b> is <a href="download/bkchem-0.10.1.tar.gz">ready
+      for download</a>. It contains several fixes in OpenOffice export and some other, more general fixes.</p>
+      <p>More info in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+
+      <li><b>23.6.2005 - Gentoo ebuild for BKChem-0.10.0</b>:
+      <p>I have created a BKChem ebuild for Gentoo Linux. I have submited an ebuild for the first
+      pre-release to Gentoo maintainers, however, probably due to lack of time, it was not added to
+      the portage yet. Therefore I publish the ebuild here.</p>
+
+      <p>You can download it <a href="download/bkchem-0.10.0.ebuild">here</a>. You can either setup a
+      <a href="http://www.gentoo.org/doc/en/handbook/handbook-x86.xml?part=3&amp;chap=5#doc_chap2">portage
+      overlay</a> to use the script or copy it to <i>/usr/portage/sci-chemistry/bkchem/</i>. Then
+      you have to make</p>      
+      <pre>ebuild bkchem-0.10.0.ebuild digest</pre>
+      <p>in the above directory as root. After this you should be able to emerge BKChem via portage.</p>
+      <pre>emerge bkchem</pre>
+      </li>
+
+
+      <li><b>23.6.2005 - 0.10.0 is out</b>:
+      <p>After two prereleases the final version of <b>0.10.0</b> is <a href="download/bkchem-0.10.0.tar.gz">ready</a>. I have fixed several bugs and introduced some
+      minor enhancements.</p>
+      <p>More info in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li><b>8.6.2005 - pre2 is out</b>:
+      <p>Second preview release of BKChem-0.10.0 is <a href="download/bkchem-0.10.0_pre2.tar.gz">out</a>.
+      It fixes a serious bug that crashed BKChem on attempts to add mark to an atom. It also brings keyboard
+      shortcuts for formatting text in the edit area.</p>
+      <p>More info in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li><b>7.6.2005 - Forgotten documetation</b>:
+      <p>Last time I completely forgot to mention two new short tutorials -
+      <a href="custom_plugins_en.html">Creating custom plugins</a> and
+      <a href="batch_mode_en.html">Batch mode scripts</a>. These both are also available in the
+      <i>doc</i> directory of the distribution.</p>
+      </li>
+
+      <li><b>3.6.2005 - Back in black</b>:
+      <p>After a long pause, finally a new version of BKChem is out. It is the first preview release of the
+      <b>0.10.0</b> version.</p>
+      
+      <p>It brings a lot of new goodies - parsing of linear formulas (-CH2COOCH2CH3 and similar),
+      support for user written
+      plugins, nicer rendering of bonds, interactive positioning of marks, more marks of one type per atom,
+      new common groups, numbering support - just to name some. Because it is a preview release, bugs are surely
+      to be found, but hopefully not too many :)</p>
+
+      <p>More info in <a href="progress.log">progress.log</a>,
+      downloads on the <a href="download_en.html">download page</a>.</p>
+
+      <p><b>NOTE:</b> Files saved in this version of BKChem are unlikely to work with older versions, so be
+      cautious.</p>
+
+      <p><b>NOTE2:</b> In this release I am shipping <a href="http://pmw.sourceforge.net">Pmw</a> together with
+      BKChem as I had to fix a bug there and it seems that Pmw is not developed anymore.</p>
+
+      </li>
+
+
+
+      <li><b>16.2.2005</b>:
+      <p>I have added another category for retrieving bkchem arch sources. It is called
+      <i>bkchem--alpha</i> and contains sources that I have branched from my development line
+      as a relatively stable reference. They are not guaranteed (and meant) to run without problems, but they
+      should at least run :). More on <a href="arch_en.html">this page</a>.</p>
+      </li>
+
+
+      <li><b>14.2.2005</b>:
+      <p>There are big changes in BKChem, however the sources are not stable enough
+      to make a preview release and I have no time to stabilize it anytime soon.</p>
+      <p>Therefore I have at least made the arch mirror of my development archives work again,
+      so the brave can try the latest sources (they are not guaranteed to even work).</p>
+      <p>You can find the info on how to get them <a href="arch_en.html">here</a>.</p>
+      </li>
+
+
+	<li><b>20.12.2004</b>:
+	<p>Because I will not be able to release anything new this year, I would like to
+	wish Merry Christmass and Happy New Year to everybody. See you in the next year.</p>
+	</li>
+
+	<li><b>20.12.2004</b>:
+	<p>I have added an entry in <a href="fna_en.html">FNA</a> explaining the lack of 
+	Linux binaries of BKChem.
+	</p>
+	</li>
+
+
+	<li><b>2.12.2004</b>:
+	  <p><b>0.9.0</b> final is out. A few issues were fixed and the UI was polished
+	  a little.</p>
+	  <p> More info in <a href="progress.log">progress.log</a>,
+	  downloads on the <a href="download_en.html">download page</a>.</p>
+	</li>
+
+	<li><b>23.11.2004</b>:
+	  <p>The second preview release <b>0.9.0-pre2</b> is out. One minor issue was fixed,
+	  a shortcut key for marking a template atom (bond) was changed to C-t (was C-t C-1)
+	  and the Windows builds were repackaged and should now (hopefully) contain everything
+	  needed to run BKChem on completely python-free machines.</p>
+	  <p> More info in <a href="progress.log">progress.log</a>,
+	  downloads on the <a href="download_en.html">download page</a>.</p>
+	</li>
+
+      <li><b>19.11.2004</b>:
+	<p>A preview release <b>0.9.0-pre1</b> is out. It brings support for custom made templates 
+	(read <a href="custom_templates_en.html">this</a> to learn how to prepare them),
+	dash bonds, PDF and new PostScript export plugins and finally a possibility to load
+	bkchem from a script and manipulate it from outside (a small tutorial on this is 
+	<a href="external_import_en.html">here</a>). It includes also the usual load of bugfixes.</p>
+
+	<p>This new release also includes a partial distribution of <a href="http://piddle.sf.net">Piddle</a>
+	- a free library for handling of PDF, PS and other graphic formats. Because the project seems to
+	be dead for a few years, is licensed under GNU GPL and I do not want to have another dependency in bkchem I decided to
+	include it in the distribution. In case I make any major changes to the source code of Piddle I will
+	release it as a standalone version. All the credit for this library goes to its authors.</p>
+
+	<p> More info in <a href="progress.log">progress.log</a>,
+	  downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+
+      <li><b>8.10.2004</b>:
+	<p>A bugfix release <b>0.8.1</b> is out. Two Windows specific bugs were fixed 
+	(program not responding after using context menu and crash on program exit) and an unfinished
+	submode &quot;free rotation around single bond&quot; was removed. Encodings were also included into the
+	Windows binary distros, so that it is possible to use different languages. See the <a href="fna_en.html">FNA</a>
+	page for more info on this.</p>
+	<p> More info in <a href="progress.log">progress.log</a>,
+	  downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+
+      <li><b>4.10.2004</b>:
+	<p>The <b>0.8.0</b> <i>final</i> is out. From 0.8.0-pre2 only one bug was fixed - the import of xpath
+	  from xml which made bkchem dependent on the xml-plus package. As always there is a platform independent
+	  <a href="download/bkchem-0.8.0.tar.gz">source distribution</a> and a  
+	  <a href="download/bkchem-0.8.0.exe">windows binary installer</a>.</p>
+	<p> More info in <a href="progress.log">progress.log</a>,
+	  downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+      <li><b>30.9.2004</b>:
+	<p>There was a bug in the Windows binaries released yesterday - the INChI generation did not work right.
+	  I have fixed it (it was a one character change) and released new windows packages. Those affected
+	  please upgrade.</p>
+      </li>
+
+
+      <li><b>29.9.2004</b>:
+	<p>Second preview release of the <b>0.8.0</b> series (<a href="download/bkchem-0.8.0-pre2.tar.gz">0.8.0-pre2</a>)
+	  is out. It contains a nice load of enhancements, bugfixes and changes. Context menu,
+	  atom and reaction modes were added, INChI can be generated via an external program, last window geometry
+          is restored on startup, text of atoms can be changed by simply starting to type (no need to hit
+          Space anymore) and more... (see the <a href="progress.log">progress.log)</a>.</p>
+	<p>Downloads on the <a href="download_en.html">download page</a>.</p>
+	<p><b>Note:</b> To use the external INChI program you have to have one :) and set the path to it
+           in the &quot;Menu/Options/INChI program path&quot;</p>
+
+      </li>
+
+
+
+      <li><b>26.8.2004</b>:
+	<p>First preview release of the <b>0.8.0</b> series (<a href="download/bkchem-0.8.0-pre1.tar.gz">0.8.0-pre1</a>)
+	  is out. The main new feature of this
+	  release is the possibility to open multiple files, copy between them etc.. 
+	  The usual load of bugfixes is also included.</p>
+	<p> More info in <a href="progress.log">progress.log</a>,
+	downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+
+
+      <li><b>25.8.2004</b>:
+	<p>I have prepared a <a href="download/bkchem-0.7.0.exe">windows installer</a> for release <b>0.7.0</b>.
+	  I did not have a chance to test it thoroughly, however on my computer it works just fine.
+	  I welcome any comments and suggestions.</p>
+	<p><b>Acknowledgments:</b> The installer was build with help of 
+	  <a href="http://www.jrsoftware.org/isinfo.php">Inno Setup</a>, a really great tool
+	  for building windows installers.</p>
+	    
+      </li>
+
+
+      <li><b>11.8.2004</b>:
+	<p>Release <b>0.7.0</b> contained files with wrong permissions and therefore installation
+	  after linux was corrupted for non-privileged users. This is fixed in release
+	  <a href="download/bkchem-0.7.1.tar.gz">0.7.1</a>. As this is the only difference, there is no
+	  binary release for windows (windows users should be unaffected by this bug).</p>
+	<p> More info in <a href="progress.log">progress.log</a>,
+	downloads on the <a href="download_en.html">download page</a>.</p>
+	<p><b>Note:</b> You may need to delete the dir &quot;/usr/share/bkchem&quot; (or generally 
+	  &quot;prefix/share/bkchem&quot;) and run install again to update the permissions.</p>
+      </li>
+
+
+      <li><b>9.8.2004</b>:
+	<p>Release <a href="download/bkchem-0.7.0.tar.gz">0.7.0</a> is ready. The main difference
+	  from the <b>0.7.0-pre1</b> release is improved scalability of several parts of the code,
+	  meaning speedup of handling of larger molecules.</p>
+	<p> More info in <a href="progress.log">progress.log</a>,
+	downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li><b>31.5.2004</b>:
+	<p>A preview release <a href="download/bkchem-0.7.0-pre1.tar.gz">0.7.0-pre1</a> is ready.
+	It is the first release featuring OASA
+	- a free chemical library I have started to work on this year. It brings support for several 
+	chemical formats (at present SMILES, Molfiles and IChI (reading only)). To be able to use
+	these features you have to have at least Python 2.3.</p>
+	<p> More info in <a href="progress.log">progress.log</a>,
+	downloads on the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li><b>20.5.2004</b>:
+	<p>I added the <a href="fna_en.html">FNA</a> page, check it for some tricks.</p>
+      </li>
+
+      <li><b>9.5.2004</b>:
+	<p>The binary package for windows was <a href="download/bkchem-0.6.0.win.v2.zip">updated</a>.
+	It was broken (no icons, splash screen, templates and openoffice export) and worked only coincidentally on my
+	computer because the sources were lying around. I am sorry for this stupid bug :(</p>
+      </li>
+
+      <li><b>2.5.2004</b>:
+	<p>Final release of <b>0.6.0</b> branch is here. Several fixes and small enhancements
+	were added. See the <a href="progress.log">progress.log</a> for details and download from
+	the <a href="download_en.html">download page</a>.</p>
+      </li>
+
+      <li><b>13.4.2004</b>:
+	<p>First preview release of the 0.6.0 branch, the <b>0.6.0-pre1</b>, is available.
+	Lots of new goodies, such as stereo double bonds, transformation mode etc., is included
+	 - see the <a href="progress.log">progress.log</a>. You can download
+	the sources from the <a href="download_en.html">download page</a>. As always, all bugreports and
+	suggestions are welcome. (Windows binary release will be available for the stable 0.6.0 release).</p>
+      </li>
+
+    </ul>
+
+  </div>
+    </div>
+  </body>
+</html>

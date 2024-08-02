@@ -1,0 +1,429 @@
+
+        
+
+        
+
+
+
+
+
+<html>
+
+<head>
+<title>Binding Affinity Prediction of Protein Ligand-BAPPL SERVER</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META 
+content="bappl,bapplserver,bappl server,Binding Affinity Prediction of Protein-Ligand (BAPPL) server computes the binding free energy of a non-metallo protein-ligand complex using an all atom energy based empirical scoring function  ,The Supercomputing Facility for Bioinformatics &amp; Computational Biology (SCFBio),  IIT Delhi, was created in July 2002, with funding from the Department of Biotechnology (DBT), Govt. of India, (Principal Investigator: Prof. B. Jayaram) with the vision(i) to create a nodal facility for supercomputing accessible to the Bioinformatics community, (ii) to develop novel scientific methods and new software for genome analysis, <em>ab initio</em> protein structure prediction and active site directed drug design and (iii) for human resource training." 
+name=description>
+<META 
+content="bappl,bappl server, bapplserver,compute binding free energy,binding free energy,non-metallo protein-ligand complex 
+,all atom energy based empirical scoring function,empirical scoring function , scoring function,   ,Prof B. Jayaram , jayaram, B. Jayaram,B Jayaram Home Page,Genomics, Proteomics, Protein-Ligand, SCFBio, scfbio, supercomputer, supercomputing, supercomputing facility ,bioinformatics, protein folding,drug design, genome analysis, biogrid, interaction energy, sanjeevini, bhageerath, chemgenome, progenie, superimpose, HPC, ab initio, software, bioinformatics, molecular modelling" 
+name=keywords>
+<SCRIPT src="jscripts/movingtext.js">
+</SCRIPT>
+<link rel="stylesheet" type="text/css"
+href="styles/tooltip.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/layoutmain.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/stylelink.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/stylefont.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/showmenu.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/menu.css" />
+<link rel="stylesheet" type="text/css"
+href="styles/slidemenu.css" />
+<script src="jscripts/showmenuscript.js"></script>
+
+
+<script src="jscripts/main_nav.js"></script>
+<style type="text/css">
+body {
+
+background-image: url(images/bg.gif);
+}
+.style115 {color: #000000}
+.style117 {color: #0000FF}
+A.graphlink {
+display: block;
+width: 140px;
+text-align: left;
+text-decoration: none;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+font-weight:100;
+padding-left:5px; padding-bottom:2px; padding-top:2px;
+color: #000000;
+BORDER: none;
+border: solid 0px #ffffff;
+}
+
+A.graph:hover {
+border: solid 0px #BFBDBD;
+background-color:#CDDCE8;
+}
+</style>
+
+
+
+
+
+
+
+          <script language="JavaScript"  type="text/javascript">
+                        function check() {
+                                var path = document.upload.myFile.value;
+                                var fileName;
+ 				var email=document.upload.email.value;                               
+
+                                if(path.lastIndexOf("/")!=-1){
+                                        fileName=path.substring(path.lastIndexOf("/")+1,path.length);
+                                } else {
+                                        fileName=path.substring(path.lastIndexOf("\\")+1,path.length);
+                                }
+
+                                ext = path.substring(path.length-3,path.length);
+                                ext = ext.toLowerCase();
+                                if(ext != 'pdb') {
+                                  alert('Please select an input file with .pdb extension');
+                                  return false; }
+
+                                if(fileName.length!=8 && fileName.charAt(4)!='.') {
+                                  alert('Please select a file with 4 letter name. Kindly refer to the instructions given below');
+                                        return false;
+                                }
+
+                                //var email=document.upload.email.value;
+                               // document.upload.seq.value="";
+                                if(email.length==0 || (email.indexOf("@")==-1 ||  email.indexOf(".")==-1)){
+                                        alert('Please enter a valid email address for getting the result');
+                                        return false;
+                                }
+
+                                //return true;
+
+                                return true;
+                        }
+
+                        function popUp(URL){
+                                fname = document.getElementsByName("myFile")[0].value;
+                                if (fname != "")
+                                        window.open(URL+"?first&uplMonitor="+encodeURIComponent(fname),"","width=400,height=150,resizable=yes,depend=yes")
+                        }
+
+                        function clearForm(){
+                                document.upload.reset();
+                                document.upload.email.value="";
+                                document.upload.name.value="";
+                                //document.upload.univ.value="";
+                                document.upload.METHOD[0].checked="true";
+                                document.upload.charge.value="0";
+				 document.upload.charge.disabled=true;
+				document.upload.seq.value="";
+                                document.upload.myFile.value="";
+                                return true;
+                        }
+
+                        function checkForm(){
+
+                                var email=document.upload.email.value;
+                                document.upload.seq.value="";
+                                if(email.length==0 || (email.indexOf("@")==-1 ||  email.indexOf(".")==-1)){
+                                        alert('Please enter a valid email address for getting the result');
+                                        return false;
+                                }
+
+                                return true;
+                        }
+			 function enableField()
+                        {
+                        document.upload.charge.disabled=false;
+                        //alert(upload.charge.value);
+                        }
+                        function disableField()
+                        {
+                        document.upload.charge.disabled=true;
+
+                        }
+
+
+                </script>
+
+
+<title>BAPPL server</title>
+</head>
+
+<body class="main">
+
+
+
+
+
+
+<center>
+<table cellpadding="0" cellspacing="0"   class="main" id="main">
+<tr>
+<td align="center" class="mnptop2"><img src="images/scfstrip_merged.jpg" width="750" height="76"></td>
+</tr>
+<tr>
+<td width="757" height="718"  align="center" valign="top" >
+ <table background="images/topmenubg1.gif"  width="757" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <th  align="right" scope="col" >
+	  <table  width="419" height="15" border="0" cellpadding="0" cellspacing="0">
+	   <tr>
+	     <td width="543"  height="10" align="right"><a class="topmenu" href="http://www.scfbio-iitd.res.in/main.htm">Home</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/scfbiogroup/scfgroup.htm">Group</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/publication/publication.htm">Publications</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/resources/resources.htm">Resources</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/contact/contactus.htm">Contact Us</a></td>
+	   </tr>
+	   </table></th>
+       </tr>
+     </table>
+<!--code start here -->
+<table width="757"  border="0" cellpadding="0" cellspacing="0" class="main1">
+<tr>
+  <td class="mnptop2"   align="center" valign="top">
+<!--#### -->
+<table width="600"  align="center" cellspacing=0 cellpadding=0>
+	<tr valign="top">
+<td height="59"  colspan="2" align ="center"  style="font-family:Comic Sans MS; font-size:20px;"><br><b>BAPPL server</b></td>
+</tr>
+<tr><td width=600px height=ipx bgcolor=red></td></td>
+
+<tr><td width="600" align="center"  class="style29" style="font-size: 9px"><br><center><img  src="../img/1hivCOM.jpg">
+<br>
+HIV-I Protease complexed with U75875 (1hiv.pdb)</center><br></td>
+</tr>
+<tr><td class=style29><br><br><b>Welcome to the <font style="font-family:Comic Sans MS, Helvetica,sans-serif;">BAPPL server</font></b><br><br></td></tr>
+<tr>
+<td width="600"  valign="top" class="style29">Binding Affinity Prediction of Protein-Ligand (<font style="font-family:Comic Sans MS, Helvetica,sans-serif;">BAPPL</font>) server computes the binding free energy of a non-metallo protein-ligand complex using an all atom energy based empirical scoring function <a class=six href="#1">[1]</a> &amp; <a class=six href="#2">[2]</a>.
+<br><br></td></tr>
+	<tr><td class="style29"><br><font style="font-family:Comic Sans MS, Helvetica,sans-serif;"> BAPPL server</font> provides two methods as options:<br><br>
+	<b><a name="m1"></a>Method 1 : </b> Input should be an energy minimized protein-ligand complex with hydrogens added, protonation states, partial atomic charges and van der Waals parameters (R* and &epsilon;) assigned for each atom. The server directly computes the binding affinity of the complex using the assigned parameters. For format specifications on the input, please refer to the <a class="six" href="../eg/README_Method1.pdf" target="_blank"> README</a> file.<br><br>
+	 <b><a name="m2"></a>Method 2 :</b> Input should be an energy minimized protein-ligand complex with hydrogens added and protonation states assigned. The net charge on the ligand should be specified. The server derives the partial atomic charges of the ligand using the AM1-BCC procedure <a class=six href="#3">[3]</a> and GAFF  <a class=six href="#5">[5]</a> force field for van der Waals parameters. Cornell et al. force field <a class=six href="#4">[4]</a> is used to assign partial atomic charges and van der Waals parameters for the proteins. For format specifications on the input, please refer to the <a class="six" href="../eg/README_Method2.pdf" target="_blank"> README </a> file. <br><br> 
+
+       </td></tr>
+<tr><td class="style29">
+For the purpose of validation of the empirical scoring function <a class=six href="#1">[1]</a> a dataset of 161 non-metallo protein-ligand complexes has been prepared. <a class="six" href="http://www.scfbio-iitd.res.in/software/drugdesign/proteinliganddataset.htm" target="_blank">Click here</a> to access the Protein-Ligand Complex Dataset.
+</td>
+</tr>
+</table>
+<!-- formtable-->
+<table width="600"  class="style29" bgcolor="#FDF7F2">
+			<tr>
+			<td background="images/grad.gif" width="600" align="center"  >
+			      <div align="center" style="font-family: Comic Sans MS; font-size:16px;color:#FFFFFF "><a name="anchortag"></a>BAPPL server</div>
+			</td>
+														     
+		</tr>
+<!-- UPLOAD FORM -->
+
+	<form name="upload" action="bappl.jsp#anchortag"  enctype="multipart/form-data" method="POST">
+		       <!-- <tr> -->
+				
+			       
+			<!--	<td align="center" > 
+			  <FIELDSET><legend ><span class="style115">E-Mail</span></legend>             
+			   E-mail address  &nbsp;<input type="text" class="style29" name="email" value="" >
+				</td></FIELDSET>
+				
+			       
+			   <td align="center" ><FIELDSET ><legend ><span class="style115">E-Mail</span></legend>
+					E-mail address  &nbsp;<input type="text" class="style29" name="email" value="null" >
+			      </FIELDSET>  </td>
+				
+			</tr> -->
+
+			
+				<tr >
+				     <br><br>
+					<td class="choice" ><fieldset><legend ><span class="style115">Select Option</span></legend>
+<table width=500  border="0" cellspacing=0 cellpadding=0 class ="style29"><tr><td align=left>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                          
+<input  onclick=disableField()  type="Radio" name="METHOD" value="1" checked="checked"><a class="six" href="#m1" >Method 1</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input onclick=enableField() type="Radio" name="METHOD" value="2" ><a class="six" href="#m2" >Method 2</a>&nbsp;&nbsp;&nbsp;&nbsp;Net Ligand Charge
+						<select class="style29" disabled  width=2  name="charge" value="null">
+							<option value="0">0</option>
+							<option value="-10">-10</option>
+							<option value="-9">-9</option>
+							<option value="-8">-8</option>
+							<option value="-7">-7</option>
+							<option value="-6">-6</option>
+							<option value="-5">-5</option>
+							<option value="-4">-4</option>
+							<option value="-3">-3</option>
+							<option value="-2">-2</option>
+							<option value="-1">-1</option>
+							<option value="0">0</option>
+							<option value="1">+1</option>
+							<option value="2">+2</option>
+							<option value="3">+3</option>
+							<option value="4">+4</option>
+							<option value="5">+5</option>
+							<option value="6">+6</option>
+							<option value="7">+7</option>
+							<option value="8">+8</option>
+							<option value="9">+9</option>
+							<option value="10">+10</option>
+						</select></td></table>
+
+				    </fieldset>    </td>
+				</tr>
+
+			
+	
+	 
+
+				<tr>
+					<td align="center" class="choice"><fieldset><br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input PDB file 
+						<input type="hidden" name="dir" value="/home/websuite/software/">
+						<input class="style29" type="file" name="myFile">
+					      <br><br>
+					       E-mail address <input class="style29" type="text" size=25  name="email" value="" >
+
+
+					      <br><br><input class="style29" title="Upload selected file to the current working directory"  type="submit" name="uploadbtn" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Submit" onclick="return (check());" >
+						<input class="style29" type="button" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reset" onclick="return(clearForm());" >
+
+				       </fieldset> </td>
+				</tr>
+
+		
+	     
+
+
+
+	 
+
+
+		
+			      <tr>
+					<td class="choice"></td>
+				</tr>
+		
+
+			
+
+			
+
+		       
+
+			   <!--     <tr>
+					<td align="center" class="choice"><fieldset><legend ><span class="style115">Upload</span></legend>
+						Input PDB file 
+						<input type="hidden" name="dir" value="/home/websuite/software/">
+						<input class="style29" type="file" name="myFile">
+					      <br>                               
+
+					      <br>  <input class="style29" title="Upload selected file to the current working directory" type="submit" name="uploadbtn" value="Submit" onclick="return(checkForm()&&check());">
+						<input class="style29" type="button" value="Reset" onclick="return(clearForm());" >  
+						
+				       </fieldset> </td>
+				</tr>-->
+
+		
+
+	</form>
+
+</html>
+
+
+<body>
+	
+<table width="600" class="style29" align="center">
+	<tr><td width="600" align="left"><br><br><b><a name="wcc"></a> Instructions for using the server</b><br>
+	
+      </td></tr>
+	<tr>
+		<td align="left">
+			<p class="steps">
+				<ol type="1." class="steps">
+					<li>The input protein-ligand complex should follow the format described in the README files. In case of any differences, either an error is generated resulting in the termination of computation or the predicted binding affinity value will have errors in it.</li>
+					<li>Please specify the E-mail address, Name and Institution.</li>
+					<li>Choose either one of the options : &quot;Method 1&quot; OR &quot;Method 2&quot;</li>
+					<li>For Method 2, specify the Net ligand charge. </li>
+					<li>Browse and select the input file.(The input file name should not contain whitespace(s) &amp; PDBID should be a four letter code, like 1a30<b>.</b>pdb) </li>
+					<li>Click Submit to get the result.</li>
+					<li>The Predicted Binding Affinity value will be sent via E-mail at the address specified. The computation may take 5-10 minutes depending upon the load on the web server and the number of atoms in the input file.</li>
+				</ol>
+			</p>
+		</td>
+	</tr>
+	
+</table>
+
+<table width="600" class="style29" align="center">
+	<tr>
+		<td class="steps" align="left"><b>IMPORTANT:</b> The predicted binding affinities are dependent upon: </td>
+	</tr>
+	<tr>
+		<td class="steps" align="left">
+				<ul class="steps">
+					<li>The protonation states assigned to the ligand and protein atoms.</li>
+					<li>The procedure used to derive the partial atomic charges for ligand atoms like (AM1-BCC, HF/6-31G*/RESP, etc.) and the force field used to assign the partial atomic charges for the protein atoms like (AMBER, CHARMM, OPLS, etc.).</li>
+					<li>The force field used to assign the van der Waals parameters for ligand and protein atoms.</li>
+					<li>Energy minimization / geometry optimization protocol used to remove any clashes from the complex.</li>
+				</ul>
+		</td>
+	</tr>
+	<tr>
+		<td class="steps" align="left">
+			<b>NOTE :</b> The empirical scoring function <a href="#1">[1]</a> has been calibrated using the HF/6-31G*/RESP equivalent partial atomic charges and Cornell et al. <a href="#4">[4]</a> and GAFF <a href="#5">[5]</a> force field parameters for proteins and ligands respectively. We have provided the AM1-BCC procedure for deriving partial atomic charges of ligands for Method 2 because this procedure is fast and produces charges of comparable accuracy to the HF/6-31G*/RESP method.
+		</td>
+	</tr>
+	<tr><td><br></td></tr>
+	<tr>
+		<td class="steps" align="left"><b>REFERENCES</b></td>
+	</tr>
+	<tr>
+		<td class="steps" align="left">
+<a name="1">[1]</a> Jain, T. and Jayaram, B. (2005) An all atom energy based computational protocol for predicting binding affinities of protein-ligand complexes.<i> FEBS Letters</i>, 579, 6659-6666.    <a class="six" href="http://www.sciencedirect.com/science?_ob=ArticleURL&_udi=B6T36-4HGM97Y-1&_user=10&_handle=V-WA-A-W-WE-MsSAYZW-UUW-U-AABCYDWCZY-AABBVCBBZY-CUZYAECVE-WE-U&_fmt=summary&_coverDate=12%2F05%2F2005&_rdoc=23&_orig=browse&_srch=%23toc%234938%232005%23994209970%23611991!&_cdi=4938&view=c&_acct=C000050221&_version=1&_urlVersion=0&_userid=10&md5=3aaeb79cab3431051347a56ce0092564" target="_blank">[Abstract]</a>
+		</td>
+	</tr>
+	<tr>
+		<td class="steps" align="left">
+			<a name="2">[2]</a> Arora, N. and Jayaram, B. (1998) Energetic of base pairs in B-DNA in solution: An appraisal of potential functions and dielectric treatments. <i>J. Phys. Chem. B.</i> 102, 6139-6144. <a class=six href="http://pubs.acs.org/cgi-bin/abstract.cgi/jpcbfk/1998/102/i31/abs/jp9813692.html" target="_blank">[Abstract]</a>
+		</td>
+	</tr>
+	<tr>
+		<td class="steps" align="left">
+			<a name="3">[3]</a> Jakalian, A., Bush, B.L., Jack, D.B. and Bayaly, C.I. (2000) Fast, efficient generation of high-quality atomic charges. <i>J. Comput. Chem.</i> 21, 132-146.
+		</td>
+	</tr>
+	<tr>
+		<td class="steps" align="left">
+			<a name="4">[4]</a> Cornell, W.D. et al. (1995) A second generation force field for the simulation of proteins, nucleic acids and organic molecules. <i>J. Am. Chem. Soc.</i> 117, 5179-5197.
+		</td>
+	</tr>
+	<tr>
+		<td class="steps" align="left">
+			<a name="5">[5]</a> Wang, J., Wolf, R.M., Caldwell, J.W., Kollman, P.A. and Case, D.A. (2004) Development and testing of a general amber force field. <i>J. Comput. Chem.</i> 25, 1157-1174.
+		</td>
+	</tr>
+	<tr>
+		<td align="left">
+		--------------------------------------------------------------------------------------------------------------------
+		</td>
+	</tr>
+	<tr>
+		<td  align="left">
+	   For further queries, contact the Web Administrator at <a class="six"href="mailto:abhilash@scfbio-iitd.res.in"> abhilash@scfbio-iitd.res.in</a>
+	       <br><br> </td>
+	</tr>
+
+<TR>
+          <TD class=choice></TD></TR></FORM></TBODY></TABLE></TD></TR>
+ 
+ <TR>
+    <TD vAlign=bottom height=15>
+      <TABLE class=footertable height=16 cellSpacing=0 cellPadding=0 
+        width=757><TBODY>
+        <TR>
+          <TH scope=col class=mnptop2 align=left width="100%" bgColor=#ffffff height=16>
+            <SCRIPT language=javascript src="jscripts/footer.js"></SCRIPT>
+	     <center><div  style="color:#000000;font-size:11px;font-weight:normal;">Number of Hits since 2nd March 2011: 20637</center></div>
+
+
+
+  	    </TH></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>
+
+

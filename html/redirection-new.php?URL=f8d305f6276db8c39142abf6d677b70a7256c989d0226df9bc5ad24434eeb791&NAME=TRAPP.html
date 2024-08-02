@@ -1,0 +1,219 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+<head>
+    <title>TRAPP druggability -  TRAnsient Pockets in Proteins </title>
+    <meta charset="utf-8">
+    
+
+    <link rel="stylesheet" media="screen" href="/trapp/public/stylesheets/validanguage.css">
+    
+    <link rel="shortcut icon" type="image/png" href="/trapp/public/images/favicon.png">
+    <script src="/trapp/public/javascripts/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script type="text/javascript" src="/trapp/public/javascripts/validanguage/validanguage.js"></script>
+    <script src="/trapp/public/javascripts/angular.min.js" type="text/javascript"></script>
+    <script src="/trapp/public/javascripts/angular-route.min.js" type="text/javascript"></script>
+	<script src="/trapp/public/javascripts/angular-animate.js"></script>
+    <script type="text/javascript" src="/trapp/public/bootstrap/js/bootstrap.min.js"></script>
+    <link href="/trapp/public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">	
+    var app = angular.module('ngAnimate', ['ngAnimate','ngRoute']);
+    app.controller('MyController', function($scope) {});
+    app.directive('validFile',function(){
+      return {
+        require:'ngModel',
+        link:function(scope,el,attrs,ngModel){
+          el.bind('change',function(){
+            scope.$apply(function(){
+              ngModel.$setViewValue(el.val());
+              ngModel.$render();
+            });
+          });
+        }
+      }
+    });
+    </script>
+    
+      <script src="/trapp/public/javascripts/tracker.min.js"  type="text/javascript" ></script>
+      
+</head>
+
+<body ng-app="ngAnimate" style="padding-bottom: 10%;" itemscope itemtype="http://schema.org/WebApplication" >
+<meta itemprop="name" content="TRAPP"/>
+<meta itemprop="alternateName" content="TRAnsient Pockets in Proteins"/>
+<meta itemprop="url" content="https://trapp.h-its.org"/>
+<meta itemprop="about" content="Analysis of transient binding pockets in proteins"/>
+<meta itemprop="applicationCategory" content="LifeScience, Structural Biology, Transient Pocket Analysis"/>
+<meta itemprop="operatingSystem" content="supported Browsers are Firefox, Safari, Chrome, Edge"/>
+<span itemprop="author" itemscope itemtype="http://schema.org/Person" id="DariaKokh"><meta itemprop="name" content="Daria Kokh"/></span>
+<span itemprop="author" itemscope itemtype="http://schema.org/Person" id="AntoniaStank"><meta itemprop="name" content="Antonia Stank" /></span>
+<span itemprop="author" itemscope itemtype="http://schema.org/Person" id="MaxHorn"><meta itemprop="name" content="Max Horn" /></span>
+<span itemprop="author" itemscope itemtype="http://schema.org/Person" id="ElenaSizikova"><meta itemprop="name" content="Elena Sizikova" /></span>
+<span itemprop="author" itemscope itemtype="http://schema.org/Person" id="RebeccaNeil"><meta itemprop="name" content="Rebecca Neil" /></span>
+<span itemprop="author" itemscope itemtype="http://schema.org/Person" id="StefanRichter"><meta itemprop="name" content="Stefan Richter" /></span>
+<span itemprop="accountablePerson" itemscope itemtype="http://schema.org/Person" id="RebeccaWade"><meta itemprop="name" content="Rebecca Wade" /></span>
+<link itemprop="releaseNotes" itemscope itemType="http://schema.org/URL" href="https://trapp.h-its.org/trapp/application/doc/changes"/>
+<meta itemprop="softwareVersion" content="3"/>
+
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header" >
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav nav-justified" style="font-size: 130%">  
+		<li itemprop="mainEntityOfPage" itemscope itemtype="http://schema.org/CreativeWork">
+        <a itemprop="url" class="glyphicon glyphicon-home" aria-label="Left Align" href="/trapp" style="padding:0px"><meta itemprop="name" content="TRAPP Start Page"/>
+        <img width="27%" src="/trapp/public/images/trapp-logo.png">
+        </a></li>
+        <li><a href="/trapp/queueStatus"><b>Job status</b></a></li>    
+        <li><a href="/trapp/application/example" itemprop="learningResourceType"><b>Examples</b></a></li>
+        <li><a href="/trapp/application/documentation" itemprop="softwareHelp"><b>Documentation</b></a></li>
+		<li><a href="https://www.h-its.org/" target="_blank" style="padding:0px"><img width="65%" src="/trapp/public/images/HITS_RGB_eng.png"></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	
+<div id='content' class="container-fluid">
+        
+<style type="text/css">
+	.custom-bullet li {display: block; margin-top: 4px;}
+	
+	.custom-bullet li:before{
+		content: "\e080";
+	    font-family: 'Glyphicons Halflings';
+	    font-size: 12px;
+	    float: left;
+	    margin-top: 4px;
+	    margin-left: -17px;
+	    color: #00BFFF;
+	}
+</style>
+
+ 
+
+<form action="/trapp/start" method="GET" enctype="multipart/form-data" id="startform">
+    
+
+<div class="container">
+	<div class="row">
+		<div class="page-header">
+               <h1>TRAnsient Pockets in Proteins <span style="font-variant:small-caps;font-style:oblique;">with Druggability Calculation</span></h1>
+               Analysis of transient binding pockets and druggability indices in proteins
+<div class="row">
+        <div class="col-md-12">
+		This new version implements new features like druggability indices. <br/>
+		<!--If you want to access the previous version of TRAPP please visit the <a href="https://trapp3.h-its.org" target="_new">TRAPP 3</a> page.-->
+        </div>
+</div>
+		
+		</div>
+	</div>
+</div> 
+
+<div class="container">
+<div class="row">
+	<div class="col-md-7">
+	    <div class="row">
+		<div class="bs-callout bs-callout-info" itemprop="description">
+                        <div class="alert alert-warning" role="alert">
+                           Please excuse any inconvencience caused by the crash of our server on April 3rd. We apology for that. Currently 
+                           we experience a high load on our service. You might want to explore also our commandline version of TRAPP (available for Linux):
+                           <a href="https://www.h-its.org/downloads/trapp/" target="_new">command line version</a>.
+                        </div>
+			<span itemprop="alternativeHeadline">The TRAPP webserver, and the downloadable <a href="https://www.h-its.org/downloads/trapp/" target="_new">command line version</a>, is intended to aid the discovery of ligands that bind in transient subpockets in proteins.</span> Please note modifications of the server in our <a href="/trapp/application/doc/changes">changes</a> document.<br><br>
+			<span itemprop="featureList">The TRAPP webserver offers<br>
+			<ul class="custom-bullet">
+				<li>a range of tools to explore binding site motions ranging from local side chain fluctuations to global backbone motions</li>
+				<li>analysis of the binding site dynamics in simulated protein motion trajectories or trajectories provided by the user</li>
+				<li>a tool for tracking, analysis and visualization of protein cavity dynamics in an ensemble of protein structures or in protein trajectories</li>
+				<li>detection of transient pockets and subpockets that may appear due to protein motion</li>
+				<li>combined analysis of the protein sequence conservation and the variations of the physicochemical properties of a binding pocket</li>
+				<li>assessment of the binding pocket druggability and its variation in simulated trajectories and visualization of the pocket regions that favorably contribute to the pocket druggability</li>
+				
+			</ul></span>
+			TRAPP is not designed to identify all of a protein's binding pockets, but rather to trace changes in the spatial and physicochemical 
+			properties of a specified pocket in a protein that may arise due to the protein's flexibility.<br>
+			<span itemscope itemprop="author" itemtype="http://schema.org/Organization">The methodology has been developed in the <meta itemprop="logo" content="http://www.h-its.org/wp-content/themes/dt-the7-child/images/HITS_CMYK_en.png"/>
+			  <a itemprop="url" href="http://www.h-its.org/en/research/mcm/" target="_blank">
+			    Molecular and Cellular Modeling group
+			  </a>
+			at <a itemprop="url" href="http://www.h-its.org/en/" target="_blank"><span itemprop="name">Heidelberg Institute for Theoretical Studies</span></a> </span>and is described 
+			<a itemprop="citation" href="/trapp/application/references">here</a>.
+		</div>
+		</div>
+
+
+		    <div class="row">
+		    <div class="col-md-8">
+			<div style="text-align:left; padding-top:20px" itemprop="learningResourceType">
+			    <button class="btn btn-info btn-lg" type="submit button" name="runDemo" value="Start Demo"  title="Please start here an example">Start Demo</button>
+		    </div>
+		    </div>
+		    <div class="col-md-4">
+		    <div style="text-align:center; padding-top:20px">
+				<button class="btn btn-info btn-lg" type="submit button" name="run" value="Start Analysis">Start Analysis</button>
+			</div>
+			</div>
+			</div>
+			</div><!-- inner row-->
+	<div class="col-md-5" style="position=relative" itemprop="image">
+	<figure>
+		<img class="img-responsive" src="/trapp/public/images/trapp-logo_large.png"
+		 onMouseOver="this.src='/trapp/public/images/workflow_diagram_overview.png'" 
+		 onMouseOut="this.src='/trapp/public/images/trapp-logo_large.png'; this.style='align:center'"
+		 />
+		</figure>
+	</div>
+	</div>
+	
+</div>
+
+
+</form>
+
+
+</div>
+        
+       <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".bottom-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="navbar-collapse collapse bottom-collapse"> <!-- NOTE! The extra bottom-collapse class put on here -->
+	          <ul id="bottomBar" class="nav nav-justified">
+			   		<li><a href="https://www.h-its.org/en/research/mcm/" style="padding:0px" target="_blank"><img width="47%" src="/trapp/public/images/mcm_logo.png"></a></li>
+					<li><a href="https://www.h-its.org/imprint/">Imprint</a></li>
+                                       <li><a href="https://www.h-its.org/privacy/">Privacy</a></li>
+
+                                       <li><a itemprop="publisherImprint" itemscope itemtype="http://schema.org/Organization" href="/trapp/application/imprint">Project Information</a></li>
+
+
+					<li><a itemprop="license" itemscope itemtype="http://schema.org/CreativeWork" href="/trapp/application/conditions">Terms and Conditions</a></li>
+					<li><a href="/trapp/application/project"><span>Acknowledgement</span></a></li>
+					<li><a itemprop="citation" href="/trapp/application/references">References</a></li>
+					<li><a itemprop="copyrightHolder"><span>Copyright &copy; <span itemprop="copyrightYear">2016/2019</span>, <span>HITS gGmbH</span></span></a></li>
+
+			  </ul>
+          </div>
+        </div>
+      </div>   
+</body>
+</html>
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+
+<head>
+<title>SaliLab Model Evaluation Server</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="/saliweb/css/server.css" />
+<link href="/fontawesome6/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+<link href="/fontawesome6/css/brands.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/evaluation/html/modeval.css" />
+
+<script src="/saliweb/js/salilab.js" type="text/JavaScript"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="container">
+    <div id="header1">
+        <h3><a href="https://salilab.org"><img src="//salilab.org/img/logo_small.gif" height="40" alt="" /></a>SaliLab Model Evaluation Server</h3>
+    </div>
+
+<div id="navigation_lab">
+&bull;&nbsp;<a href="//salilab.org/">Sali Lab Home</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modweb/">ModWeb</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modbase/">ModBase</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/evaluation/">ModEval</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/peptide/">PCSS</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/foxs/">FoXS</a>&nbsp;&bull;&nbsp;
+<a href="//integrativemodeling.org/">IMP</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/multifit/">MultiFit</a>&nbsp;&bull;&nbsp;
+<a href="//salilab.org/modpipe/">ModPipe</a>&nbsp;&bull;&nbsp;
+&nbsp;&nbsp;<a href="https://twitter.com/salilab_ucsf" class="fab fa-x-twitter" title="Follow us on X/Twitter"></a>
+</div>
+
+
+<div id="navigation_second">
+
+  <a href="https://modbase.compbio.ucsf.edu/account/">Login</a>&nbsp;&bull;&nbsp;
+  <a href="/evaluation/">ModEval Home</a>&nbsp;&bull;&nbsp;
+  <a href="/evaluation/job">Current queue</a>&nbsp;&bull;&nbsp;
+  <a href="/evaluation/help">Help</a>&nbsp;&bull;&nbsp;
+  <a href="/evaluation/contact">Contact</a>
+
+</div>
+        <div style="clear:both;"></div><div id="bodypart">
+<div id="left">
+<p>&nbsp;</p>
+<h4><small>Authors:</small></h4>
+<p>David Eramian<br />
+Min-Yi Shen<br />
+Francisco Melo</p>
+<p>Ursula Pieper<br />
+Ben Webb</p>
+<br />
+<h4><small>Corresponding Author:</small></h4>
+<p>Andrej Sali</p>
+<p><i>Version <a href="https://github.com/salilab/evaluation">main.b5d43d9</a></i></p>
+
+</div>
+<div id="right">
+
+<div id="fullpart"><div id="resulttable">
+<h3>ModEval Model Evaluation Server</h3>
+
+<h5>An evaluation tool for protein structure models</h5>
+
+<form method="post" action="/evaluation/job"
+ enctype="multipart/form-data" name="evaluationform">
+  <table>
+    <tr>
+      <td>Job Name <a class="helplink" href="/evaluation/help#jobname"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></td>
+      <td><input type="text" name="name" size="20" maxlength="200" class="wide" /></td>
+    </tr>
+    <tr>
+      <td>Modeller Key <a class="helplink" href="/evaluation/help#modkey"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></td>
+      <td><input type="text" name="modkey" value="" size="20" maxlength="200" class="wide" /></td>
+    </tr>
+    <tr>
+      <td>Email Address (optional) <a class="helplink" href="/evaluation/help#email"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></td>
+      <td><input type="text" name="email" value="" size="20" maxlength="200" class="wide" /></td>
+    </tr>
+    <tr>
+      <td>Upload Model File (PDB Format) <a class="helplink" href="/evaluation/help#pdb_file"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></td>
+      <td><input type="file" name="pdb_file" size="20" maxlength="200" /></td>
+    </tr>
+    <tr>
+      <td>Upload Alignment File (PIR Format, recommended) <a class="helplink" href="/evaluation/help#alignment_file"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></td>
+      <td><input type="file" name="alignment_file" size="20" maxlength="200" /></td>
+    </tr>
+    <tr>
+      <td>Target-Template Sequence Identity <br />(for GA341 score) <a class="helplink" href="/evaluation/help#seq_ident"><img class="helplink" src="/saliweb/img/help.jpg" alt="help" /></a></td>
+      <td><input type="text" name="seq_ident" size="20" maxlength="200" class="wide" /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td align="left"><input type="submit" name=".submit" value="Start evaluating" /> <input type="reset" name=".reset" value=" Reset " /></td>
+    </tr>
+  </table>
+</form>
+
+</div></div>
+</div>
+</div><div style="clear:both;"></div>
+<p>For more information, please consult the following publications:
+<b>TSVMod</b>: D. Eramian, N. Eswar, M.Y. Shen, A. Sali. How well can the
+accuracy of comparative protein structure models be predicted?
+Protein Sci 17, 1881-1893, 2008<a href="//salilab.org/pdf/Eramian_ProteinSci_2008.pdf"><img width="12px" src="//salilab.org/img/pdf.gif" border="0" alt="PDF" /></a>.
+<b>DOPE</b>: M.Y. Shen, A. Sali. Statistical potential for assessment and
+prediction of protein structures. Protein Sci 15, 2507-2524, 2006<a href="//salilab.org/pdf/Shen_ProteinSci_2006.pdf"><img width="12px" src="//salilab.org/img/pdf.gif" border="0" alt="PDF" /></a>.
+<b>GA341</b>: 	F. Melo, R. Sanchez, A. Sali. Statistical potentials for
+fold assessment. Protein Sci 11, 430-448, 2002<a href="//salilab.org/pdf/Melo_ProteinSci_2002.pdf"><img width="12px" src="//salilab.org/img/pdf.gif" border="0" alt="PDF" /></a></p>
+
+</div>
+
+</body>
+</html>

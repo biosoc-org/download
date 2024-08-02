@@ -1,0 +1,140 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Glissade
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130326
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <link rel="stylesheet" href="require/css/style.css" type="text/css"/>
+	<link rel="stylesheet" href="require/css/jquery-ui.css" type="text/css"/>
+	<script type="text/javascript" src="require/marvin/marvin.js"></script>
+	<script type="text/javascript" src="require/javascript/javas.js"></script>
+	<script type="text/javascript" src="require/javascript/script.js"></script>
+	<title>scPDB-Frag bioisosteric search</title>
+        <meta name="Author" content="gilims"/>
+        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"/>
+        <meta http-equiv="Content-Language" content="fr"/>
+        <meta name="reply-to" content=""/>
+        <meta name="Publisher" content="gilims"/>
+        <meta name="Robots" content="all"/>
+        <meta name="robots" content="index, follow"/>
+        <meta name="Cache-Control" content=" no-store, no-cache, must-revalidate" />
+        <meta name="Cache-Control" content=" post-check=0, pre-check=0" />
+        <meta name="Pragma" content=" no-cache" />
+        <meta name="Accept-Encoding" content="gzip, deflate"/>
+        <meta name="Content-Encoding" content="gzip"/>
+        <meta name="author" lang="fr" content="gilims"/>
+        <meta name="copyright" content="gilims"/>
+        <meta name="generator" content="komodo edit, MAMP"/>
+        <meta name="identifier-url" content="URL"/>
+     
+       <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-6641238-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    </head> 
+    <body>
+        <div id="wrapper">
+<div id="logo" class="logo">
+		<h1><a href="#">sc-PDB-Frag </a></h1>
+		<p style="font-size:1.5em">A database for bioisosteric replacement</p>
+		
+	</div> <img src="require/images/home/icons.jpg" alt="Logo scPDBFrag" style="position:absolute;top:0px; left:0px;"/>
+	<img src="http://cheminfo.u-strasbg.fr/labwebsite/images/scPDBFrag.png" alt="Image fragment" style="position:absolute;top:0px; right:0px;height:167px"/> <div id="menu"><div class="menu-inner"><ul><li class="current_page_item"><a href="HOME">Homepage</a></li><li ><a href='SEARCH'>1.Search</a></li>
+         <li class='not_allowed'>2.Select</li>
+         <li class='not_allowed'>3.Compare</li>
+         <li class='not_allowed'>4.Align</li>
+	 <li class='not_allowed'>5.Visualize</li>
+         <li style='margin-left:60px' class='not_allowed'>History</li><li><a href="mailto:rognan@unistra.fr">Contact Us</a></li></ul></div></div>
+          
+<div style="display:none" id="BOXHIST">
+
+</div>
+  
+        
+
+
+
+    
+    
+<div style="width:inherit; height:500px;">
+	<div style="width:60%;margin-left:5%;display:inline-table">
+		
+		<img src="require/images/home/Men_1.png" alt="men1" style="width:150px"/>
+		<img src="require/images/home/MEN_4.png" alt="men4"  style=" float: right;height: 350px;position: relative;right: 60px;"/>
+		<h1 style="color:#183769;margin-top:0px">Welcome to sc-PDB-Frag</h1>
+		<span style="font-weight: bold"> sc-PDB-Frag is a database of protein-bound fragments that assists you <br/>
+		in selecting truly bioisosteric scaffolds<br/>
+		<br/>
+		The database allows you to:</span>
+		<ul style="font-weight: bold">
+			<li>	Search your favorite fragment among PDB ligands or sketch it;</li>
+			<li>	Define similarity rules to retrieve potential bioisosteres;</li>
+			<li>	Score bioisosteres according to interaction pattern similarity;</li>
+			<li>	Align bioisosteres to your reference scaffold;</li>
+			<li>	Visualize the proposed alignment.</li>
+	
+		</ul>
+	</div>
+	<div style="width:34%;display:inline-table;">
+		<table>
+			<tr><td><img src="require/images/home/MEN_2.png" alt="men2" style="width:150px"/></td>
+			    <td>
+				<h3 style="color:#183769;margin-top:0px">Citing sc-PDB-Frag</h3>
+				<a href="http://pubs.acs.org/doi/abs/10.1021/ci500282c">
+				<span style="font-weight: bold">Desaphy, J. and  and Rognan, D.</span>
+				<br/>sc-PDB-Frag: A Database of Protein-Ligand Interaction Patterns for Bioisosteric Replacements<br/>
+				<span style="font-style: italic;">J. Chem. Inf. Model. 2014, 54, 1908-1918 </span>
+				</a>
+			    </td>
+			</tr>
+			<tr>
+				<td><img src="require/images/home/MEN_3.png" alt="men3" style="width:100px"/></td>
+				<td><h3 style="color:#183769;margin-top:0px">Statistics</h3>
+					8,077 protein-ligand complexes<br/>
+					2,377 proteins<br/>
+					5,233 ligands<br/>
+					12,000 fragments<br/>
+					15 million pair-wise fragment comparisons<br/>
+				</td>
+			</tr>
+		</table>
+			
+	
+
+
+
+	</div>
+
+
+
+<p class="leftt">&#169; Copyright 2013. <a href="http://bioinfo-pharma.u-strasbg.fr"> Structural Chemogenomics Group - UMR7200 </a><br/></p>
+
+</div>
+  
+        
+
+
+
+    
+    
+</div>
+
+	
+        
+
+</body></html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="https://robetta.bakerlab.org/bootstrap.min.css" media="all">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://robetta.bakerlab.org/cookieconsent.min.css" />
+  <script src="https://robetta.bakerlab.org/jquery.min.js"></script>
+  <script src="https://robetta.bakerlab.org/cookieconsent.min.js"></script>
+
+<script type="text/javascript">
+
+  var _paq = window._paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//stats.ipd.uw.edu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '5']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  }
+})});
+
+</script>
+
+</head>    
+<body>
+<div class="container-fluid">
+  <nav class="navbar navbar-default">
+      <div class="navbar-header">
+<!-- add logo here        <a href="https://robetta.bakerlab.org/"><img src="https://robetta.bakerlab.org/img/robetta_logo.png"></a>-->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://robetta.bakerlab.org/">Robetta</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Project
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://robetta.bakerlab.org/register.php">Register</a></li>
+              <li><a href="https://robetta.bakerlab.org/faqs.php">FAQs</a></li>
+              <li><a href="https://robetta.bakerlab.org/contact.php">Contact</a></li>
+              <li><a href="https://robetta.bakerlab.org/terms.php">Terms of Service</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Structure Prediction
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://robetta.bakerlab.org/submit.php">Submit</a></li>
+              <li><a href="https://robetta.bakerlab.org/queue.php">Queue</a></li>
+              <li><a href="https://robetta.bakerlab.org/results.php">Example results</a></li>
+            </ul>
+          </li>
+<li><a href="https://robetta.bakerlab.org/submit.php"><i class="far fa-plus-square"></i></a></li>
+<li><a href="https://robetta.bakerlab.org/queue.php"><i class="fas fa-th-list"></i></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://www.bakerlab.org"><img src="https://robetta.bakerlab.org/img/baker_logo_small.gif"></a></li>
+          <li><a href="https://robetta.bakerlab.org/register.php">Register</a></li>
+          <li><a href="https://robetta.bakerlab.org/login.php">Login</a></li>
+        </ul>
+    </div>
+  </nav>
+
+
+<h4>Robetta is a protein structure prediction service that is continually evaluated through <a href="https://www.cameo3d.org/">CAMEO</a></h4>
+
+<div style="margin: 20px;"></div>
+
+<img src="img/robetta.jpg" width="400" style="padding-left: 20px; padding-bottom: 20px;" align="right">
+
+<div style="margin: 20px;"></div>
+
+<p>Features include relatively fast and accurate deep learning based methods, RoseTTAFold and TrRosetta, and an interactive submission interface that allows custom sequence alignments for homology modeling, constraints, local fragments, and more. It can model multi-chain complexes using RoseTTAFold (user must provide paired MSA) or comparative modeling (CM) and provides the option for large scale sampling.
+
+The CM method uses the PDB100 template database, which is updated weekly, a co-evolution based model database (MDB), and also provides the option for custom templates.
+
+Computing resources are provided by the <a href="https://www.bakerlab.org">Baker lab</a>, <a href="https://www.janelia.org">HHMI's Janelia Research Campus</a>, and by volunteers from the distributed computing project <a href="https://boinc.bakerlab.org/rosetta">Rosetta@home</a>. You can help this service by <a href="https://boinc.bakerlab.org/rosetta/join.php">joining Rosetta@home</a>.
+
+<p>For more information please visit our <a href="/faqs.php">Frequently Asked Questions</a>.
+
+<p>Any feedback to help improve this service is greatly appreciated. You can submit feedback and bug reports using the form on our <a href=contact.php>contact page</a>.
+
+
+<p>Recent alerts and bug fixes:
+
+<ul>
+<li>June 28, 2024 - We are currently having issues with high memory RoseTTAFold jobs (aa >= 700) and instability in the CM sequence alignment pipeline and are looking into possible causes. Sorry for any inconvenience.
+<li>November 15, 2023 - Robetta will be down for a few days for maintenance. Sorry for any inconvenience.
+<li>May 27, 2022 - TrRosetta is no longer available as a modeling option. Please use the more accurate method, RoseTTAFold.
+<li>August 19, 2021 - Recently updated browsers had an issue with the custom CM template/PDB upload and alignment feature. If you continue to have issues with this or any other feature please feel free to <a href=contact.php>contact us</a>. 
+<li>July 28, 2021 - There currently is a very large backlog of jobs causing longer than usual wait times for results. We are working on increasing the throughput but it will take some time to reduce the backlog. Please be considerate to others using this service and limit your number of submissions to 1.
+<li>June 15, 2021 - An improved deep learning based modeling method, <a href="https://science.sciencemag.org/content/early/2021/07/14/science.abj8754">RoseTTAFold</a>, is now available. Since being benchmarked in CAMEO for the last month, RoseTTAFold has been the top ranked method.
+<li>March 8, 2021 - The option to supply your own multiple sequence alignment for TrRosetta jobs has been added in response to user feedback.
+<li>September 15, 2020 - A deep learning based modeling method, TrRosetta, is now available as an option for modeling. For more information on this method, you can refer to the <a href=https://www.pnas.org/content/117/3/1496>TrRosetta publication</a>.
+<li>August 20, 2020 - Last week we suffered a disk failure which affected jobs that were active during the period since the latest data backup. As a result, some jobs may take longer to complete than normal. Sorry for any inconvenience.
+<li>July 11, 2020 - We are back online however there is a large queue so please keep in mind that jobs may take some time to complete.
+<li>July 10, 2020 - Robetta will be down indefinitely due to technical difficulties with our server. Sorry for any inconvenience.
+<li>May 18, 2020 - There was a bug that was recently fixed in the PDB templates detection and alignment method for multi-chain modeling. If you submitted a multi-chain sequence (using a forward slash, '/') without providing your own template, you may want to resubmit your job.
+<li>March 18, 2020 - <b>COVID-19 alert</b>. If you plan to submit sequences related to COVID-19 please add &quot;COVID-19&quot; to the &quot;Target Name&quot; of your submission and please keep the job open to the public to aid others who may also be working on the same target(s).  
+<li>March 2, 2020 - The feature that provides a single 'quick' RosettaCM model from Alignment cluster pages was recently fixed. Please feel free to <a href=contact.php>contact us</a> if you notice any other issues or bugs.
+<li>January 31, 2020 - The PDB100 database has not been updated since last December due to an issue. We are working on updating the database and continuing the weekly updates.
+<li>January 8, 2020 - Happy New Year! In response to user feedback, we added the option to submit up to 20 jobs. Priority is given to users with no active jobs.
+<li>October 22, 2019 - Job run times have been delayed due to filesystem issues. Sorry for any inconvenience.
+<li>August 5, 2019 - Job run times have been delayed due to filesystem and database issues. We are working on resolving these issues. Sorry for any inconvenience.
+<li>July 2, 2019 - We're experiencing issues with our filesystem and job distribution which have delayed jobs and may have affected single RosettaCM model jobs which were submitted from alignment cluster pages. If you recently submitted such jobs, you may have to resubmit by clicking the &quot;Rosetta Model&quot; link again. Sorry for any inconvenience.
+<li>June 5, 2019 - There was an issue with our filesystem which caused a delay in job run times. Sorry for any inconvenience.
+<li>May 31, 2019 - Thanks to Luki Goldschmidt for not only building, developing, and maintaining the computing infrastructure behind this service but for also creating the home page graphic. We've added the total number of models sampled per week along with the previously existing usage statistics displayed below.
+<li>May 1, 2019 - There was a bug in our <a href="https://robetta.bakerlab.org/contact.php">contact page</a>. Feel free to send us feedback.
+<li>April 11, 2019 - You can now view non-private jobs without having to log in. Fixed a bug on the submit page when trying to add constraints without a loaded template.</li>
+<li>March 27, 2019 - Updated the PDB template upload reader to skip residues missing backbone atoms which cause Rosetta jobs to fail. When the input sequence is modified and in the rare case when the template(s) realignment fails, the templates will be removed.</li>
+<li>March 22, 2019 - Fixed user provided partial thread input error where coordinates with no chain identifier would get skipped. Changed how multiple user provided partial threads were setup for RosettaCM. Previously they were structurally clustered and each cluster would be modeled separately. This was changed so multiple user provided partial threads are no longer clustered. All custom partial threads are now used in a single RosettaCM hybridize run.</li>
+</ul>
+
+<div style="margin: 20px;"></div>
+	<h5>PDB templates last updated June 14 2024</h5>
+<br>
+
+<h5>Jobs queued: <span class="badge">0</span>
+    active: <span class="badge">157</span>
+</h5>
+<h5>
+    Users: <span class="badge">61233</span>  
+    Countries: <span class="badge">233</span>
+    New users last week: <span class="badge">102</span>
+    New jobs last week: <span class="badge">724</span>
+    New final models last week: <span class="badge">2879</span>
+</h5>
+<small>Last updated August 02 2024 13:00</small><div style="height: 20px;"></div>
+<p></p>
+<a class="brand boinc-logo" href="https://boinc.berkeley.edu/"><img align="middle" border="0" src="https://robetta.bakerlab.org/img/pb_boinc.gif" alt="Powered by BOINC"></a>
+<br><br>
+<p class="text-center">
+<a href=https://www.bakerlab.org>Baker Lab</a> | <a href=https://boinc.bakerlab.org/rosetta>Rosetta@home</a> | <a href="https://robetta.bakerlab.org/contact.php">Contact</a> | <a href="https://robetta.bakerlab.org/terms.php">Terms of Service</a>
+<br>
+&copy;2024 <a href=https://www.washington.edu>University of Washington</a> 
+</p>
+<br><br>
+
+</div>
+<script src="https://robetta.bakerlab.org/bootstrap.min.js"></script>
+</body>
+</html>

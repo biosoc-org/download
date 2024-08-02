@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="ROBOTS" content="ALL" />
+    <meta name="Copyright" content="Copyright 2008-2024 openstructure.org" />
+    <meta name="keywords" content="Computational Structural Biology, Open-Source, Python, C++" />
+    <meta name="description" content="" />
+    <title>OpenStructure | Welcome</title>
+    <link href="/static/css/master.css?v=0.1" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#ffffff">
+    
+  </head>
+  <body>
+    <div id="content-holder">
+      <div id="header">
+        <a href="/">Home</a>
+        <a href="/news/">News</a>
+        <a href="/download">Download</a>
+        <a href="/features">Features</a>
+        
+        <a href="/docs/2.8/">Documentation</a>
+        
+        <a href="/faq">FAQ</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/community">Community</a>
+        <a href="/users">Who is Using It?</a>
+        <a href="/cite-us">Cite Us</a>
+        <a href="https://swissmodel.expasy.org/lddt">lDDT</a>
+        
+        <a href="/promod3/3.4/">ProMod3</a>
+        
+      </div>        
+        <table cellspacing="0" cellpadding="0" id="twocol">
+          <tr>
+            <td class="first-col">
+              
+              <div id="content">
+                
+<h1>Welcome to OpenStructure</h1>
+<div>Open-Source Computational Structural Biology Framework</div>
+
+
+<h2>The Framework at a Glance</h2>
+<div class="center">  
+<table class="teaser">
+  <tr>
+    <td class="desc">
+      <div id="molecules">
+        <em>Molecular Structures</em>
+        <p>Work with proteins, nucleic acids and ligands</p>
+      </div>      
+      <div id="scoring">
+        <em>Scoring</em>
+        <p>Compare a model against a reference</p>
+      </div>
+      <div id="density">
+        <em>Density Maps</em>
+        <p>Image Processing in 2 and 3 dimensions</p>      
+      </div>
+      <div id="sequences">
+        <em>Sequence Data</em>
+        <p>Work with sequence data of various kinds</p>
+      </div>    
+      <div id="batch-processing">
+        <em>Batch Processing</em>
+        <p>Write scripts to automate your workflows</p>
+      </div>
+      <div id="graphical-user-interface">
+        <em>Graphical User Interface</em>
+        <p>Visually-enhanced development of algorithms</p>
+      </div>   
+    </td>
+    <td colspan="5">
+      <img id="theimage" height="400"/>
+    </td>
+  </tr>  
+</table>
+</div>
+
+<script type="text/javascript">
+
+  let imgIdx = -1;
+  let imgList = [
+    "/static/images/mol.png",
+    "/static/images/scoring.png",
+    "/static/images/map-small.png",
+    "/static/images/seq.png",
+    "/static/images/batch.png",
+    "/static/images/screen.png"
+  ];
+  let idList = [
+    "molecules",
+    "scoring",
+    "density",
+    "sequences",
+    "batch-processing",
+    "graphical-user-interface"
+  ];
+
+  function changeImage(id) {
+    imgIdx = (id!==undefined) ? id: (imgIdx + 1) % imgList.length;
+    document.getElementById('theimage').src = imgList[imgIdx];
+    document.querySelectorAll('.desc div').forEach((item, idx) => {
+      item.style.opacity = idx===imgIdx?1:0.5;
+    });
+  }
+
+
+  document.querySelectorAll('.desc div').forEach(item => {
+    item.addEventListener('mouseover', event => {
+      clearInterval(fadeId);
+      changeImage(idList.indexOf(item.id));
+      fadeId = setInterval(fadeImage, 6000);
+    })
+  })
+
+  
+  function fadeIn(el) {
+    el.style.opacity = 0;
+    var tick = function() {
+      el.style.opacity = +el.style.opacity + 0.01;
+      if (+el.style.opacity < 1) {
+        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+      }
+    };
+    tick();
+  }
+
+  function fadeOut(el) {
+    el.style.opacity = 1;
+    var tick = function() {
+      el.style.opacity = +el.style.opacity - 0.01;
+      if (+el.style.opacity > 0) {
+        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+      }
+    };
+    tick();
+  }
+
+  function fadeImage() {
+    let el = document.getElementById('theimage');
+    fadeOut(el);
+    setTimeout(function() {
+      changeImage();
+      fadeIn(el);
+    }, 1200);
+  }
+
+  let fadeId = setInterval(fadeImage, 6000);
+
+  changeImage();
+
+</script>
+
+              </div>
+            </td>
+            <td class="second-col">
+              
+<h2>What Is It?</h2>
+<p>
+This project aims to provide an open-source, modular, flexible, molecular modelling and visualization environment. It is targeted at interested method developers in the field of structural bioinformatics.
+</p>
+
+<h2>Try OpenStructure</h2>
+<p><a href="/download/">Download</a> the latest <a href="/download/111/">stable release (2.8)</a> for your platform and read the <a href="/docs/intro/">tutorials</a></p>
+
+
+<h2>Financial Support</h2>
+<p><a href="https://www.sib.swiss/">Swiss Institute of Bioinformatics</a></p>
+<p><a href="https://www.biozentrum.unibas.ch">Biozentrum, University of Basel</a></p>
+
+
+<h2>News</h2>
+  
+  <a href="/news/new-release-28/">New release 2.8</a>
+  <p>OST 2.8 released</p>
+  
+  <a href="/news/new-release-27/">New release 2.7</a>
+  <p>OST 2.7 released</p>
+  
+  <a href="/news/new-release-26/">New release 2.6</a>
+  <p>OST 2.6 released</p>
+  
+
+
+
+            </td>
+          </tr>
+        </table>
+      <div id="footer">
+          Copyright 2008-2024 by the OpenStructure authors
+      </div>
+    </div>  
+  </body>
+</html>
+

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Protein Model Portal - PSI SBKB</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/pmp.css" />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="sbkb_topmenu" id="sbkb-topmenu-container">
+    <div class="sbkb_menu" id="sbkb-menu">
+        <ul class="unstyled nomp">
+            <li class="flft nomp">
+                <a class="bg-threeicons" href="http://sbkb.org"></a>
+            </li>
+            <li class="flft nomp">
+                <a class="big logo" href="http://sbkb.org">sbkb.org</a>
+            </li>
+        </ul>
+        <div class="clear">&nbsp;</div>
+    </div>
+</div>
+
+<header id="header" class="container bg-redimg">
+    <h1>
+        <span style="color:white;">PSI</span> 
+        <span class="title">The Protein Model Portal</span>
+        <div class="hlogo d-none d-sm-block"><img  src="/img/logo-pmp.png" title="Logo" width="157" height="60"></div>
+    </h1>
+    <div class="bg-nav">&nbsp;</div>
+</header>
+
+
+
+<div class="container">
+    <div class="jumbotron" style="padding: 2rem 2rem;">
+      <div class="container">
+        <div class="alert alert-danger" role="alert">
+            <p>PMP has reached its end of life and no longer provides data. 
+            Thank you for your support and trust for more than 10 years!</p>
+
+            <p>For protein structures of UniProt sequences please refer to 
+            <a href="https://swissmodel.expasy.org/repository" class="alert-link">SWISS-MODEL Repository</a>  (updated weekly for select core species), 
+            <a href="https://modbase.compbio.ucsf.edu" class="alert-link">ModBase</a>,  
+            <a href="https://www.rcsb.org/docs/sequence-viewers/protein-feature-view" class="alert-link">RCSB PDB Protein Feature View</a> or 
+            <a href="https://www.ebi.ac.uk/pdbe/pdbe-kb/3dbeacons/" class="alert-link">3D Beacons Network</a>.</p>
+            <p>You can compare the performance of several
+                protein modelling services at <a href="https://cameo3d.org" class="alert-link">CAMEO (Continuous Automated Model EvaluatiOn)</a></p>
+            <p>For curated protein models with stable links (with DOI), please visit <a href="https://modelarchive.org" class="alert-link">ModelArchive.org</a></p>
+            <p>Educational resources about protein structure modeling can be found on ELIXIR's Training Portal (TESS). For instance: 
+                <ul>
+                    <li><a class="alert-link" href="https://tess.elixir-europe.org/workflows/homology-modelling-with-swiss-model">Homology Modelling with SWISS-MODEL</a></li>
+                    <li><a class="alert-link" href="https://tess.elixir-europe.org/workflows/fork-structural-bioinformatics-1-getting-a-structure-for-a-protein-of-interest">ELIXIR Structural Bioinformatics 1: Getting a structure for a protein of interest</a></li>
+                    <li><a class="alert-link" href="https://tess.elixir-europe.org/workflows/fork-structural-bioinformatics-2-exploring-predictions-of-protein-functional-sites-using-funfams-in-cath-gene3d-9655793d-1cee-4164-a0c2-c7104ddb44c4">ELIXIR Structural Bioinformatics 2: Exploring protein domains and functional sites</a></li>
+                    <li><a class="alert-link" href="https://tess.elixir-europe.org/workflows/fork-structural-bioinformatics-3-predicting-the-effect-of-mutation-on-protein-function">ELIXIR Structural Bioinformatics 3: Predicting the effect of mutation on protein function</a></li>
+                </ul>
+            </p>
+        </div>
+
+        <div class="alert alert-primary" role="alert" style="display:none" id="query_results">
+            <p>You may find results for your query (<span id="query"></span>) at
+                <ul>
+                    <li class="ac nm"><a href="https://swissmodel.expasy.org/repository/uniprot/">SWISS-MODEL Repository</a></li>
+                    <li class="ac nm"><a href="https://modbase.compbio.ucsf.edu/modbase-cgi/model_search.cgi?databaseID=">ModBase</a></li>
+                    <li class="ac" style="display:none"><a href="https://www.rcsb.org/groups/sequence/polymer_entity/">RCSB PDB Protein Feature View</a></li>
+                    <li class="ac" style="display:none"><a href="https://www.ebi.ac.uk/pdbe/pdbe-kb/3dbeacons/search/">3D Beacons</a></li>
+                </ul>
+             </p>
+        </div>
+
+        <p class="lead">
+            The Protein Model Portal was developed as a module of the Protein Structure Initiative Knowledgebase (PSI KB). The goal of the Models Module was to develop a portal that gave access to the various models that can be leveraged from PSI targets and other experimental protein structures. The Protein Structure Initiative has been successful in determining the structures of many unique proteins in a high throughput manner. Still, the number of known protein sequences is much larger than the number of experimentally solved protein structures. Homology (or comparative) modeling methods make use of experimental protein structures to build models for evolutionary related proteins. Experimental structural biology and homology modeling thereby complement each other in the exploration of the protein structure space.</p>
+            <p>Reference: Haas J., Roth S., Arnold, K., Kiefer, F., Schmidt T., Bordoli, L. and Schwede, T. (2013). The Protein Model Portal - a comprehensive resource for protein structure and model information. <a href="http://www.ncbi.nlm.nih.gov/pubmed/23624946">Database doi: 10.1093/database/bat031</a>
+        </p>
+      </div>
+    </div> 
+</div>
+
+
+<div class="clear-fix"></div>
+<footer class="container-fluid">
+    <div class="bg-redimg">&nbsp;</div>
+</footer>
+
+</body>
+<script>
+    $(document).ready(function()
+    {
+        var query = window.location.search.substring(1).split('&');
+        var ac = null;
+        if(window.location.href.indexOf('query/up')>-1 || window.location.href.indexOf('query/uniprot')>-1)
+        {
+                var href = window.location.href.split('/');
+                ac = href[href.length-1];
+        }
+        if(ac == null)
+        {
+            for(var i=0; i<query.length; i++)
+            {
+                var params = query[i].split('=');
+                if(params.length==2 && params[0].toLowerCase()=='ac')
+                {
+                    ac = params[1];
+                    break;
+                }
+            }
+        }
+
+        
+        if(ac && ac.length>5 && ac.length<17)
+        {            
+            ac = ac.toUpperCase();
+            $('#query').html(ac);
+            if(ac.indexOf('_')>-1)
+            {
+                $('.nm a').each(function()
+                {
+                    $(this).attr('href', $(this).attr('href')+ac);
+                });
+            }
+            else
+            {
+                $('.ac a').each(function()
+                {
+                    $(this).attr('href', $(this).attr('href')+ac);
+                });
+                $('.ac').show();
+            }
+            $('#query_results').show();
+
+        }
+    });
+</script>
+</html> 
