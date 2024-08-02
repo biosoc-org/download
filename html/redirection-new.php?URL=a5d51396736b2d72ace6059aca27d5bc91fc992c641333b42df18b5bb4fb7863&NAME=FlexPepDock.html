@@ -1,0 +1,301 @@
+<html>
+
+<head>
+<title>FlexPepDock Server</title>
+
+<link rel="stylesheet" href="/style.css" type="text/css" media="screen" />
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript"
+	src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css"
+	type="text/css" media="screen" />
+<script type="text/javascript" src="/script.js"></script>
+
+</head>
+<body>
+
+	<a href="/"><img id="logolink" src="/images/logo.png"
+		alt="FlexPepDock" /></a>
+	<img id="sublogo" src="/images/sublogo.png" alt="FlexPepDock" />
+	<hr />
+	<br />
+
+<!--<p class="notice">
+<strong>NOTICE:</strong> 
+(Monday, July 11th 2022, 12:00 GMT)
+Due to technical issues with the server hardware, several reent jobs have failed and current service is intermittent. We are working on solving these issues and thank you for your patience.
+</p>-->
+
+	<table width="100%" id="main">
+		<tr>
+			<td width="150px" valign="top">
+				<table id="sidebar">
+					<tr>
+						<td><a class="sidebarLink" href="/index.php">Home</a></td>
+					</tr>
+					<tr>
+						<td><a class="sidebarLink" href="/overview.php">Overview</a></td>
+					</tr>
+					<tr>
+						<td><a class="sidebarLink" href="/queue.php">Queue</a></td>
+					</tr>
+					<tr>
+						<td><a class="sidebarLink" href="/cite.php">Citing</a></td>
+					</tr>
+					<tr>
+						<td><a class="sidebarLink" href="/contact.php">Contact</a></td>
+					</tr>
+					<tr>
+						<td><a class="sidebarLink" href="/usage.php">Usage & FAQ</a></td>
+					</tr>
+					<tr>
+						<td><a class="sidebarLink" href="/demo/index.php">Demo</a></td>
+					</tr>
+					<tr>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+					</tr>
+					<tr>
+						<td><a class="sidebarLink"
+							href="https://www.cs.huji.ac.il/~fora/">Furman Lab</a></td>
+					</tr>
+					<tr>
+						<td><a class="sidebarLink"
+							href="https://www.rosettacommons.org/">Rosetta</a></td>
+					</tr>
+				</table>
+			</td>
+
+			<td id="content">
+
+<script language="javascript">
+var sub = 0;
+</script>
+
+<p class=regular>
+    FlexPepDock is a high-resolution peptide-protein docking (refinement) protocol for the modeling of peptide-protein complexes, implemented in the <a href="https://www.rosettacommons.org">Rosetta framework</a>.
+  </br></br>
+    For more details see the <a href="./overview.php">"Overview"</a> and <a href="./usage.php">"Usage & FAQ"</a> sections.</br>
+  </p>
+
+<br/><br/>
+  <center>
+    <form enctype="multipart/form-data" onSubmit="return validate();" action="saveFile.php" method="POST" id="sform">
+    <input type="hidden" name="demo" value="no"/>
+    <input type="hidden" name="ip" value="" required>
+      <table  width=650>
+	<tr>
+	  <td width=300><p class=regular>Input PDB file:</p></td>
+	  <td>
+	    <input type="hidden" name="MAX_FILE_SIZE" value="3000000"/>
+	    <input id="upload" name="upload" type="file" />
+	  </td>
+          <td>
+            <small class="optional">or</small> <input type="submit" name="sbut" value="Use Demo File" class="regular" onclick="return submitDemo();" /></center>
+          </td>
+	</tr>
+	<tr>
+	  <td><p class=regular>Your e-mail:<br/>
+		<!-- <small class="optional">Optional but recommended</small> --!>
+		</p></td>
+	  <td colspan="2" width="80%"><input name="eMail" type="text" class="texta" required/></td>
+	</tr>
+	<tr>
+	  <td colspan="3"><p class="flip">Advanced Options <small class="optional">(click to toggle)</small></p></td>
+	</tr>
+      </table>
+      <table width=600><tr><td>
+	<div class="panel">
+	  <table width=590>
+	<tr>
+	  <td colspan="2"><p class="regular">
+		<input type="checkbox" id="share-job" name="share-job" />
+		<label for="share-job">Share this job</label>
+	  <a class="inline" href="#share-job-tip"><font size="1">Learn more</font></a></p></td>
+	    <tr>
+	      <td  ><p class=regular><label for="job-name">Name this job:</label>
+			<a href="#job-name-tip" class="inline"><font size=1>Learn more</font></a>
+		</p></td>
+	      <td>
+	      <input name="job-name" id="job-name" type="text"  />
+	    </td>
+	    </tr>
+	    <tr>
+	      <td width="238px" ><p class=regular>Insert a reference PDB <a href="#reference" class="inline"><font size="1">Learn more</font></a></p></td>
+	      <td>
+	      <input type="hidden" name="MAX_FILE_SIZE" value="3000000"/>
+	      <input name="ref" type="file"  />
+	    </td>
+	    </tr>
+	    <tr>
+	      <td>
+		<p class=regular>Insert a constraint file <a href="#constraints" class="inline"><font size="1">Learn more</font></a></p>
+	      </td>
+	      <td>
+		<input type="hidden" name="MAX_FILE_SIZE" value="3000000"/>
+		<input name="con" type="file"  />
+	      </td>
+	    </tr>
+	    </table>
+	    <table width=590>
+	     <tr>
+	      <td width="385px">
+		<p class=regular>Specify number of low resolution structures (0-300)</p>
+	      </td>
+	  <td width="150px"><input name="lownstruct" type="text" class="textn" onkeypress="return onlyNumbers(event)" value="100"/> <a href="#nstruct" class="inline"><font size="1">Learn more</font></a></td>
+	    </tr>
+	     <tr>
+	      <td>
+		<p class=regular>Specify number of high resolution structures (0-300)</p>
+	      </td>
+	  <td><input name="highnstruct" type="text" class="textn" onkeypress="return onlyNumbers(event)" value="100"/></td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" height="25"><p class=regular>Select columns to appear in data file:</p></td>
+	    </tr>
+	  </table>
+	  <table id="columnsTable" width=590>
+
+	    <tr>
+	      <td width=20%><input id ="scorecheck" type="checkbox" name="columns[]" value="total_score" checked  />score</td>
+	      <td width=20%><input type="checkbox" name="columns[]" value="hbond_sc" />hbond_sc</td>
+	      <td width=20%><input type="checkbox" name="columns[]" value="rama" />rama</td>
+	      <td width=20%><input type="checkbox" name="columns[]" value="I_sc" />I_sc</td>
+	      <td width=20%><input type="checkbox" name="columns[]" value="pep_sc" />pep_sc</td>
+	    </tr>
+	    <tr>
+	      <td><input type="checkbox" name="columns[]" value="rmsBB_if" />rmsBB_if</td>
+	      <td><input type="checkbox" name="columns[]" value="fa_atr" />fa_atr</td>
+	      <td><input type="checkbox" name="columns[]" value="fa_pair" />fa_pair</td>
+	      <td><input type="checkbox" name="columns[]" value="pep_sc_noref" />pep_sc_noref</td>
+	      <td><input type="checkbox" name="columns[]" value="rmsALL_if" />rmsALL_if</td>
+	    </tr>
+	    <tr>
+	      <td><input type="checkbox" name="columns[]" value="fa_rep" />fa_rep</td>
+	      <td><input type="checkbox" name="columns[]" value="fa_dun" />fa_dun</td>
+	      <td><input id="rmscheck" type="checkbox" name="columns[]" value="rmsBB" checked />rmsBB</td>
+	      <td><input type="checkbox" name="columns[]" value="fa_sol" />fa_sol</td>
+	      <td><input type="checkbox" name="columns[]" value="startRMSbb" />startRMSbb</td>
+	    </tr>
+	  </table>
+      </td></tr></table></div></br>
+
+      <input type="submit" name="sbut" value="Run FlexPepDock" class=p.regular/></center>
+    </form>
+
+    <center>
+      <img src="/images/betterexample.png" height=225>
+    </center>
+  </center>
+<div style="display:none"><div id="constraints">
+  <p class="header">Constraint file</p>
+  <p class="paddedp">You can supply Rosetta with simulation constraints. A constraint file is a text file with the format:</p>
+  <p class="paddedp">Constraint_Type1 Constraint_Def1</br>Constraint_Type2 Constraint_Def2...</p>
+  <p class="paddedp">Note that you can apply contraints only on high-resolution runs.</p>
+  <p class="paddedp">You can find more information about constraint files <a target="_blank" href="https://www.rosettacommons.org/manuals/archive/rosetta3.1_user_guide/file_constraints.html">here</a></p>
+</div></div>
+
+
+<div style="display:none"><div id="reference">
+  <p class="header">Reference file</p>
+  <p class="paddedp">A reference file is a PDB file that contains both the peptide and the protein.</p>
+  <p class="paddedp">RMS calculated by rosetta will be measured against this structure rather than the structure submitted for the FlexPepDock run.</p>
+</div></div>
+
+<div style="display:none"><div id="job-name-tip">
+  <p class="header">Job name</p>
+  <p class="paddedp">Giving your job a name helps to distinguish between multiple jobs being submitted.</p>
+  <p class="paddedp">By default, the job is given the same name as the submitted file.</p>
+</div></div>
+
+<div style="display:none"><div id="share-job-tip">
+  <p class="header">Share job</p>
+  <p class="paddedp">Checking this will place a link to your submission and its FlexPepDock results for other users of the server to view and use. Shared jobs get higher priority.</p>
+</div></div>
+
+
+<div style="display:none"><div id="nstruct">
+  <p class="header">Customize number of structures</p>
+  <p class="paddedp">FlexPepDock returns by default results from a 100 high-resolution simulations and a 100 low-resolution simulations. You can customize the number of simulations from each type up to 300. If either of the fields remains blank 100 structures will be simulated by default.</p>
+  <p class="paddedp">Note that low-resolution runs cannot handle phosphorylation, so if you have phosphate atoms in your structure set the number of low-resolution structures to 0. Don't forget the tag these atoms with ATOM rather than HETATM as FlexPepDock ignores all non-ATOM entries.</p>
+</div>
+
+<div style="display:none" align="right"><div id="science">
+  <img src="images/FlexPepDockInScience.jpeg"><br>
+<a onclick="window.open('http://www.sciencemag.org/content/333/6046/1164.short')" href="#">Read the full feature</a>
+</div>
+
+</div>
+
+
+
+
+
+
+
+</td>
+		</tr>
+	</table>
+	<br>
+	<br>
+	<br>
+	<div id="footer">
+		<hr/>
+
+<center>
+
+			<table>
+				<tr>
+					<td>
+						<p class="sma">
+							<a class="footerlink"
+								href="mailto:ora.furman-schueler@mail.huji.ac.il">Contact admin</a>
+							|
+						</p>
+					</td>
+					<td>
+						<p class="sma">
+							<a href="#privacy" class="inline"><font id=privacylink>Privacy
+									Disclaimer</font></a> |
+						</p>
+					</td>
+
+					<td>
+						<p class="sma">
+							2010 (C) <a class="footerlink" href="https://www.huji.ac.il">The
+								Hebrew University of Jerusalem</a>, All rights reserved
+						</p>
+					</td>
+				</tr>
+			</table>
+
+		</center>
+	</div>
+
+	<div style="display: none;">
+		<div id="privacy">
+			<p class="header">Data Protection</p>
+			<p class="paddedp">E-mail addresses submitted to FlexPepDock's web
+				server are only used for tracking user's usage and returning
+				analysis results. We may also contact you via email should any
+				problem arise with you submission. Be sure that email addresses are
+				not used for any other purpose and are not passed to third parties.</p>
+			<p class="header">Intellectual Property Disclaimer</p>
+			<p class="paddedp">All data submitted to FlexPepDock's web server
+				and it's analysis results is publicly accessible, hence we cannot
+				guarantee confidentiality.</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html class="pageview">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta property="fb:admins" content="4812413" />
+
+<script src="yui/yahoo/yahoo-min.js"></script>
+<script src="yui/event/event-min.js"></script>
+<script type="text/javascript"
+	src="yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script src="yui/connection/connection-min.js"></script>
+<script type="text/javascript" src="yui/json/json-min.js"></script>
+
+<script type="text/javascript" src="serverhandshake.js"></script>
+<script type="text/javascript" src="pdbstart.js"></script>
+<link href="index.css" rel="stylesheet" type="text/css" />
+
+<base target="_top">
+
+  
+  <title>Welcome to ZINCPharmer</title>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-300997-7']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body   >
+
+<div class="myheader">
+
+<h1 style="text-shadow: 0 0 0.5em white;text-align:center;color:#e8e8e8;font-size:4em">ZINC<span style="font-weight: 400;color:#f8f8f8">Pharmer</span></h1>
+&nbsp;
+
+</div>
+<div align=center style="position: relative">
+
+
+  <table border=0 bordercolor=#000000 cellpadding=0 cellspacing=0 class=zeroBorder id=ot9x style=TEXT-ALIGN:center width=640>
+    <tbody>
+    
+    <tr>
+      <td valign=top width=100%>
+        <font size=3><i><br>
+        </i></font>
+        <div style="padding-bottom:1em">
+          <font size=3><i>ZINCPharmer</i>&nbsp;is free&nbsp;
+          <a href=http://en.wikipedia.org/wiki/Pharmacophore id=g:zw title=pharmacophore>pharmacophore</a>&nbsp;
+          search software for screening the purchasable subset of the <a href="http://zinc.docking.org">ZINC</a>&nbsp; database 
+          (updates occur monthly).  ZINCPharmer can import <b>LigandScout</b> and
+          <b>MOE</b> pharmacophore definitions, as well as <b>identify pharmacophore features</b> directly
+          from structure.</font>
+        </div>
+        
+                 <div id="fb-root"></div>
+                    <!-- Place this tag where you want the +1 button to render -->
+
+
+         <div class="pdbsearch">
+             From PDB structure
+        <table align=center>
+        <tr><td><label for="pdbidin">PDB</label></td><td><label for="pdbligselect">Ligand</label></td></tr>
+        <tr><td> <input type="text" maxlength=4 size="4" value="" id="pdbidin" onkeyup="getpdbligands()"></td>
+        <td>        <select id="pdbligselect" disabled onchange="getSearchData()" style="width:5em">
+        <option label="N/A" selected >N/A</option>
+        </select></td>
+        <tr><td colspan="2">        <input type="button" id="dopdbsearch" name="Start" value="Start" onclick="dopdbsearch()" disabled>
+        </td></tr>
+        </table>
+        </div>
+                <div style=TEXT-ALIGN:center ><br>               
+          <font size=6><b><a href=pharmer.html id=yd5_ title="Search">Search ZINC</a> <font size=3></font></b></font><br>
+          <br><font size=6><b><a href=pharmer.html?SESSION=examples/molport.query  title="SearchMolport">Search Molport</a> <font size=3></font></b></font><br>
+          <font size=2><br>Java Problems? Try <a href="pharmer.html?USE=HTML5">HTML5</a></font>
+        </div>              
+
+        <div style=TEXT-ALIGN:left>
+          <font size=4><b><br>
+          </b></font>
+        </div>
+       <div style=text-align:left>
+       <font size=4><b><a href="phorum/">User Guide and Forum</a></b><br></font><font size=1><br></font>
+                <font size=4><b>
+          Video Tutorials:</b> </font><font size=2>
+	<a href="querydemo/querydemo.mov" onclick="_gaq.push(['_trackEvent', 'Videos', 'Defining Parmacophores']);">Defining Pharmacophores</a> 
+    <a href="searchdemo/searchdemo.mov" onclick="_gaq.push(['_trackEvent', 'Videos', 'Searching and Filtering']);">Searching and Filtering</a>
+          </font><br><br>
+       </div>
+      <div class="newsalert">Targeting a protein-protein interaction? Design a pharmacophore from the PPI with <a href="http://pocketquery.csb.pitt.edu">PocketQuery</a>.</div>
+
+<div class="socialbuttons" style="text-align:left; padding-bottom: 1em;">
+<div class="googlebutton">
+<g:plusone count="false" size="medium" href="http://zincpharmer.csb.pitt.edu"></g:plusone>
+<!--  Place this tag after the last plusone tag -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+</div>
+<div class="facebuttons">
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://zincpharmer.csb.pitt.edu/" send="true" layout="button_count" width="450" show_faces="false" action="like" font=""></fb:like>
+</div>
+</div>
+
+      
+        <div style=TEXT-ALIGN:left>
+          <font size=4><b>Interactive Examples</b></font>
+          
+                  <table border=0 bordercolor=#000000 cellpadding=3 cellspacing=0 class=zeroBorder id=grax width=100%>
+          <tbody>
+
+          <tr style=TEXT-ALIGN:left>
+            <td valign=top width=50%>
+              <font size=3><a href="pharmer.html?SESSION=examples/DHODH.query" title=DHODH><font size=3>Teach-Discover-Treat: DHODH</font></a><font size=3>&nbsp;(</font><a href=http://www.pdb.org/pdb/explore/explore.do?structureId=3I65  title="PDB 3I65"><font size=3>PDB</font></a><font size=3>)<br>
+              </font></font>
+              <blockquote class=webkit-indent-blockquote style="BORDER:medium none;MARGIN:0pt 0pt 0pt 40px">
+                <font size=3>
+                As part of the <a href="http://www.teach-discover-treat.org/">Teach-Discover-Treat</a> competition, this
+                pharmacophore for the anti-malarial target dihydroorotate dehydrogenase was developed during an <a href="http://zincpharmer.csb.pitt.edu/tdt/">interactive exercise</a>. Compounds matching this
+                pharmacophore were ranked using <a href="http://smina.sf.net">smina</a> energy minimization and the top compounds
+                were tested in an inhibition assay. The tested compounds had a 27% hit rate in the primary assay.
+              </font>
+              </blockquote>
+            </td>
+            <td valign=top width=50%>
+              <div id=blrg style=TEXT-ALIGN:left>
+              <a href="pharmer.html?SESSION=examples/DHODH.query">
+                <img src="images/dhodh.png" style=WIDTH:320px></a>
+              </div>
+            </td>
+          </tr>
+
+          <tr style=TEXT-ALIGN:left>
+            <td valign=top width=50%>
+              <font size=3><a href="pharmer.html?SESSION=examples/1M7O.query" title=1M7O><font size=3>Glycolytic Enzymes</font></a><font size=3>&nbsp;(</font><a href=http://www.pdb.org/pdb/explore/explore.do?structureId=1M7O id=qwbs title="PDB 1M7)"><font size=3>PDB</font></a><font size=3>)<br>
+              </font></font>
+              <blockquote class=webkit-indent-blockquote style="BORDER:medium none;MARGIN:0pt 0pt 0pt 40px">
+                <font size=3>
+                Protozoan parasites such as 
+                <a href="http://en.wikipedia.org/wiki/Plasmodium_falciparum"><em>Plasmodium falciparum</em></a>, a malarial agent,
+                often lack a functional tricarboxylic cycle and so depend upon glycotic pathways for energy.  As a result,
+                inhibitors of these pathways are potential drug candidates.
+                A pharmacophore for the inhibitory interaction of PDB 1M7O was derived using 
+                <a href="http://www.inteligand.com/ligandscout/">LigandScount</a>.  
+                ZincPharmer successfully retrieves the original ligand (ZINC3869933) as
+                well as several analogs.
+              </font>
+              </blockquote>
+            </td>
+            <td valign=top width=50%>
+              <div id=blrg style=TEXT-ALIGN:left>
+              <a href="pharmer.html?SESSION=examples/1M7O.query">
+                <img src="images/1M7O.png" style=WIDTH:320px></a>
+              </div>
+            </td>
+          </tr>
+          
+                    <tr style=TEXT-ALIGN:left>
+            <td valign=top width=50%>
+              <font size=3><a href="pharmer.html?SESSION=examples/kinase.query" title=3K5U><font size=3>Kinase Inhibitors</font></a><font size=3>&nbsp;(</font><a href=http://www.pdb.org/pdb/explore/explore.do?structureId=3K5U id=qwbs title="PDB 3K5U"><font size=3>PDB</font></a><font size=3>)<br>
+              </font></font>
+              <blockquote class=webkit-indent-blockquote style="BORDER:medium none;MARGIN:0pt 0pt 0pt 40px">
+                <font size=3>
+                <a href="http://en.wikipedia.org/wiki/Protein_kinase_inhibitor">Kinase inhibitors</a> are often used 
+                in the treatment of cancer and inflammation.   ZincPharmer's automatic
+                pharmacophore feature detection was applied to the inhibitor of PDB 3K5U
+                and important features were manually selected.  The resulting screen identifies
+                ZINC02425758, which is annotated as a potential tyrosine protein kinase inhibitor.
+              </font>
+              </blockquote>
+            </td>
+            <td valign=top width=50%>
+              <div id=blrg style=TEXT-ALIGN:left>
+              <a href="pharmer.html?SESSION=examples/kinase.query">
+                <img src="images/kinasescreen.png" style=WIDTH:320px></a>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+          
+        </div>
+
+        <div style=TEXT-ALIGN:left>
+          <i><b><br>
+          </b></i>
+        </div>
+        <div style=TEXT-ALIGN:left>
+          <font size=4><i><span style=FONT-STYLE:normal><b>Background</b></span></i></font>
+          <div><font size=3>
+          The ZincPharmer search technology uses the <a href="http://smoothdock.ccbb.pitt.edu/pharmer/">Pharmer</a>
+          open source pharmacophore search technology to efficiently search a
+          large database of fixed conformers for pharmacophore matches.  The search
+          performance scales with the complexity and breadth of the pharmacophore query.
+          Most searches take less than a minute.  Please feel free to provide feedback in the <a href="http://zincpharmer.csb.pitt.edu/phorum/">forum</a>.
+          <br><br><b>Citation:</b> If you find ZINCPharmer useful, please cite our <a href="http://dx.doi.org/10.1093/nar/gks378">Nucleic Acids Research paper</a>.
+          </font>
+          </div>
+        </div>
+        
+        <div style="padding-top:1em; font-style: oblique; font-size:x-small">
+          This open access technology is funded through R01GM097082 and R01GM108340
+             from the National Institute of General Medical Sciences.
+            The content is solely the responsibility of the authors and does not necessarily 
+             represent the official views of the National Institute of General Medical Sciences or the National Institutes of Health.
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div align=center class=google_footer id=google_footer>
+  <table border=0 bordercolor=#000000 cellpadding=0 cellspacing=0 class=zeroBorder id=qeb. width=640>
+    <tbody>
+    <tr>
+      <td width=50%>
+        <a href=mailto:ccamacho+zincpharmer@pitt.edu id=dwp1 title="Questions or Comments?">Questions or Comments?</a>
+      </td>
+      <td style=TEXT-ALIGN:right width=50%>
+     <a href="privacy.html">Privacy Policy</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<div class=copy>
+<br>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>. 
+Copyright University of Pittsburgh<br><br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">
+<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+</div>
+</div>
+
+<br></body>
+</html>

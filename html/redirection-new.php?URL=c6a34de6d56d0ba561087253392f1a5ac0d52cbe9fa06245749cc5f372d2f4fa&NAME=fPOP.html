@@ -1,0 +1,465 @@
+
+<html>
+ <head>
+ <title>FootPrinting Protein Functional Surfaces</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="web.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta name="description" content="  ">
+	<meta name="keywords" content="fPOP">
+	<title>  </title>
+
+	<style type="text/css">
+                <!--
+                a {  text-decoration: none}
+                -->
+	</style>
+	<style>
+	 .ben {background-image:url('images/fpop.gif');}
+	</style>
+
+<script type="text/javascript" src="lib/jquery.js"></script>
+<script type='text/javascript' src='lib/jquery.bgiframe.min.js'></script>
+<script type='text/javascript' src='lib/jquery.ajaxQueue.js'></script>
+<script type='text/javascript' src='lib/jquery.autocomplete.js'></script>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.autocomplete.css" />
+	
+<script type="text/javascript">
+
+function clearEntry(){
+    var pdb= document.getElementById('pdb');
+    pdb.value="";
+}
+
+function disableEnterKey(e)
+{
+     var key;
+
+     if(window.event)
+          key = window.event.keyCode;     //IE
+     else
+          key = e.which;     //firefox
+
+     if(key == 13)
+          return false;
+     else
+          return true;
+}
+
+
+function pressKey()
+{
+    if( window.event.keyCode == 13 ) // enter key
+    {
+        return false; // this will prevent bubbling ( sending it to children ) the event!
+    }
+}
+
+
+
+       //  $("#myform").ajaxForm({
+       //     url: "searchTaxa.php",
+       //     type: "POST"
+       //  });
+
+
+$().ready(function() {
+
+	function findValueCallback(event, data, formatted) {
+		$("<li>").html( !data ? "" : "" + formatted).appendTo("#result");
+                
+	}
+	
+	function formatItem(row) {
+		return row[0] + " (<strong>id: " + row[1] + "</strong>)";
+	}
+	function formatResult(row) {
+		return row[0].replace(/(<.+?>)/gi, '');
+	}
+
+
+	
+	$("#pdb").autocomplete("searchTaxa.php", {
+		width: 77,
+                minChars: 3,
+                cacheLength:1000,
+                max:100,
+                scroll: true,
+                scrollHeight: 300,
+		selectFirst: false
+	});
+	
+	
+	$(":text, textarea").result(findValueCallback).next().click(function() {
+		$(this).prev().search();
+	});
+
+	$("#pdb").result(function(event, data, formatted) {
+		//if (data)
+	//		$(this).parent().next().find("textarea").val(data[1]);
+		var hidden = $(this).parent().next().find("textarea");
+		hidden.val( (hidden.val() ? hidden.val() + "\n" : hidden.val()) + data[1]);
+	
+	});
+	
+	
+
+});
+
+
+
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+function trim(sString){ 
+while (sString.substring(0,1) == ' ')
+{
+sString = sString.substring(1, sString.length);
+}
+while (sString.substring(sString.length-1, sString.length) == ' ')
+{
+sString = sString.substring(0,sString.length-1);
+}
+return sString;
+}
+
+
+      
+     function checkpdbId(){
+             re=/^\w{4,}/;
+	         
+	      var input=trim(document.getElementById("pdb").value);
+
+	  //if(re.test(document.getElementById("pdb").value)){
+	  if(re.test(input)){
+	      document.getElementById("pdb").value=input;
+	  
+	       //alert(document.getElementById("url").value);
+	        return true;
+	  }
+       
+	                alert("Please enter pdbId\n eg:\n1gcg (1gcg with null chain)\n1ypi\.A (1ypi with chain A)");
+			document.myform.pdbId.focus();
+			document.myform.pdbId.select();
+			return false;
+			}
+
+
+//    var myPix=new Array("demo/1c7r.gif","demo/1ac5.gif","demo/1bag.gif","demo/1bg9.gif");
+    var myPix=new Array("demo/1kf0.gif","demo/1p0i.gif","demo/1ac5.gif","demo/1p0p.POC78.gif","demo/2srcp23.gif","demo/1w76poc128.gif","demo/1ea5.poc.gif","demo/1u2y.gif","demo/1bagASpoc60.gif","demo/2b49.poc44.gif","demo/1ouk.s5.gif","demo/1m33.POC43.gif","demo/2clj.gif","demo/1m33.poc41.gif","demo/1bag.gif","demo/1ysc.gif","demo/1c7r.gif","demo/1bg9.gif","demo/1b2y.gif","demo/1bagAS.gif","demo/1p0pPOC78.gif","demo/1ea5poc79.gif","demo/1m33poc43.gif","demo/1b41.gif","demo/2src.gif");
+    
+    var imgCt=myPix.length;
+    
+    function choosePic(){
+          if(document.images){
+	     randomNum=Math.floor((Math.random()*imgCt));
+	     document.mypic.src=myPix[randomNum];
+	  }
+
+	  setTimeout('choosePic()',6000);
+       
+    }			
+    
+</script>
+	</head>
+
+ <body onload="choosePic();document.myform.pdbId.focus()" bgcolor="#F2F2EE" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" text="#000000" link="#000099" alink="#666666" vlink="#0D3C9D">
+
+   <table border="0" cellspacing="0" cellpadding="0" width="998" align="center" bgcolor="#FFFFFF">
+    <tr>
+     <td valign="top" background="images/shadow_left.jpg" width="15">
+   <table cellspacing="0" cellpadding="0" border="0" width="15">
+    <tr>
+     <td valign="top">
+     <img src="images/shadow_left.jpg" border="0">
+     </td>
+    </tr>
+   </table>
+	 </td>
+	 <td valign="top"> 
+   <table border="0" cellspacing="0" cellpadding="0" width="968" bgcolor="#FFFFFF">
+     <tr>
+      <td valign="top" colspan="6">
+
+	<table border="0" cellspacing="0" cellpadding="0" width="968">
+     <tr>
+      <td colspan="6">	
+	<table border="0" cellspacing="0" cellpadding="0" width="968">
+     <!--<tr>
+      <td colspan="5"><img src="/graphics/bar_01.jpg" width="968" height="15" border="0"></a></td>
+     </tr>-->	
+     <tr>
+      <td align="left">
+	<table border="0" cellspacing="0" cellpadding="0" >
+     <tr>
+      <!--<td align="left"><img src="images/fpop1.gif" width="968"  border="0"></td>--><td width="968" height="117" class=ben></td>
+	 </tr>      
+    </table>   
+      </td>   
+    </tr>
+<!--	<tr>
+     <td colspan="6"><img src="images/bar_07.jpg" width="968" height="19" border="0"></td>
+     </tr> -->     
+    </table>
+     </td>
+    </tr>
+	<tr>
+     <td align="center">
+	<table border="0" cellspacing="0" cellpadding="2" background="images/barbg.jpg" width="100%">
+     <tr>
+      <td align="left" valign="bottom"><img src="images/trans.gif" width="30"></td>
+      <td align="center" class="text">
+	    <a href="http://pocket.med.wayne.edu/" class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes, width=1024, height=610,top=50'); return false;">SplitPocket</a><img src="images/trans.gif" width="8"><font color="#999DA7">|</font><img src="images/trans.gif" width="8">
+	    <a href="http://pocket.med.wayne.edu/psc/" class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes, width=1024, height=610,top=50'); return false;">PSC</a><img src="images/trans.gif" width="8"><font color="#999DA7">|</font><img src="images/trans.gif" width="8">
+	    <a href="http://www.bsd.med.wayne.edu/"  class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=900,height=500,left=100,top=100'); return false;">Biol. Sci. Division</a><img src="images/trans.gif" width="8"><font color="#999DA7">|</font><img src="images/trans.gif" width="8">
+	    <a href="http://www.med.wayne.edu/"  class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=900,height=500,left=100,top=100'); return false;">U of Chicago</a><img src="images/trans.gif" width="8"><font color="#999DA7">|</font><img src="images/trans.gif" width="8">
+            <a href="http://www.sbc.anl.gov/"  class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=900,height=500,left=100,top=100'); return false;">Argonne National Laboratory</a><img src="images/trans.gif" width="8">
+     </td>
+      <td  align="right" valign="center">
+<form name="myform"  autocomplete="off" method="POST"  onSubmit="return checkpdbId()" action="pocCheck.php">
+<font color="#000000"><b>PDB</b></font>
+<input type="text" id="pdb" name="pdbId" size="6" value="1gcg">&nbsp;
+<input type="button" value="clear" onclick="clearEntry();" />
+      <input type="submit" value="Search">
+       <a href="tut.html" class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=1000,height=500,left=10,top=100'); return false;"> <font color=red>Help!</font></a>
+      <!--<td align="left" valign="bottom"> <input type="image" src="images/searchG.gif" width=30>-->
+      </form></td>
+      <!--<td align="left" width="10">&nbsp;</td>    
+     
+     <td align="left" valign="bottom"><img src="images/trans.gif" width="20"></td>-->
+    </tr>      
+   </table>
+     </td>
+    </tr> 
+    <tr><td><img src="images/trans.gif" width="1" height="8"></td></tr>                 
+   </table>
+   
+     
+      </td>
+     </tr>
+	 <tr><td colspan="6"><img src="images/trans.gif" width="1" height="2"></td></tr>        
+     <tr>
+      <td valign="top" width="214">   <table border="0" cellspacing="0" cellpadding="0">
+     <tr>
+      <td valign="top">
+	<table border="0" cellspacing="0" cellpadding="0" width="214">
+     <tr>
+      <td rowspan="7">
+      <img src="images/trans.gif" width="10" height="1">
+      </td>
+      <td valign="top">
+     <table border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+	   <td background="images/tab1.gif" width="214" height="24" colspan="3" class="subjectbar">
+	    &nbsp; <b>BACKGROUND</b> 
+	   </td>
+	  </tr>
+	  <tr>
+	   <td align="left" background="images/corner_left.gif" width="10">&nbsp;</td>	   
+	   <td width="194" class="bordertext">
+	   <img src="images/arrow_trans.png"> <a href="intro.html"  class="bordertext" target="_blank">Introduction</a>
+	   <br><img src="images/arrow_trans.png"> <a href="info.html"  class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=1024,height=600,top=100'); return false;">SplitPocket</a>
+	   <img src="images/vline.jpg">
+	   
+	  <!-- <img src="images/arrow_trans.png"> <a href="aims.html"  class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=900,height=500,left=100,top=100'); return false;">Research</a>
+	   -->
+	   <br><img src="images/arrow_trans.png"> <a href="http://pocket.med.wayne.edu/ytseng/index.html#RP" class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=900,height=500,left=100,top=100'); return false;">Gallery</a>
+	   </td>
+	   <td align="right" background="images/corner_right.gif" width="10">&nbsp;</td>
+	  </tr>
+	  <tr>
+	   <td colspan="3"><img src="images/corner_base.gif" width="214" height="10"></td>
+	  </tr>
+	 </table>
+	  </td>
+	 </tr> 
+	 <tr><td colspan="6"><img src="images/trans.gif" width="1" height="10"></td></tr>        	 
+	 <tr>
+	  <td valign="top">
+	 <table border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+	   <td background="images/tab2.gif" width="214" height="24" colspan="3" class="subjectbar">
+	    &nbsp; <b>ABOUT US</b> 
+	   </td>
+	  </tr>
+	  <tr>
+	   <td align="left" background="images/corner_left.gif" width="10">&nbsp;</td>	   
+	   <td class="bordertext" width="194">
+	   <img src="images/arrow_trans.png"> <a href="http://pondside.uchicago.edu/ecol-evol/people/li.html"  class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=1024,height=500,left=100,top=100'); return false;"> PI</a>
+	   <br><img src="images/arrow_trans.png"> <a href="../ytseng/"  class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'menubar=yes, toolbar=yes, location = 1, scrollbars=yes, resizable=yes,fullscreen=yes'); return false;"> Developer</a>
+	   <br><img src="images/arrow_trans.png"> <a href="http://pondside.uchicago.edu/~lilab/" class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=900,height=500,left=100,top=100'); return false;"> Li Lab</a>
+	   <br><img src="images/arrow_trans.png"> <a href="mailto:ytseng3@med.wayne.edu"> Contact us</a>
+	   </td>
+	   <td align="right" background="images/corner_right.gif" width="10">&nbsp;</td>
+	  </tr>
+	  <tr>
+	   <td colspan="3"><img src="images/corner_base.gif" width="214" height="10"></td>
+	  </tr>
+	 </table>
+	  </td>
+	 </tr>
+   </table>
+      </td>
+     </tr>
+     <tr><td><img src="images/trans.gif" width="1" height="10"></td></tr>     
+     <tr>
+      <td valign="top">
+
+
+	<table border="0" cellspacing="0" cellpadding="0" width="214">
+     <tr>
+      <td rowspan="7">
+      <img src="images/trans.gif" width="10" height="1">
+      </td>
+	 </tr> 
+	 <tr>
+	  <td valign="top">
+	 <table border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+	   <td background="images/tab3.gif" width="214" height="24" colspan="3" class="subjectbar">
+	    &nbsp; <b>RESOURCES</b>
+	   </td>
+	  </tr>
+	  <tr>
+	   <td align="left" background="images/corner_left.gif" width="10">&nbsp;</td>	   
+	   <td class="bordertext" width="194">
+	   <img src="images/arrow_trans.png"> Tutorial 
+	   <table>
+	    <tr>
+	     <td><img src="images/trans.gif" width="10" height="1"></td>
+	     <td class="bordertext">
+	      <!--<li><img src="images/new.jpg" align="right"><a href="/ijsc/ijsc.shtml" class="bordertext">fPOP</a>-->
+	      <li><a href="tut.html"  class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'toolbar=yes, menubar=yes, location = 1,  scrollbars=yes, resizable=yes, fullscreen=yes'); return false;"> <i>f</i>POP</a> 
+	      <li><a href="tut/index.html"  class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=1024,height=700,top=50'); return false;"> SplitPocket</a> 
+	      <li><a href="http://chemapps.stolaf.edu/jmol/docs/"  class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=900,height=500,left=100,top=100'); return false;"> JMOL</a> 
+	      <li><a href="http://www.ks.uiuc.edu/Research/vmd/" class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=900,height=500,left=100,top=100'); return false;"> VMD</a> 
+	     </td>
+	    </tr>
+	   </table>
+	   <br>
+	   <img src="images/arrow_trans.png"> <a href="http://pocket.med.wayne.edu/patch/compalg/readme.html" class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=1024,height=700'); return false;">Usplit</a>
+	   <br>
+	   <img src="images/arrow_trans.png"> <a href="help.html" class="bordertext" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=900,height=500,left=100,top=100'); return false;">Quick Help</a>	   
+	   </td>
+	   <td align="right" background="images/corner_right.gif" width="10">&nbsp;</td>
+	  </tr>
+	  <tr>
+	   <td colspan="3"><img src="images/corner_base.gif" width="214" height="10"></td>
+	  </tr>
+	 </table>	
+	  </td>
+	 </tr>             
+   </table>
+      </td>
+     </tr>     
+    </table>
+      </td>
+      <!--
+      <td width="10"><img src="trans.gif" width="10" height="1"></td>
+      -->
+      <td align=left valign="top">
+   <table border="0" cellspacing="0" cellpadding="0">
+     <tr>
+      <td class="text" width="710">      
+<img src="demo/1bag.gif" name="mypic" ALIGN="right" height="140">
+<div class="codetext"><i>f</i>POP: Footprinting protein functional<BR>surfaces by comparative<BR>spatial patterns</div>
+<!-- <FONT SIZE=+1><B>&#40;Includes the Standard Template Library&#41;</B></FONT>-->
+<BR><BR>
+
+by <B>Yan Yuan Tseng, Jeffrey Chen, and Wen-Hsiung Li. </B> <BR><BR><I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;University of Chicago</I><B></B>
+<BR><BR><BR>
+
+
+<i>f</i>POP (footprinting Pockets Of Proteins, http://pocket.med.wayne.edu/fpop/)
+is a database of  the protein functional surfaces identified by shape
+analysis. In this relational database, we collected the spatial patterns
+of protein binding sites including both holo and apo forms from more than
+40,000 structures. To identify protein binding sites, we model the shape
+of a split pocket induced by a binding ligand(s). Essentially, we use
+a purely geometric method to extract site-specific spatial patterns of
+split pockets as templates to match those from unbound structures. To
+perform an effective shape comparison, we utilize the Smith-Waterman
+algorithm to footprint an unbound pocket fragment with those selected from the
+canonical functional surfaces of >19,000 structures in the SplitPocket
+(http://pocket.med.wayne.edu/). The pairwise alignment of the unbound and
+split-pocket fragments is superimposed to evaluate the local structural
+similarity for detecting the unbound split characteristic through the
+RMSD measurement. Furthermore, we conduct a large-scale computation to
+systematically identify binding sites of proteins. In addition to the
+geometric measurements, we extensively measure the propensity of surface
+conservation encapsulated in the evolutionary history.(<a href="http://pocket.med.wayne.edu/fpop/intro.html" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, resizable=yes,width=1024,height=500,top=50'); return false;">more</a>)
+
+<BR><BR>
+
+       </td>
+      </tr> 
+     </table>
+       </td>
+      </tr>       
+      <tr>
+       <td valign="top" colspan="3" width="100%" background="images/wsuheader.gif">
+       
+<!------------------------COPYRIGHT-------------------------------->      
+     <table border="0" cellspacing="0" cellpadding="0" align="center">
+     <tr>
+      <td valign="top">
+      <table cellpadding="0" cellspacing="0" width="850" align="center" border="0">
+	   <tr>
+	    <td class="text" align="center">
+	    <hr noshade size="1">
+		<a href="http://pondside.uchicago.edu/ecol-evol/" target="new" class="text">Ecology and Evolution</a>&nbsp; |&nbsp;
+		<a href="http://biodiv.sinica.edu.tw/en2007/" target="new" class="text">Biodiversity Research Center</a>&nbsp; |&nbsp;
+		<a href="http://ccbb.biosci.utexas.edu/" target="new" class="text">CCBB</a>
+		<p>
+                         <font color="#660000" face="arial, helvetica" size="-2">Developed<br>
+                          by <a href="../ytseng/" target="_blank" onclick="window.open(this.href, this.target,'scrollbars=yes, width=900,height=700'); return false;">Yan Yuan Tseng</a><br><br>
+Center for Molecular Medicine and Genetics <br>
+Biochemistry and Molecular Biology Department<br>
+School of Medicine, Wayne State University<br><br>
+
+and <br><br>
+
+                          Wen-Hsuing Li's Lab<br>
+                          Department of Ecology and Evolution<br>
+                          Biological Sciences Collegiate Division<br> 
+			  1101 E 57th Street, Chicago, IL 60637<br>
+                          The University of Chicago
+		          <!--<br>Updated on 30 June 2009-->
+	    </td>
+	   </tr>
+	   <tr><td colspan="6"><img src="images/trans.gif" width="1" height="5"></td></tr>        
+      </table>
+      </td>
+     </tr>
+	 </table>	 
+<!--------------------------END COPYRIGHT------------------------------->
+      </td>
+     </tr>  
+    </table>
+     </td>  
+     <td valign="top" background="images/shadow_right.jpg" width="15">
+   <table cellspacing="0" cellpadding="0" border="0" width="15">
+    <tr>
+     <td valign="top">
+     <img src="images/shadow_right.jpg" border="0">
+     </td>
+    </tr>
+   </table>
+	 </td>      
+    </tr>    
+	<tr>
+     <td colspan="5" valign="top" width="900">
+   <table cellspacing="0" cellpadding="0" align="center" width="998" border="0">
+	<tr>
+	 <td valign="top" width="998"><img src="images/shadow_base.jpg" border="0"></td>
+	</tr>
+   </table>
+	 </td>
+	</tr> 
+   </table>
+
+ </body>
+</html>

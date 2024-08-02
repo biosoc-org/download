@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>PocketQuery</title>
+<meta name="keywords" content="PPI inhibitors" />
+<link href="index.css" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-300997-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+/*
+  $(document).ready(function() {
+          $('#notice').slideDown();
+          $('#notice .closebutton').click(function() { $('#notice').slideUp(); });
+*/
+});
+</script>
+
+</head>
+<body>
+                <div id="notice">
+                PocketQuery is currently down while a corrupted database gets repaired.  Please check back later. <div class=closebutton></div>
+                </div>
+
+<div class=main>
+<div class=help><a href="upload.html">Upload</a>&nbsp;&nbsp; <a href="help.html">Help</a></div>
+<h1>Pocket<span style="font-weight: 400;  text-shadow: 0 0 0.15em navy;">Query</span></h1>
+<h3>PPI Inhibitor Starting Points from PPI Structure</h3>
+<div class=desc>
+<div style="display:table-cell;">
+<div class=right>
+<div style="width:280px;margin-bottom: 1em; background-color: #eeeeff; padding: 10px; border: thin solid black; border-radius: 5px;">For best results, please use <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a>.
+If you have a modern browser, Java is <b>not</b> required.</div>
+<a href="pocket.html?SESSION=http://pocketquery.csb.pitt.edu/examples/mdm2.query">
+<img src="img/pscreen.png" style="display:block;border: none"></img></a>
+<div class=caption>The top ranked cluster in <a href="pocket.html?SESSION=http://pocketquery.csb.pitt.edu/examples/mdm2.query">this example screen</a> of the p53/MDM2 interface, an anti-cancer target,
+is a proven starting point for drug discovery.</div>
+</div>
+<center><h1><a href="pocket.html">Search</a></h1>
+<h3><a href="pocket.html?JMOL=1">Use Jmol Interface</a></h3>
+</center>
+<p>
+PocketQuery is a web service for interactively exploring not only hot spot and anchor residues,
+but hot <em>regions</em>, defined by clusters of residues, at the interface of protein-protein interactions.
+</p>
+<p>An assortment of metrics, including changes in solvent accessible surface area, 
+energy-based scores, and sequence conservation, are available to screen and sort clusters of residues.</p>
+<p>
+PocketQuery was developed by <a href="http://www.pitt.edu/~dkoes/">David Koes</a> from the
+<a href="http://smoothdock.ccbb.pitt.edu">Camacho Lab</a> 
+in the <a href="http://www.csb.pitt.edu">Department of Computational and System Biology</a> 
+at the <a href="http://www.pitt.edu">University of Pittsburgh</a>.  
+</div>
+</div>
+        <div style="padding:1em; font-style: oblique; font-size:x-small">
+          This open access technology is funded through 1R01GM097082-01
+             from the National Institute of General Medical Sciences.
+            The content is solely the responsibility of the authors and does not necessarily 
+             represent the official views of the National Institute of General Medical Sciences or the National Institutes of Health.
+        </div>
+<div class=copy>Copyright 2011-2013 Camacho Lab </div>
+</div>
+</body>
+</html>

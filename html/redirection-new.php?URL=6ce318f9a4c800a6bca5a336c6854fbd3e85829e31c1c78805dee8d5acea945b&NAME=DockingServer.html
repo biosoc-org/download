@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html> 
+<head>
+  <title>Molecular Docking Server - Ligand Protein Docking &amp; Molecular Modeling</title> 
+  <meta name="description" content="Molecular Docking server helps you setup ligand &amp; protein for molecular modeling &amp; ligand docking using high-throughput virtual screening. It uses Autodock &amp; Mopac for docking calculations."> 
+  <meta name="keywords" content="Molecular Docking, Molecular Modeling, Ligand Docking, Ligand Protein, Virtual Screening, Autodock, Mopac"> 
+
+  <link rel="STYLESHEET" type="text/css" href="/css/dockingserver.css">
+  <link rel="STYLESHEET" type="text/css" href="/css/autodock.regi.css">
+  <link rel="STYLESHEET" type="text/css" href="/css/autodock_old.css">
+  <link rel="SHORTCUT ICON" href="/dockingserver.ico"> 
+
+	<script type="text/javascript" src="/javascript/jquery-2.2.0.min.js" ></script>
+	<script type="text/javascript" src="/javascript/jquery-migrate-1.3.0.js" ></script>
+
+	<script type="text/javascript" src="/javascript/my.js"></script>
+	<script type="text/javascript" src="/javascript/jquery.tooltip.pack.js"></script>
+	<script type="text/javascript" src="/javascript/jquery.highlightFade.js"></script>
+	<script type="text/javascript" src="/javascript/jquery.dimensions.pack.js"></script>
+	<script type="text/javascript" src="/javascript/jquery-modalContent.js"></script>
+
+	<script type="text/javascript" src="/javascript/client_data.js"></script>
+	<script type="text/javascript" src="/javascript/marvin_export.js"></script>
+
+  <script type="text/javascript" src="/jmol/JSmol.min.nojq.js"></script>
+  <script type="text/javascript" src="/jmol/Jmol2.js"></script>
+
+	<script src="/marvinjs/js/marvinjslauncher.js"></script>
+</head>
+
+<body>
+  <div id="container"> 
+    <div id="header" > 
+      <h1><a href="/web/"><span>Docking Server</span></a></h1>
+      <div id="menu">
+
+				                  <ul id="menu-right">
+            <li class="first">&nbsp;</li>
+            <li><div><a href="/web/signin/">Sign in</a></div></li>
+            <li class="last"><div><a href="/web/register/">Register</a></div></li>
+          </ul>
+        
+          <ul id="menu-left">
+            <li class="first selected"><div><a href="/web/">Home</a></div></li>
+            <li><div><a href="/web/pricing/">Pricing</a></div></li>
+            <li><div><a href="/web/gettingstarted/">Getting Started</a></div></li>
+            <li><div><a href="/web/consulting/">Consulting Services</a></div></li>
+            <li><div><a href="/web/references/">References</a></div></li>
+            <li><div><a href="/forum/">Forum</a></div></li>
+            <li><div><a href="/web/about/">About Us</a></div></li>
+            <li class="last">&nbsp;</li>
+          </ul>
+          
+				        				
+      </div>
+    </div>
+      
+    <div id="main" >
+    
+		  
+		<div style="clear:both;"></div>
+
+  
+<div id="login">
+  <form action="/web/login/" method="post">
+    <h2><span>Sign in</span></h2>
+    <div>
+      <label for="username">username:</label>
+      <input type="text" name="username" id="username" value=""/>
+    </div>
+    <div>
+      <label for="password">password</label>
+      <input type="password" name="pwd" id="password"/>
+    </div>
+    <div>
+      <a href="/web/register/" id="register"><span>register</span></a>
+      <input type="submit" value="" id="submit">
+    </div>
+  </form>
+  <div id="trial">
+    <a href="/web/trial/"><span>Free trial login</span></a>
+  </div>
+  <div class="info">
+		<b>Last updated:</b>&nbsp;&nbsp;2021/11/13 (r306)<br><br>
+		<a href="/web/forgot/" style="color: #4099C5;text-decoration:none;">Forgot your password?</a>
+	</div>
+</div>
+
+<div id="slideshow2">
+  <ul id="ts_slideshow">
+		<li>
+			<h3>Integrated docking solution</h3>
+			<span>/pics/tinyslideshow/photos/step0.gif</span>
+			<p> Molecular docking tasks can be solved with our comprehensive web application, the DockingServer </p>
+		</li><li>
+			<h3>Improved accuracy </h3>
+			<span>/pics/tinyslideshow/photos/figure0b.gif</span>
+			<p> Enhanced docking accuracy of docking calculations by Docking Server due to more accurate protein partial charge calculation using quantum chemical methods </p>
+		</li><li>
+			<h3> Easy ligand preparation </h3>
+			<span>/pics/tinyslideshow/photos/fig3.jpg</span>
+			<p>Ligands can be downloaded directly from PubChem or just drawn in. Docking Server calculates the dock-ready 3D structure</p>
+		</li>
+	</ul>
+	<div id="ts_wrapper">
+		<div id="ts_fullsize">
+			<div id="ts_imgprev" class="ts_imgnav" title="Previous Image"></div>
+			<div id="ts_imglink"></div>
+			<div id="ts_imgnext" class="ts_imgnav" title="Next Image"></div>
+			<div id="ts_image"></div>
+			<div id="ts_information">
+				<h3>&nbsp;</h3>
+				<p>&nbsp;</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="content" class="with_loginbox with_sidebar">
+
+
+  
+    <div class="accordion">
+    		<h1>About DockingServer</h1>
+    		<div class="accordion-item active">
+    			<p>DockingServer offers a web-based, easy to use interface that handles all aspects of molecular docking from ligand and protein set-up.</p>
+    			<p>While its user friendly interface enables docking calculation and results evaluation carried out by researchers coming from all fields of biochemistry, DockingServer also provides full control on the setting of specific parameters of ligand and protein set up and docking calculations for more advanced users.</p>
+    			<p>The application can be used for docking and analysis of single ligands as well as for high throughput docking of ligand libraries to target proteins.</p>
+    			<p>DockingServer integrates a number of computational chemistry software specifically aimed at correctly calculating parameters needed at different steps of the docking procedure, i.e. accurate ligand geometry optimization, energy minimization, charge calculation, docking calculation and protein-ligand complex representation. Thus, the use of DockingServer allows the user to carry out highly efficient and robust docking calculations by integrating a number of popular software used in in silico chemistry into one comprehensive web service.</p>
+    		</div>
+    
+    		<h1>Features</h1>
+    		<div class="accordion-item">
+    			Docking Server windows are organized into three modules following the basic steps of docking calculations<br/><br/>
+    			<ol>
+      			<li><p>The <b>proteins</b> can be uploaded as a pdb file, or can directly be downloaded (after keyword search in the database if needed) from <b>Protein Data Bank</b> (www.rcsb.org). Small molecules present in the pdb files can be added to the ligand folder. More accurate protein partial charge calculation using quantum chemical methods.</p></li>
+      			<li><p>The <b>ligands</b> can be directly downloaded from <b>PubChem</b> database, uploaded or drawn in. Besides single ligands, multiple ligands in <b>sdf files</b> can also be uploaded so that to enable high throughput docking of ligand libraries.</p> 
+                <p>The user can chose the desired pH affecting the protonation state of the ligand and whether semiempirical charges and optimization should be carried out during the process of ligand preparation.</p>
+            </li>
+      			<li><p>In the <b>docking</b> window multiple ligands and/or dockings so that invidiual docking calculation as well as virtual high throughput screening can be carried out. The docking calculation can be started using the default parameters; moreover, it is also possible to manually set docking parameters for more advanced users.</p>
+                <p>Finally, docking results are automatically processed in different ways to offer better understanding of the results: 1, resulting docking energies, frequencies and downloadable pdb coordinates are summarized in a table; 2, figures of the calculated ligand-protein complexes are automatically generated by VMD or can be manually rendered using the Jmol applet;  3, ligand-protein interaction tables are automatically generated that helps identify the driving forces of the complexation; 4, The applied methods and the according references are summarized.</p>
+            </li>
+          </ol>
+    		</div>
+    
+    		<h1>Pricing and Availability</h1>
+    		<div class="accordion-item">
+    			<p>Registration is required for a private workspace. Quantum chemical treatment of the input files, data storage of the input and output files, e-mail and forum support are available upon subscription (see pricing). Free limited access is provided without registration using a common workspace. Sales issues please <a href=mailto:sales@virtuadrug.com>e-mail our sales team</a> or contact our head office.</p>
+    		</div>
+    
+    		<h1>References</h1>
+    		<div class="accordion-item">
+    			<ul class="nobull">
+						<li><h5>DockingServer Reference</h5>
+							Bikadi, Z., Hazai, E.<br/>
+							<a href="http://www.jcheminf.com/content/1/1/15">
+								Application of the PM6 semi-empirical method to modeling proteins enhances docking accuracy of AutoDock
+							</a><br/>
+							J. Cheminf. <b>1</b>, 15 (2009)
+						</li>
+						<li><h5>AutoDock 4</h5>
+							Huey, R., Morris, G. M., Olson, A. J. and Goodsell, D. S.<br/>
+							<p><i>A Semiempirical Free Energy Force Field with Charge-Based Desolvation</i></p>
+							J. Comput. Chem. <b>28</b>, 1145-1152 (2007)
+						</li>
+						<li><h5>MOPAC2009</h5>
+							Stewart, J. J. P.<br/>
+							<a href="http://OpenMOPAC.net">OpenMOPAC.net</a><br/>
+							Stewart Computational Chemistry, Colorado Springs, CO, USA (2009)
+						</li>		
+						<li><h5>Marvin</h4>
+							Marvin is used for drawing, displaying and characterizing chemical structures, substructures and reactions<br/>
+							<a href="http://www.chemaxon.com">http://www.chemaxon.com</a><br/>
+							Marvin 5.0, ChemAxon (2008)
+						</li>
+						<li><h5>Jmol</h5>
+							Jmol is an open-source Java viewer for chemical structures in 3D<br/>
+							<a href="http://jmol.sourceforge.net">http://jmol.sourceforge.net</a>
+						</li>
+					</ul>
+				</div>
+    
+    		<h1>About us</h1>
+    		<div class="accordion-item">
+    			<p>Virtua Drug research and development company  is a rapidly growing, innovative operation aimed at offering solutions for high-quality molecular modeling for the pharmaceutical industry, chemical database management, and chemoinformatics. Virtua Drug integrates areas of expertise such as computer science, biology, and biochemistry thus facilitating the utilization of informatics with biochemical models to interpret experimental data, develop predictive models, and support biochemistry and medicine.</p>
+    			<p>Virtua Drug Ltd offers various kinds of computer-aided biochemistry services, including the handling of computer-based research projects in order to explain and rationalize experimental data. Virtua Drug has extensive experience in applying methods such as molecular docking and molecular dynamics calculations, homology modelling, and ligand-protein docking.</p>
+    			<p>Contact us at <a href=mailto:info@dockingserver.com>info@dockingserver.com</a></p>
+    		</div>
+    </div> 
+	
+  
+  
+</div>
+
+
+<script type='text/javascript' src='/javascript/tinyslideshow.js'></script>
+	<script type="text/javascript">
+	
+		$_('ts_slideshow').style.display='none';
+		$_('ts_wrapper').style.display='block';
+		var slideshow=new TINY.slideshow("slideshow");
+		$(function() {
+		  slideshow.auto=true;
+			slideshow.speed=5;
+			slideshow.link="ts_linkhover";
+			slideshow.info="ts_information";
+
+			slideshow.left="ts_slideleft";
+			slideshow.right="ts_slideright";
+			slideshow.scrollSpeed=4;
+			slideshow.spacing=5;
+			slideshow.active="#fff";
+			slideshow.init("ts_slideshow","ts_image","ts_imgprev","ts_imgnext","ts_imglink");
+		});
+	
+	</script>
+
+  <br clear="all">
+  </div>
+
+  <div id="dsfooter">
+      <div> 
+        <a href="/web/">Molecular Docking Server</a> |
+        <a href="/web/gettingstarted/#features">Features of Molecular Docking Server</a> |
+        <a href="/web/gettingstarted/#faq">FAQs</a> |
+        <a href="/web/pricing/">Pricing</a> |
+        <a href="/web/about/">About us</a> |
+        <a href="/web/disclaimer/">TOC & Liability Disclaimer</a> |
+        <a href="/web/publications/">Publications</a> 
+      </div> 
+      <div>
+        <b>DOCKINGSERVER</b> (copyright &copy; 2006-2009 Virtua Drug) is maintained by Virtua Drug Ltd; info@dockingserver.com
+      </div>
+  </div>
+  <script type="text/javascript">
+      //footer pozicionalas
+      //if ($('#footer').length && $('#body').length && $(window).height()>$('#body').height()) $('#footer').addClass('bottom');
+  </script>
+</div>  
+
+	<div style="display:none;">
+				<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+			var pageTracker = _gat._getTracker("UA-4796076-1");
+			pageTracker._setVar("alapbongeszo");
+			pageTracker._trackPageview();
+			pageTracker._setVar("alapbongeszo");
+		</script>
+	</div>
+	
+</body>
+</html>

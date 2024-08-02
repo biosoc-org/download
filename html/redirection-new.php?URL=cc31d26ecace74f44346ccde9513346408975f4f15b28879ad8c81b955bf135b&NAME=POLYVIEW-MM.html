@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>POLYVIEW-MM - Explorer of molecular motions</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="A. Porollo, J. Meller">
+  <meta name="keywords" 
+        content="protein visualization,
+                 protein structure visualization,
+                 protein conformation,
+                 conformation analysis,
+                 molecular motion,
+                 molecular visualization">
+  <meta name="description" content="POLYVIEW-MM is a server to analyze and visualize the ensembles of molecular models.">
+
+  <link rel="icon" type="image/gif" href="//polyview.cchmc.org/design/logoMM.gif" />
+  <link href="design.css" rel="stylesheet" type="text/css" media="screen,print" />
+</head>
+
+<script type="text/javascript">
+var win_data = null;
+function DataLookupOnClick() {
+    // close already opened window
+    if (win_data && win_data.open && !win_data.closed) {
+        win_data.close();
+        win_data = null;
+    }
+
+    var form = document.VisualForm;
+    // escape keywords
+    var keywords = escape(form.PDBkeywords.value);
+    if (keywords.length == 0) {
+        alert('No keywords specified!');
+        return;
+    }
+    // create a new window
+    win_data = window.open("", "POLYVIEW_PDBdata", "width=500,height=600,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=no,titlebar=yes,left=10,top=10,screenX=10,screenY=10");
+    win_data.creator = self;
+    win_data.location.href = '/cgi-bin/get_pdb_data.cgi?Info=search\&Keywords=' + keywords;
+    win_data.focus();
+}
+
+function validateEntry() {
+    var form = document.VisualForm;
+    if (form.PDBName.value.length != 4 && !form.PDBFileName.value) {
+      alert('No coordinate data source specified.');
+      return false;
+    }
+
+    return true;
+}
+
+function UpdateSidebarInfo(id) {
+    var fr = document.getElementById(id);
+    fr.src = fr.src;
+}
+
+function DocInit() {
+    GetParameters();
+    FormOnReset();
+    UpdateSidebarInfo('ifLastRequest');
+    UpdateSidebarInfo('ifLastUpdate');
+
+    var form = document.VisualForm;
+    for (var i=0; i<form.ExtServer.length; i++) {
+	if (form.ExtServer[i].checked) {
+            ExternalServerOnChange(form.ExtServer[i].value);
+	}
+    }
+}
+
+function GetParameters() {
+    var form = document.VisualForm;
+    var url = window.location.search.substring(1);
+    var param = url.split('&');
+    for (var i=0; i<param.length; i++) {
+        var pos = param[i].indexOf('=');
+        if (pos > 0) {
+            var key = param[i].substring(0, pos);
+            var value = unescape(param[i].substring(pos + 1));
+            if (key == 'PDBName' && value.length == 4)
+                form.PDBName.value = value;
+       }
+    }
+    SourceOnChange();
+}
+
+function TAOnChange() {
+    var form = document.VisualForm;
+    var atype = '';
+    for (var i=0; i<form.TAnalysis.length; i++) {
+	if (form.TAnalysis[i].checked) {
+           atype = form.TAnalysis[i].value;
+	}
+    }
+
+    document.getElementById('taMD').style.visibility =
+      (atype == 'md') ? 'visible' : 'hidden';
+    document.getElementById('taLD').innerHTML =
+      (atype != 'ligdock') ? '' : '\
+              <label>Ligand file <input type="file" name="LDF" size="20"></label><br>\
+              <label title="Choose compression of the file">compression\
+              <select name="CompFormat2">\
+                <option value="none" selected>Uncompressed</option>\
+                <option value="zip">zip</option>\
+                <option value="gz">gz</option>\
+                <option value="bz2">bzip</option>\
+              </select>\
+              </label>'
+}
+
+function ExternalServerOnChange(server) {
+    document.getElementById('divPocket').innerHTML =
+        (server != 'fpocket') ? '' : '\
+              <select name="pocketlimittype">\
+                <option value="area">with area</option>\
+                <option value="volume" selected>with volume</option>\
+                <option value="all">all</option>\
+              </select>\
+              <label> greater than\
+              <input name="pocketlimitvalue" value="100" style="width: 30px">\
+              </label>,\
+              <label>based on model\
+              <input type="text" name="PDBModel" value="1" style="width: 30px">\
+              </label>';
+    document.getElementById('divSPPIDER').innerHTML =
+        (server != 'sppider') ? '' : '\
+              <label>based on the model number\
+              <input type="text" name="PDBModel" value="1" style="width: 30px">\
+              </label>';
+}
+
+function SourceOnChange() {
+    var form = document.VisualForm;
+    var src_str = '';
+    src_str +=
+        (form.PDBName.value.length == 4) ? 
+            'PDB entry, code=' + form.PDBName.value :
+        (form.PDBFileName.value) ?
+            'Custom PDB file' : 'Not specified. Please use the options above.';
+    document.getElementById('pdbfilesrc').innerHTML = src_str;
+}
+
+function FormatOnChange() {
+    var form = document.VisualForm;
+    var format = 'pdb';
+    for (var i=0; i<form.FileFormat.length; i++) {
+        if (form.FileFormat[i].selected) format = form.FileFormat[i].value;
+    }
+    document.getElementById('divStrFile').style.display =
+        (format == 'pdb') ? 'none' : 'inline';
+}
+
+function FormOnReset() {
+    TAOnChange();
+    FormatOnChange();
+    SourceOnChange();
+}
+</script>
+                                   
+<body onload="DocInit()">
+<div class="noprint">
+<div id="logo">
+  <h1>
+    <a href="https://doi.org/10.1093/nar/gkq445" target="_blank" title="Original publication">POLYVIEW-MM</a>
+  </h1>
+  <h2>
+    Analysis and visualization of the ensembles of molecular models
+  </h2>
+</div>                      
+<!-- CCHMC and UC logo at the top right corner -->
+<script type="text/javascript" src="//sable.cchmc.org/logo.js"></script>
+<!-- posted news and updates regarding the server -->
+<script type="text/javascript" src="//sable.cchmc.org/news.js"></script>
+
+<div id="menu">
+  <ul>
+    <li class="first"><a href="conform_doc.html" title="Documentation and protein sets" target="doc">Documentation</a></li>
+    <li><a href="//polyview.cchmc.org/polyview_faq.html" title="Frequently asked questions" target="_blank">FAQ</a></li>
+    <li><a href="//sable.cchmc.org/cgi-bin/stat.cgi?SRC=POLYVIEW" title="Usage: numbers and types of requests, geography of users" target="_blank">Statistics</a></li>
+    <li><a href="//polyview.cchmc.org/gallery.html" title="User defined image gallery" target="_blank">Gallery</a></li>
+    <li><a href="//sable.cchmc.org/acknowledge.html" title="Acknowledgements to funding, hosting and other support" target="_blank">Credits</a></li>
+    <li><a href="javascript:ShowNews('POLYVIEW-MM')" title="Announcements, updates, news">News</a></li>
+    <li><a href="//sable.cchmc.org/cgi-bin/contact_page.cgi?Server=POLYVIEW" title="Gateway to feedback" target="_blank">Contacts</a></li>
+    <li><a href="//polyview.cchmc.org/" title="POLYVIEW-2D: Protein structure annotation and visualization in 2D">POLYVIEW-2D</a></li>
+    <li><a href="//polyview.cchmc.org/polyview3d.html" title="POLYVIEW-3D: Protein structure annotation and visualization in 3D">POLYVIEW-3D</a></li>
+  </ul>                          
+</div>
+
+<hr />
+<div id="banner" style="background: url(design/system/img05mm.png) no-repeat; height: 235px; margin-top: 8px">
+</div>
+
+<form name="VisualForm" method="post"
+      accept-charset="UTF-8" encTYPE="multipart/form-data"
+      action="//polyview.cchmc.org/cgi-bin/pr_picture_conform.cgi"
+      target="_blank" onsubmit="return validateEntry()"
+      onreset="FormOnReset()">
+
+<!-- start page -->
+<div id="page_main">
+  <!-- start content -->
+  <div id="content">                               
+    <div class="post">
+      <div class="meta" title="Source of structural data: PDB deposited or custom coordinate file">
+        <div class="hide">
+          <a href="javascript:{document.VisualForm.reset();FormOnReset()}" title="Clear the form" style="margin-right: 30px">Reset</a>
+          <a href="javascript:{if (validateEntry()) document.VisualForm.submit()}" title="Submit a request">Submit</a>
+        </div>
+        <div>Structural Data in 3D Coordinates (<a class="help" href="//polyview.cchmc.org/polyview_doc.html#InputPDB" target="doc">Help</a>)</div>
+      </div>
+
+      <div id="divStructureSource" style="display: block">
+      <table>
+      <tr>
+        <td>
+        <fieldset><legend><a href="https://www.rcsb.org/" title="Protein Data Bank - repository of 3D structures" target="_blank">PDB</a> deposited protein structure</legend>
+          <p>
+          <label title="4 letters ID, e.g. 2kmv">PDB ID
+          <input type="text" name="PDBName" value=""
+                 onchange="SourceOnChange()"
+                 onkeyup="SourceOnChange()"
+                 size="5" maxlength="4" style="margin-right: 30px">
+          </label>
+          <label title="Enter keyword(s) and click Find to retrieve a list of PDB IDs">Get ID by keyword
+          <input type="text" name="PDBkeywords" value="" size="30">
+          </label>
+          <input type="button" name="btnPDBIDLookup" value="Find"
+                 title="Find protein structures available in PDB"
+                 onclick="DataLookupOnClick('search')">
+          </p>
+        </fieldset>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <fieldset><legend>Molecular structure in a custom coordinate file</legend>
+          <p>                                 
+	  <label title="Choose the format of the input file">Select format
+            <select name="FileFormat" onchange="FormatOnChange()">
+              <option value="pdb" selected>pdb (Protein Data Bank)</option>
+              <option value="dcd">dcd (NAMD/CHARMM)</option>
+              <option value="trr">trr (GROMACS)</option>
+            </select>
+          </label>
+          <label title="Choose compression of the file">and compression
+            <select name="CompFormat1">
+              <option value="none" selected>Uncompressed</option>
+              <option value="zip">zip</option>
+              <option value="gz">gz</option>
+              <option value="bz2">bzip</option>
+            </select>
+          </label>
+          </p>
+          <table>
+          <tr>
+            <td>
+              Coordinate file
+              <input type="file" name="PDBFileName" title="Specify a coordinate file"
+                     size="35" onchange="SourceOnChange()">
+            </td>
+            <td>
+              <i>(50 MB file size limit)</i>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div id="divStrFile" style="display: none">
+              Structure file
+              <input type="file" name="StrFileName" title="Specify a structure definition file" size="35"><br>
+              <i>(Expected formats: NAMD and CHARMM=dcd/psf GROMACS=trr/gro)</i>
+              </div>
+            </td>
+          </tr>
+          </table>
+        </fieldset>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <fieldset><legend>Current data source</legend>
+          <p id="pdbfilesrc">
+          </p>
+        </fieldset>
+        </td>
+      </tr>
+      </table>
+      </div>
+
+      <div class="meta" title="Specify type of analysis and related parameters">
+        <div class="hide">
+          <a href="javascript:{document.VisualForm.reset();FormOnReset()}" title="Clear the form" style="margin-right: 30px">Reset</a>
+          <a href="javascript:{if (validateEntry()) document.VisualForm.submit()}" title="Submit a request">Submit</a>
+        </div>
+        <div>Settings (<a class="help" href="//polyview.cchmc.org/polyview_doc.html#" target="doc">Help</a>)</div>
+      </div>
+
+      <div id="divSettings" style="display: block">
+        <fieldset><legend>Type of conformational analysis</legend>
+          <table>
+          <tr>
+            <td>
+              <label title="Analysis of NMR-derived models">
+              <input type="radio" name="TAnalysis" value="nmr" checked
+                     onclick="TAOnChange()">
+              Ensemble of NMR models
+              </label>
+            </td>
+            <td>
+              <i>(Examples: 2kmv, 2kcj)</i>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label title="Analysis of low-frequency motions">
+              <input type="radio" name="TAnalysis" value="morph"
+                     onclick="TAOnChange()">
+              Morph or low-frequency motion
+              </label>
+            </td>
+            <td>
+              <i>(<a href="//polyview.cchmc.org/tutor/molmovdb.pdb"
+                     target="_blank"
+                     title="PDB file with a MolMovDB morph">download example</a>)</i>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label title="Analysis of MD trajectory">
+              <input type="radio" name="TAnalysis" value="md"
+                     onclick="TAOnChange()">
+              MD or other trajectory
+              </label>
+              <label id="taMD" style="visibility: hidden; margin-left: 10px">
+              Stride
+              <input type="text" name="MPF" value="10" style="width: 30px">
+              </label>
+            </td>
+            <td>
+              <i>(download
+              <a href="//polyview.cchmc.org/tutor/md.dcd"
+                 title="DCD file with MD trajectory (2.5MB)">
+              DCD</a>/<a href="//polyview.cchmc.org/tutor/md.psf"
+                 title="Structure definition file for the DCD file (248kB)">PSF</a>
+              or
+              <a href="//polyview.cchmc.org/tutor/md.pdb.gz"
+                 title="gzipped PDB file with MD simulation (3.7MB)">PDB</a>)</i>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label title="Analysis of protein docking simulation">
+              <input type="radio" name="TAnalysis" value="protdock"
+                     onclick="TAOnChange()">
+              Protein-protein docking models
+              </label>
+            </td>
+            <td>
+              <i>(<a href="//polyview.cchmc.org/tutor/cluspro.pdb"
+                     target="_blank"
+                     title="PDB file with ClusPro docking models">download example</a>)</i>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label title="Analysis of protein-DNA/RNA complexes">
+              <input type="radio" name="TAnalysis" value="pdna"
+                     onclick="TAOnChange()">
+              Protein-DNA/RNA models
+              </label>
+            </td>
+            <td>
+              <i>(Examples: 1lo1, 2jpa)</i>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 350px">
+              <label title="Analysis of ligand docking simulation">
+              <input type="radio" name="TAnalysis" value="ligdock"
+                     onclick="TAOnChange()">
+              Protein-ligand docking models
+              </label><br>
+              <div id="taLD" style="margin-left: 10px"></div>
+            </td>
+            <td>
+              <i>(download
+	      <a href="//polyview.cchmc.org/tutor/dock_receptor.pdb"
+                 target="_blank"
+                 title="PDB file with receptor">receptor</a>,
+	      <a href="//polyview.cchmc.org/tutor/dock_ligand.dlg"
+                 target="_blank"
+                 title="Autodock file with ligand models">ligand</a>)
+              </i>
+            </td>
+          </tr>
+          </table>
+        </fieldset>
+        <fieldset><legend>Structural annotation</legend>
+        <table>
+        <tr>
+          <td>
+            <!-- FPocket -->
+            <label title="Scalable high performance pocket detection">
+            <input type="radio" name="ExtServer" value="fpocket"
+                   onclick="ExternalServerOnChange(value)">
+            Find <b>pockets</b> using
+            </label>
+            <a href="https://github.com/Discngine/fpocket" target="_blank"
+               title="Scalable high performance pocket detection">FPocket</a>
+            <div id="divPocket" style="display: inline"></div>
+            <br>
+            <!-- SCORPPION -->
+            <label title="Atlas of protein interactions found in PDB">
+            <input type="radio" name="ExtServer" value="scorppion"
+                   onclick="ExternalServerOnChange(value)">
+            Map <b>protein interfaces</b> from
+            </label>
+            <a href="https://www.rcsb.org/" target="_blank"
+               title="Protein Data Bank">PDB</a>
+            <br>
+            <!-- SPPIDER -->
+            <label title="3D structure-based prediction of interaction sites">
+            <input type="radio" name="ExtServer" value="sppider"
+                   onclick="ExternalServerOnChange(value)">
+            Predict <b>interaction sites</b> using
+            </label>
+            <a href="//sppider.cchmc.org/" target="_blank"
+               title="Solvent accessibility based Protein-Protein Interface iDEntification and Recognition">SPPIDER</a>
+            <div id="divSPPIDER" style="display: inline"></div>
+            <br>
+            <!-- Pfam -->
+            <label title="Protein Families database">
+            <input type="radio" name="ExtServer" value="pfam"
+                   onclick="ExternalServerOnChange(value)">
+            Map <b>protein domains</b> using
+            </label>
+            <a href="http://pfam.sanger.ac.uk/" target="_blank"
+               title="Protein Families database">Pfam</a>
+            <br>
+            <!-- PDBTM -->
+            <label title="PDB of Transmembrane Proteins">
+            <input type="radio" name="ExtServer" value="pdbtm"
+                   onclick="ExternalServerOnChange(value)">
+            Determine <b>TM domains</b> using
+            </label>
+            <a href="http://pdbtm.enzim.hu/" target="_blank"
+               title="PDB of Transmembrane Proteins">PDBTM</a>
+            <br>
+            <!-- PSI-BLAST -->
+            <label title="Evolutionary conservation profile">
+            <input type="radio" name="ExtServer" value="blast"
+                   onclick="ExternalServerOnChange(value)">
+            Compute <b>evolutionary profile</b> using
+            </label>
+            <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" target="_blank"
+               title="Position-Specific Iterated BLAST">PSI-BLAST</a>
+            <br>
+            <!-- ConSurf -->
+<!--
+            <label title="Functional regions in proteins">
+            <input type="radio" name="ExtServer" value="consurf"
+                   onclick="ExternalServerOnChange(value)">
+            Highlight <b>hotspots</b> identified by
+            </label>
+            <a href="http://consurf.tau.ac.il/" target="_blank"
+               title="Server for Identification of Functional Regions in Proteins">ConSurf</a>
+            <i>(only for PDB files with modified B-factors)</i>
+            <br>
+-->
+            <!-- None -->
+            <label>
+            <input type="radio" name="ExtServer" value="none" checked
+                   onclick="ExternalServerOnChange(value)">
+            No annotations
+            </label>
+          </td>
+        </tr>
+        </table>
+        </fieldset>
+      </div>
+
+      <p>
+      <label>
+      <input type="text" name="EMail" value="" size="40"
+             title="Specify address to receive a link to results"> E-mail address (<i>optional</i>)
+      </label>
+      </p>
+      <p>
+      <input type="submit" value="Submit">
+      <input type="button" value="Reset" onclick="document.VisualForm.reset();FormOnReset()">
+      </p>
+
+    </div>
+  </div>
+  <!-- end content -->
+  <!-- start sidebar -->
+  <div id="sidebar">
+    <ul>
+    <li>
+      <h2>Last request</h2>
+      <iframe id="ifLastRequest"
+              src="//sable.cchmc.org/cgi-bin/get_server_info.cgi?Info=request&Server=POLYVIEW-MM"
+              style="width: 230px; height: 280px; border: 0; margin-left: 10px"
+	      frameborder="no" scrolling="no"></iframe>
+      <a style="float: right" href="javascript:UpdateSidebarInfo('ifLastRequest')">Refresh</a>
+    </li>
+    <li>
+      <h2>Last update</h2>
+      <iframe id="ifLastUpdate"
+              src="//sable.cchmc.org/cgi-bin/get_server_info.cgi?Info=update&Server=POLYVIEW-MM"
+              style="width: 230px; height: 250px; border: 0; margin-left: 10px" frameborder="no"></iframe>
+      <a style="float: right" href="javascript:ShowNews('POLYVIEW-MM')">More news</a>
+    </li>
+    <li>
+      <h2>Geography of users</h2>
+      <p style="text-align: center; margin: 0 auto 0 auto">
+        <a href="https://www2.clustrmaps.com/counter/maps.php?url=http://polyview.cchmc.org"
+           id="clustrMapsLink" target="_blank">
+        <img src="https://www2.clustrmaps.com/counter/index2.php?url=http://polyview.cchmc.org"
+             style="border:0px solid"
+             alt="Locations of visitors to this page"
+             title="Locations of visitors to this page" id="clustrMapsImg"
+             onError="this.onerror=null; this.src='https://clustrmaps.com/images/clustrmaps-back-soon.jpg';
+                      document.getElementById('clustrMapsLink').href='https://clustrmaps.com'" />
+        </a>
+      </p>
+    </li>
+    </ul>
+  </div>
+  <!-- end sidebar -->
+  <div style="clear: both;">&nbsp;</div>
+  </div>
+<!-- end page -->
+</form>
+</div> <!-- no print -->
+
+<div class="print">
+<div id="logo" style="margin-top: 100px">
+  <h1>POLYVIEW-2D</h1>
+  <h2>
+    Protein structure annotation using sequence profiles
+  </h2>
+</div>                      
+<!-- CCHMC and UC logo at the top right corner -->
+<script type="text/javascript" src="//sable.cchmc.org/logo.js"></script>
+<!-- POLYVIEW logo -->
+<div id="banner">
+  <img src="design/system/img05mm.png" alt="POLYVIEW-MM banner">
+</div>
+</div> <!-- print -->
+
+<div id="footer">
+<table style="width: 100%">
+<tr>
+  <td>
+  <p class="legal">
+    <script type="text/javascript" src="//sable.cchmc.org/footer.js"></script>
+  </p>
+  </td>
+  <td style="text-align: right">
+  <p class="credit">
+    Developed by<br>
+    <a href="//sable.cchmc.org/design/aleksey.jpg" target="_blank">A. Porollo</a><br>
+    <a href="//sable.cchmc.org/design/jarek.jpg" target="_blank">J. Meller</a>
+  </p>
+  </td>
+</tr>
+</table>
+</div>
+</body>
+</html>
+

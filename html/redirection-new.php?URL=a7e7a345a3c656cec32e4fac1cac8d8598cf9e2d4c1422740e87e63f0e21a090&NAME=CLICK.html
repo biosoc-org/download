@@ -1,0 +1,207 @@
+<html>
+<head>
+	<title>CLICK Server</title>
+	<meta content="Topology Independent Comparison of Biomolecular 3D Structures" name="KEYWORDS">
+	<meta content="CLICK Server" name="DESCRIPTION">
+	<style>
+        		body {
+                		background-repeat: no-repeat;
+                		margin: 30 0 0 30;
+		                font-size: 14px;
+                		font-family: verdana, sans;
+        		}
+        		a {
+                		color: #B00000;
+        		}
+        		td {
+                		font-family: verdana, sans;
+                		font-size: 14px;
+        		}
+        		hr {
+                		height: 1px;
+        		}
+        		.lineBorder {
+                		border-bottom: 1px solid #e1e1e1;
+        		}
+        		input {
+                		border: solid 1px;
+        		}
+        		input.butt {
+                		background: #FFF;
+                		color: #B00000;
+        		}
+	</style>
+</head>
+<!--title-->
+<table border="0" width="100%" align="center">
+<tr><TD>
+<div align="center"><img src="images/Click_logo.png" width="150"></div>
+
+<h2 align="center"><span style="color:228B22">
+Topology Independent Comparison of Biomolecular 3D Structures </span><hr></h2>
+</TD></tr>
+</table>
+
+<!--navigator-->
+<table border="0" width="14%" align="left">
+<TR>
+	<td valign="top"><div align="right"><img src="images/s_dot.jpg"></div></td>
+	<TD><p><a style="text-decoration: none;" href="intro.html">Introduction</a></p> </TD>
+</TR>
+<TR>
+	<td valign="top"><div align="right"><img src="images/s_dot.jpg"></div></td>
+	<TD><p><a style="text-decoration: none;" href="algorithm.html">Algorithm</a></p> </TD>
+</TR>
+<TR>
+	<td valign="top"><div align="right"><img src="images/s_dot.jpg"></div></td>
+	<TD><p><a style="text-decoration: none;" href="results.html">Benchmark</a></p> </TD>
+</TR>
+<TR>
+	<td valign="top"><div align="right"><img src="images/s_dot.jpg"></div></td>
+	<TD><p><a style="text-decoration: none;" href="examples.html">Examples</a></p> </TD>
+</TR>
+<TR>
+	<td valign="top"><div align="right"><img src="images/s_dot.jpg"></div></td>
+	<TD><p><a style="text-decoration: none;" href="pairwise.html">Run CLICK</a></p> </TD>
+</TR>
+<TR>
+	<td valign="top"><div align="right"><img src="images/s_dot.jpg"></div></td>
+	<TD><p><a style="text-decoration: none;" href="download.html">Download</a></p> </TD>
+</TR>
+<TR>
+	<td valign="top"><div align="right"><img src="images/s_dot.jpg"></div></td>
+	<TD><p><a style="text-decoration: none;" href="reference.html">References</a></p> </TD>
+</TR>
+
+<TR>
+	<td valign="top"><div align="right"><img src="images/s_dot.jpg"></div></td>
+	<TD><p><a style="text-decoration: none;" href="contacts.html">Contacts</a></p> </TD>
+</TR>
+<TR>
+	<td valign="top"><div align="right"><img src="images/s_dot.jpg"></div></td>
+	<TD><p><a style="text-decoration: none;" href="help.html">Help</a></p> </TD>
+</TR>
+
+
+</table>
+
+<table border="0" width="86%" align="right">
+<TR><TD>
+
+<b>The new version of CLICK web server is available at:</b> <a style="text-decoration: none;" href="http://cospi.iiserpune.ac.in/click
+"><i>http://cospi.iiserpune.ac.in/click</i></a>
+
+<br>
+<br>
+<a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/click.html">Our server</a> is capable of
+superimposing the 3D structures of biomolecules, the Cartesian
+coordinates of whose constituent atoms are presented in the PDB
+format. 
+<!--
+In addition to coordinates, the web server can make use of
+similarity of other structural features such as secondary structure,
+solvent accessible surface area, and residue depth to guide the
+alignment.
+-->
+<br>
+<br>
+The server uses the CLICK method of first looking for cliques of
+points (3 to 7 residues) that are structurally similar in the pair of
+structures to be aligned. Using these local alignments, a one-to-one
+equivalence is charted between residues of the two structures being
+compared. A least square fit then superimposes the two structures.
+<br>
+<br>
+CLICK is capable of aligning pairs of Proteins, Nucleic acid
+structures, or any other pair of molecular structures with one
+another. The alignments produced, identify structural similarity, even
+if the topology of chain connectivity is different. 
+
+<!--The method alsorecognizes conformational changes that may have occurred in structural
+domains or sub-domains in one structure with respect to the other. For
+this purpose, the server produces complementary alignments between the
+regions that have undergone a conformational change.
+-->
+<br>
+<br>
+The user is required to upload the pair of structures to be aligned in
+PDB format, or to specify the 4 letter codes for structures that have
+already been deposited in the PDB. One or more atoms can be chosen to
+represent individual residues of the molecule. Residue solvent
+accessible surface area, secondary structure, and depth can be chosen
+as additional structural features to guide the alignment. In the
+present form these additional features are selectively fine tuned for
+protein 3D structural alignments.
+<br>
+<br>
+The resulting 3D superimposition of the two structures can be viewed
+using the embedded JMol viewer. Below the 3D rendering of the
+alignment are details of the alignment such as coverage, RMSD,
+sequence identity, topology score, and fragment score. Help pages
+inform the users about how these different measures are computed.
+Examples of 5 different types of pair-wise alignments are listed for
+the information of the user -
+<br>
+<br>
+<a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/examples.html#example1">
+1. Proteins that are sequentially, and structurally similar
+</a>
+<br>
+<a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/examples.html#example2">
+2. Proteins with multiple chains showing the feature of CLICK to align structures regardless of chain breaks 
+</a>
+<br>
+<a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/examples.html#example3">
+3. Proteins that are structurally similar but topologically different
+</a>
+<br>
+<a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/examples.html#example4">
+4. Multi-domain proteins, where the individual domains in one
+structure has a structural  equivalent in the other but the relative
+orientations between domains in the two structures is different
+</a>
+<br>
+<a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/examples.html#example5">
+5. DNA double helical structures
+</a>
+<br>
+<br>
+In the new version of the server (<a style="text-decoration: none;" href="http://cospi.iiserpune.ac.in/click
+"><i>http://cospi.iiserpune.ac.in/click</i></a>), users choose between the options of pair wise alignments or database searches.
+<!--
+With the database search, users can mine for global or local structural similarity between their structure of interest and a database of known structures. Currently, users can search over structural databases of 
+<br>
+<br>
+a) <a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/database/SCOP_fold.txt">Small single domain SCOP fold representatives</a> 
+<br>
+b) <a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/database/Protein_SCOP_family.txt">SCOP family representatives of 3654 protein chains</a> 
+<br>
+c) <a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/database/Human.txt">non-redundant set of 3468 human protein chains</a>
+<br>
+d) <a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/database/Protein.txt">non-redundant set of 24,563 protein chains</a>
+<br>
+e) <a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/database/DNA.txt">non-redundant set of 1368 DNA</a>
+<br>
+f) <a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/database/DNA-Protein.txt">a set of 2262 DNA-protein complexes</a>
+<br>
+g) <a style="text-decoration: none;" href="http://mspc.bii.a-star.edu.sg/minhn/database/RNA.txt">non-redundant set of 493 RNA</a> 
+
+<br>
+<br>
+The server offers the user the flexibility of uploading their own database, should the default ones be inadequate for their queries. Another unique feature of our server is that the query structure need not be necessarily a whole structure. Fragments of structures are also acceptable as input, as long as there are 7 or more representative atoms. 
+<br>
+<br>
+-->
+To the best of our knowledge, this is the first web server that
+offers to align 3D structures of biomolecules, not restricted to any
+one type. We believe that our server will be of great help to
+researchers in the general area of structural biology.
+<br>
+<br>
+<!--
+Authors: <a style="text-decoration: none;" href="http://www.bii.a-star.edu.sg/research/bmad/mspc.php">Minh N. Nguyen, Parichit Sharma, Neelesh Soni, Kuan Pern Tan, Chandra Verma, and M.S. Madhusudhan.</a>
+-->
+</TD></TR>
+</table>
+
+</html>

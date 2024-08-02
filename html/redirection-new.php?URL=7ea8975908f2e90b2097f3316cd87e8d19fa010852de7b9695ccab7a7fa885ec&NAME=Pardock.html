@@ -1,0 +1,366 @@
+ 
+
+
+
+
+  
+	
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<title>Protein Ligand Rigid Docking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="refresh" content="1; URL=http://www.scfbio-iitd.res.in/pardock/" />
+<META
+content="ParDOCK is an all-atom energy based Monte Carlo protein ligand docking, implemented in a fully automated, parallel processing mode which predicts the binding mode of the ligand in receptor target site"
+name=description>
+<META
+content="Docking, Protein ligand,force field parameters, monte carlo, active site directed drug design, rigid docking, scoring function, binding free energy estimates,biomolecular targets,binding free energy,empirical scoring function , Protein-Ligand,bioinformatics software, drug design,interaction energy, sanjeevini, ab initio, molecular modelling"
+name=keywords>
+
+<SCRIPT src="jscripts/movingtext.js">
+	</SCRIPT>
+	<link rel="stylesheet" type="text/css"
+	href="styles/tooltip.css" />
+	<link rel="stylesheet" type="text/css"
+	href="styles/layoutmain.css" />
+	<link rel="stylesheet" type="text/css"
+	href="styles/stylelink.css" />
+	<link rel="stylesheet" type="text/css"
+	href="styles/stylefont.css" />
+	<link rel="stylesheet" type="text/css"
+	href="styles/showmenu.css" />
+	<link rel="stylesheet" type="text/css"
+	href="styles/menu.css" />
+	<link rel="stylesheet" type="text/css"
+	href="styles/slidemenu.css" />
+	<script src="jscripts/showmenuscript.js"></script>
+	<script src="jscripts/main_nav.js"></script>
+	
+	<style type="text/css">
+		body {
+			
+			background-image: url(images/bg.gif);
+			margin-top:0px;
+		}
+		.style115 {color: #000000}
+		.style117 {color: #0000FF}
+
+
+		
+	
+		</style>
+	<script>
+		function check() {
+			var ext1 = document.upload.myFile1.value;
+			var ext2 = document.upload.myFile2.value;
+			
+			ext1 = ext1.substring(ext1.length-3,ext1.length);
+			ext1 = ext1.toLowerCase();
+			ext2 = ext2.substring(ext2.length-3,ext2.length);
+			ext2 = ext2.toLowerCase();
+			if((ext1 == "pdb")&&(ext2 == "pdb")) {
+				return true;
+			}
+
+			alert('Please select a PDB file!');
+			return false ;
+		}
+
+		function check2() {
+			var ext1 = document.upload.myFile1.value;
+			var ext2 = document.upload.myFile2.value;
+			if(ext1=="" || ext2==""){
+				alert('Please select two pdb files for upload');
+				return false;
+			} 
+		return true;
+		}
+
+
+
+
+		function checkcharge()
+		{
+
+		var charge = document.upload.drugCharge.value;
+		if(charge == null || charge.length ==0)
+		{
+			document.upload.drugCharge.value=0;
+		}
+	
+		if(isNaN(charge))
+		{
+			alert("Please enter number");
+			return false;
+		}
+		if(charge > 10 || charge < -10)
+		{
+			alert("Charge should be between +10 to -10");
+			return false;
+		}
+
+			var sent_charge = parseInt(charge);
+			document.upload.drugCharge.value=sent_charge;		
+			return true;	       
+		}
+
+		
+		function emailcheck() {
+		var email1=document.upload.email.value;	
+
+		if(email1.length > 0)
+		{
+				if(email1.indexOf("@")==-1 ||  email1.indexOf(".")==-1){
+					alert('Please enter a valid email address');
+					return false;
+				}
+
+		}
+		else
+		{
+		//	document.upload.email.value="1234";
+			//alert('Please Enter Email ID to get the result');
+			return true;
+			//return false;
+		}
+		}
+
+		function checkstatus()
+		{
+		var jobid = document.Status.JobFinder.value;
+		if(jobid.length == 0)
+		{
+		alert('Please Fill Status ID ');
+		return false;
+		}	
+			
+		}	
+
+
+		function clearForm(){
+			document.upload.reset();
+                                
+		//	document.upload.Method[0].checked="true";
+		//	document.upload.drugCharge.disabled=false;
+			document.upload.drugCharge.value="";
+			document.upload.myFile1.value="";
+			document.upload.myFile2.value="";
+			document.upload.proCharge.value="";
+			document.upload.ligandCharge.value="";
+			return true;
+        	}       
+</script>
+</head>
+
+<body style="margin-top:0px;">
+<div id="dhtmltooltip"></div>
+        <script src="jscripts/tooltip.js"></script>
+<center>
+	<table cellpadding="0" cellspacing="0" class="main" id="main">
+		<tr>
+      			<td class="mnptop2"><img src="images/scfstrip_merged.jpg" width="750" height="76"></td>
+    		</tr>
+    		<tr>
+      			<td width="757" align="center" valign="top" class="mnpleftright">
+				<table background="images/topmenubg1.gif" width="757" border="0" cellpadding="0" cellspacing="0">
+          				<tr>
+						<th height="15" align="left" scope="col" ></th>
+						<th  align="right" scope="col" >
+							<table  width="419" height="15" border="0" cellpadding="0" cellspacing="0">
+                						<tr>
+                  							<td width="543" height="10" align="right"><a class="topmenu" href="http://www.scfbio-iitd.res.in/index.html">Home</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/scfbiogroup/scfgroup.htm">Group</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/publication/publication.htm">Publications</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/resources/resources.htm">Resources</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/webmail">Webmail</a><a class="topmenu" href="http://www.scfbio-iitd.res.in/contact/contactus.htm">Contact Us</a></td>
+               	 						</tr>
+            						</table>
+						</th>
+          		</tr>
+     				</table>
+			</td>
+		</tr>
+		<tr><td class="mnpleftright"><br><br></td></tr>
+		<tr>
+			<td height="700" class="mnpleftright" valign="top" align="center">
+				<!--Form for uploading the files -->
+	 
+
+		    <!--<form name="upload" action="index1.jsp" onsubmit="return(check2()&&check());" enctype="multipart/form-data" method="POST">-->
+
+		    <form name="upload"  enctype="multipart/form-data" method="POST">
+		<table>
+			<tr>
+
+			<td width=600 align=center>
+
+			
+
+<span style="font-family:Comic Sans MS; font-size:18px;"><b>ParDOCK </b></span><span style="font-family:Comic Sans MS; font-size:14px;"><br><br>Automated Server for Protein Ligand Docking</span>
+<hr color="#3399FF" >
+
+<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" 
+WIDTH=500 HEIGHT=250> 
+<PARAM NAME=movie VALUE="paradock_show.swf"> 
+<PARAM NAME=menu VALUE=false> 
+<PARAM NAME=quality VALUE=high> 
+<PARAM NAME=wmode VALUE=opaque> 
+<PARAM NAME=scale VALUE=noscale>
+<EMBED src=paradock_show.swf menu=false quality=high wmode=opaque
+ scale=noscale WIDTH=500 HEIGHT=400 TYPE="application/x-shockwave-flash" 
+ PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+ </EMBED>
+ </OBJECT>
+
+
+
+
+
+
+
+
+
+<!--<center><img src="docked.jpg" width="150" height="150" border="1"></center>-->
+		      	</td>
+			</tr>			     
+			
+			<tr><td></td></tr>
+                                   
+			
+			<tr>
+		             <td class="main" align=center width=600 valign=top >
+				<center>
+			
+                      <p class="style29">
+		     
+		  <!-- <span style = " color:#CC0000;"><marquee>Please Don't Submit Any Job Right Now. System Under Maintenance</Marquee></span><br><br>-->
+		     	 ParDOCK is an all-atom energy based Monte Carlo,rigid protein ligand docking, implemented in a fully automated, parallel processing mode which predicts the binding mode of the ligand in receptor target site<a class=six href="#1">[1]</a>
+		     
+		     <a class=six href="javascript:window.open('flowchart.html','name','height=600,width=500');window.focus();"><span style="color: #0000FF;font-size :11px">  Click here</a></span> to see the flowchart of Docking Methodology adopted.
+<br>
+<br>
+		     
+		     	The structural input data for the ParDOCK are optimized reference complex i.e. protein bound with a ligand <a  class=six href="DOCKData/1a30COM.pdb" target="_blank"><span style="color: #0000FF;font-size:11px;">(Sample File)</span></a> and a candidate ligand to be docked<a class=six href="DOCKData/1a30drg.pdb" target="_blank"><span style="color: #0000FF;font-size :11px;">(Sample file)</span></a>. ParDOCK is tested on 226 protein-ligand complexes.<a class=six href="dockdata.jsp" target="_blank"><span style="color: #0000FF;font-size :11px"> Click here to access the 226 protein ligand dataset.</span></a><br>
+<br>			<a class=six href="javascript:window.open('example/howto-new.html','name','toolbar=yes,status=yes,width=600,height=500,scrollbars=yes,resizable=yes');window.focus();"><span style="color: #0000FF;font-size :11px"> Click here to see 'How to Use Tool'.</span></a>
+			
+			     
+		     
+		     
+		       </p> 
+			   	<fieldset><legend> <span class=style29 style="color:#000000;font-size:12px; "><b>Docking</b></span></legend><br>	
+	
+				  <table bgcolor=#CDDAFF width=600 height=100>
+        
+		 <tr>
+			<td width="300" valign="top">
+				<fieldset><legend> <span class=style29 style="color:#000000;font-size:12px;"onMouseover="ddrivetip('Complex should contain both protein along with Ligand, as Ligand is required to locate the drug binding site')"; onMouseout="hideddrivetip()"> Complex(Protein along with Ligand)</span></legend>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="myFile1" size="15">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br><br><br>
+				</fieldset>	
+			</td>
+			<td width="320" align="left">
+				<fieldset><legend> <span class=style29 style="color:#000000;font-size:12px;">Candidate Molecule to dock</span></legend>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="myFile2" size="15">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<br>	
+			<br>	
+				<span class=style29 style="color:#000000;font-size:12px; ">&nbsp;&nbsp;Formal Charge <input type="textfield" name="drugCharge" size="4" value="0"> 
+						
+					<a class ="six" href="javascript:window.open('example/range.html','name','height=200,width=350');window.focus();">Charge Format</a>
+
+				       </span>
+       				       </fieldset>	
+			</td>
+			<td width="100">
+				&nbsp;&nbsp;
+				<input type="Submit" name="Submit" value="RUN" onClick="return (check()&&checkcharge()&&emailcheck());"><br>
+			</td>
+		</tr>
+
+<!--	<tr><td style="color:#000000;font-size:12px;font-family:Arial;text-align:right">Job Id:</td><td  align=left>&nbsp;&nbsp;<input type="textfield" size="10" name="jobid" value="49914588" readonly="true" >-->
+	
+	
+	
+	
+	</td></tr>
+<TR>
+                <TD colspan="2"
+		                                style="FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Arial; TEXT-ALIGN: center">
+						                               &nbsp;&nbsp;&nbsp; Job Id :&nbsp;<input type="textfield" name="jobid" size="10" value="49914588" readonly="true">&nbsp;&nbsp;
+
+										                                </TD>
+														                                                </TR>
+																				
+	
+<TR>
+                <TD colspan="2" 
+		                style="FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Arial; TEXT-ALIGN: center">
+				Please Specify Your Email Id :&nbsp;<input type="textfield" name="email" size="20" value="">&nbsp;&nbsp;(optional)
+				
+				</TD>
+				                </TR>
+
+	
+</table>
+</center>
+					
+				</fieldset>
+		                </form>
+                                
+       			<fieldset ><legend><span class=style29 style="color:#000000; font-size:12px; "><b>Get Job Status or Retrieve results </b></span></legend>
+	<table  width=600 bgcolor=#CDDAFF >
+			<form name="Status" action="status.jsp" method="POST"><script language="javascript" type="text/javascript">
+function removeSpaces(string) {
+ return string.split(' ').join('');
+}
+</script>
+				<tr>
+					<td align="right" style="color:#000000;font-size:12px;font-family:Arial;text-align:right">Enter Job Id:</td>
+					<td align="left"><input type="textfield" size="15" name="JobFinder"onblur="this.value=removeSpaces(this.value);"></td>
+					<td align="left"><input title="find job status" type="Submit" name="Submit" value="Get Status"></td>
+				</tr>
+
+			</form>
+	</table> </fieldset>		
+             
+
+        </td>
+
+			</tr>
+
+			<tr>
+ <td class="style29" align=center width=600 valign=top >
+       
+<br>
+
+
+
+			<p align="left">
+			<strong>References:</strong><br>
+			<a name="1">[1]</a> Gupta, A. Gandhimathi, A. Sharma, P. and Jayaram, B. (2007) ParDOCK: An All Atom Energy Based Monte Carlo Docking Protocol for Protein-Ligand Complexes. Protein and Peptide Letters, <strong>2007</strong>,<i> 14</i>,<i> 7</i>, 632-646.</p>
+<br>
+				    <p align="center"><span For any queries/suggestions/comments pl. contact scfbio@scfbio-iitd.res.in</span></p>
+		<br>
+	<br>	
+			</td>
+			
+			
+			</tr>
+			<tr>
+			
+			
+			</tr>
+			
+	      </table>
+
+		
+			</td>
+
+			
+	<table>	</tr>
+<table>	<tr><td class="mnptop2"><script language="javascript" src="jscripts/footer.js"></script></td></tr>
+	</table>
+</center>
+ <div  style="background color:green;color:#000000;font-size:11px;font-weight:normal;"><center>Number of Hits since 20th April 2008: 28986</div>
+
+   </body>
+</html>

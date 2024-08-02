@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CASTp 3.0: Computed Atlas of Surface Topography of proteins</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-89621376-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-89621376-2');
+    </script>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS of MaterializeCSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script> $.post("userstat.php"); </script>
+
+    <!-- Compiled and minified JavaScript of MaterializeCSS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <!-- 3dmoljs -->
+    <!-- nojquery version shall be used, otherwise "modal" will have problem -->
+    <!-- or put jquery version before materialzie, otherwise "modal" will have problem -->
+    <script src="assets/3Dmol-nojquery-min.js"></script>
+
+
+    <!-- https://w3cj.github.io/materialize-themes 
+        conflict with tooltip
+        download and change it by yourself
+        <link rel="stylesheet" href="https://w3cj.github.io/materialize-themes/dist/css/materialize-blue-blue.min.css">
+    -->
+
+    <!-- angularjs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <!-- directives specially designed to use materializecss and angular -->
+    <!-- http://krescruz.github.io/angular-materialize/ -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
+
+    <!-- tooltipster for show details in sequence panel 
+    <link rel="stylesheet" href="assets/tooltipster/css/tooltipster.bundle.min.css">
+    <script src="assets/tooltipster/js/tooltipster.bundle.min.js"></script>
+    -->
+
+
+    <!-- my css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- checked -->
+    <link rel="stylesheet" href="css/seq_panel.css">
+
+    <!-- my js -->
+    <script src="js/defaulturl.js"></script>
+
+    <!--testing-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/intro.min.js"></script>
+
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body ng-app="castpApp">
+    <div class="container">
+
+
+        <!-- banner and header of the page -->
+        <div id="web_header" class="row card horizontal col l12">
+            <div class="card-image">
+                <img src="figs/icon.png" height="242" />
+            </div>
+            <div class="card-stacked">
+                <div id="web_title" class="card-content blue">
+                    <span class="card-title white-text text-darken-1">
+                        <h3>
+                            <strong>CASTp</strong>
+                        </h3>
+                        <span>
+                            <strong>
+                                <u>C</u>omputed
+                                <u>A</u>tlas of
+                                <u>S</u>urface
+                                <u>T</u>opography of proteins</strong>
+                        </span>
+                    </span>
+                </div>
+
+                <nav>
+                    <div id="web_nav" class="nav-wrapper blue">
+                        <ul class="left hide-on-med-and-down">
+                            <li class="active">
+                                <a href="index.html">
+                                    <strong>CASTp</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="calculation-tab" href="calculation.html">Calculation</a>
+                            </li>
+                            <li>
+                                <a id="background-tab" href="background.html">Background</a>
+                            </li>
+                            <li>
+                                <a id="plugin-tab" href="plugin.html">Plugin</a>
+                            </li>
+			    <li>
+                                <a id="faq-tab" href="#">FAQ</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- TODO -->
+		<p class="col l12"><strong>Please cite this paper if you publish or present results using CASTp analysis: Tian et al., Nucleic Acids Res. 2018. PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29860391">29860391</a> DOI: <a href="https://doi.org/10.1093/nar/gky473">10.1093/nar/gky473</a>.</center></strong><br>
+            <br>
+             <strong>The enhanced CASTpFold server with new features for the whole protein universe is online, check here: <a href="https://cfold.bme.uic.edu/castpfold/">CASTpFold</a></strong>
+	    <br>    
+		<small class="grey-text">For questions and bugs, please contact uic.lianglab{at}gmail.com .</small>
+        </p>
+		<!--
+        <br>
+		Currently, we cannot calculate pockets of RNA molecules. We are working on this function, and it should be available in the next update.
+
+		-->
+
+        <!-- control board -->
+        <div id="control_board" class="card row col l12">
+            <div class="card-content">
+                <button id="show-pocket-btn" class="waves-effect waves-light btn-large modal-trigger tooltipped blue" data-target="visconfig_board"
+                    data-position="bottom" data-tooltip="Configure how pockets are visualized">
+                    <i class="material-icons">bubble_chart</i> Show pockets</button>
+
+                <!-- TODO show this button -->
+                <button id="downloadbtn" class="waves-effect waves-light btn-large tooltipped blue" data-position="bottom"
+                    data-tooltip="Download files for pymol">
+                    <i class="material-icons">file_download</i> Download</button>
+
+                <span id="search-panel" class="right">
+                    <div class="input-field inline">
+                        <input id="searchbox" type="text" class="validate">
+                        <label for="searchbox">PDB or job ID</label>
+                    </div>
+                    <button id="searchbtn" class="waves-effect waves-light btn-floating btn tooltipped blue" data-position="bottom" data-tooltip="Search for pockets">
+                        <i class="material-icons right">search</i>
+                    </button>
+                </span>
+            </div>
+        </div>
+
+
+
+
+        <div class="no-padding" ng-controller="mainCtrl">
+
+
+            <!-- basic infomation board -->
+            <div id="basic_board" class="card row col l12">
+                <div class="card-content" ng-class="basicdata.assembly.length>0?'col l8':'col l12'">
+                    <span class="card-title">
+                        <strong class="uppercase">{{basicdata.name}}</strong>
+                    </span>
+                    <p>{{basicdata.desc}}</p>
+                </div>
+                <!-- TODO vertical line -->
+                <div class="card-content col l4" ng-show="basicdata.assembly.length>0">
+                    <span class="card-title">
+                        <strong>Other assembly</strong>
+                        <a id="assembly_help" class="material-icons tooltipped" data-position="bottom" target="_blank" href="https://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/biological-assemblies"
+                            color="black" data-tooltip="
+                            Other asymetric unit or biological assembly of this protein.<br>
+                            Click the question mark to learn more.
+                            ">
+                            help
+                        </a>
+                    </span>
+                    <a ng-repeat="assemid in basicdata.assembly" ng-if="assemid!=queryid" href="index.html?{{assemid}}" class="uppercase"> {{assemid}} </a>
+                    <!--
+                    <a ng-repeat="assemid in basicdata.assembly" href="index.html?{{assemid}}" class="uppercase"> {{assemid}} </a>
+                    -->
+                </div>
+            </div>
+
+
+            <!-- Pocket board -->
+            <div id="pocket_board" class="row col l12 no-padding">
+
+                <div id="vis_panel" class="card col l8">
+                    <div id="container_3dmol">
+                        Loading...
+                        <!--
+                            This browser is not supported. Please view this webpage with the browsers such as Chrome and Firefox
+                        -->
+                    </div>
+                </div>
+
+                <div id="poc_panel" class="card col l4">
+                    <div class="card-content">
+
+                        <table id="poc_table" class="fixed-header-table highlight bordered centered">
+                            <thead>
+                                <tr>
+                                    <th>PocID
+                                        <i class="tiny material-icons tooltipped" data-position="bottom" data-tooltip="
+                                            Both area and volume shown are (Richards') solvent-accessible surface area/volume.<br>
+                                            For (Connolly's) solvent-excluded surface area/volume, please find them in Download,
+                                            or view them using UCSF Chimera.<br>
+                                            We will include Connolly's area/volume to the webpage
+                                            in the next update of CASTp server.
+                                        ">help</i>
+                                    </th>
+                                    <th>Area (SA) <span>&#8491;</span><sup>2</sup> </th>
+                                    <th>Volume (SA) <span>&#8491;</span><sup>3</sup> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="poc in view.pocinfo">
+                                    <td>{{poc.id}}</td>
+                                    <td>{{poc.area}}</td>
+                                    <td>{{poc .vol}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <br>
+
+                        <table id="atom_table" class="fixed-header-table highlight bordered centered">
+                            <thead>
+                                <tr class="pocatom">
+                                    <th>PocID</th>
+                                    <th>Chain</th>
+                                    <th>SeqID</th>
+                                    <th>AA</th>
+                                    <th>Atom</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="atom in view.atominfo" class="pocatom">
+                                    <td>{{atom.pocid}}</td>
+                                    <td>{{atom.ch}}</td>
+                                    <td>{{atom.seqid}}</td>
+                                    <td>{{atom.aa}}</td>
+                                    <td>{{atom.atom}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Sequence board -->
+            <div id="sequence_board" class="card row col l12" ng-show="seqdata.length>0">
+                <div class="card-content">
+                    <span id="sequence-title" class="card-title">
+                        <strong>
+                            Sequence
+                            <i id="seqpanel_legend" class="material-icons tooltipped" data-position="right" data-background-color="#ECF0F1" data-tooltip="
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td><a class='seqH seqtext legtext'>&alpha;-helix</a></td>
+                                                <td><a class='seqB seqtext legtext'>&beta;-bridge</a></td>
+                                                <td><a class='seqE seqtext legtext'>strand</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a class='seqG seqtext legtext'>3<sub>10</sub> helix</a></td>
+                                                <td><a class='seqI seqtext legtext'>&pi;-helix</a></td>
+                                                <td><a class='seqT seqtext legtext'>turn</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a class='seqS seqtext legtext'>bend</a></td>
+                                                <td><a class='seq_ seqtext legtext'>coil</a></td>
+                                                <td><a class='seqX seqtext legtext'>no structure</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a class='seqtext legtext annotated'>annotated</a></td>
+                                                <td><a class='seqtext legtext displayed'>displayed</a></td>
+                                            </tr>                                            
+                                        </tbody>                                            
+                                    </table>">
+                                help
+                            </i>
+                        </strong>
+                    </span>
+                    <div ng-repeat="chaindata in seqdata">
+                        <h6>Chain {{chaindata.chain}}</h6>
+                        <div class="seqpanel">
+                            <a ng-repeat="x in chaindata.data" ng-class="seqPanelClass(x)" class="seqtext" seqtip ng-attr-tooltipped="{{seqPanelTipShow(x)}}"
+                                data-position="bottom" data-tooltip={{seqPanelTip(x)}} ng-click="seqClick(x)" href="">
+                                {{x.aa}}
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Feature board -->
+            <div id="feature_board" class="card row col l12" ng-show="featdata.length>0">
+                <div class="card-content">
+                    <span id="feature-title" class="card-title">
+                        <strong>Features</strong>
+                    </span>
+                    <table id="feat_table" class="bordered highlight">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Position(s)</th>
+                                <th>Description</th>
+                                <th>Reference</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="feat in featdata">
+                                <td>{{feat.ft}}</td>
+                                <td><a href="" ng-click="seqClick(feat)">{{feat.ch}}: {{feat.pos}}</a></td>
+                                <td>{{feat.dscr}}</td>
+                                <td>
+                                    <a target="_blank" href="http://www.uniprot.org/uniprot/{{feat.spid}}">Uniprot: {{feat.spid}}</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="to-top-btn" class="fixed-action-btn tooltipped"
+                data-position="top" data-tooltip="Back to top">
+                <a class="btn-floating btn-large blue ">
+                    <i class="large material-icons">publish</i>
+                </a>
+            </div>
+            <div id="start-tour-btn" class="fixed-action-btn tooltipped"
+                data-position="top" data-tooltip="Start a tour!">
+                <a class="btn-floating btn-large blue ">
+                    <i class="large material-icons">help_outline</i>
+                </a>
+            </div>
+
+            <div id="visconfig_board" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                    <h5>Configure the visualization of pockets</h5>
+                    <table class="bordered highlight centered">
+                        <thead>
+                            <tr>
+                                <th>Show</th>
+                                <th>Pocket ID</th>
+                                <th>Area (SA)</th>
+                                <th>Volume (SA)
+                                    <i class="tiny material-icons tooltipped" data-position="bottom" data-tooltip="
+                                        Both area and volume shown are (Richards') solvent-accessible surface area/volume.<br>
+                                        For (Connolly's) solvent-excluded surface area/volume, please find them in Download,
+                                        or view them using UCSF Chimera.<br>
+                                        We will include Connolly's area/volume to the webpage
+                                        in the next update of CASTp server.
+                                    ">help</i>
+                                </th>
+                                <th>Negative Volume Color</th>
+                                <th>Representation Style</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="poc in view.tmpconfig">
+                                <td>
+                                    <input type="checkbox" id="showpoc_{{$index+1}}" value="showpoc_{{$index+1}}" ng-model="poc.show" />
+                                    <label for="showpoc_{{$index+1}}" />
+                                </td>
+                                <td>{{poc.id}}</td>
+                                <td>{{pocdata[poc.id-1].info.area}}</td>
+                                <td>{{pocdata[poc.id-1].info.vol}}</td>
+                                <td>
+                                    <select class="browser-default" id="colorpoc_{{$index+1}}" ng-model="poc.clrStyle" ng-options="opt.id as opt.des disable when opt.id==0 for opt in visconfigopt.colorStyles">
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="browser-default" id="stylepoc_{{$index+1}}" ng-model="poc.reprStyle" ng-options="opt.id as opt.des disable when opt.id==0 for opt in visconfigopt.reprStyles">
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer row">
+                    <p class="left grey-text" style="width:50%;font-size:80%;">
+                        <i class="tiny material-icons">warning</i>
+                        Volumne and/or surface rendering for large pockets may cause high usage of memory and CPU.
+                    </p>
+                    <div class="row right" style="width:50%">
+                        <button class="modal-action modal-close btn-flat" ng-click="view.cancel();">
+                            <i class="small material-icons">cancel</i> Cancel</button>
+                        <button class="modal-action modal-close btn-flat" ng-click="view.update()">
+                            <i class="small material-icons">bubble_chart</i> Update</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <!--  ###################################### -->
+
+
+
+
+    <script src="js/app.js"></script>
+    <script>
+        $(document).ready(function () {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal({ dismissible: false });
+            $('select').material_select();
+            $('.tooltipped').tooltip({ html: true, delay: 500 }).each(function () {
+                // specify background color for each tooltip. 
+                // ref: https://stackoverflow.com/questions/33593605/materialize-css-tooltip
+                var background = $(this).data('background-color');
+                if (background) {
+                    $("#" + $(this).data('tooltip-id')).find(".backdrop").css("background-color", background);
+                }
+            });
+
+            if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+                Materialize.toast("Visualization of molecules may be incorrect on Safari. Please use Chrome or Firefox for full function of CASTp.");
+                //alert('Its Safari');
+            }
+
+
+            //----------------- search btn and box --------------------------            
+            var search = function () {
+                var pdbjobid = $('#searchbox').val().trim().toLowerCase();
+                if (pdbjobid) {
+                    location.href = location.href.slice(0, location.href.lastIndexOf("?")) + "?" + pdbjobid;
+                }
+            }
+            $('#searchbtn').click(function () {
+                search();
+            });
+            $('#searchbox').keyup(function (event) {
+                if (event.which == 13) {
+                    search();
+                }
+            });
+
+
+            //----------------- download btn --------------------------
+            $('#downloadbtn').click(function () {
+                var datapath = 'data/pdb/' + queryid.substring(1, 3) + '/' + queryid + '/';
+                var processedpath = 'data/pdb/' + queryid.substring(1, 3) + '/' + queryid + '/processed/';
+                if (queryid.length == 15) {
+                    datapath = 'data/tmppdb/' + queryid + '/';
+                    processedpath = 'data/tmppdb/' + queryid + '/processed/';
+                }
+                window.open(
+                    processedpath + queryid + '.zip',
+                    '_blank' // <- This is what makes it open in a new window.
+                );
+            });
+
+            //---------------------- tour ---------------------
+            var basic_toursteps = [
+                {
+                    element: '#search-panel',
+                    intro: 'Search the PDB id or the job id you submitted before.',
+                    position: 'left'
+                },
+                {
+                    element: '#basic_board',
+                    intro: 'The name and the basic information of the protein (and other assemblies if exists) are shown here.',
+                    position: 'top'
+                },
+                {
+                    element: '#vis_panel',
+                    intro: 'The structure and pockets of the protein are visualized here',
+                    position: 'right'
+                },
+                {
+                    element: '#show-pocket-btn',
+                    intro: 'You can configure the visualization to show only the pockets you are interested in.\nAnd, of course, configure the visualization style.',
+                    position: 'bottom'
+                },
+                {
+                    element: '#downloadbtn',
+                    intro: 'You can download the pocket data, which can be visualize using PyMol (with our plugin) or UCSF Chimera.',
+                    position: 'bottom'
+                },
+                {
+                    element: '#poc_table',
+                    intro: 'You can find the metrics of the pockets here.  Both area and volume shown are (Richards\') solvent-accessible surface area/volume. For (Connolly\'s) solvent-excluded surface area/volume, please find them in Download, or view them using UCSF Chimera.',
+                    position: 'left'
+                },
+                {
+                    element: '#atom_table',
+                    intro: 'The atoms form the pockets are shown here',
+                    position: 'left'
+                },
+            ];
+            var other_toursteps = [
+                {
+                    element: '#calculation-tab',
+                    intro: 'You can also submit structure, and configurate your own CASTp calculation.',
+                    position: 'bottom'
+                },
+                {
+                    element: '#background-tab',
+                    intro: 'Click this tab to find theoretical background of the CASTp server.',
+                    position: 'bottom'
+                },
+                {
+                    element: '#plugin-tab',
+                    intro: 'A PyMol plugin for CASTp server is provided here as well.',
+                    position: 'bottom'
+                },
+            ];
+            var introguide = introJs();
+
+            $('#start-tour-btn').click(function () {
+                var temp_toursteps = [];
+                if ($('#sequence_board').css('display') != 'none') {
+                    temp_toursteps.push({
+                        element: '#sequence-title',
+                        intro: 'More information can be found here. You can hover the cursor on an amino acid to find more of it, or click to see the structure around.',
+                        position: 'top'
+                    });
+                }
+                if ($('#feature_board').css('display') != 'none') {
+                    temp_toursteps.push({
+                        element: '#feature-title',
+                        intro: 'You can find sites of interet here. Structure around the instereting site will be shown on click',
+                        position: 'top'
+                    });
+                }
+                introguide.setOptions({
+                    steps: basic_toursteps.concat(temp_toursteps).concat(other_toursteps),
+                });
+                introguide.start();
+            });
+
+            //---------------------- back to top ---------------------
+            window.onscroll = function () { scrollFunction() };
+            window.onresize = function () { resizeFunction() };
+            //var viewh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            var viewer = $("#container_3dmol")
+            var pdbviewer = angular.element('div[ng-controller="mainCtrl"]').scope().pdbviewer;
+            
+            var viewertop, viewerh, viewerw, smallviewerh, smallviewerw;
+            function getSizes(){
+                //var viewerbb = viewer[0].getBoundingClientRect();
+                viewertop = viewer.offset().top;
+                viewerh = 0.78*$(window).height();
+                viewerw = $('.col .l8').width();
+                smallviewerh = 0.4*$(window).height();
+                smallviewerw = smallviewerh*viewerw/viewerh;
+            }
+
+            getSizes();
+
+
+            function resizeFunction(){
+                getSizes();
+                scrollFunction();
+            }
+            
+            function viewerScrollPassed(){
+                var threshold = 0.9*(viewertop+viewerh);
+                return document.body.scrollTop > threshold || document.documentElement.scrollTop > threshold;
+            }
+
+            function scrollFunction() {
+                if (viewerScrollPassed()) {
+                    $('#to-top-btn').show();
+                    console.log(smallviewerw, smallviewerh, viewerw, viewerh)
+                    pdbviewer.setHeight(smallviewerh);
+                    pdbviewer.setWidth(smallviewerw);
+                    viewer.height(smallviewerh);
+                    viewer.width(smallviewerw);
+                    viewer.addClass("sticky");
+                    pdbviewer.render();
+                } else {
+                    $('#to-top-btn').hide();                    
+                    pdbviewer.setHeight(viewerh);
+                    pdbviewer.setWidth(viewerw);
+                    viewer.height(viewerh);
+                    viewer.width(viewerh);
+                    viewer.removeClass("sticky");
+                    pdbviewer.render();
+                }
+            }
+
+            $('#to-top-btn').click(function () {
+                $("html, body").animate({ scrollTop: 300 }, 600);
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>

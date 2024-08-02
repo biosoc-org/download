@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">json2[2014.02.04];jquery[3.4.1];shiny[1.4.0.2];rglwidgetClass[1.2.8];htmlwidgets[1.6.4];rglWebGL-binding[1.2.8];datatables[1.10.5];datatables-bootstrap[1.10.5];bootstrap[3.4.1]</script>
+<script src="shared/json2-min.js"></script>
+<script src="shared/jquery.min.js"></script>
+<link href="shared/shiny.css" rel="stylesheet" />
+<script src="shared/shiny.min.js"></script>
+<link href="rglwidgetClass-1.2.8/rgl.css" rel="stylesheet" />
+<script src="rglwidgetClass-1.2.8/rglClass.src.js"></script>
+<script src="rglwidgetClass-1.2.8/utils.src.js"></script>
+<script src="rglwidgetClass-1.2.8/buffer.src.js"></script>
+<script src="rglwidgetClass-1.2.8/subscenes.src.js"></script>
+<script src="rglwidgetClass-1.2.8/shaders.src.js"></script>
+<script src="rglwidgetClass-1.2.8/shadersrc.src.js"></script>
+<script src="rglwidgetClass-1.2.8/textures.src.js"></script>
+<script src="rglwidgetClass-1.2.8/projection.src.js"></script>
+<script src="rglwidgetClass-1.2.8/mouse.src.js"></script>
+<script src="rglwidgetClass-1.2.8/init.src.js"></script>
+<script src="rglwidgetClass-1.2.8/pieces.src.js"></script>
+<script src="rglwidgetClass-1.2.8/draw.src.js"></script>
+<script src="rglwidgetClass-1.2.8/controls.src.js"></script>
+<script src="rglwidgetClass-1.2.8/selection.src.js"></script>
+<script src="rglwidgetClass-1.2.8/rglTimer.src.js"></script>
+<script src="rglwidgetClass-1.2.8/pretty.src.js"></script>
+<script src="rglwidgetClass-1.2.8/axes.src.js"></script>
+<script src="rglwidgetClass-1.2.8/animation.src.js"></script>
+<script src="htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="rglWebGL-binding-1.2.8/rglWebGL.js"></script>
+<script src="shared/datatables/js/jquery.dataTables.min.js"></script>
+<link href="shared/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />
+<link href="shared/datatables/css/dataTables.extra.css" rel="stylesheet" />
+<script src="shared/datatables/js/dataTables.bootstrap.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="shared/bootstrap/js/bootstrap.min.js"></script>
+<script src="shared/bootstrap/shim/html5shiv.min.js"></script>
+<script src="shared/bootstrap/shim/respond.min.js"></script>  <title>AlloDeco: Decomposing Allostery in Proteins</title>
+<script src="__assets__/sockjs-0.3.4.min.js"></script>
+<script src="__assets__/shiny-server-client.min.js"></script>
+<script>preShinyInit({reconnect:true,disableProtocols:[]});</script>
+<link rel="stylesheet" type="text/css" href="__assets__/shiny-server.css"/>
+
+</head>
+<body>
+  <div class="container-fluid">
+    <script>
+Shiny.addCustomMessageHandler("sceneChange",
+  rglwidgetClass.prototype.sceneChangeHandler);
+</script>
+    <h2>AlloDeco: Decomposing Allostery in Proteins</h2>
+    <div class="row">
+      <div class="col-sm-4">
+        <form class="well">
+          <h4>AlloDeco is a web applicaton that calculates the thermodynamic coupling between functional sites in proteins and then determines the contribution of specific interactions to that coupling.</h4>
+          <button id="details" type="button" class="btn btn-default action-button">Click here for methodology.</button>
+          <h5>
+            Please email Michael V. LeVine at 
+            <a href="mailto:mil2037@med.cornell.edu" target="_blank">mil2037@med.cornell.edu</a>
+             with any question, comments, or suggestions.
+          </h5>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="file">Please upload your PDB File:</label>
+            <div class="input-group">
+              <label class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                  Browse...
+                  <input id="file" name="file" type="file" style="display: none;"/>
+                </span>
+              </label>
+              <input type="text" class="form-control" placeholder="No file selected" readonly="readonly"/>
+            </div>
+            <div id="file_progress" class="progress progress-striped active shiny-file-input-progress">
+              <div class="progress-bar"></div>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="pdb">PDB ID (if no PDB file is provided)</label>
+            <input id="pdb" type="text" class="form-control" value=""/>
+          </div>
+          <button id="pdbButton" type="button" class="btn btn-default action-button">Load PDB</button>
+          <div id="input_chains" class="shiny-html-output"></div>
+          <div id="input_cut_off" class="shiny-html-output"></div>
+          <div id="input_gnm" class="shiny-html-output"></div>
+          <div id="input_transmitter" class="shiny-html-output"></div>
+          <div id="input_receiver" class="shiny-html-output"></div>
+          <div id="input_go" class="shiny-html-output"></div>
+          <div id="email" class="shiny-html-output"></div>
+          <div id="download" class="shiny-html-output"></div>
+        </form>
+      </div>
+      <div class="col-sm-8">
+        <div class="shiny-split-layout">
+          <div style="width: 65%; padding: 3px">
+            <p id="pdbWebGL-aria" hidden>3D plot</p>
+            <div aria-labelledby="pdbWebGL-aria" class="rglWebGL html-widget html-widget-output shiny-report-size html-fill-item" id="pdbWebGL" role="img" style="width:512px;height:512px;"></div>
+          </div>
+          <div style="width: 35%; padding: 3px">
+            <div id="PDBLegend" class="shiny-plot-output" style="width: 100% ; height: 400px"></div>
+          </div>
+        </div>
+        <div class="shiny-split-layout">
+          <div style="width: 50%;">
+            <div id="slider" class="shiny-html-output"></div>
+          </div>
+          <div style="width: 50%;">
+            <div id="significance" class="shiny-html-output"></div>
+          </div>
+        </div>
+        <div id="subset" class="shiny-html-output"></div>
+        <div id="CorrelationText" class="shiny-text-output"></div>
+        <div id="CVText" class="shiny-text-output"></div>
+        <div id="CVXPlot" class="shiny-plot-output" style="width: 100% ; height: 400px"></div>
+        <div id="CVYPlot" class="shiny-plot-output" style="width: 100% ; height: 400px"></div>
+        <div id="contribution" class="shiny-html-output"></div>
+        <div id="ContributionText" class="shiny-text-output"></div>
+        <div id="ContributionPlot" class="shiny-plot-output" style="width: 100% ; height: 400px"></div>
+        <div id="Network" class="shiny-datatable-output"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

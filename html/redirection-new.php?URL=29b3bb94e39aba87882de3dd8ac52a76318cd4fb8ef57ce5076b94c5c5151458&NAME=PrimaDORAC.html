@@ -1,0 +1,81 @@
+<style>
+img {
+  	border-radius: 005em;
+        border:10px solid #111;
+        border-color: green; 
+        border-style: double;
+}
+</style> 
+<!background="N_TOC.jpg">
+<center><h1>  Welcome to the  <tt>PrimaDORAC</tt> web interface <br>  </h1>  
+<a href="http://pubs.acs.org/doi/abs/10.1021%2Facs.jcim.7b00145"> ( J. Chem. Inf. Model., 2017, 57 (6), pp 1240-1245 ) </a>
+</center>
+<center>
+<div class="banner">
+<img src="New_TOC.jpg" style="width:80%">
+</div>  
+<form action="primadorac_smi.pl" method="post" enctype="multipart/form-data">
+Dept. of Chemistry, University of Florence
+</center>
+
+<p><font size=5> <tt> PrimaDORAC </tt> is a simple web interface that
+reads the coordinates of an organic molecule (no more than 60 heavy atoms) and
+produces the topology and parameters files for molecular dynamics
+simulations.  
+<p><tt> PrimaDORAC </tt>
+uses <a href="https://sourceforge.net/projects/mopac7/"> mopac7 </a>
+for producing <a href="https://www.ncbi.nlm.nih.gov/pubmed/12395429">
+AM1-BCC charges </a> and <a href="http://ambermd.org/"> gaff2016 </a>
+atomic types for topology definition.  Prior to uploading <b> or </b> entering the <a href="https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system">  SMILES </a> string, read the <a href="README.html">README</a> file and <b>mind these few
+rules</b>:
+
+</font size=5>
+<ul> 
+<li> Allowed file format/extensions are all <a href="http://openbabel.org/"> Openbabel <a> supported format specifications (<tt> .sdf</tt> , <tt> .pdb</tt>,  <tt> .mdl </tt>, <tt> .mol2 </tt>, <tt> .xyz </tt>, <tt> .gau </tt>) 
+<li> input file may contain only <tt> H C N O S P F Cl Br I </tt> atoms.  Use only <b> standard </b>  atomic symbols in the inputfile.
+         
+<li> input file must contain only <i> one </i> molecule at a time.
+<li> no <tt> ",\()=#~:;" </tt> characters are allowed in the filename to upload; dash "-" and 
+plus "+" characters can be used (see below)  
+<li> If the molecule is charged,
+the <a href="hydrogens.html"> total charge </a> must be specified in the filename using the two characters before the extension (e.g. 
+<tt> acetic-adid-1.sdf ammonium+1.sdf </tt>) 
+<li> The molecule must contains all atoms, <a href="hydrogens.html"> including hydrogen atoms </a> (these can be attached using, e.g., <tt> babel -h  mol-noh.pdb mol-h.pdb  </tt>)  
+</ul> 
+
+<font size=5>  The final results are collected in a compressed tar archive for downloading and include:
+</font size=5>  
+<ul> 
+<li> <tt> inputmol-p.tpg </tt> the topology file with gaff2016 assignment and AMI-BCC charges
+<li> <tt> inputmol-p.prm </tt> the gaff2016-based parameters file 
+<li> <tt> inputmol-p.log </tt> log file with chemical information for assignment of atomic types. 
+<li> <tt> inputmol-p.pdb </tt> pdb file (original coordinates) with unique labels matching the .tpg labels. 
+<li> <tt> inputmol-min-p.pdb </tt> pdb file (gaff2016 minimization) with unique labels matching the .tpg labels. 
+<li> <tt> inputmol-p.frq.xyz </tt> Vibrational frequencies <i> in vacuo </i> computed with <a href="http://www.chim.unifi.it/orac">  ORAC </a> (this file can be viewed with <a href="http://www.jmol.org">  jmol <a>)  
+<li> <tt> inputmol-IR-p.jpg </tt>  computed InfraRed spectrum using GAFF2/PrimaDORAC parameters
+<li> <tt> inputmol-g.top  inputmol-g.itp inputmol-g.mdp</tt> Topology/itp files for <a href="http://manual.gromacs.org/documentation/"> GROMACS </a> addicted (no warranty!) 
+</ul> 
+<font size=4>  
+  <p>Coordinate file to upload: <input type="file" name="fname" />  OR    paste here the SMILES code : <input type="text" name="smiles" /> </p>
+<select name="hydro">
+    <option value="okh">Do nothing;  Molecule is OK as is </option>
+    <option value="ckh">Check hydrogen atoms  </option>
+    <option value="adh">Add all hydrogen atoms</option>
+    <option value="adp">Add hydrogen atoms for pH=7</option>
+</select>
+</font size=4>  
+
+N.B. <tt> PrimaDORAC </tt> default behaviour [ <tt> Do nothing;
+Molecule is OK as is </tt> ] assumes that the end-user strictly
+follows the interface rules; <br> In this dropdown menu, the
+interface allows the end-user to switch, at his/her own risk, to <a href="hydrogens.html"> non
+default behaviour </a> by <tt> OpenBabel</tt>-checking/adding/removig
+hydrogen atoms
+<br><br>
+  
+<center>
+  Optimization: <INPUT TYPE="Radio" Name="optimize" Value="si">Yes<INPUT TYPE="Radio" Name="optimize" Value="no" Checked >NO <br> 
+<font size=6>  <input type="submit" name="Submit" style="width:200px; height:50px; font-size:20px; border: #ff0000; border-style:solid; border-width:3px" value="submit molecule" /> <br> </font size=6>  
+
+</center>
+

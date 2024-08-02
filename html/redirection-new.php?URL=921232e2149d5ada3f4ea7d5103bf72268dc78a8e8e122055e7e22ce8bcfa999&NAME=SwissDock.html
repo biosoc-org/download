@@ -1,0 +1,2442 @@
+<!DOCTYPE HTML>
+
+<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
+
+<html lang='en'>
+<head>
+  <meta http-equiv="Content-type" conteshant="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="ROBOTS" content="all">
+  <meta name="title" content="SwissDock">
+  <base href="https://www.swissdock.ch/">
+  <title>SwissDock</title>
+  <link rel="stylesheet" href="css/sib.css" type="text/css" media="screen" title="" charset="utf-8">
+  <link rel="stylesheet" href="css/table.css" type="text/css" media="screen" title="" charset="utf-8">
+  
+  <script src="/marvinjs-21/js/lib/rainbow/rainbow-custom.min.js"></script>
+  <script src="/marvinjs-21/js/lib/jquery-1.9.1.min.js"></script>
+ 
+  <link rel="icon" href="images/SDD_sigle_rvb-01.svg">
+
+
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://matomo.sib.swiss/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '41']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+
+
+</head>
+
+
+
+<body>	
+
+    
+
+<!-- ********************************************************************************************** -->
+<!-- START OF HEADER information on top of the page -->
+<div class='maintable shadow' style="width: 950px;">
+  <link rel="stylesheet" href="/shared/navigationbar/css/navigationbar.css" type="text/css" media="screen" title="" charset="utf-8">
+<script  type="text/javascript" src="/shared/navigationbar/js/navigationbar.js"></script>
+
+<div id="navigationbar">
+
+        <div class="navigationitem">
+                <a href="//www.swissdock.ch" title="Docking of small molecules into protein active sites" target="_blank"><span class="navigationitemlink">SwissDock</span></a>
+                <br>
+                <a href="//www.swissdock.ch" title="Docking of small molecules into protein active sites" target="_blank"><img src="/shared/navigationbar/img/SD-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="http://www.swissparam.ch/" title="Generate CHARMM/GROMACS topology and parameters for small organic molecules"  target="_blank"><span class="navigationitemlink">SwissParam</span></a>
+                <br>
+                <a href="http://www.swissparam.ch/" title="Generate CHARMM/GROMACS topology and parameters for small organic molecules"  target="_blank"><img src="/shared/navigationbar/img/SP-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="http://www.swisssidechain.ch/" title="Structural and molecular mechanics database of non-natural amino-acid sidechains" target="_blank"><span class="navigationitemlink">SwissSidechain</span></a>
+                <br>
+                <a href="http://www.swisssidechain.ch/" title="Structural and molecular mechanics database of non-natural amino-acid sidechains" target="_blank"><img src="/shared/navigationbar/img/SSC-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="http://www.swissbioisostere.ch/" title="Database of molecular replacements and their impact on bioactivity" target="_blank"><span class="navigationitemlink">SwissBioisostere</span></a>
+                <br>
+                <a href="http://www.swissbioisostere.ch/" title="Database of molecular replacements and their impact on bioactivity" target="_blank"><img src="/shared/navigationbar/img/SB-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="http://www.swisstargetprediction.ch/" title="Target prediction for bioactive small molecules" target="_blank"><span class="navigationitemlink">SwissTargetPrediction</span></a>
+                <br>
+                <a href="http://www.swisstargetprediction.ch/" title="Target prediction for bioactive small molecules" target="_blank"><img src="/shared/navigationbar/img/STP-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="http://www.swissadme.ch/" title="Calculate molecular parameters in relation with pharmacokinetics and dynamics properties" target="_blank"><span class="navigationitemlink">SwissADME</span></a>
+                <br>
+                <a href="http://www.swissadme.ch/" title="Calculate molecular parameters in relation with pharmacokinetics and dynamics properties" target="_blank"><img src="/shared/navigationbar/img/SA-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+        
+        <div class="navigationitemseparator"></div>
+        
+        <div class="navigationitem">
+                <a href="http://www.swisssimilarity.ch/" title="Perform ligand-based screening" target="_blank"><span class="navigationitemlink">SwissSimilarity</span></a>
+                <br>
+                <a href="http://www.swisssimilarity.ch/" title="Perform ligand-based screening" target="_blank"><img src="/shared/navigationbar/img/SS-Red-512.png" class="navigationitemlogo"></a>
+        </div>
+		
+</div>
+
+<hr style="width:100%; display: block; height: 1px; border: 0px; border-top: 1px solid #5c5c5c ; margin: 0em; padding-top: 10px; padding-bottom: 5px; background:white;">
+  <div id='sib_container'>
+    <div id='sib_header'> 				  
+      <a href='https://www.molecular-modelling.ch/swiss-drug-design.html' id='sib_logo' style='left: 0px'><span>Swiss Institute of Bioinformatics</span></a>
+        
+      <!--  BEGIN DROP_DOWN MENU-->
+      <div class="sib_drop_menu" style="left: 160px !important;">  
+        <ul>
+          <!-- <li><a href="disclaimer.php">Disclaimer</a></li> -->
+          <li><a href="http://old.swissdock.ch" target="_blank"><span style="color: red;">Old version</span></a></li>
+          <li><a href="contact.php">Contact</a></li> 
+          <li><a href="citing.php">Citing</a></li>    
+          <li><a href="command-line.php">Command-line</a></li>
+          <li><a href="tutorials.php">Tutorials</a></li> 
+          <li><a href="FAQ.php">FAQ</a></li>
+          <li><a href="documentation.php">Documentation</a></li>
+          <li><a href="about.php">About</a></li> 
+          <li><a href="index.php">Home</a></li> 
+	      </ul>
+      </div>     
+        
+    </div>
+    <!-- END OF HEADER -->
+    <!-- ********************************************************************************************** -->			
+    <div>
+
+      <hr style="width:95%; height:1px; background: #ededed; border: 0px;">
+      <!-- <div id='sib_body' style="min-height: 600px;"> -->
+
+
+<script src="marvinjs-21/gui/lib/promise-1.0.0.min.js"></script>
+<script src="marvinjs-21/js/marvinjslauncher.js"></script>
+<script src="marvinjs-21/js/lib/molchange.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- NGL interface -->
+<script src="js/main/ngl.js"></script> <!--NGL is the library doing the 3D protein display-->
+<script src="js/main/fullScreen.js"></script> <!--manages full screen mode-->
+<script src="js/main/display_index.js"></script> <!-- basic functions to display ngl -->
+<script src=js/msa.min.gz.js></script>
+<script src="js/main/zooms.js"></script> <!--zooms actions for interactions-->
+
+<script src="js/main/sumoselect.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="css/sumoselect.min.css" type="text/css" media="screen" title="" charset="utf-8">
+
+<script src="js/main/pdbSearch.js" type="text/javascript"></script>
+<script src="js/main/ligSearch.js" type="text/javascript"></script>
+<script type="text/javascript" src="marvinjs-21/js/inview.js"></script>
+
+<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+
+<div style="float:left; height:45px; width:90%; margin-left: 5%; margin-right: 5%; margin-top: 20px; margin-bottom:25px; font: 11pt  Helvetica,Verdana, sans-serif; padding: 7px; padding-top:15px; box-shadow:
+ 0px 2px 4px 0px rgba(100,100,100,.8); vertical-align: middle; ">
+        <div style="float:left; border-left: 5px solid red; height: 50px; margin-top: -5px; margin-left: 3px; margin-right: 7px;"></div>
+	Welcome to the new SwissDock, based on the Attracting cavities and Autodock Vina docking engines.<br>
+        Please, note that the old version, based on EADock DSS, is still available at the address <a target="_blank" href="http://old.swissdock.ch">http://old.swissdock.ch</a> and will be maintained for several months. Consider transitioning your projects from the old to the new server. Thank you!
+</div>
+<div style="clear: both; width: 100%;"></div>
+
+
+
+<script>
+
+    var AC = 1;
+   
+    var ligContent="";
+    var pdbContent="";
+    var pdbModified = '';
+    var targetFileName = '';
+    var targetFile = '';
+    var ligFile = '';
+    var cif=false;
+    var session = "";
+
+    var server = "https://www.swissdock.ch:8443";
+
+    function openSession() {
+
+        // if (session !== "") {
+        //     $.ajax({
+        //         type:"GET",
+        //         crossDomain:true,
+        //         url: server + "/deletesession?sessionNumber=" + session,
+        //         success: function(res) {
+        //             if (res.includes('were deleted')) {
+        //                 console.log('Session ' + session + ' deleted!');
+        //             } else {
+        //                 console.log('Failed to delete session ' + session);
+        //             }
+        //         },
+        //         error: function() {
+        //             alert('The Webserver is not available. Please contact the SwissDock team.');
+        //         }
+        //     });
+        // }
+
+        $.ajax({
+            type:"GET",
+            crossDomain:true,
+            url: server + "/opensession",
+            contentType: "text/plain",
+            success: function(res) {
+                session = res.split("\n")[0];
+                console.log(session);
+                document.getElementById("session").value = session;
+                console.log(window.name)
+                if (window.name == '') {
+                    window.name = session + '-AC';
+                } else {
+                    window.name = session + '-' + window.name.split('-')[1];
+                }
+                console.log(window.name)
+            },
+            error: function() {
+                alert('Impossible to open a session, the webserver cannot be accessed. Please, try to use SwissDock outside any firewall (see FAQ). If the problem persist, please contact the SwissDock team.');
+            }
+        });
+    }
+
+    function deleteSession(session, event) {
+
+        $.ajax({
+            type:"GET",
+            // async: false,
+            crossDomain:true,
+            contentType: "text/plain",
+            url: server + "/deletesession?sessionNumber=" + session,
+            success: function(res) {
+                if (res.includes('were deleted')) {
+                    console.log('Session ' + session + ' deleted after ' + event + '!');
+                } else {
+                    console.log('Failed to delete session ' + session + ' after ' + event + '!');
+                }
+            },
+            error: function() {
+                // alert('Impossible to delete your session. Please contact the SwissDock team.');
+            }
+        });
+        
+    }
+
+    //check for Navigation Timing API support
+    // if (window.performance) {
+    //     console.info("window.performance works fine on this browser");
+    // }
+
+</script>
+
+<!--                  -->
+<!--    Table tabs    -->
+<!--                  -->
+
+<!-- <div style="clear: both; width: 100%; height: 50px;" name="horizontal spacer"></div>  -->
+<div class='content' id="popupBackground" style="display: block; padding-bottom: 30px; padding-top: 10px;">
+
+    <!-- <span style="font-size:20px;">1 - Submit a ligand</span> -->
+
+    <div class="tab" style="margin-top: 30px;">
+        <button class="tablinks active" id='ACButton' onclick="window.name=session + '-AC'; location.reload();" style="width: 50%; border-radius: 16px;">Docking with Attracting Cavities</button>
+        <button class="tablinks" id='VinaButton' onclick="window.name=session + '-Vina'; location.reload();" style="width: 50%; border-radius: 16px;">Docking with AutoDock Vina</button>
+    </div>   
+
+    <form method="post" enctype="multipart/form-data" id="myForm" action="dock.php">
+
+        <input type="hidden" name="session" id="session" value="" form="myForm"/>
+        <input type="hidden" name="method" id="method" value="" form="myForm"/>
+        <input type="hidden" name="estTime" id="estTime" value="" form="myForm"/>
+        <input type="hidden" name="pdbContent" id="pdbContent" value="" form="myForm"/>
+        <input type="hidden" name="pdbName" id="pdbName" value="" form="myForm"/>
+
+        <!--                 -->
+        <!-- Select examples -->
+        <!--                 -->
+
+        <div style="width: 100%; margin: 40px 5px 0px 0px;">
+            <i>Don't know where to start?</i> Try with an example: binding of 
+            <span class="niceLinks" id="optionExample" onclick="applyExample('2g8e');" ><b>SNJ-1715 (PDB ID 0m6) to calpain-1 catalytic subunit (PDB ID 2g8e)</b></span>, of 
+            <!-- <span class="niceLinks" id="optionExample" onclick="applyExample('3g31');" ><b>a cyclic urea (PDB ID gf1) to beta-lactamase CTX-M-9a (PDB ID 3g31)</b></span>, of  -->
+            <span class="niceLinks" id="optionExample" onclick="applyExample('1ewl');" ><b>WRR-99 (r99) to cruzipain (1ewl)</b></span>, or of 
+            <span class="niceLinks" id="optionExample" onclick="applyExample('5hie');" ><b>dabrafenib (p06) to B-Raf (5hie)</b></span>.
+        </div>
+
+        <!--                         -->
+        <!--    Submit the ligand    -->
+        <!--                         -->
+        
+        <div style="clear: both; width: 100%; margin: 50px 5px 0px 0px;">
+            <span style="font-size:23px;">1 - Submit a ligand</span>
+
+            <div style="margin-top:30px; margin-left: 20px; vertical-align: middle;"> 
+                <!-- This is to handle the loading of a Mol2 file box -->  
+                <div style="margin-bottom: 20px;">
+                    Provide a SMILES&nbsp;
+                    <input type="text" name="smiles" id="smilesBox" form="myForm" value="" style="width: 500px;"/>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    . . . or upload a Mol2 file <span name="Vina" style='display: none'>or a PDBQT file</span>
+                    <div class='hoverImg'>
+                        <img class="helpImg" src="/images/help_grey.png" width="13" height="13"> 
+                        <div class='overlay' style="width: 200px; height: 50px;"> 
+                            <div class="overlaytxt">Please provide a file containing only 1 molecule, with all hydrogens and 3D coordinates</div>
+                        </div>
+                    </div>
+                    <input type="file" name="ligToUpload" id="ligToUpload" style="width: 120px; color:transparent;" onchange="handleLigFile(this.files)"><label id='ligLabel' style="font-size:14px;"></label>
+                </div>
+               
+                <!-- This is the div to show or hide the sketcher -->
+                <div id="containerSketch" style="float: left; width: 430px; height: 0px; margin-left: 5px; transition: height 1s;">
+                    <!-- This is the box to enter SMILES -->
+                    <iframe id="sketch" src="marvinjs-21/editorws.html" seamless="seamless" scrolling="no" frameborder="0" style="display:none; overflow: hidden; min-width: 420px; min-height: 430px; border: 1px solid darkgray;" ></iframe>
+                    <span id="sketcherHidener" style="display:none; margin-top:5px;" onclick="hideSketcher();" class="niceLinks"><b>Hide the sketcher</b></span>  
+                </div>
+                <div style="float: left; width: 400px; margin-left: 30px; height: 0px; transition: height 1s;">
+                    <span id="remarks" style="display:none; position: relative; top: 160px; color:#ff0000; text-align: justify;">You submitted a ligand file. The latter will be treated as is, and atom naming will be kept when possible. However, if you modify the molecule in the sketcher, the atom naming and the molecular conformation provided in the Mol2 file will not be use during the parameterization.</span>
+                </div>
+
+                <div style="clear:both; margin-bottom: 20px;">
+                    . . . or input, or modify, or check the molecule <span id='showSketcher' onclick="showSketcher();" class="niceLinks"><b>using the sketcher</b></span>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    . . . or use the <a href="#" class="niceLinks" id="ligandSearchLink"><b>advanced search</b></a>
+                </div> 
+                
+                <img id="preplig" name='false' style="margin-left: 10px; margin-right: 10px; display: none; vertical-align: middle;" width="24px" height="24px">
+                <input type="button" id="prepLigButton" target="_blank" value="Prepare ligand" disabled="true" >&nbsp;&nbsp;
+                <span class="niceLinks" onclick="clearLigFile(); clearSMILES()"><b>Reset ligand</b></span>
+                
+            </div>  
+        </div>
+
+        <!--                         -->
+        <!--    Submit the target    -->
+        <!--                         -->
+        
+        <div style="clear: both; width: 100%;  margin: 50px 5px 0px 0px;">
+            <span style="font-size:23px;">2 - Submit a target</span>
+            
+            <div style="margin-top:30px; margin-left: 20px;"> 
+                <!-- This is to handle the loading of a Mol2 file box -->  
+                <div style="margin-bottom: 20px;">
+                    Provide a PDB id <i>(e.g. 5hie)</i>&nbsp;&nbsp;
+                    <input type="text" name="pdbID"  id="pdbBox" form="myForm" value="" style="width:50px;"/>
+                </div>
+                <div id="containerSelectInPdb" style="margin-left: 40px; margin-bottom: 20px; height: 0px; transition: height 1s;">
+                    <div id="selectInPdb" style="display:none">
+                        Choose chain(s) to keep<font color='red'>*</font>:&nbsp;&nbsp;
+                        <select id="chainsSelect" multiple placeholder="Choose chain(s)" class="SlectBox"></select><br><br>
+                    
+                        Choose heteroatom(s) to keep<font color='red'>*</font>:&nbsp;&nbsp;
+                        <select id="heteroatomsSelect" multiple placeholder="Choose heteroatom(s)" class="SlectBox"></select>
+                        <div class='hoverImg'>
+                            <img class="helpImg" src="/images/help_grey.png" width="13" height="13"> 
+                            <div class='overlay' style="width: 100px; height: 50px;"> 
+                                <div class="overlaytxt">Please do not select chemical solvent.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    . . . or upload a PDB file <span name="Vina" style='display: none'>or a PDBQT file</span>&nbsp;&nbsp;
+                    <input type="file" name="pdbToUpload" id="pdbToUpload" style="width: 120px; color:transparent;" onchange="handlePdbFile(this.files)"><label id='pdbLabel' style="font-size:14px;"></label>
+                </div>
+            
+                <div style="margin-bottom: 10px;">
+                    . . . or use the <a href="#" class="niceLinks" id="targetSearchLink"><b>advanced search</b></a>         
+                </div>
+            
+                <div style="clear:both;"></div>
+                <img id="preptarget" name='false' style="margin-left: 10px; margin-right: 10px; display: none; vertical-align: middle;" width="24px" height="24px">
+                <input type="button" id="prepTargetButton" onclick="prepTarget(pdbModified, targetFileName, true)" target="_blank" value="Prepare target" disabled="true">&nbsp;&nbsp;
+                <span class="niceLinks" onclick="clearPDB(); clearPdbFile(); $('#viewport').empty();"><b>Reset target</b></span>
+            </div>
+        </div>
+
+        <!--                           -->
+        <!--    Define search space    -->
+        <!--                           -->
+        
+        <div style="clear: both; width: 100%; margin: 50px 5px 0px 0px;">
+            <span style="font-size:23px;">3 - Define search space</span>
+            
+            <div style="margin-top:25px;  margin-left: 20px; margin-bottom: 20px; vertical-align: middle;"> 
+                <!-- This is to handle the loading of a Mol2 file box -->  
+                <table style="width: 400px;">
+                    <tr>
+                        <td style="padding-bottom: 10px; padding-top: 10px;">Search box center</td>
+                        <td><input type="number" name="xcenter"  id="boxCenterx" form="myForm" class="boxCenter" value="" placeholder="0" style="width:50px; padding: 3px; padding-left: 7px;"/></td> <!-- oninput="this.value=(parseInt(this.value)||0)" -->
+                        <td><input type="number" name="ycenter"  id="boxCentery" form="myForm" class="boxCenter" value="" placeholder="0" style="width:50px; padding: 3px; padding-left: 7px;"/></td>
+                        <td><input type="number" name="zcenter"  id="boxCenterz" form="myForm" class="boxCenter" value="" placeholder="0" style="width:50px; padding: 3px; padding-left: 7px;"/></td>
+                        <td style='padding-top: 12px;'>Å</td>
+                    </tr><tr>
+                        <td style="padding-bottom: 10px; padding-top: 10px;">Search box size</td>
+                        <td><input type="number" name="xsize"  id="boxSizex" form="myForm" class="boxSize" value="" placeholder="0" min="1" style="width:50px; padding: 3px; padding-left: 7px;"/></td>
+                        <td><input type="number" name="ysize"  id="boxSizey" form="myForm" class="boxSize" value="" placeholder="0" min="1" style="width:50px; padding: 3px; padding-left: 7px;"/></td>
+                        <td><input type="number" name="zsize"  id="boxSizez" form="myForm" class="boxSize" value="" placeholder="0" min="1" style="width:50px; padding: 3px; padding-left: 7px;"/></td>
+                        <td style='padding-top: 12px;'>Å</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+
+    <!--                        -->
+    <!--    3D visualisation    -->
+    <!--                        -->
+
+    <div style="clear: both; width: 100%; margin-left: 20px; margin-right: 5px;">
+
+        <!--Display information about the 3D structures that is displayed -->
+        <!--Display a help for the 3D structure panel -->
+        <div id="3DHelpPanel" class="effect8" style="display: none; position: absolute; top: 700px; right: 0px; padding: 10px 15px; border: 1px solid #FF0000; border-radius: 5px; width: 480px; height: 400px; font: 11pt Helvetica,Verdana, sans-serif; background-color: white;">
+            <div style="float: right;"><img src="images/x-mark-3-16.png" style="width: 16px; height: 16px" onclick="document.getElementById('3DHelpPanel').style.display='none'"></div>
+            <b>Controls:</b>
+            <ol style="list-style-type:square; margin: 0px;">
+                <li>Mouse left-button + drag: rotate the system</li>
+                <li>Mouse right-button + drag: translate the system</li>
+                <li>Mouse wheel up and down: zoom and unzoom</li>
+                <li>Mouse wheel click + drag: move near clipping plane and far fog</li>
+                <li>Hitting "i" key: roll the system. Hitting "i" again stop the rolling.</li>
+                <li>Hitting "k" key: rock the system. Hitting "k" again stop the rocking.</li>
+            </ol>
+            <br>
+            A <b><span style="color:red">double-click</span></b> on a residue will center the view on this residue, while displaying it in ball and stick and the close neighbours in licoRICe.
+            <br><br>
+            A <b><span style="color:blue">single-click</span></b> on a residue will add a box on it.
+            <br><br> 
+            <b><span style="color:#00cc66">Hovering the mouse pointer on an atom</span></b> will display the atom name, as well as the residue name and number above the 3D viewer.
+            <br><br>
+            It is possible to display several types of molecular interactions between the selected residue and its environment using the different options available below the 3D viewer.
+            It is also possible to display the protein surface using the option below the 3D viewer.
+            <br><br>
+            Full screen viewing can be obtained by clicking on the <img src="images/fit-to-width-16.png"> icon.
+            <br>
+            You can reset the viewer by clicking on the "reset" button below it.
+        </div>
+
+        <div id="NGL_div" style="clear:both; width: 930px; border: 1px solid #ccc; border-radius: 16px; padding: 3px;">
+            <!-- Info icon (gives information about the 3D structures that is displayed) -->
+            <div style="float:left; width:40px; height:25px; display:blocked; z-index: 1000000; margin-top: 5px; margin-left: 5px;">
+                <abbr title="Help with the controls"><img src="images/help-32.png" class="swissDrugDesignIcons" onclick="document.getElementById('3DHelpPanel').style.display='block'"></abbr>
+            </div>
+            <div style="float:left; width:40px; height:25px; display:blocked; z-index: 1000000; margin-top: 5px;">
+                <abbr title="Full-screen viewer"><img src="images/fit-to-width-24.png" onclick="launchFullscreen(document.getElementById('viewport'));"></abbr>
+            </div>
+            <!-- <div style="float:left; width:40px; height:25px; display:blocked; z-index: 1000000;" id="displayChains">
+                <abbr title="Display other chains"><img src="images/add-24-gray.png" onclick="alert('I would like to add chains');"></abbr>
+            </div>        -->
+            
+            <!--Following div id used to have the label of the target you're hovering with NGL-->
+            <div  id="labelHovered" style="float:left; width:200px; height:25px; display:blocked; z-index: 1000000; margin-top: 10px;"></div>
+
+            <!--Following div id used by NGL-->
+            <div id="viewport" style="min-height: 500px;"></div>
+        </div>    
+        <div style="height:50px; width:930px; margin-top: 10px;"> 
+            <!--Following div id used to have the label of the target you're hovering with NGL-->
+            <div id="contactsPanel" style="float:left; width:700px; height:40px; display:blocked; z-index: 1000000;">
+                <div id="hydrogenBondToggle" style="float: left; width:15%; height:35px; padding: 5px; margin-top: 5px; text-align: center; vertical-align: baseline; border-radius: 10px; font: 11pt  Helvetica,Verdana, sans-serif; color: white; background-color: #3498DB;" onclick="toggleHBond()">Hydrogen bonds</div>
+                <div style="float:left; height:40px; width:15px"></div>
+                <div id="ionToggle" style="float: left; width:15%; height:35px; padding:5px; text-align:center; vertical-align: middle; margin-top:5px; border-radius: 10px; font: 11pt  Helvetica,Verdana, sans-serif; color: black; background-color: #FFFC33;" onclick="toggleIonic()">Ionic interactions</div>
+                <div style="float:left; height:40px; width:15px;"></div>
+                <div id="cationPiToggle" style="float: left; width:15%; height:35px; padding:5px; text-align:center; margin-top:5px; border-radius: 10px; font: 11pt  Helvetica,Verdana, sans-serif; color: black; background-color: #F8F8F8;" onclick="toggleCationPi()">Cation-<span>&#960</span> interactions</div>
+                <div style="float:left; overflow: auto;height:40px; width:15px;"></div>
+                <div id="hydrophobicToggle" style="float: left; width:15%; height:35px; padding:5px; text-align:center; margin-top:5px; border-radius: 10px; font: 11pt  Helvetica,Verdana, sans-serif; color: black; background-color: #F8F8F8;" onclick="toggleHydrophobic()">Hydrophobic contacts</div>
+                <div style="float:left; height:40px; width:15px;"></div>
+                <div id="piStackingToggle" style="float: left; width:15%; height:35px; padding:5px; text-align:center; margin-top:5px; border-radius: 10px; font: 11pt  Helvetica,Verdana, sans-serif; color: black; background-color: #F8F8F8;" onclick="togglePiStacking()"><span>&#960</span>-stacking interactions</div>
+            </div>
+            <div id="surfacePanel" style="float:left; width:150px; height:40px; display:blocked; z-index: 1000000;">    
+                <!-- <div style="float:left; height:40px; width:15px;"></div> -->
+                <div id="surfaceToggle" style="float: right; width:70%; height:35px; padding:5px; text-align:center; margin-top:5px; border-radius: 10px; font: 11pt  Helvetica,Verdana, sans-serif; color: black; background-color: #F8F8F8;" onclick="toggleSurface()">Show protein surface</div>
+            </div>
+            <!--reset butt<div id="test" style="height:500px; padding-bottom:25px;">on-->
+            <button id="reset" type="button" onclick="resetNGL();" style='float: right;'>Reset</button>
+        </div>
+        
+        <div id="no_NGL_div" class="missingData">&#8709</div>
+    </div>
+
+    <!--                         -->
+    <!--    Select parameters    -->
+    <!--                         -->
+
+    <div style="clear: both; width: 100%; margin: 60px 5px 0px 0px;">
+        <span style="font-size:23px;">4 - Select parameters</span>
+        
+        <table name='AC' style="margin: 10px 0px 15px 40px; display: block;">
+            <colgroup>
+                <col span="1" style="width: 40%;">
+                <col span="1" style="width: 60%;">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td style="padding-bottom: 20px; padding-top: 20px;">
+                        Number of RIC
+                        <div class='hoverImg'>
+                            <img class="helpImg" src="/images/help_grey.png" width="13" height="13"> 
+                            <div class='overlay' style="width: 150px; height: 50px;"> 
+                                <div class="overlaytxt">
+                                    The number of Random Initial Conditions (RIC) to be generated.
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="padding-top: 25px;">
+                        <input type="range" class="slider" min="1" max="8" value="1" step="1" id="RIC" name="RIC" form="myForm" onchange='document.getElementById("checkpar").src = "";document.getElementById("checkpar").style.display = "none";document.getElementById("checkpar").name = "false";checkForm();'>
+                        <div class="sliderticks">
+                            <p>1</p>
+                            <p>2</p>
+                            <p>3</p>
+                            <p>4</p>
+                            <p>5</p>
+                            <p>6</p>
+                            <p>7</p>
+                            <p>8</p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div name='AC' id="parametersShow" style="display:block; margin-left: 20px;">
+            <span onclick="showParameters()" class="niceLinks"><b>Show extra parameters</b></span>	
+        </div>	    
+        <div id="containerParameters" style="height: 0px; transition: height 1s; margin-left: 20px;">
+            <span id="parametersHidener" style="display:none;" onclick="hideParameters();" class="niceLinks"><b>Hide extra parameters</b></span>  
+            <div id="optionalParameters" style="display: none;">
+                <table style="margin: 10px 0px 0px 20px;">
+                    <colgroup>
+                        <col span="1" style="width: 40%;">
+                        <col span="1" style="width: 60%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td style="padding-bottom: 10px; padding-top: 10px;">
+                                Sampling exhaustivity
+                                <div class='hoverImg'>
+                                    <img class="helpImg" src="/images/help_grey.png" width="13" height="13"> 
+                                    <div class='overlay' style="width: 250px; height: 155px; text-align: left;"> 
+                                        <div class="overlaytxt">
+                                            The sampling exhaustivity determines the initial ligand rotation angle. The lower the angle, the higher the number of ligand poses.<br><br>
+                                            Values are:
+                                            <ul>
+                                                <li><b>low</b>: 180°</li>
+                                                <li><b>medium</b>: 90°</li>
+                                                <li><b>high</b>: 60°</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding-top: 25px;">
+                                <input type="range" class="slider" min="0" max="2" value="1" step="1" list="exhaust" id="exhaust" name="exhaust" form="myForm" onchange='document.getElementById("checkpar").src = "";document.getElementById("checkpar").style.display = "none";document.getElementById("checkpar").name = "false";checkForm();'>
+                                <div class="sliderticks">
+                                    <p>low</p>  <!-- 180 -->
+                                    <p>medium</p>  <!-- 90 -->
+                                    <p>high</p>  <!-- 60 -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-bottom: 10px; padding-top: 10px;">
+                                Cavity prioritization
+                                <div class='hoverImg'>
+                                    <img class="helpImg" src="/images/help_grey.png" width="13" height="13"> 
+                                    <div class='overlay' style="width: 280px; height: 170px; text-align: left;"> 
+                                        <div class="overlaytxt">
+                                            The threshold value for cavity detection determines which cavities are considered for docking. A value of 70 detects mainly deep binding clefts, while a value of 50 also places attractive points in shallower protein cavities.<br><br>
+                                            Threshold value for cavity detection:
+                                            <ul>
+                                                <li><b>buried</b>: 70</li>
+                                                <li><b>medium</b>: 60</li>
+                                                <li><b>shallow</b>: 50</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding-top: 25px;">
+                                <input type="range" class="slider" min="0" max="2" value="0" step="1" list="cavity" id="cavity" name="cavity" form="myForm" onchange='document.getElementById("checkpar").src = "";document.getElementById("checkpar").style.display = "none";document.getElementById("checkpar").name = "false";checkForm();'>
+                                <div class="sliderticks">
+                                    <p>buried</p>
+                                    <p>medium</p>
+                                    <p>shallow</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <table name='Vina' style="margin: 20px 0px 0px 20px; display: none; width: 100%;">
+            <colgroup>
+                <col span="1" style="width: 40%;">
+                <col span="1" style="width: 60%;">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td style="padding-bottom: 10px; padding-top: 10px;">
+                        Sampling exhaustivity
+                        <div class='hoverImg'>
+                            <img class="helpImg" src="/images/help_grey.png" width="13" height="13"> 
+                            <div class='overlay' style="width: 118px; height: 90px; text-align: left;"> 
+                                <div class="overlaytxt">
+                                    Increase the sampling exhaustivity to increase the amount of computational effort.
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="padding-bottom: 10px; padding-top: 10px;">
+                        <input id='exhaustivenessSlider' type="range" class="slider" min="1" max="64" value="4" step="1" oninput='document.getElementById("exhaustivenessBox").value = $(this).val(); document.getElementById("checkpar").src = "";document.getElementById("checkpar").style.display = "none";document.getElementById("checkpar").name = "false";checkForm();'>
+                        &nbsp;&nbsp;
+                        <input id='exhaustivenessBox' type="number" name="exhaustiveness" form="myForm" value="4" min='1' max='64' style="width:50px;" onchange='if(this.value>64){this.value="64";}else if(this.value<0){this.value="0";}; document.getElementById("exhaustivenessSlider").value = $(this).val(); document.getElementById("checkpar").src = "";document.getElementById("checkpar").style.display = "none";document.getElementById("checkpar").name = "false";checkForm();'/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--           -->
+    <!-- Checking  -->
+    <!--           -->
+
+    <div style="width: 100%; margin: 10px 5px 0px 20px;">
+        <!-- <span style="font-size:20px;">4 - Check your parameters</span><br> -->
+        <img id="checkpar" style="margin-left: 10px; margin-right: 10px; display: none; vertical-align: middle;" width="24px" height="24px">
+        <input type="button" id="checkButton" onclick="checkPar()" target="_blank" value="Check parameters" disabled="true">
+        <div class='hoverImg' id='parametersExplications' style='display: inline-block;'>
+            <img class="helpImg" src="/images/help_grey.png" width="16" height="16">
+            <div class='overlay' style="width: 320px; height: 210px; text-align: left;"> 
+                <div class="overlaytxt">
+                    Before a docking, we need to check your parameters. We check if the grid contains attractive points and if your job will not take too much time.<br>
+                    The computational time depends on:
+                    <ul>
+                        <li>the box size</li>
+                        <li>the sampling exhaustivity</li>
+                        <li>the cavity prioritization (Attracting Cavities only)</li>
+                        <li>the number of random initial conditions (RIC) (Attracting Cavities only)</li>
+                    </ul>
+                    If you want to reduce the estimated time, reduce the number of RIC or the box size, decrease the sampling exhaustivity and/or the cavity prioritization.
+                </div>
+            </div>
+        </div>
+        <div>
+            <span id="commentOnChecking" class="commentOnChecking" style="color:#444444; font-style: italic; font-size: smaller; margin: 0px;">(Prepare ligand and target)</span>
+        </div>
+    </div>
+    <!--                            -->
+    <!-- Submission and reset form  -->
+    <!--                            -->
+
+    <div style="width: 100%; margin: 60px 5px 0px 0px;">
+        <span style="font-size:23px;">5 - Start docking</span><br>
+        <div style="margin: 30px 0px 20px 20px;">
+            <table id='options' style="width: 650px;">
+                <colgroup>
+                    <col span="1" style="width: 40%;">
+                    <col span="1" style="width: 60%;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td style='padding-bottom: 20px'>Enter an email (optional)</td>
+                        <td style='padding-bottom: 20px'><input type="email" id="email" name="email" style="width: 200px;" form="myForm"></td>
+                    </tr><tr>
+                        <td style='padding-bottom: 10px'>Enter a docking name (optional)</td>
+                        <td style='padding-bottom: 10px'><input type="text" id="jobname" name="jobname" style="width: 200px;" form="myForm" oninput='document.getElementById("jobname").value = $(this).val().replaceAll(/[#"<>:;\]\@$%/|[!^&,.?{}()*+=\\]/g, "");'></td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <input type="button" id="submitButton" onclick="formSubmit()" target="_blank" value="START DOCKING" disabled="true">&nbsp;&nbsp;
+            <span class="niceLinks" style="color:#000000" onclick="location.reload();" style="text-decoration:underline; font-weight: bold;" ><b>Reset form</b></span>
+            <p id="commentOnSubmit" style="color:#444444; font-style: italic; font-size: smaller; margin: 0px;">(Check your parameters before)</p>
+        </div>
+    </div>
+
+</div>
+
+<!--                               -->
+<!-- Ligand advanced search popup  -->
+<!--                               -->
+
+<div id="ligandSearchPopup" class="popup-window">
+    <span style="font-size:18px; font-weight: bold; display: block; width:900px; text-align: center;">Advanced ligand search</span>
+
+    <div style='padding-top: 20px; padding-bottom: 20px'>
+        <select id='selectSearchLigand' style="font: 12pt Helvetica,Verdana, sans-serif;">
+            <option value='Name' selected>Name</option>
+            <option value='PDB lig ID'>PDB ID</option>
+            <option value='InChI'>InChI</option>
+        </select>&nbsp;&nbsp;
+
+        <input type="text" id="searchLigand" value="" placeholder="e.g., ibuprofen" style="width:400px; display: inline-block; font: 12pt Helvetica,Verdana, sans-serif;"/>&nbsp;&nbsp;
+        <p id='searchLigandMessage' style='display: none; color: red; margin: 0;'>Not found!</p>
+
+    </div>
+    
+    <button id="ligandSearch" onclick="ligandSearch()" disabled>Search</button>&nbsp;
+    <div class='hoverImg' id='ligSearchExplications'>
+        <img class="helpImg" src="/images/help_grey.png" width="13" height="13">
+        <div class='overlay' style="width: 350px; height: 90px; text-align: left;"> 
+            <div class="overlaytxt">
+                <ol style='margin-block: 0px; padding-inline-start: 20px;'>
+                    <li>Search a small molecule by name, PDB id, or by InChI</li>
+                    <li>Enter or press the search button</li>
+                    <li>Click on the molecule of your choice in the table</li>
+                    <li>Press the apply button</li>
+                </ol>
+                <br>
+                SMILES are given at pH 7.4
+            </div>
+        </div>
+    </div>
+    <!-- <br><br> -->
+
+    <table class="resultTable" id="ligandTable" style="display: none; overflow: auto; width: 900px; max-height: 490px; margin: 10px auto;"></table>
+    <br><br>
+    <div style='float: left;'>
+        <a href="https://www.ebi.ac.uk/chebi/init.do" target="_blank" style='color: black; text-decoration: none;'><img src='images/ChEBI_logo.png' height='40px' alt="chebi logo">ChEBI</a>
+        &nbsp;&nbsp;
+        <a href="https://www.wwpdb.org/data/ccd" target="_blank" style='color: black; text-decoration: none;'><img src='images/wwpdb-logo.png' height='30px' alt="wwpdb logo"></a>
+    </div>
+    <div style='position: absolute; bottom: 20px; right: 20px;'>
+        <button id="applyLigandSearch" disabled>Apply</button>
+        <button id="closeLigandSearch">Close</button>
+    </div>
+</div>   
+
+<!--                               -->
+<!-- Target advanced search popup  -->
+<!--                               -->
+
+<div id="targetSearchPopup" class="popup-window">
+    <span style="font-size:18px; font-weight: bold; text-align: center; width: 900px; display: block; padding-bottom: 10px;">Advanced target search</span>
+    
+    Select your search database:&nbsp;
+    <select id='selectTargetDatabase'>
+        <option value='pdbe' selected>PDBe</option>
+        <option value='swissmodel'>SWISS-MODEL</option>
+        <option value='alphafold'>AlphaFold</option>
+    </select>
+
+    <table id='pdbe' style="width: 580px; margin-top: 20px;">
+        <colgroup>
+            <col span="1" style="width: 40%;">
+            <col span="1" style="width: 60%;">
+        </colgroup>
+        <tbody>
+            <tr>
+                <td style='padding-bottom: 20px'>Protein name<font color='red'>*</font>:</td>
+                <td style='padding-bottom: 20px'>
+                    <input type="text" id="titlePDB" value="" placeholder="e.g., protein name or ID" style="width:400px; display: inline-block;"/>
+                    <p id='searchTargetMessage' style='display: none; color: red; margin: 0;'>Not found!</p>
+                </td>
+            </tr><tr>
+                <td style='padding-bottom: 20px'>Source organism:</td>
+                <td style='padding-bottom: 20px'>
+                    <input type="text" id="organismPDB" value="" placeholder="e.g., Homo sapiens, Mus musculus" style="width:400px;"/>
+                </td>
+            </tr><tr>
+                <td style='padding-bottom: 20px'>Experimental method:</td>
+                <td style='padding-bottom: 20px'>
+                    <select id="methodPDB">
+                        <option value='X-ray diffraction' selected>X-ray diffraction</option>
+                        <option value='Electron microscopy'>Electron microscopy</option>
+                        <option value='Solution NMR'>Solution NMR</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id='swissmodel' style="width: 680px; margin-top: 20px; display: none;">
+        <colgroup>
+            <col span="1" style="width: 40%;">
+            <col span="1" style="width: 60%;">
+        </colgroup>
+        <tbody>
+            <tr>
+                <td style='padding-bottom: 20px'>UniProtKB accession number (AC) or entry name (ID)<font color='red'>*</font>:</td>
+                <td style='padding-bottom: 20px'>
+                    <input type="text" id="accession" value="" placeholder="e.g., P00520, abl1_mouse" style="width:400px; display: inline-block;"/>
+                    <p id='searchTargetMessage' style='display: none; color: red; margin: 0;'>Not found!</p>
+                </td>
+            </tr><tr>
+                <td style='padding-bottom: 20px'>PDB template:</td>
+                <td style='padding-bottom: 20px'>
+                    <input type="text" id="template" value="" placeholder="e.g., 5ih2" style="width:400px; display: inline-block;"/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id='alphafold' style="width: 680px; margin-top: 20px; display: none;">
+        <colgroup>
+            <col span="1" style="width: 40%;">
+            <col span="1" style="width: 60%;">
+        </colgroup>
+        <tbody>
+            <tr>
+                <td style='padding-bottom: 20px'>UniProtKB accession number (AC)<font color='red'>*</font>:</td>
+                <td style='padding-bottom: 20px'>
+                    <input type="text" id="accessionAF" value="" placeholder="e.g., Q5VSL9" style="width:400px; display: inline-block;"/>
+                    <p id='searchTargetMessage' style='display: none; color: red; margin: 0;'>Not found!</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="targetSearch" onclick="pdbSearch()" disabled>Search</button>&nbsp;
+    <font color='red' style="font-size: 9pt">* required</font>
+    <div class='hoverImg' id='targetSearchExplications'>
+        <img class="helpImg" src="/images/help_grey.png" width="13" height="13">
+        <div class='overlay' style="width: 320px; height: 80px; text-align: left;"> 
+            <div class="overlaytxt">
+                <ol style='margin-block: 0px; padding-inline-start: 20px;'>
+                    <li>Search a target by name (mandatory). Optionally, add an source organism and/or an experimental method</li>
+                    <li>Enter or press the search button</li>
+                    <li>Click on the target of your choice in the table</li>
+                    <li>Press the apply button</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <table class="resultTable" id="pdbTable" style="display: none; overflow-x: auto; overflow-y: auto; margin: 10px auto;"></table>
+    <div style='display: block; height: 25px; margin-top: 18px;'>
+        <div style='float: left;'>
+            <a id='pdbeLink' href="https://www.ebi.ac.uk/pdbe/" target="_blank" style='color: black; text-decoration: none;'><img src='images/PDBe-logo.png' height='25px' alt="pdbe logo"></a>
+            <a id='swissmodelLink' href='https://swissmodel.expasy.org/' target="_blank" style='color: black; text-decoration: underline; font-size: 12pt; display: none;'><img src='images/SWISS-MODEL.tsb.svg' height='25px' alt="swissmodel logo"></a>
+            <a id='alphafoldLink' href='https://alphafold.ebi.ac.uk/' target="_blank" style='color: #8BB8E8; text-decoration: none; font-size: 12pt; display: none; font-family: "DM Sans";'>AlphaFold Protein Structure Database</a>
+        </div>
+        <div style='float: right;'>
+            <button id="applyTargetSearch" disabled>Apply</button>
+            <button id="closeTargetSearch">Close</button>
+        </div>
+        <div style='clear: both;'></div>
+    </div>
+</div>  
+
+<!--                    -->
+<!--    Chemaxon logo   -->
+<!--                    -->
+
+<div id="chemaxon_logo" style="text-align:right;"><a href="http://www.chemaxon.com" target="_blank"><img src="images/chemaxon_logo.png" style="width:250px; margin-top:25px;" alt="chemaxon logo"></a></div>
+
+<!--                  -->
+<!--    Submit form   -->
+<!--                  -->
+
+<script language="javascript" type="text/javascript">
+	function formSubmit() { 
+ 	    if (!document.getElementById('submitButton').disabled) {
+            document.getElementById("pdbContent").value = pdbModified;
+            document.getElementById("pdbName").value = targetFileName;
+            document.getElementById('method').value = AC;
+
+            document.getElementById("myForm").submit();
+	    }
+    }
+</script>
+
+<!--                    -->
+<!--   Check the form   -->
+<!--                    -->
+
+<script language="javascript" type="text/javascript">
+
+    var marvinSketcherInstance;
+    var selectedHet = '';
+    var selectedChains = '';
+    var chainSelected = ['empty'];
+    var ligJustLoaded = 0;
+    var ligChanged = 0;
+    var ligID = '';
+    var smilesBoxJustChanged = 0;
+    var smilesRef = "";
+    var allSelected = false;
+    var noneSelected = false;
+
+    var exhaust = [180, 90, 60];
+    var cavity = [70, 60, 50];
+
+    $('#chainsSelect').SumoSelect();
+    $('#heteroatomsSelect').SumoSelect();
+
+    function checkForm() {
+        var canSubmit = true;
+
+        document.getElementById('submitButton').disabled = true;
+
+        var ligand = document.getElementById("preplig").name !== 'true';
+        var target = document.getElementById("preptarget").name !== 'true';
+
+        // console.log('ligand: ' + document.getElementById("preplig").name + ' - ' + ligand);
+        // console.log('target: ' + document.getElementById("preptarget").name + ' - ' + target);
+
+        var center = document.getElementById("boxCenterx").value == "" || document.getElementById("boxCentery").value == "" || document.getElementById("boxCenterz").value == "";
+        var size = document.getElementById("boxSizex").value == "" || document.getElementById("boxSizey").value == "" || document.getElementById("boxSizez").value == "";
+        
+        if (ligand || target || center || size) {
+            canSubmit = false;
+        }
+
+        var buttonToCheck = document.getElementById('checkButton');
+
+        buttonToCheck.disabled = !canSubmit;
+        if (canSubmit) {
+            $('#commentOnChecking').html("");
+        }
+    }
+
+    function checkPar() {
+
+        document.getElementById("checkpar").src = "images/time-left.png";
+        document.getElementById("checkpar").style.display = "inline-block";
+        document.getElementById("checkpar").name = "pending";
+        
+        if (AC) {
+            var listOfId = ['checkButton', 'RIC', 'exhaust', 'cavity'];
+        } else {
+            var listOfId = ['checkButton', 'exhaustivenessSlider', 'exhaustivenessBox'];
+        }
+        listOfId.push('submitButton', ".boxCenter", ".boxSize");
+        makeDisable(listOfId, true);
+
+        if (document.getElementById("preptarget").name === 'pending' || document.getElementById("preplig").name === 'pending') {
+            console.log('wait for preparation');
+            setTimeout(checkPar, 1000)
+        }
+
+        var parameters = "?sessionNumber=" + session;
+
+        // Add the file to the AJAX request.
+        parameters = parameters + '&boxCenter=' + boxCenter[0].value + '_' + boxCenter[1].value + '_' + boxCenter[2].value;
+        parameters = parameters + '&boxSize=' + boxSize[0].value + '_' + boxSize[1].value + '_' + boxSize[2].value;
+        
+        if (AC) {
+            parameters = parameters + '&exhaust=' + exhaust[document.getElementById("exhaust").value]
+            parameters = parameters + '&cavity=' + cavity[document.getElementById("cavity").value]
+            parameters = parameters + '&ric=' + document.getElementById("RIC").value
+        } else {
+            parameters = parameters + '&exhaust=' + document.getElementById("exhaustivenessBox").value
+        }
+        
+        console.log(server + "/setparameters" + parameters);
+
+        $.ajax({
+            type:"GET",
+            processData: false,
+            crossDomain:true,
+            url: server + "/setparameters" + parameters,
+            success: function(res) {
+                console.log(res);
+                
+                if (res.includes('can be submitted')) {
+                    
+                    document.getElementById("checkpar").src = "images/check-mark.png";
+                    document.getElementById("checkpar").name = "true";
+                    document.getElementById('submitButton').disabled = false;
+
+                    // console.log(res)
+                    var time = res.substring(res.search('This job is estimated'), res.search('Your session'));
+                    // console.log(time)
+                    $('#commentOnChecking').html(time);
+                    document.getElementById('estTime').value = time;
+                    // document.getElementById('timeExplications').style.display = 'inline-block';
+                    $('#commentOnSubmit').html(""); 
+
+                } else if (res.includes('grid is empty')) {
+                    alert("Your grid is empty. Please change you box parameters.");
+                    
+                    document.getElementById("checkpar").src = "images/close.png";
+                    document.getElementById("checkpar").name = "false";
+                    document.getElementById('submitButton').disabled = true;
+
+                } else if (res.includes('Limit authorized')) {
+                    
+                    document.getElementById("checkpar").src = "images/close.png";
+                    document.getElementById("checkpar").name = "false";
+                    document.getElementById('submitButton').disabled = true;
+
+                    var time = res.substring(res.search('This job is estimated'), res.search('Limit authorized'));
+                    
+                    if (AC) {
+                        $('#commentOnChecking').html(time + ' Limit authorized is 1 hour.');
+                    } else {
+                        $('#commentOnChecking').html(time + ' Limit authorized is 10 minutes.');
+                        // $('#commentOnChecking').html(time + ' Limit authorized is 40 minutes.');
+                    }
+                    
+                    document.getElementById('estTime').value = time;
+                    $('#commentOnSubmit').html(""); 
+                } else if (res.includes('WARNING')) {
+
+                    document.getElementById("checkpar").src = "images/close.png";
+                    document.getElementById("checkpar").name = "false";
+                    document.getElementById('submitButton').disabled = true;
+
+                    alert(res.substring(res.search('WARNING')))
+
+                } else {
+                    alert("Your session cannot be submitted. Something went bad during the checking. Please contact the SwissDock team.");
+                    
+                    document.getElementById("checkpar").src = "images/close.png";
+                    document.getElementById("checkpar").name = "false";
+                    document.getElementById('submitButton').disabled = true;
+                }
+                if (AC) {
+                    listOfId = ['RIC', 'exhaust', 'cavity']
+                } else {
+                    listOfId = ['exhaustivenessSlider', 'exhaustivenessBox']
+                }
+                listOfId.push(".boxCenter", ".boxSize");
+                makeDisable(listOfId, false);
+            },
+            error: function() {
+                alert('Impossible to check the session. Please contact the SwissDock team.');
+                if (AC) {
+                    listOfId = ['RIC', 'exhaust', 'cavity']
+                } else {
+                    listOfId = ['exhaustivenessSlider', 'exhaustivenessBox']
+                }
+                listOfId.push(".boxCenter", ".boxSize");
+                makeDisable(listOfId, false);
+            }
+        });
+    }
+
+    $(document).ready(function handleDocumentReady (e) {
+
+        // Initiate the sketcher & create an "onMolChange" change handler
+        MarvinJSUtil.getEditor("#sketch").then(function (sketcherInstance) {
+            marvinSketcherInstance = sketcherInstance;
+            new MolChangeHandler(marvinSketcherInstance, onMolChange);
+                initControl();
+            },function (error) {
+                alert("Cannot retrieve sketcher instance from iframe:"+error);
+            });
+
+        // Handle actions to be performed upon changes in the Sketcher   
+        function onMolChange(e) {
+            marvinSketcherInstance.exportStructure("smiles").then(function(smiles) {
+                if (smiles != smilesRef) {
+                        if (document.getElementById("preplig").name == 'true') {
+                            document.getElementById("preplig").name = 'false';
+                            document.getElementById("preplig").style.display = "none";
+                        }
+                    }
+                if (smilesBoxJustChanged===1) {
+                    //smilesBoxJustChanged=0;
+                } else {
+                    document.getElementById("smilesBox").value = smiles;
+                    if (smiles != '') {
+                        document.getElementById('prepLigButton').disabled = false;
+                        if (ligContent == '') {
+                            document.getElementById('prepLigButton').onclick = function() {prepSMILES(document.getElementById("smilesBox").value)};
+                        } else if ((smiles != smilesRef) && (smilesRef != '')) {
+                            clearLigFile();
+
+                            document.getElementById('prepLigButton').disabled = false;
+                            document.getElementById('prepLigButton').onclick = function() {prepSMILES(document.getElementById("smilesBox").value)};
+                        }
+                    } else {
+                        document.getElementById('prepLigButton').disabled = true;
+                    }
+                    smilesRef = smiles;
+                }
+                smilesBoxJustChanged=0;            
+                }, function(error) {
+                    alert("Molecule export failed: " + error + " Please contact the SwissDock team.");	
+            });
+        };                        
+            
+        // Change the content of the sketcher when a SMILES is inputted or changed in the SMILES box
+        function initControl() {
+            $("#smilesBox").keyup( function(event) {
+                smilesRef = document.getElementById("smilesBox").value;
+                if (document.getElementById("preplig").name == 'true') {
+                    document.getElementById("preplig").name = 'false';
+                    document.getElementById("preplig").style.display = "none";
+                }
+                if (document.getElementById("smilesBox").value != '') {
+                    marvinSketcherInstance.importStructure("smiles", document.getElementById("smilesBox").value);
+                    
+                    smilesBoxJustChanged=1;
+                    
+                    clearLigFile();
+                    
+                    document.getElementById('prepLigButton').disabled = false;
+                    document.getElementById('prepLigButton').onclick = function() {prepSMILES(document.getElementById("smilesBox").value)};
+                    
+                    if (event.key === 'Enter') {    
+                        document.getElementById('prepLigButton').dispatchEvent(new Event('click'));
+                    }
+                } else {
+                    document.getElementById('prepLigButton').disabled = true;
+                }
+            }); 
+
+            $("#smilesBox").change( function() {
+                smilesRef = document.getElementById("smilesBox").value;
+                if (document.getElementById("preplig").name == 'true') {
+                    document.getElementById("preplig").name = 'false';
+                    document.getElementById("preplig").style.display = "none";
+                }
+                if (document.getElementById("smilesBox").value != '') {
+                    // console.log(document.getElementById("smilesBox").value);
+                    marvinSketcherInstance.importStructure("smiles", document.getElementById("smilesBox").value);
+                    smilesBoxJustChanged=1;
+                    clearLigFile();
+                    document.getElementById('prepLigButton').disabled = false;
+                    document.getElementById('prepLigButton').onclick = function() {prepSMILES(document.getElementById("smilesBox").value)};
+                } else {
+                    document.getElementById('prepLigButton').disabled = true;
+                }
+            });
+
+            $("#chainsSelect").change(function () {
+                // console.log(allSelected)
+                if (allSelected && $("#chainsSelect option:not(:selected)").val().includes('All')) {
+                    // console.log('unselect all')
+                    allSelected = false;
+                    $('#chainsSelect')[0].sumo.unSelectAll();
+                } else if (allSelected && ($("#chainsSelect option:not(:selected)").length >= 1)) {
+                    // console.log('remove select all')
+                    allSelected = false;
+                    $('#chainsSelect')[0].sumo.unSelectItem('All');
+                } else if ($("#chainsSelect option:selected").text().includes("all")) {
+                    allSelected = true;
+                    // console.log('select all');
+                    $('#chainsSelect')[0].sumo.selectAll();
+                } else if ($("#chainsSelect option:not(:selected)").text() == 'Select all') {
+                    // console.log('Select all if only "select all" not selected')
+                    allSelected = true;
+                    $('#chainsSelect')[0].sumo.selectAll();
+                }
+
+                if (document.getElementById("preptarget").style.display != "none") {
+                    document.getElementById("preptarget").src = "";
+                    document.getElementById("preptarget").style.display = "none";
+                    document.getElementById("preptarget").name = "false";
+                }
+            });  
+
+            $("#chainsSelect").on('sumo:closed',function(e) {
+
+                selectedChains = $("#chainsSelect").val();
+                console.log('chains selected:');
+                console.log(selectedChains);
+
+                var boxCenter = document.querySelectorAll(".boxCenter");
+
+                if (e.detail != false && (boxCenter[0].value == '' && boxCenter[1].value == '' && boxCenter[2].value == '')) {
+                    var boxCenter = document.querySelectorAll(".boxCenter");
+
+                    boxCenter[0].value = '';
+                    boxCenter[1].value = '';
+                    boxCenter[2].value = '';
+                }
+                
+                modifyPdb();
+
+            });
+
+            $("#heteroatomsSelect").change(function () { 
+
+                if (!noneSelected && $("#heteroatomsSelect option:selected").val().includes('None')) {
+                    console.log('none selected');
+                    noneSelected = true;
+                    $('#heteroatomsSelect')[0].sumo.unSelectAll();
+                    $('#heteroatomsSelect')[0].sumo.selectItem('None');
+                }  else if (noneSelected && $("#heteroatomsSelect option:selected").length > 1) {
+                    noneSelected = false;
+                    $('#heteroatomsSelect')[0].sumo.unSelectItem('None');
+                }
+
+                if (document.getElementById("preptarget").style.display != "none") {
+                    document.getElementById("preptarget").src = "";
+                    document.getElementById("preptarget").style.display = "none";
+                    document.getElementById("preptarget").name = "false";
+                }
+            });  
+
+            $("#heteroatomsSelect").on('sumo:closed',function() {
+
+                selectedHet = $("#heteroatomsSelect").val()
+                console.log(selectedHet)
+                
+                modifyPdb();
+            });
+
+            $("#pdbBox").change( function(e) {
+                pdbModified = '';
+                first=true;
+                clearPdbFile();
+                // console.log('change');
+                // console.log(e.detail);
+                var pdbID = document.getElementById("pdbBox").value.trim().toLowerCase();
+                // $('#viewport').empty();
+                document.getElementById('no_NGL_div').style.display = 'none';
+                if (pdbID.length === 4 ) {
+                    console.log("https://www.ebi.ac.uk/pdbe/entry-files/download/pdb"+pdbID+".ent")
+                    $.ajax({
+                        type:"GET",
+                        datatype: 'text/plain',
+                        url : "https://www.ebi.ac.uk/pdbe/entry-files/download/pdb"+pdbID+".ent",
+                        success: function(res) {
+                            pdbContent = res;
+                            pdbModified = pdbContent;
+                            targetFileName = pdbID + '_modified.pdb';
+                            
+                            // display chains and heteroatoms and button to check target
+                            showSelection();
+                            if (e.detail) {
+                                // console.log('e.detail')
+                                startNGL(pdbContent, first=true, cif=false, chain=e.detail);
+                            } else {
+                                resetNGL();
+                            }
+                            pdbJustLoaded=1;
+                        },
+                        error: function() {
+                            console.log('Failed when downloading the pdb file from pdbe. Trying with rcsb...');
+                            $.ajax({
+                                type:"GET",
+                                datatype: 'text/plain',
+                                url : "https://files.rcsb.org/download/"+pdbID+".pdb",
+                                success: function(res) {
+                                    pdbContent = res;
+                                    targetFileName = pdbID + '_modified.pdb';
+                                    
+                                    // display chains and heteroatoms and button to check target
+                                    showSelection();
+                                    if (e.detail) {
+                                        startNGL(pdbContent, first=true, cif=false, chain=e.detail);
+                                    } else {
+                                        resetNGL();
+                                    }
+                                    pdbJustLoaded=1;
+                                },
+                                error: function() {
+                                    alert('This pdb is not available, for more information look at the pdbe entry.');
+                                    if (window.confirm('Ok to open https://www.ebi.ac.uk/pdbe/entry/pdb/' + pdbID + ' in new tab, Cancel to Stay here')) {
+                                        window.open('https://www.ebi.ac.uk/pdbe/entry/pdb/' + pdbID, '_blank');
+                                    };
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    selectHeteroatoms();
+                }   
+            }); 
+
+            $("#searchLigand").change(function() {
+                if (this.value != '') {
+                    document.getElementById('ligandSearch').disabled = false;
+                }
+            });
+
+            $("#searchLigand").keyup(function(event) {
+                if ((this.value != '') && (event.key === 'Enter')) {
+                    document.getElementById('ligandSearch').disabled = false;
+                    document.getElementById('ligandSearch').dispatchEvent(new Event('click'));
+                }
+            });
+
+            var placeholderText = {
+                "Name" : "e.g., ibuprofen",
+                "PDB ID" : "e.g., NIL",
+                "InChI" : "e.g., InChI=1S/C8H10O/c1-7-2-4-8(6-9)5-3-7/h2-5,9H,6H2,1H3"
+            };
+
+            $("#selectSearchLigand").on("change", function () {
+                if (this.value !== undefined) {
+                    $("#searchLigand").attr('placeholder', placeholderText[$("#selectSearchLigand option:selected").text()]);
+                    //document.getElementById("searchLigand").value = '';
+                    document.getElementById('searchLigandMessage').style.display = 'none';
+                    if (document.getElementById("searchLigand").value == '') {
+                        document.getElementById('ligandSearch').disabled = true;
+                    }
+                }
+            });
+
+            $("#selectTargetDatabase").on("change", function () {
+                if (this.value === 'pdbe') {
+                    document.getElementById('pdbe').style.display = 'block';
+                    document.getElementById('pdbeLink').style.display = 'block';
+
+                    document.getElementById('swissmodel').style.display = 'none';
+                    document.getElementById('swissmodelLink').style.display = 'none';
+
+                    document.getElementById('alphafold').style.display = 'none';
+                    document.getElementById('alphafoldLink').style.display = 'none';
+                } else if (this.value === 'swissmodel') {
+                    document.getElementById('swissmodel').style.display = 'block';
+                    document.getElementById('swissmodelLink').style.display = 'block';
+
+                    document.getElementById('pdbe').style.display = 'none';
+                    document.getElementById('pdbeLink').style.display = 'none';
+
+                    document.getElementById('alphafold').style.display = 'none';
+                    document.getElementById('alphafoldLink').style.display = 'none';
+                } else if (this.value === 'alphafold') {
+                    document.getElementById('swissmodel').style.display = 'none';
+                    document.getElementById('swissmodelLink').style.display = 'none';
+
+                    document.getElementById('pdbe').style.display = 'none';
+                    document.getElementById('pdbeLink').style.display = 'none';
+
+                    document.getElementById('alphafold').style.display = 'block';
+                    document.getElementById('alphafoldLink').style.display = 'block';
+                }
+                document.getElementById('titlePDB').value = '';
+                document.getElementById('organismPDB').value = '';
+                document.getElementById('accession').value = '';
+                document.getElementById('template').value = '';
+                document.getElementById('accessionAF').value = '';
+                document.getElementById('targetSearch').disabled = true;
+                document.getElementById('pdbTable').style.display = 'none';
+                document.getElementById('targetSearchPopup').style.height= 'fit-content';
+            }); 
+
+
+            $("#titlePDB").change(function() {
+                if ((this.value != '') && (document.getElementById('selectTargetDatabase').value == 'pdbe')) {
+                    document.getElementById('targetSearch').disabled = false;
+                }
+            });
+
+            $("#titlePDB").keyup(function(event) {
+                if ((this.value != '') && (event.key === 'Enter')) {
+                    document.getElementById('targetSearch').disabled = false;
+                    document.getElementById('targetSearch').dispatchEvent(new Event('click'));
+                }
+            });
+
+            $("#organismPDB").keyup(function(event) {
+                if (($("#titlePDB").value != '') && (event.key === 'Enter')) {
+                    document.getElementById('targetSearch').disabled = false;
+                    document.getElementById('targetSearch').dispatchEvent(new Event('click'));
+                }
+            });
+
+            $("#accession").change(function() {
+                if ((this.value != '') && (document.getElementById('selectTargetDatabase').value == 'swissmodel')) {
+                    document.getElementById('targetSearch').disabled = false;
+                }
+            });
+
+            $("#accession").keyup(function(event) {
+                if ((this.value != '') && (event.key === 'Enter')) {
+                    document.getElementById('targetSearch').disabled = false;
+                    document.getElementById('targetSearch').dispatchEvent(new Event('click'));
+                }
+            });
+
+            $("#template").keyup(function(event) {
+                if (($("#accession").value != '') && (event.key === 'Enter')) {
+                    document.getElementById('targetSearch').disabled = false;
+                    document.getElementById('targetSearch').dispatchEvent(new Event('click'));
+                }
+            });
+
+            $("#accessionAF").change(function() {
+                if ((this.value != '') && (document.getElementById('selectTargetDatabase').value == 'alphafold')) {
+                    document.getElementById('targetSearch').disabled = false;
+                }
+            });
+
+            $("#accessionAF").keyup(function(event) {
+                if ((this.value != '') && (event.key === 'Enter')) {
+                    document.getElementById('targetSearch').disabled = false;
+                    document.getElementById('targetSearch').dispatchEvent(new Event('click'));
+                }
+            });
+
+            $(".boxCenter").change(function() {
+                
+                document.getElementById("checkpar").src = "";
+                document.getElementById("checkpar").style.display = "none";
+                document.getElementById("checkpar").name = "false";
+                $('#commentOnChecking').html("");
+                
+                addBox();
+            });
+
+            $(".boxSize").change(function() {
+                
+                document.getElementById("checkpar").src = "";
+                document.getElementById("checkpar").style.display = "none";
+                document.getElementById("checkpar").name = "false";
+                $('#commentOnChecking').html("");
+                
+                addBox();
+            });
+        }
+    });    
+
+    function modifyPdb () {
+
+        var tmp = pdbContent.split('\n')
+        pdbModified = ''
+
+        for (var n in tmp) {
+            if ((tmp[n].startsWith("ATOM")) || (tmp[n].startsWith("TER"))) {
+                if (selectedChains.includes(tmp[n][21])) {
+                    pdbModified += "\n" + tmp[n];
+                }
+            } else if (tmp[n].includes("HETATM")) {
+                var line = tmp[n].slice(17,26).replace(/ +(?= )/g,'');
+                if (selectedHet.includes(line)) {
+                    pdbModified += "\n" + tmp[n];
+                }
+            } else {
+                pdbModified += "\n" + tmp[n];
+            }
+        }
+
+        // console.log(pdbModified)
+        startNGL(pdbModified, first=false);
+
+        // if chains also chosen, enable prepTargetButton
+        if ($("#heteroatomsSelect option:selected").length > 0 && $("#chainsSelect option:selected").length > 0) {
+            document.getElementById('prepTargetButton').disabled = false;
+        } else {
+            document.getElementById('prepTargetButton').disabled = true;
+        }
+    }
+
+    function prepSMILES(smiles) {
+        console.log('prepsmiles');
+
+        document.getElementById("preplig").src = "images/time-left.png";
+        document.getElementById("preplig").style.display = "inline-block";
+        document.getElementById("preplig").name = 'pending';
+
+        document.getElementById("checkpar").src = "";
+        document.getElementById("checkpar").style.display = "none";
+        document.getElementById("checkpar").name = "false";
+        $('#commentOnChecking').html("");
+
+        makeDisable(['ligToUpload', 'smilesBox', 'prepLigButton', 'ligandSearchLink'], true);
+        document.getElementById("showSketcher" ).className += 'Disabled';
+
+        if (document.getElementById("preptarget").name === 'pending') {
+            console.log('wait for preptarget');
+            setTimeout(prepSMILES, 1000, smiles)
+        } else {
+            console.log('no preptarget');
+
+            var urlSMILES = server + "/preplig?sessionNumber=" + session;
+
+            if (ligID != '') {
+                urlSMILES = urlSMILES + "&ligID=" + ligID;
+            }
+
+            urlSMILES = urlSMILES + "&mySMILES=" + smiles;
+
+
+            if (!AC) {
+                urlSMILES = urlSMILES + "&Vina";
+            } 
+            console.log(urlSMILES)
+            
+            $.ajax({
+                type:"GET",
+                crossOrigin: true,
+                url: urlSMILES,
+                success: function(res) {
+                    console.log(res);
+
+                    if (res.includes('uploaded') || res.includes('changed')) {
+                        if (res.includes('has been prepared')) {
+                            document.getElementById("preplig").src = "images/check-mark.png";
+                            document.getElementById("preplig").name = 'true';
+                        } else {
+                            document.getElementById("preplig").src = "images/close.png";
+                            document.getElementById("preplig").name = 'false';
+                            if (res.includes('ERROR')) {
+                                alert(res.slice(res.search('ERROR')).split('\n')[0]);
+                            } else {
+                                alert("Your SMILES has been uploaded, but cannot be prepared. Please contact the SwissDock team.")
+                            }
+                        }
+                    } else {
+                        document.getElementById("preplig").src = "images/close.png";
+                        document.getElementById("preplig").name = 'false';
+                        alert("Your SMILES cannot be uploaded. Please contact the SwissDock team.")
+                    }
+                    checkForm();
+                    makeDisable(['ligToUpload', 'smilesBox', 'ligandSearchLink'], false);
+                    document.getElementById("showSketcher" ).className = 'niceLinks';
+                },
+                error: function() {
+                    alert('Impossible to prepare your SMILES. Please contact the SwissDock team.');
+                    makeDisable(['ligToUpload', 'smilesBox', 'ligandSearchLink'], false);
+                    document.getElementById("showSketcher" ).className = 'niceLinks';
+                }
+            });
+        }
+    }
+
+    function prepLig(ligandFile) {
+        // console.log('preplig');
+        document.getElementById("preplig").src = "images/time-left.png";
+        document.getElementById("preplig").style.display = "inline-block";
+        document.getElementById("preplig").name = "pending";
+
+        document.getElementById("checkpar").src = "";
+        document.getElementById("checkpar").style.display = "none";
+        document.getElementById("checkpar").name = "false";
+        $('#commentOnChecking').html("");
+
+        makeDisable(['ligToUpload', 'smilesBox', 'prepLigButton', 'ligandSearchLink'], true);
+        document.getElementById("showSketcher" ).className += 'Disabled';
+
+        if (document.getElementById("preptarget").name === 'pending') {
+            console.log('wait for preptarget');
+            setTimeout(prepLig, 1000, ligandFile)
+        } else {
+            console.log('no preptarget');
+
+            // Create a FormData object.
+            var formData = new FormData();
+
+            // Add the file to the AJAX request.
+            formData.append('myLig', ligandFile, ligandFile.name.replaceAll(/[#"'<>:;\]\@$%/|[!^&,?{}()*+=\\]/g, ""));
+            formData.append('sessionNumber', session);
+
+            var urlLigand = server + "/preplig";
+
+            if (!AC) {
+                urlLigand = urlLigand + '?Vina';
+            }
+            
+            console.log(urlLigand);
+
+            $.ajax({
+                type:"POST",
+                processData: false,
+                data: formData,
+                contentType : false,
+                crossDomain:true,
+                url: urlLigand,
+                success: function(res) {
+                    console.log(res);
+                    
+                    if (res.includes('uploaded') || res.includes('changed')) {
+                        if (!AC) {
+                            document.getElementById("preplig").src = "images/check-mark.png";
+                            document.getElementById("preplig").name = 'true';
+                        }
+                        else if (res.includes('has been prepared')) {
+                            document.getElementById("preplig").src = "images/check-mark.png";
+                            document.getElementById("preplig").name = 'true';
+                        } else {
+                            document.getElementById("preplig").src = "images/close.png";
+                            document.getElementById("preplig").name = 'false';
+                            if (res.includes('CHARMM ERROR')){
+                                error = res.split('CHARMM ERROR:')[1].split('\n')[0];
+                                alert(error);
+                            }
+                        }
+                    } else {
+                        alert("Your ligand file cannot be uploaded. Please contact the SwissDock team.")
+                        document.getElementById("preplig").src = "images/close.png";
+                        document.getElementById("preplig").name = 'false';
+                    }
+                    checkForm();
+                    makeDisable(['ligToUpload', 'smilesBox', 'ligandSearchLink'], false);
+                    document.getElementById("showSketcher" ).className = 'niceLinks';
+                },
+                error: function() {
+                    alert('Impossible to prepare your ligand. Please contact the SwissDock team.');
+                    
+                    makeDisable(['ligToUpload', 'smilesBox', 'ligandSearchLink'], false);
+                    document.getElementById("showSketcher" ).className = 'niceLinks';
+                }
+            });
+        }
+    }
+
+    function prepTarget(targetFile, targetFileName='', fromPDB=false) {
+
+        document.getElementById("preptarget").src = "images/time-left.png";
+        document.getElementById("preptarget").style.display = "inline-block";
+        document.getElementById("preptarget").name = "pending";
+
+        document.getElementById("checkpar").src = "";
+        document.getElementById("checkpar").style.display = "none";
+        document.getElementById("checkpar").name = "false";
+        $('#commentOnChecking').html("");
+
+        document.getElementById('pdbToUpload').disabled = true;
+        document.getElementById('pdbBox').disabled = true;
+        document.getElementById('chainsSelect').disabled = true;
+        document.getElementById('heteroatomsSelect').disabled = true;
+
+        document.getElementById('prepTargetButton').disabled = true;
+
+        if (document.getElementById("preplig").name === 'pending') {
+            console.log('wait for preplig');
+            setTimeout(prepTarget, 1000, targetFile, targetFileName, fromPDB)
+        } else {
+            console.log('no preplig');
+
+            if (fromPDB) {
+
+                var urlTarget = server + "/preptarget";
+                if (!AC) {
+                    urlTarget = urlTarget + '?Vina';
+                }
+                
+                console.log(urlTarget);
+                
+                var formData = new FormData();
+                formData.append('sessionNumber', session);
+
+                // Add the file to the AJAX request.
+                var stringBlob = new Blob( [ targetFile ], { type: 'text/plain'} );
+                formData.append('myTarget', stringBlob, targetFileName);
+                $.ajax({
+                    type: 'POST',
+                    crossOrigin:true,
+                    contentType: false,
+                    processData: false,
+                    data: formData,
+                    url: urlTarget,
+                    success: function(res) {
+                        console.log(res);
+                        
+                        if (res.includes('uploaded') || res.includes('changed')) {
+                            if (res.includes('has been prepared')) {
+                                document.getElementById("preptarget").src = "images/check-mark.png";
+                                document.getElementById("preptarget").name = 'true';
+                            } else {
+                                document.getElementById("preptarget").src = "images/close.png";
+                                document.getElementById("preptarget").name = 'false';
+                                if (res.includes('ERROR')){
+                                    error = res.split('ERROR:')[1].split('\n')[0];
+                                    if (res.includes('WARNING')){
+                                        error = error + res.split('WARNING:')[1].split('\n')[0];
+                                    }
+                                    alert(error);
+                                }
+                            }
+                        } else {
+                            alert("Your target file cannot be uploaded. Please contact the SwissDock team.")
+                            document.getElementById("preptarget").src = "images/close.png";
+                            document.getElementById("preptarget").name = 'false';
+                        }
+                        checkForm();
+
+                        document.getElementById('pdbToUpload').disabled = false;
+                        document.getElementById('pdbBox').disabled = false;
+                        document.getElementById('chainsSelect').disabled = false;
+                        document.getElementById('heteroatomsSelect').disabled = false;
+                        
+                        // document.getElementById('prepTargetButton').disabled = false;
+                    },
+                    error: function(err) {
+                        alert('Impossible to prepare your target. Please contact the SwissDock team.');
+                        console.log(err);
+                        
+                        document.getElementById('pdbToUpload').disabled = false;
+                        document.getElementById('pdbBox').disabled = false;
+                        document.getElementById('chainsSelect').disabled = false;
+                        document.getElementById('heteroatomsSelect').disabled = false;
+
+                        // document.getElementById('prepTargetButton').disabled = false;
+                    }
+                });
+            } else {
+                // Create a FormData object.
+                var formData = new FormData();
+                formData.append('sessionNumber', session);
+
+                // Add the file to the AJAX request.
+                formData.append('myTarget', targetFile, targetFile.name.replaceAll(/[#"'<>:;\]\@$%/|[!^&,?{}()*+=\\]/g, ""));
+
+                var urlTarget = server + "/preptarget";
+                if (!AC) {
+                    urlTarget = urlTarget + '?Vina';
+                }
+                console.log(formData)
+                console.log(urlTarget);
+
+                $.ajax({
+                    type: 'POST',
+                    processData: false,
+                    data: formData,
+                    contentType : false,
+                    crossDomain:true,
+                    url: urlTarget,
+                    success: function(res) {
+                        console.log(res);
+                        
+                        if (res.includes('uploaded') || res.includes('changed')) {
+                            if (res.includes('has been prepared')) {
+                                document.getElementById("preptarget").src = "images/check-mark.png";
+                                document.getElementById("preptarget").name = 'true';
+                            } else {
+                                document.getElementById("preptarget").src = "images/close.png";
+                                document.getElementById("preptarget").name = 'false';
+                                if (res.includes('ERROR')){
+                                    error = res.split('ERROR:')[1].split('\n')[0];
+                                    if (res.includes('WARNING')){
+                                        error = error + res.split('WARNING:')[1].split('\n')[0];
+                                    }
+                                    alert(error);
+                                }
+                            }
+                        } else {
+                            alert("Your target file cannot be uploaded. Please contact the SwissDock team.")
+                            document.getElementById("preptarget").src = "images/close.png";
+                            document.getElementById("preptarget").name = 'false';
+                        }
+                        checkForm();
+
+                        document.getElementById('pdbToUpload').disabled = false;
+                        document.getElementById('pdbBox').disabled = false;
+                        document.getElementById('chainsSelect').disabled = false;
+                        document.getElementById('heteroatomsSelect').disabled = false;
+
+                        // document.getElementById('prepTargetButton').disabled = false;
+                    },
+                    error: function() {
+                        alert('Impossible to preprare your target. Please contact the SwissDock team.');
+                        
+                        document.getElementById('pdbToUpload').disabled = false;
+                        document.getElementById('pdbBox').disabled = false;
+                        document.getElementById('chainsSelect').disabled = false;
+                        document.getElementById('heteroatomsSelect').disabled = false;
+
+                        // document.getElementById('prepTargetButton').disabled = false;
+                    }
+                });
+            }
+        }
+    }
+
+    // Load a pdb file 
+    function handlePdbFile() {
+        clearPDB();
+
+        targetFile = document.getElementById('pdbToUpload').files[0];
+        pdbModified = '';
+        var extension=targetFile.name.split('.').pop();
+
+        if ((extension !== 'pdb' && extension !== 'ent' && extension !== 'cif') && (extension === 'pdbqt' && AC == 1)) {
+            alert("Your target file must be a pdb or a cif file.")
+        } else {
+
+            if (extension.includes('cif')) { cif = true } else { cif = false }
+            
+            pdbLabel.innerHTML=targetFile.name;
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                pdbContent = e.target.result;
+                
+                startNGL(pdbContent, first=true, cif=cif, chosen = '', file=true);
+                
+                pdbJustLoaded=1;
+                
+                document.getElementById('prepTargetButton').disabled = false;
+                document.getElementById('prepTargetButton').onclick = function() {prepTarget(targetFile)};
+            }
+            reader.readAsText(targetFile);
+        }
+    }
+
+    function selectChain(colorMap, chain = '') {
+
+        $('#chainsSelect').empty();
+        console.log('chain selected: ' + chain)
+        // search pdb to retrieve chains
+        var pdbID = document.getElementById("pdbBox").value.trim().toLowerCase();
+        if (pdbID.length === 4) {
+            $.ajax({
+                type:"GET",
+                url : 'https://www.ebi.ac.uk/pdbe/api/pdb/entry/molecules/' + pdbID,
+                success: function(res) {
+                    var select = document.getElementById("chainsSelect");
+                    var option = document.createElement("option");
+                    option.class="dropdown-content";
+                    option.value='All';
+                    option.text='Select all';
+                    select.add(option);
+
+                    var molecules = {};
+
+                    if (res !== '') {
+                        res[pdbID].forEach(molecule => {
+                            if (molecule.molecule_type == 'polypeptide(L)') {
+                                for (var i = 0; i < molecule.in_chains.length; i++) {
+                                    molecules[molecule.in_chains[i]] = molecule.molecule_name[0]; 
+                                }
+                            }
+                        })
+                    }
+
+                    colorMap.forEach((val, key) => {
+                        var option = document.createElement("option");
+
+                        option.class="dropdown-content";
+                        option.value=key;
+                        
+                        if (Object.keys(molecules).length != 0) {
+                            option.text=key + ' - ' + molecules[key];
+                        } else {
+                            option.text=key;
+                        }
+                        
+                        if (key == chain) {
+                            option.selected=true;
+                        }
+                        select.add(option);
+                    }) 
+
+                    $('#chainsSelect')[0].sumo.reload();
+
+                    var options = $('#chainsSelect')[0].sumo.ul[0].children;
+                    for (var i = 1; i < options.length; i++) {
+                        options[i].style.backgroundColor = '#' + colorMap.get(options[i].innerText.split(' - ')[0]) + '40';
+                    }
+
+                    if (chain != '') {
+                        console.log('from example')
+                        document.getElementById("chainsSelect").dispatchEvent(new CustomEvent('sumo:closed', {'detail': false}));
+                    }
+
+                    console.log('chain selected end')
+
+                },
+                error: function(err) {
+                    // alert('It was impossible to get the model.');
+                    console.log(err);
+                    var select = document.getElementById("chainsSelect");
+                    var option = document.createElement("option");
+                    option.class="dropdown-content";
+                    option.value='All';
+                    option.text='Select all';
+                    select.add(option);
+                    colorMap.forEach((val, key) => {
+                        var option = document.createElement("option");
+
+                        option.class="dropdown-content";
+                        option.value=key;
+                        
+                        option.text=key;
+                        
+                        if (key == chain) {
+                            option.selected=true;
+                        }
+                        select.add(option);
+                    }) 
+
+                    $('#chainsSelect')[0].sumo.reload();
+
+                    if (chain != '') {
+                        document.getElementById("chainsSelect").dispatchEvent(new CustomEvent('sumo:closed', {'detail': false}));
+                    }
+
+                    var options = $('#chainsSelect')[0].sumo.ul[0].children;
+                    for (var i = 1; i < options.length; i++) {
+                        options[i].style.backgroundColor = '#' + colorMap.get(options[i].innerText.split(' - ')[0]) + '40';
+                    }
+                }
+            });
+        } else {
+            
+            var select = document.getElementById("chainsSelect");
+            var option = document.createElement("option");
+            option.class="dropdown-content";
+            option.value='All';
+            option.text='Select all';
+            select.add(option);
+            colorMap.forEach((val, key) => {
+                var option = document.createElement("option");
+
+                option.class="dropdown-content";
+                option.value=key;
+                
+                option.text=key;
+                
+                if (key == chain) {
+                    option.selected=true;
+                }
+                select.add(option);
+            }) 
+
+            $('#chainsSelect')[0].sumo.reload();
+
+            if (chain != '') {
+                document.getElementById("chainsSelect").dispatchEvent(new CustomEvent('sumo:closed', {'detail': false}));
+            }
+
+            var options = $('#chainsSelect')[0].sumo.ul[0].children;
+            for (var i = 1; i < options.length; i++) {
+                options[i].style.backgroundColor = '#' + colorMap.get(options[i].innerText.split(' - ')[0]) + '40';
+            }
+        }
+        
+    }
+
+    function selectHeteroatoms(het = '') {
+        console.log('select het')
+        $('#heteroatomsSelect').empty();
+
+        var select = document.getElementById("heteroatomsSelect");
+        var option = document.createElement("option");
+        
+        option.class="dropdown-content";
+        option.value='None';
+        option.text='None';
+        if (het[0] =='None') {
+            option.selected=true;
+        }
+        select.add(option);
+
+        // read pdb to retrieve heteroatoms
+        var list = pdbContent.split('\nATOM ')[0].split("\n");
+
+        for (var line of list) {
+            if (line.startsWith('HET ')) {
+                var key = line.substring(7, 17).replace(/ +(?= )/g,'');
+                
+                var option = document.createElement("option");
+        
+                option.class="dropdown-content";
+                option.value=key;
+                option.text=key;
+
+                if (het.includes(key)) {
+                    option.selected=true;
+                }
+            
+                select.add(option);
+            }
+        }
+        $('#heteroatomsSelect')[0].sumo.reload();
+        if (het != '') {
+            document.getElementById("heteroatomsSelect").dispatchEvent(new Event('sumo:closed'));
+        }
+        console.log('select het end')
+
+    }
+    
+    // Load a Mol2 file into the sketcher and the SMILES box
+    function handleLigFile() {
+
+        ligandFile = document.getElementById('ligToUpload').files[0];
+
+        var extension=ligandFile.name.split('.').pop();
+        if (extension !== 'mol2' && (extension === 'pdbqt' && AC == 1)) {
+            alert("Your ligand file must be a .mol2 file, or a .pdbqt file for Vina.")
+        } else {
+            ligLabel.innerHTML=ligandFile.name;
+            if (ligChanged===1) {
+                ligChanged = 0;
+            }
+            if (ligJustLoaded===1) {
+                ligChanged = 1;
+            }
+            if (ligandFile.size>20000) {
+                alert("File too big.\nSwissDock can only handle one molecule at a time, of drug-like size");
+                clearLigFile();
+            } else {
+                clearSMILES();
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    ligContent = e.target.result;
+                    // ligContent = ligContent.replace(/<0>.*\n/g, "<0>       0.0000\n");
+                    if (ligandFile.name.includes('.pdbqt')) {
+                        ligToSMILES('pdbqt', ligContent);
+                    } else {
+                        ligToSMILES('mol2', ligContent);
+                    }   
+                    ligJustLoaded=1;                
+                    smilesRef="";
+                }
+                reader.readAsText(ligandFile);
+            }
+        }
+    }
+ 
+    // To forget the PDB file content
+    function clearPdbFile() {
+        var $el = $('#pdbToUpload');
+        $el.wrap('<form>').closest('form').get(0).reset();
+        $el.unwrap();
+        pdbLabel.innerHTML="";
+
+        document.getElementById("preptarget").src = "";
+        document.getElementById("preptarget").style.display = "none";
+        document.getElementById("preptarget").name = "false";
+
+        document.getElementById('prepTargetButton').disabled = true;
+
+        // var boxCenter = document.querySelectorAll(".boxCenter");
+        // var boxSize = document.querySelectorAll(".boxSize");
+
+        // boxCenter[0].value = ''; boxCenter[1].value = ''; boxCenter[2].value = '';
+        // boxSize[0].value = ''; boxSize[1].value = ''; boxSize[2].value = '';
+
+        pdbChains = '';
+        pdbHeteroatoms = '';
+        pdbModifed = '';
+
+        checkForm();
+    }        
+   
+    // To forget the Mol2 file content
+    function clearLigFile() {
+        var $el = $('#ligToUpload');
+        $el.wrap('<form>').closest('form').get(0).reset();
+        $el.unwrap();
+        ligLabel.innerHTML='';
+        ligContent = '';
+
+        document.getElementById("preplig").src = "";
+        document.getElementById("preplig").style.display = "none";
+        document.getElementById("preplig").name = "false";
+
+        document.getElementById('prepLigButton').disabled = true;
+
+        checkForm();
+    } 
+
+    // Remove SMILES from SMILES box
+    function clearSMILES() {
+        ligID = ''
+        document.getElementById("smilesBox").value='';
+        // document.getElementById("optionExample").value='';
+        marvinSketcherInstance.importStructure("smiles", " ");
+
+        document.getElementById("preplig").src = "";
+        document.getElementById("preplig").style.display = "none";
+        document.getElementById("preplig").name = "false";
+
+        document.getElementById('prepLigButton').disabled = true;
+
+        checkForm();
+    };
+
+    // Remove PDB id from pdb box
+    function clearPDB() {
+        hideSelection();
+        document.getElementById("pdbBox").value='';
+
+        document.getElementById("preptarget").src = "";
+        document.getElementById("preptarget").style.display = "none";
+        document.getElementById("preptarget").name = "false";
+
+        document.getElementById('prepTargetButton').disabled = true;
+
+        var boxCenter = document.querySelectorAll(".boxCenter");
+        var boxSize = document.querySelectorAll(".boxSize");
+
+        boxCenter[0].value = ''; boxCenter[1].value = ''; boxCenter[2].value = '';
+        boxSize[0].value = ''; boxSize[1].value = ''; boxSize[2].value = '';
+
+        pdbChains = '';
+        pdbHeteroatoms = '';
+        pdbModifed = '';
+
+        checkForm();
+    };
+    
+    // Function to generate a SMILES from a Mol2 file and add it into the Sketcher
+    function ligToSMILES(fileType, ligContent) {
+        
+        var query = {};
+        query[fileType] = ligContent;
+        
+	    $.ajax({
+            type:"POST",
+            datatype: 'json',
+            data: query,
+            crossDomain:true,
+            url : server + "/ligtosmiles",
+            success: function(res) {
+                smiles = JSON.parse(res)['smiles'];
+                error = JSON.parse(res)['error'];
+		        if (error !== '') {
+                    alert(error)
+                    // alert("Your Mol2 cannot be treated, as it may contain errors. Please check your Mol2, you can have a look on the useful links below. If your Mol2 is correct, please contact the SwissParam team.");
+                } else {
+                   
+                    marvinSketcherInstance.importStructure("smiles", smiles);
+
+                    document.getElementById('prepLigButton').disabled = false;
+                    // console.log('should be preplig')
+                    document.getElementById('prepLigButton').onclick = function() {prepLig(ligandFile)};
+                }	
+	        },
+	        error: function() {
+                alert("It was impossible to convert your ligand to SMILES, but you can still use SwissDock.");
+            }
+        });
+    }
+
+    function resetNGL() {
+        chainSelected = ['empty'];
+        document.getElementById('no_NGL_div').style.display = 'none';
+
+        var boxCenter = document.querySelectorAll(".boxCenter");
+        var boxSize = document.querySelectorAll(".boxSize");
+
+        boxCenter[0].value = ''; boxCenter[1].value = ''; boxCenter[2].value = '';
+        boxSize[0].value = ''; boxSize[1].value = ''; boxSize[2].value = '';
+
+        if (pdbModified !== '') {
+            startNGL(pdbModified, first);
+        } else {
+            startNGL(pdbContent, first, cif=cif);
+        }
+    }
+
+    function applyExample(which) {
+        if (which == '2g8e') {
+            var examplesmiles = 'CC(C)CC(NC(=S)Nc1ccccc1)C(=O)NC(CO)CCO';
+            var examplehet = ['None'];
+            var examplebox = [64, 6, 26];
+        // } if (which == '3g31') {
+        //     var examplesmiles = 'C[C@H](N1C(=O)[C@H]2[C@H]3CC[C@H](C3)[C@H]2C1=O)C([O-])=O';
+        //     var examplehet = ['GF1 A 1', 'GF1 A 2', 'PO4 A 6'];
+        //     var examplebox = [-5, 53, 13];
+        } else if (which == '5hie') {
+            var examplesmiles = 'CC(C)(C)c1nc(c(s1)c2ccnc(n2)N)c3cccc(c3F)NS(=O)(=O)c4c(cccc4F)F';
+            var examplehet = ['None'];
+            var examplebox = [-48, -3, 72];
+        } else {
+            var examplesmiles = 'CC(C)CCNC(=O)[C@@H](CCC1=CC=CC=C1)NC(=O)[C@@H](O)CC(=O)[O-]'; //'CC(C)CCNC(=O)[C@@H](CCc1ccccc1)NC(=O)[C@H](CC(=O)O)O';
+            var examplehet = ['None'];
+            var examplebox = [1, 12, 6];
+        }
+        var boxCenter = document.querySelectorAll(".boxCenter");
+        console.log(examplebox);
+        boxCenter[0].value = examplebox[0]; boxCenter[1].value = examplebox[1]; boxCenter[2].value = examplebox[2];
+  
+        document.getElementById("pdbBox").value = which;
+        document.getElementById("smilesBox").value = examplesmiles;
+
+        document.getElementById("pdbBox").dispatchEvent(new CustomEvent('change', {'detail': {'chain':'A', 'het':examplehet}}));
+        document.getElementById("smilesBox").dispatchEvent(new Event('change'));
+
+    }
+
+    function sortTable(cell) {
+        console.log(cell)
+        var tmp = document.getElementsByClassName('sorting_asc');
+        for (var i = 0; i < tmp.length; i++ ) {
+            // console.log(tmp[i])
+            tmp[i].className = 'sorting';
+        }
+        var tmp = document.getElementsByClassName('sorting_desc');
+        for (var i = 0; i < tmp.length; i++ ) {
+            // console.log(tmp[i])
+            tmp[i].className = 'sorting';
+        }
+
+        var n = cell.id;
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById('pdbTable');
+        switching = true;
+        
+        //Set the sorting direction to ascending:
+        dir = "asc"; 
+        
+        /*Make a loop that will continue until
+        no switching has been done:*/
+        while (switching) {
+            //start by saying: no switching is done:
+            switching = false;
+            rows = table.rows;
+            /*Loop through all table rows (except the
+            first, which contains table headers):*/
+            
+            for (i = 1; i < (rows.length - 1); i++) {
+                //start by saying there should be no switching:
+                shouldSwitch = false;
+                /*Get the two elements you want to compare,
+                one from current row and one from the next:*/
+
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+
+                if (i % 2 === 0) {
+                    rows[i].className = 'evn'; 
+                } else {
+                    rows[i].className = 'odd';
+                }
+
+                /*check if the two rows should switch place,
+                based on the direction, asc or desc:*/
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch= true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                /*If a switch has been marked, make the switch
+                and mark that a switch has been done:*/
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                //Each time a switch is done, increase this count by 1:
+                switchcount ++;      
+            } else {
+                /*If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again.*/
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+        if (dir == 'desc') {
+            cell.className = 'sorting_desc';
+        } else {
+            // console.log(cell.className)
+            cell.className = 'sorting_asc';
+        }
+        // console.log(dir)
+    }
+
+    function makeDisable(listOfId, disability) {
+        for (var i = 0; i < listOfId.length; i++ ) {
+            if (listOfId[i].includes('.')){
+                var tmp = document.querySelectorAll(listOfId[i]);
+                for (var j = 0; j < tmp.length; j++ ) {
+                    tmp[j].disabled = disability;
+                }
+            } else {
+                document.getElementById(listOfId[i]).disabled = disability;
+            }  
+        }
+    }
+</script>
+
+<!---------------------------------------------------------->
+<!-- Add the possibility to show ligand and target search -->
+<!---------------------------------------------------------->
+
+<script>
+    
+    // Get the elements by their ID
+    var ligandPopupLink = document.getElementById("ligandSearchLink");
+    var ligandPopupWindow = document.getElementById("ligandSearchPopup");
+    var ligandCloseButton = document.getElementById("closeLigandSearch");
+    var popupBackground = document.getElementById("popupBackground");
+
+    // Show the pop-up window when the link is clicked
+    ligandPopupLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        ligandPopupWindow.style.display = "block";
+        popupBackground.style += " -webkit-filter: blur(2px); -moz-filter: blur(2px); -o-filter: blur(2px); -ms-filter: blur(2px); filter: blur(5px); pointer-events:none;";
+    });
+    // Hide the pop-up window when the close button is clicked
+    ligandCloseButton.addEventListener("click", function() {
+        ligandPopupWindow.style.display = "none";
+        popupBackground.style = "display: block;";
+    });
+
+    // Get the elements by their ID
+    var targetPopupLink = document.getElementById("targetSearchLink");
+    var targetPopupWindow = document.getElementById("targetSearchPopup");
+    var targetCloseButton = document.getElementById("closeTargetSearch");
+
+    // Show the pop-up window when the link is clicked
+    targetPopupLink.addEventListener("click", function(event) {
+        // console.log('open')
+        event.preventDefault();
+        targetPopupWindow.style.display = "block";
+        popupBackground.style += " -webkit-filter: blur(2px); -moz-filter: blur(2px); -o-filter: blur(2px); -ms-filter: blur(2px); filter: blur(5px); pointer-events:none;";
+    });
+    // Hide the pop-up window when the close button is clicked
+    targetCloseButton.addEventListener("click", function() {
+        // console.log('close')
+        targetPopupWindow.style.display = "none";
+        popupBackground.style = "display: block;";
+    });
+
+    function showSketcher() {
+        document.getElementById("containerSketch").style.height = "480px";
+        setTimeout(() => { 
+            document.getElementById("sketcherHidener").style.display = "block";
+            document.getElementById("sketch").style.display = "block";  
+            if (ligJustLoaded===1) {
+                document.getElementById("remarks").style.display = "inline-block";
+            }
+            if (document.getElementById("smilesBox").value !== '') {
+                marvinSketcherInstance.importStructure("smiles", document.getElementById("smilesBox").value);
+            }
+        }, 750);
+    } 
+
+    function hideSketcher() {
+        document.getElementById("containerSketch").style.height = "0px";
+        document.getElementById("sketcherHidener").style.display = "none";
+        document.getElementById("sketch").style.display = "none";
+        document.getElementById("remarks").style.display = "none";
+    }
+
+    // <!---------------------------------------------------->
+    // <!-- Add the possibility to toggle extra parameters -->
+    // <!---------------------------------------------------->
+
+    function showSelection() {
+        document.getElementById("containerSelectInPdb").style.height = "90px";
+        setTimeout(() => {
+            document.getElementById("selectInPdb").style.display = "block";
+        }, 750);
+    }
+
+    function hideSelection() {
+        document.getElementById("containerSelectInPdb").style.height = "0px";
+        document.getElementById("selectInPdb").style.display = "none";
+    }
+
+    function showParameters() {
+        document.getElementById("parametersShow").style.display = "none";
+        document.getElementById("parametersHidener").style.display = "block";
+        document.getElementById("containerParameters").style.height = "200px";
+
+        setTimeout(() => {
+            document.getElementById("optionalParameters").style.display = "block";
+        }, 750);
+    }
+
+    function hideParameters() {
+	    if (!AC) {
+            document.getElementById("optionalParametersVina").style.display = "none";
+        } else {
+            document.getElementById("optionalParameters").style.display = "none";
+        }
+	    document.getElementById("containerParameters").style.height = "0px";
+        document.getElementById("parametersHidener").style.display = "none";
+        document.getElementById("parametersShow").style.display = "block";
+    }
+
+    $(window).on('load', function (){ jQuery(window).scroll(); } )
+    $(document).click( function (){ jQuery(window).scroll(); });
+    
+    // Get reload event to delete previous session and open a new one
+    const entries = performance.getEntriesByType("navigation");
+    entries.forEach((entry) => {
+        console.log(entry.type)
+        if (entry.type === "reload") {
+            console.log(`${entry.name} was reloaded!`);
+
+            var newDiv = window.name.split('-')[1];
+            var vina = document.getElementsByName('Vina');
+            var ac = document.getElementsByName('AC');
+
+            if (newDiv === 'Vina') {
+                for (var i = 0; i < vina.length; i++ ) {
+                    vina[i].style.display = "inline-block";
+                }
+
+                for (var i = 0; i < ac.length; i++ ) {
+                    ac[i].style.display = "none";
+                }
+                document.getElementById('VinaButton').className += ' active';
+                document.getElementById('ACButton').className = document.getElementById('ACButton').className.replace(' active', '');
+                
+                // $('#commentOnSubmit').html('(Prepare ligand and target before)');
+                AC = 0;
+            } else {
+                for (var i = 0; i < ac.length; i++ ) {
+                    ac[i].style.display = "block";
+                }
+
+                for (var i = 0; i < vina.length; i++ ) {
+                    vina[i].style.display = "none";
+                }
+                document.getElementById('ACButton').className += ' active';
+                document.getElementById('VinaButton').className = document.getElementById('VinaButton').className.replace(' active', '');
+                
+                AC = 1;
+            }
+        }
+        
+    });
+
+    openSession();
+
+</script>
+
+<!------------------------------------------------------------->
+<!-- Block to put in the form what is sent from another page -->
+<!------------------------------------------------------------->
+
+
+  </div>
+</div>
+
+<!-- ********************************************************************************************** -->
+<!-- START OF FOOTER information at the bottom of the page -->
+<div id='sib_footer'>			
+  <div id='sib_footer_content'>
+    <a href="https://www.sib.swiss"><img src="/images/sib_emblem_trans_background.png" height="35px"></a>
+    This Web tool is operated by the <a href="https://www.molecular-modelling.ch">Molecular Modelling Group</a> of the <a href="https://www.unil.ch">University of Lausanne</a> and the <a href="https://www.sib.swiss">SIB Swiss Institute of Bioinformatics</a> | <a href="https://www.swissdock.ch/termsofuse.php">Terms of use</a> | <a href="https://www.sib.swiss/privacy-policy">SIB privacy policy</a>
+  </div>
+</div>
+<!-- END OF FOOTER -->
+<!-- ********************************************************************************************** -->	
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+

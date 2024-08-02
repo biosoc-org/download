@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+  
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7,IE=9" />
+
+    
+    <title>1-Click Docking</title>
+    <link rel="SHORTCUT ICON" HREF="/static/img/favicon-230f879ba30d66c8c9bb884a611bbcc78a65980c.ico" />
+    <link rel="image_src" href="https://mcule-doc.s3.amazonaws.com/mcule.png" />
+
+    
+<link rel="stylesheet" type="text/css" href="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+
+    
+
+    <link rel="stylesheet" type="text/css" href="/static/base-41c8c83ca7ea8c3e83724de994e3954319bb412a.css" />
+    <link rel="stylesheet/chemical" type="application/json" href="/static/css/chemistry-cc14a4575a88c94ab7916f4f32cede635061b266.json" />
+    
+    
+    
+
+    <!--[if lte IE 7]>
+        <link rel="stylesheet" type="text/css" href="/static/ie-c2ad633154530ecaa861618d82a511ef49293448.css" />
+    <![endif]-->
+
+    <meta name="description" content="1-Click Docking is the easiest molecular docking solution online. Draw your ligand, select your target and click on Dock!" />
+    <meta name="keywords" content="chemoinformatics, drug discovery, biotechnology, docking, molecular docking, ligand, target, structure-based, structure-based drug design, docking score, binding site, binding pose, vina, autodock" />
+    
+    <meta property="og:url" content="https://mcule.com/apps/1-click-docking/?utm_source=ccl&amp;utm_medium=maillist&amp;utm_campaign=1-click-docking" />
+    <meta property="og:title" content="1-Click-Docking" />
+    <meta property="og:description" content="1-Click Docking is the easiest molecular docking solution online. Draw your ligand, select your target and click on Dock!" />
+
+    
+    
+
+    
+    <meta name="google-site-verification" content="eMxvZXdmbRbWTKh2G9VB8r3beUKOSgmPoqayNJXMwMc" />
+    
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XHKDS1KCF4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XHKDS1KCF4');
+</script>
+
+  </head>
+  
+
+<body class="">
+
+<!--[if lte IE 6]>
+    <div id="browser-unsupported">
+    Your browser is not supported. Using our site with it may result in unexpected behavior or display of the pages.
+    Please <a href="http://browsehappy.com/">uprade to a modern browser</a> for the best experience. Thank you!
+    </div>
+<![endif]-->
+
+<div id="loading-indicator">
+    Loading ...
+</div>
+
+<div id="container">
+
+
+    
+    <div class="header">
+      <div class="logo">
+        <a href="/"><img src="/static/img/new/logo_small-094dd355aa3d1f5f284b1c2e42207ceef9b5b0a9.png" alt="mcule logo" /></a>
+        
+      </div>
+      
+      <div class="navigation">
+      <ul class="top-navigation">
+        
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/search/">Find chemicals</a></li>
+        
+        
+        <li><a href="https://doc.mcule.com">Docs</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        
+
+        <!--<li class="last">-->
+            <!--<ul class="nav-account">-->
+                
+                <li><a href="/accounts/signin/" class="btn">Sign in</a></li>
+                
+            <!--</ul>-->
+        <!--</li>-->
+        
+        
+      </ul>
+      </div>
+      
+
+    </div>
+    
+
+<div class="masthead">
+  
+  
+</div>
+
+    
+    <div class="main">
+    
+    
+    
+      <ul id="messages" class="messages top-fixed">
+    
+</ul>
+
+      <div class="container">
+        <h2 class="page-title">1-Click Docking</h2>
+        
+
+<div id="one-click-docking-wrapper" class="simple-search-wrapper">
+    
+<div><a href="/apps/1-click-docking/history/">See 1-Click Docking history &raquo;</a></div>
+
+<div class="tutorial-link-wrapper">
+    <a class="link-button tutorial colorbox video" href="//www.youtube.com/embed/xJicx3sqLpI?autoplay=1&vq=hd720" target="_blank">Watch tutorial</a>
+</div>
+
+<div class="simple-box">
+
+    <div class="description">
+        <a class="float-right" href="http://doc.mcule.com/doku.php?id=1clickdocking" target="_blank">Help</a>
+        <p>
+            Docking predicts the binding orientation and affinity of a ligand to a target.<br />
+            Draw your ligand, select your target and click on Dock!
+        </p>
+    </div>
+
+    <form id="search-form" class="docking" action="/apps/1-click-docking/" method="post"><input type="hidden" name="csrfmiddlewaretoken" value="nAbyp1wxENc5ZL15jS52Fo4bC7mlMxKfaesEF02Ppe6MToJhjwf4iRgei14PvyyB">
+        <fieldset>
+        <legend>Input</legend>
+            <ol class="fields">
+                <li class="form-field"><div class="structure-field-wrapper">
+    <div class="mode">
+        
+        <ul id="id_structure_4" class="inline display-inline-block">
+    <li><label for="id_structure_4_0"><input type="radio" name="structure_4" value="sketcher" class="inline display-inline-block" id="id_structure_4_0" checked>
+ Draw molecule</label>
+
+</li>
+    <li><label for="id_structure_4_1"><input type="radio" name="structure_4" value="id" class="inline display-inline-block" id="id_structure_4_1">
+ mcule ID, SMILES, CAS Number, IUPAC name, InChI, InChIKey</label>
+
+</li>
+</ul>
+
+
+    </div>
+    <div class="query-wrapper">
+        <input type="text" name="structure_0" placeholder="Add mcule ID, SMILES, CAS Number, IUPAC name, InChI or InChIKey here" id="id_structure_0" class="structure-query">
+
+&nbsp;
+        <button class="load-structure-button" title="Generate 2D from the identifier and load it into a molecule drawer">Refine in Drawer</button>
+        <span class="loader-wrapper" title="Generating 2D ..."></span>
+    </div>
+    <div class="sketcher-wrapper">
+        <div id="sketcher-20e08d88923f480aaa6df826d302a604" class="sketcher"></div>
+    </div>
+    <input type="hidden" name="structure_1" id="id_structure_1" class="structure-query-mol">
+
+
+    <input type="hidden" name="structure_2" id="id_structure_2" class="structure-sketcher-mol">
+
+
+    <input type="hidden" name="structure_3" id="id_structure_3" class="structure-warning-id">
+
+
+</div></li>
+            </ol>
+        </fieldset>
+
+        <fieldset>
+            <legend>Docking</legend>
+            <div>
+                <input type="hidden" name="target" id="id_target">
+                
+
+<a class="select-target-link newwin-box ui-state-active ui-corner-all" href="#">
+    <span class="ui-icon ui-icon-newwin"></span>
+    <span class="text">Select target</span>
+</a>
+
+&nbsp;<span>or</span>&nbsp;
+<span>
+    <a class="upload-docking-target-link-disabled newwin-box ui-state-active ui-corner-all" href="#">
+        <span class="ui-icon ui-icon-newwin"></span>
+    Upload a file
+    </a>
+    
+    <div class="upload-docking-target-disabled-msg hidden simple-box" style="margin-top: 10px; ">
+        <span>To upload a target, you need to upgrade your account.</span>&nbsp;
+        <span><a class="link-button orange" style="font-size: 90%" href="/pricing/" target="_blank">Choose a plan</a></span>&nbsp;
+        <span><a href="#" class="upload-docking-target-disabled-cancel float-right">Close</a></span>
+    </div>
+    
+</span>
+
+            </div>
+
+            <br/>
+
+            <fieldset class="bordered">
+                <legend>Binding site center</legend>
+                <ol class="inline docking">
+                    <li class="form-field">
+                        <label for="id_bc_x">X</label>: <input type="number" name="bc_x" step="any" required id="id_bc_x">
+                    </li>
+                    <li class="form-field">
+                        <label for="id_bc_y">Y</label>: <input type="number" name="bc_y" step="any" required id="id_bc_y">
+                    </li>
+                    <li class="form-field">
+                        <label for="id_bc_z">Z</label>: <input type="number" name="bc_z" step="any" required id="id_bc_z">
+                    </li>
+                    <li>
+                        <span>
+                            <a class="select-binding-center-link newwin-box ui-state-active ui-corner-all" href="#" title="Select binding center by selecting an atom of the target">
+                            <span class="ui-icon ui-icon-newwin"></span>
+                            Select binding center
+                            </a>
+                        </span>
+                    </li>
+                </ol>
+            </fieldset>
+
+        </fieldset>
+
+        <div class="center-wrap">
+            <button id="search-button" class="btn dark" type="submit">Dock</button>
+            <div id="search-loader"><img src="/static/img/loader_h-011f7f75eeb56549b5e63618de1e808933dcb01b.gif" /></div>
+        </div>
+    </form>
+
+</div>
+
+</div>
+
+
+<div id="wait-box" class="hidden clear">
+
+<div class="simple-box">
+    <h2>Your docking is running now ...</h2>
+    <p>It may take some time so please be patient.</p>
+    <div class="wait"><img src="/static/img/loader_h-011f7f75eeb56549b5e63618de1e808933dcb01b.gif" /></div>
+    
+</div>
+
+<br />
+
+<div class="simple-box">
+    
+        <h3>Did you know?</h3>
+        <p>That mcule users get a lot more tools and can store their docking results and queries for free.</p>
+        <a class="link-button orange" href="/accounts/signup/" target="_blank">Sign up now</a>
+    
+</div>
+
+
+</div>
+
+<div id="docking-results"></div>
+
+
+<div id="dialog-confirm">
+    <span class="ui-icon ui-icon-alert"></span>
+    The item will be permanently deleted and cannot be recovered. Are you sure?
+</div>
+
+
+
+<div id="select-target-dialog" class="hidden" title="Select target">
+
+<table id="datatable_140481499366304" class="">
+    <thead><tr><th></th><th>Source</th><th>Name</th><th>PDB ID</th><th>UniProt Name</th><th>UniProt Accession ID</th><th>UniProt Taxonomic ID</th><th>Organism</th><th>Resolution</th><th>Default binding site center X</th><th>Default binding site center Y</th><th>Default binding site center Z</th></tr></thead>
+
+    <tbody></tbody>
+</table>
+
+<br />
+</div>
+
+</div>
+    </div>
+
+    
+    <div class="footer">
+        <div class="colophon first">
+            <h4>About mcule.com</h4>
+            <p>Mcule.com is an online drug discovery platform. It offers a unique solution for pharma and biotech companies by providing the highest quality purchasable compound database and molecular modeling tools.</p>
+        </div>
+
+        <div class="colophon">
+            <strong>Mcule, Inc.</strong><br />
+            <p>
+                535 Everett Ave #510<br>Palo Alto, CA 94301<br>USA<br />
+                <span id="e840179899">[javascript protected email address]</span><script type="text/javascript">/*<![CDATA[*/eval("var a=\"@Tv3l0EOBz8+oyd.jag42uthVsDFqmIneYkbJGWrwQZc6X915_UNLCipHS-7fxAKRMP\";var b=a.split(\"\").sort().join(\"\");var c=\"_i9pyCcxLXvcpC\";var d=\"\";for(var e=0;e<c.length;e++)d+=b.charAt(a.indexOf(c.charAt(e)));document.getElementById(\"e840179899\").innerHTML=\"<a href=\\\"mailto:\"+d+\"\\\">\"+d+\"</a>\"")/*]]>*/</script>
+                <br/>
+                EIN: 46-2751332
+            </p>
+
+            <br/>
+
+            <strong>mcule.com Kft.</strong><br />
+            <p>
+                Bartók Béla út 105-113.<br>H-1115, Budapest<br>Hungary<br />
+                <span id="e7021255">[javascript protected email address]</span><script type="text/javascript">/*<![CDATA[*/eval("var a=\"CcI7d15GEozUMA.+2ZF4lfn0jpTWVtavP8h6iQxLgDmkS_B-rY@OwXKbJy9ues3RNqH\";var b=a.split(\"\").sort().join(\"\");var c=\"YKBbAXksw_IkbX\";var d=\"\";for(var e=0;e<c.length;e++)d+=b.charAt(a.indexOf(c.charAt(e)));document.getElementById(\"e7021255\").innerHTML=\"<a href=\\\"mailto:\"+d+\"\\\">\"+d+\"</a>\"")/*]]>*/</script>
+                <br/>
+                VAT Number: HU23383540
+            </p>
+        </div>
+
+        <div class="bottom-navigation">
+            <ul class="nav">
+                <li><a href="http://blog.mcule.com" target="_blank">Blog</a></li>
+                <li><a href="/about/">About Us</a></li>
+                
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="http://doc.mcule.com" target="_blank">Docs</a></li>
+                <li><a href="http://doc.mcule.com/doku.php?id=api" target="_blank">API</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/ultimate-project/">Ultimate database project</a></li>
+                <li><a href="/partners/">Partners</a></li>
+                <li><a href="/research-accelerator-program/">Research Accelerator Program</a></li>
+            </ul>
+        </div>
+
+        <div class="bottom-navigation-cont">
+            <ul class="nav">
+                
+                <li><a href="/accounts/signin/"><b>Sign in</b></a></li>
+                <li><a href="/accounts/signup/"><b>Sign up</b></a></li>
+                
+                <li><a href="/privacy/">Privacy</a></li>
+                <li><a href="/terms/">Terms of service</a></li>
+                <li>
+                    <ul class="socialmedia">
+                        <li class="fb"><a href="http://www.facebook.com/mculecom" title="mcule on Facebook">&nbsp;</a></li>
+                        <li class="tw"><a href="http://www.twitter.com/mculecom" title="mcule on Twitter">&nbsp;</a></li>
+                        <li class="b"><a href="http://blog.mcule.com" title="mcule blog">&nbsp;</a></li>
+                        <li class="li"><a href="http://www.linkedin.com/company/mcule" title="mcule on LinkedIn">&nbsp;</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="copy">
+            <p>&copy; 2024 mcule.com</p>
+        </div>
+
+    </div>
+    
+    
+    
+    <script type="text/javascript" src="/static/jquery-02452d33fef6e22abd989232c43fa4c6a42557ab.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-migrate-1.0.0.js"></script>-->
+
+    <script type="text/javascript" src="/static/media_urls-fb40b02a8843f07fcd2596d849aa9d164e69d37d.js"></script><script type="text/javascript" src="/static/base-feb4863a4781f1c2516934b27e12904368e9b991.js"></script>
+    
+    
+    
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    MCULE.docking_target_table_options = {
+    "aaSorting": [],
+    "aoColumnDefs": [
+        {
+            "aTargets": [
+                0
+            ],
+            "bSortable": false
+        },
+        {
+            "aTargets": [
+                0,
+                8,
+                9,
+                10,
+                11
+            ],
+            "bSearchable": false
+        },
+        {
+            "aTargets": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ],
+            "bVisible": true
+        },
+        {
+            "aTargets": [
+                0
+            ],
+            "sTitle": ""
+        },
+        {
+            "aTargets": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+            ],
+            "bSortable": true
+        },
+        {
+            "aTargets": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ],
+            "bSearchable": true
+        },
+        {
+            "aTargets": [
+                1
+            ],
+            "sTitle": "Source"
+        },
+        {
+            "aTargets": [
+                2
+            ],
+            "sTitle": "Name"
+        },
+        {
+            "aTargets": [
+                3
+            ],
+            "sTitle": "PDB ID"
+        },
+        {
+            "aTargets": [
+                4
+            ],
+            "sTitle": "UniProt Name"
+        },
+        {
+            "aTargets": [
+                5
+            ],
+            "sTitle": "UniProt Accession ID"
+        },
+        {
+            "aTargets": [
+                6
+            ],
+            "sTitle": "UniProt Taxonomic ID"
+        },
+        {
+            "aTargets": [
+                7
+            ],
+            "sTitle": "Organism"
+        },
+        {
+            "aTargets": [
+                8
+            ],
+            "sTitle": "Resolution"
+        },
+        {
+            "aTargets": [
+                9,
+                10,
+                11
+            ],
+            "bVisible": false
+        },
+        {
+            "aTargets": [
+                9
+            ],
+            "sTitle": "Default binding site center X"
+        },
+        {
+            "aTargets": [
+                10
+            ],
+            "sTitle": "Default binding site center Y"
+        },
+        {
+            "aTargets": [
+                11
+            ],
+            "sTitle": "Default binding site center Z"
+        }
+    ],
+    "bDeferRender": true,
+    "bFilter": true,
+    "bInfo": true,
+    "bJQueryUI": true,
+    "bLengthChange": false,
+    "bPaginate": true,
+    "bServerSide": true,
+    "iDisplayLength": 15,
+    "oLanguage": {
+        "oPaginate": {
+            "sFirst": "&laquo; First",
+            "sLast": "Last &raquo;",
+            "sNext": "Next &rsaquo;",
+            "sPrevious": "&lsaquo; Previous"
+        },
+        "sInfo": "Showing _START_ to _END_ of _TOTAL_ targets",
+        "sInfoFiltered": "(filtered from _MAX_ total)",
+        "sProcessing": "Loading ...",
+        "sSearch": "Filter targets:"
+    },
+    "sAjaxSource": "/search/docking-target-table/",
+    "sDom": "<\"H\"lfrip>t<\"F\"ip>",
+    "sPaginationType": "full_numbers"
+};
+    MCULE.docking_target_table_id = "datatable_140481499366304";
+});
+
+</script>
+
+<script type="text/javascript" src="/static/chemwriter-e6decb07d524a6f80aa577bc6c52b75a0bef4353.js"></script>
+<script type="text/javascript" src="/static/simple_search-afe3c7401b2f47901fdcee4cc06549ffd7eafd2d.js"></script>
+<script type="text/javascript" src="/static/datatables-9221a87beef3f1f2d1399a435e7d85ce3eec987d.js"></script>
+<script type="text/javascript" src="/static/one_click_docking-f716eb9a664074fd760c105825b14fd328091d5a.js"></script>
+<script type="text/javascript" src="/static/chemvector-4b19fee6149c37d1acbf05ccb4b29583ea4f1630.js"></script>
+
+
+
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/static/jquery.dropdown-ecaaaa80e1edfffcdbefe71b1a703ace4f7e145b.js"></script>
+    <![endif]-->
+
+    
+    
+<img src="/static/img/loader-e043879d3ee94a3edf10260f21f44bfa4a6fc66e.gif" width="1" height="1" alt="loader" />
+
+    
+<div id="cookie-consent-request">
+    <div class="warn">
+        <p>
+            <a title="hide this" class="hide-button" href="#"></a>
+            We would like to place cookies on your computer to help us make this
+            website better. To find out more about the cookies, see our
+            <a href="/privacy/">privacy policy</a>.
+            &nbsp;&nbsp;<a class="accept" href="#">I accept</a>
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($.cookie('cookiesAccepted')) return;
+
+            var $wrapper = $('#cookie-consent-request');
+            $wrapper.delay(1000).slideDown('slow');
+            $wrapper.find('.hide-button').click(function() {
+                $('#cookie-consent-request').hide();
+                return false;
+            });
+            $wrapper.find('.accept').click(function () {
+                $('#cookie-consent-request').hide();
+                $.cookie('cookiesAccepted', true, {expires: 365, path: '/'});
+                return false;
+            });
+        });
+    </script>
+</div>
+
+
+
+  </div>
+  </body>
+</html>

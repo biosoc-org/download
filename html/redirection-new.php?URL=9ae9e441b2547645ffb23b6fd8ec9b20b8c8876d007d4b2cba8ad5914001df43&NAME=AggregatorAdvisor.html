@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+  <title>Aggregator Advisor / Shoichet Laboratory @ UCSF</title>
+    <link rel="stylesheet" href="https://advisor.docking.org//style.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="https://advisor.docking.org//css/style1.css" type="text/css" media="screen" />
+  <!-- <script type='text/javascript' src='/js/webme-pack.js'></script> -->
+  <link type="text/css" rel="stylesheet" href="https://advisor.docking.org//css/overcast/jquery-ui-1.8.16.custom.css">
+
+  <!--
+<link rel="stylesheet" href="css/style1.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/style2.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/style3.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/style4.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/style5.css" type="text/css" media="screen" />
+-->
+
+  <!--
+<link rel="stylesheet" href="https://advisor.docking.org//prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+-->
+
+  <!--<script type='text/javascript' src='/jquery.ui.js'></script>-->
+  <!--
+<script src="https://advisor.docking.org//prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+-->
+  <script type='https://advisor.docking.org//text/javascript' src='/js/custom.js'></script>
+  <!--[if IE 6]>
+<script type='text/javascript' src='js/dd_belated_png.js'></script>
+<script>DD_belatedPNG.fix('.ie6fix');</script>
+<![endif]-->
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10800222-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</head>
+
+<body id="frontpage">
+  <div class="wrap_all">
+    <div id="top">
+      <div id="head">
+
+        <h1 class="logo"><a href="#" title="#">Twicet</a></h1>
+        <div class="navwrap">
+          <ul id="nav">
+            <li><a href="https://advisor.docking.org/search/">Home</a></li>
+            <li><a href="https://advisor.docking.org/faq/">Help</a>
+            <li><a href="https://advisor.docking.org/browse">Gallery</a></li>
+            <li><a href="https://advisor.docking.org/contact/">Contact</a></li>
+            </li>
+          </ul>
+        </div>
+        <!--end navwrap-->
+      </div><!-- end head--><style type="text/css">
+    .webme table {
+        border-spacing: 1px;
+        border-collapse: collapse;
+    }
+</style>
+<div id="main">
+    <div id="content">
+        <div id="inner_content_big">
+            <h3 style="text-align: center; font-weight:bold">
+                This tool has recently been updated. (June 2022). Please direct
+                correspondence to chemistry4biology at gmail dot com
+            </h3>
+            <h3 style="text-align: center; font-weight:bold">
+                <a target=_blank href="https://github.com/docking-org/Advisor-Batch-Query-Python-Script">Click here for a python batch query script</a>
+            </h3>
+            <br>
+            Aggregator Advisor identifies molecules that are known-to aggregate or may aggregate in
+            biochemical assays. The approach is based on the chemical similarity to known aggregators,
+            and physical properties.
+            </p>
+            <p>
+                Please cite: Irwin, Duan, Torosyan, Doak, Ziebart, Sterling, Tumanian
+                and Shoichet,
+                <a target=_blank href="http://pubs.acs.org/doi/abs/10.1021/acs.jmedchem.5b01105">J.Med.Chem, 2015, 58(17), 7076-7087</a>.
+                Two blog posts provide additional perspective:
+                <a target=_blank href=" http://blogs.sciencemag.org/pipeline/archives/2015/09/30/aggregators-are-here-to-stay-unfortunately">In the Pipeline</a>
+                and
+                <a target=_blank href="http://practicalfragments.blogspot.com/2015/10/aggregation-alert.html">Practical Fragments</a>.
+            </p>
+            <p>
+                To use this service, enter the SMILES of the molecule(s) you are interested in, or use the WebME editor tool to draw and press "Search".
+                For instance, you may try with:
+            </p>
+            <ul>
+                <li>Quercetin: C1=CC(=C(C=C1C2=C(C(=O)C3=C(C=C(C=C3O2)O)O)O)O)O (identical)</li>
+                <li>Caffeine: Cn1cnc2c1c(=O)n(c(=O)n2C)C (similar, low LogP)</li>
+                <li>Estrodiol: C[C@]12CC[C@@H]3c4ccc(cc4CC[C@H]3[C@@H]1CC[C@@H]2O)O (similar, high LogP)</li>
+                <li>Morphine: CN1CCC23c4c5ccc(c4OC2C(C=CC3C1C5)O)O (no match, low LogP)</li>
+                <li>High_LogP: C=C(CCC=C(C)C)[C@H]1CC(C)(C)CO[C@H]1C (high logP, no match)</li>
+            </ul>
+            <p>
+                More information about aggregation, FAQ, and literature references are on the <a href="/index.php/faq">Help</a> page.
+                Examples of aggregators are listed in the <a href="/index.php/browse">Rogues' Gallery</a>.
+                We thank NIGMS for support (<a href="http://www.nigms.nih.gov/" target="_blank">GM71630</a> to BKS).
+            </p>
+        </div>
+    </div>
+    <div id="content">
+        <div id="inner_content_big">
+            <form name="submitter" action="/results" method="post">
+                <div id="search-structure" class="fieldset-data">
+                    <div class="control smiles">
+                        <input type='hidden' name='textMode' value='1'>
+                        <input type='hidden' name='isSubmit' value='true'>
+                    </div>
+                    <div class="smiles-container" style="height: auto">
+                        <label for="affinity-group">
+                            Affinity range:
+                            <select name="affinityGroup">
+                                <option value="strong">&lt; 0.1 &mu;M</option>
+                                <option value="standard" selected>0.1&ndash;10 &mu;M</option>
+                                <option value="weak">&gt; 10 &mu;M</option>
+                            </select>
+                        </label>
+                        <input name="smiles-input" id="smiles-input" size="55" onkeyup="smilesToDrawing()"></input>
+                        <p id="testInput"></p>
+                        <div style="display:flex; justify-content: center; align-items:center">
+                            <button id="queryInput" name='submit-btn' type="submit">Run Query</button>
+                        </div>
+                        <br>
+                        <div style="margin: 0 auto; padding: 5px; border: 1px solid black; text-align: center">
+                            <strong style="display:block; font-family: sans; font-size: 1.5em">Want to test for aggregation?</strong>
+                            <img src="/sol.png" style="padding: 5px; width:250px;">
+                            <p>
+                                We will test molecules for colloidal aggregation without obligation (for academic researchers).
+                                Contact bshoichet at gmail dot com. Supported by NIH GM71630.
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+
+                    <!-- JSME Molecular Editor Container -->
+                    <div id="jsme_container"></div>
+                    <div style="display:flex; justify-content: center; align-items:center; padding-right:100px">
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+
+        <div id="inner_content_big">
+            <p>
+                Caveat Emptor: this service is provided in the hope that it will be useful, but you use it at your own risk.
+            </p>
+            <p>
+                Aggregator Advisor is provided by the <a target=_blank href="http://bkslab.org">Shoichet Laboratory</a> at UCSF.
+            </p>
+
+
+        </div>
+        <!--end widget-->
+
+    </div><!-- end content-->
+
+</div>
+
+<!--end main-->
+<script type="text/javascript" language="javascript" src="../../../../JSME_2022-02-26/jsme/jsme.nocache.js"></script>
+<script type="text/javascript">
+    //this function will be called after the JavaScriptApplet code has been loaded.
+    function jsmeOnLoad() {
+        jsmeApplet = new JSApplet.JSME("jsme_container", "380px", "380px", {
+            "options": "newlook,nozoomgui,paste"
+        });
+        jsmeApplet.setCallBack("AfterStructureModified", showSmiles);
+        document.JME = jsmeApplet;
+    }
+
+    //JSME SMILE User Input will append to input box
+    function showSmiles(jsmeEvent) {
+        let jsme = jsmeEvent.src;
+        let smiles = jsme.smiles();
+        let userInput = document.getElementById("smiles-input");
+        userInput.value = smiles;
+    }
+
+    function smilesToDrawing() {
+        let userInput = document.getElementById("smiles-input").value;
+        jsmeApplet.readGenericMolecularInput(userInput);
+    }
+
+    
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GC6RLJKNM3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GC6RLJKNM3');
+</script>
+
+<style type="text/css">
+    #search-structure {
+        padding: .5em;
+    }
+
+    #search-structure .webme {
+        text-align: center;
+    }
+
+    #search-structure {
+        margin: 0 auto;
+    }
+
+    #search-structure .smiles-container {
+        float: right;
+        clear: right;
+        height: 400px;
+        width: 400px;
+        overflow-y: auto;
+    }
+
+    #search-structure .control.smiles {
+        float: right;
+        width: 400px;
+        margin: .25em 0 0;
+        padding: .5em .5em 0;
+    }
+
+    #search-structure div {
+        padding: 1px;
+    }
+
+    #search-structure div .smiles-value {
+        background: transparent;
+        border: none;
+        padding: 1px;
+        width: 300px;
+    }
+
+    #search-structure div.active .smiles-value {
+        background: #FFFFFF;
+        border: 1px solid #CCCCCC;
+        padding: 0;
+    }
+
+    #search-structure .smiles.field input[type=button] {
+        width: 28px;
+    }
+
+    #search-structure .smiles.control {
+        text-align: right;
+    }
+
+    .inner_content_big {
+        clear: both;
+    }
+
+    .wmb {
+        display: none;
+    }
+</style>        <div id="footer">
+         <span class="copyright">
+Created by Gurgen Tumanian, Allison Doak, Teague Sterling, 
+John Irwin and Brian Shoichet with assistance from Pascal Wassam. &nbsp; &nbsp; 
+We thank <a target=_blank href="http://www.nigms.nih.gov">NIGMS</a> for financial support.
+</span>
+        <span class="scroll-top"><a href="#top">top</a></span>
+        </div><!--end footer-->
+       
+    </div><!--end top-->
+</div><!--end wrapp_all-->
+
+</body>
+
+</html>

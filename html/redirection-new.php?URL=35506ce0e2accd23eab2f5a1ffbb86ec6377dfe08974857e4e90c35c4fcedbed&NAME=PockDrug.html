@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+
+<!--html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"-->
+
+<html lang="en">
+
+  <head>
+
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!--head-->
+
+		<!--meta charset=utf-8 /-->
+
+		<link rev="made" href="mailto:hiba.abi-hussein%40univ-paris-diderot.fr" />
+
+		<link type="image/x-icon" rel="shortcut icon" href="/images/ic.png" />
+
+	        <title>PockDrug: Pocket Druggability Prediction - Home</title>
+
+	        <title>PockDrug: Pocket Druggability Prediction - </title>
+
+		<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+		<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+		<link href="/bootstrap/css/me.css" rel="stylesheet">
+
+		<link href="/bootstrap/bootstrap.js">
+
+		
+
+		
+
+
+
+
+
+    </head>
+
+    <!-- Body
+
+    ================================================== -->
+
+    <body>
+
+
+
+	<!-- Subhead
+
+	================================================== -->
+
+
+
+		<div class="navbar navbar-inverse navbar-fixed-top">
+
+			<div class="navbar-inner">
+
+				<div class="container">
+
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+
+					</button>
+
+					<div class="nav-collapse collapse">
+
+						<b>
+
+						<ul class="nav">
+
+							<li class="active">
+
+								<a href="/cgi-bin/index.py?page=Home">
+
+									<span class="icon-home icon-white"></span> Home</a>
+
+							</li>
+
+							<li class="">
+
+								<a href="/cgi-bin/index.py?page=Druggability">
+
+									<span class="icon-cog icon-white"></span> Druggability Prediction</a>
+
+							</li>
+
+							<li class="">
+
+								<a href="/cgi-bin/index.py?page=Contacts">
+
+									<span class="icon-user icon-white"></span> Contacts</a>
+
+							</li>
+
+							<li class="">
+
+                                                                <a href="/cgi-bin/index.py?page=Download">
+
+                                                                        <span class="icon-download icon-white"></span> Download</a>
+
+                                                        </li>
+
+							<li class="">
+
+								<a href="/cgi-bin/index.py?page=Links">
+
+									<span class="icon-bookmark icon-white"></span> Links</a>
+
+							</li>
+
+						</ul>
+
+					</b>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<header class='jumbotron'>
+
+			<div class='container'>
+
+				<h1>PockDrug</h1>
+
+				<p>Pocket Druggability Prediction</p>
+
+			</div>
+
+	</header>
+
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.5.3/numeral.min.js"></script>
+
+    <!-- Body
+
+    ================================================== -->
+
+<div class="container">
+
+
+
+    <!-- Docs nav
+
+    ================================================== -->
+
+ 
+
+
+
+    
+
+	<div class="container-fluid">
+
+	<div class="row-fluid">
+
+       <div class="span2">
+
+       <div style="margin-top:40px;">
+
+        <a href="#Introduction" class="btn" style="width:120px; height:25px; padding-top:10px;"><i class="icon-chevron-right pull-right"></i> Introduction</a>
+
+        <a href="#Method" class="btn" style="width:120px; height:25px; padding-top:10px;"><i class="icon-chevron-right pull-right"></i> Methodology</a>
+
+        <a href="#User" class="btn" style="width:120px; height:25px; padding-top:10px;"><i class="icon-chevron-right pull-right"></i> User guide</a>
+
+        <a href="#Reference" class="btn" style="width:120px; height:25px; padding-top:10px;"><i class="icon-chevron-right pull-right"></i> References</a>     
+
+        </div>
+
+	</div>
+
+	<!--<div class="span2">
+
+	<ul class="nav nav-list bs-docs-sidenav">
+
+	  <li><b><a href="#Introduction"><i class="icon-chevron-right"></i> Introduction</b></a></li>
+
+	  <li><b><a href="#Method"><i class="icon-chevron-right"></i> Methodology</b></a></li>
+
+	  <li><b><a href="#User"><i class="icon-chevron-right"></i> User guide</b></a></li>
+
+	  <li><b><a href="#Example"><i class="icon-chevron-right"></i> Example</b></a></li>
+
+	  <li><b><a href="#References"><i class="icon-chevron-right"></i> References</b></a></li>
+
+	</ul>
+
+	</div>-->
+
+	<div class="span10" align="justified">
+
+            <!-- Getting started
+
+  ================================================== -->
+
+            <!-- Overview
+
+  ================================================== -->
+
+					<!-- Grid system
+
+				================================================== -->
+
+
+
+<div align="justify">						
+
+<div class="bs-docs-section">
+
+    <div class="page-header">
+
+	<center>
+
+		<p><b>
+
+			<br><h2><font color="3300CC">If you use PockDrug for publication, please cite: </h5></b><br><br>Hiba Abi Hussein<SUP>â </SUP>, Alexandre Borrel<SUP>â </SUP>, Colette Geneix, Michel Petitjean, Leslie Regad, Anne-Claude Camproux<SUP>*</SUP>.<a href="http://nar.oxfordjournals.org/content/early/2015/05/07/nar.gkv462.full" target="_blank"> PockDrug-Server: a new web server for predicting pocket druggability on holo and apo proteins.</a> Nucl. Acids Res. May 8, 2015.
+
+		 </font></h2></b></p>
+
+	</center>
+
+      	<section id="Introduction">
+
+			<h1>Introduction</h1>
+
+			</section></div>
+
+				<div align="justify">
+
+					<p>Predicting protein pocketâs ability to bind drug-like molecules with high affinity, i.e., druggability, is of major interest in the target identification phase of drug discovery (9). Therefore, pocket druggability investigations represent a key step of compound clinical progression projects. Currently computational druggability prediction models are attached to one unique pocket estimation method despite pocket estimation uncertainties. In this site, we propose âPockDrug-Serverâ that predicts pocket druggability, efficient on both; estimated pockets guided by the ligand proximity (extracted by proximity to a ligand from a holo protein structure using several thresholds) and estimated pockets not guided by the ligand proximity (based on amino atoms that form the surface of potential binding cavities). PockDrug-Server provides consistent druggability results using different pocket estimation methods. It is robust with respect to pocket boundary and estimation uncertainties, thus efficient using apo pockets that are challenging to estimate. It clearly distinguishes druggable from less druggable pockets using different estimation methods and outperformed recent druggability models for apo pockets. It can be carried out from one or a set of apo/holo proteins using different pocket estimation methods proposed by our webserver or from any pocket previously estimated by the user.</p>
+
+					<center>   
+
+						<figure>
+
+							<img  type="image"  src="/images/intro_3D.png" hlt="" width="500" height="450" /><br><br>
+
+								<figcaption><i>Fig. 1: Druggable pocket correspond to a protein region capable of binding a drug-like molecule.</i></figcaption> 
+
+						</figure>
+
+					</center>
+
+					<p>
+
+					You can submit your job in the<b> <a href="/cgi-bin/index.py?page=Druggability"> druggability computation tab</a>.</b><br>
+
+					</p>
+
+    <div class="page-header">
+
+		<section id="Method">	
+
+			<h1>Methodology</h1>
+
+		</section>
+
+	</div>
+
+	<p>The following flowchart describes the general workflow of PockDrug-Server:</p>
+
+	<center>  
+
+		<figure> 
+
+			<img  type="image"  src="/images/Fig1_Workflow_Final_font.png" width="700" height="550"/>
+
+			<figcaption><i>Fig. 2: PockDrug-Server worflow; 3 main phases: (a)  identifying protein pocket(s) (Input & Pocket estimation methods) , (b) PockDrug: fast computation of physico-chemical and geometry descriptors to characterize pocket(s) (c) Output: pocket(s) druggability prediction</i></figcaption>
+
+		</figure><br><br>
+
+	</center>
+
+	<p>PockDrug workflow is divided into three different phases: (a)  identifying protein pocket(s) (Input & pocket estimation methods) , (b) PockDrug: fast computation of physico-chemical and geometry descriptors to characterize pocket(s) (c) Output: pocket(s) druggability prediction. In  the first phase two query types can be submitted:<br></p>
+
+	<ul>
+
+		<li>Druggability prediction using pocket estimated by the user</li>
+
+		<li>Druggability prediction using protein structure</li>
+
+	</ul>
+
+	<p></p>For more details about Pockdrug statistical model, please see the reference below (1):
+
+	<br><a href="http://pubs.acs.org/doi/abs/10.1021/ci5006004" target="_blank">PockDrug: a model for predicting pocket druggability that overcomes pocket estimation uncertainties. J. Chem. Inf. Model., 10.1021/ci5006004.Borrel,A., Regad,L., Xhaard,H.G., Petitjean,M. and Camproux,A.-C. (2015) </a> 
+
+	<div class="page-header">
+
+		<section id="User">
+
+		<h1>User guide: Input, options and output</h1>
+
+		</section>
+
+	</div>
+
+	<p>In the following section input, options and output details will be displayed in order to help the user to understand each of the steps involved and infer the output of the results produced in the workflow.</p>
+
+	<fieldset>
+
+		<legend>
+
+			<h4><font color="3300CC">Input </font></h4>
+
+		</legend>
+
+	</fieldset>
+
+	<p>The main function of PockDrug-Server is to predict pocket druggability through the <a href="/cgi-bin/index.py?page=Druggability">Druggability </a> section. To do so, two types of query can be submitted:
+
+	<ol type="A">
+
+		<li><b> Pocket structure</b></li>
+
+		<li><b> Protein structure</b></li>
+
+	</ol>
+
+	<div class="span10">
+
+		<legend>
+
+			<label><h5> A. Druggability prediction for protein pocket structure estimated by the user: </h5></label>
+
+		</legend>
+
+		<p>PockDrug-Sever allows users to predict druggability probability for a protein pocket estimated using an estimation pocket approach/ software of his choice. In this case, the required input is the , which corresponds to a PDB format file listing the atom pocket coordinates. The corresponding protein PDB file is also required to compute pocket descriptors and its predicted druggability probability.</p><br>
+
+		<center>
+
+			<figure>    
+
+				<img  type="image"  src="/images/case1_new.png" style="border:solid 2px #000000;" hlt="" width="700" height="550" />
+
+				<figcaption><i>Fig. 3: Druggability prediction for protein pocket estimated by the user; PDB structure files of the pocket and its corresponding protein should be submitted.</i></figcaption>
+
+			</figure>
+
+		</center>
+
+		<br><br>
+
+		<legend>
+
+			<label><h5> B. Druggability prediction using protein(s): </h5></label>
+
+		</legend>
+
+		<p>The protein structure corresponds to:
+
+		<ul>
+
+			<li>a PDB code;</li> 
+
+			<li>a PDB protein file;</li> 
+
+			<li>or a file of PDB code list.</li> 
+
+		</ul>	
+
+		For this type of query PockDrug-Server protocol is divided into two main steps:
+
+		<ul>
+
+			<li>Step 1: pocket(s) estimation using one or both different pocket estimation methods proposed by our web server; </li>
+
+			<li> Step 2: pocket druggability probability prediction. For each pocket, previously estimated in step 1, pocket druggability probability and standard deviation are provided by PockDrug model. </li>
+
+		</ul>
+
+		Protein query can be an apo or a holo protein. In the case of a holo-protein the ligand can be included in the protein file or uploaded apart so an optional field for ligand information is additionally proposed. 
+
+		The user can also submit a single job for a set of apo or holo proteins in the form of a list of PDB codes. In this case the same previous protocol is applied so for each PDB code included in the list, pocket(s) is (are) estimated and its corresponding druggability probability is then predicted.</ol>
+
+
+
+		
+
+		<br>
+
+		<p>For these three types of protein structure information, <i> prox</i><b> and/or </b><i> fpocket</i> estimation methods can be choosen. </p>
+
+		<div class="span10 offset1">
+
+			<legend>
+
+				<label><h5><font color="#0041C2"><i>prox: estimation method of holo protein pockets</i></font></h5></label>
+
+			</legend>
+
+			<p>This method is based on ligand proximity information giving the user the possibility of choosing a threshold going from 4 Ã to 12 Ã (by step of 0.5 Ã) in order to extract the protein atoms localized within the chosen distance of the ligand. Indeed, this threshold choice was recently shown to have a strong influence on the pocket descriptors (2) and it seems pertinent to give the user the opportunity to choose it. Two commonly used distance thresholds are recommended: 4 Ã as used by Krasowski et al. (3), to enable the extraction of a well-defined pocket limited to short ligand interactions (as hydrogen bonds or ionic interactions) and 5.5 Ã, to enable the identification of all significant contact points and a more complete environment of the binding site. This method is suitable for holo-proteins and threshold of 4 Ã is chosen by default.</p>
+
+			<center>
+
+				<figure>
+
+					<img type="image"  src="/images/prox.png" width="500" height="450" />
+
+					<figcaption><i>Fig. 4: prox estimation method.</i></figcaption>
+
+				</figure>
+
+			</center>
+
+			<br><br>
+
+			<legend>
+
+				<label><h5><font color="#0041C2"><i>fpocket: estimation method of holo or apo proteins</i></font></h5></label>
+
+			</legend>
+
+			<p>not guided by the ligand information, is an automated geometry-based method based on the decomposition of a 3D protein into Voronoi polyhedrals. It extracts all the pockets from the <i>apo-</i> or <i>holo-</i> protein surface using spheres of varying diameters. Its advantages include calculation speed and satisfactory performance in terms of overlaying known binding sites with the predicted sites (4). This method is used by default since it is suitable for both <i>apo-</i> and <i>holo-</i> proteins.</p>
+
+			<center>
+
+				<figure>
+
+					<img type="image"  src="/images/fpocket.png" width="500" height="450"/>
+
+					<figcaption><i>Fig. 5: fpocket estimation method.</i></figcaption>
+
+				</figure>
+
+			</center>
+
+			<br><br>
+
+			<legend>
+
+				<label><h5><font color="#0041C2"><i>Optional ligand information</i></font></h5></label>
+
+			</legend>
+
+			<p>
+
+				<b>Only in single entry mode (submission of PDB ID or PDB structure), and when prox estimation method is checked, the field allowing user to submit ligand information is visible. </b>In multiple entry mode, where a PDB ID code list is provided, and this optional ligand field is no more accessible.<br>3 types of ligand information input are possible:
+
+			</p>
+
+			<ul>
+
+				<li>Default option: All ligand in the holo protein structure having "HETATM" label are considered</li>
+
+				<li>Ligand HET code</li>
+
+				<li>Ligand structure, in a pdb mol or sdf format </li>
+
+			</ul> 
+
+			<p>In the figure 3 and 6, user can find an amount of Help text necessary for each input field so he can easily submit his job.</p>
+
+			<center>
+
+				<figure>
+
+					<img  type="image"  src="/images/case2_box.png" style="border:solid 2px #000000;" hlt="" width="800" height="700"/>
+
+					<figcaption><i>Fig. 6: Form section of query type 2 for druggability prediction using protein(s).</i></figcaption>
+
+				</figure>
+
+			</center>
+
+			<br><br>
+
+		</div>
+
+	</div>
+
+	<div class="span10">
+
+		<p>After this first stage of pocket estimation, in the background some geometrical and physico-chemical pocket descriptors and protein descriptors involved in PockDrug model are computed, in the aim to predict pocket druggability. In the following part, the output details will be displayed. </p>
+
+		<fieldset>
+
+			<legend><h4><font color="3300CC">Output: Pocket descriptors and druggability prediction</font></h4></legend>
+
+		</fieldset>
+
+		<p>The output page may consist of one or two tab(s), varying accordingly to the choice of one or two estimation method(s): one result tab per selected estimation method. Relative to the input type, two result displays are possible: 
+
+		<ol type= "A"> 
+
+			<li><legend><label><h5> If the submitted query corresponds to <b>a single pocket structure or a single protein entry (PDB code/file) </b> </h5></label></legend>As shown in the figure 7, each tab is structured as following:</li>
+
+				<br>
+
+				<ol>
+
+					<li> A sortable table providing for each protein pocket:</li><br>
+
+						<ul>
+
+							<li> Six out of the eighteen pocket descriptors involved in PockDrug model. As pocket estimation method affects directly the descriptors values, the descriptor averages with associated standard deviations computed on NRDLD set estimated using three different estimations (prox4, prox5.5 and fpocket) are given as reference <a href="#help">(Analysis help section)</a> to facilitate the user analysis of the pocket descriptor values.</li><br>
+
+							<li>The average druggability probability and its associated standard deviation that indicates the druggability probability confidence on the seven best models included in PockDrug. For a probability greater than 0.5, pockets are considered as druggable. In the case where several pockets are considered, the table can be ordered in ascending or descending order of druggability probability to facilitate the identification of druggable pockets.</li>
+
+						</ul><br>
+
+					<li> Pocket visualization using the Jmol web browser applet (5) pocket(s) and protein structures can be visualized and manipulated on the server through jmol applet. All computed results: pockets structures, eighteen descriptors and druggability scores can be downloaded. </li>
+
+					<br>
+
+					<li> Compressed file containing all the results can be downloaded using the download button. Only when the pockets are estimated using both fpocket and prox (for all distance threshold), overlapping scores between two pocket estimations are also computed and provided to the user through the compressed result file in order to allow pocket estimation comparisons and correspondence between two estimation methods. See section of pocket comparison in the supplementary data for the definition of overlapping scores. A bookmark button saving the link on which the user can follow the evolution of his job, access and download it within 7 days.</li> 
+
+				</ol>
+
+			<br>
+
+			<center>
+
+				<figure>
+
+					<img  type="image"  src="/images/results_box.png" style="border:solid 2px #000000;" hlt="" width="700" height="650" />
+
+					<figcaption><i>Fig. 7: output example of the catalytic domain of humain ADAM33,1R55.</i></figcaption>
+
+				</figure>
+
+			</center>
+
+			<br><br>
+
+		<li>
+
+			<legend>
+
+				<label><h5> If the submitted query corresponds to a list of PDB codes, each tab corresponds to a sortable table showing:</h5></label>
+
+			</legend>
+
+		</li>
+
+			<ul>
+
+				<li> Protein PDB code: giving access to the detailed result page as it is described previously in this paragraph (case a) </li>
+
+				<li> Number of estimated pockets (for each method)</li>
+
+				<li> Number of druggable pockets (druggability probability greater than 0.5)</li>
+
+				<li> The highest druggability probability and its standard deviation </li>
+
+			</ul>
+
+		</ol>
+
+	<fieldset>
+
+		<legend  id="help">
+
+			<h4><font color="3300CC">Analysis help section</font></h4>
+
+		</legend>
+
+	</fieldset>
+
+	<div class="span10">
+
+		<legend>
+
+			<label><h5>Scores of overlapping between pockets estimated differently (prox vs fpocket): </h5></label>
+
+		</legend>
+
+		<p>
+
+		If different pocket estimation methods are applied, pockets comparison is possible through the <b>overlapping scores</b>. Figure 8 shows a pocket of 1R55 binding the ligand "097", estimated by prox (in magenta) and fpocket (in blue).
+
+		<center>
+
+			<figure>
+
+				<img type="image"  src="/images/pocket_comp_val.png" width="500" height="450"/>
+
+				<figcaption><i>Fig. 8: Pocket comparison and overlapping scores.</i></figcaption>
+
+			</figure>
+
+		</center> 
+
+		<p><b>These overlappping scores are only included in the downloaded compressed results file.</b><br>
+
+		If two default pocket estimation methods (prox and fpocket) are tested, overlapping scores between these two pocket estimations are computed and included in the downloaded compressed result file, in order to compare pocket estimates. The overlap between two estimated pockets was quantified using two scores:
+
+		<ul>
+
+			<li>Score of Overlap (SO) indicates the overlap between the two pocket estimates, i.e., pocket1 and pocket2, as follows:</li><br>
+
+
+
+			<xml version="1.0" encoding="UTF-8">
+
+				<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+
+				 <semantics>
+
+				  <mrow>
+
+				   <mi mathvariant="italic">SO</mi>
+
+				   <mo stretchy="false">=</mo>
+
+				   <mfrac>
+
+					<mrow>
+
+					 <mi mathvariant="italic">Ncommon</mi>
+
+					</mrow>
+
+					<mrow>
+
+					 <mi mathvariant="italic">Npocket</mi>
+
+					 <mrow>
+
+					  <mn>1</mn>
+
+					  <mo stretchy="false">+</mo>
+
+					  <mi mathvariant="italic">Npocket</mi>
+
+					 </mrow>
+
+					 <mrow>
+
+					  <mn>2</mn>
+
+					  <mo stretchy="false">â</mo>
+
+					  <mi mathvariant="italic">Ncommon</mi>
+
+					 </mrow>
+
+					</mrow>
+
+				   </mfrac>
+
+				  </mrow>
+
+				  <annotation encoding="StarMath 5.0">SO = {Ncommon} over {Npocket 1 + Npocket 2 - Ncommon}</annotation>
+
+				 </semantics>
+
+				</math><br>
+
+				<p>where Npocket1 and Npocket2 are the number of atoms in pocket1 and pocket2, respectively, and Ncommon is the number of atoms common to pocket1 and pocket2. SO yields values between 0 and 100%. An SO value of 100% indicates maximum overlap between the pair of estimated pockets used.</p>
+
+			
+
+				<li>Relative Overlap (RO) was defined by Schmidtke et al. and indicates the overlap in terms of the exposed atoms between the two estimated pockets for the same binding site:</li><br>
+
+					<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+
+					 <semantics>
+
+						<mrow>
+
+							<mi mathvariant="italic">RO</mi>
+
+							<mo stretchy="false">=</mo>
+
+							<mfrac>
+
+							<mrow>
+
+								 <mrow>
+
+								  <mi mathvariant="italic">SApocket</mi>
+
+								  <mn>1</mn>
+
+								  <mi>â©</mi>
+
+								  <mi mathvariant="italic">SApocket</mi>
+
+								  <mn>2</mn>
+
+							 </mrow>
+
+						</mrow>
+
+						<mrow>
+
+							 <mi mathvariant="italic">SApocket</mi>
+
+							 <mn>1</mn>
+
+						</mrow>
+
+				   </mfrac>
+
+			  </mrow>
+
+		  <annotation encoding="StarMath 5.0">RO = {SApocket 1â© SApocket 2} over {SApocket 1}</annotation>
+
+		 </semantics>
+
+	</math><br>
+
+	<p>where SApocket1 and SApocket2 are the solvent-accessible areas of pocket1 and pocket2, respectively, computed using NACCESS software. An RO value closer to 100% indicates all exposed area in pocket1 are included in pocket2. 
+
+		<li>Mutual overlap (MO) was defined by Schmidtke et al. (6), complementary to the RO.</li><br>
+
+				<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+
+				 <semantics>
+
+				  <mrow>
+
+				   <mi mathvariant="italic">MO</mi>
+
+				   <mo stretchy="false">=</mo>
+
+				   <mfrac>
+
+					<mrow>
+
+					 <mrow>
+
+					  <mi mathvariant="italic">SApocket</mi>
+
+					  <mn>1</mn>
+
+					  <mi>â©</mi>
+
+					  <mi mathvariant="italic">SApocket</mi>
+
+					  <mn>2</mn>
+
+					 </mrow>
+
+					</mrow>
+
+					<mrow>
+
+					 <mi mathvariant="italic">SApocket</mi>
+
+					 <mn>2</mn>
+
+					</mrow>
+
+				   </mfrac>
+
+				  </mrow>
+
+				  <annotation encoding="StarMath 5.0">MO = {SApocket 1â© SApocket 2} over {SApocket 2}</annotation>
+
+				 </semantics>
+
+				</math>
+
+					</ul>
+
+			</xml>
+
+	
+
+			<br><br>
+
+			<legend>
+
+				<label><h5>Descriptors definition and mean reference: </h5></label>
+
+			</legend>
+
+			<p><b>In the Table 1, each pocket descriptors provided by PockDrug-server is defined.</b> </p>
+
+				<ul class="nav nav-tabs"> 
+
+					<a  data-toggle="tab"></a>
+
+					<div class="container">
+
+						<div class="tab-content">
+
+							<div class="span8">
+
+								<div id="appizy">
+
+									<TABLE CELLSPACING="0" COLS="3" BORDER="0">
+
+										<COLGROUP WIDTH="140"></COLGROUP>
+
+										<COLGROUP WIDTH="493"></COLGROUP>
+
+										<COLGROUP WIDTH="137"></COLGROUP>
+
+										<TR>
+
+											<TD STYLE="border-top: 1px solid #4f81bd; border-bottom: 1px solid #00000a" HEIGHT="20" ALIGN="CENTER"><B><FONT FACE="Arial" SIZE=3 COLOR="#00000A">Descriptors</FONT></B></TD>
+
+											<TD STYLE="border-top: 1px solid #4f81bd; border-bottom: 1px solid #00000a" ALIGN="CENTER"><B><FONT FACE="Arial" SIZE=3 COLOR="#00000A">Description</FONT></B></TD>
+
+											<TD STYLE="border-top: 1px solid #4f81bd; border-bottom: 1px solid #00000a" ALIGN="CENTER"><B><FONT FACE="Arial" SIZE=3 COLOR="#00000A">References</FONT></B></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD STYLE="border-top: 1px solid #00000a" COLSPAN=3 HEIGHT="17" ALIGN="CENTER" BGCOLOR="#D3DFEE"><B><FONT FACE="Arial" COLOR="#00000A">Hydrophobicity descriptors</FONT></B></TD>
+
+											</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Hydrophobic kyte</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Hydrophobicity based properties of residues</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Kyte et al. 1982 (7)</FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Hydrophobic residues</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Proportion of hydrophobic residues in pocket (C, G, A, T, V, L, I, M, F, W, Y, H, K)</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#365F91"><BR></FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD COLSPAN=3 HEIGHT="17" ALIGN="CENTER"><B><FONT FACE="Arial" COLOR="#00000A">Polarity descriptors</FONT></B></TD>
+
+											</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Polar residues</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Frequency of polar residues in pocket (C, D, E, H, K, N, Q, R, S, T, W, Y)</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#365F91"><BR></FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD COLSPAN=3 HEIGHT="17" ALIGN="CENTER"><B><FONT FACE="Arial" COLOR="#00000A">Aromatic descriptors</FONT></B></TD>
+
+											</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Aromatic residues</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Frequency of aromatic residues in pocket (F, Y, H, W)</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#365F91"><BR></FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD COLSPAN=3 HEIGHT="17" ALIGN="CENTER"><B><FONT FACE="Arial" COLOR="#00000A">Physicochemical descriptors</FONT></B></TD>
+
+											</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Aliphatic residues</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Frequency of positive residues in pocket (I, L, V)</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#365F91"><BR></FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Otyr atom</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Frequency of Otyr atoms in pocket</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Milletti et al. 2010 (8)</FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Ne2 atom</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Frequency of NE2 atoms in pocket</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Milletti et al. 2010 (8)</FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Nlys atom</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Frequency of Nlys atoms in pocket</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Milletti et al. 2010 (8)</FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Ntrp atom</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Frequency of Ntrp atoms in pocket</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Milletti et al. 2010 (8)</FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Ooh atom</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Frequency of Ooh atoms in pocket</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Milletti et al. 2010 (8)</FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Nd1 atom</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Frequency of ND1 atoms in pocket</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Milletti et al. 2010 (8)</FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD COLSPAN=3 HEIGHT="17" ALIGN="CENTER"><B><FONT FACE="Arial" COLOR="#00000A">Geometric descriptors</FONT></B></TD>
+
+											</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Surface hull</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Surface of convex hull (Ã2)</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">RADI software </FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Diameter hull</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Longest distance in the convex hull (Ã)</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">RADI software</FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Volume hull</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Volume of convex hull (Ã3)</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">RADI software</FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Smallest size</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Distance separating the two closest slabs enclosing the hull (Ã)</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">RADI software</FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Radius cylinder</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">Radius of the smallest height cylinder enclosing the hull (Ã)</FONT></TD>
+
+											<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial" COLOR="#00000A">RADI software</FONT></TD>
+
+										</TR>
+
+										<TR>
+
+											<TD HEIGHT="17" ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Nb RES</FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#00000A">Number of pocket residues </FONT></TD>
+
+											<TD ALIGN="CENTER"><FONT FACE="Arial" COLOR="#365F91"><BR></FONT></TD>
+
+										</TR>
+
+										
+
+										<CAPTION> Table 1: Definition of the eighteen descriptors available in the PockDrug-Server</CAPTION>
+
+									</TABLE>
+
+
+
+								</div><!-- /#sheet-0-->
+
+							</div>
+
+						</div>
+
+						<br><br>
+
+						<div class="container">
+
+						
+
+							<div class="tab-content">
+
+							<div class="span8">
+
+								
+
+							
+
+						As pocket estimation method affects directly the descriptors values, the descriptor averages with associated standard deviations computed on NRDLD set estimated using three different estimations (prox4, prox5.5 and fpocket) are given as reference (Table 2) to facilitate the user analysis of the pocket descriptor values.
+
+			
+
+							<br><br>
+
+							
+
+								<center>
+
+							<TABLE CELLSPACING="0" COLS="4" BORDER="0">
+
+								<CAPTION> Table 2: Nine PockDrug model descriptor averages with associated standard deviations (sd) computed on NRDLD set estimated using three different estimations (prox4, prox 5.5 and fpocket) to be used as reference.</CAPTION>	
+
+
+
+								<COLGROUP WIDTH="134"></COLGROUP>
+
+								<COLGROUP WIDTH="119"></COLGROUP>
+
+								<COLGROUP WIDTH="127"></COLGROUP>
+
+								<COLGROUP WIDTH="135"></COLGROUP>
+
+								<TR>
+
+									<TD STYLE="border-bottom: 1px solid #00000a" HEIGHT="38" ALIGN="CENTER" BGCOLOR="#FFFFFF"><B><FONT FACE="Arial">Descriptors</FONT></B></TD>
+
+									<TD STYLE="border-bottom: 1px solid #00000a" ALIGN="CENTER" BGCOLOR="#FFFFFF"><B><FONT FACE="Arial">prox4</FONT></B></TD>
+
+									<TD STYLE="border-bottom: 1px solid #00000a" ALIGN="CENTER" BGCOLOR="#FFFFFF"><B><FONT FACE="Arial">prox5.5<BR></FONT></B></TD>
+
+									<TD STYLE="border-bottom: 1px solid #00000a" ALIGN="CENTER" BGCOLOR="#FFFFFF"><B><FONT FACE="Arial">fpocket </FONT></B></TD>
+
+								</TR>
+
+								<TR>
+
+									<TD STYLE="border-top: 1px solid #00000a" HEIGHT="18" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">Hydrophobic kyte </FONT></TD>
+
+									<TD STYLE="border-top: 1px solid #00000a" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">-0.43 Â± 1.17</FONT></TD>
+
+									<TD STYLE="border-top: 1px solid #00000a" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">-0.33 Â± 1.11</FONT></TD>
+
+									<TD STYLE="border-top: 1px solid #00000a" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">-0.31 Â± 0.99</FONT></TD>
+
+								</TR>
+
+								<TR>
+
+									<TD HEIGHT="18" ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">Otyr atom</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">0.015 Â± 0.02</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">0.009 Â± 0.01</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">0.012 Â± 0.015</FONT></TD>
+
+								</TR>
+
+								<TR>
+
+									<TD HEIGHT="18" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">Aromatic residues</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">0.216 Â± 0.16</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">0.19 Â± 0.13</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">0.17 Â± 0.1</FONT></TD>
+
+								</TR>
+
+								<TR>
+
+									<TD HEIGHT="38" ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">Radius hull <BR>(Ã)</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">8.52 Â± 1.78</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">10.19 Â± 1.76</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">11.71 Â± 3.84</FONT></TD>
+
+								</TR>
+
+								<TR>
+
+									<TD HEIGHT="32" ALIGN="CENTER" BGCOLOR="#D3DFEE">Surface hull<BR>(Ã2)</TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">448.71 Â± 162.64</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">724.571 Â± 204.46</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">939.20 Â± 582.82</FONT></TD>
+
+								</TR>
+
+								<TR>
+
+									<TD HEIGHT="38" ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">Diameter hull<BR>(Ã)</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">16.82 Â± 3.64</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">20.16 Â± 3.57</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">23.09 Â± 7.65</FONT></TD>
+
+								</TR>
+
+								<TR>
+
+									<TD HEIGHT="32" ALIGN="CENTER" BGCOLOR="#D3DFEE">Volume hull<BR>(Ã3)</TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">752.0 Â± 408.45</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">1614.52 Â± 686.23</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">2532.92 Â± 2472.48</FONT></TD>
+
+								</TR>
+
+								<TR>
+
+									<TD HEIGHT="38" ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">Smallest size<BR>(Ã)</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">8.38 Â± 1.68</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">11.36 Â± 1.667</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">12.044 Â± 3.44</FONT></TD>
+
+								</TR>
+
+								<TR>
+
+									<TD HEIGHT="38" ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">Radius cylinder<BR>(Ã)</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">8.307 Â± 1.79</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">9.98 Â± 1.77</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#D3DFEE"><FONT FACE="Arial">11.45 Â± 3.82</FONT></TD>
+
+								</TR>
+
+								<TR>
+
+									<TD HEIGHT="18" ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">Nb RES</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">14.67 Â± 5.53</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">21.88 Â± 7.26</FONT></TD>
+
+									<TD ALIGN="CENTER" BGCOLOR="#FFFFFF"><FONT FACE="Arial">30.90 Â± 18.22</FONT></TD>
+
+								</TR>
+
+							</TABLE>
+
+						</div><!-- /#sheet-0-->
+
+						</div><!-- /#apppizy -->
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div></div>
+
+		<div class="page-header">	
+
+			<section id="Reference">
+
+				<h1>References</h1>
+
+			</section>
+
+		</div>
+
+	<ol type="1">
+
+		<li>Borrel,A., Regad,L., Xhaard,H.G., Petitjean,M. and Camproux,A.-C. (2015) PockDrug: a model for predicting pocket druggability that overcomes pocket estimation uncertainties. J. Chem. Inf. Model., 10.1021/ci5006004.</li>
+
+		<li>Krotzky,T., Rickmeyer,T.T., Fober,T. and Klebe,G. (2014) Extraction of Protein Binding Pockets in Close Neighborhood of Bound Ligands Makes Comparisons Simple due to Inherent Shape Similarity. J. Chem. Inf. Model., 54, 3229â3237.19.</li>
+
+		<li>Krasowski, A.; Muthas, D.; Sarkar, A.; Schmitt, S.; Brenk, R. DrugPred: a structure-based approach to predict protein druggability developed using an extensive nonredundant data set. Journal of chemical information and modeling 2011, 51, 2829â42.</li> 
+
+		<li>Le Guilloux,V., Schmidtke,P. and Tuffery,P. (2009) Fpocket: an open source platform for ligand pocket detection. BMC Bioinformatics, 10, 168.</li>
+
+		<li>HerrÃ¡ez,A. (2006) Biomolecules in the computer: Jmol to the rescue. Biochem. Mol. Biol. Educ., 34, 255â261.</li>
+
+		<li>Schmidtke,P. and Barril,X. (2010) Understanding and predicting druggability. A high-throughput method for detection of drug binding sites. J. Med. Chem., 53, 5858â67.</li>
+
+		<li>Kyte,J. and Doolittle,R.F. (1982) A simple method for displaying the hydropathic character of a protein. J. Mol. Biol., 157, 105â32.</li>
+
+		<li>Milletti,F. and Vulpetti,A. (2010) Predicting polypharmacology by binding site similarity: from kinases to the protein universe. J. Chem. Inf. Model., 50, 1418â31.</li>
+
+		<li>Abi Hussein H, Geneix C, Petitjean M, Borrel A, Flatters D, Camproux AC. Global vision of druggability issues: applications and perspectives. Drug Discov Today. 2017 Feb;22(2):404-415.</li>
+
+		<li>Hussein HA, Borrel A, Geneix C, Petitjean M, Regad L, Camproux AC. PockDrug-Server: a new web server for predicting pocket druggability on holo and apo proteins. Nucleic Acids Res. 2015 Jul 1;43(W1):W436-42.</li>
+
+	</ol> 
+
+</div>           
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+	<footer id="footer"  class="navbar-default">
+
+			<div class="row-fluid">
+
+				<div class= "span12">
+
+					<hr />
+
+					<p align="center"><span class="icon-copyright-mark"></span>Last update : April 2015</p>
+
+				</div>  
+
+			</div>
+
+	</footer>
+
+	<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script-->
+
+	<script src="/js/bootstrap.file-input.js"></script>
+
+	<script>$(document).ready(function(){$('input[type=file]').bootstrapFileInput();});</script>
+
+	<script>//<![CDATA[
+
+	(function(){var d=encodeURIComponent,f=window,g=document,h="documentElement",k="length",l="prototype",m="body",p="&",s="&ci=",t=",",u="?",v="Content-Type",w="Microsoft.XMLHTTP",x="Msxml2.XMLHTTP",y="POST",z="application/x-www-form-urlencoded",A="img",B="input",C="load",D="oh=",E="on",F="pagespeed_url_hash",G="url=";f.pagespeed=f.pagespeed||{};var H=f.pagespeed,I=function(a,b,c){this.c=a;this.e=b;this.d=c;this.b=this.f();this.a={}};I[l].f=function(){return{height:f.innerHeight||g[h].clientHeight||g[m].clientHeight,width:f.innerWidth||g[h].clientWidth||g[m].clientWidth}};I[l].g=function(a){a=a.getBoundingClientRect();return{top:a.top+(void 0!==f.pageYOffset?f.pageYOffset:(g[h]||g[m].parentNode||g[m]).scrollTop),left:a.left+(void 0!==f.pageXOffset?f.pageXOffset:(g[h]||g[m].parentNode||g[m]).scrollLeft)}};I[l].h=function(a){if(0>=a.offsetWidth&&0>=a.offsetHeight)return!1;a=this.g(a);var b=a.top.toString()+t+a.left.toString();if(this.a.hasOwnProperty(b))return!1;this.a[b]=!0;return a.top<=this.b.height&&a.left<=this.b.width};I[l].i=function(a){var b;if(f.XMLHttpRequest)b=new XMLHttpRequest;else if(f.ActiveXObject)try{b=new ActiveXObject(x)}catch(c){try{b=new ActiveXObject(w)}catch(e){}}if(!b)return!1;b.open(y,this.c+(-1==this.c.indexOf(u)?u:p)+G+d(this.e));b.setRequestHeader(v,z);b.send(a);return!0};I[l].k=function(){for(var a=[A,B],b=[],c={},e=0;e<a[k];++e)for(var q=g.getElementsByTagName(a[e]),n=0;n<q[k];++n){var r=q[n].getAttribute(F);r&&(q[n].getBoundingClientRect&&this.h(q[n]))&&!(r in c)&&(b.push(r),c[r]=!0)}if(0!=b[k]){a=D+this.d;a+=s+d(b[0]);for(e=1;e<b[k];++e){c=t+d(b[e]);if(131072<a[k]+c[k])break;a+=c}H.criticalImagesBeaconData=a;this.i(a)}};H.j=function(a,b,c){if(a.addEventListener)a.addEventListener(b,c,!1);else if(a.attachEvent)a.attachEvent(E+b,c);else{var e=a[E+b];a[E+b]=function(){c.call(this);e&&e.call(this)}}};H.l=function(a,b,c){var e=new I(a,b,c);H.j(f,C,function(){f.setTimeout(function(){e.k()},0)})};H.criticalImagesBeaconInit=H.l;})();pagespeed.criticalImagesBeaconInit('/mod_pagespeed_beacon','http://gregpike.net/demos/bootstrap-file-input/demo.html','TFEmFH3ngh');
+
+	//]]></script>
+
+	
+
+
+
+	</body>
+
+</html>
+
+	
+

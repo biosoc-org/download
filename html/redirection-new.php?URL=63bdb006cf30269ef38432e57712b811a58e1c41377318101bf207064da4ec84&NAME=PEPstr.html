@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>PEPstrMOD: Peptide Tertiary Structure Prediction with Natural, Non-natural Modified Residues.</title>
+<meta name="keywords" content="pepstrmod, peptides, prediction, non-natural, modified, pepstr, raghava, IMTECH" />
+<meta name="description" content="Non-Natural Peptide Tertiary Structure Prediction" />
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+<script type='text/javascript' src='menu_jquery.js'></script>
+<link href="default.css" rel="stylesheet" type="text/css" />
+<link href="styles.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<div id="logo">
+</div>
+<div id="content">
+<noscript><br><br>You don't have JavaScript enabled in your browser. Please enable JavaScript in your browser to effectively use this web site.<br><br></noscript>
+<div id="colA">
+		<div id="welcome" class="boxedA">
+			<h2>Welcome to PEPstrMOD</h2>
+<marquee scrolldelay=200 ><h3>New Site: is at <a href="http://webs.iiitd.edu.in/raghava/pepstrmod">IIIT Delhi</a>. Use new site in case of any problem.</h3> </marquee>
+			<p>The <strong>PEPstrMOD</strong> server predicts the tertiary structure of small peptides with sequence length varying between 7 to 25 residues. It also handles peptides having various modifications like non-natural residues, terminal modifications (Acetylation/Amidation), Cyclization (N-C, disulfide bridges), conversion of L- to D- amino acids, post translational modifications, etc. The prediction strategy is based on the realization that Î²-turn is an important and consistent feature of small peptides in addition to regular structures. Thus, the method uses both the regular secondary structure information predicted from PSIPRED and Î²-turns information predicted from BetaTurns. The structure is further refined with energy minimization and molecular dynamic simulations.</div>
+		<!--
+		<div id="news" class="boxedA">
+			<h2>Recent Updates</h2>
+			<ul>
+				<li>
+					<h3>Information</h3>
+					<p>Please read before resubmitting your peptide on PEPstr. PEPstr is computer intevise server due to energy minimization techniques. Thus we put all requests in que (running in parallel is not possible) and server execute requests one-by-one based on first-cum-first serve. As we are getting lot of requests daily so server is taking lot of times (some time days or weeks) depending on load. In addition, users are submitting their peptide again and again, which is increasing load on server and increasing response time. Please donot resubmit your peptide again wait for few-days. </p>
+					<p class="more"><a href="#">Read More</a></p>
+				</li>
+				<li>
+					<h3>Extra</h3>
+					<p>a resource for exploring protein post-translational modifications (PTMs) using molecular dynamics (MD) simulations! Here, you can modify a protein PDB file of your choice with one or more supported PTMs and obtain force field parameters</p>
+					<p class="more"><a href="#">Read More</a></p>
+				</li>
+			</ul>
+		</div>
+		-->
+</div>
+<div id="colB">
+<div id='cssmenu'>
+<ul>
+<li class='active'><a href='index.php'><span>Home PEPstrMOD</span></a></li>
+
+<li class='has-sub'><a href='#'><span>Natural Peptides</span></a>
+<ul>
+<li><a href='nat_ss.php'><span>Beginner</span></a></li>
+<li><a href='nat_ds.php'><span>Expert</span></a></li>
+<li><a href='nat_str.php'><span>Structure Modification</span></a></li>
+<li><a href='multiseq.php'><span>Multiple Sequences</span></a></li>
+</ul>
+</li>
+
+<li class='has-sub'><a href='#'><span>D Amino Acids</span></a>
+<ul>
+<li><a href='d_ds.php'><span>Beginner</span></a></li>
+<li><a href='d_ss.php'><span>Expert</span></a></li>
+<li> <a href='d_str.php'><span>Structure Modification</span></a></li>
+</ul>
+</li>
+
+<li class='has-sub'><a href='#'><span>Terminal Modification</span></a>
+<ul>
+<li><a href='ter_ss.php'><span>Sequence Modification</span></a></li>
+<li> <a href='ter_str.php'><span>Structure Modification</span></a></li>
+</ul>
+</li>
+
+<li class='has-sub'><a href='#'><span>Peptide Cyclization</span></a>
+<ul>
+<li><a href='cyc_ss.php'><span>N-C Cyclization</span></a></li>
+<li><a href='cyc_ds.php'><span>Disulfide Bridge (S-S)</span></a></li>
+<li> <a href='cyc_str.php'><span>Structure Modification</span></a></li>
+</ul>
+</li>
+
+<li class='has-sub'><a href='#'><span>Non-Natural Residue</span></a>
+<ul>
+<li><a href='mod_ds.php'><span>Beginner</span></a></li>
+<li><a href='mod_ss.php'><span>Expert</span></a></li>
+<li><a href='mod_str.php'><span>Structure Modification</span></a></li>
+</ul>
+</li>
+
+<li class='has-sub'><a href='#'><span>PTMs of Residue</span></a>
+<ul>
+<li><a href='ptm_ds.php'><span>Beginner</span></a></li>
+<li><a href='ptm_ss.php'><span>Expert</span></a></li>
+<li><a href='ptm_str.php'><span>Structure Modification</span></a></li>
+</ul>
+</li>
+
+<li class='has-sub'><a href='#'><span>Advance Modification</span></a>
+<ul>                 
+<li><a href='comb_ds.php'><span>Beginner</span></a></li>
+<li><a href='comb_ss.php'><span>Expert</span></a></li>
+<li><a href='comb_str.php'><span>Structure Modification</span></a></li>
+<li><a href='comb_disp.php'><span>Manual Modification</span></a></li>
+</ul>
+</li>
+
+<li class='has-sub'><a href='#'><span>Structure Simulations </span></a>
+<ul>
+<li><a href='sim_ff.php'><span>Request Token</span></a></li>
+<li><a href='sim_init.php'><span>Simulate a PDB File</span></a></li>
+</ul>
+</li>
+
+<li class='has-sub'><a href='#'><span>Download</span></a>
+<ul>
+<li><a href='download.php'><span>Manual</span></a></li>
+<li><a href='downloadds.php'><span>Datasets</span></a></li>
+<li><a href='downloadcl.php'><span>Standalone software</span></a></li>
+</ul>
+</li>
+
+<li class='has-sub'><a href='#'><span>General</span></a>
+<ul>
+<li><a href='help.php'><span>Help</span></a></li>
+<li><a href='ack.php'><span>Acknowledgement</span></a></li>
+<li><a href='team.php'><span>Developers</span></a></li>
+<li><a href='links.php'><span>Important Links</span></a></li>
+<li><a href='contact.php'><span>Contact</span></a></li>
+</ul>
+</li>
+
+</ul>
+</div>
+
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=0kehqm55ujt&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=1" async="async"></script>
+</div>
+</div>
+<table width=1100><tr><td width=200> </td><td align=left>
+If you are using PEPstrMOD, please cite the following articles: <br>
+<font size=-2>
+i) Singh, S., Singh, H., Tuknait, A., Chaudhary, K., Singh, B., Kumaran, S. and Raghava, G.P.S. (2015) PEPstrMOD: structure prediction of peptides containing natural, non-natural and modified residues. <a href="http://www.biologydirect.com/content/10/1/73" target=_new><font color=blue>Biology Direct 10:73</font></a>.<br>
+ii) Kaur, H., Garg, A. and Raghava, G.P.S. (2007) PEPstr: A de novo method for tertiary structure prediction of small bioactive peptides. <a href="http://www.eurekaselect.com/78654/article" target=_new><font color=blue>Protein Pept Lett. 14:626-30.</font></a>
+</font>
+</td></tr></table>
+<table width=1100><tr><td align=right><a href="pepstrmod_manual.pdf" target=_new><font color=blue>Click Here</font></a> for PEPstrMOD Manual</td></tr></table>
+<div id="footer">
+<p>
+<a href="http://webs.iiitd.edu.in/raghava/" target="_blank">RaghavaGroup</a>
+<a href="http://webs.iiitd.edu.in" target="_blank">IMTECH</a>
+<a href="http://www.csir.res.in" target="_blank">CSIR</a>
+<a href="http://webs.iiitd.edu.in" target="_blank">CRDD</a>
+<a href="http://osddlinux.osdd.net" target="_blank">OSDDLINUX</a>
+</p>
+</div>
+</body>
+</html>

@@ -44,7 +44,14 @@
         });
     }
 
-    function truncateLongText(text, maxLength = 20) {
+    function truncateText(text, maxLength = 15) {
+        if (text.length <= maxLength) {
+            return text;
+        }
+        return text.substring(0, maxLength) + '...';
+    }
+
+    function truncateLongText(text, maxLength = 30) {
         if (text.length > maxLength && !text.includes(' ')) {
             return text.slice(0, maxLength) + '...';
         }
@@ -103,7 +110,8 @@
         }
     }
 
-    const csvFiles = ['output.csv', 'output2.csv', 'output3.csv', 'output4.csv', 'output5.csv', 'output6.csv', 'output7.csv', 'output8.csv', 'output9.csv', 'output10.csv', 'output11.csv', 'output12.csv']; // tutaj możesz wstawić swoje pliki CSV
+    const csvFiles = ['output.csv']; // tutaj możesz wstawić swoje pliki CSV
+    //const csvFiles = ['output.csv', 'output2.csv', 'output3.csv', 'output4.csv', 'output5.csv', 'output6.csv', 'output7.csv', 'output8.csv', 'output9.csv', 'output10.csv', 'output11.csv', 'output12.csv']; // tutaj możesz wstawić swoje pliki CSV
     loadAndDisplayCSVs(csvFiles);
 </script>
 </body>

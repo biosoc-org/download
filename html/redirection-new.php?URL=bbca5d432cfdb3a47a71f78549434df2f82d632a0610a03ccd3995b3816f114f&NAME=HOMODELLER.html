@@ -1,0 +1,446 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- InstanceBegin template="/Templates/sitelayout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Documentation for PROTEUS2 Structure Prediction Server</title>
+    <!-- InstanceEndEditable -->
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+    <!--WRITE TIMER -->
+
+    <!--END TIMER-->
+
+    <!-- InstanceBeginEditable name="head" -->
+
+    <!-- InstanceEndEditable -->
+    <style type="text/css">
+        #splash img {
+            float: left;
+        }
+    </style>
+
+    <script type="text/javascript" src="divFunctions.js"></script>
+    <link rel=stylesheet type="text/css" href="proteus.css">
+
+    
+
+    <style type="text/css">
+        .numberTable
+        {
+            border-style:solid;
+            border-width:1px;
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body onLoad="startTimer()" bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+
+
+
+<link rel=stylesheet type="text/css" href="header.css">
+
+<!-- <style type="text/css">@import "IE-override.css";</style> -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="mainTable">
+<!--<table border="0" cellpadding="0" cellspacing="0" width="100%">-->
+    <tbody>
+        <tr>
+            <td width="60">&nbsp;</td>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                        <colgroup>
+                            <col width="744"/>
+                        </colgroup>
+                    </thead>
+                    <tbody>
+                        <tr valign="bottom">
+                            <td><font color="#ffffff" size="+3" face="serif"><b>PROTEUS Structure
+                                Prediction Server 2.0</b></font></td>
+                        </tr>
+                        <tr>
+
+                            <td><em><strong><font color="#cccccc" face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                Comprehensive 2D and 3D structure predictions</font></strong></em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        <tr  bgcolor="#000000">
+            <td>&nbsp;</td>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" style="width: 70%;">
+                    <thead>
+                        <colgroup>
+                            <col width="125" align="center"/>
+                            <col width="175" align="center"/>
+                            <col width="175" align="center"/>
+                            <col width="175"/>
+                            <col width="175"/>
+                        </colgroup>
+                    </thead>
+                    <tbody>
+                        <tr style="height:20px;">
+                            <td class="menu selected size125" align="center">
+                                <a href="index.jsp">HOME</a>
+                            </td>
+                            <td class="menu selected size175" align="center">
+                                <a href="documentation.jsp">DOCUMENTATION</a>
+                            </td>
+                            <td class="menu selected size175" align="center">
+                                <a href="more.jsp">SAMPLE OUTPUT</a>
+                            </td>
+                            <td class="menu selected size175" align="center">
+                                <a href="contact.jsp">CONTACT & DOWNLOAD</a>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+<!-- End header -->
+<br>
+<table width="75%" border="0">
+<tr>
+<td width="4%">&nbsp; </td>
+<td>
+<p class="header">
+    PROTEUS2 Help
+</p>
+<span class="pagetext">
+    	<!--Proteus is a web server that allows prediction of transmembrane structure, secondary structure,
+        and tertiary structure with a high degree of accuracy, all without the user having any prior
+        knowledge of the structure of the protein.-->
+        PROTEUS2 is a web server that allows prediction of secondary structure and tertiary structure with a high degree of accuracy,
+        without the user having any prior knowledge of the structure of the protein.
+    <p>
+	<ul>
+        <li><a href="#video">Video tutorial</a></li>
+        <li><a href="#how">How to use PROTEUS2</a></li>
+        <li><a href="#results">How PROTEUS2 measures up</a></li>
+        <li><a href="#flowchart_link">How PROTEUS2 works</a></li>
+        <li><a href="#methods">Methods</a></li>
+    </ul>
+	
+	<a name="video"/>
+	<p class="subheader">
+        Video tutorial
+    </p>
+	
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/s5cn2HVkxBM" frameborder="0" allowfullscreen></iframe>
+	
+	<a name="how"/>
+	<p class="subheader">
+        How to use PROTEUS2
+    </p>
+	    PROTEUS2 takes as input a FASTA file of single or multiple sequences or raw sequence data, and you can either upload a file that is stored on your
+        computer containing the data, or paste the file directly into the entry box.
+
+        <p class="subsubheader">
+            Email options
+        </p>
+        You may also specify if you want the results emailed to you, or you can choose to watch a live progress report
+        of your prediction.  Due to the length of time that the prediction requires, it is recommended that you use the
+        email option.  Please note that if you do choose to use the email option, you will receive a link to a results
+        page, not the results themselves.
+
+        <p class="subsubheader">
+            Method options
+        </p>
+	<!--
+         PROTEUS2 uses a &quot;Jury of Experts&quot; approach involving predictions from PSignal(a locally developed tool), TMHMM <a href="http://www.cbs.dtu.dk/services/TMHMM/">(Krogh et al., 2001)</a>, PSIPRED (
+        <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=10493868&query_hl=4">Jones, 1999</a>
+        ),
+        JNET (
+        <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=10861942&query_hl=2">Barton et al., 1999</a>
+        ), TRANSSEC (a locally developed tool), 3D-2D mapping protocol and Homodeller (a locally developed tool).  You can choose to run one of these methods, or all of them using the &quot;jury of experts&quot; approach.
+        Using all methods will have the highest accuracy, but will also be the slowest.
+        -->
+        
+	
+	PROTEUS2 performs signal peptide prediction using PSignal, a locally developed tool. Users must select which source organism (gram-, gram+, euk) before submitting their sequences for analysis. PROTEUS2 uses a default of gram-. Users also have the option of running only secondary structure prediction or homology modelling or both. The default option are secondary structure prediction and homology modelling. Users also have the homology modelling energy minimization option. The default is turned on. Normally PROTEUS2 automatically selects PDB homolog for homology modelling. However users do have the option for overwriting PROTEUS2 and select their own template file. This may be done by entering a PDB accession number or selecting a properly formatted PDB file uploading it using browser button.
+	
+        <p class="subsubheader">
+            Output
+        </p>
+        PROTEUS2 will output the following items:
+        <ul>
+            <li>Complete prediction information</li>
+	    <li>Graphical alignment of soluble PDB homologs</li>
+	    <li>Graphical alignment of transmembrane PDB homologs</li>
+	    <li>Legend information </li>
+	    <li>Signal peptide prediction</li>
+	    <li>Transmembrane prediction</li>
+	     <li>3D-to-2D mapping for top-scoring transmembrane homolog</li>
+	    <li>Secondary structure prediction</li>	
+            <li>Detailed secondary structure prediction from each method used (PSIPRED, JNET, TRANSSEC)</li>
+            <li>3D-to-2D mapping for top-scoring homolog</li>
+            <li>PSI-BLAST results</li>
+            <li>Tertiary structure prediction, with coordinates. You can download the resulting PDB file, view the file in the browser,
+                or view the image via WebMol (Java required).</li>
+        </ul>
+
+         The secondary structure annotation legend is as follows:
+        <br>
+	<p>
+        <font face="arial">
+            <font color="red"><b>H</b></font> = Helix<br>
+            <font color="blue"><b>E</b></font> = Beta Strand<br>
+            <font color="black"><b>C</b></font> = Coil<br>
+            <font color="green"><b>T</b></font> = Membrane helix<br>
+            <font color="green"><b>B</b></font> = Membrane strand<br>
+	    <font color="#FF00FF"><b>S</b></font> = Signal peptide<br>
+            <font color="#8000FF"><b>c</b></font> = Cleavage site<br>
+            <!--
+       <font color="green">&nbsp;&nbsp; T</font> = Transmembrane (helix) region<br>
+       <font color="green">&nbsp;&nbsp; B</font> = Transmembrane strand<br>
+       <font color="#FF00FF">&nbsp;&nbsp; S</font> = Signal peptide<br>
+       <font color="#8000FF">&nbsp;&nbsp; c</font> = Cleavage site<br>
+       -->
+        </font>
+    </p>
+	
+
+	<a name="results"/>
+	<p class="subheader">
+        How PROTEUS2 measures up
+    </p>
+
+<a href="evaluation_details.jsp">Evaluation Details</a>
+
+    <!-- Secondary structure -->
+  <!--  <a href="javascript:showHide('sec');">Soluble secondary structure</a>-->
+
+        <br><br>
+ 	<div id="sec" style="display:block; border:groove #DDDDDD 2px;">
+
+            <table class="pagetext" cellpadding="2">
+                <tr>
+                    <td>
+                        <table>
+                            <tr><td width="25">&nbsp;</td>
+                                <td>
+                                    <img src="images/comparison.GIF" border="0">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr><td>
+                    Histogram comparing the Q3 (black) and SOV (gray) scores of PROTEUS2 (left 3 bars) versus PSIPRED,
+                    JNET,
+                    PHD, SAM-T02 and GOR.
+                </td>
+                </tr>
+                <tr height="5"><td>&nbsp;</td></tr>
+                <tr><td>
+                    <img src="images/q3.GIF">
+                </td></tr>
+                <tr><td>
+                Bar graph showing the performance of PROTEUS2 in predicting the secondary structure (Q3 score) for 125 proteins
+                that were in neither the training or testing sets.
+                </td>
+                </tr>
+
+                
+            </table>
+
+            
+        </div>
+
+    <a name="flowchart_link"/>
+	<p class="subheader">
+        How PROTEUS2 works
+    </p>
+	PROTEUS2 is comprised of seven separate processes that combine to produce the final output.
+	
+	<!--a href="javascript:showHide('flowchart');">Click here</a> to see a flow chart-->
+	See a flow chart below.<br><br>
+	<!--div id="flowchart" style="display:none"-->
+        <img src="images/Proteusflowchart.png">
+    <!--/div-->
+	
+	<a name="methods"/>
+	<p class="subheader">
+        Methods
+    </p>
+
+	<div id="method1" style="display:block">
+        <!--The prediction method described here is split into four stages: (1) An initial homolog search to determine if
+        part or all of the sequence is homologous to a known structure. (2) A prediction by all three of the consensus
+        prediction methods, which are then fed as inputs into a neural network, which then (3) combines these
+        predictions to make a prediction of its own. The neural network's prediction and the results of the homology
+        search are then merged to produce the final prediction. <br>
+
+        The independent prediction methods were chosen to have orthogonal prediction propensities, so as to maximize the
+        effectiveness of a combined method. Lacking any formal way to judge a prediction method's effectiveness at
+        predicting certain sequences, methods with orthogonal methods of prediction were used. PSIPRED is a two-stage
+        neural network structure based on position-specific scoring matrices generated by PSI-BLAST, with an EVA
+        accuracy of 77.8%. JNET uses HMM profiles generated from sequence alignments, position-specific scoring
+        matrices, and a neural network, and has an EVA accuracy of 76.4%.   <br>
+
+        A third method was devised as a tie-breaker, and is similar to the PHD approach, yet achieves about 72% Q3
+        accuracy.
+        Given that all three methods used significantly different methods of prediction, it was hoped that the methods
+        would produce significantly different results under similar circumstances.<br>
+        GOR, a fourth method based on information theory that was used initially, was discarded during development
+        because its accuracy was significantly below the other methods.
+        <br>
+        A database containing 8,679 non-redundant sequences and structures from the 2002 PDB database, filtered so as to
+        remove any sequence with >30% sequence homology, was obtained as a training set for the neural network-based
+        consensus method, and as the main database for the homology search. The structures contained in this database
+        were also obtained from PDB, but verified so as to not contain "impossible" structures, such as sheets or
+        helices containing a single residue, such as might be annotated using an automatic secondary structure
+        annotation method such as DSSP.
+        <br>
+        <h4>Homology search</h4>
+        Using the non-redundant database described above, a homology search using BLASTP is performed, using an e-value
+        of 1x10<sup>-7</sup>. Only the best result (smallest e-value) is retained. The structure for that sequence is then
+        retrieved for merging with the predicted structure. -->
+
+
+In order to perform structure predictions most accurately and efficiently PROTEUS2 follows a strict hierarchy of analyses and database comparisons (see the flow chart above).  When a query sequence is received PROTEUS2 initially performs a signal peptide identification step using a novel machine learning method based on hidden Markov modeling (HMM) techniques.  If a signal peptide (and cleavage site) is identified, the sequence is truncated and sent to the next prediction step.  If no signal peptide is identified, the server keeps the query sequence unchanged.  In the next step, the query sequence is aligned against a specially constructed database of ~250 solved membrane proteins (with known secondary structure) using BLAST.  This membrane protein database, which is updated weekly, was compiled from <a href="http://bioinfo.si.hirosaki-u.ac.jp/~TMPDB/">TMPDB</a>, <a href="http://pdbtm.enzim.hu/">PDBTM</a> and manual annotation efforts.  If a significant (Expect < 1e-10) match is found, the resulting alignment is used to transfer the known secondary structure of the template membrane molecule to the query protein using a technique called 3D-to-2D mapping (<a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&dopt=Books&list_uids=16774686">Montgomerie et al., 2006</a>).  If no match can be found, the program applies <a href="http://www.cbs.dtu.dk/services/TMHMM/">TMHMM 2.0</a> to predict the membrane spanning helical regions.  If no membrane helices can be found, the program uses<a href="http://www.bioinformatics.leeds.ac.uk/betaBarrel/">TMB-HUNT</a> to identify potential membrane beta-barrel proteins and uses a jury of secondary structure predictors to identify membrane spanning beta-strands.<br><br>
+  
+After the signal peptides and transmembrane segments (helices or beta-strands) have been identified, PROTEUS2 proceeds to the third structure prediction step.  In this third step, PROTEUS2 initially compares the query sequence to a local, non-redundant version of the PDB containing nearly 13,000 sequences of water-soluble (i.e. non-membrane) proteins.  The secondary structures for these proteins were assigned using <a href="http://redpoll.pharmacy.ualberta.ca/vadar/">VADAR</a>. If a significant (Expect < 1e-10) match is found, the same 3D-to-2D mapping procedure is used to assign or predict the secondary structure.  If no match can be found, the PROTEUS2 applies a locally developed "jury of experts" prediction method to predict the secondary structures as described in our earlier publication (<a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&dopt=Books&list_uids=16774686">Montgomerie et al., 2006</a>). <br><br>
+
+Once the signal peptide, membrane spanning regions and secondary structures have been predicted, the query sequence is then directed to a locally developed homology modeling program called HOMODELLER.  If a PDB file with >35% sequence identity was previously found in either of the two 3D-to-2D mapping steps, this structure is used as a template for HOMODELLER to build a 3D structure.  While PROTEUS2 always succeeds in generating linear (i.e. secondary structure) predictions for any query sequence, 3D structures will only be generated if the query protein passes the HOMODELLER thresholds. 
+<br><br>
+In developing the hidden Markov models for signal peptide prediction program (called PSignal or predictSP), more than 2000 signal peptides and 1200 control peptides (covering the N-terminal sequence to the cleavage site) were obtained from the SignalP data set.  These examples were further partitioned into signal peptides belonging to Gram+, Gram- and Eukaryotic organisms.  The predictor was trained to recognize not only the existence of a signal peptide, but also its length and cleavage site.  PredictSP was subject to 10-fold cross validation during the testing phase.  
+<br> <br>
+The transmembrane prediction program builds from two previously developed and freely available programs, TMHMM and TMB-Hunt.  TMHMM uses a hidden Markov model to identify transmembrane helices, while TMB-HUNT uses amino acid composition statistics to identify potential membrane beta-barrel proteins.  We enhanced the performance of both methods by exploiting the 3D-to-2D mapping methods that we previously developed for predicting the secondary structure of water soluble proteins.  To do so we created a database of 250 membrane proteins of known secondary and tertiary structure, with the membrane helices and membrane beta-strands appropriately labeled.  As before, secondary structures that were derived from homologous proteins in the membrane protein database were given precedence over the predictions derived from TMHMM or TMB-HUNT. The program's performance was assessed using the <a href="http://www.rostlab.org/services/tmh_benchmark/">TMH-Benchmark server</a> (for transmembrane helices) and a 5X cross-validated subset of 40 transmembrane beta-barrels derived from the PDB.  
+<br><br>
+
+In developing the "jury of experts" approach for predicting the secondary  structure of soluble proteins we used the same programs and methods described previously (<a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&dopt=Books&list_uids=16774686">Montgomerie et al., 2006</a>).  The one change to this method involved editing the PDB-derived secondary structure database so that it contained only water-soluble proteins.  This involved removing some 250 membrane proteins from the 13,000 protein data set.  In training and testing the program nearly 2000 sequence-unique sequences were analyzed, requiring some 100 hours of CPU time.  The program was written such that secondary structure predictions from the consensus predictor could be over-ridden if a homologous protein could be found in PROTEUS2's secondary structure database. <br><br>
+ 
+The homology modeling program, HOMODELLER, is quite conventional and employs standard homology modeling techniques. It uses the BLAST to search through a non-redundant version of the PDB database (which is updated weekly) to find and align the closest matching sequence homologue.  Mismatched residues in the template sequence are changed to match the query sequence, but with the same x1 angles of the template.  Gaps in coil regions are handled using a loop library (consisting of >13,000 loops derived from high resolution structures in the <a href="http://www.rcsb.org">PDB</a>).  The inserted regions are superimposed and then iteratively adjusted to fit the surrounding regions using a simplex minimizer working in torsion angle space. The resulting structure is energy minimized using a torsion angle minimizer that uses cyclic coordinate descent in combination with a simple genetic algorithm.  The method has been extensively tested and refined using hundreds of known structures.  More recently, HOMODELLER was used to model more than 100,000 protein structures for the <a href="http://wishart.biology.ualberta.ca/BacMap/">BacMap</a> project. 
+
+
+        <br>
+        <h4>Neural Network architecture</h4>
+        The methods and underlying theory to PSIPRED and JNET have been published previously and the programs were used
+        as received without further modification.  The TRANSSEC program was developed in-house using
+        a Java-based neural network package known as <a href="http://www.jooneworld.com">Joone</a>.
+        <br><br>
+        TRANSSEC's underlying approach is relatively simple, consisting of a standard PSI-BLAST search integrated into a
+        two-tiered neural network architecture.  The first neural network operates only on the sequence, while the second
+        operates on a 4 x N position-specific scoring matrix consisting of the secondary structure determined
+        via the first network.  The first neural net uses a window size of 19, and was trained on sequences
+        from the PROTEUS2-2D database (independent from those used in training the other neural nets).
+        This neural net had a 399-160-20-4 architecture (21 x 19 inputs, 2 hidden layers of 160 and 20,
+        and four outputs). The second neural network used a position-specific scoring matrix, combining
+        evolutionary information from a PSI-BLAST search, and structure information from the first neural
+        network.  It was also trained on a set of sequences from the non-redundant database mentioned above,
+        and achieved a Q3 score of 70% and a SOV score of 72%. It used a window size of 9, and was based on a
+        36-44-4 architecture.
+        <br><br>
+	PROTEUS2's globular protein secondary structure method uses neural network mehtod that combines 
+        Psipred, JNet, and TRANSEC. The Jury-of-experts program, which combined the results of the three
+        stand-alone secondary
+        structure predictions was also developed using Joone.  It consisted of a standard feed-forward
+        network containing a single hidden layer.  Using a window size of 15, the structure annotations
+        and confidence scores from each of the three methods (JNET, PSIPRED, and TRANSSEC) were used as
+        input.
+        <br>
+        <br>
+        <h4>Neural Network Training</h4>
+        The neural net was trained on 100 sequences chosen randomly from the non-redundant
+        database mentioned above.  Four output nodes were used, one for each of helix, strand or coil,
+        as well as a fourth denoting the beginning and end of the sequence.  A back-propagation training
+        procedure was applied to optimize the network weights.  A momentum term of 0.2 and a learning
+        rate of 0.3 were used, and a second test set of 20 proteins was applied at the end of each epoch,
+        to ensure that the network was trained for the most optimal number of iterations.  
+        <br>
+        <h4>Merging the homologous sequence with a prediction</h4>
+        If a homologous sequence was found whose sequence did not cover the entire length of the query sequence, then it
+        was necessary to merge the homologous structure with that of the predicted structure. Though some secondary
+        structure is the result of global interactions (hydrogen bonding between different parts of the sequence),
+        homologous regions likely have similar local structure. Given that a homologous structure is likely to be more
+        correct than the predicted structure, the homologous structure is mapped directly onto the predicted structure,
+        replacing the states of the predicted structure with the homologous structure.
+
+
+        
+    </div>
+	
+	<h4>Scoring and Confidence Values</h4>
+<p>PROTEUS2 uses the de novo secondary structure prediction programs JNET (Cuff JA, Barton GJ. Application of multiple sequence alignment profiles to improve protein secondary structure prediction
+ Proteins. 2000 Aug 15;40(3):502-11), PSIPRED (McGuffin LJ, Bryson K, Jones DT. The PSIPRED protein structure prediction server.
+Bioinformatics. 2000 Apr;16(4):404-5), TRANSSEC (Montgomerie S, Sundararaj S, Gallin WJ, Wishart DS. Improving the accuracy of protein secondary structure prediction using structural alignment.
+BMC Bioinformatics. 2006 Jun 14;7:301) and TMHMM  Krogh A, Larsson B, von Heijne G, Sonnhammer EL. Predicting transmembrane protein topology with a hidden Markov model: application to complete genomes.
+ J Mol Biol. 2001 Jan 19;305(3):567-80).  Each of these methods generates residue-specific confidence values.  These values are dependent on a number of factors specific to the predictor's design, 
+ but they largely reflect the degree of local sequence conservation from the multiple sequence alignments, individual amino acid secondary structure propensities and multi-residue secondary 
+ structure propensities.  These program-specific confidence values are normalized by PROTEUS2 to integer values between 0 (low confidence) and 9 (high confidence). 
+Additionally, the secondary structures assigned by template-based mapping (or structure-based mapping) in PROTEUS2 are given residue-specific confidence values (ranging from 7 to 9) and during
+   the merge phase of PROTEUS2 they will overwrite in the confidence values in regions for which a suitable homolog has been found.
+     The global confidence score is generated by summing all the residue-specific (integer) values over the entire sequence and dividing by the length of the sequence, giving a percentage.  
+     Generally predicted structures with global confidence scores of 80% or better can be considered to be quite reliable.
+    </p> 
+ <p>The global confidence score is generated by summing all the residue-specific (integer) values over the entire sequence and dividing by the length of the sequence, giving a percentage. 
+      Generally predicted structures with global confidence scores of 80% or better can be considered to be quite reliable.
+</p>
+
+<h4>Scoring Definitions</h4>
+<p>Q3 = overall three-state per-residue accuracy<br>
+Q3 = (#correct &alpha; helix + #correct &beta; strand + #correct coil)/length of protein<br><br>
+
+Q2 = overall two-state per-residue accuracy<br>
+Q2 = (#correct membrane + #correct non-membrane)/length of protein<br><br>
+
+SOV = overall three-state per-segment accuracy (see Zemla A, Venclovas C, Fidelis K, Rost B. A modified definition of Sov, a segment-based measure for protein secondary structure prediction assessment.
+ Proteins. 1999 Feb 1;34(2):220-3.)<br><br>
+
+SOV = 1/N &Sigma;(i) &Sigma;(Si) [(MINOV(S1:S2) + DELTA(S1;S2))/MAXOV(S1;S2)]*LEN<br><br>
+
+Where:<br>
+S1 and S2 are the observed and predicted secondary structure segments  (in state i, which can be either H, E or C);<br>
+LEN(S1) is the number of residues in the segments S1; <br>
+MINOV(S1;S2) is the length of actual overlap of S1 and S2, i.e. the extent for which both segments have residues in state i, for example H;<br>
+MAXOV(S1;S2) is the length of the total extent for which either of the segments S1 or S2 has a residue in state i;<br>
+DELTA(S1;S2)  is the integer value defined as being equal to the MIN{(MAXOV(S1;S2)- MINOV(S1;S2)); MINOV(S1;S2); INT(LEN(S1)/2); INT(LEN(S2)/2)}<br>
+<br>
+Sensitivity = TP/(TP + FN) where TP is # of true positives and FN is #  of false negatives<br>
+Specificity = TN/(TN + FP) where TN is # of true negatives and FP is # of false negatives<br>
+<br>
+In information theory or computing science, Sensitivty = Recall<br>
+In information theory or computing science, Specficity = Precision<br>
+</p>
+<h4>Energy Minimization and Energy Values</h4>
+<p>If a homology model is generated by PROTEUS2 and the energy minimization option is used (both are turned on by default), energy values of the structure (before and after minimization)
+ are given as part of the output. PROTEUS2 employs a torsion-angle-based energy minimization that uses a genetic algorithm to sample conformation space (GAfolder).  The method is 
+ similar to that employed by GENFOLD (Bayley MJ, Jones G, Willett P, Williamson MP. GENFOLD: a genetic algorithm for folding protein structures using NMR restraints.
+  Protein Sci. 1998 Feb;7(2):491-9.).  The potential energy function is a knowledge-based potential that includes information on predicted/known secondary structure,
+   radius of gyration, hydrogen bond energies, number of hydrogen bonds, allowed backbone and side chain torsion angles, atom contact radii (bump checks), disulfide bonding information, 
+   and a modified threading energy based on data from Bryant and Lawrence (Bryant SH, Lawrence CE. An empirical energy function for threading protein sequence through the folding motif. 
+   Proteins. 1993 May;16(1):92-112.).  The GAfolder energy function was trained and refined using ~35,000 3D decoys available through the PPT-DB website.  
+   Evaluations using nearly 27,000 3D structure predictions from the CASP7 collection showed that the potential was able to identify the native or near-native
+    (<2.5 Angstroms RMSD) structure in 80/90 (89%) of the CASP7 targets.  It was also able to identify native or near native structures 99.5% (26,800/26,900) of the time
+     when challenged with 3D decoys.  The energy values presented in PROTEUS2 correspond to average per-residue energies.  They do not correspond to real energy units, although a 
+     negative value (< -1) is a good indication of a high quality structure.
+
+</p>
+	</span>
+</td>
+</tr>
+</table>
+<div></div>
+
+<p>&nbsp;</p>
+<!-- InstanceEndEditable -->
+<table width="100%" border="0" bgcolor="#999999">
+    <tr>
+        <td></td>
+    </tr>
+</table>
+
+</body>
+<!-- InstanceEnd --></html>

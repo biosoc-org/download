@@ -1,0 +1,1742 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html dir="ltr"><head><title>MB: Membrane Builder</title>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+<meta content="MSHTML 6.00.2600.0" name="GENERATOR">
+<meta content="20061125;16161500" name="CREATED">
+<meta content="root" name="CHANGEDBY">
+<meta content="20061214;9272900" name="CHANGED">
+<meta content="Word.Document" name="ProgId">
+<meta content="Microsoft Word 11" name="Originator">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+    <script type="text/javascript">
+        
+        // window.onload = startDemo;
+        
+        var width = 10;
+        var height = 10;
+        var spec = 23;
+        
+        var layersDistance = 0;
+        
+        var cellWidth = 2;
+        var cellHeight = 2;
+        
+        var verticesUp = [];
+        var verticesDown = [];
+        
+        var cellThickness = 51;
+        
+        
+        function initializeVertices(  ){
+            
+            verticesUp.splice(0, verticesUp.length );
+            verticesDown.splice(0, verticesDown.length );
+            
+            document.getElementById("Force_Field").selectedIndex.innerHTML=0;
+            // document.getElementsByName( "Force_Field" )[0].selectedIndex=0;
+            for( var i = 0; i < width; i++ ){
+                for( var j = 0; j < height; j++ ){
+                    
+                    var point = [ new Point3D( -width + cellWidth*i - (width-i)*0.5,            -height + cellHeight*j + cellHeight - (height-j)*0.5, -4.5 - layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i + cellWidth - (width-i)*0.5, -height + cellHeight*j + cellHeight - (height-j)*0.5, -4.5 - layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i + cellWidth - (width-i)*0.5, -height + cellHeight*j - (height-j)*0.5,              -4.5 - layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i - (width-i)*0.5,             -height + cellHeight*j - (height-j)*0.5,              -4.5 - layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i - (width-i)*0.5,             -height + cellHeight*j + cellHeight - (height-j)*0.5, -2.5 - layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i + cellWidth - (width-i)*0.5, -height + cellHeight*j + cellHeight - (height-j)*0.5, -2.5 - layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i + cellWidth - (width-i)*0.5, -height + cellHeight*j - (height-j)*0.5,              -2.5 - layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i - (width-i)*0.5 ,            -height + cellHeight*j - (height-j)*0.5,              -2.5 - layersDistance/2 ) ];
+                    verticesUp.push( point );
+                    
+                }
+            }
+            
+            
+            for( var i = 0; i < width; i++ ){
+                for( var j = 0; j < height; j++ ){
+                    
+                    var point = [ new Point3D( -width + cellWidth*i - (width-i)*0.5,            -height + cellHeight*j + cellHeight - (height-j)*0.5, 2.5 + layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i + cellWidth - (width-i)*0.5, -height + cellHeight*j + cellHeight - (height-j)*0.5, 2.5 + layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i + cellWidth - (width-i)*0.5, -height + cellHeight*j - (height-j)*0.5,              2.5 + layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i - (width-i)*0.5,             -height + cellHeight*j - (height-j)*0.5,              2.5 + layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i - (width-i)*0.5,             -height + cellHeight*j + cellHeight - (height-j)*0.5, 4.5 + layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i + cellWidth - (width-i)*0.5, -height + cellHeight*j + cellHeight - (height-j)*0.5, 4.5 + layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i + cellWidth - (width-i)*0.5, -height + cellHeight*j - (height-j)*0.5,              4.5 + layersDistance/2 ),
+                                 new Point3D( -width + cellWidth*i - (width-i)*0.5 ,            -height + cellHeight*j - (height-j)*0.5,              4.5 + layersDistance/2 ) ];
+                    verticesDown.push( point );
+                    
+                }
+            }
+            
+            
+            
+        }
+        
+        
+        function Point3D(x,y,z) {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            
+            this.rotateX = function(angle) {
+                var rad, cosa, sina, y, z
+                rad = angle * Math.PI / 180
+                cosa = Math.cos(rad)
+                sina = Math.sin(rad)
+                y = this.y * cosa - this.z * sina
+                z = this.y * sina + this.z * cosa
+                return new Point3D(this.x, y, z)
+            }
+            
+            this.rotateY = function(angle) {
+                var rad, cosa, sina, x, z
+                rad = angle * Math.PI / 180
+                cosa = Math.cos(rad)
+                sina = Math.sin(rad)
+                z = this.z * cosa - this.x * sina
+                x = this.z * sina + this.x * cosa
+                return new Point3D(x,this.y, z)
+            }
+            
+            this.rotateZ = function(angle) {
+                var rad, cosa, sina, x, y
+                rad = angle * Math.PI / 180
+                cosa = Math.cos(rad)
+                sina = Math.sin(rad)
+                x = this.x * cosa - this.y * sina
+                y = this.x * sina + this.y * cosa
+                return new Point3D(x, y, this.z)
+            }
+            
+            this.project = function(viewWidth, viewHeight, fov, viewDistance) {
+                var factor, x, y
+                factor = fov / (viewDistance + this.z)
+                x = this.x * factor + viewWidth / 2
+                y = this.y * factor + viewHeight / 2
+                return new Point3D(x, y, this.z)
+            }
+        }
+        
+        
+        
+        /*
+         var vertices = [[
+         new Point3D(-1,1,-1),
+         new Point3D(1,1,-1),
+         new Point3D(1,-1,-1),
+         new Point3D(-1,-1,-1),
+         new Point3D(-1,1,1),
+         new Point3D(1,1,1),
+         new Point3D(1,-1,1),
+         new Point3D(-1,-1,1)
+         ],
+         [ 
+         new Point3D(2,1,-1),
+         new Point3D(4,1,-1),
+         new Point3D(4,-1,-1),
+         new Point3D(2,-1,-1),
+         new Point3D(2,1,1),
+         new Point3D(4,1,1),
+         new Point3D(4,-1,1),
+         new Point3D(2,-1,1)
+         ],
+         [
+         new Point3D(-4,1,-1),
+         new Point3D(-2,1,-1),
+         new Point3D(-2,-1,-1),
+         new Point3D(-4,-1,-1),
+         new Point3D(-4,1,1),
+         new Point3D(-2,1,1),
+         new Point3D(-2,-1,1),
+         new Point3D(-4,-1,1)
+         ],
+         [
+         new Point3D(-1,4,-1),
+         new Point3D(1,4,-1),
+         new Point3D(1,2,-1),
+         new Point3D(-1,2,-1),
+         new Point3D(-1,4,1),
+         new Point3D(1,4,1),
+         new Point3D(1,2,1),
+         new Point3D(-1,2,1)
+         ],
+         [
+         new Point3D(-1,-2,-1),
+         new Point3D(1,-2,-1),
+         new Point3D(1,-4,-1),
+         new Point3D(-1,-4,-1),
+         new Point3D(-1,-2,1),
+         new Point3D(1,-2,1),
+         new Point3D(1,-4,1),
+         new Point3D(-1,-4,1)
+         ]
+         
+         ];
+         
+         */
+        // Define the vertices that compose each of the 6 faces. These numbers are
+        // indices to the vertex list defined above.
+        var faces  = [[0,1,2,3],[1,5,6,2],[5,4,7,6],[4,0,3,7],[0,4,5,1],[3,2,6,7]];
+        
+        // Define the colors for each face.
+        var colorsUp = [[255,0,0],[255,0,0],[255,0,0],[255,0,0],[255,0,0],[255,0,0]];
+        var colorsDown = [[0,0,255],[0,0,255],[0,0,255],[0,0,255],[0,0,255],[0,0,255]];
+        
+        var angle = 0;
+        
+        /* Constructs a CSS RGB value from an array of 3 elements. */
+        function arrayToRGB(arr) {
+            if( arr.length == 3 ) {
+                return "rgb(" + arr[0] + "," + arr[1] + "," + arr[2] + ")";
+            }
+            return "rgb(0,0,0)";
+        }
+        
+        function startDemo() {
+            //alert( vertices.length );
+            
+            
+            initializeVertices( );
+         /*   
+            canvas = document.getElementById("thecanvas");
+
+            
+            if( canvas && canvas.getContext ) {
+                ctx = canvas.getContext("2d");
+                setInterval(loop,50);
+            }*/
+        }
+        
+        function loop() {
+            
+            ctx.fillStyle = "rgb(0,0,0)";
+            ctx.fillRect(0,0,800,800);
+            
+            
+            for( var j = 0; j < verticesUp.length; j++ ){
+                
+                var t = new Array();
+                
+                
+                //alert( vertices[j].length );
+                
+                for( var i = 0; i < verticesUp[j].length; i++ ) {
+                    var v = verticesUp[j][i];
+                    var r = v.rotateX(angle).rotateY(angle);
+                    var p = r.project(450, 400,200, spec);
+                    t.push(p)
+                }
+                
+                var avg_z = new Array();
+                
+                for( var i = 0; i < faces.length; i++ ) {
+                    var f = faces[i];
+                    avg_z[i] = {"index":i, "z":(t[f[0]].z + t[f[1]].z + t[f[2]].z + t[f[3]].z) / 4.0};
+                }
+                
+                avg_z.sort(function(a,b) {
+                           return b.z - a.z;
+                           });
+                
+                for( var i = 0; i < faces.length; i++ ) {
+                    var f = faces[avg_z[i].index]
+                    
+                    ctx.fillStyle = arrayToRGB(colorsUp[avg_z[i].index]);
+                    ctx.beginPath();
+                    ctx.moveTo(t[f[0]].x,t[f[0]].y);
+                    ctx.lineTo(t[f[1]].x,t[f[1]].y);
+                    ctx.lineTo(t[f[2]].x,t[f[2]].y);
+                    ctx.lineTo(t[f[3]].x,t[f[3]].y);
+                    ctx.closePath();
+                    ctx.fill();
+                    
+                }
+                
+            }
+            
+            
+            
+            
+            for( var j = 0; j < verticesDown.length; j++ ){
+                
+                var t = new Array();
+                
+                
+                //alert( vertices[j].length );
+                
+                for( var i = 0; i < verticesDown[j].length; i++ ) {
+                    var v = verticesDown[j][i];
+                    var r = v.rotateX(angle).rotateY(angle);
+                    var p = r.project(450, 400,200, spec);
+                    t.push(p)
+                }
+                
+                var avg_z = new Array();
+                
+                for( var i = 0; i < faces.length; i++ ) {
+                    var f = faces[i];
+                    avg_z[i] = {"index":i, "z":(t[f[0]].z + t[f[1]].z + t[f[2]].z + t[f[3]].z) / 4.0};
+                }
+                
+                avg_z.sort(function(a,b) {
+                           return b.z - a.z;
+                           });
+                
+                for( var i = 0; i < faces.length; i++ ) {
+                    var f = faces[avg_z[i].index]
+                    
+                    ctx.fillStyle = arrayToRGB(colorsDown[avg_z[i].index]);
+                    ctx.beginPath();
+                    ctx.moveTo(t[f[0]].x,t[f[0]].y);
+                    ctx.lineTo(t[f[1]].x,t[f[1]].y);
+                    ctx.lineTo(t[f[2]].x,t[f[2]].y);
+                    ctx.lineTo(t[f[3]].x,t[f[3]].y);
+                    ctx.closePath();
+                    ctx.fill();
+                    
+                }
+                
+            }
+            
+            
+            angle += 2;
+            
+            
+        }
+        
+        
+        function changeDistanceLayer(){
+            
+            var distanceIndex = document.getElementById( "Dist" ).selectedIndex;
+            var dist = document.getElementById("Dist");
+            var distance = dist.options[distanceIndex].value;
+            
+            layersDistance = (distance - 5)/2;
+            initializeVertices();
+            
+            //alert("hello");
+            
+            var distIndex = document.getElementById("Dist").selectedIndex;
+            //alert(distIndex);
+            var Dist = document.getElementById("Dist");
+            //alert(Dist);
+            var dist = Dist.options[distIndex].value;
+            
+            //alert(dist);
+            
+            dist = parseInt(dist) + cellThickness;
+            
+            document.getElementsByName("cellThickness")[0].innerHTML = dist;
+
+            
+            
+            
+        }
+        
+        function changeCellDimensions(){
+            
+            
+            var widthIndex = document.getElementById("Cell_Dim_X").selectedIndex;
+            var heightIndex = document.getElementById("Cell_Dim_Y").selectedIndex;
+            
+            var Cell_Dim_X = document.getElementById("Cell_Dim_X");
+            var Cell_Dim_Y = document.getElementById("Cell_Dim_Y");
+            
+            var width = Cell_Dim_X.options[widthIndex].value;
+            var height = Cell_Dim_Y.options[heightIndex].value;
+            
+            cellWidth = (2/10)*width;
+            cellHeight = (2/10)*height;
+            
+            initializeVertices();
+            
+        }
+        
+        
+        function changeNumberOfCells(){
+            
+            var XGridIndex = document.getElementById( "No_Grid_X" ).selectedIndex;
+            var YGridIndex = document.getElementById( "No_Grid_Y" ).selectedIndex;
+            
+            var No_Grid_X = document.getElementById("No_Grid_X");
+            var No_Grid_Y = document.getElementById("No_Grid_Y");
+            
+            //var widthNumber = document.getElementById("No_Grid_X").options(XGridIndex).innerHTML;
+            //var heightNumber = document.getElementById("No_Grid_Y").options(YGridIndex).innerHTML;
+            
+            var widthNumber = No_Grid_X.options[XGridIndex].value;
+            var heightNumber = No_Grid_Y.options[YGridIndex].value;
+            
+            
+            width = widthNumber;
+            height = heightNumber;
+            
+            //alert( width + " " + height );
+            
+            if( parseInt(width) > parseInt(height) )
+            max = parseInt(width);
+            else
+            max = parseInt(height);
+            
+            //alert(max);
+            
+            
+            spec = 1.2 * max + 15;
+            
+            initializeVertices(  );
+            
+            var total = 2 * widthNumber * heightNumber;
+            
+            document.getElementsByName( "totalNumOfCells" )[0].innerHTML = total;
+            document.getElementsByName( "totalNumOfCells" )[0].value = total;   
+            
+            var XCellIndex = 1; //document.getElementById("Cell_Dim_X").selectedIndex;
+            var YCellIndex = 1; //document.getElementById("Cell_Dim_Y").selectedIndex;
+            
+            //var Cell_Dim_X = document.getElementById("Cell_Dim_X");
+            //var Cell_Dim_Y = document.getElementById("Cell_Dim_Y");
+            
+            var cellWidth = 7;//Cell_Dim_X.options[XCellIndex].value;
+            var cellHeigth = 7;//Cell_Dim_Y.options[YCellIndex].value;
+            
+            document.getElementsByName("lengthOfMembrane")[0].innerHTML = cellHeigth * heightNumber;
+            document.getElementsByName("widthOfMembrane")[0].innerHTML =  cellWidth * widthNumber;
+
+                        
+            resolveInnersForTexts();
+            resolveOutersForTexts();
+            
+            
+            
+            
+        }
+        
+        function initialize(){
+            
+            var numberOfCells = document.getElementById( "totalNumOfCells" ).innerText | document.getElementById( "totalNumOfCells" ).textContent;
+            //var numberOfCells = new Number( document.getElementsByName( "totalNumOfCells" )[0].innerText );
+            //alert( numberOfCells );
+            
+            //var numberOfCells = document.getElementsByName( "totalNumOfCells" )[0].innerText;
+
+            initializeTexts();
+            //alert( numberOfCells );            
+            startDemo();
+            
+        }
+
+        function initializeTexts(){
+            
+            document.getElementsByName( "I_POPG_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_POPG" )[0].innerHTML = 0;
+            document.getElementsByName( "O_POPG_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_POPG" )[0].innerHTML = 0;
+            document.getElementsByName( "I_POPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_POPC" )[0].innerHTML = 0;
+            document.getElementsByName( "O_POPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_POPC" )[0].innerHTML = 0;
+            document.getElementsByName( "I_POPE_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_POPE" )[0].innerHTML = 0;
+            document.getElementsByName( "O_POPE_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_POPE" )[0].innerHTML = 0;
+            document.getElementsByName( "I_DPPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_DPPC" )[0].innerHTML = 0;
+            document.getElementsByName( "O_DPPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_DPPC" )[0].innerHTML = 0;
+            document.getElementsByName( "I_DMTAP_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_DMTAP" )[0].innerHTML = 0;
+            document.getElementsByName( "O_DMTAP_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_DMTAP" )[0].innerHTML = 0;
+            document.getElementsByName( "I_DOPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_DOPC" )[0].innerHTML = 0;
+            document.getElementsByName( "O_DOPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_DOPC" )[0].innerHTML = 0;
+            document.getElementsByName( "I_CHOLESTROL_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_CHOLESTROL" )[0].innerHTML = 0;
+            document.getElementsByName( "O_CHOLESTROL_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_CHOLESTROL" )[0].innerHTML = 0;
+            document.getElementsByName( "I_DMPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_DMPC" )[0].innerHTML = 0;
+            document.getElementsByName( "O_DMPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_DMPC" )[0].innerHTML = 0;
+            document.getElementsByName( "I_SGML_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_SGML" )[0].innerHTML = 0;
+            document.getElementsByName( "O_SGML_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_SGML" )[0].innerHTML = 0;
+            document.getElementsByName( "I_DPPI_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_DPPI" )[0].innerHTML = 0;
+            document.getElementsByName( "O_DPPI_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_DPPI" )[0].innerHTML = 0;
+            document.getElementsByName( "I_LAE_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_LAE" )[0].innerHTML = 0;
+            document.getElementsByName( "O_LAE_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_LAE" )[0].innerHTML = 0;
+            document.getElementsByName( "I_LAP_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_LAP" )[0].innerHTML = 0;
+            document.getElementsByName( "O_LAP_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_LAP" )[0].innerHTML = 0;  
+            document.getElementsByName( "I_DLPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_DLPC" )[0].innerHTML = 0;
+            document.getElementsByName( "O_DLPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_DLPC" )[0].innerHTML = 0;
+            document.getElementsByName( "I_DLPE_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_DLPE" )[0].innerHTML = 0;
+            document.getElementsByName( "O_DLPE_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_DLPE" )[0].innerHTML = 0;
+            document.getElementsByName( "I_DOPE_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_DOPE" )[0].innerHTML = 0;
+            document.getElementsByName( "O_DOPE_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_DOPE" )[0].innerHTML = 0;
+            document.getElementsByName( "I_DOPG_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_DOPG" )[0].innerHTML = 0;
+            document.getElementsByName( "O_DOPG_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_DOPG" )[0].innerHTML = 0;
+            document.getElementsByName( "I_DOPS_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_DOPS" )[0].innerHTML = 0;
+            document.getElementsByName( "O_DOPS_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_DOPS" )[0].innerHTML = 0;
+            document.getElementsByName( "I_DPPE_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_DPPE" )[0].innerHTML = 0;
+            document.getElementsByName( "O_DPPE_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_DPPE" )[0].innerHTML = 0;
+            document.getElementsByName( "I_SOPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "I_SOPC" )[0].innerHTML = 0;
+            document.getElementsByName( "O_SOPC_TEXT" )[0].value = 0;
+            document.getElementsByName( "O_SOPC" )[0].innerHTML = 0;
+            document.getElementsByName( "O_REMAIN" )[0].innerHTML = 0;
+            document.getElementsByName( "I_REMAIN" )[0].innerHTML = 0;
+            document.getElementsByName( "O_PERCENT" )[0].innerHTML = 0;
+            document.getElementsByName( "I_PERCENT" )[0].innerHTML = 0;
+
+
+        }
+
+        function changeTable3BasedOnForceField(){
+
+            initializeTexts();
+
+            var force_field = document.getElementById("Force_Field").value;
+            if( force_field == "GROMOS43a1" ){
+                document.getElementById("GROMOS43a1").style.display = "block";
+                document.getElementById("GROMOS43a1-S3").style.display = "none";
+                document.getElementById("GROMOS53a6").style.display = "none";
+                document.getElementById("Slipid/AMBER").style.display = "none";
+
+                document.getElementById("O_POPG_TEXT").style.display = document.getElementById("I_POPG_TEXT").style.display = document.getElementById("O_POPG").style.display =  document.getElementById("I_POPG").style.display = document.getElementById("POPG_N").style.display = "";
+                document.getElementById("O_POPC_TEXT").style.display = document.getElementById("I_POPC_TEXT").style.display = document.getElementById("O_POPC").style.display =  document.getElementById("I_POPC").style.display = document.getElementById("POPC_N").style.display = "";
+                document.getElementById("O_POPE_TEXT").style.display = document.getElementById("I_POPE_TEXT").style.display = document.getElementById("O_POPE").style.display =  document.getElementById("I_POPE").style.display = document.getElementById("POPE_N").style.display = "";
+                document.getElementById("O_DPPC_TEXT").style.display = document.getElementById("I_DPPC_TEXT").style.display = document.getElementById("O_DPPC").style.display =  document.getElementById("I_DPPC").style.display = document.getElementById("DPPC_N").style.display = "";
+                document.getElementById("O_DMTAP_TEXT").style.display = document.getElementById("I_DMTAP_TEXT").style.display = document.getElementById("O_DMTAP").style.display =  document.getElementById("I_DMTAP").style.display = document.getElementById("DMTAP_N").style.display = "";
+                document.getElementById("O_CHOLESTROL_TEXT").style.display = document.getElementById("I_CHOLESTROL_TEXT").style.display = document.getElementById("O_CHOLESTROL").style.display =  document.getElementById("I_CHOLESTROL").style.display = document.getElementById("CHOLESTROL_N").style.display = "";
+                document.getElementById("O_DMPC_TEXT").style.display = document.getElementById("I_DMPC_TEXT").style.display = document.getElementById("O_DMPC").style.display =  document.getElementById("I_DMPC").style.display = document.getElementById("DMPC_N").style.display = "none";
+                document.getElementById("O_DOPC_TEXT").style.display = document.getElementById("I_DOPC_TEXT").style.display = document.getElementById("O_DOPC").style.display =  document.getElementById("I_DOPC").style.display = document.getElementById("DOPC_N").style.display = "";
+                document.getElementById("O_SGML_TEXT").style.display = document.getElementById("I_SGML_TEXT").style.display = document.getElementById("O_SGML").style.display =  document.getElementById("I_SGML").style.display = document.getElementById("SGML_N").style.display = "none";
+                document.getElementById("O_DPPI_TEXT").style.display = document.getElementById("I_DPPI_TEXT").style.display = document.getElementById("O_DPPI").style.display =  document.getElementById("I_DPPI").style.display = document.getElementById("DPPI_N").style.display = "none";
+               document.getElementById("O_LAE_TEXT").style.display = document.getElementById("I_LAE_TEXT").style.display = document.getElementById("O_LAE").style.display =  document.getElementById("I_LAE").style.display = document.getElementById("LAE_N").style.display = "none";
+               document.getElementById("O_LAP_TEXT").style.display = document.getElementById("I_LAP_TEXT").style.display = document.getElementById("O_LAP").style.display =  document.getElementById("I_LAP").style.display = document.getElementById("LAP_N").style.display = "none";
+               document.getElementById("O_DLPC_TEXT").style.display = document.getElementById("I_DLPC_TEXT").style.display = document.getElementById("O_DLPC").style.display =  document.getElementById("I_DLPC").style.display = document.getElementById("DLPC_N").style.display = "none";
+               document.getElementById("O_DLPE_TEXT").style.display = document.getElementById("I_DLPE_TEXT").style.display = document.getElementById("O_DLPE").style.display =  document.getElementById("I_DLPE").style.display = document.getElementById("DLPE_N").style.display = "none";
+               document.getElementById("O_DOPE_TEXT").style.display = document.getElementById("I_DOPE_TEXT").style.display = document.getElementById("O_DOPE").style.display =  document.getElementById("I_DOPE").style.display = document.getElementById("DOPE_N").style.display = "none";
+               document.getElementById("O_DOPG_TEXT").style.display = document.getElementById("I_DOPG_TEXT").style.display = document.getElementById("O_DOPG").style.display =  document.getElementById("I_DOPG").style.display = document.getElementById("DOPG_N").style.display = "none";
+              document.getElementById("O_DOPS_TEXT").style.display = document.getElementById("I_DOPS_TEXT").style.display = document.getElementById("O_DOPS").style.display =  document.getElementById("I_DOPS").style.display = document.getElementById("DOPS_N").style.display = "none";
+              document.getElementById("O_DPPE_TEXT").style.display = document.getElementById("I_DPPE_TEXT").style.display = document.getElementById("O_DPPE").style.display =  document.getElementById("I_DPPE").style.display = document.getElementById("DPPE_N").style.display = "none";
+              document.getElementById("O_SOPC_TEXT").style.display = document.getElementById("I_SOPC_TEXT").style.display = document.getElementById("O_SOPC").style.display =  document.getElementById("I_SOPC").style.display = document.getElementById("SOPC_N").style.display = "none";
+
+            }else if( force_field == "GROMOS43a1-S3" ){
+                document.getElementById("GROMOS43a1").style.display = "none";
+                document.getElementById("GROMOS43a1-S3").style.display = "block";
+                document.getElementById("GROMOS53a6").style.display = "none";
+                document.getElementById("Slipid/AMBER").style.display = "none";
+
+                document.getElementById("O_POPG_TEXT").style.display = document.getElementById("I_POPG_TEXT").style.display = document.getElementById("O_POPG").style.display =  document.getElementById("I_POPG").style.display = document.getElementById("POPG_N").style.display = "none";
+                document.getElementById("O_POPC_TEXT").style.display = document.getElementById("I_POPC_TEXT").style.display = document.getElementById("O_POPC").style.display =  document.getElementById("I_POPC").style.display = document.getElementById("POPC_N").style.display = "";
+                document.getElementById("O_POPE_TEXT").style.display = document.getElementById("I_POPE_TEXT").style.display = document.getElementById("O_POPE").style.display =  document.getElementById("I_POPE").style.display = document.getElementById("POPE_N").style.display = "none";
+                document.getElementById("O_DPPC_TEXT").style.display = document.getElementById("I_DPPC_TEXT").style.display = document.getElementById("O_DPPC").style.display =  document.getElementById("I_DPPC").style.display = document.getElementById("DPPC_N").style.display = "";
+                document.getElementById("O_DMTAP_TEXT").style.display = document.getElementById("I_DMTAP_TEXT").style.display = document.getElementById("O_DMTAP").style.display =  document.getElementById("I_DMTAP").style.display = document.getElementById("DMTAP_N").style.display = "none";
+                document.getElementById("O_DOPC_TEXT").style.display = document.getElementById("I_DOPC_TEXT").style.display = document.getElementById("O_DOPC").style.display =  document.getElementById("I_DOPC").style.display = document.getElementById("DOPC_N").style.display = "";
+                document.getElementById("O_CHOLESTROL_TEXT").style.display = document.getElementById("I_CHOLESTROL_TEXT").style.display = document.getElementById("O_CHOLESTROL").style.display =  document.getElementById("I_CHOLESTROL").style.display = document.getElementById("CHOLESTROL_N").style.display = "none";
+                document.getElementById("O_DMPC_TEXT").style.display = document.getElementById("I_DMPC_TEXT").style.display = document.getElementById("O_DMPC").style.display =  document.getElementById("I_DMPC").style.display = document.getElementById("DMPC_N").style.display = "";
+                document.getElementById("O_SGML_TEXT").style.display = document.getElementById("I_SGML_TEXT").style.display = document.getElementById("O_SGML").style.display =  document.getElementById("I_SGML").style.display = document.getElementById("SGML_N").style.display = "";
+                document.getElementById("O_DPPI_TEXT").style.display = document.getElementById("I_DPPI_TEXT").style.display = document.getElementById("O_DPPI").style.display =  document.getElementById("I_DPPI").style.display = document.getElementById("DPPI_N").style.display = "none";
+               document.getElementById("O_LAE_TEXT").style.display = document.getElementById("I_LAE_TEXT").style.display = document.getElementById("O_LAE").style.display =  document.getElementById("I_LAE").style.display = document.getElementById("LAE_N").style.display = "none";
+               document.getElementById("O_LAP_TEXT").style.display = document.getElementById("I_LAP_TEXT").style.display = document.getElementById("O_LAP").style.display =  document.getElementById("I_LAP").style.display = document.getElementById("LAP_N").style.display = "none";
+               document.getElementById("O_DLPC_TEXT").style.display = document.getElementById("I_DLPC_TEXT").style.display = document.getElementById("O_DLPC").style.display =  document.getElementById("I_DLPC").style.display = document.getElementById("DLPC_N").style.display = "none";
+               document.getElementById("O_DLPE_TEXT").style.display = document.getElementById("I_DLPE_TEXT").style.display = document.getElementById("O_DLPE").style.display =  document.getElementById("I_DLPE").style.display = document.getElementById("DLPE_N").style.display = "none";
+               document.getElementById("O_DOPE_TEXT").style.display = document.getElementById("I_DOPE_TEXT").style.display = document.getElementById("O_DOPE").style.display =  document.getElementById("I_DOPE").style.display = document.getElementById("DOPE_N").style.display = "none";
+               document.getElementById("O_DOPG_TEXT").style.display = document.getElementById("I_DOPG_TEXT").style.display = document.getElementById("O_DOPG").style.display =  document.getElementById("I_DOPG").style.display = document.getElementById("DOPG_N").style.display = "none";
+              document.getElementById("O_DOPS_TEXT").style.display = document.getElementById("I_DOPS_TEXT").style.display = document.getElementById("O_DOPS").style.display =  document.getElementById("I_DOPS").style.display = document.getElementById("DOPS_N").style.display = "none";
+              document.getElementById("O_DPPE_TEXT").style.display = document.getElementById("I_DPPE_TEXT").style.display = document.getElementById("O_DPPE").style.display =  document.getElementById("I_DPPE").style.display = document.getElementById("DPPE_N").style.display = "none";
+              document.getElementById("O_SOPC_TEXT").style.display = document.getElementById("I_SOPC_TEXT").style.display = document.getElementById("O_SOPC").style.display =  document.getElementById("I_SOPC").style.display = document.getElementById("SOPC_N").style.display = "none";
+
+            }else if( force_field == "GROMOS53a6" ){
+                document.getElementById("GROMOS43a1").style.display = "none";
+                document.getElementById("GROMOS43a1-S3").style.display = "none";
+                document.getElementById("GROMOS53a6").style.display = "block";
+                document.getElementById("Slipid/AMBER").style.display = "none";
+
+
+                document.getElementById("O_POPG_TEXT").style.display = document.getElementById("I_POPG_TEXT").style.display = document.getElementById("O_POPG").style.display =  document.getElementById("I_POPG").style.display = document.getElementById("POPG_N").style.display = "";
+                document.getElementById("O_POPC_TEXT").style.display = document.getElementById("I_POPC_TEXT").style.display = document.getElementById("O_POPC").style.display =  document.getElementById("I_POPC").style.display = document.getElementById("POPC_N").style.display = "";
+                document.getElementById("O_POPE_TEXT").style.display = document.getElementById("I_POPE_TEXT").style.display = document.getElementById("O_POPE").style.display =  document.getElementById("I_POPE").style.display = document.getElementById("POPE_N").style.display = "none";
+                document.getElementById("O_DPPC_TEXT").style.display = document.getElementById("I_DPPC_TEXT").style.display = document.getElementById("O_DPPC").style.display =  document.getElementById("I_DPPC").style.display = document.getElementById("DPPC_N").style.display = "";
+                document.getElementById("O_DMTAP_TEXT").style.display = document.getElementById("I_DMTAP_TEXT").style.display = document.getElementById("O_DMTAP").style.display =  document.getElementById("I_DMTAP").style.display = document.getElementById("DMTAP_N").style.display = "none";
+                document.getElementById("O_DOPC_TEXT").style.display = document.getElementById("I_DOPC_TEXT").style.display = document.getElementById("O_DOPC").style.display =  document.getElementById("I_DOPC").style.display = document.getElementById("DOPC_N").style.display = "none";
+                document.getElementById("O_CHOLESTROL_TEXT").style.display = document.getElementById("I_CHOLESTROL_TEXT").style.display = document.getElementById("O_CHOLESTROL").style.display =  document.getElementById("I_CHOLESTROL").style.display = document.getElementById("CHOLESTROL_N").style.display = "none";
+                document.getElementById("O_DMPC_TEXT").style.display = document.getElementById("I_DMPC_TEXT").style.display = document.getElementById("O_DMPC").style.display =  document.getElementById("I_DMPC").style.display = document.getElementById("DMPC_N").style.display = "";
+                document.getElementById("O_SGML_TEXT").style.display = document.getElementById("I_SGML_TEXT").style.display = document.getElementById("O_SGML").style.display =  document.getElementById("I_SGML").style.display = document.getElementById("SGML_N").style.display = "none";
+                document.getElementById("O_DPPI_TEXT").style.display = document.getElementById("I_DPPI_TEXT").style.display = document.getElementById("O_DPPI").style.display =  document.getElementById("I_DPPI").style.display = document.getElementById("DPPI_N").style.display = "";
+               document.getElementById("O_LAE_TEXT").style.display = document.getElementById("I_LAE_TEXT").style.display = document.getElementById("O_LAE").style.display =  document.getElementById("I_LAE").style.display = document.getElementById("LAE_N").style.display = "";
+               document.getElementById("O_LAP_TEXT").style.display = document.getElementById("I_LAP_TEXT").style.display = document.getElementById("O_LAP").style.display =  document.getElementById("I_LAP").style.display = document.getElementById("LAP_N").style.display = "";
+               document.getElementById("O_DLPC_TEXT").style.display = document.getElementById("I_DLPC_TEXT").style.display = document.getElementById("O_DLPC").style.display =  document.getElementById("I_DLPC").style.display = document.getElementById("DLPC_N").style.display = "none";
+               document.getElementById("O_DLPE_TEXT").style.display = document.getElementById("I_DLPE_TEXT").style.display = document.getElementById("O_DLPE").style.display =  document.getElementById("I_DLPE").style.display = document.getElementById("DLPE_N").style.display = "none";
+               document.getElementById("O_DOPE_TEXT").style.display = document.getElementById("I_DOPE_TEXT").style.display = document.getElementById("O_DOPE").style.display =  document.getElementById("I_DOPE").style.display = document.getElementById("DOPE_N").style.display = "none";
+               document.getElementById("O_DOPG_TEXT").style.display = document.getElementById("I_DOPG_TEXT").style.display = document.getElementById("O_DOPG").style.display =  document.getElementById("I_DOPG").style.display = document.getElementById("DOPG_N").style.display = "none";
+              document.getElementById("O_DOPS_TEXT").style.display = document.getElementById("I_DOPS_TEXT").style.display = document.getElementById("O_DOPS").style.display =  document.getElementById("I_DOPS").style.display = document.getElementById("DOPS_N").style.display = "none";
+              document.getElementById("O_DPPE_TEXT").style.display = document.getElementById("I_DPPE_TEXT").style.display = document.getElementById("O_DPPE").style.display =  document.getElementById("I_DPPE").style.display = document.getElementById("DPPE_N").style.display = "none";
+              document.getElementById("O_SOPC_TEXT").style.display = document.getElementById("I_SOPC_TEXT").style.display = document.getElementById("O_SOPC").style.display =  document.getElementById("I_SOPC").style.display = document.getElementById("SOPC_N").style.display = "none";
+
+            }else if( force_field == "Slipid/AMBER" ){
+                document.getElementById("GROMOS43a1").style.display = "none";
+                document.getElementById("GROMOS43a1-S3").style.display = "none";
+                document.getElementById("GROMOS53a6").style.display = "none";
+                document.getElementById("Slipid/AMBER").style.display = "block";
+
+                document.getElementById("O_POPG_TEXT").style.display = document.getElementById("I_POPG_TEXT").style.display = document.getElementById("O_POPG").style.display =  document.getElementById("I_POPG").style.display = document.getElementById("POPG_N").style.display = "";
+                document.getElementById("O_POPC_TEXT").style.display = document.getElementById("I_POPC_TEXT").style.display = document.getElementById("O_POPC").style.display =  document.getElementById("I_POPC").style.display = document.getElementById("POPC_N").style.display = "";
+                document.getElementById("O_POPE_TEXT").style.display = document.getElementById("I_POPE_TEXT").style.display = document.getElementById("O_POPE").style.display =  document.getElementById("I_POPE").style.display = document.getElementById("POPE_N").style.display = "";
+                document.getElementById("O_DPPC_TEXT").style.display = document.getElementById("I_DPPC_TEXT").style.display = document.getElementById("O_DPPC").style.display =  document.getElementById("I_DPPC").style.display = document.getElementById("DPPC_N").style.display = "";
+                document.getElementById("O_DMTAP_TEXT").style.display = document.getElementById("I_DMTAP_TEXT").style.display = document.getElementById("O_DMTAP").style.display =  document.getElementById("I_DMTAP").style.display = document.getElementById("DMTAP_N").style.display = "none";
+                document.getElementById("O_DOPC_TEXT").style.display = document.getElementById("I_DOPC_TEXT").style.display = document.getElementById("O_DOPC").style.display =  document.getElementById("I_DOPC").style.display = document.getElementById("DOPC_N").style.display = "";
+                document.getElementById("O_CHOLESTROL_TEXT").style.display = document.getElementById("I_CHOLESTROL_TEXT").style.display = document.getElementById("O_CHOLESTROL").style.display =  document.getElementById("I_CHOLESTROL").style.display = document.getElementById("CHOLESTROL_N").style.display = "";
+                document.getElementById("O_DMPC_TEXT").style.display = document.getElementById("I_DMPC_TEXT").style.display = document.getElementById("O_DMPC").style.display =  document.getElementById("I_DMPC").style.display = document.getElementById("DMPC_N").style.display = "";
+                document.getElementById("O_DOPC_TEXT").style.display = document.getElementById("I_DOPC_TEXT").style.display = document.getElementById("O_DOPC").style.display =  document.getElementById("I_DOPC").style.display = document.getElementById("DOPC_N").style.display = "";
+                document.getElementById("O_SGML_TEXT").style.display = document.getElementById("I_SGML_TEXT").style.display = document.getElementById("O_SGML").style.display =  document.getElementById("I_SGML").style.display = document.getElementById("SGML_N").style.display = "none";
+                document.getElementById("O_DPPI_TEXT").style.display = document.getElementById("I_DPPI_TEXT").style.display = document.getElementById("O_DPPI").style.display =  document.getElementById("I_DPPI").style.display = document.getElementById("DPPI_N").style.display = "none";
+               document.getElementById("O_LAE_TEXT").style.display = document.getElementById("I_LAE_TEXT").style.display = document.getElementById("O_LAE").style.display =  document.getElementById("I_LAE").style.display = document.getElementById("LAE_N").style.display = "none";
+               document.getElementById("O_LAP_TEXT").style.display = document.getElementById("I_LAP_TEXT").style.display = document.getElementById("O_LAP").style.display =  document.getElementById("I_LAP").style.display = document.getElementById("LAP_N").style.display = "none";
+               document.getElementById("O_DLPC_TEXT").style.display = document.getElementById("I_DLPC_TEXT").style.display = document.getElementById("O_DLPC").style.display =  document.getElementById("I_DLPC").style.display = document.getElementById("DLPC_N").style.display = "";
+               document.getElementById("O_DLPE_TEXT").style.display = document.getElementById("I_DLPE_TEXT").style.display = document.getElementById("O_DLPE").style.display =  document.getElementById("I_DLPE").style.display = document.getElementById("DLPE_N").style.display = "";
+               document.getElementById("O_DOPE_TEXT").style.display = document.getElementById("I_DOPE_TEXT").style.display = document.getElementById("O_DOPE").style.display =  document.getElementById("I_DOPE").style.display = document.getElementById("DOPE_N").style.display = "";
+               document.getElementById("O_DOPG_TEXT").style.display = document.getElementById("I_DOPG_TEXT").style.display = document.getElementById("O_DOPG").style.display =  document.getElementById("I_DOPG").style.display = document.getElementById("DOPG_N").style.display = "";
+              document.getElementById("O_DOPS_TEXT").style.display = document.getElementById("I_DOPS_TEXT").style.display = document.getElementById("O_DOPS").style.display =  document.getElementById("I_DOPS").style.display = document.getElementById("DOPS_N").style.display = "";
+              document.getElementById("O_DPPE_TEXT").style.display = document.getElementById("I_DPPE_TEXT").style.display = document.getElementById("O_DPPE").style.display =  document.getElementById("I_DPPE").style.display = document.getElementById("DPPE_N").style.display = "";
+              document.getElementById("O_SOPC_TEXT").style.display = document.getElementById("I_SOPC_TEXT").style.display = document.getElementById("O_SOPC").style.display =  document.getElementById("I_SOPC").style.display = document.getElementById("SOPC_N").style.display = "";
+
+            } else if( force_field == "null" ){
+                document.getElementById("GROMOS43a1").style.display = "none";
+                document.getElementById("GROMOS43a1-S3").style.display = "none";
+                document.getElementById("GROMOS53a6").style.display = "none";
+                document.getElementById("Slipid/AMBER").style.display = "none";
+
+                document.getElementById("O_POPG_TEXT").style.display = document.getElementById("I_POPG_TEXT").style.display = document.getElementById("O_POPG").style.display =  document.getElementById("I_POPG").style.display = document.getElementById("POPG_N").style.display = "none";
+                document.getElementById("O_POPC_TEXT").style.display = document.getElementById("I_POPC_TEXT").style.display = document.getElementById("O_POPC").style.display =  document.getElementById("I_POPC").style.display = document.getElementById("POPC_N").style.display = "none";
+                document.getElementById("O_POPE_TEXT").style.display = document.getElementById("I_POPE_TEXT").style.display = document.getElementById("O_POPE").style.display =  document.getElementById("I_POPE").style.display = document.getElementById("POPE_N").style.display = "none";
+                document.getElementById("O_DPPC_TEXT").style.display = document.getElementById("I_DPPC_TEXT").style.display = document.getElementById("O_DPPC").style.display =  document.getElementById("I_DPPC").style.display = document.getElementById("DPPC_N").style.display = "none";
+                document.getElementById("O_DMTAP_TEXT").style.display = document.getElementById("I_DMTAP_TEXT").style.display = document.getElementById("O_DMTAP").style.display =  document.getElementById("I_DMTAP").style.display = document.getElementById("DMTAP_N").style.display = "none";
+                document.getElementById("O_DOPC_TEXT").style.display = document.getElementById("I_DOPC_TEXT").style.display = document.getElementById("O_DOPC").style.display =  document.getElementById("I_DOPC").style.display = document.getElementById("DOPC_N").style.display = "none";
+                document.getElementById("O_CHOLESTROL_TEXT").style.display = document.getElementById("I_CHOLESTROL_TEXT").style.display = document.getElementById("O_CHOLESTROL").style.display =  document.getElementById("I_CHOLESTROL").style.display = document.getElementById("CHOLESTROL_N").style.display = "none";
+                document.getElementById("O_DMPC_TEXT").style.display = document.getElementById("I_DMPC_TEXT").style.display = document.getElementById("O_DMPC").style.display =  document.getElementById("I_DMPC").style.display = document.getElementById("DMPC_N").style.display = "none";
+                document.getElementById("O_DOPC_TEXT").style.display = document.getElementById("I_DOPC_TEXT").style.display = document.getElementById("O_DOPC").style.display =  document.getElementById("I_DOPC").style.display = document.getElementById("DOPC_N").style.display = "none";
+                document.getElementById("O_SGML_TEXT").style.display = document.getElementById("I_SGML_TEXT").style.display = document.getElementById("O_SGML").style.display =  document.getElementById("I_SGML").style.display = document.getElementById("SGML_N").style.display = "none";
+                document.getElementById("O_DPPI_TEXT").style.display = document.getElementById("I_DPPI_TEXT").style.display = document.getElementById("O_DPPI").style.display =  document.getElementById("I_DPPI").style.display = document.getElementById("DPPI_N").style.display = "none";
+               document.getElementById("O_LAE_TEXT").style.display = document.getElementById("I_LAE_TEXT").style.display = document.getElementById("O_LAE").style.display =  document.getElementById("I_LAE").style.display = document.getElementById("LAE_N").style.display = "none";
+               document.getElementById("O_LAP_TEXT").style.display = document.getElementById("I_LAP_TEXT").style.display = document.getElementById("O_LAP").style.display =  document.getElementById("I_LAP").style.display = document.getElementById("LAP_N").style.display = "none";
+               document.getElementById("O_DLPC_TEXT").style.display = document.getElementById("I_DLPC_TEXT").style.display = document.getElementById("O_DLPC").style.display =  document.getElementById("I_DLPC").style.display = document.getElementById("DLPC_N").style.display = "none";
+               document.getElementById("O_DLPE_TEXT").style.display = document.getElementById("I_DLPE_TEXT").style.display = document.getElementById("O_DLPE").style.display =  document.getElementById("I_DLPE").style.display = document.getElementById("DLPE_N").style.display = "none";
+               document.getElementById("O_DOPE_TEXT").style.display = document.getElementById("I_DOPE_TEXT").style.display = document.getElementById("O_DOPE").style.display =  document.getElementById("I_DOPE").style.display = document.getElementById("DOPE_N").style.display = "none";
+               document.getElementById("O_DOPG_TEXT").style.display = document.getElementById("I_DOPG_TEXT").style.display = document.getElementById("O_DOPG").style.display =  document.getElementById("I_DOPG").style.display = document.getElementById("DOPG_N").style.display = "none";
+              document.getElementById("O_DOPS_TEXT").style.display = document.getElementById("I_DOPS_TEXT").style.display = document.getElementById("O_DOPS").style.display =  document.getElementById("I_DOPS").style.display = document.getElementById("DOPS_N").style.display = "none";
+              document.getElementById("O_DPPE_TEXT").style.display = document.getElementById("I_DPPE_TEXT").style.display = document.getElementById("O_DPPE").style.display =  document.getElementById("I_DPPE").style.display = document.getElementById("DPPE_N").style.display = "none";
+              document.getElementById("O_SOPC_TEXT").style.display = document.getElementById("I_SOPC_TEXT").style.display = document.getElementById("O_SOPC").style.display =  document.getElementById("I_SOPC").style.display = document.getElementById("SOPC_N").style.display = "none";
+
+            } 
+
+
+        }
+
+        
+        function resolveInnersForTexts(){
+            
+            var numberOfCells = document.getElementById( "totalNumOfCells" ).innerText | document.getElementById( "totalNumOfCells" ).textContent;
+            
+            //alert( numberOfCells );
+            
+            var i_popg_t = document.getElementsByName( "I_POPG_TEXT" )[0].value;
+            var i_popc_t = document.getElementsByName( "I_POPC_TEXT" )[0].value;
+            var i_pope_t = document.getElementsByName( "I_POPE_TEXT" )[0].value;
+            var i_dppc_t = document.getElementsByName( "I_DPPC_TEXT" )[0].value;
+            var i_dmtap_t = document.getElementsByName( "I_DMTAP_TEXT" )[0].value;
+            var i_dopc_t = document.getElementsByName( "I_DOPC_TEXT" )[0].value;
+            var i_cholestrol_t = document.getElementsByName( "I_CHOLESTROL_TEXT" )[0].value;
+            var i_dmpc_t = document.getElementsByName( "I_DMPC_TEXT" )[0].value;
+            var i_sgml_t = document.getElementsByName( "I_SGML_TEXT" )[0].value;
+            var i_dppi_t = document.getElementsByName( "I_DPPI_TEXT" )[0].value;
+            var i_lae_t = document.getElementsByName( "I_LAE_TEXT" )[0].value;
+            var i_lap_t = document.getElementsByName( "I_LAP_TEXT" )[0].value;
+            var i_dlpc_t = document.getElementsByName( "I_DLPC_TEXT" )[0].value;
+            var i_dlpe_t = document.getElementsByName( "I_DLPE_TEXT" )[0].value;
+            var i_dope_t = document.getElementsByName( "I_DOPE_TEXT" )[0].value;
+            var i_dopg_t = document.getElementsByName( "I_DOPG_TEXT" )[0].value;
+            var i_dops_t = document.getElementsByName( "I_DOPS_TEXT" )[0].value;
+            var i_dppe_t = document.getElementsByName( "I_DPPE_TEXT" )[0].value;
+            var i_sopc_t = document.getElementsByName( "I_SOPC_TEXT" )[0].value;           
+            
+            /*
+             if( parseInt(i_popg_t) + parseInt(i_popc_t) + parseInt(i_pope_t) + parseInt(i_dppc_t) > (numberOfCells / 2) ){
+             alert( "total number of cells in inner layer exceeded the total maximum amount." );
+             return;
+             }
+             
+             */
+            numberOfCells = numberOfCells/2;
+            
+            //alert( numberOfCells );
+            
+            var temp;
+            temp = ( i_popg_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_POPG" )[0].innerHTML = temp;
+            temp = ( i_pope_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_POPE" )[0].innerHTML = temp;
+            temp = ( i_popc_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_POPC" )[0].innerHTML = temp;
+            temp = ( i_dppc_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_DPPC" )[0].innerHTML = temp;
+            temp = ( i_dmtap_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_DMTAP" )[0].innerHTML = temp;
+            temp = ( i_dopc_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_DOPC" )[0].innerHTML = temp;
+            temp = ( i_cholestrol_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_CHOLESTROL" )[0].innerHTML = temp;
+            temp = ( i_dmpc_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_DMPC" )[0].innerHTML = temp;
+            temp = ( i_sgml_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_SGML" )[0].innerHTML = temp;
+            temp = ( i_dppi_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_DPPI" )[0].innerHTML = temp;
+            temp = ( i_lae_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_LAE" )[0].innerHTML = temp;
+            temp = ( i_lap_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_LAP" )[0].innerHTML = temp;
+            temp = ( i_dlpc_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_DLPC" )[0].innerHTML = temp;
+            temp = ( i_dlpe_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_DLPE" )[0].innerHTML = temp;
+            temp = ( i_dope_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_DOPE" )[0].innerHTML = temp;
+            temp = ( i_dopg_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_DOPG" )[0].innerHTML = temp;
+            temp = ( i_dops_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_DOPS" )[0].innerHTML = temp;
+            temp = ( i_dppe_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_DPPE" )[0].innerHTML = temp;
+            temp = ( i_sopc_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "I_SOPC" )[0].innerHTML = temp;
+
+            
+            var total = parseInt(i_popg_t) + parseInt(i_popc_t) + parseInt(i_pope_t) + parseInt(i_dppc_t) + parseInt(i_dmtap_t) + parseInt(i_dopc_t) + parseInt(i_cholestrol_t) + parseInt(i_dmpc_t) + parseInt(i_sgml_t) + parseInt(i_dppi_t) + parseInt(i_lae_t) + parseInt(i_lap_t) + parseInt(i_dlpc_t) + parseInt(i_dlpe_t) + parseInt(i_dope_t) + parseInt(i_dopg_t) + parseInt(i_dops_t) + parseInt(i_dppe_t) + parseInt(i_sopc_t);
+            var remain = total;
+            document.getElementsByName( "I_REMAIN" )[0].innerHTML = total + "/" + numberOfCells ;
+            var percent = (total / numberOfCells) * 100;
+            document.getElementsByName("I_PERCENT")[0].innerHTML = "%" + percent.toFixed(2);
+
+            if( percent > 100.00 ){
+                document.getElementsByName("I_REMAIN")[0].style.color = "#FFFF00";
+                document.getElementsByName("I_PERCENT")[0].style.color = "#FFFF00";
+            }
+            else{
+                document.getElementsByName("I_REMAIN")[0].style.color = "black";
+                document.getElementsByName("I_PERCENT")[0].style.color = "black";
+            }
+            
+            
+        }
+        
+        function resolveOutersForTexts(){
+            
+            var numberOfCells = document.getElementById( "totalNumOfCells" ).innerText | document.getElementById( "totalNumOfCells" ).textContent;
+            var o_popg_t = document.getElementsByName( "O_POPG_TEXT" )[0].value;
+            var o_popc_t = document.getElementsByName( "O_POPC_TEXT" )[0].value;
+            var o_pope_t = document.getElementsByName( "O_POPE_TEXT" )[0].value;
+            var o_dppc_t = document.getElementsByName( "O_DPPC_TEXT" )[0].value;
+            var o_dmtap_t = document.getElementsByName( "O_DMTAP_TEXT" )[0].value;
+            var o_dopc_t = document.getElementsByName( "O_DOPC_TEXT" )[0].value;
+            var o_cholestrol_t = document.getElementsByName( "O_CHOLESTROL_TEXT" )[0].value;
+            var o_dmpc_t = document.getElementsByName( "O_DMPC_TEXT" )[0].value;
+            var o_sgml_t = document.getElementsByName( "O_SGML_TEXT" )[0].value;
+            var o_dppi_t = document.getElementsByName( "O_DPPI_TEXT" )[0].value;
+            var o_lae_t = document.getElementsByName( "O_LAE_TEXT" )[0].value;
+            var o_lap_t = document.getElementsByName( "O_LAP_TEXT" )[0].value;
+            var o_dlpc_t = document.getElementsByName( "O_DLPC_TEXT" )[0].value;
+            var o_dlpe_t = document.getElementsByName( "O_DLPE_TEXT" )[0].value;
+            var o_dope_t = document.getElementsByName( "O_DOPE_TEXT" )[0].value;
+            var o_dopg_t = document.getElementsByName( "O_DOPG_TEXT" )[0].value;
+            var o_dops_t = document.getElementsByName( "O_DOPS_TEXT" )[0].value;
+            var o_dppe_t = document.getElementsByName( "O_DPPE_TEXT" )[0].value;
+            var o_sopc_t = document.getElementsByName( "O_SOPC_TEXT" )[0].value;           
+            
+            /*
+             if( parseInt(o_popg_t) + parseInt(o_popc_t) + parseInt(o_pope_t) + parseInt(o_dppc_t) > (numberOfCells / 2) ){
+             alert( "total number of cells in inner layer exceeded the total maximum amount." );
+             return;
+             }
+             */
+            numberOfCells = numberOfCells/2;
+            
+            var temp;
+            temp = ( o_popg_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_POPG" )[0].innerHTML = temp;
+            temp = ( o_pope_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_POPE" )[0].innerHTML = temp;
+            temp = ( o_popc_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_POPC" )[0].innerHTML = temp;
+            temp = ( o_dppc_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_DPPC" )[0].innerHTML = temp;
+            temp = ( o_dmtap_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_DMTAP" )[0].innerHTML = temp;
+            temp = ( o_dopc_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_DOPC" )[0].innerHTML = temp;
+            temp = ( o_cholestrol_t / numberOfCells ) * 100;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_CHOLESTROL" )[0].innerHTML = temp;
+            temp = ( o_dmpc_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_DMPC" )[0].innerHTML = temp;
+            temp = ( o_sgml_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_SGML" )[0].innerHTML = temp;
+            temp = ( o_dppi_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_DPPI" )[0].innerHTML = temp;
+            temp = ( o_lae_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_LAE" )[0].innerHTML = temp;
+            temp = ( o_lap_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_LAP" )[0].innerHTML = temp;
+            temp = ( o_dlpc_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_DLPC" )[0].innerHTML = temp;
+            temp = ( o_dlpe_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_DLPE" )[0].innerHTML = temp;
+            temp = ( o_dope_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_DOPE" )[0].innerHTML = temp;
+            temp = ( o_dopg_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_DOPG" )[0].innerHTML = temp;
+            temp = ( o_dops_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_DOPS" )[0].innerHTML = temp;
+            temp = ( o_dppe_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_DPPE" )[0].innerHTML = temp;
+            temp = ( o_sopc_t / numberOfCells ) * 100;;
+            temp = temp.toFixed(2);
+            document.getElementsByName( "O_SOPC" )[0].innerHTML = temp;
+            
+           var total = parseInt(o_popg_t) + parseInt(o_popc_t) + parseInt(o_pope_t) + parseInt(o_dppc_t) + parseInt(o_dmtap_t) + parseInt(o_dopc_t) + parseInt(o_cholestrol_t) + parseInt(o_dmpc_t) + parseInt(o_sgml_t) + parseInt(o_dppi_t) + parseInt(o_lae_t) + parseInt(o_lap_t) + parseInt(o_dlpc_t) + parseInt(o_dlpe_t) + parseInt(o_dope_t) + parseInt(o_dopg_t) + parseInt(o_dops_t) + parseInt(o_dppe_t) + parseInt(o_sopc_t);
+             var remain = total;
+            document.getElementsByName( "O_REMAIN" )[0].innerHTML = total + "/" + numberOfCells;
+
+           
+            var percent = (total / numberOfCells) * 100;
+            document.getElementsByName("O_PERCENT")[0].innerHTML = "%" + percent.toFixed(2);
+
+            if( percent > 100.00 ){
+                document.getElementsByName("O_REMAIN")[0].style.color = "#FFFF00";
+                document.getElementsByName("O_PERCENT")[0].style.color = "#FFFF00";
+
+            }
+            else{
+                document.getElementsByName("O_REMAIN")[0].style.color = "black";
+                document.getElementsByName("O_PERCENT")[0].style.color = "black";
+            }
+
+
+            
+            
+        }
+        
+        function resolveInners(){
+            
+            // alert( "hello" );
+            
+            var numberOfCells = document.getElementById( "totalNumOfCells" ).innerText | document.getElementById( "totalNumOfCells" ).textContent;
+            var i_popg = document.getElementsByName( "I_POPG" )[0].value;
+            var i_popc = document.getElementsByName( "I_POPC" )[0].value;
+            var i_pope = document.getElementsByName( "I_POPE" )[0].value;
+            var i_dppc = document.getElementsByName( "I_DPPC" )[0].value;
+            var i_dmtap = document.getElementsByName( "I_DMTAP" )[0].value;
+            var i_dopc = document.getElementsByName( "I_DOPC" )[0].value;
+            var i_cholestrol = document.getElementsByName( "I_CHOLESTROL" )[0].value;
+            
+            //alert( parseInt(i_popg) + parseInt(i_popc) + parseInt(i_pope) + parseInt(i_dppc) );
+            
+            /*
+             if( parseInt(i_popg) + parseInt(i_popc) + parseInt(i_pope) + parseInt(i_dppc) != 100 ){
+             alert( "total percentage should be equal to 100." );
+             return;
+             }
+             */
+            numberOfCells = numberOfCells/2;
+            
+            //alert( ( parseInt(i_popg) * numberOfCells ) / 100 + " " + ( i_pope * numberOfCells ) / 100 + " "  ); 
+            
+            
+            document.getElementsByName( "I_POPG_TEXT" )[0].value = ( i_popg * numberOfCells ) / 100;
+            document.getElementsByName( "I_POPE_TEXT" )[0].value = ( i_pope * numberOfCells ) / 100;
+            document.getElementsByName( "I_POPC_TEXT" )[0].value = ( i_popc * numberOfCells ) / 100;
+            document.getElementsByName( "I_DPPC_TEXT" )[0].value = ( i_dppc * numberOfCells ) / 100;
+            document.getElementsByName( "I_DMTAP_TEXT" )[0].value = ( i_dmtap * numberOfCells ) / 100;
+            document.getElementsByName( "I_DOPC_TEXT" )[0].value = ( i_dopc * numberOfCells ) / 100;
+            document.getElementsByName( "I_CHOLESTROL" )[0].value = ( i_cholestrol * numberOfCells ) / 100;
+            
+            
+        }
+        
+        function resolveOuters(){
+            
+            var numberOfCells = document.getElementById( "totalNumOfCells" ).innerText | document.getElementById( "totalNumOfCells" ).textContent;
+            var o_popg = document.getElementsByName( "O_POPG" )[0].value;
+            var o_popc = document.getElementsByName( "O_POPC" )[0].value;
+            var o_pope = document.getElementsByName( "O_POPE" )[0].value;
+            var o_dppc = document.getElementsByName( "O_DPPC" )[0].value;
+            var o_dmtap = document.getElementsByName( "O_DMTAP" )[0].value;
+            var o_dopc = document.getElementsByName( "O_DOPC" )[0].value;
+            var o_cholestrol = document.getElementsByName( "O_CHOLESTROL" )[0].value;
+            
+            /*
+             if( parseInt(o_popg) + parseInt(o_popc) + parseInt(o_pope) + parseInt(o_dppc) != 100 ){
+             alert( "total percentage should be equal to 100." );
+             return;
+             }
+             */
+            numberOfCells = numberOfCells/2;
+            
+            
+            document.getElementsByName( "O_POPG_TEXT" )[0].value = ( o_popg * numberOfCells ) / 100;
+            document.getElementsByName( "O_POPE_TEXT" )[0].value = ( o_pope * numberOfCells ) / 100;
+            document.getElementsByName( "O_POPC_TEXT" )[0].value = ( o_popc * numberOfCells ) / 100;
+            document.getElementsByName( "O_DPPC_TEXT" )[0].value = ( o_dppc * numberOfCells ) / 100;     
+            document.getElementsByName( "O_DMTAP_TEXT" )[0].value = ( o_dmtap * numberOfCells ) / 100;
+            document.getElementsByName( "O_DOPC_TEXT" )[0].value = ( o_dopc * numberOfCells ) / 100;
+            document.getElementsByName( "O_CHOLESTROL" )[0].value = ( o_cholestrol * numberOfCells ) / 100;
+            
+        }
+
+        function symmetric( ){
+
+            document.getElementsByName( "I_POPG_TEXT" )[0].value = document.getElementsByName( "O_POPG_TEXT" )[0].value;
+            document.getElementsByName( "I_POPC_TEXT" )[0].value = document.getElementsByName( "O_POPC_TEXT" )[0].value;
+            document.getElementsByName( "I_POPE_TEXT" )[0].value = document.getElementsByName( "O_POPE_TEXT" )[0].value;
+            document.getElementsByName( "I_DPPC_TEXT" )[0].value = document.getElementsByName( "O_DPPC_TEXT" )[0].value;
+            document.getElementsByName( "I_DMTAP_TEXT" )[0].value = document.getElementsByName( "O_DMTAP_TEXT" )[0].value;
+            document.getElementsByName( "I_DOPC_TEXT" )[0].value = document.getElementsByName( "O_DOPC_TEXT" )[0].value;
+            document.getElementsByName( "I_CHOLESTROL_TEXT" )[0].value = document.getElementsByName( "O_CHOLESTROL_TEXT" )[0].value;
+            document.getElementsByName( "I_DMPC_TEXT" )[0].value = document.getElementsByName( "O_DMPC_TEXT" )[0].value;
+            document.getElementsByName( "I_SGML_TEXT" )[0].value = document.getElementsByName( "O_SGML_TEXT" )[0].value;
+            document.getElementsByName( "I_DPPI_TEXT" )[0].value = document.getElementsByName( "O_DPPI_TEXT" )[0].value;
+            document.getElementsByName( "I_LAE_TEXT" )[0].value = document.getElementsByName( "O_LAE_TEXT" )[0].value;
+            document.getElementsByName( "I_LAP_TEXT" )[0].value = document.getElementsByName( "O_LAP_TEXT" )[0].value;
+            document.getElementsByName( "I_DLPC_TEXT" )[0].value = document.getElementsByName( "O_DLPC_TEXT" )[0].value;
+            document.getElementsByName( "I_DLPE_TEXT" )[0].value = document.getElementsByName( "O_DLPE_TEXT" )[0].value;
+            document.getElementsByName( "I_DOPE_TEXT" )[0].value = document.getElementsByName( "O_DOPE_TEXT" )[0].value;
+            document.getElementsByName( "I_DOPG_TEXT" )[0].value = document.getElementsByName( "O_DOPG_TEXT" )[0].value;
+            document.getElementsByName( "I_DOPS_TEXT" )[0].value = document.getElementsByName( "O_DOPS_TEXT" )[0].value;
+            document.getElementsByName( "I_DPPE_TEXT" )[0].value = document.getElementsByName( "O_DPPE_TEXT" )[0].value;
+            document.getElementsByName( "I_SOPC_TEXT" )[0].value = document.getElementsByName( "O_SOPC_TEXT" )[0].value; 
+            
+            resolveOutersForTexts();
+            resolveInnersForTexts();           
+        }
+        
+        function submitForm(){
+            
+ 
+            
+            var numberOfCells = document.getElementById( "totalNumOfCells" ).innerText | document.getElementById( "totalNumOfCells" ).textContent;
+            numberOfCells = numberOfCells / 2;
+            var o_popg_t = document.getElementsByName( "O_POPG_TEXT" )[0].value;
+            var o_popc_t = document.getElementsByName( "O_POPC_TEXT" )[0].value;
+            var o_pope_t = document.getElementsByName( "O_POPE_TEXT" )[0].value;
+            var o_dppc_t = document.getElementsByName( "O_DPPC_TEXT" )[0].value;
+            var o_dmtap_t = document.getElementsByName( "O_DMTAP_TEXT" )[0].value;
+            var o_dopc_t = document.getElementsByName( "O_DOPC_TEXT" )[0].value;
+            var o_cholestrol_t = document.getElementsByName( "O_CHOLESTROL_TEXT" )[0].value;
+            var o_dmpc_t = document.getElementsByName( "O_DMPC_TEXT" )[0].value;
+            var o_sgml_t = document.getElementsByName( "O_SGML_TEXT" )[0].value;
+            var o_dppi_t = document.getElementsByName( "O_DPPI_TEXT" )[0].value;
+            var o_lae_t = document.getElementsByName( "O_LAE_TEXT" )[0].value;
+            var o_lap_t = document.getElementsByName( "O_LAP_TEXT" )[0].value;
+            var o_dlpc_t = document.getElementsByName( "O_DLPC_TEXT" )[0].value;
+            var o_dlpe_t = document.getElementsByName( "O_DLPE_TEXT" )[0].value;
+            var o_dope_t = document.getElementsByName( "O_DOPE_TEXT" )[0].value;
+            var o_dopg_t = document.getElementsByName( "O_DOPG_TEXT" )[0].value;
+            var o_dops_t = document.getElementsByName( "O_DOPS_TEXT" )[0].value;
+            var o_dppe_t = document.getElementsByName( "O_DPPE_TEXT" )[0].value;
+            var o_sopc_t = document.getElementsByName( "O_SOPC_TEXT" )[0].value;           
+            
+            //alert( "hello" );
+            
+            var i_popg_t = document.getElementsByName( "I_POPG_TEXT" )[0].value;
+            var i_popc_t = document.getElementsByName( "I_POPC_TEXT" )[0].value;
+            var i_pope_t = document.getElementsByName( "I_POPE_TEXT" )[0].value;
+            var i_dppc_t = document.getElementsByName( "I_DPPC_TEXT" )[0].value;
+            var i_dmtap_t = document.getElementsByName( "I_DMTAP_TEXT" )[0].value;
+            var i_dopc_t = document.getElementsByName( "I_DOPC_TEXT" )[0].value;
+            var i_cholestrol_t = document.getElementsByName( "I_CHOLESTROL_TEXT" )[0].value;
+            var i_dmpc_t = document.getElementsByName( "I_DMPC_TEXT" )[0].value;
+            var i_sgml_t = document.getElementsByName( "I_SGML_TEXT" )[0].value;
+            var i_dppi_t = document.getElementsByName( "I_DPPI_TEXT" )[0].value;
+            var i_lae_t = document.getElementsByName( "I_LAE_TEXT" )[0].value;
+            var i_lap_t = document.getElementsByName( "I_LAP_TEXT" )[0].value;
+            var i_dlpc_t = document.getElementsByName( "I_DLPC_TEXT" )[0].value;
+            var i_dlpe_t = document.getElementsByName( "I_DLPE_TEXT" )[0].value;
+            var i_dope_t = document.getElementsByName( "I_DOPE_TEXT" )[0].value;
+            var i_dopg_t = document.getElementsByName( "I_DOPG_TEXT" )[0].value;
+            var i_dops_t = document.getElementsByName( "I_DOPS_TEXT" )[0].value;
+            var i_dppe_t = document.getElementsByName( "I_DPPE_TEXT" )[0].value;
+            var i_sopc_t = document.getElementsByName( "I_SOPC_TEXT" )[0].value;           
+            
+            //alert( "hello" );
+            //alert( o_popg_t + " " + o_popc_t + " " + o_pope_t + " " + o_dppc_t + " " + o_dmtap_t + " " + o_dopc_t + " " + o_cholestrol_t + " " + numberOfCells );
+            //alert( i_popg_t + " " + i_popc_t + " " + i_pope_t + " " + i_dppc_t + " " + i_dmtap_t + " " + i_dopc_t + " " + i_cholestrol_t + " " + numberOfCells );
+            
+            if((parseInt(o_popg_t) + parseInt(o_popc_t) + parseInt(o_pope_t) + parseInt(o_dppc_t) + parseInt(o_dmtap_t) + parseInt(o_dopc_t) + parseInt(o_cholestrol_t)) + parseInt(o_dmpc_t) + parseInt(o_sgml_t) + parseInt(o_dppi_t) + parseInt(o_lae_t) + parseInt(o_lap_t) + parseInt(o_dlpc_t) + parseInt(o_dlpe_t) + parseInt(o_dope_t) + parseInt(o_dopg_t) + parseInt(o_dops_t) + parseInt(o_dppe_t) + parseInt(o_sopc_t) != parseInt(numberOfCells)){
+                alert( "Sum of molecules in outer layer should be " + numberOfCells );
+                return false;
+            }
+            else{
+                //alert( (parseInt(o_popg_t) + parseInt(o_popc_t) + parseInt(o_pope_t) + parseInt(o_dppc_t) + parseInt(o_dmtap_t) + parseInt(o_dopc_t) + parseInt(o_cholestrol_t)) );
+            }
+            //alert( "nani" );
+            
+            if((parseInt(i_popg_t) + parseInt(i_popc_t) + parseInt(i_pope_t) + parseInt(i_dppc_t) + parseInt(i_dmtap_t) + parseInt(i_dopc_t) + parseInt(i_cholestrol_t) ) + parseInt(i_dmpc_t) + parseInt(i_sgml_t) + parseInt(i_dppi_t) + parseInt(i_lae_t) + parseInt(i_lap_t) + parseInt(i_dlpc_t) + parseInt(i_dlpe_t) + parseInt(i_dope_t) + parseInt(i_dopg_t) + parseInt(i_dops_t) + parseInt(i_dppe_t) + parseInt(i_sopc_t) != parseInt(numberOfCells) ){
+                alert( "Sum of molecules in inner layer should be " + numberOfCells );
+                return false;
+            }
+            else{
+                //alert( (parseInt(i_popg_t) + parseInt(i_popc_t) + parseInt(i_pope_t) + parseInt(i_dppc_t) + parseInt(i_dmtap_t) + parseInt(i_dopc_t) + parseInt(i_cholestrol_t)) );
+            }
+            
+            //alert( "hey" );
+
+            var randomVariable = Math.random();
+            document.getElementsByName("randomNumber")[0].value = randomVariable;
+
+            //alert( "hello" );
+
+            $.ajax({
+                url: "/cgi-bin/pmb4.pl",
+                type: "POST",
+                data: $('#form').serialize(),
+                async: true,
+                success: function(){
+                    window.location =  "http://bioinf.modares.ac.ir/cgi-bin/result.pl?randomNumber=" + randomVariable + "&my_Output=" + document.getElementsByName("output")[0].value;    
+                },
+                beforeSend: function(){
+                    document.getElementById("progressbar").style.display = "block";
+                }
+
+            });
+
+        }
+        
+        
+        </script>
+    
+<style type="text/css">@page  {size: 8.5in 11in; margin-left: 1.25in; margin-right: 1.25in; margin-top: 1in; margin-bottom: 1in; }
+TD P {
+    COLOR: #000000
+}
+H1 {
+    COLOR: #000000
+}
+P {
+    COLOR: #000000
+}
+TH P {
+    COLOR: #000000
+}
+A:link {
+    COLOR: #0000ff
+}
+A:visited {
+    COLOR: #800080
+}
+                                            span.SpellE
+                                            {}
+body { background: #ffffff url('../../bg.gif') repeat-y center; margin: 0; color: #000000; text-align: center; font-style:normal; font-variant:normal; font-weight:normal; font-size:11px; font-family:Arial, Verdana, Helvetica, sans-serif}
+body{ margin: 0; padding: 0; border: 0;  float: center; }
+</style>
+</head>
+<body dir="ltr" style="background-image: url('')" lang="en-US" link="#0000FF" text="#000000" vlink="#800080" onload="initialize()">
+<form enctype="multipart/form-data" onsubmit="return submitForm()" id="form">
+<input type="hidden" name="randomNumber" value="0">    
+&nbsp;&nbsp; 
+<table style="PAGE-BREAK-BEFORE: always; page-break-inside: avoid" border="0" cellpadding="4" cellspacing="0" width="1066">
+  <colgroup>
+  <col width="223">
+  <col width="152">
+  <col width="58">
+  </colgroup><thead>
+  <tr valign="top">
+    <th colspan="3" width="1058">
+      <p>
+    &nbsp;</p></th>
+    </tr>
+  <tr valign="top">
+    <th colspan="3" width="1058">
+                                                          <p style="text-align: center; float: center; border: 0 none; margin: 0; padding: 0">
+                                                            <font color="#000080" size="6">
+                                                            Bioinformatics 
+                                                            Research Group @ TMU</font></th>
+    </tr></thead>
+  <tbody>
+  <tr>
+    <th width="227">
+      <p>
+        <font style="font-size: 28pt" color="#CC0000" face="Arial, Helvetica">MemBuilder</font></p></th>
+    <td colspan="2" width="882">
+      <p><b><font color="#CC0000" face="Arial, Helvetica" size="4">Mem</font><font color="#000099" face="Arial, Helvetica" size="4">brane
+        </font><font color="#CC0000" face="Arial, Helvetica" size="4">Builder</font><font color="#000099" face="Arial, Helvetica" size="4"> 
+        (version 1 )</font></b> 
+  </p>
+		<p><b><font color="#FF0000"><span style="background-color: #FFFF00">
+		<font size="6">New Version of MemBuilder is now available </font></span>
+		</font><font size="6">
+		<a href="http://bioinf.modares.ac.ir/software/mb2/">
+		<span style="background-color: #FFFF00"><font color="#FF0000">here</font></span></a></font><font color="#FF0000"><span style="background-color: #FFFF00"><font size="6">.</font></span></font></b></p></td>
+    </tr>
+  <tr>
+    <td rowspan="2" valign="top" width="227"> 
+    <p align="center"> 
+    <img border="0" src="membrane2-300x158.gif" width="221" height="119"><br>
+    <font color="#000080" size="1">Bioinformatics Research Group @ TMU</font><br>
+&nbsp;</p>
+    <p><a href="index.html">Membuilder</a><br><a href="download.html">Download</a><br>
+    <a href="links.html">Links</a><br>
+    <a href="help.html">Help</a><br>
+
+</p></td>
+    </tr>
+  <tr>
+    <td colspan="2" valign="top" width="882">
+      <div class="xround">
+          <b class="xtop"><b class="xb1"></b><b class="xb2"></b><b class="xb3"></b><b class="xb4"></b></b>
+      <div class="xboxcontent">
+      <table class="inputtable" id="table1" height="129" width="882" style="border-left-width: 0px; border-right-width: 0px">
+        <tbody>
+        <tr>
+          <td bgcolor="#DEE3ED" colspan="4">
+            <table border="1" width="100%" id="table2">
+                <tr>
+          <td bgcolor="#DEE1ED" colspan="2">
+            <!-- <p align="justify"><font size="2" color="#C0C0C0">.</font></p>
+			<p align="justify">&nbsp;</p> -->
+			<p align="justify"><font size="2">   Challenge for the construction of 
+            the initial lipid bilayer is the main problem in setting up a 
+            simulation for membrane proteins considering protein dynamics, 
+            folding, and the mechanism of action. Almost all membrane models 
+            used in molecular dynamics simulations are usually composed of only 
+            one type of phospholipids molecule that is quite far from the native 
+            biological state, because biological membranes contain various types 
+            of lipids. Moreover, the asymmetry of lipid composition of the lipid 
+            bilayer is functionally important.</font></p>
+            <p align="justify"><font size="2"><i>   MemBuilder</i> server prepares 
+            the initial configuration of a membrane model composed of different 
+            phospholipid molecules. This server is also dedicated to determine 
+            the lipid composition of each monolayer to support the asymmetry of 
+            the membrane bilayer.</font></p>
+            </td>
+          <td colspan="2" bgcolor="#DEE1ED" rowspan="5" align="center">
+            <div width="450px" height="400px">
+                <img border="0" src="Membrane.gif">
+              <!-- <canvas id="thecanvas" width="450" height="400">
+                  Your browser does not support the HTML5 canvas element. 
+              </canvas> -->
+            </div>
+          </td>
+                </tr>
+                <tr>
+          <td bgcolor="#DEE1ED" nowrap="nowrap" width="248" style="border-bottom-style: none; border-bottom-width: medium">
+            <font face="Arial, Helvetica" size="2">Number</font><font size="2"> 
+            of lipids in each monolayer</font></td>
+          <td bgcolor="#DEE1ED" nowrap="nowrap" width="153" style="border-bottom-style: none; border-bottom-width: medium">
+            <select size="1" name="No_Grid_X" id="No_Grid_X" onchange="changeNumberOfCells()">
+            <option selected="selected">8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+            <option>20</option>
+            </select><font size="2"> X </font> <select size="1" name="No_Grid_Y" id="No_Grid_Y" onchange="changeNumberOfCells()">
+            <option selected="selected">8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+            <option>20</option>
+            </select></td>
+                </tr>
+                <tr>
+          <td bgcolor="#DEE1ED">
+            <p align="left"><font face="Arial, Helvetica" size="2">Number of 
+			lipids in </font><font size="2">membrane </font>
+            <font face="Arial, Helvetica" size="2">bilayer</font></td>
+          <td bgcolor="#DEE1ED">
+            <p align="center" NAME="totalNumOfCells" id="totalNumOfCells">128</p></td>
+                </tr>
+                <tr>
+          <td bgcolor="#DEE1ED">
+            <font size="2">Thickness of membrane&nbsp; (<font face="Arial">Ã</font>)</font></td>
+          <td bgcolor="#DEE1ED" align="center" NAME="cellThickness" id="cellThickness">
+            51</td>
+                </tr>
+                <tr>
+          <td bgcolor="#DEE1ED">
+            <font size="2">Length of the membrane&nbsp; (<font face="Arial">Ã</font>)</font></td>
+          <td bgcolor="#DEE1ED" align="center" id="lengthOfMembrane" name="lengthOfMembrane">
+            56</td>
+                </tr>
+                <tr>
+          <td bgcolor="#DEE1ED">
+            <font size="2">Width of the membrane&nbsp; (<font face="Arial">Ã</font>)</font></td>
+          <td bgcolor="#DEE1ED" align="center" id="widthOfMembrane" name="widthOfMembrane">
+            56</td>
+          <td bgcolor="#DEE1ED" align="right">
+            <font face="Arial, Helvetica" size="2">Membrane Name: </font></td>
+          <td bgcolor="#DEE1ED">
+            <input style="width: 211; height: 25; float:left" size="22" name="output" value="My_membrane"></td>
+                </tr>
+                <tr>
+          <td bgcolor="#DEE1ED">
+            <font size="2">Force Field X</font></td>
+          <td bgcolor="#DEE1ED" align="center" >
+            <font face="Arial, Verdana, Helvetica, sans-serif">
+            <select size="1" name="Force_Field" id="Force_Field" onchange="changeTable3BasedOnForceField()">
+            <option selected value='null'>Choose a Force Field</option>
+            <optgroup label="GROMOS">
+                <option>GROMOS43a1</option>
+                <option>GROMOS43a1-S3</option>
+                <option>GROMOS53a6</option>
+            <optgroup label="AMBER">
+                <option>Slipid/AMBER</option>
+            </select></font></td>
+          <td bgcolor="#DEE1ED" align="right">
+            <font face="Arial, Helvetica" size="2">Your email:</font><font size="2"> </font> </td>
+          <td bgcolor="#DEE1ED">
+            <input style="width: 212; height: 25; float:left" size="22" name="email"></td>
+                </tr>
+                    <tr>
+          <td bgcolor="#DEE1ED" colspan="2">
+            <font size="2">Neutralization:&nbsp;&nbsp; Add </font>
+            <font face="Arial, Verdana, Helvetica, sans-serif">
+            <select size="1" name="conc" id="conc">
+            <option selected>0.10</option>
+            <option>0.15</option>
+            <option>0.20</option>
+            <option>0.25</option>
+            <option>0.30</option>
+            </select></font><font size="2"> concentration (M) of </font>
+            <font face="Arial, Verdana, Helvetica, sans-serif">
+            <select size="1" name="salt" id="salt">
+            <option selected>NaCl</option>
+            <option>KCl</option>
+            <option>CaCl2</option>
+            <option>MgCl2</option>
+            </select></font></td>
+          <td bgcolor="#DEE1ED" colspan="2">
+            <p align="left"><font size="2">&nbsp;&nbsp; </font>
+			<input type="checkbox" name="C1" value="ON" checked><font size="2">Run 
+			Minimization</font></td>
+            </table>
+            </td>
+          </tr>
+        <tr align="center">
+          <td nowrap="nowrap" valign="MIDDLE" width="137" style="border-style: none; border-width: medium" bgcolor="#FFFFFF" bordercolor="#FFFFFF">&nbsp;</td>
+          <td nowrap="nowrap" valign="MIDDLE" width="130" style="border-style: none; border-width: medium" bgcolor="#FFFFFF" bordercolor="#FFFFFF">&nbsp;</td>
+          <td width="272" bgcolor="#FFFFFF" style="border-style: none; border-width: medium" bordercolor="#FFFFFF">&nbsp;</td>
+          <td width="201" bgcolor="#FFFFFF" style="border-style: none; border-width: medium" bordercolor="#FFFFFF">&nbsp;</td>
+          </tr>
+        <tr align="center">
+          <td style="border-top-style: none; border-top-width: medium; border-bottom-style: solid; border-bottom-width: 1px" colspan="4">
+            <table border="1" width="100%" id="table3">
+                <tr>
+          <td style="border-top-style: none; border-top-width: medium; border-bottom-style: solid; border-bottom-width: 1px" bgcolor="#E2DDBA" colspan="2">
+            <p align="center"><b>
+            <font size="2">Composition </font> </b></td>
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px;  display: none;"  align="center" id="POPG_N" >
+            <font size="2">POPG</font>
+             
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px;  display: none;"  align="center" id="POPC_N" >
+            <font size="2">POPC</font></td><!-- <td width="1" ></td> -->
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px;  display: none;"  align="center" id="POPE_N" >
+            <font size="2">POPE</font></td><!-- <td width="1" ></td> -->
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px;  display: none;" align="center" id="DPPC_N" >
+            <font size="2">DPPC</font></td><!-- <td width="1" ></td> -->
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px;  display: none;" align="center" id="DMTAP_N" >
+            <font size="2">DMTAP</font></td>
+            <!-- <td width="1" ></td> -->
+          
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px;  display: none;" align="center" id="DOPC_N" > 
+            <font size="2">DOPC</font></td><!-- <td width="1" ></td> --> 
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px;  display: none;" align="center" id="CHOLESTROL_N" >
+            <font size="2">CHOL</font></td><!-- <td width="1" ></td> --> 
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="DMPC_N"  >
+            <font size="2">DMPC</font></td><!-- <td width="1" ></td> --> 
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="SGML_N"  >
+            <font size="2">SGML</font></td><!-- <td width="1" ></td> -->
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="DPPI_N"  >
+            <font size="2">DPPI</font></td><!-- <td width="1" ></td> -->               
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="LAE_N"  >
+            <font size="2">LAEC</font></td><!-- <td width="1" ></td> -->               
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="LAP_N"  > 
+            <font size="2">LAPA</font></td><!-- <td width="1" ></td> -->               
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="DLPC_N"  >
+            <font size="2">DLPC</font></td><!-- <td width="1" ></td> -->               
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="DLPE_N"  >
+            <font size="2">DLPE</font></td><!-- <td width="1" ></td> -->               
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="DOPE_N"  >
+            <font size="2">DOPE</font></td><!-- <td width="1" ></td> -->               
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="DOPG_N"  >
+            <font size="2">DOPG</font></td><!-- <td width="1" ></td> -->               
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="DOPS_N"  >
+            <font size="2">DOPS</font></td><!-- <td width="1" ></td> -->               
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="DPPE_N"  >
+            <font size="2">DPPE</font></td><!-- <td width="1" ></td> -->               
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px; display: none;" align="center" id="SOPC_N"  >
+            <font size="2">SOPC</font>               
+               
+          <td bgcolor="#E2DDBA" style="border-bottom-style: solid; border-bottom-width: 1px">
+            <p align="center"><font size="2">total</font></td>
+                </tr>
+                <tr>
+          <td align="center" valign="MIDDLE" width="15%" style="border-style: solid; border-width: 1px" bgcolor="#F24D5E" rowspan="2">
+            <font color="#000099" size="2"><b>Outer Layer</b></font></td>
+          <td align="center" width="26%" style="border-style: solid; border-width: 1px" bgcolor="#F24D5E">
+            <font size="2" color="#000099"><b>Number of Lipids</b></font></td>
+          <td align="center"  valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_POPG_TEXT" >
+            <input type="text" style="width: 50px;" name="O_POPG_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+            <td align="center"  valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_POPC_TEXT">
+            <input type="text" style="width: 50px;" name="O_POPC_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center"  valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_POPE_TEXT">
+            <input type="text" style="width: 50px;" name="O_POPE_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center"  valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_DPPC_TEXT"> 
+            <input type="text" style="width: 50px;" name="O_DPPC_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_DMTAP_TEXT">
+            <input type="text" style="width: 50px;" name="O_DMTAP_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!--  <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_DOPC_TEXT">
+            <input type="text" style="width: 50px;" name="O_DOPC_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_CHOLESTROL_TEXT">
+            <input type="text" style="width: 50px;" name="O_CHOLESTROL_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DMPC_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_DMPC_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_SGML_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_SGML_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DPPI_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_DPPI_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_LAE_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_LAE_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_LAP_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_LAP_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DLPC_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_DLPC_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DLPE_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_DLPE_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DOPE_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_DOPE_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DOPG_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_DOPG_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DOPS_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_DOPS_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DPPE_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_DPPE_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+         <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_SOPC_TEXT"  >
+            <input type="text" style="width: 50px;" name="O_SOPC_TEXT" onchange="resolveOutersForTexts()" size="6"></td>
+
+
+
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px" name="O_REMAIN" id="O_REMAIN">
+            0</td>
+                </tr>
+                <tr>
+          <td align="center"  valign="MIDDLE" style="border-style: solid; border-width: 1px" bgcolor="#F24D5E" width="26%">
+            <font color="#000099" size="2"><b>%</b></font></td>
+          
+          <td align="center"  valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_POPG">
+            <p align="center" name="O_POPG" value="0"></p></td><!-- <td width="1" ></td> -->
+
+          <td align="center"  valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_POPC">
+            <p align="center" name="O_POPC" value="0"></p></td><!-- <td width="1" ></td> -->
+          
+          <td align="center"  valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_POPE">
+            <p align="center" name="O_POPE" value="0"></p></td><!-- <td width="1" ></td> --> 
+          <td align="center"  valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_DPPC">
+            <p align="center" name="O_DPPC" value="0"></p></td><!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_DMTAP">
+            <p align="center" name="O_DMTAP" value="0"></p></td>
+            <!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_DOPC">
+            <p align="center" name="O_DOPC" value="0"></p></td><!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px;  display: none;" id="O_CHOLESTROL">                       
+            <p align="center" name="O_CHOLESTROL" value="0"></p></td><!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DMPC"  >                       
+            <p align="center" name="O_DMPC" value="0"></p></td><!-- <td width="1" ></td> -->
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_SGML"  >                       
+            <p align="center" name="O_SGML" value="0"></p></td><!-- <td width="1" ></td> -->            
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DPPI"  >                       
+            <p align="center" name="O_DPPI" value="0"></p></td><!-- <td width="1" ></td> -->            
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_LAE"  >                       
+            <p align="center" name="O_LAE" value="0"></p></td><!-- <td width="1" ></td> -->            
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_LAP"  >                       
+            <p align="center" name="O_LAP" value="0"></p></td><!-- <td width="1" ></td> -->            
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DLPC"  >                       
+            <p align="center" name="O_DLPC" value="0"></p></td><!-- <td width="1" ></td> -->            
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DLPE"  >                       
+            <p align="center" name="O_DLPE" value="0"></p></td><!-- <td width="1" ></td> -->            
+          <td align="center" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DOPE"  >                       
+            <p align="center" name="O_DOPE" value="0"></p></td><!-- <td width="1" ></td> -->            
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DOPG"  >                       
+            <p align="center" name="O_DOPG" value="0"></p></td><!-- <td width="1" ></td> -->            
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DOPS"  >                       
+            <p align="center" name="O_DOPS" value="0"></p></td><!-- <td width="1" ></td> -->            
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_DPPE"  >                       
+            <p align="center" name="O_DPPE" value="0"></p></td><!-- <td width="1" ></td> -->            
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px; display: none;" id="O_SOPC"  >                       
+            <p align="center" name="O_SOPC" value="0"></p></td>            
+            
+          <td align="center" valign="MIDDLE" bgcolor="#F24D5E" style="border-style: solid; border-width: 1px" name="O_PERCENT" id="O_PERCENT">
+                         
+            %100</td>
+                </tr>
+                <tr>
+          <td style="border-style: solid; border-width: 0px" bgcolor="#FFFFFF" bordercolor="#FFFFFF" colspan="10" align="center">
+            <input type="button" value="Make the Membrane Symmetric " title="Use the same numbers for inner membrane" name="B1" onclick="symmetric()" ></td>
+                </tr>
+                <tr>
+          <td valign="middle" width="15%" style="border-style: solid; border-width: 1px" bgcolor="#8CA9EC" rowspan="2">
+            <p align="center">
+            <font color="#CC0000" size="2"><b>Inner 
+            Layer</b></font></td>
+          <td  style="border-style: solid; border-width: 1px" bgcolor="#8CA9EC" width="26%">
+            <p align="center">
+            <font color="#CC0000" size="2"><b>%</b></font></td>
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_POPG" >
+            <p align="center" name="I_POPG" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_POPC" >
+            <p align="center" name="I_POPC" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_POPE" >
+            <p align="center" name="I_POPE" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td  align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_DPPC" >
+            <p align="center" name="I_DPPC" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_DMTAP" >
+            <p align="center" name="I_DMTAP" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_DOPC" >
+            <p align="center" name="I_DOPC" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_CHOLESTROL" >
+            <p align="center" name="I_CHOLESTROL" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DMPC"  >
+            <p align="center" name="I_DMPC" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_SGML"  >
+            <p align="center" name="I_SGML" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DPPI"  >
+            <p align="center" name="I_DPPI" value="0">0</p></td><!-- <td width="1" ></td> -->                        
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_LAE"  >
+            <p align="center" name="I_LAE" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_LAP"  >
+            <p align="center" name="I_LAP" value="0">0</p></td><!-- <td width="1" ></td> -->                                                            
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DLPC"  >
+            <p align="center" name="I_DLPC" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DLPE"  >
+            <p align="center" name="I_DLPE" value="0">0</p></td><!-- <td width="1" ></td> -->
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DOPE"  >
+            <p align="center" name="I_DOPE" value="0">0</p></td><!-- <td width="1" ></td> -->                                                                                                           
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DOPG"  >
+            <p align="center" name="I_DOPG" value="0">0</p></td><!-- <td width="1" ></td> -->                                                                                                           
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DOPS"  >
+            <p align="center" name="I_DOPS" value="0">0</p></td><!-- <td width="1" ></td> -->                                                                                                           
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DPPE"  >
+            <p align="center" name="I_DPPE" value="0">0</p></td><!-- <td width="1" ></td> -->                                                                                                           
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_SOPC"  >
+            <p align="center" name="I_SOPC" value="0">0</p></td>                                                                                                           
+
+          <td bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px" >
+            <p align="center" name="I_PERCENT" id="I_PERCENT">
+            %100</td>
+                </tr>
+                <tr>
+          <td valign="middle" align="center" style="border-style: solid; border-width: 1px" bgcolor="#8CA9EC" width="26%">
+            <font size="2" color="#CC0000"><b>Number of Lipids</b></font></td>
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_POPG_TEXT">
+            <input type="text" style="width: 50px;" name="I_POPG_TEXT" onchange="resolveInnersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_POPC_TEXT">
+            <input type="text" style="width: 50px;" name="I_POPC_TEXT" onchange="resolveInnersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_POPE_TEXT">
+            <input type="text" style="width: 50px;" name="I_POPE_TEXT" onchange="resolveInnersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_DPPC_TEXT">
+            <input type="text" style="width: 50px;" name="I_DPPC_TEXT" onchange="resolveInnersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_DMTAP_TEXT">
+            <input type="text" style="width: 50px;" name="I_DMTAP_TEXT" onchange="resolveInnersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_DOPC_TEXT">
+            <input type="text" style="width: 50px;" name="I_DOPC_TEXT" onchange="resolveInnersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px;  display: none;" id="I_CHOLESTROL_TEXT">
+            <input type="text" style="width: 50px;" name="I_CHOLESTROL_TEXT" onchange="resolveInnersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DMPC_TEXT"  >
+            <input type="text" style="width: 50px;" name="I_DMPC_TEXT" onchange="resolveInnersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_SGML_TEXT"  >
+            <input type="text" style="width: 50px;" name="I_SGML_TEXT" onchange="resolveInnersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DPPI_TEXT"  > 
+            <input type="text" style="width: 50px;" name="I_DPPI_TEXT" onchange="resolveInnersForTexts()" size="6"></td>            
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_LAE_TEXT"  >
+            <input type="text" style="width: 50px;" name="I_LAE_TEXT" onchange="resolveInnersForTexts()" size="6"></td>            
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_LAP_TEXT"  >
+            <input type="text" style="width: 50px;" name="I_LAP_TEXT" onchange="resolveInnersForTexts()" size="6"></td>            
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DLPC_TEXT"  >
+            <input type="text" style="width: 50px;" name="I_DLPC_TEXT" onchange="resolveInnersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DLPE_TEXT"  >
+            <input type="text" style="width: 50px;" name="I_DLPE_TEXT" onchange="resolveInnersForTexts()" size="6"></td>
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DOPE_TEXT"  >
+            <input type="text" style="width: 50px;" name="I_DOPE_TEXT" onchange="resolveInnersForTexts()" size="6"></td>                                    
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DOPG_TEXT"  >
+            <input type="text" style="width: 50px;" name="I_DOPG_TEXT" onchange="resolveInnersForTexts()" size="6"></td>                                    
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DOPS_TEXT"  > 
+            <input type="text" style="width: 50px;" name="I_DOPS_TEXT" onchange="resolveInnersForTexts()" size="6"></td>                                    
+          <!-- <td width="1" ></td> -->
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_DPPE_TEXT"  >
+            <input type="text" style="width: 50px;" name="I_DPPE_TEXT" onchange="resolveInnersForTexts()" size="6"></td>                                    
+           
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px; display: none;" id="I_SOPC_TEXT"  >
+            <input type="text" style="width: 50px;" name="I_SOPC_TEXT" onchange="resolveInnersForTexts()" size="6"></td>                                    
+
+          <td align="center" bgcolor="#8CA9EC" style="border-style: solid; border-width: 1px" name="I_REMAIN">
+            0</td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        <tr class="tablebody" align="center">
+          <td nowrap="nowrap" valign="middle" style="border-top-style: solid; border-top-width: 1px" colspan="4">
+            &nbsp;</td>
+          </tr>
+        <tr class="tablebody" align="center">
+          <td colspan="4" align="right"><p align="center">
+            <input style="width: 1.32in; height: 0.25in" value="Build Membrane" onclick="submitForm()" type="button"><input style="width: 0.85in; height: 0.25in" value="Reset Form" type="reset">
+            &nbsp;
+          </p>
+			<p align="left"><b>Reference:</b></p>
+			<ul>
+				<li>
+				<p align="left"><font face="Times New Roman">M. M. Ghahremanpour, 
+				S. S. Arab, S. Biook Aghazadeh, J. Zhang and D. van der Spoel 
+				(2013) <font color="#000080"><i>MemBuilder: A Web-Based 
+				Graphical Interface to Build Heterogeneously Mixed Membrane 
+				Bilayers for the GROMACS Biomolecular Simulation Program</i>.</font> 
+				Bioinformatics, [First published online: November 22, 2013] doi:
+				<a href="http://dx.doi.org/10.1093/bioinformatics/btt680">
+				10.1093/bioinformatics/btt680</a></font></li>
+			</ul>
+			<p align="center">
+            &nbsp;</p></td>
+        </tr>
+        <tr class="tablebody" align="center">
+            <td colspan="4" align="right">
+                <!-- <p align="center"> -->
+                <div id="progressbar" name="progressbar" style="display: none;" align="center">
+					<p align="left"><font face="Times New Roman">
+					<img src="page-loader.gif" width="15" height="18"></font></div>
+            <!-- </p> -->
+        </td>
+
+        </tbody></table>
+        <div id="GROMOS43a1">
+        <p align="left"><b><font color="#CC0000" size="2">Note1:&nbsp; </font></b></p>
+        <p align="justify"><b><font face="Times New Roman" size="2">Cholesterol is built 
+        using HyperChem and optimized using quantum calculations with Gaussian 
+        03 at the Hartree-Fock level employing the 6-311G* basis set. 
+        Cholesterol topology file is built using PRODRG web server.&nbsp; </font>
+        </b></p>
+        <p align="left"><b><font color="#CC0000" size="2">Note2:</font></b></p>
+        <p align="left"><b><font size="2" face="Times New Roman">Topology files for DOPC, 
+        DPPC, POPC, POPE are obtained from Biocomputing at the Calgary 
+        University. These topology files need </font></b>
+        <font face="Arial" size="2">
+        lipid.itp</font><b><font size="2" face="Times New Roman"> file. </font></b></p>
+        <p align="left"><b><font color="#CC0000" size="2">Note3:</font></b></p>
+        <p align="justify"><b><font face="Times New Roman" size="2">Topology files for 
+        DMTAP and POPG is obtained from Prof. Mikko Karttunen&#39;s group 
+        (SoftSimu). His current address is Department of Chemistry, University 
+        of waterloo. </font></b></p></div>
+        <div id="GROMOS43a1-S3" style="display: none;">
+        <p align="left"><b><font color="#CC0000" size="2">Note1:&nbsp; </font></b></p>
+        <p align="left"><b><font face="Times New Roman" size="2">This is a new 
+        GROMOS43a1-based force field for simulation of membranes with GROMACS 
+        simulation package.</font></b></p>
+        <p align="left"><b><font color="#CC0000" size="2">Note2:</font></b></p>
+        <p align="left"><b><font face="Times New Roman" size="2">Please make sure to cite 
+        these articles if you use GROMOS43a1-S3 molecules. </font></b></p>
+        <p align="justify"><font face="Times New Roman" size="2">1- Chiu S. W. 
+        Vasudevan S. Jakobsson E. Mashl R. J. Scott H L, &quot;</font><span style="font-weight: 400"><font size="2">Structure 
+        of sphingomyelin bilayers: a simulation study&quot;, </font></span>
+        <font face="Times New Roman" size="2">Biophysical Journal, 
+        2003, 85: 3624-3636 <br>
+        <br>
+        2- Pandit S. A. Vasudevan S. Chiu S. W. Mashl R. J. Jakobsson E. Scott H 
+        L, &quot;</font><span style="font-weight: 400"><font size="2">Sphingomyelin-cholesterol 
+        domains in phospholipid membranes: atomistic simulation.</font></span><font face="Times New Roman" size="2">Biophysical&quot;, Journal, 2004, 87: 1092-1100<br>
+        <br>
+        3- Pandit S. A. Chiu S. W. Jakobsson E. Grama A. Scott H L, &quot;</font><span style="font-weight: 400"><font size="2">Cholesterol 
+        surrogates: a comparison of cholesterol and 16:0 ceramide in POPC 
+        bilayers&quot;,</font></span><font face="Times New Roman" size="2">Biophysical Journal, 2007, 92: 920-927</font></p>
+        <p align="justify"><font face="Times New Roman" size="2">4- Pandit S. A. 
+        Chiu S. W. Jakobsson E. Grama A. Scott H L, &quot;</font><span style="font-weight: 400"><font size="2">Cholesterol 
+        packing around lipids with saturated and unsaturated chains: a 
+        simulation study&quot;, </font></span><font face="Times New Roman" size="2">Langmuir, 2008, 24: 
+        6858-6865</font></p>
+        <p align="justify"><font face="Times New Roman" size="2">5- Chiu S. W. 
+        Pandit S. A. Scott H L. Jakobsson E, &quot;</font><span style="font-weight: 400"><font size="2">An 
+        improved united atom force field for simulation of mixed lipid 
+        bilayers&quot;, </font></span><font face="Times New Roman" size="2">J Phys Chem B, 2009, 
+        113: 2748-2763.</font></p>
+    </div>
+    <div id="GROMOS53a6" style="display: none;">
+        <p align="justify"><b><font color="#CC0000" size="2">Note: </font></b></p>
+        <p align="justify"><b><font face="Times New Roman" size="2">Atomic 
+        charges of lipid molecules have been changed as reported by 
+        Chandrasekhar et al to be optimized for membrane simulation due to Chiu 
+        et al. </font></b></p>
+        <p align="justify"><font face="Times New Roman" size="2">1- 
+        Chandrasekhar I. Kastenholz M. Lins R. D. Oostenbrink C. Schuler L. D. 
+        Tieleman D. P. van Gunsteren W. F, &quot;A consistent potential energy 
+        parameter set for lipids: dipalmitoylphosphatidylcholine as a benchmark 
+        of the GROMOS96 45A3 force field&quot;, Eur Biophys J, 2003, 32: 67-77. </font></p>
+        <p align="justify"><font face="Times New Roman" size="2">2- Chiu S. W. 
+        Clark M. Balaji V. Subramaniam S. Scott H. L. Jakobsson E, 
+        &quot;Incorporation of surface tension into molecular dynamics simulation of 
+        an interface: a fluid phase lipid bilayer membrane&quot;, Biophys J, 1995, 
+        69:1230-45.<br>
+&nbsp;</font></p></div>
+        <div id="Slipid/AMBER" style="display: none;">
+        <p align="justify"><b><font color="#CC0000" size="2">Note1: </font></b></p>
+        <p align="justify"><b><font face="Times New Roman" size="2">These lipid 
+        molecules can be used together with the AMBER99SB/AMBER99SB-ILDN/AMBER03 
+        FF for proteins</font></b></p>
+        <p align="left"><b><font color="#CC0000" size="2">Note2:</font></b></p>
+        <p align="left"><font face="Times New Roman" size="2"><b>Please make 
+        sure to cite these papers if you use Slipid/AMBER force field. </b>
+        </font></p>
+        <p align="justify"><font size="2">1-<b><font color="#CC0000"> </font>
+        </b></font><font size="2" face="Times New Roman">Joakim P. M. JÃ¤mbeck 
+        and Alexander P. Lyubertsev, &quot;Derivation and Systematic Validation of a 
+        Refined All-Atom&nbsp; Force Field for Phosphatidylcholine Lipids&quot;,J. 
+        Phys. Chem. B, 2012, 116, 3164-3179.</font></p>
+        <p align="justify"><font face="Times New Roman" size="2">2- Joakim P. M. 
+        JÃ¤mbeck and Alexander P. Lyubertsev, &quot;An Extension and Further 
+        Validation of an All-Atomistic Force Field for Biological Membranes&quot; J. 
+        Chem. Theory Comput., 8, 2938-2948. </font></p>
+        <p align="justify"><font face="Times New Roman" size="2">3- Joakim P. M. 
+        JÃ¤mbeck and Alexander P. Lyubertsev, &quot;Another Piece of the Membrane 
+        Puzzle: Extending Slipids Further&quot; J. Chem. Theory Comput., DOI: 
+        10.1021/ct300777p. </font></p>
+        <p align="justify">&nbsp;</p>
+        <p align="left">&nbsp;</p></div>
+    <!-- </div></td></div></tr> -->
+    
+  <tr valign="top">
+    <td height="66" width="227">
+      <p style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 0in; MARGIN-LEFT: 0.13in; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none" align="left">&nbsp;</p></td>
+    <td width=279>
+      <P align="center"> 
+      <font style="font-size: 8pt" face="Arial" color="#808080">Bioinformatics 
+        Research Group<br>
+        Faculty of Biological Sciences<br>
+        Tarbiat Modares University</font></P>
+        <p style="float: center; border: 0 none; margin: 0; padding: 0" align="center">
+        <font color="#808080"><font face="Arial" style="font-size: 8pt">All 
+        rights reserved.</font><span style="font-size: 8pt"> </span></font></p></td>
+    <td width=542 valign="middle">
+      <p style="float: center; border: 0 none; margin: 0; padding: 0" align="center">
+        <font style="font-size: 8pt" face="Arial" color="#808080">Contact S. 
+        Shahriar Arab:<br>
+        sh.arab@modares.ac.ir</font></td>
+    </tr></tbody></table></form>
+
+</body></html>
