@@ -1,0 +1,269 @@
+<html>
+<head>
+<title>BSP-SLIM: A Blind Low-Resolution Ligand-Protein Docking Approach Using Predicted Structures</title>
+<!-- ==AAA== ======beginning of head====== -->
+<!--
+  When you compose a webpage at the webserver, please have following in mind:
+     1, please keep the following 4 tags unchanged:
+            ==AAA==
+            ==BBB==
+            ==CCC==
+            ==DDD==
+         These tags will be used to update the frame of the webpages.
+     2, the content between '==AAA==' and '==BBB==' and content between 
+        '==CCC==' and '==DDD==' will be mandatorily rewritten by the system 
+        program. You can put your own contents outside these two regions.
+	Thus, your page should look like the following:
+	   [your content]
+            ==AAA==
+ 	      [system content]
+            ==BBB==
+	   [your content]
+            ==CCC==
+ 	      [system content]
+            ==DDD==
+-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/css/all.css" type="text/css" />
+<script type="text/javascript" src="/css/minmax.js"></script>
+<script type="text/javascript" src="/css/all.js"></script>
+</head>
+<body>
+<!-- End of declaration -->
+
+<div id="z_top">
+<a href="https://zhanggroup.org/" id="z_lab_logo"><img alt="Zhang Lab" src="https://zhanggroup.org/image/logo_top.jpg" /></a>
+<a href="http://www.umich.edu" id="z_um_logo"><img alt="University of Michigan" src="https://zhanggroup.org/image/wordmark_m_web.gif" /></a>
+</div>
+
+<div id="z_menu">
+  <a class="z_menu_main" href="https://zhanggroup.org">Home</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/research">Research</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/COVID-19/">COVID-19</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/services">Services</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/papers">Publications</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/people">People</a>
+  <a class="z_menu_main" href="https://medicine.umich.edu/dept/dcmb/education/course-descriptions/bioinf-528-structural-bioinformatics">Teaching</a>
+  <!-- <a class="z_menu_main" href="https://zhanggroup.org/funding">Funding</a> -->
+  <a class="z_menu_main" href="https://zhanggroup.org/job">Job Opening</a>
+<!--  <a class="z_menu_main" href="https://zhanggroup.org/facility">Facilities</a> -->
+  <a class="z_menu_main" href="https://zhanggroup.org/news">News</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/forum">Forum</a>
+  <a class="z_menu_main" href="https://zhanggroup.org/labonly">Lab Only</a>
+  <div class="z_clear"></div>
+</div>
+
+<div id="z_body">
+  <div id="z_sidebar">
+    <a id="z_sidebar_title" href="https://zhanggroup.org/services">Online Services</a>
+    <p class="z_sidebar_menu z_sidebar_menu1">
+    <a href="https://zhanggroup.org/I-TASSER">&#9679;<span>I-TASSER</span></a>
+      <a href="https://zhanggroup.org/I-TASSER-MTD">&#9679;<span>I-TASSER-MTD</span></a>
+      <a href="https://zhanggroup.org/C-I-TASSER">&#9679;<span>C-I-TASSER</span></a>
+      <a href="https://zhanggroup.org/CR-I-TASSER">&#9679;<span>CR-I-TASSER</span></a>
+      
+      <a href="https://zhanggroup.org/QUARK">&#9679;<span>QUARK</span></a>
+      <a href="https://zhanggroup.org/C-QUARK">&#9679;<span>C-QUARK</span></a>
+      
+      <a href="https://zhanggroup.org/LOMETS">&#9679;<span>LOMETS</span></a>
+      <a href="https://zhanggroup.org/MUSTER">&#9679;<span>MUSTER</span></a>
+      <a href="https://zhanggroup.org/CEthreader">&#9679;<span>CEthreader</span></a>
+      <a href="https://zhanggroup.org/SEGMER">&#9679;<span>SEGMER</span></a>
+
+      <a href="https://zhanggroup.org/DeepFold">&#9679;<span>DeepFold</span></a>
+      <a href="https://zhanggroup.org/DeepFoldRNA">&#9679;<span>DeepFoldRNA</span></a>
+      <a href="https://zhanggroup.org/FoldDesign">&#9679;<span>FoldDesign</span></a>
+      
+      <a href="https://zhanggroup.org/COFACTOR">&#9679;<span>COFACTOR</span></a>
+      <a href="https://zhanggroup.org/COACH">&#9679;<span>COACH</span></a>
+      <a href="https://zhanggroup.org/MetaGO">&#9679;<span>MetaGO</span></a>
+      <a href="https://zhanggroup.org/TripletGO">&#9679;<span>TripletGO</span></a>
+      <a href="https://zhanggroup.org/IonCom">&#9679;<span>IonCom</span></a>
+      
+      <a href="https://zhanggroup.org/FG-MD">&#9679;<span>FG-MD</span></a>
+      <a href="https://zhanggroup.org/ModRefiner">&#9679;<span>ModRefiner</span></a>
+      <a href="https://zhanggroup.org/REMO">&#9679;<span>REMO</span></a>
+      
+      <a href="https://zhanggroup.org/DEMO">&#9679;<span>DEMO</span></a>
+      <a href="https://zhanggroup.org/DEMO-EM">&#9679;<span>DEMO-EM</span></a>
+      
+      <a href="https://zhanggroup.org/spring">&#9679;<span>SPRING</span></a>
+      <a href="https://zhanggroup.org/COTH">&#9679;<span>COTH</span></a>
+      
+      <a href="https://zhanggroup.org/Threpp">&#9679;<span>Threpp</span></a>
+      <a href="https://zhanggroup.org/PEPPI">&#9679;<span>PEPPI</span></a>
+      <a href="https://zhanggroup.org/BSpred">&#9679;<span>BSpred</span></a>
+      
+      <a href="https://zhanggroup.org/ANGLOR">&#9679;<span>ANGLOR</span></a>
+      
+      <a href="https://zhanggroup.org/EDock">&#9679;<span>EDock</span></a>
+      <a href="https://zhanggroup.org/BSP-SLIM">&#9679;<span>BSP-SLIM</span></a>
+      
+      <a href="https://zhanggroup.org/SAXSTER">&#9679;<span>SAXSTER</span></a>
+      
+      <a href="https://zhanggroup.org/FUpred">&#9679;<span>FUpred</span></a>
+      <a href="https://zhanggroup.org/ThreaDom">&#9679;<span>ThreaDom</span></a>
+      <a href="https://zhanggroup.org/ThreaDomEx">&#9679;<span>ThreaDomEx</span></a>
+      
+      <a href="https://zhanggroup.org/EvoDesign">&#9679;<span>EvoDesign</span></a>
+      <a href="https://zhanggroup.org/BindProf">&#9679;<span>BindProf</span></a>
+      <a href="https://zhanggroup.org/BindProfX">&#9679;<span>BindProfX</span></a>
+      <a href="https://zhanggroup.org/SSIPe">&#9679;<span>SSIPe</span></a>
+
+      <a href="https://zhanggroup.org/GPCR-I-TASSER">&#9679;<span class="z_narrow">GPCR-I-TASSER</span></a>
+      <a href="https://zhanggroup.org/MAGELLAN">&#9679;<span>MAGELLAN</span></a>
+
+      <a href="https://zhanggroup.org/ResQ">&#9679;<span>ResQ</span></a>
+      
+      <a href="https://zhanggroup.org/STRUM">&#9679;<span>STRUM</span></a>
+      <a href="https://zhanggroup.org/DAMpred">&#9679;<span>DAMpred</span></a>
+    </p>
+    <p class="z_sidebar_menu z_sidebar_menu2">
+      <a href="https://zhanggroup.org/TM-score">&#9679;<span>TM-score</span></a>
+      <a href="https://zhanggroup.org/TM-align">&#9679;<span>TM-align</span></a>
+      <a href="https://zhanggroup.org/US-align">&#9679;<span>US-align</span></a>
+      <a href="https://zhanggroup.org/MM-align">&#9679;<span>MM-align</span></a>
+      <a href="https://zhanggroup.org/RNA-align">&#9679;<span>RNA-align</span></a>
+      
+      <a href="https://zhanggroup.org/NW-align">&#9679;<span>NW-align</span></a>
+      <a href="https://zhanggroup.org/LS-align">&#9679;<span>LS-align</span></a>
+      
+      <a href="https://zhanggroup.org/EDTSurf">&#9679;<span>EDTSurf</span></a>
+      <a href="https://zhanggroup.org/MVP">&#9679;<span>MVP</span></a>
+      <a href="https://zhanggroup.org/MVP-Fit">&#9679;<span>MVP-Fit</span></a>
+      
+      <a href="https://zhanggroup.org/SPICKER">&#9679;<span>SPICKER</span></a>
+      <a href="https://zhanggroup.org/HAAD">&#9679;<span>HAAD</span></a>
+      <a href="https://zhanggroup.org/PSSpred">&#9679;<span>PSSpred</span></a>
+      <a href="https://zhanggroup.org/3DRobot">&#9679;<span>3DRobot</span></a>
+      
+      <a href="https://zhanggroup.org/MR-REX">&#9679;<span>MR-REX</span></a>
+      <a href="https://zhanggroup.org/I-TASSER-MR">&#9679;<span>I-TASSER-MR</span></a>
+      
+      <a href="https://zhanggroup.org/SVMSEQ">&#9679;<span>SVMSEQ</span></a>
+      <a href="https://zhanggroup.org/NeBcon">&#9679;<span>NeBcon</span></a>
+      <a href="https://zhanggroup.org/ResPRE">&#9679;<span>ResPRE</span></a>
+      <a href="https://zhanggroup.org/TripletRes">&#9679;<span>TripletRes</span></a>
+      <a href="https://zhanggroup.org/DeepPotential">&#9679;<span>DeepPotential</span></a>
+      
+      <a href="https://zhanggroup.org/WDL-RF">&#9679;<span>WDL-RF</span></a>
+      <a href="https://zhanggroup.org/ATPbind">&#9679;<span>ATPbind</span></a>
+      
+      <a href="https://zhanggroup.org/DockRMSD">&#9679;<span>DockRMSD</span></a>
+      <a href="https://zhanggroup.org/DeepMSA">&#9679;<span>DeepMSA</span></a>
+      <a href="https://zhanggroup.org/FASPR">&#9679;<span>FASPR</span></a>
+      
+      <a href="https://zhanggroup.org/EM-Refiner">&#9679;<span>EM-Refiner</span></a>
+      <a href="https://zhanggroup.org/GPU-I-TASSER">&#9679;<span>GPU-I-TASSER</span></a>
+    </p>
+    <p class="z_sidebar_menu z_sidebar_menu1">
+      <a href="https://zhanggroup.org/BioLiP">&#9679;<span>BioLiP</span></a>
+      <a href="https://zhanggroup.org/Ecoli">&#9679;<span>E. coli</span></a>
+      
+      <a href="https://zhanggroup.org/GLASS">&#9679;<span>GLASS</span></a>
+      <a href="https://zhanggroup.org/GPCR-HGmod">&#9679;<span>GPCR-HGmod</span></a>
+      <a href="https://zhanggroup.org/GPCR-RD">&#9679;<span>GPCR-RD</span></a>
+      <a href="https://zhanggroup.org/GPCR-EXP">&#9679;<span>GPCR-EXP</span></a>
+      
+      <a href="https://zhanggroup.org/Tara-3D">&#9679;<span>Tara-3D</span></a>
+      <a href="https://zhanggroup.org/TM-fold">&#9679;<span>TM-fold</span></a>
+      
+      <a href="https://zhanggroup.org/decoys">&#9679;<span>DECOYS</span></a>
+      <a href="https://zhanggroup.org/potential">&#9679;<span>POTENTIAL</span></a>
+      <a href="https://zhanggroup.org/RW">&#9679;<span>RW/RWplus</span></a>
+      <a href="https://zhanggroup.org/EvoEF">&#9679;<span>EvoEF</span></a>
+      <a href="https://zhanggroup.org/HPSF">&#9679;<span>HPSF</span></a>
+      <a href="https://zhanggroup.org/THE-DB">&#9679;<span>THE-DB</span></a>
+      <a href="https://zhanggroup.org/ADDRESS">&#9679;<span>ADDRESS</span></a>
+      <a href="https://zhanggroup.org/Alpaca-Antibody">&#9679;<span>Alpaca-Antibody</span></a>
+      
+      <a href="https://zhanggroup.org/casp7">&#9679;<span>CASP7</span></a>
+      <a href="https://zhanggroup.org/casp8">&#9679;<span>CASP8</span></a>
+      <a href="https://zhanggroup.org/casp9">&#9679;<span>CASP9</span></a>
+      <a href="https://zhanggroup.org/casp10">&#9679;<span>CASP10</span></a>
+      <a href="https://zhanggroup.org/casp11">&#9679;<span>CASP11</span></a>
+      <a href="https://zhanggroup.org/casp12">&#9679;<span>CASP12</span></a>
+      <a href="https://zhanggroup.org/casp13">&#9679;<span>CASP13</span></a>
+      <a href="https://zhanggroup.org/casp14">&#9679;<span>CASP14</span></a>
+    </p>
+  </div>
+  <div id="z_page">
+<!-- ==BBB== ======ending of head======== -->
+
+
+<!--------begin text --------->
+
+<center>
+<img src="http://zhanglab.dcmb.med.umich.edu/image/logoBSP-SLIM.jpg" border="0">
+</center>
+
+<p style="text-align:justify">
+Accurate identification of structural features of ligand-protein binding is an essential step to characterizing the protein function and developing drugs with optimized sensitivity and specificity. BSP-SLIM is a blind molecular docking method on low-resolution protein structures. The method first identifies putative ligand binding sites by structurally matching the target to the template holo-structures. The ligand-protein docking conformation is then constructed by local shape and chemical feature complementarities between ligand and the negative image of binding pockets. 
+<br><br>
+Click <a href=example/example.tar.gz>here</a> to download example receptor and ligand structures.<br>
+- In this example, the receptor and ligand structures are an I-TASSER model of human deoxycytidine kinase and its ligand, gemcitabine, respectively.<br>
+- You can also see the BSP-SLIM output of the example structures <a href=example/result_example.html target=_blank>here</a>.<br>
+
+<br>
+
+<!--<p><font color="red">-->
+<!--From May. 10 to Jul. 30, 2020 (CASP14 season), the BSP-SLIM server will be closed-->
+<!--to external users. -->
+<!--Jobs already submitted will not be affected.-->
+<!--We apologize for any inconvenience this may cause.-->
+<!--</font></p>-->
+
+
+
+<table style="font-family:Times New Roman;">
+	<tr><td>
+
+	<FORM METHOD="POST" ENCTYPE="MULTIPART/FORM-DATA" ACTION="/cgi-bin/bsp_slim.cgi">
+
+	<b>NOTE</b>: The server accepts only single protein chain and single ligand for blind docking experiment.<br>
+	   - Existence or nonexistence of hydrogens in the receptor structure won't affect the final results.<br> 
+	   - Existence or nonexistence of hydrogens in the ligand structure won't affect the final results. However, correct assignment of bond orders is recommended.<br>
+
+	<p>
+
+	Upload <b>receptor structure</b> file in <a href="http://www.wwpdb.org/documentation/format32/v3.2.html" target=_blank><font color="#FF0000"><b>PDB format</b></font></a> from your local computer.<br>
+	<input type="file" name="REC_FILE" size="30"> &nbsp;&nbsp;&nbsp;Example of suitable PDB file: <a href=example/example_receptor.pdb>example_receptor.pdb</a>
+	<p>
+
+	Upload <b>ligand structure</b> file in <a href="http://www.epa.gov/ncct/dsstox/MoreonSDF.html" target=_blank><font color="#FF0000"><b>SDF format</b></font></a> from your local computer.<br>
+	<input type="file" name="LIG_FILE" size="30"> &nbsp;&nbsp;&nbsp;Example of suitable SDF file: <a href=example/example_ligand.sdf>example_ligand.sdf</a>
+	<p>
+	
+	<p><b>Email</b> (Mandatory, where results will be sent to)<br>
+	<input type="text" name="REPLY-E-MAIL" size=30>  
+	<p> 
+	
+	<INPUT TYPE="submit" VALUE="run BSP-SLIM"> <INPUT TYPE="reset" VALUE="Clear form"> </FORM></td>
+</table>
+</FORM>
+
+<!--<p><font color="red">-->
+<!--Our server will undergo maintenance from Oct. 7 to Oct. 21, 2019. You can submit jobs normally during this period,-->
+<!--but the jobs will run after Oct. 21, 2019. We apologize for any inconvenience this may cause. </font></p>-->
+
+
+<hr width=20% align=left>
+Reference:<br>
+Hui Sun Lee and Yang Zhang.
+BSP-SLIM: A blind low-resolution ligand-protein docking approach using theoretically predicted protein structures, Proteins, 2012, 80:93-110 (<a href="http://zhanglab.dcmb.med.umich.edu/papers/2012_4.pdf">download the PDF file</a>).
+<!--------end text -------->
+
+<!-- ==CCC== ======beginning of tail==== -->
+ </div></div> <!-- for closing all the opening tags. -->
+</div>
+<p>
+  
+<p id="z_foot">
+<a href="mailto:yangzhanglab\@umich.edu">yangzhanglab<img src=/image/at.gif width=10 border=0>umich.edu</a>  
+|  (734) 647-1549 | 100 Washtenaw Avenue, Ann Arbor, MI 48109-2218
+</p>
+<br>
+</body>
+</html>
+<!-- ==DDD== =======ending of tail====== -->
