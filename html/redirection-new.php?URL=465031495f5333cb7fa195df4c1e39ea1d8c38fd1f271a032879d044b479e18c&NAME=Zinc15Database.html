@@ -1,0 +1,407 @@
+
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title> ZINC </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width">
+    <link rel="search" type="application/opensearchdescription+xml"  href="/static/public/opensearch.xml" />
+    
+        <link rel="stylesheet" href="/static/libs/bootstrap-3.3.4/css/bootstrap.css">
+    
+        <link rel="stylesheet" href="/static/libs/bootstrapxl.css">
+    
+        <link rel="stylesheet" href="/static/css/style.css">
+    
+        <link rel="stylesheet" href="/static/libs/font-awesome4/css/font-awesome.min.css">
+    
+        <link rel="stylesheet" href="/static/libs/bootstrap-select/dist/css/bootstrap-select.css">
+    
+    
+
+</head>
+
+<body class=""
+        
+        >
+
+    
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+
+                ZINC
+
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/substances/home/">Substances</a></li>
+                <li><a href="/catalogs/home/">Catalogs</a></li>
+                <li><a href="/tranches/home/">Tranches</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-expanded="false">Biological<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header">Entities</li>
+                        <li><a href="/organisms/home/">Organisms</a></li>
+                        <li><a href="/majorclasses/home/">Major Target Classes</a></li>
+                        <li><a href="/subclasses/home/">Minor Target Classes</a></li>
+                        <li><a href="/genes/home/">Genes</a></li>
+                        <li><a href="/orthologs/home/">Orthologs</a></li>
+
+                        <li class="dropdown-header">Activity</li>
+                        <li><a href="/activities/home/">Activities</a></li>
+                        <li><a href="/observations/home/">Observations</a></li>
+                        <li><a href="/predictions/home/">Predictions</a></li>
+                        <li><a href="/toolcompounds/home/">Tool Compounds</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-expanded="false">More<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header">Chemistry</li>
+                        <li><a href="/protomers/home/">3D Representations</a></li>
+                        <li><a href="/rings/home/">Rings</a></li>
+                        <li><a href="/scaffolds">Scaffolds</a></li>
+                        <li><a href="/patterns/home/">Patterns</a></li>
+
+                        <li class="dropdown-header">Pharmacology/Other</li>
+                        <li><a href="/docs/home/">Publications</a></li>
+                        <li><a href="/atccodes/home/">ATC Codes</a></li>
+                        <li><a href="/trials/home/">Clinical Trials</a></li>
+                        <li><a href="/trialinterventions">Trial Interventions</a></li>
+                        <li><a href="/trialconditions">Trial Conditions</a></li>
+                        <li><a href="/catitems/home/">Catalog Items </a></li>
+                        <li><a href="/substances/shopping-list">Shopping List</a></li>
+
+                        
+                        
+                    </ul>
+                </li>
+            </ul>
+
+            
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false">About<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-header">About Us</li>
+                            <li><a href="/about/">Credits</a></li>
+                            <li><a href="/usage/">Usage</a></li>
+                            <li><a target=_blank href="http://docking.org/">Blog</a></li>
+                            <li class="dropdown-header">Get Help</li>
+                            <li><a target=_blank href="http://wiki.docking.org/index.php/Category:ZINC15">Help</a></li>
+                            <li>
+                                <a href="http://wiki.docking.org/index.php/ZINC15:Getting_started" target="_blank">
+                                    Getting Started
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://wiki.docking.org/index.php/ZINC15:What%27s_New" target="_blank">
+                                    What's New
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://wiki.docking.org/index.php/ZINC15:Resources" target="_blank">
+                                    About ZINC 15 Resources
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://wiki.docking.org/index.php/ZINC15:Pipeline" target="_blank">
+                                    Current Status / In Progress
+                                </a>
+                            </li>
+                            <li class="dropdown-header">Socialize</li>
+                            <li>
+                                <a target=_blank href="https://www.surveymonkey.com/s/8NDGM6G"
+                                   title="Tell us what you think">
+                                    Feedback
+                                </a>
+                            </li>
+                            <li>
+                                <a target=_blank href="http://facebook.com/zincdb" title="Like us on Facebook">
+                                    Like us on Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a target=_blank href="https://www.linkedin.com/grp/home?gid=706977" title="LinkedIn">
+                                    LinkedIn
+                                </a>
+                            </li>
+                            <li>
+                                <a target=_blank href="https://twitter.com/#!/chem4biology"
+                                   title="Follow us on Twitter">
+                                    Tweet at us
+                                </a>
+                            </li>
+                            <li>
+                                <a target=_blank href="http://www.youtube.com/user/chemistry4biology"
+                                   title="chemistry4biology on YouTube">
+                                    Videos
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+        </div>
+
+        
+    </div>
+</nav>
+    
+
+    <header></header>
+    <div class="container">
+
+        <div role="main">
+            
+                
+            
+
+            
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron row less-jumbo">
+        <div class="col-md-6">
+            <h1>ZINC15</h1>
+            <p>
+               Welcome to ZINC, a free database of commercially-available compounds for virtual screening.
+               ZINC contains over 230 million purchasable compounds in ready-to-dock, 3D formats. ZINC also
+               contains over 750 million purchasable compounds you can search for analogs in under a minute.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <p>
+                ZINC is provided by the <a target="_blank" href="http://irwinlab.compbio.ucsf.edu">Irwin</a>
+                and <a target="_blank" href="http://bkslab.org">Shoichet</a> Laboratories in the
+                Department of Pharmaceutical Chemistry at the University of California, San Francisco (UCSF).
+                We thank <a target="_blank" href="http://www.nigms.nih.gov">NIGMS</a> for financial support (GM71896).
+            </p>
+            <p>
+                To cite ZINC, please reference: Sterling and Irwin, <em>J.&nbsp;Chem.&nbsp;Inf.&nbsp;Model, 2015
+                <a href="http://pubs.acs.org/doi/abs/10.1021/acs.jcim.5b00559" target="_blank">http://pubs.acs.org/doi/abs/10.1021/acs.jcim.5b00559</a></em>.
+                You may also wish to cite our previous papers: Irwin, Sterling, Mysinger, Bolstad and Coleman,
+                <em>J.&nbsp;Chem.&nbsp;Inf.&nbsp;Model, 2012</em>
+                <a target="_blank" href="http://pubs.acs.org/doi/abs/10.1021/ci3001277">
+                    DOI: 10.1021/ci3001277</a> or Irwin and Shoichet, <em>J.&nbsp;Chem.&nbsp;Inf.&nbsp;Model.
+                    2005;45(1):177-82</em>
+                <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1360656/pdf/nihms2574.pdf">PDF</a>,
+                <a target="_blank" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=pubmed&amp;dopt=Abstract&amp;list_uids=15667143">DOI</a>.
+            </p>
+
+        </div>
+    </div><!-- /.jumbotron -->
+
+    <div class="body-content">
+        <div class="row">
+            <div class="col-md-4 col-lg-3">
+                <div class="row">
+                    <div class="col-xs-6 col-md-12">
+                        <h2>Getting Started</h2>
+                        <ul>
+                            <li>
+                                <a href="http://wiki.docking.org/index.php/ZINC15:Getting_started" target="_blank">
+                                    Getting Started
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://wiki.docking.org/index.php/ZINC15:What%27s_New" target="_blank">
+                                    What's New
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://wiki.docking.org/index.php/ZINC15:Resources" target="_blank">
+                                    About ZINC 15 Resources
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://wiki.docking.org/index.php/ZINC15:Pipeline" target="_blank">
+                                    Current Status / In Progress
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://wiki.docking.org/index.php/ZINC15:Estimates" target="_blank">
+                                    Why are ZINC results "estimates"?
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-6 col-md-12">
+                        <h2>Explore Resources</h2>
+                        <dl class="dl-inline">
+                            <dt>Chemistry</dt>
+                            <dd><a href="/tranches/home/" title="Download Chemical Space Tranches">Tranches</a>,
+                            </dd>
+                            <dd><a href="/substances/home/"
+                                   title="Browse and search for substances">Substances</a></dd>,
+                            <dd><a href="/protomers/" title="Browse and search for 3D representations">3D
+                                <abbr title="representations">Representations</a></dd>,
+                            <dd><a href="/rings/" title="Find and explore rings in ZINC">Rings</a></dd>,
+                            <dd><a href="/patterns/" title="Browse ZINC by molecular patterns">Patterns</a>
+                            </dd>
+                            <dt>And More</dt>
+                            <dd><a href="/catalogs/">Catalogs</a></dd>,
+                            <dd><a href="/genes/">Genes</a></dd>,
+                            <dd><a href="/atccodes/">ATC Codes</a></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-5">
+                <h2>Ask Questions</h2>
+
+                <p>You can use ZINC for <b>general</b> questions such as</p>
+                <ul>
+
+                    <li>
+                        <a href="/substances/having/trials+patterns/subsets/trials.current+patterns.pains/">
+                            How many substances in current clinical trials have PAINS patterns? (150)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/substances/subsets/natural-products+not-for-sale.smi:zinc_id+preferred_name+logp?count=all&amp;substance-hasany=name_entries">
+                            How many natural products have names in ZINC and are not for sale? (9296) get them as SMILES, names and calculated logP
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/substances/subsets/endogenous/">
+                            How many endogenous human metabolites are there? (47319)
+                        </a> and <a href="/substances/subsets/endogenous+for-sale/">
+                        how many of these can I buy? (8271)
+                    </a>
+                        <a href="/substances/subsets/endogenous+fda/">
+                            How many are FDA approved drugs? (94)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/substances/subsets/aggregators/having/trials/subsets/current/">
+                            How many compounds known to aggregate are in current clinical trials? (60)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/majorclasses/epigenetic_regulator/genes/?num_substances-gt=0">
+                            How many epigenetic targets have compounds known? (53)</a> and
+                        <a href="/majorclasses/epigenetic_regulator/substances/subsets/for-sale/">
+                            Which of these substances can I buy? (278)</a>
+                    </li>
+                    <li>
+                        <a href="/genes/GRIN1/substances/">
+                            How many ligands are there for the NMDA 1 ion channel GRIN1? (662)</a> and
+                        <a href="/genes/GRIN1/substances/subsets/for-sale/">
+                            How many of these are for sale? (60)</a>
+ 
+                    </li>
+		    <li>
+			<a target=_blank href='http://wiki.docking.org/index.php/ZINC15:examples:public'>More...</a>
+		    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                
+                    <!-- This is just a placehodler, don't make changes here. Instead use the file referenced in ~/zinc15/app.cfg -->
+
+<h1>ZINC15 News</h1>
+<ul>
+<li>ZINC15 has been released</li>
+</ul>
+                
+                <div class="well well-sm">
+                    <strong>Caveat Emptor</strong>: We do not guarantee the quality of any molecule for any
+                    purpose and take no responsibility for errors arising from the use of
+                    this database. ZINC is provided in the hope that it will be useful,
+                    but you must use it at your own risk.
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+
+
+        </div>
+    </div><!-- end container -->
+
+    <footer>
+    <div>
+        <div class="col-xs-offset-1 col-xs-10">
+            <a href="/about/">Acknowledgements</a>
+            <a href="/usage/">Usage</a>
+            <a target=_blank href="http://wiki.bkslab.org/index.php/ZINC15:Estimates">Why are ZINC results "estimates"?</a>
+            <a target=_blank href="http://wiki.bkslab.org/index.php/Terms_And_Conditions">Terms of use</a>
+            <a target=_blank href="http://wiki.bkslab.org/index.php/Privacy_policy">Privacy policy</a>
+            <a target=_blank href="http://www.nigms.nih.gov/">Supported by NIGMS via GM71896</a>
+            <a target=_blank href="http://docking.org/forum/14">Questions, Discussion, Bug reports, Feature requests</a>
+            <a target=_blank href="http://irwinlab.compbio.ucsf.edu">Irwin</a> and
+            <a target=_blank href="http://bkslab.org">Shoichet</a> Labs and UC Regents</a>.
+        </div>
+    </div>
+    <div>
+        <div class="col-xs-offset-1 col-xs-10 text-right">
+            <small class="very-hard-to-see">
+                Originally generated at 2024-08-02 20:16:38.889338
+                in 0.03233s
+                on zinc15.docking.org
+                using ZINC15 0.20210303.1
+            </small>
+        </div>
+    </div>
+</footer>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-24210718-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-24210718-3');
+</script>
+
+    <!-- JavaScript at the bottom for fast page loading -->
+    
+        <script type="text/javascript" src="/static/libs/jQuery/jquery-2.1.3.min.js"></script>
+    
+        <script type="text/javascript" src="/static/libs/bootstrap-3.3.4/js/bootstrap.js"></script>
+    
+        <script type="text/javascript" src="/static/libs/angularjs-1.3.15/angular.min.js"></script>
+    
+        <script type="text/javascript" src="/static/libs/jsme-20150528/jsme.nocache.js"></script>
+    
+        <script type="text/javascript" src="/static/libs/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    
+        <script type="text/javascript" src="/static/libs/bootstrap3-typeahead.js"></script>
+    
+        <script type="text/javascript" src="/static/js/plugins.js"></script>
+    
+        <script type="text/javascript" src="/static/js/script.js"></script>
+    
+        <script type="text/javascript" src="/static/js/services.js"></script>
+    
+        <script type="text/javascript" src="/static/js/controllers.js"></script>
+    
+    
+    
+    <!-- end scripts -->
+
+</body>
+</html>
